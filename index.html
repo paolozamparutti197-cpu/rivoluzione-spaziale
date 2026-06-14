@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rivoluzione Spaziale</title>
+<style>
+:root {
+  --bg:#050607;
+  --ink:#f5f7fa;
+  --muted:#aeb6bd;
+  --line:rgba(255,255,255,.16);
+  --panel:rgba(255,255,255,.07);
+  --panel2:rgba(255,255,255,.105);
+  --accent:#69c8ff;
+  --gold:#f2b84b;
+  --red:#e45d48;
+  --green:#78d58c;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:clip}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;letter-spacing:0;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+.topbar{position:fixed;inset:0 0 auto;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px clamp(18px,4vw,56px);background:linear-gradient(180deg,rgba(0,0,0,.88),rgba(0,0,0,.48),transparent)}
+.brand{font-weight:950;letter-spacing:.18em;text-transform:uppercase;font-size:14px}
+.brand span{color:var(--accent)}
+.nav{display:flex;gap:16px;flex-wrap:wrap;justify-content:flex-end;font-size:12px;text-transform:uppercase;letter-spacing:.1em;font-weight:850}
+.nav a{color:#fff;opacity:.82}
+.nav a:hover{opacity:1;text-decoration:none}
+.hero{min-height:94vh;display:grid;align-items:end;padding:116px clamp(18px,4vw,56px) 50px;background:linear-gradient(90deg,rgba(0,0,0,.92),rgba(0,0,0,.52) 44%,rgba(0,0,0,.1)),linear-gradient(180deg,rgba(0,0,0,.05),rgba(5,6,7,.96) 92%),url('https://upload.wikimedia.org/wikipedia/commons/5/5d/Falcon_1_Flight_4_launch.jpg') center/cover no-repeat}
+.hero-inner{max-width:1080px}
+.eyebrow{margin:0 0 14px;color:var(--gold);font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:.15em}
+h1{margin:0;max-width:920px;font-size:clamp(44px,9vw,112px);line-height:.88;text-transform:uppercase;font-weight:950}
+.subtitle{max-width:780px;margin:24px 0 0;color:#e6ebef;font-size:clamp(18px,2vw,24px);line-height:1.45;font-weight:560}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.primary,.secondary{border:1px solid var(--line);padding:13px 18px;border-radius:4px;text-transform:uppercase;font-size:12px;letter-spacing:.09em;font-weight:900;background:#fff;color:#000;cursor:pointer}
+.secondary{background:rgba(0,0,0,.22);color:#fff}
+section{padding:78px clamp(18px,4vw,56px);border-top:1px solid var(--line)}
+.inner{max-width:1240px;margin:0 auto}
+.section-head{display:flex;justify-content:space-between;gap:28px;align-items:end;margin-bottom:28px}
+.section-head p{max-width:640px;color:var(--muted);line-height:1.58;margin:0}
+h2{margin:0;font-size:clamp(30px,4vw,56px);line-height:.98;text-transform:uppercase}
+h3{margin:0 0 10px;font-size:22px;line-height:1.14}
+p{color:#d9dee3;line-height:1.64}
+.powers{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.power{border:1px solid var(--line);background:linear-gradient(180deg,var(--panel2),var(--panel));border-radius:8px;padding:18px;min-height:168px;position:relative;overflow:hidden;transition:transform .18s ease,border-color .18s ease}
+.power:hover{transform:translateY(-3px);border-color:rgba(105,200,255,.55)}
+.power.active{border-color:rgba(105,200,255,.8);background:linear-gradient(180deg,rgba(105,200,255,.18),rgba(255,255,255,.065))}
+.power small{display:block;color:var(--gold);text-transform:uppercase;letter-spacing:.12em;font-weight:900;margin-bottom:36px}
+.power p{margin:0;color:#cbd2d8;font-size:14px}
+.inactive{cursor:not-allowed;opacity:.68}
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:20px;align-items:stretch}
+.panel{border:1px solid var(--line);background:rgba(255,255,255,.065);border-radius:8px;padding:22px}
+.spacecopy{font-size:clamp(20px,2.2vw,29px);line-height:1.38;color:#fff;font-weight:760;margin-top:0}
+.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.metric{border:1px solid var(--line);background:rgba(255,255,255,.065);border-radius:8px;padding:18px;min-height:112px}
+.metric b{display:block;font-size:clamp(27px,3.5vw,42px);line-height:1;margin-bottom:8px}
+.metric span{display:block;color:var(--muted);font-size:13px;line-height:1.35}
+.launch-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.launch{border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.05));border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:12px;min-height:282px}
+.launch-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.badge{display:inline-flex;border:1px solid rgba(105,200,255,.5);color:#dff4ff;border-radius:999px;padding:5px 8px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:900}
+.badge.net{border-color:rgba(242,184,75,.6);color:#ffe1a3}
+.date{color:#d6dde3;text-align:right;font-size:13px;font-weight:800}
+.launch h3{font-size:21px}
+.launch p{margin:0;font-size:14px;color:#cbd2d8}
+.source-links{display:flex;flex-wrap:wrap;gap:7px;margin-top:2px}
+.source-links a{border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:5px 8px;color:#dcebf4;font-size:11px;text-transform:uppercase;letter-spacing:.06em;font-weight:850}
+.source-links a:hover{border-color:rgba(105,200,255,.65);color:#fff}
+.countdown{margin-top:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.timebox{background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:8px 4px;text-align:center}
+.timebox strong{display:block;font-size:20px}
+.timebox span{display:block;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.08em}
+.dash-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
+.bars{display:grid;gap:8px}
+.bar-row{display:grid;grid-template-columns:72px 1fr 56px;gap:10px;align-items:center;font-size:13px;color:#dfe5ea}
+.bar{height:9px;background:rgba(255,255,255,.1);border-radius:999px;overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--green));border-radius:999px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{border-top:1px solid var(--line);padding:12px 8px;text-align:left;vertical-align:top;line-height:1.38}
+th{color:#fff;text-transform:uppercase;letter-spacing:.08em;font-size:11px}
+td{color:#d8dee3}
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.theme-list{display:grid;gap:12px}
+.theme{border-left:3px solid var(--accent);padding:0 0 0 14px}
+.theme p{margin:4px 0 0;font-size:14px;color:#cfd6dc}
+.footer{padding:34px clamp(18px,4vw,56px);border-top:1px solid var(--line);color:var(--muted);font-size:13px;line-height:1.5}
+.muted{color:var(--muted)}
+@media(max-width:980px){.powers,.launch-grid,.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.split,.dash-grid,.cols{grid-template-columns:1fr}.nav{display:none}}
+@media(max-width:560px){.powers,.launch-grid,.metrics{grid-template-columns:1fr}section{padding:56px 18px}.hero{padding:96px 18px 42px}h1{font-size:44px}.section-head{display:block}.bar-row{grid-template-columns:58px 1fr 44px}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">Rivoluzione <span>Spaziale</span></div>
+  <nav class="nav" aria-label="Navigazione principale">
+    <a href="#signori">Mappa</a>
+    <a href="#spacex">SpaceX</a>
+    <a href="#imminenti">Lanci imminenti</a>
+    <a href="#storico">Storico lanci</a>
+    <a href="#starship">Starship</a>
+  </nav>
+</header>
+<main>
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Prima mappa</p>
+      <h1>Rivoluzione Spaziale</h1>
+      <p class="subtitle">I nuovi signori dello spazio. Non una vetrina celebrativa, ma una dashboard narrativa per seguire chi sta ridisegnando accesso all'orbita, infrastrutture, cadenza e ambizione industriale.</p>
+      <div class="hero-actions">
+        <a class="primary" href="#spacex">Apri SpaceX</a>
+        <a class="secondary" href="#signori">Vedi la mappa</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="signori">
+    <div class="inner">
+      <div class="section-head">
+        <h2>I nuovi signori dello spazio</h2>
+        <p>Questa prima versione mette in movimento SpaceX. Le altre aree sono gia impostate come porte del sito, ma restano vuote finche non costruiremo le rispettive sezioni.</p>
+      </div>
+      <div class="powers" id="powers"></div>
+    </div>
+  </section>
+
+  <section id="spacex">
+    <div class="inner split">
+      <article class="panel">
+        <p class="eyebrow">Sezione attiva</p>
+        <h2>SpaceX</h2>
+        <p class="spacecopy">SpaceX e la sezione che per ora tiene acceso il sito: lanci imminenti, storico Falcon e sviluppo Starship. Il tono resta asciutto, operativo, vicino allo stile visuale SpaceX, ma con una lettura da osservatorio.</p>
+        <p>La logica e semplice: una pagina d'ingresso che non prova a dire tutto, ma fa capire subito dove si muove oggi la nuova industria spaziale. SpaceX e il primo fronte attivo: calendario, cadenza Falcon, recuperi, riuso e sviluppo Starship nello stesso quadro.</p>
+      </article>
+      <aside class="panel">
+        <h3>Cruscotto SpaceX</h3>
+        <p class="muted">Una lettura rapida della macchina operativa: prossimi voli, storico Falcon e maturazione del programma Starship.</p>
+        <div class="metrics" id="topMetrics"></div>
+      </aside>
+    </div>
+  </section>
+
+  <section id="imminenti">
+    <div class="inner">
+      <div class="section-head">
+        <h2>Lanci imminenti</h2>
+        <p>Tutti i voli gia censiti nella prima agenda, con countdown in tempo reale. I voli NET restano volutamente trattati come finestre indicative.</p>
+      </div>
+      <div class="launch-grid" id="launchGrid"></div>
+    </div>
+  </section>
+
+  <section id="storico">
+    <div class="inner">
+      <div class="section-head">
+        <h2>Storico lanci</h2>
+        <p>Cruscotto iniziale: riepiloghi, andamento annuale, mix per lanciatore, pad, orbite e recupero booster. I dettagli missione entreranno in una fase successiva.</p>
+      </div>
+      <div class="metrics" id="falconMetrics"></div>
+      <div class="dash-grid" style="margin-top:18px">
+        <div class="panel">
+          <h3>Lanci per anno</h3>
+          <div class="bars" id="annualBars"></div>
+        </div>
+        <div class="panel">
+          <h3>Famiglie Falcon</h3>
+          <table id="launcherTable"></table>
+        </div>
+      </div>
+      <div class="cols" style="margin-top:18px">
+        <div class="panel"><h3>Pad e aree</h3><table id="padTable"></table></div>
+        <div class="panel"><h3>Recupero booster</h3><table id="landingTable"></table></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="starship">
+    <div class="inner">
+      <div class="section-head">
+        <h2>Sviluppo Starship</h2>
+        <p>Starship e il laboratorio industriale piu aggressivo della nuova corsa spaziale: non solo un razzo enorme, ma un sistema che prova a unire produzione rapida, riuso completo, rifornimento orbitale e logistica lunare.</p>
+      </div>
+      <div class="metrics" id="starshipMetrics"></div>
+      <div class="dash-grid" style="margin-top:18px">
+        <div class="panel"><h3>Voli integrati</h3><table id="starshipFlights"></table></div>
+        <div class="panel"><h3>Temi tecnici</h3><div class="theme-list" id="starshipThemes"></div></div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="footer">
+  Rivoluzione Spaziale, prima bozza editoriale. Le sezioni non attive sono gia previste nella struttura e verranno sviluppate progressivamente.
+</footer>
+<script id="site-data" type="application/json">{"upcoming":[{"id":"starlink-17-54","cat":["exact","starlink"],"name":"Starlink Group 17-54","status":"Go for launch","rocket":"Falcon 9 Block 5","dateLabel":"15 giugno 2026, 14:00 UTC","iso":"2026-06-15T14:00:00Z","window":"14:00-18:00 UTC","site":"SLC-4E, Vandenberg SFB, California","landing":"OCISLY, booster B1093, volo 14, recupero in mare","orbit":"Orbita eliosincrona","payload":"24 satelliti Starlink v2 Mini","summary":"Missione Starlink di seconda generazione per espansione della costellazione internet in orbita bassa. Traiettoria verso sud da Vandenberg.","news":"Next Spaceflight indica Falcon 9 Block 5, 24 payload, finestra 14:00-18:00 UTC e recupero su Of Course I Still Love You.","sources":[{"label":"Next Spaceflight","url":"https://nextspaceflight.com/launches/details/8263/"},{"label":"SpaceX launches","url":"https://www.spacex.com/launches"}]},{"id":"bluebird-8-10","cat":["exact"],"name":"BlueBird 8 to 10","status":"Go for launch","rocket":"Falcon 9 Block 5","dateLabel":"17 giugno 2026, 06:39 UTC","iso":"2026-06-17T06:39:00Z","window":"06:39-08:15 UTC","site":"SLC-40, Cape Canaveral SFS, Florida","landing":"ASOG, booster B1077, volo 29","orbit":"LEO","payload":"3 satelliti AST SpaceMobile BlueBird Block 2 FM3-FM5, massa complessiva indicata 13.500 kg","summary":"I BlueBird Block 2 sono satelliti AST SpaceMobile per connettività cellulare diretta. Sono descritti come capaci di aumentare fino a 10 volte la capacità rispetto ai BlueBird già in orbita.","news":"Missione importante perché i Block 2 hanno grandi antenne dispiegabili, circa 2.400 piedi quadrati, e puntano alla copertura cellulare broadband continua.","sources":[{"label":"Next Spaceflight","url":"https://nextspaceflight.com/launches/details/7691/"},{"label":"Space Launch Schedule","url":"https://www.spacelaunchschedule.com/"}]},{"id":"nrol-179","cat":["exact"],"name":"NROL-179","status":"Go for launch","rocket":"Falcon 9 Block 5","dateLabel":"18 giugno 2026, 08:54 UTC","iso":"2026-06-18T08:54:00Z","window":"T-0 indicato: 08:54 UTC","site":"SLC-4E, Vandenberg SFB, California","landing":"RTLS su Landing Zone 4, booster B1103, volo 3","orbit":"Classificata, indicata come sconosciuta","payload":"Payload NRO classificato, quattordicesimo gruppo per costellazione di ricognizione indicata da Space Launch Schedule","summary":"Missione classificata per il National Reconnaissance Office. I dettagli orbitali non sono pubblici.","news":"Space Launch Schedule indica ritorno del booster al sito di lancio, quindi possibile sonic boom nell’area di Vandenberg.","sources":[{"label":"Space Launch Schedule","url":"https://www.spacelaunchschedule.com/launch/falcon-9-block-5-nrol-179/"}]},{"id":"globalstar-2r-1","cat":["exact"],"name":"Globalstar 2-R Mission 1","status":"Date/time may change","rocket":"Falcon 9 Block 5","dateLabel":"20 giugno 2026, 06:39 UTC","iso":"2026-06-20T06:39:00Z","window":"06:39-07:51 UTC","site":"SLC-40, Cape Canaveral SFS, Florida","landing":"ASOG, booster non identificato da Next Spaceflight, volo 12","orbit":"LEO, circa 1410 km e 52° per la costellazione Globalstar","payload":"9 satelliti Globalstar di refresh, massa indicata 4.500 kg","summary":"Missione per rinnovare la costellazione Globalstar, rete mobile satellitare per voce, dati e messaggistica. Satelliti costruiti da MDA con bus e dispenser Rocket Lab.","news":"Next Spaceflight descrive 17 nuovi satelliti di seconda generazione refresh ordinati da Globalstar, con Rocket Lab come subcontraente per bus e dispenser.","sources":[{"label":"Next Spaceflight","url":"https://nextspaceflight.com/launches/details/7275/"},{"label":"Space Launch Schedule","url":"https://www.spacelaunchschedule.com/"}]},{"id":"starlink-17-28","cat":["exact","starlink"],"name":"Starlink Group 17-28","status":"Go for launch","rocket":"Falcon 9 Block 5","dateLabel":"20 giugno 2026, 14:00 UTC","iso":"2026-06-20T14:00:00Z","window":"T-0 indicato: 14:00 UTC","site":"SLC-4E, Vandenberg SFB, California","landing":"OCISLY, booster B1063, volo 33","orbit":"LEO","payload":"24 satelliti Starlink","summary":"Altro lotto Starlink dalla California. Space Launch Schedule indica 24 satelliti per la mega-costellazione internet in orbita bassa.","news":"La rotazione serrata dei booster da Vandenberg continua. B1063 sarebbe al 33° volo, quindi in zona record di riutilizzo.","sources":[{"label":"Space Launch Schedule","url":"https://www.spacelaunchschedule.com/launch/falcon-9-block-5-starlink-group-17-28/"}]},{"id":"starlink-17-45","cat":["exact","starlink"],"name":"Starlink Group 17-45","status":"Go for launch","rocket":"Falcon 9 Block 5","dateLabel":"24 giugno 2026, 11:00 UTC","iso":"2026-06-24T11:00:00Z","window":"T-0 indicato: 11:00 UTC","site":"SLC-4E, Vandenberg SFB, California","landing":"OCISLY, booster B1081, volo 25","orbit":"LEO","payload":"24 satelliti Starlink","summary":"Missione Starlink da Vandenberg. Space Launch Schedule indica Falcon 9 Block 5, SLC-4E e recupero su OCISLY.","news":"B1081 è indicato come booster al 25° volo, con Crew-7 tra le missioni precedenti.","sources":[{"label":"Space Launch Schedule","url":"https://www.spacelaunchschedule.com/launch/falcon-9-block-5-starlink-group-17-45/"}]},{"id":"sxm-11","cat":["net"],"name":"SXM-11","status":"NET giugno 2026","rocket":"Falcon 9 Block 5","dateLabel":"NET giugno 2026","iso":"2026-06-30T00:00:00Z","window":"Mese non puntuale","site":"SLC-40, Cape Canaveral SFS, Florida","landing":"Non indicato","orbit":"GTO","payload":"1 satellite SiriusXM, massa indicata 7.000 kg","summary":"SXM-11 è un satellite radio digitale ad alta potenza costruito da Lanteris Space Systems, ex Maxar / SSL, per SiriusXM.","news":"Il satellite usa piattaforma IM-1300, con grande riflettore dispiegabile a maglia di quasi 10 metri per raggiungere radio SiriusXM anche su veicoli in movimento.","sources":[{"label":"Next Spaceflight","url":"https://nextspaceflight.com/launches/details/8258/"}]},{"id":"sda-t1tl-f","cat":["net","sda"],"name":"SDA Tranche 1 Transport Layer F","status":"NET giugno 2026","rocket":"Falcon 9 Block 5","dateLabel":"NET giugno 2026","iso":"2026-06-30T00:00:00Z","window":"TBD, proiettato a giugno","site":"SLC-4E, Vandenberg SFB, California","landing":"Non indicato","orbit":"Polar orbit","payload":"21 satelliti indicati per Transport Layer","summary":"Missione SDA per la Proliferated Warfighter Space Architecture, rete militare LEO resiliente e a bassa latenza.","news":"Transport Layer fornisce connettività militare globale, con collegamenti ottici inter-satellite e architettura distribuita più resistente ai guasti.","sources":[{"label":"Next Spaceflight","url":"https://nextspaceflight.com/launches/details/7334/"},{"label":"Space Launch Schedule","url":"https://www.spacelaunchschedule.com/"}]},{"id":"sda-t1tr-a","cat":["net","sda"],"name":"SDA Tranche 1 Tracking Layer A","status":"NET giugno 2026","rocket":"Falcon 9 Block 5","dateLabel":"NET giugno 2026","iso":"2026-06-30T00:00:00Z","window":"TBD, proiettato a giugno","site":"SLC-4E, Vandenberg SFB, California","landing":"Non indicato","orbit":"Polar orbit","payload":"Payload SDA Tracking Layer","summary":"Missione SDA per tracking e warning globali di minacce missilistiche avanzate, inclusi sistemi ipersonici.","news":"Il Tracking Layer è la componente di allerta, tracciamento e targeting della PWSA.","sources":[{"label":"Next Spaceflight","url":"https://nextspaceflight.com/launches/details/7335/"},{"label":"Space Launch Schedule","url":"https://www.spacelaunchschedule.com/"}]},{"id":"sda-t1tr-c","cat":["net","sda"],"name":"SDA Tranche 1 Tracking Layer C","status":"NET Q2 / giugno 2026","rocket":"Falcon 9 Block 5","dateLabel":"NET Q2 2026","iso":"2026-06-30T00:00:00Z","window":"TBD, proiettato a giugno","site":"SLC-4E, Vandenberg SFB, California","landing":"Non indicato","orbit":"Polar orbit","payload":"Payload SDA Tracking Layer","summary":"Missione Tracking Layer della Space Development Agency per indicazioni, warning, tracking e targeting di minacce missilistiche avanzate.","news":"Next Spaceflight la elenca come NET Q2 2026; Space Launch Schedule la proietta a giugno.","sources":[{"label":"Next Spaceflight","url":"https://nextspaceflight.com/launches/details/7223/"},{"label":"Space Launch Schedule","url":"https://www.spacelaunchschedule.com/"}]},{"id":"sda-t1tr-e","cat":["net","sda"],"name":"SDA Tranche 1 Tracking Layer E","status":"NET giugno 2026","rocket":"Falcon 9 Block 5","dateLabel":"NET Q2 / giugno 2026","iso":"2026-06-30T00:00:00Z","window":"TBD, proiettato a giugno","site":"SLC-4E, Vandenberg SFB, California","landing":"Non indicato","orbit":"Polar orbit","payload":"Payload SDA Tracking Layer","summary":"Ulteriore missione Tracking Layer della costellazione PWSA Tranche 1.","news":"Resta nella categoria ad alta incertezza: la concentrazione di molte missioni SDA a fine Q2 implica che diversi voli possano slittare.","sources":[{"label":"Next Spaceflight","url":"https://nextspaceflight.com/launches/details/7336/"},{"label":"Space Launch Schedule","url":"https://www.spacelaunchschedule.com/page/2/"}]},{"id":"sda-t1tl-a","cat":["net","sda"],"name":"SDA Tranche 1 Transport Layer A","status":"NET Q2 / giugno 2026","rocket":"Falcon 9 Block 5","dateLabel":"NET Q2 2026","iso":"2026-06-30T00:00:00Z","window":"TBD, proiettato a giugno","site":"SLC-4E, Vandenberg SFB, California","landing":"Non indicato","orbit":"Polar orbit","payload":"21 satelliti, produttore indicato Northrop Grumman","summary":"Missione Transport Layer A per rete militare dati LEO a bassa latenza, parte della PWSA Tranche 1.","news":"Next Spaceflight nota che, nonostante il nome A, questa missione arriverebbe dopo T1TL-B e C lanciati nel 2025.","sources":[{"label":"Next Spaceflight","url":"https://nextspaceflight.com/launches/details/6963/"},{"label":"Space Launch Schedule","url":"https://www.spacelaunchschedule.com/page/2/"}]},{"id":"sda-t1tl-d","cat":["net","sda"],"name":"SDA Tranche 1 Transport Layer D","status":"NET Q2 / giugno 2026","rocket":"Falcon 9 Block 5","dateLabel":"NET Q2 2026","iso":"2026-06-30T00:00:00Z","window":"TBD, proiettato a giugno","site":"SLC-4E, Vandenberg SFB, California","landing":"Non indicato","orbit":"Polar orbit","payload":"21 satelliti indicati","summary":"Missione Transport Layer D della SDA, con rete dinamica e collegamenti ottici inter-satellite.","news":"Rientra nel gruppo di missioni Tranche 1 ancora con data non puntuale.","sources":[{"label":"Next Spaceflight","url":"https://nextspaceflight.com/launches/details/7221/"},{"label":"Space Launch Schedule","url":"https://www.spacelaunchschedule.com/page/2/"}]},{"id":"sda-t1tl-e","cat":["net","sda"],"name":"SDA Tranche 1 Transport Layer E","status":"NET Q2 / giugno 2026","rocket":"Falcon 9 Block 5","dateLabel":"NET Q2 2026","iso":"2026-06-30T00:00:00Z","window":"TBD, proiettato a giugno","site":"SLC-4E, Vandenberg SFB, California","landing":"Non indicato","orbit":"Polar orbit","payload":"21 satelliti indicati","summary":"Missione Transport Layer E per la costellazione distribuita della SDA.","news":"Probabile candidato a slittamento, dato l’addensamento di missioni simili nella stessa finestra.","sources":[{"label":"Next Spaceflight","url":"https://nextspaceflight.com/launches/details/7222/"},{"label":"Space Launch Schedule","url":"https://www.spacelaunchschedule.com/page/2/"}]},{"id":"starship-flight-13","cat":["net","starship"],"name":"Starship Flight 13","status":"NET luglio 2026","rocket":"Starship-Super Heavy v3","dateLabel":"NET luglio 2026","iso":"2026-07-01T00:00:00Z","window":"Mese non puntuale","site":"Starbase, Texas","landing":"Profilo di test; dati soggetti a FAA, NOTAM/NOTMAR e readiness hardware","orbit":"Test Starship, profilo non definitivo","payload":"Test flight, nessun payload operativo indicato","summary":"Next Spaceflight elenca Flight 13 come NET luglio 2026 con Starship-Super Heavy v3. La pagina Starship indica Booster 20 e Ship 40 attesi per questo volo.","news":"La data è fragile: fonti giornalistiche recenti parlano di ritorno al volo subordinato all’indagine FAA dopo il precedente test. Da trattare come candidato, non appuntamento.","sources":[{"label":"Next Spaceflight","url":"https://nextspaceflight.com/launches/details/8279/"},{"label":"Next Spaceflight Starship hardware","url":"https://nextspaceflight.com/starship/"},{"label":"RocketLaunch.Live","url":"https://www.rocketlaunch.live/launch/starship-flight-13"}]},{"id":"transporter-17","cat":["net"],"name":"Transporter 17","status":"NET luglio 2026","rocket":"Falcon 9 Block 5","dateLabel":"NET luglio 2026","iso":"2026-07-01T00:00:00Z","window":"Mese non puntuale","site":"SLC-4E, Vandenberg SFB, California","landing":"Non indicato","orbit":"SSO","payload":"Rideshare smallsat, payload multipli non tutti pubblici","summary":"Missione rideshare dedicata di SpaceX verso orbita eliosincrona. Il programma SmallSat Rideshare offre voli Falcon 9 regolari per operatori di piccoli satelliti.","news":"Next Spaceflight cita prezzi da 350.000 dollari per missione inclusivi di 50 kg di massa payload, dato del programma rideshare.","sources":[{"label":"Next Spaceflight","url":"https://nextspaceflight.com/launches/details/7610/"},{"label":"Space Launch Schedule","url":"https://www.spacelaunchschedule.com/page/2/"}]},{"id":"bluebird-11-13","cat":["net"],"name":"BlueBird 11 to 13","status":"NET luglio 2026","rocket":"Falcon 9 Block 5","dateLabel":"NET luglio 2026","iso":"2026-07-01T00:00:00Z","window":"Mese non puntuale","site":"SLC-40, Cape Canaveral SFS, Florida","landing":"Non indicato","orbit":"LEO","payload":"3 satelliti AST SpaceMobile BlueBird Block 2 FM6-FM8, massa indicata 13.500 kg","summary":"Secondo lotto ravvicinato di satelliti AST SpaceMobile BlueBird Block 2 su Falcon 9.","news":"Come il lotto 8-10, punta alla connettività cellulare broadband diretta, con grandi array dispiegabili in orbita bassa.","sources":[{"label":"Next Spaceflight","url":"https://nextspaceflight.com/launches/details/7688/"},{"label":"Space Launch Schedule","url":"https://www.spacelaunchschedule.com/page/2/"}]}],"falcon":{"metrics":{"lanci":668,"successi":662,"tasso":0.991,"boosterMax":35,"falconHeavy":12,"padAttivi":4,"primo":"2006-03-24","ultimo":"2026-06-12","recordAggiuntivi":24,"tentativiRecupero":639,"recuperiRiusciti":632,"boosterRiutilizzati":567},"annual":[{"anno":2006,"lanci":1,"successi":0,"falliti":1,"tasso":0},{"anno":2007,"lanci":1,"successi":0,"falliti":1,"tasso":0},{"anno":2008,"lanci":2,"successi":1,"falliti":1,"tasso":0.5},{"anno":2009,"lanci":1,"successi":1,"falliti":0,"tasso":1},{"anno":2010,"lanci":2,"successi":2,"falliti":0,"tasso":1},{"anno":2011,"lanci":0,"successi":0,"falliti":0,"tasso":null},{"anno":2012,"lanci":2,"successi":2,"falliti":0,"tasso":1},{"anno":2013,"lanci":3,"successi":3,"falliti":0,"tasso":1},{"anno":2014,"lanci":6,"successi":6,"falliti":0,"tasso":1},{"anno":2015,"lanci":7,"successi":6,"falliti":1,"tasso":0.8571},{"anno":2016,"lanci":9,"successi":8,"falliti":1,"tasso":0.8889},{"anno":2017,"lanci":18,"successi":18,"falliti":0,"tasso":1},{"anno":2018,"lanci":21,"successi":21,"falliti":0,"tasso":1},{"anno":2019,"lanci":13,"successi":13,"falliti":0,"tasso":1},{"anno":2020,"lanci":26,"successi":26,"falliti":0,"tasso":1},{"anno":2021,"lanci":31,"successi":31,"falliti":0,"tasso":1},{"anno":2022,"lanci":61,"successi":61,"falliti":0,"tasso":1},{"anno":2023,"lanci":96,"successi":96,"falliti":0,"tasso":1},{"anno":2024,"lanci":134,"successi":133,"falliti":1,"tasso":0.9925},{"anno":2025,"lanci":165,"successi":165,"falliti":0,"tasso":1},{"anno":2026,"lanci":69,"successi":69,"falliti":0,"tasso":1},{"anno":2027,"lanci":0,"successi":0,"falliti":0,"tasso":null}],"launchers":[{"lanciatore":"Falcon 1","lanci":5,"successi":2,"tasso":0.4},{"lanciatore":"Falcon 9 1.0","lanci":5,"successi":5,"tasso":1},{"lanciatore":"Falcon 9 1.1","lanci":14,"successi":13,"tasso":0.9286},{"lanciatore":"Falcon 9 1.2","lanci":10,"successi":10,"tasso":1},{"lanciatore":"Falcon 9 v1.2","lanci":28,"successi":27,"tasso":0.9643},{"lanciatore":"Falcon 9 bl 5","lanci":594,"successi":593,"tasso":0.9983},{"lanciatore":"Falcon Heavy","lanci":12,"successi":12,"tasso":1}],"pads":[{"pad":"Kwajalein","lanci":495,"quota":0.7444},{"pad":"SLC-40","lanci":62,"quota":0.0932},{"pad":"SLC-4E","lanci":71,"quota":0.1068},{"pad":"LC-39A","lanci":17,"quota":0.0256}],"orbits":[{"orbita":"LEO","lanci":495,"quota":0.7444},{"orbita":"SSO","lanci":62,"quota":0.0932},{"orbita":"GTO","lanci":71,"quota":0.1068},{"orbita":"MEO","lanci":17,"quota":0.0256},{"orbita":"TLI","lanci":6,"quota":0.009},{"orbita":"GEO","lanci":3,"quota":0.0045},{"orbita":"HEO","lanci":3,"quota":0.0045},{"orbita":"SEC","lanci":2,"quota":0.003},{"orbita":"MIO","lanci":1,"quota":0.0015},{"orbita":"SEL1","lanci":1,"quota":0.0015},{"orbita":"INT","lanci":1,"quota":0.0015},{"orbita":"Lang1","lanci":1,"quota":0.0015},{"orbita":"Lang2","lanci":1,"quota":0.0015},{"orbita":"no orb","lanci":1,"quota":0.0015}],"landing":[{"codice":"OCISLY","record":210,"tentativi":210,"recuperi":210},{"codice":"JRTI","record":184,"tentativi":184,"recuperi":184},{"codice":"ASOG","record":136,"tentativi":136,"recuperi":136},{"codice":"RTLS","record":98,"tentativi":98,"recuperi":98},{"codice":"EXP","record":47,"tentativi":0,"recuperi":0},{"codice":"WL","record":4,"tentativi":4,"recuperi":0},{"codice":"TAD","record":1,"tentativi":1,"recuperi":0},{"codice":"N/A","record":1,"tentativi":0,"recuperi":0}],"boosters":[{"booster":"B1067","voli":35,"record":35},{"booster":"B1063","voli":32,"record":32},{"booster":"B1071","voli":34,"record":34},{"booster":"B1069","voli":31,"record":31},{"booster":"B1077","voli":28,"record":28},{"booster":"B1076","voli":22,"record":22},{"booster":"B1078","voli":28,"record":28},{"booster":"B1080","voli":27,"record":27}]},"starship":{"metrics":{"eventi":96,"voli":"12","catch":"3","reflight":"1","stato":"Flight 13 in preparazione","range":"Cronologia integrata","voliRange":"IFT-1 -> Flight 12","catchDettaglio":"Flight 5, 7, 8","reflightDettaglio":"Flight 9 / B14-2","statoDettaglio":"B20/S40 in flow; cryo completati, prossimi gate static fire/WDR e chiusura indagine FAA"},"flights":[{"flight":"IFT-1","data":"20/04/2023","veicolo":"Booster 7 + Ship 24","block":"Block 1","milestone":"Primo volo integrato","esito":"Fallimento","lezione":"Pad, AFTS, flame diverter/deluge e affidabilita multi-engine diventano priorita."},{"flight":"IFT-2","data":"18/11/2023","veicolo":"Booster 9 + Ship 25","block":"Block 1","milestone":"Primo hot-staging riuscito","esito":"Parziale","lezione":"Superato il blocco della separazione; resta aperta la maturita di recovery e ship."},{"flight":"IFT-3","data":"14/03/2024","veicolo":"Booster 10 + Ship 28","block":"Block 1","milestone":"Operazioni in-space: propellant transfer demo e payload door","esito":"Parziale","lezione":"Traiettoria transatmosferica/quasi-orbitale; evitare di presentarla come orbita operativa stabile."},{"flight":"IFT-4","data":"06/06/2024","veicolo":"Booster 11 + Ship 29","block":"Block 1","milestone":"Primo rientro e splashdown controllato di entrambi gli stadi","esito":"Successo / parziale","lezione":"Il sistema dimostra profilo end-to-end, ma TPS/flap resta area critica."},{"flight":"IFT-5","data":"13/10/2024","veicolo":"Booster 12 + Ship 30","block":"Block 1","milestone":"Prima cattura booster con Mechazilla","esito":"Successo","lezione":"Booster-side entra in fase di maturazione rapida."},{"flight":"IFT-6","data":"19/11/2024","veicolo":"Booster 13 + Ship 31","block":"Block 1","milestone":"Primo in-space relight riuscito","esito":"Parziale","lezione":"La missione sposta il focus sulle funzioni in-space della ship."},{"flight":"Flight 7","data":"16/01/2025","veicolo":"Booster 14 + Ship 33","block":"Block 2","milestone":"Debutto Ship Block 2, secondo catch booster","esito":"Parziale","lezione":"La maturita booster supera nettamente quella ship."},{"flight":"Flight 8","data":"06/03/2025","veicolo":"Booster 15 + Ship 34","block":"Block 2","milestone":"Terzo catch booster","esito":"Parziale","lezione":"Ancora criticita propulsion-side della ship."},{"flight":"Flight 9","data":"27/05/2025","veicolo":"Booster 14-2 + Ship 35","block":"Block 2","milestone":"Primo reflight Super Heavy","esito":"Parziale","lezione":"Riuso booster dimostrato come campagna, non ancora come recovery completo."},{"flight":"Flight 10","data":"26/08/2025","veicolo":"Booster 16 + Ship 37","block":"Block 2","milestone":"Primo deployment riuscito simulatori Starlink","esito":"Successo","lezione":"Miglior volo ship-side fino a quel punto."},{"flight":"Flight 11","data":"13/10/2025","veicolo":"Booster 15-2 + Ship 38","block":"Block 2","milestone":"Chiusura positiva fase Block 2","esito":"Successo","lezione":"Missione sostanzialmente completa secondo fonti pubbliche disponibili."},{"flight":"Flight 12","data":"22/05/2026 22:30 UTC (23/05 CEST)","veicolo":"Booster 19 + Ship 39","block":"Block 3 / V3","milestone":"Debutto Starship/Super Heavy V3 e Pad 2; 22 simulatori Starlink V3 dispiegati","esito":"Successo / parziale","lezione":"V3 e Pad 2 superano il debutto; la prossima maturazione riguarda affidabilita Raptor, targeting booster, relight in-space e profili orbitale/refill."}],"themes":[{"tema":"Evoluzione architetturale","sintesi":"Il programma passa da BFR/MCT e ITS da 12 m a BFR/Starship da 9 m, poi al sistema acciaio inox + Raptor + hot-staging. Le tre potature decisive sono geometria, materiale e semplificazione motoristica/aerodinamica.","impatto":"Rende il sistema producibile, testabile e iterabile con una logica industriale, non solo dimostrativa."},{"tema":"Raptor come collo di bottiglia","sintesi":"Raptor evolve da full-flow methalox complesso a Raptor 2 piu semplice e Raptor 3 piu compatto. Flight 12 conferma il salto prestazionale, ma mostra che affidabilita multi-engine, boostback e relight restano colli di bottiglia concreti.","impatto":"La maturita del motore condiziona payload, cadenza, riuso e passaggio da test suborbitali a missioni operative."},{"tema":"Produzione e infrastruttura","sintesi":"Boca Chica evolve da ring stack all'aperto a High Bay, Mega Bay, Starfactory, Pad 2 e piani Gigabay/Florida. L'infrastruttura diventa parte del veicolo.","impatto":"La cadenza futura dipende da fabbriche, pad, GSE e licenze tanto quanto dal razzo."},{"tema":"Maturita booster/ship dopo Flight 12","sintesi":"Dal 2024-2025 i catch booster sembravano piu maturi della ship; Flight 12 cambia il quadro: Ship 39 completa deployment, rientro e splashdown, mentre B19 manca il profilo di ritorno. La preparazione Flight 13 con S40 e B20 gia in cryo flow indica cadenza piu rapida, ma la maturazione V3 riguarda ancora entrambi gli stadi.","impatto":"Il rischio principale resta distribuito tra affidabilita Raptor 3, boostback/landing burn booster, relight in-space, TPS/refill e gate regolatorio FAA prima del ritorno al volo."},{"tema":"FAA e regolazione","sintesi":"La FAA impone mitigazioni e corrective actions, ma amplia anche il perimetro operativo con 25 voli/anno in Texas e dossier LC-39A/Florida.","impatto":"La narrativa 'FAA blocca tutto' e' incompleta: ritardi regolatori e guasti tecnici si alimentano a vicenda."},{"tema":"Artemis HLS e rifornimento orbitale","sintesi":"Starship HLS resta centrale, ma la sfida principale e' trasferire e conservare propellente criogenico in orbita con cadenza di tanker elevata. Il Doc 1 aggiorna il pivot NASA 2026 verso demo LEO nel 2027 e landing Artemis IV nel 2028.","impatto":"Il successo lunare dipende dalla logistica spaziale piu che dal solo lancio."},{"tema":"Starlink V3 come driver economico","sintesi":"Starship deve diventare il camion orbitale di Starlink V3. Flight 12 rafforza il driver economico dispiegando 22 simulatori Starlink V3, inclusi due veicoli modificati per osservare la ship, ma resta da arrivare a missioni orbitali operative.","impatto":"Il business case puo accelerare la cadenza, ma dipende da affidabilita, payload deployment ripetibile e recupero degli stadi."},{"tema":"Controversie ambientali e sociali","sintesi":"Debris, rumore, hazard areas, impatti su Boca Chica e incorporazione della City of Starbase generano attrito politico e ambientale.","impatto":"Il rischio non e' solo tecnico: licenze, consenso locale e gestione traffico aereo restano vincoli concreti."},{"tema":"Elementi speculativi del Doc 2","sintesi":"Valutazione fino a 1,75 trilioni, data center orbitali/xAI e alcuni target tecnici sono trattati come scenari o claim da verificare, non come fatti consolidati.","impatto":"Inclusi per completezza, ma separati dalle milestone documentate."}],"timeline":[{"data":"23/04/2026","fase":"Block 3 / V3 e preparazione Flight 12","evento":"Flight 12 in preparazione, B19 + Ship 39","categoria":"Altro","esito":"Neutro / evoluzione","impatto":"Debutto atteso di Block 3/V3, Raptor 3 throughout, Pad 2 e prime capacità più mature di refueling-hardware a bordo."},{"data":"04-05/05/2026","fase":"Flight 13 in preparazione","evento":"Ship 40 completa due cryogenic proof test a Massey","categoria":"Prototipazione/Ground Test","esito":"Successo / milestone","impatto":"Avvia concretamente il flusso hardware Flight 13 lato ship: S40 passa da articolo in produzione a veicolo in preparazione pre-volo."},{"data":"07/05/2026","fase":"Block 3 / V3 e preparazione Flight 12","evento":"Nuovo static fire del booster B19 prima di Flight 12","categoria":"Prototipazione/Ground Test","esito":"Neutro / evoluzione","impatto":"Ultimo gate tecnico booster-side prima dello stack e della WDR completa."},{"data":"2026-05-10","fase":"Block 3 / V3 e preparazione Flight 12","evento":"Stack completo B19 + Ship 39 su Pad 2","categoria":"Prototipazione/Ground Test","esito":"Successo / milestone","impatto":"Primo stack completo V3 e nuovo record di altezza del sistema; passaggio dalla campagna di test separati alla configurazione flight-like."},{"data":"2026-05-11","fase":"Block 3 / V3 e preparazione Flight 12","evento":"Launch rehearsal/WDR completa per Starship V3 Flight 12","categoria":"Prototipazione/Ground Test","esito":"Successo / milestone","impatto":"Prima prova integrata di prop load dello stack V3 completo e del nuovo pad; riduce il rischio GSE/pad prima del tentativo di lancio."},{"data":"2026-05-12","fase":"Block 3 / V3 e preparazione Flight 12","evento":"SpaceX pubblica il piano Flight 12 e target NET 19 maggio","categoria":"Ideazione/Annuncio","esito":"Milestone istituzionale","impatto":"Flight 12 passa da campagna di preparazione a tentativo schedulato ufficialmente; il focus si sposta su dati TPS, deployment Starlink V3 e maturita del nuovo stack."},{"data":"22/05/2026 22:30 UTC (23/05 00:30 CEST)","fase":"Block 3 / V3 e primo volo Flight 12","evento":"Flight 12: debutto V3, B19 + Ship 39 da Pad 2","categoria":"Volo Integrato/Orbitale","esito":"Successo / parziale","impatto":"Debutto positivo per V3, Raptor 3 e Pad 2, con dati utili su TPS, payload deployment e manovra di landing. Restano da maturare affidabilita motori, boostback booster, relight in-space e passaggio a profili orbitale/refill."},{"data":"27/05/2026","fase":"Post-Flight 12 e preparazione Flight 13","evento":"FAA richiede indagine SpaceX-led prima del Flight 13","categoria":"Milestone Regolatorio/Contrattuale","esito":"Vincolo regolatorio","impatto":"Il flusso hardware di Flight 13 puo avanzare, ma il lancio resta subordinato alla chiusura dell indagine, al rapporto finale e alle eventuali azioni correttive approvate."},{"data":"06-07/06/2026","fase":"Flight 13 in preparazione","evento":"Booster 20 completa i primi cryogenic proof test per Flight 13","categoria":"Prototipazione/Ground Test","esito":"Successo / milestone","impatto":"Passaggio chiave prima di installazione motori, grid fins e campagna static fire: dopo Flight 12 il programma riparte rapidamente sul secondo stack V3."},{"data":"10-12/06/2026","fase":"Flight 13 in preparazione","evento":"Flusso Flight 13: B20 rientra verso Mega Bay 1, S40 verso installazione Raptor 3","categoria":"Prototipazione/Ground Test","esito":"Neutro / evoluzione","impatto":"La campagna entra nella fase pre-static-fire: motori, grid fins, checkouts, eventuale static fire/WDR e chiusura del gate FAA diventano i prossimi elementi critici."}]},"generatedAt":"2026-06-14 17:03"}</script>
+<script>
+const data = JSON.parse(document.getElementById('site-data').textContent);
+const powers = [
+  ['SpaceX','Attiva','Lanci, Falcon, Starship','#spacex',true],
+  ['Blue Origin','In preparazione','New Glenn, BE-4, lunar economy','#',false],
+  ['ULA','In preparazione','Vulcan, national security, transizione post-Atlas','#',false],
+  ['Cina','In preparazione','Lunga Marcia, commercial space, stazioni e Luna','#',false],
+  ['India','In preparazione','ISRO, LVM3, Gaganyaan, Chandrayaan','#',false],
+  ['Giappone','In preparazione','H3, JAXA, ispace e industria privata','#',false],
+  ['Europa','In preparazione','Ariane 6, Vega C, sovranita di accesso','#',false],
+  ['Italia','In preparazione','Avio, Vega, Space Rider, filiera nazionale','#',false],
+];
+const fmt = new Intl.NumberFormat('it-IT');
+const pct = value => value == null ? 'n.d.' : Math.round(value * 1000) / 10 + '%';
+function pad(n){return String(n).padStart(2,'0')}
+function countdown(iso){
+  const diff = new Date(iso).getTime() - Date.now();
+  if (!Number.isFinite(diff) || diff <= 0) return ['0','00','00','00'];
+  const total = Math.floor(diff / 1000);
+  return [Math.floor(total / 86400), pad(Math.floor(total % 86400 / 3600)), pad(Math.floor(total % 3600 / 60)), pad(total % 60)];
+}
+function el(tag, className, html){
+  const node = document.createElement(tag);
+  if (className) node.className = className;
+  if (html != null) node.innerHTML = html;
+  return node;
+}
+function renderPowers(){
+  const root = document.getElementById('powers');
+  root.innerHTML = powers.map(([name,state,copy,href,active]) => `
+    <a class="power ${active ? 'active' : 'inactive'}" href="${href}" aria-disabled="${!active}">
+      <small>${state}</small><h3>${name}</h3><p>${copy}</p>
+    </a>`).join('');
+}
+function metricHTML(value,label){
+  return `<div class="metric"><b>${value}</b><span>${label}</span></div>`;
+}
+function renderMetrics(){
+  const f = data.falcon.metrics;
+  document.getElementById('topMetrics').innerHTML = [
+    metricHTML(fmt.format(f.lanci),'lanci Falcon principali'),
+    metricHTML(pct(f.tasso),'success rate storico'),
+    metricHTML(fmt.format(f.recuperiRiusciti),'recuperi booster riusciti'),
+    metricHTML(data.starship.metrics.stato || 'n.d.','stato Starship')
+  ].join('');
+  document.getElementById('falconMetrics').innerHTML = [
+    metricHTML(fmt.format(f.lanci),'lanci principali'),
+    metricHTML(fmt.format(f.successi),'successi'),
+    metricHTML(pct(f.tasso),'tasso successo'),
+    metricHTML(fmt.format(f.boosterMax),'max voli booster'),
+    metricHTML(fmt.format(f.falconHeavy),'Falcon Heavy'),
+    metricHTML(fmt.format(f.padAttivi),'pad attivi'),
+    metricHTML(fmt.format(f.tentativiRecupero),'tentativi recupero'),
+    metricHTML(fmt.format(f.boosterRiutilizzati),'booster riutilizzati')
+  ].join('');
+  const s = data.starship.metrics;
+  document.getElementById('starshipMetrics').innerHTML = [
+    metricHTML(fmt.format(s.eventi),'eventi timeline'),
+    metricHTML(fmt.format(s.voli),'voli integrati'),
+    metricHTML(fmt.format(s.catch),'catch booster'),
+    metricHTML(fmt.format(s.reflight),'reflight Super Heavy')
+  ].join('');
+}
+function renderLaunches(){
+  const root = document.getElementById('launchGrid');
+  root.innerHTML = data.upcoming.map((l) => {
+    const net = (l.cat || []).includes('net');
+    const parts = countdown(l.iso);
+    const sources = (l.sources || []).map(source => `<a href="${source.url}" target="_blank" rel="noopener">${source.label}</a>`).join('');
+    return `<article class="launch" data-iso="${l.iso}">
+      <div class="launch-top"><span class="badge ${net ? 'net' : ''}">${net ? 'NET' : 'T-0'}</span><span class="date">${l.dateLabel}</span></div>
+      <h3>${l.name}</h3>
+      <p><strong>${l.rocket}</strong></p>
+      <p>${l.site}</p>
+      <p>${l.payload}</p>
+      <div class="source-links">${sources}</div>
+      <div class="countdown">
+        <div class="timebox"><strong class="d">${parts[0]}</strong><span>giorni</span></div>
+        <div class="timebox"><strong class="h">${parts[1]}</strong><span>ore</span></div>
+        <div class="timebox"><strong class="m">${parts[2]}</strong><span>min</span></div>
+        <div class="timebox"><strong class="s">${parts[3]}</strong><span>sec</span></div>
+      </div>
+    </article>`;
+  }).join('');
+}
+function tick(){
+  document.querySelectorAll('.launch[data-iso]').forEach(card => {
+    const parts = countdown(card.dataset.iso);
+    card.querySelector('.d').textContent = parts[0];
+    card.querySelector('.h').textContent = parts[1];
+    card.querySelector('.m').textContent = parts[2];
+    card.querySelector('.s').textContent = parts[3];
+  });
+}
+function renderAnnual(){
+  const root = document.getElementById('annualBars');
+  const rows = data.falcon.annual.filter(x => x.lanci != null);
+  const max = Math.max(...rows.map(x => x.lanci));
+  root.innerHTML = rows.map(row => `<div class="bar-row"><span>${row.anno}</span><div class="bar"><i style="width:${Math.max(2,row.lanci/max*100)}%"></i></div><strong>${row.lanci}</strong></div>`).join('');
+}
+function table(rootId, headers, rows){
+  document.getElementById(rootId).innerHTML = `<thead><tr>${headers.map(h=>`<th>${h[0]}</th>`).join('')}</tr></thead><tbody>${rows.map(row => `<tr>${headers.map(h=>`<td>${h[1](row) ?? ''}</td>`).join('')}</tr>`).join('')}</tbody>`;
+}
+function renderTables(){
+  table('launcherTable', [['Lanciatore',r=>r.lanciatore],['Lanci',r=>fmt.format(r.lanci)],['Successo',r=>pct(r.tasso)]], data.falcon.launchers);
+  table('padTable', [['Pad',r=>r.pad],['Lanci',r=>fmt.format(r.lanci)],['Quota',r=>pct(r.quota)]], data.falcon.pads);
+  table('landingTable', [['Landing',r=>r.codice],['Record',r=>fmt.format(r.record)],['Recuperi',r=>fmt.format(r.recuperi)]], data.falcon.landing);
+  table('starshipFlights', [['Flight',r=>r.flight],['Data',r=>r.data],['Milestone',r=>r.milestone],['Esito',r=>r.esito]], data.starship.flights);
+  document.getElementById('starshipThemes').innerHTML = data.starship.themes.map(theme => `<div class="theme"><h3>${theme.tema}</h3><p>${theme.sintesi}</p><p class="muted">${theme.impatto}</p></div>`).join('');
+}
+renderPowers();
+renderMetrics();
+renderLaunches();
+renderAnnual();
+renderTables();
+setInterval(tick, 1000);
+</script>
+</body>
+</html>
