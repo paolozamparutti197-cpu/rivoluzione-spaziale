@@ -14,7 +14,7 @@ SECTIONS_DIR = ROOT / "sezioni"
 CSS_DIR = ROOT / "css"
 
 HERO_IMAGE = "https://upload.wikimedia.org/wikipedia/commons/5/5d/Falcon_1_Flight_4_launch.jpg"
-CSS_VERSION = "20260614-pad-lancio"
+CSS_VERSION = "20260614-spacex-pad-button"
 
 MAIN_SECTIONS = [
     {
@@ -472,6 +472,8 @@ p{{color:#d9dee3;line-height:1.64}}
 .actions{{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}}
 .button{{border:1px solid var(--line);padding:13px 18px;border-radius:4px;text-transform:uppercase;font-size:12px;letter-spacing:.09em;font-weight:900;background:#fff;color:#000}}
 .button.secondary{{background:rgba(0,0,0,.22);color:#fff}}
+.spacex-actions{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));max-width:430px}}
+.spacex-actions .button{{display:flex;align-items:center;justify-content:center;text-align:center;min-height:44px;padding:12px 14px}}
 section{{padding:72px clamp(18px,4vw,56px);border-top:1px solid var(--line)}}
 .section-head{{display:flex;justify-content:space-between;gap:28px;align-items:end;margin-bottom:28px}}
 .section-head p{{max-width:660px;color:var(--muted);line-height:1.58;margin:0}}
@@ -564,7 +566,7 @@ td{{color:#d8dee3}}
 .footer{{padding:34px clamp(18px,4vw,56px);border-top:1px solid var(--line);color:var(--muted);font-size:13px;line-height:1.5}}
 @media(max-width:1120px){{.grid,.launch-grid,.pad-list{{grid-template-columns:repeat(2,minmax(0,1fr))}}.split,.dash-grid,.cols,.pad-map-wrap{{grid-template-columns:1fr}}.pad-map-side{{border-right:0;border-bottom:1px solid var(--line)}}.pad-side-list{{max-height:none;grid-template-columns:repeat(2,minmax(0,1fr))}}}}
 @media(max-width:900px){{.pad-list{{grid-template-columns:1fr}}.pad-card{{grid-template-columns:160px 1fr}}}}
-@media(max-width:760px){{.topbar{{align-items:flex-start;flex-direction:column}}.nav{{justify-content:flex-start}}.grid,.launch-grid,.metrics,.split .panel .metrics,.pad-side-list{{grid-template-columns:1fr}}section{{padding:56px 18px}}.hero{{padding:92px 18px 42px}}h1{{font-size:43px}}.section-head{{display:block}}.bar-row{{grid-template-columns:58px 1fr 44px}}#pad-map{{min-height:460px}}.pad-map-wrap{{min-height:460px}}.pad-card{{grid-template-columns:1fr}}.pad-card img{{max-height:420px}}.pad-mini-event{{grid-template-columns:1fr;gap:2px}}}}
+@media(max-width:760px){{.topbar{{align-items:flex-start;flex-direction:column}}.nav{{justify-content:flex-start}}.grid,.launch-grid,.metrics,.split .panel .metrics,.pad-side-list,.spacex-actions{{grid-template-columns:1fr}}section{{padding:56px 18px}}.hero{{padding:92px 18px 42px}}h1{{font-size:43px}}.section-head{{display:block}}.bar-row{{grid-template-columns:58px 1fr 44px}}#pad-map{{min-height:460px}}.pad-map-wrap{{min-height:460px}}.pad-card{{grid-template-columns:1fr}}.pad-card img{{max-height:420px}}.pad-mini-event{{grid-template-columns:1fr;gap:2px}}}}
 """
 
 
@@ -969,7 +971,7 @@ def render_spacex(data):
     <article class="panel">
       <h2>Macchina operativa</h2>
       <p>SpaceX non viene trattata come una semplice azienda di lanci. Qui e il primo laboratorio della nuova industria spaziale: cadenza, costi, recupero, riuso, infrastrutture e sviluppo rapido nello stesso sistema.</p>
-      <div class="actions">
+      <div class="actions spacex-actions">
         <a class="button" href="lanci-imminenti.html">Lanci imminenti</a>
         <a class="button secondary" href="storico-lanci.html">Storico lanci</a>
         <a class="button secondary" href="starship.html">Starship</a>
