@@ -42,8 +42,9 @@ section{padding:72px clamp(18px,4vw,56px);border-top:1px solid var(--line)}
 .card p{margin:0;color:#cbd2d8;font-size:14px}
 .split{display:grid;grid-template-columns:1.05fr .95fr;gap:20px;align-items:stretch}
 .metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-.metric{border:1px solid var(--line);background:rgba(255,255,255,.065);border-radius:8px;padding:18px;min-height:112px}
-.metric b{display:block;font-size:clamp(27px,3.5vw,42px);line-height:1;margin-bottom:8px}
+.split .panel .metrics{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:12px}
+.metric{min-width:0;border:1px solid var(--line);background:rgba(255,255,255,.065);border-radius:8px;padding:18px;min-height:112px}
+.metric b{display:block;font-size:clamp(25px,2.6vw,34px);line-height:1.05;margin-bottom:8px;overflow-wrap:break-word}
 .metric span{display:block;color:var(--muted);font-size:13px;line-height:1.35}
 .launch-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 .launch{border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.05));border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:12px;min-height:318px}
@@ -76,4 +77,4 @@ td{color:#d8dee3}
 .muted{color:var(--muted)}
 .footer{padding:34px clamp(18px,4vw,56px);border-top:1px solid var(--line);color:var(--muted);font-size:13px;line-height:1.5}
 @media(max-width:1120px){.grid,.launch-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.split,.dash-grid,.cols{grid-template-columns:1fr}}
-@media(max-width:760px){.topbar{align-items:flex-start;flex-direction:column}.nav{justify-content:flex-start}.grid,.launch-grid,.metrics{grid-template-columns:1fr}section{padding:56px 18px}.hero{padding:92px 18px 42px}h1{font-size:43px}.section-head{display:block}.bar-row{grid-template-columns:58px 1fr 44px}}
+@media(max-width:760px){.topbar{align-items:flex-start;flex-direction:column}.nav{justify-content:flex-start}.grid,.launch-grid,.metrics,.split .panel .metrics{grid-template-columns:1fr}section{padding:56px 18px}.hero{padding:92px 18px 42px}h1{font-size:43px}.section-head{display:block}.bar-row{grid-template-columns:58px 1fr 44px}}
