@@ -12,6 +12,7 @@ SECTIONS_DIR = ROOT / "sezioni"
 CSS_DIR = ROOT / "css"
 
 HERO_IMAGE = "https://upload.wikimedia.org/wikipedia/commons/5/5d/Falcon_1_Flight_4_launch.jpg"
+CSS_VERSION = "20260614-layout-metriche"
 
 MAIN_SECTIONS = [
     {
@@ -283,7 +284,8 @@ def head_html(title, css_href):
 
 
 def shell(title, current, from_section, body, extra_script=""):
-    css_href = "../css/style.css" if from_section else "css/style.css"
+    css_path = "../css/style.css" if from_section else "css/style.css"
+    css_href = f"{css_path}?v={CSS_VERSION}"
     return f"""{head_html(title, css_href)}
 <body>
 <header class="topbar">
