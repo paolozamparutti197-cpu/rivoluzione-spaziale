@@ -1,0 +1,255 @@
+Nota di riordino del 26/05/2026
+- Questo file e' uno storico: alcuni nomi citati sotto sono quelli vecchi.
+- Per i nomi attuali consultare mappa_rinomine.txt e inventario_file.txt.
+
+Riepilogo operativo cartella E:\spacex
+Aggiornato dopo sessione del 25/05/2026
+
+Scopo della cartella
+- Contiene workbook Excel usati per tracciare lanci SpaceX/Falcon e sviluppo Starship.
+- I file principali sono:
+  - spacex.xlsx: elenco lanci SpaceX/Falcon, con foglio principale "elenco".
+  - Sviluppp_starship.xlsx: workbook narrativo/analitico sullo sviluppo Starship.
+  - prompt_aggiornamento_spacex.txt: prompt riusabile per aggiornare spacex.xlsx in sicurezza.
+  - create_starship_workbook.py: script storico/di supporto per generare il workbook Starship.
+  - spacex.txt e spacex.kml: piccoli file dati/geo correlati.
+
+Stato dopo questa sessione
+- spacex.xlsx e' stato aggiornato al 25/05/2026:
+  - riga 682 corretta: Starlink Group 17-42 del 20/05/2026, pad SLC-4E e area Vandenberg.
+  - riga 683 aggiunta: nr 658, 21/05/2026, Starlink Group 10-31, Falcon 9 bl 5, B1077 volo 28, SLC-40, ASOG.
+  - riga 684 aggiunta: nr 659, 25/05/2026, Starlink Group 10-47, Falcon 9 bl 5, B1078 volo 28, SLC-40, ASOG.
+  - verificato con apertura Excel in sola lettura.
+- Aggiornamento precedente di spacex.xlsx al 16/05/2026:
+  - foglio: elenco
+  - riga: 681
+  - nr: 656
+  - data: 15/05/2026
+  - lanciatore: Falcon 9 bl 5
+  - cliente/missione: SpaceX CRS-34
+  - booster: B1096
+  - volo booster: 6
+  - pad: SLC-40
+  - landing: LZ-40
+  - classe missione calcolata: Cargo
+  - verificato con apertura Excel in sola lettura.
+- Aggiornamento precedente di spacex.xlsx: NROL-172:
+  - foglio: elenco
+  - riga: 680
+  - nr: 655
+  - data: 12/05/2026
+  - lanciatore: Falcon 9 bl 5
+  - cliente/missione: NROL-172
+  - booster: B1097
+  - volo booster: 9
+  - pad: SLC-4E
+  - landing: OCISLY
+  - verificato con apertura Excel in sola lettura.
+- Sviluppp_starship.xlsx e' stato aggiornato al 15/05/2026:
+  - Timeline integrata: aggiunte/aggiornate righe 92-95.
+  - Dashboard: eventi timeline 91; stato Flight 12 NET 19/05.
+  - Fonti: aggiunta riga "Aggiornamento 15/05/2026".
+  - Discrepanze: aggiunta nota su target Flight 12 NET 19/05/2026.
+  - verificato con apertura Excel in sola lettura.
+
+Regola importante per modificare gli .xlsx
+- NON riscrivere i file .xlsx direttamente come ZIP/XML.
+- Errore gia' successo: una riscrittura XML diretta ha prodotto un file leggibile da openpyxl ma indicato da Excel come danneggiato.
+- Procedura corretta:
+  1. Creare sempre un backup prima di modificare.
+  2. Usare Excel COM per scrivere celle, formule, date e salvare.
+  3. Mantenere formule/stili esistenti, copiando formati da righe vicine quando serve.
+  4. Dopo il salvataggio, riaprire il file con Excel in sola lettura e verificare le righe modificate.
+  5. Chiudere eventuali processi EXCEL nascosti creati dalla sessione, senza toccare finestre utente visibili.
+
+Prompt consigliato per futuri aggiornamenti di spacex.xlsx
+Controlla gli ultimi lanci SpaceX su Wikipedia e aggiorna il foglio `elenco` di `spacex.xlsx`. Usa Excel COM per modificare il file, mantenendo formule/stili esistenti; non modificare l'xlsx a livello ZIP/XML. Fai un backup prima, salva con Excel, poi riapri il file con Excel in read-only e verifica l'ultima riga.
+
+Note su spacex.xlsx
+- Foglio principale: elenco.
+- Il workbook ha righe gia' predisposte fino a circa 5000 con formule e valori derivati.
+- Le righe "reali" hanno in genere A/nr ed E/cliente valorizzati.
+- Non basarsi su max_row per trovare l'ultimo lancio, perche' molte righe precompilate contengono formule/valori derivati.
+- Per trovare l'ultimo lancio reale, cercare l'ultima riga con A e/o E valorizzati.
+- Le colonne principali del foglio elenco sono:
+  A nr, B data, C year, D lanciatore, E cliente, F stato, G video, H orbita, I landing, J booster, K voli, L dove, M s.bl 5, N s.f.h., O tipo_record, P data_evento, Q anno_mese, R famiglia_lanciatore, S classe_missione, T esito_lancio_num, U tentativo_recupero, V recupero_riuscito, W booster_riutilizzato, X area_lancio, Y video_url.
+- Alcune colonne derivate possono essere formule nelle righe vuote; evitare di sostituirle con valori fissi se non necessario.
+- Backup creato prima dell'aggiornamento del 25/05/2026: spacex.backup_20260525_205000.xlsx.
+- Backup creato prima dell'aggiornamento del 16/05/2026: spacex.backup_20260516_114429.xlsx.
+- Nota: in questa sessione il file e' stato modificato correttamente via Excel COM; nessuna riscrittura ZIP/XML.
+
+Note su Sviluppp_starship.xlsx
+- Fogli presenti:
+  - Dashboard
+  - Timeline integrata
+  - Voli integrati
+  - Confronti tecnici
+  - Temi e sintesi
+  - Discrepanze
+  - Fonti
+- "Voli integrati" va aggiornato solo quando un volo e' realmente avvenuto, non per un target NET.
+- Al 15/05/2026 Flight 12 non era ancora volato; quindi non e' stato aggiunto a "Voli integrati".
+- "Timeline integrata" puo' includere preparazioni, test, annunci, regolazione e milestone pre-volo.
+- Per nuove righe in Timeline integrata:
+  - copiare il formato dall'ultima riga vicina;
+  - compilare A Data, B Anno, C Fase, D Evento, E Categoria, F Veicolo/Missione, G Esito, H Dettagli, I Impatto, J Fusione, K Fonte, L SortKey;
+  - usare date Excel reali in A e L quando possibile.
+- Backup creato prima dell'aggiornamento: Sviluppp_starship.backup_20260515_111017.xlsx.
+
+Fonti usate nella sessione
+- Per lanci Falcon/SpaceX: Wikipedia "List of Falcon 9 and Falcon Heavy launches". Al 25/05/2026 il file e' aggiornato fino a Starlink Group 10-47, Falcon 9 B1078-28, 25/05/2026, SLC-40, ASOG. Nella stessa sessione e' stato aggiunto anche Starlink Group 10-31 del 21/05/2026 e corretto Starlink Group 17-42 del 20/05/2026 da SLC-4E.
+- Per Starship Flight 12:
+  - https://www.spacex.com/launches/starship-flight-12
+  - https://en.wikipedia.org/wiki/Starship_flight_test_12
+  - articoli Space.com su static fire, WDR/launch rehearsal, target NET 19/05 e obiettivi Flight 12.
+- Quando l'informazione e' recente o potenzialmente cambiata, verificare sempre online prima di aggiornare il file.
+
+File temporanei e lock
+- File tipo "~$spacex.xlsx" e "~$Sviluppp_starship.xlsx" sono lock/temp file di Excel.
+- Non usarli come sorgenti dati, non modificarli e non cancellarli salvo richiesta esplicita e consapevole.
+
+Errori ricorrenti da evitare
+- Non fidarsi solo di openpyxl come validazione finale: Excel puo' rifiutare file che openpyxl apre.
+- Non usare replace atomico o ricostruzione ZIP per workbook Excel complessi.
+- Non lasciare processi EXCEL nascosti aperti dopo automazioni COM.
+- Non aggiornare tabelle dei voli completati con eventi solo programmati/NET.
+- Non sovrascrivere backup o copie storiche senza motivo.
+
+Comandi/approccio pratico consigliato
+- Prima di scrivere:
+  - controllare che il file si apra con Excel COM in read-only;
+  - leggere fogli e righe finali;
+  - creare backup con timestamp.
+- Dopo aver scritto:
+  - salvare con Excel;
+  - chiudere workbook e applicazione;
+  - riaprire con Excel COM in read-only;
+  - verificare celle chiave;
+  - chiudere eventuali processi Excel nascosti creati dall'automazione.
+
+Sessione 29/05/2026
+- Aggiornato 01_workbook\lanci_spacex_falcon.xlsx via Excel COM.
+- Aggiunte righe 685-686:
+  - nr 660, 26/05/2026, Starlink Group 17-37, Falcon 9 bl 5, B1100 volo 6, SLC-4E, OCISLY, SSO, Vandenberg.
+  - nr 661, 29/05/2026, Starlink Group 10-53, Falcon 9 bl 5, B1085 volo 16, SLC-40, ASOG, LEO, Cape Canaveral.
+- Backup creato: 02_backup\lanci_spacex_falcon_backup_20260529_210407.xlsx.
+- Verifica finale: workbook riaperto con Excel in sola lettura, foglio elenco OK.
+- Nota tecnica: una prima scrittura cella-per-cella e' stata rifiutata da Excel COM con RPC_E_CALL_REJECTED; ripristinato immediatamente dal backup e riscritto con assegnazione a blocco su B685:N686.
+
+Sessione 31/05/2026
+- Aggiornato 01_workbook\lanci_spacex_falcon.xlsx via Excel COM.
+- Aggiunta riga 687:
+  - nr 662, 30/05/2026, Starlink Group 17-41, Falcon 9 bl 5, B1082 volo 22, SLC-4E, OCISLY, SSO, Vandenberg.
+- Backup creato: 02_backup\lanci_spacex_falcon_backup_20260531_092528.xlsx.
+- Verifica finale: workbook riaperto con Excel in sola lettura, foglio elenco OK.
+- Nota fonti: SpaceX Stats indica questo come ultimo lancio completato; Starlink Group 17-47 risulta ancora programmato a giugno e non e' stato inserito.
+
+Sessione 07/06/2026
+- Aggiornato 01_workbook\lanci_spacex_falcon.xlsx via Excel COM.
+- Aggiunte righe 689-690:
+  - nr 664, 04/06/2026, Starlink Group 10-43, Falcon 9 bl 5, B1090 volo 12, SLC-40, ASOG, LEO, Cape Canaveral.
+  - nr 665, 07/06/2026, Starlink Group 17-43, Falcon 9 bl 5, B1097 volo 10, SLC-4E, OCISLY, SSO, Vandenberg.
+- Backup creato: 02_backup\lanci_spacex_falcon_backup_20260607_140709.xlsx.
+- Verifica finale: workbook riaperto con Excel in sola lettura, foglio elenco OK.
+- Nota fonti: Next Spaceflight e Space.com per stato, orari, sito, booster e landing; il lancio del 07/06/2026 risulta completato con successo.
+
+Sessione 12/06/2026
+- Aggiornato 01_workbook\lanci_spacex_falcon.xlsx via Excel COM.
+- Trovata gia' presente la riga 691:
+  - nr 666, 08/06/2026, Starlink Group 10-35, Falcon 9 bl 5, B1067 volo 35, SLC-40, ASOG, LEO, Cape Canaveral.
+- Aggiunte righe 692-693:
+  - nr 667, 11/06/2026, Starlink Group 17-44, Falcon 9 bl 5, B1071 volo 34, SLC-4E, OCISLY, SSO, Vandenberg.
+  - nr 668, 12/06/2026, Starlink Group 10-54, Falcon 9 bl 5, B1080 volo 27, SLC-40, ASOG, LEO, Cape Canaveral.
+- Backup creato: 02_backup\lanci_spacex_falcon_backup_20260612_204612.xlsx.
+- Verifica finale: workbook riaperto con Excel in sola lettura, foglio elenco OK.
+- Nota fonti: Spaceflight Now, Space.com e Next Spaceflight per stato, date, missioni, siti, booster e landing.
+
+Sessione 12/06/2026 - Starship Flight 13
+- Aggiornato 01_workbook\sviluppo_starship.xlsx via Excel COM.
+- Aggiornato il foglio Timeline integrata con quattro eventi Flight 13:
+  - 04-05/05/2026, Ship 40 completa due cryogenic proof test a Massey.
+  - 27/05/2026, FAA richiede indagine SpaceX-led prima del Flight 13.
+  - 06-07/06/2026, Booster 20 completa i primi cryogenic proof test per Flight 13.
+  - 10-12/06/2026, flusso Flight 13: B20 verso Mega Bay 1 e S40 verso installazione Raptor 3.
+- Aggiornati Dashboard, Temi e sintesi, Discrepanze e Fonti.
+- Non aggiornato il foglio Voli integrati: Flight 13 e' in preparazione, non ancora avvenuto.
+- Backup creato: 02_backup\sviluppo_starship_backup_20260612_211645_flight13.xlsx.
+- Verifica finale: workbook riaperto con Excel in sola lettura, righe nuove e SortKey OK.
+- Nota fonti: Next Spaceflight, RocketLaunch.Live, Spaceflight Now/FAA e appunti utente del 12/06/2026.
+
+Sessione 12/06/2026 - link dirette NASASpaceflight
+- Aggiornato 01_workbook\sviluppo_starship.xlsx via Excel COM.
+- Aggiunta nel foglio Voli integrati la colonna J "Diretta YouTube NSF".
+- Inseriti hyperlink Excel cliccabili per IFT-1, IFT-2, IFT-3, IFT-4, IFT-5, IFT-6 e Flight 7-12.
+- Aggiunta una riga nel foglio Fonti con i 12 URL YouTube NASASpaceflight usati.
+- Backup creato: 02_backup\sviluppo_starship_backup_20260612_212429_link_nsf.xlsx.
+- Verifica finale: workbook riaperto con Excel in sola lettura, hyperlink presenti da J5 a J16.
+
+Sessione 14/06/2026 - infografiche pad di lancio SpaceX
+- Creata la cartella pad_di_lancio.
+- Spostata l'infografica originale dalla root a:
+  - pad_di_lancio\pad 37b.png.
+- Create sei nuove infografiche PNG nello stile del 37B:
+  - pad_di_lancio\pad_slc-40.png
+  - pad_di_lancio\pad_lc-39a.png
+  - pad_di_lancio\pad_slc-4e.png
+  - pad_di_lancio\pad_slc-6.png
+  - pad_di_lancio\pad_boca_chica_pad_1.png
+  - pad_di_lancio\pad_boca_chica_pad_2.png
+- Tutte le PNG sono verticali 1055 x 1491 px.
+- Aggiunto lo script rigenerabile:
+  - 03_script\genera_infografiche_pad.py
+- Aggiunti asset fotografici locali in:
+  - pad_di_lancio\assets
+- Aggiunti file fonti/crediti:
+  - pad_di_lancio\fonti_pad_di_lancio.md
+  - pad_di_lancio\assets\crediti_immagini.json
+- Fonti contenutistiche aggiornate al 14/06/2026:
+  - SLC-40: Space Launch Delta 45, NASA/SpaceX mission pages, NASA Crew-12 blog per LZ-40.
+  - LC-39A: NASA lease/storia, CRS-10 press kit, Space Launch Delta 45 Falcon Heavy, Federal Register FAA Final EIS 2026.
+  - SLC-4E: DAF/VSFB EA, SpaceX CASSIOPE/SAOCOM, U.S. Space Command imagery.
+  - SLC-6: NASA MOL, ULA NROL-91, Space Launch Delta 30 lease, DAF Final EIS/ROD Vandenberg Falcon 2025.
+  - Boca Chica OLP-1/OLP-2: FAA Boca Chica, Federal Register 2025, SpaceX Flight 5 e Flight 12, osservazioni pubbliche NSF per dettagli costruttivi.
+- Immagini di sfondo integrate dopo revisione utente:
+  - SLC-40: NASA Images / SpaceX staff, pubblico dominio.
+  - LC-39A: NASA / Kim Shiflett, pubblico dominio.
+  - SLC-4E: U.S. Space Force / Michael Peterson, pubblico dominio.
+  - SLC-6: U.S. Air Force / Joe Davila, pubblico dominio.
+  - Boca Chica Pad 1 / OLP-1: Jenny Hautmann, CC BY-SA 4.0.
+  - Boca Chica Pad 2 / OLP-2: NOAA / NODD, pubblico dominio.
+- Nota importante per futuri aggiornamenti:
+  - Non cancellare pad_di_lancio\assets: lo script dipende da quei file.
+  - Mantenere l'attribuzione Jenny Hautmann / CC BY-SA 4.0 per Boca Chica OLP-1.
+  - Lo script rigenera solo le sei infografiche nuove e non modifica pad 37b.png.
+  - Se si aggiornano testi, fonti o immagini, aggiornare anche README_infografiche_pad.txt e fonti_pad_di_lancio.md.
+
+Sessione 14/06/2026 - documentazione infografiche pad
+- Aggiornati i file informativi per facilitare futuri aggiornamenti:
+  - README.txt
+  - 00_documentazione\README_manutenzione.txt
+  - 00_documentazione\procedure_aggiornamento.txt
+  - 00_documentazione\inventario_file.txt
+  - 00_documentazione\storico_sessioni_lavoro.txt
+- Creato:
+  - 00_documentazione\README_infografiche_pad.txt
+- La documentazione indica stato aggiornamento, cartella operativa, script, asset, crediti, licenze, fonti e procedura di rigenerazione.
+
+Sessione 14/06/2026 - gerarchia sito Rivoluzione Spaziale
+- Corretto il generatore 03_script\genera_sito_rivoluzione.py per separare i livelli editoriali del sito.
+- La nav globale e la homepage ora mostrano solo il primo livello:
+  - Home
+  - SpaceX
+  - Blue Origin
+  - ULA
+  - Rocket Lab
+  - Arianespace
+  - Cina
+- Rimosse dalla nav globale e dalla homepage le sottosezioni operative:
+  - Lanci imminenti
+  - Storico lanci
+  - Starship
+  - Pad di lancio
+- Queste sottosezioni restano pagine HTML autonome, ma sono collegate da sezioni\spacex.html nel blocco "Macchina operativa".
+- Luna, Marte, Infrastrutture orbitali e Cronologia restano pagine provvisorie generate, ma non vengono mostrate nella nav globale finche' non diventano macro-sezioni deliberate.
+- Regola per il futuro: ogni compagnia deve avere la propria pagina porta; le sottosezioni operative vanno collegate dentro la pagina della compagnia, non nella nav principale.
+- Aggiornati README.md, README.txt, README_manutenzione.txt, procedure_aggiornamento.txt e inventario_file.txt per rendere questa architettura esplicita nelle prossime sessioni.

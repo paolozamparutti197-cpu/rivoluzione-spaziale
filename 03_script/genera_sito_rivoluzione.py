@@ -14,7 +14,7 @@ SECTIONS_DIR = ROOT / "sezioni"
 CSS_DIR = ROOT / "css"
 
 HERO_IMAGE = "https://upload.wikimedia.org/wikipedia/commons/5/5d/Falcon_1_Flight_4_launch.jpg"
-CSS_VERSION = "20260614-spacex-pad-button"
+CSS_VERSION = "20260614-nav-gerarchia"
 
 MAIN_SECTIONS = [
     {
@@ -54,6 +54,9 @@ MAIN_SECTIONS = [
         "status": "In costruzione",
         "copy": "Lunga Marcia, stazione spaziale, Luna e nuovo ecosistema commerciale.",
     },
+]
+
+THEME_SECTIONS = [
     {
         "title": "Luna",
         "slug": "luna",
@@ -107,7 +110,7 @@ UTILITY_SECTIONS = [
     },
 ]
 
-ALL_SECTIONS = MAIN_SECTIONS + UTILITY_SECTIONS
+PLACEHOLDER_SECTIONS = MAIN_SECTIONS + THEME_SECTIONS
 
 
 def clean(value):
@@ -384,7 +387,7 @@ def section_href(slug, from_section):
 def nav_html(current, from_section):
     home_href = "../index.html" if from_section else "index.html"
     links = [("Home", home_href)]
-    links.extend((item["title"], section_href(item["slug"], from_section)) for item in ALL_SECTIONS)
+    links.extend((item["title"], section_href(item["slug"], from_section)) for item in MAIN_SECTIONS)
     return "\n".join(
         f'<a class="{ "active" if key == current else "" }" href="{href}">{escape(label)}</a>'
         for label, href in links
@@ -578,41 +581,25 @@ def render_home():
 </a>"""
         for item in MAIN_SECTIONS
     )
-    utility_cards = "\n".join(
-        f"""<a class="card" href="sezioni/{item['slug']}.html">
-  <small>{escape(item['status'])}</small>
-  <div><h3>{escape(item['title'])}</h3><p>{escape(item['copy'])}</p></div>
-</a>"""
-        for item in UTILITY_SECTIONS
-    )
     body = f"""
 <section class="hero">
   <div class="hero-inner">
     <p class="eyebrow">Osservatorio</p>
     <h1>Rivoluzione Spaziale</h1>
-    <p class="subtitle">I nuovi signori dello spazio. Una mappa editoriale per seguire chi sta ridisegnando accesso all'orbita, infrastrutture, Luna, Marte e industria spaziale.</p>
+    <p class="subtitle">I nuovi signori dello spazio. Una mappa editoriale per seguire chi sta ridisegnando accesso all'orbita, cadenza industriale e competizione tra compagnie di lancio.</p>
     <div class="actions">
       <a class="button" href="sezioni/spacex.html">Apri SpaceX</a>
-      <a class="button secondary" href="sezioni/cronologia.html">Cronologia</a>
+      <a class="button secondary" href="#sezioni-principali">Sezioni principali</a>
     </div>
   </div>
 </section>
-<section>
+<section id="sezioni-principali">
   <div class="inner">
     <div class="section-head">
       <h2>Sezioni principali</h2>
-      <p>Questa homepage non contiene piu una lunga pagina unica. Ogni blocco importante ha una pagina autonoma, pronta per crescere senza confondere struttura e contenuto.</p>
+      <p>La pagina principale mostra solo il primo livello del sito: compagnie e aree industriali. Le pagine operative, come lanci, Starship e pad di lancio, vivono dentro la sezione della compagnia a cui appartengono.</p>
     </div>
     <div class="grid">{cards}</div>
-  </div>
-</section>
-<section>
-  <div class="inner">
-    <div class="section-head">
-      <h2>Dossier SpaceX</h2>
-      <p>Le pagine operative SpaceX restano autonome: agenda, storico, Starship e infrastrutture di lancio.</p>
-    </div>
-    <div class="grid">{utility_cards}</div>
   </div>
 </section>
 """
@@ -1056,7 +1043,7 @@ def render():
     write(SECTIONS_DIR / "storico-lanci.html", render_history_page(data))
     write(SECTIONS_DIR / "starship.html", render_starship_page(data))
     write(SECTIONS_DIR / "pad-di-lancio.html", render_pad_page(data))
-    for item in MAIN_SECTIONS:
+    for item in PLACEHOLDER_SECTIONS:
         if item["slug"] != "spacex":
             write(SECTIONS_DIR / f"{item['slug']}.html", render_placeholder(item))
 

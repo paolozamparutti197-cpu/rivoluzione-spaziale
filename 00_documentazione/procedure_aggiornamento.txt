@@ -1,0 +1,77 @@
+Procedure aggiornamento
+=======================
+
+Aggiornare il sito statico Rivoluzione Spaziale
+-----------------------------------------------
+1. Modificare prima 03_script\genera_sito_rivoluzione.py.
+2. Rigenerare il sito con:
+   python 03_script\genera_sito_rivoluzione.py
+3. Controllare index.html, css\style.css e le pagine in sezioni.
+4. Gerarchia da rispettare:
+   - nav globale e homepage: solo primo livello, cioe' Home, SpaceX, Blue Origin, ULA, Rocket Lab, Arianespace, Cina;
+   - sottosezioni SpaceX: Lanci imminenti, Storico lanci, Starship, Pad di lancio; questi link stanno dentro sezioni\spacex.html;
+   - pagine tematiche provvisorie: Luna, Marte, Infrastrutture orbitali, Cronologia; non devono comparire nella nav globale finche' non diventano macro-sezioni deliberate.
+5. Se si aggiunge una nuova sottosezione operativa di una compagnia, creare il file HTML autonomo ma collegarlo dalla pagina della compagnia, non da index.html.
+6. Dopo la verifica locale, pubblicare con commit e push su main e gh-pages.
+
+Aggiornare il workbook lanci SpaceX/Falcon
+------------------------------------------
+1. Verificare le fonti recenti, in particolare Wikipedia "List of Falcon 9 and Falcon Heavy launches" e fonti ufficiali quando disponibili.
+2. Chiudere Excel o verificare che il workbook non sia aperto da altri processi.
+3. Creare un backup in 02_backup con nome lanci_spacex_falcon_backup_YYYYMMDD_HHMMSS.xlsx.
+4. Aprire il workbook con Excel COM.
+5. Aggiornare il foglio elenco mantenendo formule e stili esistenti.
+6. Salvare da Excel.
+7. Riaprire in sola lettura con Excel COM e verificare le celle modificate.
+8. Chiudere workbook e processi Excel creati dall'automazione.
+
+Nota percorso:
+- Percorso previsto: 01_workbook\lanci_spacex_falcon.xlsx.
+- Vecchio nome storico: spacex.xlsx.
+
+Aggiornare il workbook Starship
+-------------------------------
+1. Verificare se il volo o evento e' gia' avvenuto oppure e' solo NET/programmato.
+2. Per eventi programmati aggiornare la timeline, non la tabella dei voli completati.
+3. Per voli avvenuti aggiornare anche il foglio Voli integrati.
+4. Mantenere coerenza con i fogli Discrepanze e Fonti.
+5. Creare sempre un backup in 02_backup prima di salvare.
+
+Rigenerare il workbook Starship da script
+-----------------------------------------
+1. Inserire in 05_fonti_originali i documenti Word, se disponibili:
+   - programma_starship_spacex.docx
+   - ricerca_starship_1.docx
+2. Eseguire 03_script\genera_workbook_starship.py.
+3. Se i Word mancano ma 01_workbook\sviluppo_starship.xlsx esiste, lo script ricostruisce automaticamente i due documenti sorgente.
+4. Lo script genera 01_workbook\sviluppo_starship_generato.xlsx.
+5. Confrontare il generato con 01_workbook\sviluppo_starship.xlsx prima di sostituire il file corrente.
+
+Aggiornare o rigenerare infografiche pad di lancio
+--------------------------------------------------
+1. Leggere prima 00_documentazione\README_infografiche_pad.txt.
+2. Le PNG operative si trovano in pad_di_lancio.
+3. Lo script sorgente e' 03_script\genera_infografiche_pad.py.
+4. Gli asset fotografici usati dallo script sono in pad_di_lancio\assets.
+5. Per rigenerare le sei infografiche generate:
+   python 03_script\genera_infografiche_pad.py
+6. Lo script sovrascrive:
+   - pad_di_lancio\pad_slc-40.png
+   - pad_di_lancio\pad_lc-39a.png
+   - pad_di_lancio\pad_slc-4e.png
+   - pad_di_lancio\pad_slc-6.png
+   - pad_di_lancio\pad_boca_chica_pad_1.png
+   - pad_di_lancio\pad_boca_chica_pad_2.png
+7. Lo script non modifica pad_di_lancio\pad 37b.png, che resta l'infografica originale di riferimento.
+8. Se si sostituiscono foto o fonti:
+   - usare immagini pubblico dominio o licenze compatibili;
+   - mantenere attribuzioni e link in pad_di_lancio\fonti_pad_di_lancio.md;
+   - aggiornare pad_di_lancio\assets\crediti_immagini.json;
+   - aggiornare README_infografiche_pad.txt e storico_sessioni_lavoro.txt.
+9. Nota licenze: Boca Chica Pad 1 / OLP-1 usa una foto CC BY-SA 4.0 di Jenny Hautmann; non rimuovere il credito.
+
+Pulizia
+-------
+- I file in 99_temporanei possono essere eliminati solo dopo conferma che non servono.
+- I file di lock Excel possono essere rimossi solo se Excel e' chiuso e il workbook non e' aperto.
+- Non eliminare backup senza una richiesta esplicita.

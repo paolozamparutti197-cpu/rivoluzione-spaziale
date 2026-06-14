@@ -2,9 +2,11 @@
 
 Sito statico multipagina del progetto "Rivoluzione Spaziale".
 
-La home presenta il tema generale della rivoluzione spaziale in atto e collega le sezioni principali del sito. La sezione SpaceX e gia attiva; le altre pagine sono predisposte come sezioni autonome in costruzione.
+La home presenta il tema generale della rivoluzione spaziale in atto e collega solo le sezioni principali di primo livello. La sezione SpaceX e gia attiva; le altre pagine sono predisposte come sezioni autonome in costruzione.
 
-Tra i dossier SpaceX attivi sono disponibili l'agenda lanci, lo storico Falcon, Starship e la pagina "Pad di lancio", con mappa interattiva e schede ricavate dalle infografiche locali.
+Regola di architettura: la navigazione globale e la homepage non devono elencare sottosezioni operative. Lanci imminenti, storico lanci, Starship e Pad di lancio sono pagine interne alla sezione SpaceX. In futuro potranno esistere sottosezioni equivalenti per altre compagnie, ma non vanno messe nella nav principale.
+
+Tra i dossier SpaceX attivi sono disponibili l'agenda lanci, lo storico Falcon, Starship e la pagina "Pad di lancio", con mappa interattiva e schede ricavate dalle infografiche locali. Questi link devono restare dentro `sezioni/spacex.html`.
 
 ## File principali
 

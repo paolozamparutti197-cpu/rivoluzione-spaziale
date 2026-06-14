@@ -1,0 +1,72 @@
+Inventario file
+===============
+
+Root
+----
+- README.txt: introduzione alla struttura della cartella.
+- index.html: homepage pubblica del sito "Rivoluzione Spaziale"; deve mostrare solo le sezioni principali di primo livello.
+- css\style.css: CSS condiviso generato da 03_script\genera_sito_rivoluzione.py.
+
+00_documentazione
+-----------------
+- README_manutenzione.txt: regole generali e note per chi mantiene la cartella.
+- README_infografiche_pad.txt: stato, rigenerazione, fonti, asset e licenze delle infografiche pad di lancio.
+- inventario_file.txt: questo inventario.
+- mappa_rinomine.txt: corrispondenza tra vecchi nomi e nuovi percorsi.
+- procedure_aggiornamento.txt: procedure operative per aggiornare workbook e fonti.
+- prompt_aggiornamento_lanci_spacex.txt: prompt riusabile per aggiornare il workbook dei lanci.
+- storico_sessioni_lavoro.txt: storico operativo delle sessioni precedenti, conservato per tracciabilita'.
+
+01_workbook
+-----------
+- sviluppo_starship.xlsx: workbook corrente sul programma Starship.
+- lanci_spacex_falcon.xlsx: workbook corrente dei lanci SpaceX/Falcon.
+- sviluppo_starship_generato.xlsx: workbook generato dallo script; usare per confronto prima di sostituire il corrente.
+
+02_backup
+---------
+- lanci_spacex_falcon_backup_20260516_114429.xlsx: backup storico del workbook Falcon/SpaceX.
+- lanci_spacex_falcon_backup_20260525_205000.xlsx: backup storico del workbook Falcon/SpaceX.
+- sviluppo_starship_backup_20260524_aggiornamento_flight12.xlsx: backup storico del workbook Starship.
+
+03_script
+---------
+- genera_workbook_starship.py: script Python per generare un workbook Starship da documenti Word sorgente.
+- genera_infografiche_pad.py: script Python/Pillow per rigenerare le infografiche PNG in pad_di_lancio usando testi, layout e asset fotografici locali.
+- genera_sito_rivoluzione.py: generatore del sito statico multipagina. Contiene la gerarchia editoriale: nav globale solo per Home, SpaceX, Blue Origin, ULA, Rocket Lab, Arianespace, Cina; sottosezioni SpaceX collegate da sezioni\spacex.html.
+
+sezioni
+-------
+- spacex.html: pagina porta della sezione SpaceX; contiene i link operativi a lanci-imminenti.html, storico-lanci.html, starship.html e pad-di-lancio.html.
+- lanci-imminenti.html: sottosezione operativa SpaceX, non voce di nav globale.
+- storico-lanci.html: sottosezione operativa SpaceX, non voce di nav globale.
+- starship.html: sottosezione operativa SpaceX, non voce di nav globale.
+- pad-di-lancio.html: sottosezione operativa SpaceX con mappa Leaflet e schede pad, non voce di nav globale.
+- luna.html, marte.html, infrastrutture-orbitali.html, cronologia.html: pagine provvisorie generate ma non visibili nella nav globale finche' non vengono ripensate come macro-sezioni.
+
+04_dati_geo
+-----------
+- atakani_space_centre.kml: file KML con placemark Atakani Space Centre, Queensland, Australia.
+
+05_fonti_originali
+------------------
+- Cartella riservata ai documenti sorgente, per esempio i .docx richiesti dallo script Starship.
+- programma_starship_spacex.docx: sorgente Word ricostruito dal workbook Starship corrente.
+- ricerca_starship_1.docx: sorgente Word ricostruito dal workbook Starship corrente.
+
+pad_di_lancio
+-------------
+- pad 37b.png: infografica originale SLC-37B spostata dalla root il 14/06/2026.
+- pad_slc-40.png: infografica SLC-40 aggiornata al 14/06/2026.
+- pad_lc-39a.png: infografica LC-39A aggiornata al 14/06/2026.
+- pad_slc-4e.png: infografica SLC-4E aggiornata al 14/06/2026.
+- pad_slc-6.png: infografica SLC-6 aggiornata al 14/06/2026.
+- pad_boca_chica_pad_1.png: infografica Boca Chica Pad 1 / OLP-1 aggiornata al 14/06/2026.
+- pad_boca_chica_pad_2.png: infografica Boca Chica Pad 2 / OLP-2 aggiornata al 14/06/2026.
+- fonti_pad_di_lancio.md: fonti contenutistiche e crediti immagini usati per le infografiche.
+- assets\: foto sorgente riutilizzabili e crediti_immagini.json; non cancellare, servono allo script di rigenerazione.
+
+99_temporanei
+-------------
+- nota_vuota_20260513.txt: vecchio file vuoto conservato per non cancellare nulla durante il riordino.
+- lock_excel_spacex_20250521.tmp: vecchio lock Excel conservato fuori dai workbook operativi; non usare come dato.
