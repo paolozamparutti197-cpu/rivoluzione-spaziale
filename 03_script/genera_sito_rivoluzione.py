@@ -1,8 +1,10 @@
 import json
 import subprocess
+import ast
 from datetime import date, datetime
 from html import escape
 from pathlib import Path
+from urllib.parse import quote
 
 import openpyxl
 
@@ -12,7 +14,7 @@ SECTIONS_DIR = ROOT / "sezioni"
 CSS_DIR = ROOT / "css"
 
 HERO_IMAGE = "https://upload.wikimedia.org/wikipedia/commons/5/5d/Falcon_1_Flight_4_launch.jpg"
-CSS_VERSION = "20260614-layout-metriche"
+CSS_VERSION = "20260614-pad-lancio"
 
 MAIN_SECTIONS = [
     {
@@ -96,6 +98,12 @@ UTILITY_SECTIONS = [
         "slug": "starship",
         "status": "Attiva",
         "copy": "Sviluppo Starship, voli integrati e temi tecnici principali.",
+    },
+    {
+        "title": "Pad di lancio",
+        "slug": "pad-di-lancio",
+        "status": "Attiva",
+        "copy": "Mappa dei complessi SpaceX, schede operative e infografiche dei pad.",
     },
 ]
 
@@ -254,6 +262,113 @@ def starship_data():
     return {"metrics": metrics, "flights": flights, "themes": themes}
 
 
+def literal_assignment(path, name):
+    text = path.read_text(encoding="utf-8")
+    marker = f"{name} = "
+    start = text.index(marker) + len(marker)
+    while start < len(text) and text[start].isspace():
+        start += 1
+    if text[start] not in "[{(":
+        raise ValueError(f"{name} literal not found")
+    opener = text[start]
+    closer = {("["): "]", ("{"): "}", ("("): ")"}[opener]
+    depth = 0
+    in_string = None
+    escaped = False
+    for index in range(start, len(text)):
+        char = text[index]
+        if in_string:
+            if escaped:
+                escaped = False
+            elif char == "\\":
+                escaped = True
+            elif char == in_string:
+                in_string = None
+            continue
+        if char in ("'", '"'):
+            in_string = char
+        elif char == opener:
+            depth += 1
+        elif char == closer:
+            depth -= 1
+            if depth == 0:
+                return ast.literal_eval(text[start : index + 1])
+    raise ValueError(f"{name} literal not closed")
+
+
+def pad_launch_data():
+    coords = {
+        "SLC-40": (28.5619, -80.5772, "Florida"),
+        "LC-39A": (28.6084, -80.6043, "Florida"),
+        "SLC-4E": (34.6320, -120.6106, "California"),
+        "SLC-6": (34.5811, -120.6266, "California"),
+        "BOCA CHICA PAD 1": (25.9971, -97.1567, "Texas"),
+        "BOCA CHICA PAD 2": (25.9980, -97.1544, "Texas"),
+    }
+    images = {
+        "SLC-40": "pad_slc-40.png",
+        "LC-39A": "pad_lc-39a.png",
+        "SLC-4E": "pad_slc-4e.png",
+        "SLC-6": "pad_slc-6.png",
+        "BOCA CHICA PAD 1": "pad_boca_chica_pad_1.png",
+        "BOCA CHICA PAD 2": "pad_boca_chica_pad_2.png",
+    }
+    pads = [
+        {
+            "title": "SLC-37B",
+            "subtitle": "Da pad storico Saturn e Delta IV a futuro sito Starship di SpaceX",
+            "location": "Cape Canaveral Space Force Station, Florida",
+            "full": "Space Launch Complex 37B",
+            "lat": 28.5319,
+            "lng": -80.5648,
+            "region": "Florida",
+            "image": "pad 37b.png",
+            "timeline": [
+                {"date": "1964-1968", "text": "SLC-37 viene usato per missioni Saturn I e Saturn IB durante l'era Apollo."},
+                {"date": "2002-2024", "text": "Il complesso viene riattivato come SLC-37B per il programma Delta IV e Delta IV Heavy di ULA."},
+                {"date": "9 aprile 2024", "text": "Ultimo lancio Delta IV Heavy dal pad con NROL-70: si chiude l'era Delta IV a SLC-37B."},
+                {"date": "21 febbraio 2024", "text": "Il Department of the Air Force avvia l'EIS per valutare SLC-37 come futuro sito Starship/Super Heavy."},
+                {"date": "Marzo 2025", "text": "SpaceX ottiene un limited Right of Entry per sopralluoghi, verifiche tecniche e attivita preliminari."},
+                {"date": "6 giugno 2025", "text": "Viene pubblicato il Draft EIS: la proposta prevede la ricostruzione del sito per supportare fino a 76 lanci Starship/Super Heavy all'anno."},
+                {"date": "12 giugno 2025", "text": "Demolizione della storica infrastruttura Delta IV, inclusa la Mobile Service Tower. Inizia la trasformazione fisica del complesso."},
+                {"date": "20 novembre 2025", "text": "Il Department of the Air Force firma il Record of Decision: SpaceX e autorizzata a riqualificare SLC-37 per Starship/Super Heavy tramite accordi immobiliari con la U.S. Space Force."},
+                {"date": "Dicembre 2025", "text": "SpaceX comunica che l'approvazione e stata ricevuta e che la costruzione e iniziata."},
+            ],
+            "current": [
+                "SLC-37B e nella fase di assegnazione e riqualificazione a favore di SpaceX.",
+                "Non si tratta di un normale affitto pubblico gia visibile come contratto privato: la forma ufficiale indicata nei documenti e un real property agreement con la U.S. Space Force.",
+                "La riconversione del sito e in corso.",
+                "Prima dei lanci operativi Starship da questo pad serviranno ulteriori passaggi regolatori FAA, in particolare sulle analisi dello spazio aereo.",
+                "Capacita prevista: fino a 76 lanci e 152 atterraggi annui.",
+            ],
+            "source_note": "Sintesi cronologica basata su documentazione pubblica DAF/USSF, processo EIS e comunicazioni SpaceX.",
+        }
+    ]
+
+    generated = literal_assignment(ROOT / "03_script" / "genera_infografiche_pad.py", "PADS")
+    for item in generated:
+        lat, lng, region = coords[item["title"]]
+        pads.append(
+            {
+                "title": item["title"],
+                "subtitle": item["subtitle"],
+                "location": item["location"],
+                "full": item["full"],
+                "lat": lat,
+                "lng": lng,
+                "region": region,
+                "image": images[item["title"]],
+                "timeline": item["timeline"],
+                "current": item["current"],
+                "source_note": item["source_note"],
+            }
+        )
+    for index, item in enumerate(pads, start=1):
+        item["id"] = f"pad-{index}"
+        item["imageHref"] = f"../pad_di_lancio/{quote(item['image'])}"
+    return pads
+
+
 def json_for_html(data):
     return json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
 
@@ -277,7 +392,7 @@ def nav_html(current, from_section):
     )
 
 
-def head_html(title, css_href):
+def head_html(title, css_href, extra_head=""):
     return f"""<!doctype html>
 <html lang="it">
 <head>
@@ -285,14 +400,15 @@ def head_html(title, css_href):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{escape(title)} | Rivoluzione Spaziale</title>
 <link rel="stylesheet" href="{css_href}">
+{extra_head}
 </head>
 """
 
 
-def shell(title, current, from_section, body, extra_script=""):
+def shell(title, current, from_section, body, extra_script="", extra_head=""):
     css_path = "../css/style.css" if from_section else "css/style.css"
     css_href = f"{css_path}?v={CSS_VERSION}"
-    return f"""{head_html(title, css_href)}
+    return f"""{head_html(title, css_href, extra_head)}
 <body>
 <header class="topbar">
   <a class="brand" href="{'../index.html' if from_section else 'index.html'}">Rivoluzione <span>Spaziale</span></a>
@@ -398,11 +514,57 @@ td{{color:#d8dee3}}
 .theme-list{{display:grid;gap:12px}}
 .theme{{border-left:3px solid var(--accent);padding:0 0 0 14px}}
 .theme p{{margin:4px 0 0;font-size:14px;color:#cfd6dc}}
+.pad-map-wrap{{display:grid;grid-template-columns:320px 1fr;min-height:620px;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#080b0f}}
+.pad-map-side{{background:rgba(255,255,255,.055);border-right:1px solid var(--line);padding:18px;display:flex;flex-direction:column;gap:12px}}
+.pad-map-side h3{{margin-bottom:2px}}
+.pad-map-side p{{font-size:14px;color:var(--muted);margin:0}}
+.pad-filter-row{{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}}
+.pad-filter{{border:1px solid var(--line);background:rgba(0,0,0,.2);color:#fff;border-radius:999px;padding:8px 10px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:900;cursor:pointer}}
+.pad-filter.active{{background:#fff;color:#000;border-color:#fff}}
+.pad-side-list{{display:grid;gap:7px;margin-top:8px;overflow:auto;max-height:410px;padding-right:3px}}
+.pad-side-item{{border:1px solid transparent;border-radius:8px;background:rgba(255,255,255,.045);padding:10px;text-align:left;color:#fff;cursor:pointer}}
+.pad-side-item:hover,.pad-side-item.active{{border-color:rgba(105,200,255,.58);background:rgba(105,200,255,.1)}}
+.pad-side-item strong{{display:block;font-size:14px;line-height:1.2}}
+.pad-side-item span{{display:block;color:var(--muted);font-size:12px;line-height:1.35;margin-top:3px}}
+#pad-map{{min-height:620px;background:#07101a}}
+.leaflet-container{{font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;background:#07101a}}
+.leaflet-popup-content-wrapper{{background:#101418;color:var(--ink);border-radius:8px;border:1px solid rgba(255,255,255,.16);box-shadow:0 18px 50px rgba(0,0,0,.42);overflow:hidden}}
+.leaflet-popup-content{{margin:0!important;line-height:1.45}}
+.leaflet-popup-tip{{background:#101418}}
+.leaflet-control-zoom a,.leaflet-control-layers{{background:#111820!important;color:#e8edf2!important;border-color:rgba(255,255,255,.18)!important}}
+.pad-marker{{background:transparent;border:0}}
+.pad-marker-dot{{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#051018;border:3px solid #fff;font-size:10px;font-weight:950;box-shadow:0 6px 18px rgba(0,0,0,.35)}}
+.pad-popup{{width:min(360px,78vw);background:#101418}}
+.pad-popup img{{display:block;width:100%;height:158px;object-fit:cover;object-position:top;border-bottom:1px solid var(--line)}}
+.pad-popup-body{{padding:14px}}
+.pad-popup .badge{{display:inline-block;margin-bottom:8px;color:var(--gold)}}
+.pad-popup h3{{font-size:22px;margin:0 0 4px}}
+.pad-popup p{{font-size:13px;color:#d7dee4;line-height:1.45;margin:8px 0}}
+.pad-popup ul{{margin:8px 0 0;padding-left:18px;color:#d7dee4;font-size:13px;line-height:1.38}}
+.pad-popup li{{margin-bottom:4px}}
+.pad-list{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}}
+.pad-card{{display:grid;grid-template-columns:220px 1fr;gap:18px;border:1px solid var(--line);border-radius:8px;background:linear-gradient(180deg,var(--panel2),var(--panel));padding:14px;min-width:0}}
+.pad-card figure{{margin:0;min-width:0}}
+.pad-card img{{width:100%;aspect-ratio:1055/1491;object-fit:cover;object-position:top;border-radius:6px;border:1px solid rgba(255,255,255,.16);background:#0a0f14}}
+.pad-card h3{{font-size:28px}}
+.pad-card p{{font-size:14px;margin:8px 0;color:#cfd7de}}
+.pad-card dl{{display:grid;grid-template-columns:auto 1fr;gap:6px 10px;margin:10px 0 0;color:#dce4ea;font-size:13px}}
+.pad-card dt{{color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-size:10px;font-weight:900}}
+.pad-card dd{{margin:0;min-width:0}}
+.pad-mini-timeline{{margin-top:12px;display:grid;gap:8px}}
+.pad-mini-event{{display:grid;grid-template-columns:104px 1fr;gap:10px;border-top:1px solid rgba(255,255,255,.12);padding-top:8px;font-size:13px;color:#d9e0e6;line-height:1.38}}
+.pad-mini-event strong{{color:var(--accent);font-size:12px;line-height:1.25}}
+.pad-current-list{{margin:12px 0 0;padding-left:18px;color:#d7dee4;font-size:13px;line-height:1.45}}
+.pad-current-list li{{margin-bottom:6px}}
+.source-panel{{border:1px solid var(--line);border-radius:8px;background:rgba(255,255,255,.055);padding:18px}}
+.source-panel p{{margin:0 0 10px;color:var(--muted);font-size:14px}}
+.source-panel a{{color:#dff4ff;text-decoration:underline;text-underline-offset:3px}}
 .construction{{border-color:rgba(242,184,75,.45);background:linear-gradient(180deg,rgba(242,184,75,.12),rgba(255,255,255,.055))}}
 .muted{{color:var(--muted)}}
 .footer{{padding:34px clamp(18px,4vw,56px);border-top:1px solid var(--line);color:var(--muted);font-size:13px;line-height:1.5}}
-@media(max-width:1120px){{.grid,.launch-grid{{grid-template-columns:repeat(2,minmax(0,1fr))}}.split,.dash-grid,.cols{{grid-template-columns:1fr}}}}
-@media(max-width:760px){{.topbar{{align-items:flex-start;flex-direction:column}}.nav{{justify-content:flex-start}}.grid,.launch-grid,.metrics,.split .panel .metrics{{grid-template-columns:1fr}}section{{padding:56px 18px}}.hero{{padding:92px 18px 42px}}h1{{font-size:43px}}.section-head{{display:block}}.bar-row{{grid-template-columns:58px 1fr 44px}}}}
+@media(max-width:1120px){{.grid,.launch-grid,.pad-list{{grid-template-columns:repeat(2,minmax(0,1fr))}}.split,.dash-grid,.cols,.pad-map-wrap{{grid-template-columns:1fr}}.pad-map-side{{border-right:0;border-bottom:1px solid var(--line)}}.pad-side-list{{max-height:none;grid-template-columns:repeat(2,minmax(0,1fr))}}}}
+@media(max-width:900px){{.pad-list{{grid-template-columns:1fr}}.pad-card{{grid-template-columns:160px 1fr}}}}
+@media(max-width:760px){{.topbar{{align-items:flex-start;flex-direction:column}}.nav{{justify-content:flex-start}}.grid,.launch-grid,.metrics,.split .panel .metrics,.pad-side-list{{grid-template-columns:1fr}}section{{padding:56px 18px}}.hero{{padding:92px 18px 42px}}h1{{font-size:43px}}.section-head{{display:block}}.bar-row{{grid-template-columns:58px 1fr 44px}}#pad-map{{min-height:460px}}.pad-map-wrap{{min-height:460px}}.pad-card{{grid-template-columns:1fr}}.pad-card img{{max-height:420px}}.pad-mini-event{{grid-template-columns:1fr;gap:2px}}}}
 """
 
 
@@ -413,6 +575,13 @@ def render_home():
   <div><h3>{escape(item['title'])}</h3><p>{escape(item['copy'])}</p></div>
 </a>"""
         for item in MAIN_SECTIONS
+    )
+    utility_cards = "\n".join(
+        f"""<a class="card" href="sezioni/{item['slug']}.html">
+  <small>{escape(item['status'])}</small>
+  <div><h3>{escape(item['title'])}</h3><p>{escape(item['copy'])}</p></div>
+</a>"""
+        for item in UTILITY_SECTIONS
     )
     body = f"""
 <section class="hero">
@@ -433,6 +602,15 @@ def render_home():
       <p>Questa homepage non contiene piu una lunga pagina unica. Ogni blocco importante ha una pagina autonoma, pronta per crescere senza confondere struttura e contenuto.</p>
     </div>
     <div class="grid">{cards}</div>
+  </div>
+</section>
+<section>
+  <div class="inner">
+    <div class="section-head">
+      <h2>Dossier SpaceX</h2>
+      <p>Le pagine operative SpaceX restano autonome: agenda, storico, Starship e infrastrutture di lancio.</p>
+    </div>
+    <div class="grid">{utility_cards}</div>
   </div>
 </section>
 """
@@ -556,6 +734,210 @@ def render_starship(starship):
 """
 
 
+def render_pad_card(pad):
+    timeline = "\n".join(
+        f"""<div class="pad-mini-event"><strong>{escape(str(event['date']))}</strong><span>{escape(str(event['text']))}</span></div>"""
+        for event in pad["timeline"]
+    )
+    current = "\n".join(f"<li>{escape(str(line))}</li>" for line in pad["current"])
+    return f"""
+<article class="pad-card" id="{escape(pad['id'])}">
+  <figure>
+    <img src="{escape(pad['imageHref'])}" alt="Infografica {escape(pad['title'])}" loading="lazy">
+  </figure>
+  <div>
+    <p class="badge">{escape(pad['region'])}</p>
+    <h3>{escape(pad['title'])}</h3>
+    <p>{escape(pad['subtitle'])}</p>
+    <dl>
+      <dt>Localita</dt><dd>{escape(pad['location'])}</dd>
+      <dt>Nome</dt><dd>{escape(pad['full'])}</dd>
+    </dl>
+    <div class="actions" style="margin-top:14px">
+      <button class="button secondary pad-open" type="button" data-pad="{escape(pad['id'])}">Apri sulla mappa</button>
+    </div>
+    <div class="pad-mini-timeline">{timeline}</div>
+    <ul class="pad-current-list">{current}</ul>
+  </div>
+</article>
+"""
+
+
+def render_pad_page(data):
+    pads = data["pads"]
+    cards = "\n".join(render_pad_card(pad) for pad in pads)
+    source_rows = "\n".join(f"<li>{escape(pad['title'])}: {escape(pad['source_note'])}</li>" for pad in pads)
+    leaflet_head = '<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">'
+    leaflet_script = f"""<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const launchPads = {json_for_html(pads)};
+let padMap;
+let padMarkers = {{}};
+let activeRegion = 'Tutti';
+
+function padPopup(pad) {{
+  const timeline = pad.timeline.slice(0, 4).map((event) => `<li><strong>${{event.date}}</strong>: ${{event.text}}</li>`).join('');
+  const current = pad.current.slice(0, 4).map((line) => `<li>${{line}}</li>`).join('');
+  return `
+    <div class="pad-popup">
+      <img src="${{pad.imageHref}}" alt="Infografica ${{pad.title}}">
+      <div class="pad-popup-body">
+        <span class="badge">${{pad.region}}</span>
+        <h3>${{pad.title}}</h3>
+        <p><strong>${{pad.full}}</strong><br>${{pad.location}}</p>
+        <p>${{pad.subtitle}}</p>
+        <ul>${{timeline}}</ul>
+        <ul>${{current}}</ul>
+      </div>
+    </div>`;
+}}
+
+function padIcon(pad) {{
+  const labels = {{
+    'SLC-37B': '37B',
+    'SLC-40': '40',
+    'LC-39A': '39A',
+    'SLC-4E': '4E',
+    'SLC-6': '6',
+    'BOCA CHICA PAD 1': 'P1',
+    'BOCA CHICA PAD 2': 'P2'
+  }};
+  return L.divIcon({{
+    className: 'pad-marker',
+    html: `<div class="pad-marker-dot">${{labels[pad.title] || pad.title}}</div>`,
+    iconSize: [34, 34],
+    iconAnchor: [17, 17],
+    popupAnchor: [0, -18]
+  }});
+}}
+
+function renderPadSideList() {{
+  const list = document.getElementById('pad-side-list');
+  if (!list) return;
+  list.innerHTML = '';
+  launchPads
+    .filter((pad) => activeRegion === 'Tutti' || pad.region === activeRegion)
+    .forEach((pad) => {{
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'pad-side-item';
+      button.dataset.pad = pad.id;
+      button.innerHTML = `<strong>${{pad.title}}</strong><span>${{pad.location}}</span>`;
+      button.addEventListener('click', () => openPad(pad.id));
+      list.appendChild(button);
+    }});
+}}
+
+function setPadActive(id) {{
+  document.querySelectorAll('.pad-side-item').forEach((item) => item.classList.toggle('active', item.dataset.pad === id));
+}}
+
+function openPad(id) {{
+  const pad = launchPads.find((item) => item.id === id);
+  const marker = padMarkers[id];
+  if (!pad || !marker) return;
+  setPadActive(id);
+  padMap.flyTo([pad.lat, pad.lng], pad.region === 'Florida' ? 9 : 10, {{duration: 0.9}});
+  window.setTimeout(() => marker.openPopup(), 650);
+}}
+
+function filterPads(region) {{
+  activeRegion = region;
+  document.querySelectorAll('.pad-filter').forEach((button) => button.classList.toggle('active', button.dataset.region === region));
+  launchPads.forEach((pad) => {{
+    const marker = padMarkers[pad.id];
+    if (!marker) return;
+    const visible = region === 'Tutti' || pad.region === region;
+    if (visible && !padMap.hasLayer(marker)) marker.addTo(padMap);
+    if (!visible && padMap.hasLayer(marker)) marker.remove();
+  }});
+  renderPadSideList();
+}}
+
+function initPadMap() {{
+  const mapEl = document.getElementById('pad-map');
+  if (!mapEl || typeof L === 'undefined') return;
+  padMap = L.map('pad-map', {{ zoomControl: true, minZoom: 3, maxZoom: 18 }}).setView([31.6, -96.4], 4);
+  const osm = L.tileLayer('https://{{s}}.tile.openstreetmap.org/{{z}}/{{x}}/{{y}}.png', {{
+    attribution: '&copy; OpenStreetMap contributors'
+  }}).addTo(padMap);
+  const satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{{z}}/{{y}}/{{x}}', {{
+    attribution: 'Tiles &copy; Esri'
+  }});
+  L.control.layers({{'OpenStreetMap': osm, 'Satellite': satellite}}, null, {{position: 'topright', collapsed: true}}).addTo(padMap);
+  launchPads.forEach((pad) => {{
+    const marker = L.marker([pad.lat, pad.lng], {{icon: padIcon(pad), title: pad.title}})
+      .bindPopup(padPopup(pad), {{maxWidth: 390, minWidth: 290, className: 'custom-popup'}});
+    marker.on('click', () => setPadActive(pad.id));
+    marker.addTo(padMap);
+    padMarkers[pad.id] = marker;
+  }});
+  document.querySelectorAll('.pad-filter').forEach((button) => {{
+    button.addEventListener('click', () => filterPads(button.dataset.region));
+  }});
+  document.querySelectorAll('.pad-open').forEach((button) => {{
+    button.addEventListener('click', () => {{
+      document.getElementById('mappa-pad').scrollIntoView({{behavior: 'smooth', block: 'start'}});
+      openPad(button.dataset.pad);
+    }});
+  }});
+  renderPadSideList();
+}}
+
+window.addEventListener('load', initPadMap);
+</script>"""
+    body = f"""
+{page_hero("Pad di lancio", "Infrastruttura SpaceX", "Mappa dei complessi di lancio SpaceX e schede operative ricavate dalle infografiche locali: storia del sito, fase attuale e ruolo dentro la cadenza futura.")}
+<section id="mappa-pad">
+  <div class="inner">
+    <div class="section-head">
+      <h2>Mappa operativa</h2>
+      <p>Clicca un marker o una voce dell'elenco per aprire la scheda del pad sulla mappa. Sotto trovi anche l'archivio completo con le infografiche.</p>
+    </div>
+    <div class="pad-map-wrap">
+      <aside class="pad-map-side">
+        <div>
+          <p class="badge">Pad SpaceX</p>
+          <h3>Complessi attivi, in conversione o pianificati</h3>
+          <p>Florida, California e Texas sono i tre poli che reggono Falcon, Dragon e Starship.</p>
+        </div>
+        <div class="pad-filter-row" aria-label="Filtri mappa pad">
+          <button class="pad-filter active" type="button" data-region="Tutti">Tutti</button>
+          <button class="pad-filter" type="button" data-region="Florida">Florida</button>
+          <button class="pad-filter" type="button" data-region="California">California</button>
+          <button class="pad-filter" type="button" data-region="Texas">Texas</button>
+        </div>
+        <div id="pad-side-list" class="pad-side-list"></div>
+      </aside>
+      <div id="pad-map" aria-label="Mappa dei pad di lancio SpaceX"></div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="inner">
+    <div class="section-head">
+      <h2>Elenco pad</h2>
+      <p>Le schede riprendono i contenuti delle infografiche nella cartella locale, in forma leggibile e navigabile.</p>
+    </div>
+    <div class="pad-list">{cards}</div>
+  </div>
+</section>
+<section>
+  <div class="inner">
+    <div class="section-head">
+      <h2>Fonti</h2>
+      <p>Le schede si basano sulle fonti operative raccolte per le infografiche dei pad.</p>
+    </div>
+    <div class="source-panel">
+      <p>Crediti immagini e fonti dettagliate sono conservati nel file locale <a href="../pad_di_lancio/fonti_pad_di_lancio.md">fonti_pad_di_lancio.md</a>.</p>
+      <ul>{source_rows}</ul>
+    </div>
+  </div>
+</section>
+"""
+    return shell("Pad di lancio", "pad-di-lancio", True, body, leaflet_script, leaflet_head)
+
+
 def page_hero(title, eyebrow, copy, construction=False):
     badge = '<p class="badge">Pagina in costruzione</p>' if construction else ""
     return f"""
@@ -591,6 +973,7 @@ def render_spacex(data):
         <a class="button" href="lanci-imminenti.html">Lanci imminenti</a>
         <a class="button secondary" href="storico-lanci.html">Storico lanci</a>
         <a class="button secondary" href="starship.html">Starship</a>
+        <a class="button secondary" href="pad-di-lancio.html">Pad di lancio</a>
       </div>
     </article>
     <aside class="panel"><h3>Cruscotto rapido</h3><div class="metrics">{top_metrics}</div></aside>
@@ -661,6 +1044,7 @@ def render():
         "upcoming": extract_upcoming_launches(),
         "falcon": falcon_data(),
         "starship": starship_data(),
+        "pads": pad_launch_data(),
         "generatedAt": datetime.now().strftime("%Y-%m-%d %H:%M"),
     }
     write(CSS_DIR / "style.css", render_css())
@@ -669,6 +1053,7 @@ def render():
     write(SECTIONS_DIR / "lanci-imminenti.html", render_launches_page(data))
     write(SECTIONS_DIR / "storico-lanci.html", render_history_page(data))
     write(SECTIONS_DIR / "starship.html", render_starship_page(data))
+    write(SECTIONS_DIR / "pad-di-lancio.html", render_pad_page(data))
     for item in MAIN_SECTIONS:
         if item["slug"] != "spacex":
             write(SECTIONS_DIR / f"{item['slug']}.html", render_placeholder(item))
