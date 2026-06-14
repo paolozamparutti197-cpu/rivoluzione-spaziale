@@ -91,6 +91,12 @@ UTILITY_SECTIONS = [
         "status": "Attiva",
         "copy": "Dashboard Falcon: cadenza, famiglie, pad e recupero booster.",
     },
+    {
+        "title": "Starship",
+        "slug": "starship",
+        "status": "Attiva",
+        "copy": "Sviluppo Starship, voli integrati e temi tecnici principali.",
+    },
 ]
 
 ALL_SECTIONS = MAIN_SECTIONS + UTILITY_SECTIONS
@@ -584,31 +590,14 @@ def render_spacex(data):
       <div class="actions">
         <a class="button" href="lanci-imminenti.html">Lanci imminenti</a>
         <a class="button secondary" href="storico-lanci.html">Storico lanci</a>
+        <a class="button secondary" href="starship.html">Starship</a>
       </div>
     </article>
     <aside class="panel"><h3>Cruscotto rapido</h3><div class="metrics">{top_metrics}</div></aside>
   </div>
 </section>
-<section>
-  <div class="inner">
-    <div class="section-head"><h2>Lanci imminenti</h2><p>La stessa agenda ha anche una pagina autonoma, ma qui resta nel quadro SpaceX complessivo.</p></div>
-    <div class="launch-grid">{render_launch_cards(data['upcoming'])}</div>
-  </div>
-</section>
-<section>
-  <div class="inner">
-    <div class="section-head"><h2>Storico lanci</h2><p>Dashboard Falcon con riepiloghi, andamento annuale, famiglie di lanciatore, pad e recupero booster.</p></div>
-    {render_falcon_dashboard(data['falcon'])}
-  </div>
-</section>
-<section>
-  <div class="inner">
-    <div class="section-head"><h2>Sviluppo Starship</h2><p>Starship e il salto industriale: produzione rapida, riuso completo, rifornimento orbitale e logistica lunare.</p></div>
-    {render_starship(data['starship'])}
-  </div>
-</section>
 """
-    return shell("SpaceX", "spacex", True, body, countdown_script())
+    return shell("SpaceX", "spacex", True, body)
 
 
 def render_launches_page(data):
@@ -631,6 +620,16 @@ def render_history_page(data):
 </section>
 """
     return shell("Storico lanci", "storico-lanci", True, body)
+
+
+def render_starship_page(data):
+    body = f"""
+{page_hero("Starship", "Sviluppo SpaceX", "Produzione rapida, riuso completo, rifornimento orbitale e logistica lunare: Starship merita una pagina separata dalla porta generale SpaceX.")}
+<section>
+  <div class="inner">{render_starship(data['starship'])}</div>
+</section>
+"""
+    return shell("Starship", "starship", True, body)
 
 
 def render_placeholder(item):
@@ -669,6 +668,7 @@ def render():
     write(SECTIONS_DIR / "spacex.html", render_spacex(data))
     write(SECTIONS_DIR / "lanci-imminenti.html", render_launches_page(data))
     write(SECTIONS_DIR / "storico-lanci.html", render_history_page(data))
+    write(SECTIONS_DIR / "starship.html", render_starship_page(data))
     for item in MAIN_SECTIONS:
         if item["slug"] != "spacex":
             write(SECTIONS_DIR / f"{item['slug']}.html", render_placeholder(item))
