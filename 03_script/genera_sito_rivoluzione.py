@@ -1,5 +1,4 @@
 import json
-import re
 import subprocess
 from datetime import date, datetime
 from html import escape
@@ -9,6 +8,91 @@ import openpyxl
 
 
 ROOT = Path(__file__).resolve().parents[1]
+SECTIONS_DIR = ROOT / "sezioni"
+CSS_DIR = ROOT / "css"
+
+HERO_IMAGE = "https://upload.wikimedia.org/wikipedia/commons/5/5d/Falcon_1_Flight_4_launch.jpg"
+
+MAIN_SECTIONS = [
+    {
+        "title": "SpaceX",
+        "slug": "spacex",
+        "status": "Attiva",
+        "copy": "Cadenza Falcon, riuso, agenda lanci e sviluppo Starship.",
+        "active": True,
+    },
+    {
+        "title": "Blue Origin",
+        "slug": "blue-origin",
+        "status": "In costruzione",
+        "copy": "New Glenn, BE-4 e il tentativo di costruire un secondo polo privato pesante.",
+    },
+    {
+        "title": "ULA",
+        "slug": "ula",
+        "status": "In costruzione",
+        "copy": "Vulcan, sicurezza nazionale e transizione dalla stagione Atlas/Delta.",
+    },
+    {
+        "title": "Rocket Lab",
+        "slug": "rocket-lab",
+        "status": "In costruzione",
+        "copy": "Electron, Neutron e la via agile al lancio commerciale integrato.",
+    },
+    {
+        "title": "Arianespace",
+        "slug": "arianespace",
+        "status": "In costruzione",
+        "copy": "Ariane 6, Vega C e la ricerca europea di autonomia d'accesso.",
+    },
+    {
+        "title": "Cina",
+        "slug": "cina",
+        "status": "In costruzione",
+        "copy": "Lunga Marcia, stazione spaziale, Luna e nuovo ecosistema commerciale.",
+    },
+    {
+        "title": "Luna",
+        "slug": "luna",
+        "status": "In costruzione",
+        "copy": "Artemis, lander commerciali, basi, risorse e competizione geopolitica.",
+    },
+    {
+        "title": "Marte",
+        "slug": "marte",
+        "status": "In costruzione",
+        "copy": "Dalla retorica della colonizzazione alle tecnologie davvero necessarie.",
+    },
+    {
+        "title": "Infrastrutture orbitali",
+        "slug": "infrastrutture-orbitali",
+        "status": "In costruzione",
+        "copy": "Stazioni private, rifornimento, cargo, servicing e logistica in orbita.",
+    },
+    {
+        "title": "Cronologia",
+        "slug": "cronologia",
+        "status": "In costruzione",
+        "copy": "Una linea del tempo per seguire la rivoluzione spaziale senza perdere il filo.",
+    },
+]
+
+UTILITY_SECTIONS = [
+    {
+        "title": "Lanci imminenti",
+        "slug": "lanci-imminenti",
+        "status": "Attiva",
+        "copy": "Agenda SpaceX con countdown e fonti missione.",
+    },
+    {
+        "title": "Storico lanci",
+        "slug": "storico-lanci",
+        "status": "Attiva",
+        "copy": "Dashboard Falcon: cadenza, famiglie, pad e recupero booster.",
+    },
+]
+
+ALL_SECTIONS = MAIN_SECTIONS + UTILITY_SECTIONS
 
 
 def clean(value):
@@ -39,7 +123,6 @@ def rows_from_sheet(path, sheet_name, header_row):
 
 
 def extract_upcoming_launches():
-    source = ROOT / "spacex_lanci_fino_luglio_2026 (1).html"
     node_code = r"""
 const fs = require("fs");
 const text = fs.readFileSync("spacex_lanci_fino_luglio_2026 (1).html", "utf8");
@@ -68,7 +151,6 @@ console.log(JSON.stringify(launches.map((launch) => ({
         output = subprocess.check_output(["node", "-e", node_code], cwd=ROOT, text=True, encoding="utf-8")
         return json.loads(output)
     except Exception:
-        # Fallback prudente: la sezione resta vuota invece di inventare lanci.
         return []
 
 
@@ -117,11 +199,6 @@ def falcon_data():
         for row in pad_rows
         if row.get("pad")
     ]
-    orbits = [
-        {"orbita": row.get("orbita"), "lanci": row.get("lanci principali"), "quota": row.get("quota")}
-        for row in pad_rows
-        if row.get("orbita")
-    ]
     landing_rows = rows_from_sheet(path, "booster_landing", 3)
     landing = [
         {
@@ -133,24 +210,7 @@ def falcon_data():
         for row in landing_rows
         if row.get("codice landing")
     ][:8]
-    boosters = [
-        {
-            "booster": row.get("booster"),
-            "voli": row.get("voli massimi registrati"),
-            "record": row.get("record presenti"),
-        }
-        for row in landing_rows
-        if row.get("booster")
-    ][:8]
-    return {
-        "metrics": metrics,
-        "annual": annual,
-        "launchers": launchers,
-        "pads": pads,
-        "orbits": orbits,
-        "landing": landing,
-        "boosters": boosters,
-    }
+    return {"metrics": metrics, "annual": annual, "launchers": launchers, "pads": pads, "landing": landing}
 
 
 def starship_data():
@@ -163,21 +223,14 @@ def starship_data():
         "catch": clean(dashboard["E5"].value),
         "reflight": clean(dashboard["G5"].value),
         "stato": clean(dashboard["I5"].value),
-        "range": clean(dashboard["A6"].value),
-        "voliRange": clean(dashboard["C6"].value),
-        "catchDettaglio": clean(dashboard["E6"].value),
-        "reflightDettaglio": clean(dashboard["G6"].value),
         "statoDettaglio": clean(dashboard["I6"].value),
     }
     flights = [
         {
             "flight": row.get("Flight"),
             "data": row.get("Data"),
-            "veicolo": row.get("Veicolo"),
-            "block": row.get("Block"),
             "milestone": row.get("Milestone"),
             "esito": row.get("Esito integrato"),
-            "lezione": row.get("Lezione"),
         }
         for row in rows_from_sheet(path, "Voli integrati", 4)
         if row.get("Flight")
@@ -191,23 +244,414 @@ def starship_data():
         for row in rows_from_sheet(path, "Temi e sintesi", 4)
         if row.get("Tema")
     ]
-    timeline = [
-        {
-            "data": row.get("Data"),
-            "fase": row.get("Fase"),
-            "evento": row.get("Evento"),
-            "categoria": row.get("Categoria"),
-            "esito": row.get("Esito"),
-            "impatto": row.get("Impatto"),
-        }
-        for row in rows_from_sheet(path, "Timeline integrata", 4)
-        if row.get("Data")
-    ][-10:]
-    return {"metrics": metrics, "flights": flights, "themes": themes, "timeline": timeline}
+    return {"metrics": metrics, "flights": flights, "themes": themes}
 
 
 def json_for_html(data):
     return json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+
+
+def page_path(slug):
+    return f"{slug}.html"
+
+
+def section_href(slug, from_section):
+    return page_path(slug) if from_section else f"sezioni/{page_path(slug)}"
+
+
+def nav_html(current, from_section):
+    home_href = "../index.html" if from_section else "index.html"
+    links = [("Home", home_href)]
+    links.extend((item["title"], section_href(item["slug"], from_section)) for item in ALL_SECTIONS)
+    return "\n".join(
+        f'<a class="{ "active" if key == current else "" }" href="{href}">{escape(label)}</a>'
+        for label, href in links
+        for key in [label.lower().replace(" ", "-") if label != "Home" else "home"]
+    )
+
+
+def head_html(title, css_href):
+    return f"""<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{escape(title)} | Rivoluzione Spaziale</title>
+<link rel="stylesheet" href="{css_href}">
+</head>
+"""
+
+
+def shell(title, current, from_section, body, extra_script=""):
+    css_href = "../css/style.css" if from_section else "css/style.css"
+    return f"""{head_html(title, css_href)}
+<body>
+<header class="topbar">
+  <a class="brand" href="{'../index.html' if from_section else 'index.html'}">Rivoluzione <span>Spaziale</span></a>
+  <nav class="nav" aria-label="Navigazione principale">
+{nav_html(current, from_section)}
+  </nav>
+</header>
+<main>
+{body}
+</main>
+<footer class="footer">
+  Rivoluzione Spaziale. Sito statico multipagina pubblicato su GitHub Pages.
+</footer>
+{extra_script}
+</body>
+</html>
+"""
+
+
+def metric(value, label):
+    return f'<div class="metric"><b>{escape(str(value))}</b><span>{escape(label)}</span></div>'
+
+
+def percent(value):
+    if value is None:
+        return "n.d."
+    return f"{round(value * 1000) / 10}%"
+
+
+def render_css():
+    return f""":root {{
+  --bg:#050607;
+  --ink:#f5f7fa;
+  --muted:#aeb6bd;
+  --line:rgba(255,255,255,.16);
+  --panel:rgba(255,255,255,.07);
+  --panel2:rgba(255,255,255,.105);
+  --accent:#69c8ff;
+  --gold:#f2b84b;
+  --green:#78d58c;
+}}
+*,*::before,*::after{{box-sizing:border-box}}
+html{{scroll-behavior:smooth;overflow-x:clip}}
+body{{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;letter-spacing:0;overflow-x:hidden}}
+a{{color:inherit;text-decoration:none}}
+.topbar{{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:16px clamp(18px,4vw,56px);background:rgba(5,6,7,.92);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}}
+.brand{{font-weight:950;letter-spacing:.18em;text-transform:uppercase;font-size:14px;white-space:nowrap}}
+.brand span{{color:var(--accent)}}
+.nav{{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end;font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:850}}
+.nav a{{color:#fff;opacity:.72}}
+.nav a:hover,.nav a.active{{opacity:1;color:#fff}}
+.hero{{min-height:76vh;display:grid;align-items:end;padding:110px clamp(18px,4vw,56px) 52px;background:linear-gradient(90deg,rgba(0,0,0,.92),rgba(0,0,0,.54) 45%,rgba(0,0,0,.12)),linear-gradient(180deg,rgba(0,0,0,.08),rgba(5,6,7,.96) 92%),url('{HERO_IMAGE}') center/cover no-repeat}}
+.page-hero{{padding:76px clamp(18px,4vw,56px) 44px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.02))}}
+.hero-inner,.inner{{max-width:1240px;margin:0 auto}}
+.eyebrow{{margin:0 0 14px;color:var(--gold);font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:.15em}}
+h1{{margin:0;max-width:1000px;font-size:clamp(42px,8vw,106px);line-height:.9;text-transform:uppercase;font-weight:950}}
+h2{{margin:0;font-size:clamp(30px,4vw,56px);line-height:.98;text-transform:uppercase}}
+h3{{margin:0 0 10px;font-size:22px;line-height:1.14}}
+p{{color:#d9dee3;line-height:1.64}}
+.subtitle{{max-width:820px;margin:24px 0 0;color:#e6ebef;font-size:clamp(18px,2vw,24px);line-height:1.45;font-weight:560}}
+.actions{{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}}
+.button{{border:1px solid var(--line);padding:13px 18px;border-radius:4px;text-transform:uppercase;font-size:12px;letter-spacing:.09em;font-weight:900;background:#fff;color:#000}}
+.button.secondary{{background:rgba(0,0,0,.22);color:#fff}}
+section{{padding:72px clamp(18px,4vw,56px);border-top:1px solid var(--line)}}
+.section-head{{display:flex;justify-content:space-between;gap:28px;align-items:end;margin-bottom:28px}}
+.section-head p{{max-width:660px;color:var(--muted);line-height:1.58;margin:0}}
+.grid{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}}
+.card,.panel{{border:1px solid var(--line);background:linear-gradient(180deg,var(--panel2),var(--panel));border-radius:8px;padding:20px}}
+.card{{min-height:182px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .18s ease,border-color .18s ease}}
+.card:hover{{transform:translateY(-3px);border-color:rgba(105,200,255,.55)}}
+.card small,.badge{{color:var(--gold);text-transform:uppercase;letter-spacing:.1em;font-size:11px;font-weight:900}}
+.card p{{margin:0;color:#cbd2d8;font-size:14px}}
+.split{{display:grid;grid-template-columns:1.05fr .95fr;gap:20px;align-items:stretch}}
+.metrics{{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}}
+.metric{{border:1px solid var(--line);background:rgba(255,255,255,.065);border-radius:8px;padding:18px;min-height:112px}}
+.metric b{{display:block;font-size:clamp(27px,3.5vw,42px);line-height:1;margin-bottom:8px}}
+.metric span{{display:block;color:var(--muted);font-size:13px;line-height:1.35}}
+.launch-grid{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}}
+.launch{{border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.05));border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:12px;min-height:318px}}
+.launch-top{{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}}
+.pill{{display:inline-flex;border:1px solid rgba(105,200,255,.5);color:#dff4ff;border-radius:999px;padding:5px 8px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:900}}
+.pill.net{{border-color:rgba(242,184,75,.6);color:#ffe1a3}}
+.date{{color:#d6dde3;text-align:right;font-size:13px;font-weight:800}}
+.launch h3{{font-size:21px}}
+.launch p{{margin:0;font-size:14px;color:#cbd2d8}}
+.source-links{{display:flex;flex-wrap:wrap;gap:7px;margin-top:2px}}
+.source-links a{{border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:5px 8px;color:#dcebf4;font-size:11px;text-transform:uppercase;letter-spacing:.06em;font-weight:850}}
+.countdown{{margin-top:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:6px}}
+.timebox{{background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:8px 4px;text-align:center}}
+.timebox strong{{display:block;font-size:20px}}
+.timebox span{{display:block;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.08em}}
+.dash-grid{{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}}
+.cols{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}}
+.bars{{display:grid;gap:8px}}
+.bar-row{{display:grid;grid-template-columns:72px 1fr 56px;gap:10px;align-items:center;font-size:13px;color:#dfe5ea}}
+.bar{{height:9px;background:rgba(255,255,255,.1);border-radius:999px;overflow:hidden}}
+.bar i{{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--green));border-radius:999px}}
+table{{width:100%;border-collapse:collapse;font-size:14px}}
+th,td{{border-top:1px solid var(--line);padding:12px 8px;text-align:left;vertical-align:top;line-height:1.38}}
+th{{color:#fff;text-transform:uppercase;letter-spacing:.08em;font-size:11px}}
+td{{color:#d8dee3}}
+.theme-list{{display:grid;gap:12px}}
+.theme{{border-left:3px solid var(--accent);padding:0 0 0 14px}}
+.theme p{{margin:4px 0 0;font-size:14px;color:#cfd6dc}}
+.construction{{border-color:rgba(242,184,75,.45);background:linear-gradient(180deg,rgba(242,184,75,.12),rgba(255,255,255,.055))}}
+.muted{{color:var(--muted)}}
+.footer{{padding:34px clamp(18px,4vw,56px);border-top:1px solid var(--line);color:var(--muted);font-size:13px;line-height:1.5}}
+@media(max-width:1120px){{.grid,.launch-grid{{grid-template-columns:repeat(2,minmax(0,1fr))}}.split,.dash-grid,.cols{{grid-template-columns:1fr}}}}
+@media(max-width:760px){{.topbar{{align-items:flex-start;flex-direction:column}}.nav{{justify-content:flex-start}}.grid,.launch-grid,.metrics{{grid-template-columns:1fr}}section{{padding:56px 18px}}.hero{{padding:92px 18px 42px}}h1{{font-size:43px}}.section-head{{display:block}}.bar-row{{grid-template-columns:58px 1fr 44px}}}}
+"""
+
+
+def render_home():
+    cards = "\n".join(
+        f"""<a class="card {'construction' if not item.get('active') else ''}" href="sezioni/{item['slug']}.html">
+  <small>{escape(item['status'])}</small>
+  <div><h3>{escape(item['title'])}</h3><p>{escape(item['copy'])}</p></div>
+</a>"""
+        for item in MAIN_SECTIONS
+    )
+    body = f"""
+<section class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Osservatorio</p>
+    <h1>Rivoluzione Spaziale</h1>
+    <p class="subtitle">I nuovi signori dello spazio. Una mappa editoriale per seguire chi sta ridisegnando accesso all'orbita, infrastrutture, Luna, Marte e industria spaziale.</p>
+    <div class="actions">
+      <a class="button" href="sezioni/spacex.html">Apri SpaceX</a>
+      <a class="button secondary" href="sezioni/cronologia.html">Cronologia</a>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="inner">
+    <div class="section-head">
+      <h2>Sezioni principali</h2>
+      <p>Questa homepage non contiene piu una lunga pagina unica. Ogni blocco importante ha una pagina autonoma, pronta per crescere senza confondere struttura e contenuto.</p>
+    </div>
+    <div class="grid">{cards}</div>
+  </div>
+</section>
+"""
+    return shell("Home", "home", False, body)
+
+
+def render_launch_cards(launches):
+    return "\n".join(
+        f"""<article class="launch" data-iso="{escape(str(item.get('iso') or ''))}">
+  <div class="launch-top">
+    <span class="pill {'net' if 'net' in (item.get('cat') or []) else ''}">{'NET' if 'net' in (item.get('cat') or []) else 'T-0'}</span>
+    <span class="date">{escape(str(item.get('dateLabel') or 'Data da confermare'))}</span>
+  </div>
+  <h3>{escape(str(item.get('name') or 'Missione'))}</h3>
+  <p><strong>{escape(str(item.get('rocket') or ''))}</strong></p>
+  <p>{escape(str(item.get('site') or ''))}</p>
+  <p>{escape(str(item.get('payload') or ''))}</p>
+  <div class="source-links">{''.join(f'<a href="{escape(str(src.get("url") or "#"))}" target="_blank" rel="noopener">{escape(str(src.get("label") or "Fonte"))}</a>' for src in item.get("sources", []))}</div>
+  <div class="countdown">
+    <div class="timebox"><strong class="d">0</strong><span>giorni</span></div>
+    <div class="timebox"><strong class="h">00</strong><span>ore</span></div>
+    <div class="timebox"><strong class="m">00</strong><span>min</span></div>
+    <div class="timebox"><strong class="s">00</strong><span>sec</span></div>
+  </div>
+</article>"""
+        for item in launches
+    )
+
+
+def countdown_script():
+    return """<script>
+function pad(n){return String(n).padStart(2,'0')}
+function countdown(iso){
+  const diff = new Date(iso).getTime() - Date.now();
+  if (!Number.isFinite(diff) || diff <= 0) return ['0','00','00','00'];
+  const total = Math.floor(diff / 1000);
+  return [Math.floor(total / 86400), pad(Math.floor(total % 86400 / 3600)), pad(Math.floor(total % 3600 / 60)), pad(total % 60)];
+}
+function tick(){
+  document.querySelectorAll('.launch[data-iso]').forEach(card => {
+    const parts = countdown(card.dataset.iso);
+    card.querySelector('.d').textContent = parts[0];
+    card.querySelector('.h').textContent = parts[1];
+    card.querySelector('.m').textContent = parts[2];
+    card.querySelector('.s').textContent = parts[3];
+  });
+}
+tick();
+setInterval(tick, 1000);
+</script>"""
+
+
+def render_falcon_dashboard(falcon):
+    f = falcon["metrics"]
+    metric_html = "".join(
+        [
+            metric(f"{f['lanci']:,}".replace(",", "."), "lanci principali"),
+            metric(f"{f['successi']:,}".replace(",", "."), "successi"),
+            metric(percent(f["tasso"]), "tasso successo"),
+            metric(f["boosterMax"], "max voli booster"),
+            metric(f["falconHeavy"], "Falcon Heavy"),
+            metric(f["padAttivi"], "pad attivi"),
+            metric(f["recuperiRiusciti"], "recuperi booster"),
+            metric(f["boosterRiutilizzati"], "booster riutilizzati"),
+        ]
+    )
+    max_launches = max(row["lanci"] or 0 for row in falcon["annual"]) or 1
+    bars = "\n".join(
+        f"""<div class="bar-row"><span>{row['anno']}</span><div class="bar"><i style="width:{max(2, (row['lanci'] or 0) / max_launches * 100)}%"></i></div><strong>{row['lanci']}</strong></div>"""
+        for row in falcon["annual"]
+    )
+    launcher_rows = "\n".join(
+        f"<tr><td>{escape(str(row['lanciatore']))}</td><td>{row['lanci']}</td><td>{percent(row['tasso'])}</td></tr>"
+        for row in falcon["launchers"]
+    )
+    pad_rows = "\n".join(
+        f"<tr><td>{escape(str(row['pad']))}</td><td>{row['lanci']}</td><td>{percent(row['quota'])}</td></tr>"
+        for row in falcon["pads"]
+    )
+    landing_rows = "\n".join(
+        f"<tr><td>{escape(str(row['codice']))}</td><td>{row['record']}</td><td>{row['recuperi']}</td></tr>"
+        for row in falcon["landing"]
+    )
+    return f"""
+<div class="metrics">{metric_html}</div>
+<div class="dash-grid" style="margin-top:18px">
+  <div class="panel"><h3>Lanci per anno</h3><div class="bars">{bars}</div></div>
+  <div class="panel"><h3>Famiglie Falcon</h3><table><thead><tr><th>Lanciatore</th><th>Lanci</th><th>Successo</th></tr></thead><tbody>{launcher_rows}</tbody></table></div>
+</div>
+<div class="cols" style="margin-top:18px">
+  <div class="panel"><h3>Pad e aree</h3><table><thead><tr><th>Pad</th><th>Lanci</th><th>Quota</th></tr></thead><tbody>{pad_rows}</tbody></table></div>
+  <div class="panel"><h3>Recupero booster</h3><table><thead><tr><th>Landing</th><th>Record</th><th>Recuperi</th></tr></thead><tbody>{landing_rows}</tbody></table></div>
+</div>
+"""
+
+
+def render_starship(starship):
+    s = starship["metrics"]
+    metric_html = "".join(
+        [
+            metric(s["eventi"], "eventi timeline"),
+            metric(s["voli"], "voli integrati"),
+            metric(s["catch"], "catch booster"),
+            metric(s["reflight"], "reflight Super Heavy"),
+        ]
+    )
+    flight_rows = "\n".join(
+        f"<tr><td>{escape(str(row['flight']))}</td><td>{escape(str(row['data']))}</td><td>{escape(str(row['milestone']))}</td><td>{escape(str(row['esito']))}</td></tr>"
+        for row in starship["flights"]
+    )
+    themes = "\n".join(
+        f"""<div class="theme"><h3>{escape(str(row['tema']))}</h3><p>{escape(str(row['sintesi']))}</p><p class="muted">{escape(str(row['impatto']))}</p></div>"""
+        for row in starship["themes"]
+    )
+    return f"""
+<div class="metrics">{metric_html}</div>
+<div class="dash-grid" style="margin-top:18px">
+  <div class="panel"><h3>Voli integrati</h3><table><thead><tr><th>Flight</th><th>Data</th><th>Milestone</th><th>Esito</th></tr></thead><tbody>{flight_rows}</tbody></table></div>
+  <div class="panel"><h3>Temi tecnici</h3><div class="theme-list">{themes}</div></div>
+</div>
+"""
+
+
+def page_hero(title, eyebrow, copy, construction=False):
+    badge = '<p class="badge">Pagina in costruzione</p>' if construction else ""
+    return f"""
+<section class="page-hero">
+  <div class="inner">
+    <p class="eyebrow">{escape(eyebrow)}</p>
+    <h1>{escape(title)}</h1>
+    <p class="subtitle">{escape(copy)}</p>
+    {badge}
+  </div>
+</section>
+"""
+
+
+def render_spacex(data):
+    f = data["falcon"]["metrics"]
+    top_metrics = "".join(
+        [
+            metric(f"{f['lanci']:,}".replace(",", "."), "lanci Falcon principali"),
+            metric(percent(f["tasso"]), "success rate storico"),
+            metric(f["recuperiRiusciti"], "recuperi booster riusciti"),
+            metric(data["starship"]["metrics"]["stato"], "stato Starship"),
+        ]
+    )
+    body = f"""
+{page_hero("SpaceX", "Sezione attiva", "L'area SpaceX raccoglie la parte viva del sito: agenda dei lanci, storico Falcon, riuso dei booster e sviluppo Starship.")}
+<section>
+  <div class="inner split">
+    <article class="panel">
+      <h2>Macchina operativa</h2>
+      <p>SpaceX non viene trattata come una semplice azienda di lanci. Qui e il primo laboratorio della nuova industria spaziale: cadenza, costi, recupero, riuso, infrastrutture e sviluppo rapido nello stesso sistema.</p>
+      <div class="actions">
+        <a class="button" href="lanci-imminenti.html">Lanci imminenti</a>
+        <a class="button secondary" href="storico-lanci.html">Storico lanci</a>
+      </div>
+    </article>
+    <aside class="panel"><h3>Cruscotto rapido</h3><div class="metrics">{top_metrics}</div></aside>
+  </div>
+</section>
+<section>
+  <div class="inner">
+    <div class="section-head"><h2>Lanci imminenti</h2><p>La stessa agenda ha anche una pagina autonoma, ma qui resta nel quadro SpaceX complessivo.</p></div>
+    <div class="launch-grid">{render_launch_cards(data['upcoming'])}</div>
+  </div>
+</section>
+<section>
+  <div class="inner">
+    <div class="section-head"><h2>Storico lanci</h2><p>Dashboard Falcon con riepiloghi, andamento annuale, famiglie di lanciatore, pad e recupero booster.</p></div>
+    {render_falcon_dashboard(data['falcon'])}
+  </div>
+</section>
+<section>
+  <div class="inner">
+    <div class="section-head"><h2>Sviluppo Starship</h2><p>Starship e il salto industriale: produzione rapida, riuso completo, rifornimento orbitale e logistica lunare.</p></div>
+    {render_starship(data['starship'])}
+  </div>
+</section>
+"""
+    return shell("SpaceX", "spacex", True, body, countdown_script())
+
+
+def render_launches_page(data):
+    body = f"""
+{page_hero("Lanci imminenti", "Agenda SpaceX", "Tutti i voli gia censiti nella prima agenda, con countdown in tempo reale. I voli NET restano finestre indicative.")}
+<section>
+  <div class="inner">
+    <div class="launch-grid">{render_launch_cards(data['upcoming'])}</div>
+  </div>
+</section>
+"""
+    return shell("Lanci imminenti", "lanci-imminenti", True, body, countdown_script())
+
+
+def render_history_page(data):
+    body = f"""
+{page_hero("Storico lanci", "Dashboard Falcon", "Riepilogo operativo dello storico Falcon: cadenza, successi, pad, famiglie di lanciatore e recupero booster.")}
+<section>
+  <div class="inner">{render_falcon_dashboard(data['falcon'])}</div>
+</section>
+"""
+    return shell("Storico lanci", "storico-lanci", True, body)
+
+
+def render_placeholder(item):
+    body = f"""
+{page_hero(item['title'], item['status'], item['copy'], construction=True)}
+<section>
+  <div class="inner split">
+    <article class="panel construction">
+      <h2>In costruzione</h2>
+      <p>Questa pagina e gia separata nella struttura del sito, ma il contenuto editoriale verra sviluppato in una fase successiva. Per ora resta come porta autonoma, con navigazione coerente e percorsi gia pronti per GitHub Pages.</p>
+    </article>
+    <aside class="panel">
+      <h3>Prossimo sviluppo</h3>
+      <p class="muted">Qui entreranno contesto, cronologia, dati, fonti e collegamenti alle pagine correlate.</p>
+    </aside>
+  </div>
+</section>
+"""
+    return shell(item["title"], item["slug"], True, body)
+
+
+def write(path, content):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(content, encoding="utf-8")
 
 
 def render():
@@ -217,323 +661,14 @@ def render():
         "starship": starship_data(),
         "generatedAt": datetime.now().strftime("%Y-%m-%d %H:%M"),
     }
-    page = f"""<!doctype html>
-<html lang="it">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rivoluzione Spaziale</title>
-<style>
-:root {{
-  --bg:#050607;
-  --ink:#f5f7fa;
-  --muted:#aeb6bd;
-  --line:rgba(255,255,255,.16);
-  --panel:rgba(255,255,255,.07);
-  --panel2:rgba(255,255,255,.105);
-  --accent:#69c8ff;
-  --gold:#f2b84b;
-  --red:#e45d48;
-  --green:#78d58c;
-}}
-*{{box-sizing:border-box}}
-html{{scroll-behavior:smooth;overflow-x:clip}}
-*,*::before,*::after{{box-sizing:border-box}}
-body{{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;letter-spacing:0;overflow-x:hidden}}
-a{{color:inherit;text-decoration:none}}
-button{{font:inherit}}
-.topbar{{position:fixed;inset:0 0 auto;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px clamp(18px,4vw,56px);background:linear-gradient(180deg,rgba(0,0,0,.88),rgba(0,0,0,.48),transparent)}}
-.brand{{font-weight:950;letter-spacing:.18em;text-transform:uppercase;font-size:14px}}
-.brand span{{color:var(--accent)}}
-.nav{{display:flex;gap:16px;flex-wrap:wrap;justify-content:flex-end;font-size:12px;text-transform:uppercase;letter-spacing:.1em;font-weight:850}}
-.nav a{{color:#fff;opacity:.82}}
-.nav a:hover{{opacity:1;text-decoration:none}}
-.hero{{min-height:94vh;display:grid;align-items:end;padding:116px clamp(18px,4vw,56px) 50px;background:linear-gradient(90deg,rgba(0,0,0,.92),rgba(0,0,0,.52) 44%,rgba(0,0,0,.1)),linear-gradient(180deg,rgba(0,0,0,.05),rgba(5,6,7,.96) 92%),url('https://upload.wikimedia.org/wikipedia/commons/5/5d/Falcon_1_Flight_4_launch.jpg') center/cover no-repeat}}
-.hero-inner{{max-width:1080px}}
-.eyebrow{{margin:0 0 14px;color:var(--gold);font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:.15em}}
-h1{{margin:0;max-width:920px;font-size:clamp(44px,9vw,112px);line-height:.88;text-transform:uppercase;font-weight:950}}
-.subtitle{{max-width:780px;margin:24px 0 0;color:#e6ebef;font-size:clamp(18px,2vw,24px);line-height:1.45;font-weight:560}}
-.hero-actions{{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}}
-.primary,.secondary{{border:1px solid var(--line);padding:13px 18px;border-radius:4px;text-transform:uppercase;font-size:12px;letter-spacing:.09em;font-weight:900;background:#fff;color:#000;cursor:pointer}}
-.secondary{{background:rgba(0,0,0,.22);color:#fff}}
-section{{padding:78px clamp(18px,4vw,56px);border-top:1px solid var(--line)}}
-.inner{{max-width:1240px;margin:0 auto}}
-.section-head{{display:flex;justify-content:space-between;gap:28px;align-items:end;margin-bottom:28px}}
-.section-head p{{max-width:640px;color:var(--muted);line-height:1.58;margin:0}}
-h2{{margin:0;font-size:clamp(30px,4vw,56px);line-height:.98;text-transform:uppercase}}
-h3{{margin:0 0 10px;font-size:22px;line-height:1.14}}
-p{{color:#d9dee3;line-height:1.64}}
-.powers{{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}}
-.power{{border:1px solid var(--line);background:linear-gradient(180deg,var(--panel2),var(--panel));border-radius:8px;padding:18px;min-height:168px;position:relative;overflow:hidden;transition:transform .18s ease,border-color .18s ease}}
-.power:hover{{transform:translateY(-3px);border-color:rgba(105,200,255,.55)}}
-.power.active{{border-color:rgba(105,200,255,.8);background:linear-gradient(180deg,rgba(105,200,255,.18),rgba(255,255,255,.065))}}
-.power small{{display:block;color:var(--gold);text-transform:uppercase;letter-spacing:.12em;font-weight:900;margin-bottom:36px}}
-.power p{{margin:0;color:#cbd2d8;font-size:14px}}
-.inactive{{cursor:not-allowed;opacity:.68}}
-.split{{display:grid;grid-template-columns:1.05fr .95fr;gap:20px;align-items:stretch}}
-.panel{{border:1px solid var(--line);background:rgba(255,255,255,.065);border-radius:8px;padding:22px}}
-.spacecopy{{font-size:clamp(20px,2.2vw,29px);line-height:1.38;color:#fff;font-weight:760;margin-top:0}}
-.metrics{{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}}
-.metric{{border:1px solid var(--line);background:rgba(255,255,255,.065);border-radius:8px;padding:18px;min-height:112px}}
-.metric b{{display:block;font-size:clamp(27px,3.5vw,42px);line-height:1;margin-bottom:8px}}
-.metric span{{display:block;color:var(--muted);font-size:13px;line-height:1.35}}
-.launch-grid{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}}
-.launch{{border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.05));border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:12px;min-height:282px}}
-.launch-top{{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}}
-.badge{{display:inline-flex;border:1px solid rgba(105,200,255,.5);color:#dff4ff;border-radius:999px;padding:5px 8px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:900}}
-.badge.net{{border-color:rgba(242,184,75,.6);color:#ffe1a3}}
-.date{{color:#d6dde3;text-align:right;font-size:13px;font-weight:800}}
-.launch h3{{font-size:21px}}
-.launch p{{margin:0;font-size:14px;color:#cbd2d8}}
-.source-links{{display:flex;flex-wrap:wrap;gap:7px;margin-top:2px}}
-.source-links a{{border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:5px 8px;color:#dcebf4;font-size:11px;text-transform:uppercase;letter-spacing:.06em;font-weight:850}}
-.source-links a:hover{{border-color:rgba(105,200,255,.65);color:#fff}}
-.countdown{{margin-top:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:6px}}
-.timebox{{background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:8px 4px;text-align:center}}
-.timebox strong{{display:block;font-size:20px}}
-.timebox span{{display:block;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.08em}}
-.dash-grid{{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}}
-.bars{{display:grid;gap:8px}}
-.bar-row{{display:grid;grid-template-columns:72px 1fr 56px;gap:10px;align-items:center;font-size:13px;color:#dfe5ea}}
-.bar{{height:9px;background:rgba(255,255,255,.1);border-radius:999px;overflow:hidden}}
-.bar i{{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--green));border-radius:999px}}
-table{{width:100%;border-collapse:collapse;font-size:14px}}
-th,td{{border-top:1px solid var(--line);padding:12px 8px;text-align:left;vertical-align:top;line-height:1.38}}
-th{{color:#fff;text-transform:uppercase;letter-spacing:.08em;font-size:11px}}
-td{{color:#d8dee3}}
-.cols{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}}
-.theme-list{{display:grid;gap:12px}}
-.theme{{border-left:3px solid var(--accent);padding:0 0 0 14px}}
-.theme p{{margin:4px 0 0;font-size:14px;color:#cfd6dc}}
-.footer{{padding:34px clamp(18px,4vw,56px);border-top:1px solid var(--line);color:var(--muted);font-size:13px;line-height:1.5}}
-.muted{{color:var(--muted)}}
-@media(max-width:980px){{.powers,.launch-grid,.metrics{{grid-template-columns:repeat(2,minmax(0,1fr))}}.split,.dash-grid,.cols{{grid-template-columns:1fr}}.nav{{display:none}}}}
-@media(max-width:560px){{.powers,.launch-grid,.metrics{{grid-template-columns:1fr}}section{{padding:56px 18px}}.hero{{padding:96px 18px 42px}}h1{{font-size:44px}}.section-head{{display:block}}.bar-row{{grid-template-columns:58px 1fr 44px}}}}
-</style>
-</head>
-<body>
-<header class="topbar">
-  <div class="brand">Rivoluzione <span>Spaziale</span></div>
-  <nav class="nav" aria-label="Navigazione principale">
-    <a href="#signori">Mappa</a>
-    <a href="#spacex">SpaceX</a>
-    <a href="#imminenti">Lanci imminenti</a>
-    <a href="#storico">Storico lanci</a>
-    <a href="#starship">Starship</a>
-  </nav>
-</header>
-<main>
-  <section class="hero">
-    <div class="hero-inner">
-      <p class="eyebrow">Prima mappa</p>
-      <h1>Rivoluzione Spaziale</h1>
-      <p class="subtitle">I nuovi signori dello spazio. Non una vetrina celebrativa, ma una dashboard narrativa per seguire chi sta ridisegnando accesso all'orbita, infrastrutture, cadenza e ambizione industriale.</p>
-      <div class="hero-actions">
-        <a class="primary" href="#spacex">Apri SpaceX</a>
-        <a class="secondary" href="#signori">Vedi la mappa</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="signori">
-    <div class="inner">
-      <div class="section-head">
-        <h2>I nuovi signori dello spazio</h2>
-        <p>Questa prima versione mette in movimento SpaceX. Le altre aree sono gia impostate come porte del sito, ma restano vuote finche non costruiremo le rispettive sezioni.</p>
-      </div>
-      <div class="powers" id="powers"></div>
-    </div>
-  </section>
-
-  <section id="spacex">
-    <div class="inner split">
-      <article class="panel">
-        <p class="eyebrow">Sezione attiva</p>
-        <h2>SpaceX</h2>
-        <p class="spacecopy">SpaceX e la sezione che per ora tiene acceso il sito: lanci imminenti, storico Falcon e sviluppo Starship. Il tono resta asciutto, operativo, vicino allo stile visuale SpaceX, ma con una lettura da osservatorio.</p>
-        <p>La logica e semplice: una pagina d'ingresso che non prova a dire tutto, ma fa capire subito dove si muove oggi la nuova industria spaziale. SpaceX e il primo fronte attivo: calendario, cadenza Falcon, recuperi, riuso e sviluppo Starship nello stesso quadro.</p>
-      </article>
-      <aside class="panel">
-        <h3>Cruscotto SpaceX</h3>
-        <p class="muted">Una lettura rapida della macchina operativa: prossimi voli, storico Falcon e maturazione del programma Starship.</p>
-        <div class="metrics" id="topMetrics"></div>
-      </aside>
-    </div>
-  </section>
-
-  <section id="imminenti">
-    <div class="inner">
-      <div class="section-head">
-        <h2>Lanci imminenti</h2>
-        <p>Tutti i voli gia censiti nella prima agenda, con countdown in tempo reale. I voli NET restano volutamente trattati come finestre indicative.</p>
-      </div>
-      <div class="launch-grid" id="launchGrid"></div>
-    </div>
-  </section>
-
-  <section id="storico">
-    <div class="inner">
-      <div class="section-head">
-        <h2>Storico lanci</h2>
-        <p>Cruscotto iniziale: riepiloghi, andamento annuale, mix per lanciatore, pad, orbite e recupero booster. I dettagli missione entreranno in una fase successiva.</p>
-      </div>
-      <div class="metrics" id="falconMetrics"></div>
-      <div class="dash-grid" style="margin-top:18px">
-        <div class="panel">
-          <h3>Lanci per anno</h3>
-          <div class="bars" id="annualBars"></div>
-        </div>
-        <div class="panel">
-          <h3>Famiglie Falcon</h3>
-          <table id="launcherTable"></table>
-        </div>
-      </div>
-      <div class="cols" style="margin-top:18px">
-        <div class="panel"><h3>Pad e aree</h3><table id="padTable"></table></div>
-        <div class="panel"><h3>Recupero booster</h3><table id="landingTable"></table></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="starship">
-    <div class="inner">
-      <div class="section-head">
-        <h2>Sviluppo Starship</h2>
-        <p>Starship e il laboratorio industriale piu aggressivo della nuova corsa spaziale: non solo un razzo enorme, ma un sistema che prova a unire produzione rapida, riuso completo, rifornimento orbitale e logistica lunare.</p>
-      </div>
-      <div class="metrics" id="starshipMetrics"></div>
-      <div class="dash-grid" style="margin-top:18px">
-        <div class="panel"><h3>Voli integrati</h3><table id="starshipFlights"></table></div>
-        <div class="panel"><h3>Temi tecnici</h3><div class="theme-list" id="starshipThemes"></div></div>
-      </div>
-    </div>
-  </section>
-</main>
-<footer class="footer">
-  Rivoluzione Spaziale, prima bozza editoriale. Le sezioni non attive sono gia previste nella struttura e verranno sviluppate progressivamente.
-</footer>
-<script id="site-data" type="application/json">{json_for_html(data)}</script>
-<script>
-const data = JSON.parse(document.getElementById('site-data').textContent);
-const powers = [
-  ['SpaceX','Attiva','Lanci, Falcon, Starship','#spacex',true],
-  ['Blue Origin','In preparazione','New Glenn, BE-4, lunar economy','#',false],
-  ['ULA','In preparazione','Vulcan, national security, transizione post-Atlas','#',false],
-  ['Cina','In preparazione','Lunga Marcia, commercial space, stazioni e Luna','#',false],
-  ['India','In preparazione','ISRO, LVM3, Gaganyaan, Chandrayaan','#',false],
-  ['Giappone','In preparazione','H3, JAXA, ispace e industria privata','#',false],
-  ['Europa','In preparazione','Ariane 6, Vega C, sovranita di accesso','#',false],
-  ['Italia','In preparazione','Avio, Vega, Space Rider, filiera nazionale','#',false],
-];
-const fmt = new Intl.NumberFormat('it-IT');
-const pct = value => value == null ? 'n.d.' : Math.round(value * 1000) / 10 + '%';
-function pad(n){{return String(n).padStart(2,'0')}}
-function countdown(iso){{
-  const diff = new Date(iso).getTime() - Date.now();
-  if (!Number.isFinite(diff) || diff <= 0) return ['0','00','00','00'];
-  const total = Math.floor(diff / 1000);
-  return [Math.floor(total / 86400), pad(Math.floor(total % 86400 / 3600)), pad(Math.floor(total % 3600 / 60)), pad(total % 60)];
-}}
-function el(tag, className, html){{
-  const node = document.createElement(tag);
-  if (className) node.className = className;
-  if (html != null) node.innerHTML = html;
-  return node;
-}}
-function renderPowers(){{
-  const root = document.getElementById('powers');
-  root.innerHTML = powers.map(([name,state,copy,href,active]) => `
-    <a class="power ${{active ? 'active' : 'inactive'}}" href="${{href}}" aria-disabled="${{!active}}">
-      <small>${{state}}</small><h3>${{name}}</h3><p>${{copy}}</p>
-    </a>`).join('');
-}}
-function metricHTML(value,label){{
-  return `<div class="metric"><b>${{value}}</b><span>${{label}}</span></div>`;
-}}
-function renderMetrics(){{
-  const f = data.falcon.metrics;
-  document.getElementById('topMetrics').innerHTML = [
-    metricHTML(fmt.format(f.lanci),'lanci Falcon principali'),
-    metricHTML(pct(f.tasso),'success rate storico'),
-    metricHTML(fmt.format(f.recuperiRiusciti),'recuperi booster riusciti'),
-    metricHTML(data.starship.metrics.stato || 'n.d.','stato Starship')
-  ].join('');
-  document.getElementById('falconMetrics').innerHTML = [
-    metricHTML(fmt.format(f.lanci),'lanci principali'),
-    metricHTML(fmt.format(f.successi),'successi'),
-    metricHTML(pct(f.tasso),'tasso successo'),
-    metricHTML(fmt.format(f.boosterMax),'max voli booster'),
-    metricHTML(fmt.format(f.falconHeavy),'Falcon Heavy'),
-    metricHTML(fmt.format(f.padAttivi),'pad attivi'),
-    metricHTML(fmt.format(f.tentativiRecupero),'tentativi recupero'),
-    metricHTML(fmt.format(f.boosterRiutilizzati),'booster riutilizzati')
-  ].join('');
-  const s = data.starship.metrics;
-  document.getElementById('starshipMetrics').innerHTML = [
-    metricHTML(fmt.format(s.eventi),'eventi timeline'),
-    metricHTML(fmt.format(s.voli),'voli integrati'),
-    metricHTML(fmt.format(s.catch),'catch booster'),
-    metricHTML(fmt.format(s.reflight),'reflight Super Heavy')
-  ].join('');
-}}
-function renderLaunches(){{
-  const root = document.getElementById('launchGrid');
-  root.innerHTML = data.upcoming.map((l) => {{
-    const net = (l.cat || []).includes('net');
-    const parts = countdown(l.iso);
-    const sources = (l.sources || []).map(source => `<a href="${{source.url}}" target="_blank" rel="noopener">${{source.label}}</a>`).join('');
-    return `<article class="launch" data-iso="${{l.iso}}">
-      <div class="launch-top"><span class="badge ${{net ? 'net' : ''}}">${{net ? 'NET' : 'T-0'}}</span><span class="date">${{l.dateLabel}}</span></div>
-      <h3>${{l.name}}</h3>
-      <p><strong>${{l.rocket}}</strong></p>
-      <p>${{l.site}}</p>
-      <p>${{l.payload}}</p>
-      <div class="source-links">${{sources}}</div>
-      <div class="countdown">
-        <div class="timebox"><strong class="d">${{parts[0]}}</strong><span>giorni</span></div>
-        <div class="timebox"><strong class="h">${{parts[1]}}</strong><span>ore</span></div>
-        <div class="timebox"><strong class="m">${{parts[2]}}</strong><span>min</span></div>
-        <div class="timebox"><strong class="s">${{parts[3]}}</strong><span>sec</span></div>
-      </div>
-    </article>`;
-  }}).join('');
-}}
-function tick(){{
-  document.querySelectorAll('.launch[data-iso]').forEach(card => {{
-    const parts = countdown(card.dataset.iso);
-    card.querySelector('.d').textContent = parts[0];
-    card.querySelector('.h').textContent = parts[1];
-    card.querySelector('.m').textContent = parts[2];
-    card.querySelector('.s').textContent = parts[3];
-  }});
-}}
-function renderAnnual(){{
-  const root = document.getElementById('annualBars');
-  const rows = data.falcon.annual.filter(x => x.lanci != null);
-  const max = Math.max(...rows.map(x => x.lanci));
-  root.innerHTML = rows.map(row => `<div class="bar-row"><span>${{row.anno}}</span><div class="bar"><i style="width:${{Math.max(2,row.lanci/max*100)}}%"></i></div><strong>${{row.lanci}}</strong></div>`).join('');
-}}
-function table(rootId, headers, rows){{
-  document.getElementById(rootId).innerHTML = `<thead><tr>${{headers.map(h=>`<th>${{h[0]}}</th>`).join('')}}</tr></thead><tbody>${{rows.map(row => `<tr>${{headers.map(h=>`<td>${{h[1](row) ?? ''}}</td>`).join('')}}</tr>`).join('')}}</tbody>`;
-}}
-function renderTables(){{
-  table('launcherTable', [['Lanciatore',r=>r.lanciatore],['Lanci',r=>fmt.format(r.lanci)],['Successo',r=>pct(r.tasso)]], data.falcon.launchers);
-  table('padTable', [['Pad',r=>r.pad],['Lanci',r=>fmt.format(r.lanci)],['Quota',r=>pct(r.quota)]], data.falcon.pads);
-  table('landingTable', [['Landing',r=>r.codice],['Record',r=>fmt.format(r.record)],['Recuperi',r=>fmt.format(r.recuperi)]], data.falcon.landing);
-  table('starshipFlights', [['Flight',r=>r.flight],['Data',r=>r.data],['Milestone',r=>r.milestone],['Esito',r=>r.esito]], data.starship.flights);
-  document.getElementById('starshipThemes').innerHTML = data.starship.themes.map(theme => `<div class="theme"><h3>${{theme.tema}}</h3><p>${{theme.sintesi}}</p><p class="muted">${{theme.impatto}}</p></div>`).join('');
-}}
-renderPowers();
-renderMetrics();
-renderLaunches();
-renderAnnual();
-renderTables();
-setInterval(tick, 1000);
-</script>
-</body>
-</html>
-"""
-    (ROOT / "index.html").write_text(page, encoding="utf-8")
+    write(CSS_DIR / "style.css", render_css())
+    write(ROOT / "index.html", render_home())
+    write(SECTIONS_DIR / "spacex.html", render_spacex(data))
+    write(SECTIONS_DIR / "lanci-imminenti.html", render_launches_page(data))
+    write(SECTIONS_DIR / "storico-lanci.html", render_history_page(data))
+    for item in MAIN_SECTIONS:
+        if item["slug"] != "spacex":
+            write(SECTIONS_DIR / f"{item['slug']}.html", render_placeholder(item))
 
 
 if __name__ == "__main__":

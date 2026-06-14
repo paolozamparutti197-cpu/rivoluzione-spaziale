@@ -1,10 +1,12 @@
 # Rivoluzione Spaziale
 
-Prima bozza editoriale del sito "Rivoluzione Spaziale".
+Sito statico multipagina del progetto "Rivoluzione Spaziale".
 
-La home raccoglie una mappa dei nuovi protagonisti dello spazio e attiva, in questa versione, la sezione SpaceX con lanci imminenti, storico Falcon e sviluppo Starship.
+La home presenta il tema generale della rivoluzione spaziale in atto e collega le sezioni principali del sito. La sezione SpaceX e gia attiva; le altre pagine sono predisposte come sezioni autonome in costruzione.
 
 ## File principali
 
-- `index.html`: pagina statica pubblicabile.
-- `03_script/genera_sito_rivoluzione.py`: generatore locale che ricostruisce la pagina dai dati del progetto.
+- `index.html`: homepage generale.
+- `css/style.css`: stile condiviso.
+- `sezioni/`: pagine HTML autonome.
+- `03_script/genera_sito_rivoluzione.py`: generatore locale che ricostruisce il sito dai dati del progetto.
