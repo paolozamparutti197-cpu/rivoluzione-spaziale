@@ -51,7 +51,9 @@ Sito Rivoluzione Spaziale
 - Gerarchia editoriale:
   - la homepage e la nav globale mostrano solo il primo livello: Home, SpaceX, Blue Origin, ULA, Rocket Lab, Arianespace, Cina;
   - Luna, Marte, Infrastrutture orbitali e Cronologia restano pagine provvisorie, ma non devono apparire nella nav globale finche' non vengono ripensate come macro-sezioni vere;
-  - Lanci imminenti, Storico lanci, Starship e Pad di lancio sono sottosezioni operative di SpaceX e devono restare collegate da sezioni\spacex.html, non da index.html o dalla nav principale;
+  - Lanci imminenti, Storico lanci, Starship, Pad di lancio e Storia sono sottosezioni di SpaceX e devono restare collegate da sezioni\spacex.html, non da index.html o dalla nav principale;
+  - sezioni\storia-spacex.html e' l'indice storico: contiene parti selezionabili. La prima parte e' "Dalla fondazione fino al primo lancio" e punta a documenti per sito\fondazione_spacex_fino_primo_falcon1.html;
+  - documenti per sito\assets_fondazione contiene le immagini usate dal dossier storico fondazione/Falcon 1;
   - in futuro altre compagnie potranno avere sottosezioni equivalenti, ma sempre dentro la pagina della compagnia.
 - Quando si cambia il sito, modificare il generatore e poi rigenerare gli HTML, non intervenire solo sui file HTML prodotti.
 

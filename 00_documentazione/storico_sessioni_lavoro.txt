@@ -253,3 +253,15 @@ Sessione 14/06/2026 - gerarchia sito Rivoluzione Spaziale
 - Luna, Marte, Infrastrutture orbitali e Cronologia restano pagine provvisorie generate, ma non vengono mostrate nella nav globale finche' non diventano macro-sezioni deliberate.
 - Regola per il futuro: ogni compagnia deve avere la propria pagina porta; le sottosezioni operative vanno collegate dentro la pagina della compagnia, non nella nav principale.
 - Aggiornati README.md, README.txt, README_manutenzione.txt, procedure_aggiornamento.txt e inventario_file.txt per rendere questa architettura esplicita nelle prossime sessioni.
+
+Sessione 15/06/2026 - storia SpaceX come sottosezione
+- Aggiunta la sottosezione narrativa:
+  - sezioni\storia-spacex.html
+- La pagina porta SpaceX resta sintetica e operativa: sezioni\spacex.html contiene solo i link alle sottosezioni, non il racconto storico inline.
+- Nel blocco "Macchina operativa" di sezioni\spacex.html il pulsante "Storia" punta a storia-spacex.html.
+- La pagina storia-spacex.html funziona da indice di parti selezionabili.
+- Prima parte pubblicata:
+  - titolo: Dalla fondazione fino al primo lancio
+  - destinazione: documenti per sito\fondazione_spacex_fino_primo_falcon1.html
+  - asset: documenti per sito\assets_fondazione\
+- Regola per il futuro: aggiungere nuove parti storiche come nuove card dentro storia-spacex.html o nel generatore, non dentro la pagina porta SpaceX e non nella nav globale.

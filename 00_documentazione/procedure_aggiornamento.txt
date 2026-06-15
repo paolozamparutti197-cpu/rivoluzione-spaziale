@@ -9,9 +9,11 @@ Aggiornare il sito statico Rivoluzione Spaziale
 3. Controllare index.html, css\style.css e le pagine in sezioni.
 4. Gerarchia da rispettare:
    - nav globale e homepage: solo primo livello, cioe' Home, SpaceX, Blue Origin, ULA, Rocket Lab, Arianespace, Cina;
-   - sottosezioni SpaceX: Lanci imminenti, Storico lanci, Starship, Pad di lancio; questi link stanno dentro sezioni\spacex.html;
+   - sottosezioni SpaceX: Lanci imminenti, Storico lanci, Starship, Pad di lancio, Storia; questi link stanno dentro sezioni\spacex.html;
+   - Storia SpaceX e' una sottosezione autonoma in sezioni\storia-spacex.html, non un blocco narrativo dentro la pagina porta SpaceX;
+   - la prima parte della sottosezione Storia si intitola "Dalla fondazione fino al primo lancio" e punta al dossier documenti per sito\fondazione_spacex_fino_primo_falcon1.html;
    - pagine tematiche provvisorie: Luna, Marte, Infrastrutture orbitali, Cronologia; non devono comparire nella nav globale finche' non diventano macro-sezioni deliberate.
-5. Se si aggiunge una nuova sottosezione operativa di una compagnia, creare il file HTML autonomo ma collegarlo dalla pagina della compagnia, non da index.html.
+5. Se si aggiunge una nuova sottosezione di una compagnia, creare il file HTML autonomo ma collegarlo dalla pagina della compagnia, non da index.html.
 6. Dopo la verifica locale, pubblicare con commit e push su main e gh-pages.
 
 Aggiornare il workbook lanci SpaceX/Falcon
