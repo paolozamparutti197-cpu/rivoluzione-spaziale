@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SpaceX, lanci previsti fino a fine luglio 2026</title>
+<style>
+:root{
+  --bg:#07101b;
+  --panel:rgba(7,16,27,.78);
+  --panel2:rgba(13,28,45,.86);
+  --line:rgba(255,255,255,.18);
+  --text:#eef6ff;
+  --muted:#aebdcb;
+  --accent:#69c2ff;
+  --warn:#ffd166;
+  --ok:#7ee081;
+  --bad:#ff6b6b;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:#050b12}
+body{
+  background-image:
+    linear-gradient(180deg,rgba(3,7,12,.52),rgba(3,7,12,.87)),
+    radial-gradient(circle at 70% 30%,rgba(255,170,90,.18),transparent 35%),
+    url('https://www.spacex.com/static/images/falcon-9/desktop/01.jpg');
+  background-size:cover;
+  background-position:center top;
+  background-attachment:fixed;
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;
+  background:linear-gradient(90deg,rgba(0,0,0,.58),rgba(0,0,0,.18) 48%,rgba(0,0,0,.62));
+  z-index:-1;
+}
+header{padding:34px 18px 20px;max-width:1260px;margin:auto}
+h1{font-size:clamp(30px,5vw,60px);line-height:1.02;margin:0 0 10px;font-weight:850;letter-spacing:-.04em;text-shadow:0 4px 25px #000}
+.lead{max-width:930px;color:#d7e7f7;font-size:clamp(15px,2vw,18px);line-height:1.55;margin:0;text-shadow:0 2px 15px #000}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0 0}
+button,.chip{border:1px solid var(--line);background:rgba(255,255,255,.08);color:var(--text);padding:10px 13px;border-radius:999px;cursor:pointer;backdrop-filter:blur(8px);font-weight:650}
+button:hover,.chip:hover{background:rgba(255,255,255,.16)}
+button.active{background:rgba(105,194,255,.26);border-color:rgba(105,194,255,.7)}
+main{max-width:1260px;margin:0 auto 70px;padding:0 18px}
+.notice{border:1px solid rgba(255,209,102,.45);background:rgba(70,45,0,.42);padding:14px 16px;border-radius:18px;line-height:1.45;color:#fff4d0;margin:16px 0 18px;backdrop-filter:blur(8px)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(285px,1fr));gap:16px}
+.card{border:1px solid var(--line);background:linear-gradient(180deg,var(--panel2),var(--panel));border-radius:22px;padding:17px;min-height:245px;box-shadow:0 18px 50px rgba(0,0,0,.28);backdrop-filter:blur(12px);display:flex;flex-direction:column;gap:12px;transition:transform .18s ease,border-color .18s ease,background .18s ease;cursor:pointer;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-3px);border-color:rgba(105,194,255,.65);background:linear-gradient(180deg,rgba(18,43,68,.92),rgba(7,16,27,.84))}
+.card:after{content:"";position:absolute;right:-45px;top:-45px;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,rgba(105,194,255,.22),transparent 65%)}
+.topline{display:flex;align-items:center;justify-content:space-between;gap:8px;position:relative;z-index:1}
+.badge{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#00111e;background:var(--accent);border-radius:999px;padding:5px 8px;font-weight:800;white-space:nowrap}
+.badge.uncertain{background:var(--warn)}
+.badge.starship{background:#ff8f70}
+.date{font-size:13px;color:var(--muted);font-weight:650;text-align:right}
+.card h2{font-size:22px;line-height:1.05;margin:0;letter-spacing:-.025em;position:relative;z-index:1}
+.meta{display:grid;gap:7px;font-size:14px;color:#d7e5f2;position:relative;z-index:1}
+.meta span{display:flex;gap:7px;align-items:flex-start}
+.countdown{margin-top:auto;border:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.25);border-radius:17px;padding:12px;position:relative;z-index:1}
+.countLabel{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:7px}
+.time{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;text-align:center}
+.tbox{background:rgba(255,255,255,.08);border-radius:12px;padding:8px 3px}.num{font-size:20px;font-weight:850}.unit{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.cardFooter{font-size:13px;color:#bcd0e1;display:flex;justify-content:space-between;gap:8px;position:relative;z-index:1}.click{color:#a8dcff;font-weight:750}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.72);display:none;align-items:center;justify-content:center;padding:18px;z-index:50}.modal.open{display:flex}
+.dialog{width:min(920px,100%);max-height:88vh;overflow:auto;background:rgba(8,19,31,.97);border:1px solid rgba(255,255,255,.18);border-radius:26px;box-shadow:0 30px 100px rgba(0,0,0,.7)}
+.dialogHeader{position:sticky;top:0;background:rgba(8,19,31,.98);border-bottom:1px solid rgba(255,255,255,.12);padding:18px 20px;display:flex;justify-content:space-between;gap:14px;align-items:flex-start;z-index:2}.dialogHeader h3{margin:0;font-size:28px;letter-spacing:-.03em}.close{font-size:22px;border-radius:14px;padding:8px 13px;background:rgba(255,255,255,.08)}
+.dialogBody{padding:18px 20px 24px;line-height:1.55}.detailGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin:8px 0 17px}.kv{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:10px}.k{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}.v{font-weight:750;margin-top:3px}.note{color:#dbe9f5}.sources a{color:#9ed8ff;text-decoration:none}.sources a:hover{text-decoration:underline}.small{font-size:13px;color:var(--muted)}
+footer{max-width:1260px;margin:0 auto 35px;padding:0 18px;color:#b2c3d1;font-size:13px;line-height:1.55}
+@media(max-width:600px){header{padding-top:24px}.dialogHeader h3{font-size:22px}.grid{grid-template-columns:1fr}.toolbar button{flex:1}.time{gap:5px}.num{font-size:18px}}
+</style>
+</head>
+<body>
+<header>
+  <h1>SpaceX, lanci previsti fino a fine luglio 2026</h1>
+  <p class="lead">Manifesto operativo ricostruito da Next Spaceflight, Space Launch Schedule e fonti ufficiali quando disponibili. Le schede sono cliccabili. I countdown sono puntuali dove esiste un T-0 dichiarato, mentre per le finestre “NET” indicano l’inizio convenzionale della finestra.</p>
+  <div class="toolbar" role="toolbar" aria-label="Filtri">
+    <button class="active" data-filter="all">Tutti</button>
+    <button data-filter="exact">T-0 noto</button>
+    <button data-filter="net">NET o mese</button>
+    <button data-filter="starlink">Starlink</button>
+    <button data-filter="sda">SDA</button>
+    <button data-filter="starship">Starship</button>
+  </div>
+</header>
+<main>
+  <div class="notice">Nota secca: il manifesto SpaceX è mobile per definizione. I lanci Starlink possono comparire o cambiare a pochi giorni dal volo, quindi questo file è una fotografia ragionata del quadro disponibile al 15 giugno 2026, dopo il completamento di Starlink Group 17-54.</div>
+  <section class="grid" id="cards"></section>
+</main>
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="dialogHeader">
+      <div><h3 id="modalTitle"></h3><div class="small" id="modalSubtitle"></div></div>
+      <button class="close" id="closeModal" aria-label="Chiudi">×</button>
+    </div>
+    <div class="dialogBody" id="modalBody"></div>
+  </div>
+</div>
+<footer>
+  Fonti principali: Next Spaceflight per il manifesto e le schede missione; Space Launch Schedule per alcuni T-0 e dettagli supplementari; pagina ufficiale SpaceX quando accessibile dal risultato pubblico. I dati vanno ricontrollati prima di usarli per pianificare una visione dal vivo o una diretta.
+</footer>
+<script>
+const launches = [
+  {id:'bluebird-8-10',cat:['exact'],name:'BlueBird 8 to 10',status:'Go for launch',rocket:'Falcon 9 Block 5',dateLabel:'17 giugno 2026, 06:39 UTC',iso:'2026-06-17T06:39:00Z',window:'06:39 UTC, opportunita aggiuntiva indicata alle 08:15 UTC',site:'SLC-40, Cape Canaveral SFS, Florida',landing:'ASOG, booster B1077, volo 29',orbit:'LEO',payload:'3 satelliti AST SpaceMobile BlueBird Block 2 FM3-FM5, massa complessiva indicata 13.500 kg',summary:'I BlueBird Block 2 sono satelliti AST SpaceMobile per connettività cellulare diretta. Sono descritti come capaci di aumentare fino a 10 volte la capacità rispetto ai BlueBird già in orbita.',news:'La pagina SpaceX indica lancio da SLC-40 con liftoff alle 2:39 a.m. ET e backup il 18 giugno. Missione importante per i grandi array dispiegabili AST SpaceMobile.',sources:[['SpaceX','https://www.spacex.com/launches/bluebird8-10'],['Next Spaceflight','https://nextspaceflight.com/launches/details/7691/'],['Space Launch Schedule','https://www.spacelaunchschedule.com/']]},
+  {id:'nrol-179',cat:['exact'],name:'NROL-179',status:'Go for launch',rocket:'Falcon 9 Block 5',dateLabel:'18 giugno 2026, 08:54 UTC',iso:'2026-06-18T08:54:00Z',window:'T-0 indicato: 08:54 UTC',site:'SLC-4E, Vandenberg SFB, California',landing:'RTLS su Landing Zone 4, booster B1103, volo 3',orbit:'Classificata, indicata come sconosciuta',payload:'Payload NRO classificato, quattordicesimo gruppo per costellazione di ricognizione indicata da Space Launch Schedule',summary:'Missione classificata per il National Reconnaissance Office. I dettagli orbitali non sono pubblici.',news:'SpaceX e NRO indicano NET 18 giugno da Vandenberg; il recupero RTLS su LZ-4 resta il dettaglio operativo piu leggibile.',sources:[['SpaceX','https://www.spacex.com/launches/nrol179'],['NRO','https://www.nro.gov/launches/launch-nrol-179/'],['Space Launch Schedule','https://www.spacelaunchschedule.com/launch/falcon-9-block-5-nrol-179/']]},
+  {id:'globalstar-2r-1',cat:['exact'],name:'Globalstar 2-R Mission 1',status:'Date/time may change',rocket:'Falcon 9 Block 5',dateLabel:'20 giugno 2026, 06:39 UTC',iso:'2026-06-20T06:39:00Z',window:'06:39-07:51 UTC',site:'SLC-40, Cape Canaveral SFS, Florida',landing:'ASOG, booster non identificato da Next Spaceflight, volo 12',orbit:'LEO, circa 1410 km e 52° per la costellazione Globalstar',payload:'9 satelliti Globalstar di refresh, massa indicata 4.500 kg',summary:'Missione per rinnovare la costellazione Globalstar, rete mobile satellitare per voce, dati e messaggistica. Satelliti costruiti da MDA con bus e dispenser Rocket Lab.',news:'SpaceX segnala preparazione del lancio da SLC-40; RocketLaunch.Live e Next Spaceflight riportano il T-0 del 20 giugno alle 06:39 UTC.',sources:[['SpaceX','https://www.spacex.com/launches/globalstar2-rlaunch1'],['Next Spaceflight','https://nextspaceflight.com/launches/details/7275/'],['RocketLaunch.Live','https://www.rocketlaunch.live/launch/globalstar-2-r-missi'],['Space Launch Schedule','https://www.spacelaunchschedule.com/']]},
+  {id:'starlink-17-28',cat:['exact','starlink'],name:'Starlink Group 17-28',status:'Go for launch',rocket:'Falcon 9 Block 5',dateLabel:'20 giugno 2026, 14:00 UTC',iso:'2026-06-20T14:00:00Z',window:'T-0 indicato: 14:00 UTC',site:'SLC-4E, Vandenberg SFB, California',landing:'OCISLY, booster B1063, volo 33',orbit:'LEO',payload:'24 satelliti Starlink',summary:'Altro lotto Starlink dalla California. Space Launch Schedule indica 24 satelliti per la mega-costellazione internet in orbita bassa.',news:'La rotazione serrata dei booster da Vandenberg continua. B1063 sarebbe al 33° volo, quindi in zona record di riutilizzo.',sources:[['Space Launch Schedule','https://www.spacelaunchschedule.com/launch/falcon-9-block-5-starlink-group-17-28/']]},
+  {id:'starlink-17-45',cat:['exact','starlink'],name:'Starlink Group 17-45',status:'Go for launch',rocket:'Falcon 9 Block 5',dateLabel:'24 giugno 2026, 11:00 UTC',iso:'2026-06-24T11:00:00Z',window:'T-0 indicato: 11:00 UTC',site:'SLC-4E, Vandenberg SFB, California',landing:'OCISLY, booster B1081, volo 25',orbit:'LEO',payload:'24 satelliti Starlink',summary:'Missione Starlink da Vandenberg. Space Launch Schedule indica Falcon 9 Block 5, SLC-4E e recupero su OCISLY.',news:'B1081 è indicato come booster al 25° volo, con Crew-7 tra le missioni precedenti.',sources:[['Space Launch Schedule','https://www.spacelaunchschedule.com/launch/falcon-9-block-5-starlink-group-17-45/']]},
+  {id:'sxm-11',cat:['net'],name:'SXM-11',status:'NET giugno 2026',rocket:'Falcon 9 Block 5',dateLabel:'NET giugno 2026',iso:'2026-06-30T00:00:00Z',window:'Mese non puntuale',site:'SLC-40, Cape Canaveral SFS, Florida',landing:'Non indicato',orbit:'GTO',payload:'1 satellite SiriusXM, massa indicata 7.000 kg',summary:'SXM-11 è un satellite radio digitale ad alta potenza costruito da Lanteris Space Systems, ex Maxar / SSL, per SiriusXM.',news:'Il satellite usa piattaforma IM-1300, con grande riflettore dispiegabile a maglia di quasi 10 metri per raggiungere radio SiriusXM anche su veicoli in movimento.',sources:[['Next Spaceflight','https://nextspaceflight.com/launches/details/8258/']]},
+  {id:'sda-t1tl-f',cat:['net','sda'],name:'SDA Tranche 1 Transport Layer F',status:'NET giugno 2026',rocket:'Falcon 9 Block 5',dateLabel:'NET giugno 2026',iso:'2026-06-30T00:00:00Z',window:'TBD, proiettato a giugno',site:'SLC-4E, Vandenberg SFB, California',landing:'Non indicato',orbit:'Polar orbit',payload:'21 satelliti indicati per Transport Layer',summary:'Missione SDA per la Proliferated Warfighter Space Architecture, rete militare LEO resiliente e a bassa latenza.',news:'Transport Layer fornisce connettività militare globale, con collegamenti ottici inter-satellite e architettura distribuita più resistente ai guasti.',sources:[['Next Spaceflight','https://nextspaceflight.com/launches/details/7334/'],['Space Launch Schedule','https://www.spacelaunchschedule.com/']]},
+  {id:'sda-t1tr-a',cat:['net','sda'],name:'SDA Tranche 1 Tracking Layer A',status:'NET giugno 2026',rocket:'Falcon 9 Block 5',dateLabel:'NET giugno 2026',iso:'2026-06-30T00:00:00Z',window:'TBD, proiettato a giugno',site:'SLC-4E, Vandenberg SFB, California',landing:'Non indicato',orbit:'Polar orbit',payload:'Payload SDA Tracking Layer',summary:'Missione SDA per tracking e warning globali di minacce missilistiche avanzate, inclusi sistemi ipersonici.',news:'Il Tracking Layer è la componente di allerta, tracciamento e targeting della PWSA.',sources:[['Next Spaceflight','https://nextspaceflight.com/launches/details/7335/'],['Space Launch Schedule','https://www.spacelaunchschedule.com/']]},
+  {id:'sda-t1tr-c',cat:['net','sda'],name:'SDA Tranche 1 Tracking Layer C',status:'NET Q2 / giugno 2026',rocket:'Falcon 9 Block 5',dateLabel:'NET Q2 2026',iso:'2026-06-30T00:00:00Z',window:'TBD, proiettato a giugno',site:'SLC-4E, Vandenberg SFB, California',landing:'Non indicato',orbit:'Polar orbit',payload:'Payload SDA Tracking Layer',summary:'Missione Tracking Layer della Space Development Agency per indicazioni, warning, tracking e targeting di minacce missilistiche avanzate.',news:'Next Spaceflight la elenca come NET Q2 2026; Space Launch Schedule la proietta a giugno.',sources:[['Next Spaceflight','https://nextspaceflight.com/launches/details/7223/'],['Space Launch Schedule','https://www.spacelaunchschedule.com/']]},
+  {id:'sda-t1tr-e',cat:['net','sda'],name:'SDA Tranche 1 Tracking Layer E',status:'NET giugno 2026',rocket:'Falcon 9 Block 5',dateLabel:'NET Q2 / giugno 2026',iso:'2026-06-30T00:00:00Z',window:'TBD, proiettato a giugno',site:'SLC-4E, Vandenberg SFB, California',landing:'Non indicato',orbit:'Polar orbit',payload:'Payload SDA Tracking Layer',summary:'Ulteriore missione Tracking Layer della costellazione PWSA Tranche 1.',news:'Resta nella categoria ad alta incertezza: la concentrazione di molte missioni SDA a fine Q2 implica che diversi voli possano slittare.',sources:[['Next Spaceflight','https://nextspaceflight.com/launches/details/7336/'],['Space Launch Schedule','https://www.spacelaunchschedule.com/page/2/']]},
+  {id:'sda-t1tl-a',cat:['net','sda'],name:'SDA Tranche 1 Transport Layer A',status:'NET Q2 / giugno 2026',rocket:'Falcon 9 Block 5',dateLabel:'NET Q2 2026',iso:'2026-06-30T00:00:00Z',window:'TBD, proiettato a giugno',site:'SLC-4E, Vandenberg SFB, California',landing:'Non indicato',orbit:'Polar orbit',payload:'21 satelliti, produttore indicato Northrop Grumman',summary:'Missione Transport Layer A per rete militare dati LEO a bassa latenza, parte della PWSA Tranche 1.',news:'Next Spaceflight nota che, nonostante il nome A, questa missione arriverebbe dopo T1TL-B e C lanciati nel 2025.',sources:[['Next Spaceflight','https://nextspaceflight.com/launches/details/6963/'],['Space Launch Schedule','https://www.spacelaunchschedule.com/page/2/']]},
+  {id:'sda-t1tl-d',cat:['net','sda'],name:'SDA Tranche 1 Transport Layer D',status:'NET Q2 / giugno 2026',rocket:'Falcon 9 Block 5',dateLabel:'NET Q2 2026',iso:'2026-06-30T00:00:00Z',window:'TBD, proiettato a giugno',site:'SLC-4E, Vandenberg SFB, California',landing:'Non indicato',orbit:'Polar orbit',payload:'21 satelliti indicati',summary:'Missione Transport Layer D della SDA, con rete dinamica e collegamenti ottici inter-satellite.',news:'Rientra nel gruppo di missioni Tranche 1 ancora con data non puntuale.',sources:[['Next Spaceflight','https://nextspaceflight.com/launches/details/7221/'],['Space Launch Schedule','https://www.spacelaunchschedule.com/page/2/']]},
+  {id:'sda-t1tl-e',cat:['net','sda'],name:'SDA Tranche 1 Transport Layer E',status:'NET Q2 / giugno 2026',rocket:'Falcon 9 Block 5',dateLabel:'NET Q2 2026',iso:'2026-06-30T00:00:00Z',window:'TBD, proiettato a giugno',site:'SLC-4E, Vandenberg SFB, California',landing:'Non indicato',orbit:'Polar orbit',payload:'21 satelliti indicati',summary:'Missione Transport Layer E per la costellazione distribuita della SDA.',news:'Probabile candidato a slittamento, dato l’addensamento di missioni simili nella stessa finestra.',sources:[['Next Spaceflight','https://nextspaceflight.com/launches/details/7222/'],['Space Launch Schedule','https://www.spacelaunchschedule.com/page/2/']]},
+  {id:'starship-flight-13',cat:['net','starship'],name:'Starship Flight 13',status:'NET luglio 2026',rocket:'Starship-Super Heavy v3',dateLabel:'NET luglio 2026',iso:'2026-07-01T00:00:00Z',window:'Mese non puntuale',site:'Starbase, Texas',landing:'Profilo di test; dati soggetti a FAA, NOTAM/NOTMAR e readiness hardware',orbit:'Test Starship, profilo non definitivo',payload:'Test flight, nessun payload operativo indicato',summary:'Next Spaceflight elenca Flight 13 come NET luglio 2026 con Starship-Super Heavy v3. La pagina Starship indica Booster 20 e Ship 40 attesi per questo volo.',news:'La data è fragile: fonti giornalistiche recenti parlano di ritorno al volo subordinato all’indagine FAA dopo il precedente test. Da trattare come candidato, non appuntamento.',sources:[['Next Spaceflight','https://nextspaceflight.com/launches/details/8279/'],['Next Spaceflight Starship hardware','https://nextspaceflight.com/starship/'],['RocketLaunch.Live','https://www.rocketlaunch.live/launch/starship-flight-13']]},
+  {id:'transporter-17',cat:['net'],name:'Transporter 17',status:'NET luglio 2026',rocket:'Falcon 9 Block 5',dateLabel:'NET luglio 2026',iso:'2026-07-01T00:00:00Z',window:'Mese non puntuale',site:'SLC-4E, Vandenberg SFB, California',landing:'Non indicato',orbit:'SSO',payload:'Rideshare smallsat, payload multipli non tutti pubblici',summary:'Missione rideshare dedicata di SpaceX verso orbita eliosincrona. Il programma SmallSat Rideshare offre voli Falcon 9 regolari per operatori di piccoli satelliti.',news:'Next Spaceflight cita prezzi da 350.000 dollari per missione inclusivi di 50 kg di massa payload, dato del programma rideshare.',sources:[['Next Spaceflight','https://nextspaceflight.com/launches/details/7610/'],['Space Launch Schedule','https://www.spacelaunchschedule.com/page/2/']]},
+  {id:'bluebird-11-13',cat:['net'],name:'BlueBird 11 to 13',status:'NET luglio 2026',rocket:'Falcon 9 Block 5',dateLabel:'NET luglio 2026',iso:'2026-07-01T00:00:00Z',window:'Mese non puntuale',site:'SLC-40, Cape Canaveral SFS, Florida',landing:'Non indicato',orbit:'LEO',payload:'3 satelliti AST SpaceMobile BlueBird Block 2 FM6-FM8, massa indicata 13.500 kg',summary:'Secondo lotto ravvicinato di satelliti AST SpaceMobile BlueBird Block 2 su Falcon 9.',news:'Come il lotto 8-10, punta alla connettività cellulare broadband diretta, con grandi array dispiegabili in orbita bassa.',sources:[['Next Spaceflight','https://nextspaceflight.com/launches/details/7688/'],['Space Launch Schedule','https://www.spacelaunchschedule.com/page/2/']]}
+];
+function pad(n){return String(n).padStart(2,'0')}
+function countdownParts(iso){
+  const diff = new Date(iso).getTime() - Date.now();
+  if(isNaN(diff)) return null;
+  if(diff <= 0) return {done:true,d:0,h:0,m:0,s:0};
+  const s = Math.floor(diff/1000), d=Math.floor(s/86400), h=Math.floor((s%86400)/3600), m=Math.floor((s%3600)/60), sec=s%60;
+  return {done:false,d,h,m,s:sec};
+}
+function cardHTML(l){
+  const exact = l.cat.includes('exact');
+  const starship = l.cat.includes('starship');
+  const badgeClass = starship ? 'starship' : (exact ? '' : 'uncertain');
+  const badgeText = exact ? 'T-0 noto' : (starship ? 'Starship NET' : 'NET');
+  return `<article class="card" tabindex="0" data-id="${l.id}" data-cat="${l.cat.join(' ')}">
+    <div class="topline"><span class="badge ${badgeClass}">${badgeText}</span><span class="date">${l.dateLabel}</span></div>
+    <h2>${l.name}</h2>
+    <div class="meta"><span>🚀 <b>${l.rocket}</b></span><span>📍 ${l.site}</span><span>🛰️ ${l.payload}</span></div>
+    <div class="countdown" data-iso="${l.iso}"><div class="countLabel">${exact ? 'Countdown al lancio' : 'Countdown indicativo alla finestra'}</div><div class="time"><div class="tbox"><div class="num d">--</div><div class="unit">giorni</div></div><div class="tbox"><div class="num h">--</div><div class="unit">ore</div></div><div class="tbox"><div class="num m">--</div><div class="unit">min</div></div><div class="tbox"><div class="num s">--</div><div class="unit">sec</div></div></div></div>
+    <div class="cardFooter"><span>${l.status}</span><span class="click">Apri dettagli</span></div>
+  </article>`;
+}
+function render(filter='all'){
+  const root=document.getElementById('cards');
+  root.innerHTML=launches.filter(l=>filter==='all'||l.cat.includes(filter)).map(cardHTML).join('');
+  root.querySelectorAll('.card').forEach(c=>{c.addEventListener('click',()=>openModal(c.dataset.id));c.addEventListener('keydown',e=>{if(e.key==='Enter')openModal(c.dataset.id)})});
+  tick();
+}
+function tick(){
+  document.querySelectorAll('.countdown').forEach(el=>{
+    const p=countdownParts(el.dataset.iso); if(!p) return;
+    el.querySelector('.d').textContent=p.done?'0':p.d;
+    el.querySelector('.h').textContent=p.done?'00':pad(p.h);
+    el.querySelector('.m').textContent=p.done?'00':pad(p.m);
+    el.querySelector('.s').textContent=p.done?'00':pad(p.s);
+  });
+}
+function openModal(id){
+  const l=launches.find(x=>x.id===id); if(!l) return;
+  document.getElementById('modalTitle').textContent=l.name;
+  document.getElementById('modalSubtitle').textContent=`${l.rocket} · ${l.dateLabel} · ${l.site}`;
+  document.getElementById('modalBody').innerHTML=`
+    <div class="detailGrid">
+      <div class="kv"><div class="k">Data / finestra</div><div class="v">${l.dateLabel}<br><span class="small">${l.window}</span></div></div>
+      <div class="kv"><div class="k">Luogo</div><div class="v">${l.site}</div></div>
+      <div class="kv"><div class="k">Razzo</div><div class="v">${l.rocket}</div></div>
+      <div class="kv"><div class="k">Orbita</div><div class="v">${l.orbit}</div></div>
+      <div class="kv"><div class="k">Payload</div><div class="v">${l.payload}</div></div>
+      <div class="kv"><div class="k">Recupero booster</div><div class="v">${l.landing}</div></div>
+    </div>
+    <p class="note"><b>Dettaglio missione.</b> ${l.summary}</p>
+    <p class="note"><b>Notizie e contesto.</b> ${l.news}</p>
+    <p class="small"><b>Attendibilità.</b> ${l.cat.includes('exact') ? 'T-0 pubblicato, ma comunque soggetto a meteo, range e readiness tecnica.' : 'Data NET o mese: usare come promemoria, non come orario operativo.'}</p>
+    <p class="sources"><b>Fonti:</b> ${l.sources.map(s=>`<a target="_blank" rel="noopener" href="${s[1]}">${s[0]}</a>`).join(' · ')}</p>
+  `;
+  const m=document.getElementById('modal');m.classList.add('open');m.setAttribute('aria-hidden','false');
+}
+document.getElementById('closeModal').addEventListener('click',()=>{const m=document.getElementById('modal');m.classList.remove('open');m.setAttribute('aria-hidden','true')});
+document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')document.getElementById('closeModal').click()});
+document.querySelectorAll('.toolbar button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.toolbar button').forEach(x=>x.classList.remove('active'));b.classList.add('active');render(b.dataset.filter)}));
+render(); setInterval(tick,1000);
+</script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Localita SpaceX | Rivoluzione Spaziale</title>
+<link rel="stylesheet" href="../css/style.css?v=20260614-nav-gerarchia">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+
+<body>
+<header class="topbar">
+  <a class="brand" href="../index.html">Rivoluzione <span>Spaziale</span></a>
+  <nav class="nav" aria-label="Navigazione principale">
+<a class="" href="../index.html">Home</a>
+<a class="active" href="spacex.html">SpaceX</a>
+<a class="" href="blue-origin.html">Blue Origin</a>
+<a class="" href="ula.html">ULA</a>
+<a class="" href="rocket-lab.html">Rocket Lab</a>
+<a class="" href="arianespace.html">Arianespace</a>
+<a class="" href="cina.html">Cina</a>
+  </nav>
+</header>
+<main>
+
+
+<section class="page-hero">
+  <div class="inner">
+    <p class="eyebrow">Mappa operativa</p>
+    <h1>Localita SpaceX</h1>
+    <p class="subtitle">Le principali localita SpaceX negli Stati Uniti: sedi, produzione, test, pad di lancio e l&#x27;ipotesi Louisiana non ancora attiva.</p>
+    
+  </div>
+</section>
+
+<section id="mappa-localita-spacex">
+  <div class="inner">
+    <div class="section-head">
+      <h2>Mappa localita</h2>
+      <p>La logica e la navigazione riprendono la mappa dei pad: clicca un marker o una voce dell'elenco per aprire un dettaglio leggibile. La Louisiana e segnata come proposta, non come struttura operativa.</p>
+    </div>
+    <div class="pad-map-wrap">
+      <aside class="pad-map-side">
+        <div>
+          <p class="badge">SpaceX USA</p>
+          <h3>Sedi, test, produzione e lancio</h3>
+          <p>Il dataset finale contiene solo punti specificamente SpaceX.</p>
+        </div>
+        <div class="pad-filter-row" aria-label="Filtri mappa localita SpaceX">
+          <button class="pad-filter active" type="button" data-region="Tutti">Tutti</button>
+          <button class="pad-filter" type="button" data-region="California">California</button>
+          <button class="pad-filter" type="button" data-region="Texas">Texas</button>
+          <button class="pad-filter" type="button" data-region="Florida">Florida</button>
+          <button class="pad-filter" type="button" data-region="Proposta">Proposta</button>
+        </div>
+        <div id="location-side-list" class="pad-side-list"></div>
+      </aside>
+      <div id="location-map" aria-label="Mappa delle localita SpaceX negli Stati Uniti"></div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="inner">
+    <div class="section-head">
+      <h2>Note dati</h2>
+      <p>Le coordinate sono pubbliche o rappresentative per aree estese. La localita Louisiana e deliberatamente trattata come scenario futuro/ipotetico.</p>
+    </div>
+    <div class="source-panel">
+      <p>Dataset derivato dal file locale <strong>mappa_spacex_xai_usa.html</strong>, filtrando le sole localita SpaceX e mantenendo la proposta Louisiana.</p>
+      <ul><li>SpaceX Hawthorne: Punto e descrizione ripresi dal file mappa locale originario.</li>
+<li>SpaceX Starlink Redmond: Punto rappresentativo e note dal file mappa locale originario.</li>
+<li>SpaceX Vandenberg SLC-4E: Coordinate e descrizione dalla mappa locale, coerenti con la pagina pad.</li>
+<li>SpaceX McGregor Test Facility: Punto e sintesi derivati dal file mappa locale originario.</li>
+<li>SpaceX Starbase: Punto rappresentativo dal file mappa locale originario.</li>
+<li>SpaceX LC-39A: Coordinate e testo sintetico dal file mappa locale originario.</li>
+<li>SpaceX SLC-40: Coordinate e sintesi dal file mappa locale originario.</li>
+<li>SpaceX Louisiana: Ipotesi riportata nel file locale con fonti giornalistiche e dichiarazioni locali citate.</li></ul>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="footer">
+  Rivoluzione Spaziale. Sito statico multipagina pubblicato su GitHub Pages.
+</footer>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const spacexLocations = [{"id":"loc-hawthorne","name":"SpaceX Hawthorne","short":"Hawthorne, California","region":"California","status":"Operativa","role":"Sede storica e produzione","lat":33.9199,"lng":-118.3275,"address":"1 Rocket Road, Hawthorne, CA 90250","coords":"33.9199 N, 118.3275 W","summary":"Sede storica e principale stabilimento ingegneristico-produttivo di SpaceX.","details":["Qui sono stati progettati e costruiti Falcon 9, Falcon Heavy e Dragon.","Resta un nodo tecnico e produttivo centrale anche dopo gli annunci di trasferimento operativo in Texas.","Il marker rappresenta il complesso di Rocket Road."],"source_note":"Punto e descrizione ripresi dal file mappa locale originario."},{"id":"loc-redmond","name":"SpaceX Starlink Redmond","short":"Redmond, Washington","region":"Washington","status":"Operativa","role":"Produzione satelliti Starlink","lat":47.6939,"lng":-122.0336,"address":"Redmond, Washington, area Seattle","coords":"47.6939 N, 122.0336 W","summary":"Stabilimento dedicato alla produzione in serie dei satelliti Starlink.","details":["La struttura sostiene il rapido dispiegamento della costellazione Starlink.","Il punto e rappresentativo dell'area industriale Redmond usata per Starlink.","La mappa locale indicava una media 2026 di circa 70 satelliti prodotti a settimana."],"source_note":"Punto rappresentativo e note dal file mappa locale originario."},{"id":"loc-vandenberg","name":"SpaceX Vandenberg SLC-4E","short":"Vandenberg SFB, California","region":"California","status":"Operativa","role":"Lanci costa ovest","lat":34.632,"lng":-120.6106,"address":"Space Launch Complex 4 East, Vandenberg Space Force Base, CA","coords":"34.6320 N, 120.6106 W","summary":"Pad Falcon 9 per orbite polari, SSO e missioni dalla costa ovest.","details":["Usato per missioni Starlink ad alta inclinazione e payload governativi.","Lavora con LZ-4 per i ritorni a terra quando il profilo missione lo consente.","E il riferimento operativo SpaceX principale sulla West Coast."],"source_note":"Coordinate e descrizione dalla mappa locale, coerenti con la pagina pad."},{"id":"loc-mcgregor","name":"SpaceX McGregor Test Facility","short":"McGregor, Texas","region":"Texas","status":"Operativa","role":"Test motori e stadi","lat":31.3916,"lng":-97.4574,"address":"McGregor Rocket Development and Test Facility, McGregor, TX","coords":"31.3916 N, 97.4574 W","summary":"Complesso di prova per motori, propulsori e stadi prima del volo.","details":["Qui vengono collaudati motori Merlin e Raptor.","La struttura ospita prove statiche e test di qualifica di componenti critici.","Il punto indica l'area rappresentativa del grande sito di test."],"source_note":"Punto e sintesi derivati dal file mappa locale originario."},{"id":"loc-starbase","name":"SpaceX Starbase","short":"Starbase, Texas","region":"Texas","status":"Operativa / in espansione","role":"Sviluppo, produzione e lancio Starship","lat":25.997,"lng":-97.157,"address":"Boca Chica Blvd, Starbase, Brownsville, TX 78521","coords":"25.9970 N, 97.1570 W","summary":"Sito integrato di sviluppo, produzione e lancio orbitale Starship.","details":["Comprende fabbriche, pad orbitali, aree di test e infrastrutture di controllo.","E il centro piu visibile della transizione SpaceX verso Starship.","Il marker e un punto rappresentativo dell'area Starbase/Boca Chica."],"source_note":"Punto rappresentativo dal file mappa locale originario."},{"id":"loc-lc39a","name":"SpaceX LC-39A","short":"Kennedy Space Center, Florida","region":"Florida","status":"Operativa","role":"Crew Dragon, Falcon Heavy, missioni speciali","lat":28.6084,"lng":-80.6043,"address":"Launch Complex 39A, Kennedy Space Center, Merritt Island, FL","coords":"28.6084 N, 80.6043 W","summary":"Pad storico Apollo/Shuttle gestito da SpaceX per missioni ad alta complessita.","details":["Usato per Crew Dragon, Falcon Heavy e missioni commerciali o scientifiche speciali.","Resta uno dei pad piu iconici e strategici della Space Coast.","La pagina pad contiene la cronologia infrastrutturale completa."],"source_note":"Coordinate e testo sintetico dal file mappa locale originario."},{"id":"loc-slc40","name":"SpaceX SLC-40","short":"Cape Canaveral SFS, Florida","region":"Florida","status":"Operativa","role":"Workhorse Falcon 9","lat":28.5619,"lng":-80.5772,"address":"Space Launch Complex 40, Cape Canaveral Space Force Station, FL","coords":"28.5619 N, 80.5772 W","summary":"Pad Falcon 9 ad altissima cadenza sulla costa est.","details":["Supporta gran parte dei lanci Starlink, CRS e payload commerciali.","La torre Dragon ha aumentato la ridondanza rispetto a LC-39A.","E il sito operativo piu regolare nella macchina Falcon 9."],"source_note":"Coordinate e sintesi dal file mappa locale originario."},{"id":"loc-louisiana","name":"SpaceX Louisiana","short":"Pecan Island / Freshwater City, Louisiana","region":"Louisiana","status":"Proposta / ipotesi","role":"Possibile futuro mega-sito Starship","lat":29.58,"lng":-92.45,"address":"Zona costiera a sud della LA-82, Vermilion Parish","coords":"29.580 N, 92.450 W, punto rappresentativo","summary":"Ipotesi di acquisizione, non struttura SpaceX attiva.","details":["Area indicativa di circa 136.000 acri di marshland costiera.","Le note locali parlano di negoziati o interesse per espansione Starship, senza sito operativo avviato.","Nessuna costruzione, licenza FAA o pad operativo e indicato nel file sorgente.","La mappa mostra anche un poligono approssimativo per ricordare che il punto non e una localita puntuale."],"source_note":"Ipotesi riportata nel file locale con fonti giornalistiche e dichiarazioni locali citate.","proposed":true,"polygon":[[29.632,-92.525],[29.632,-92.365],[29.385,-92.365],[29.385,-92.525]]}];
+let locationMap;
+let locationMarkers = {};
+let locationPolygon;
+let activeLocationFilter = 'Tutti';
+
+function htmlEscape(value) {
+  return String(value ?? '').replace(/[&<>"']/g, (char) => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  }[char]));
+}
+
+function locationPopup(item) {
+  const detailItems = (item.details || []).map((line) => `<li>${htmlEscape(line)}</li>`).join('');
+  const classes = item.proposed ? 'location-popup proposed' : 'location-popup';
+  return `
+    <div class="${classes}">
+      <div class="location-popup-head">
+        <span class="badge">${htmlEscape(item.status)}</span>
+        <h3>${htmlEscape(item.name)}</h3>
+        <p>${htmlEscape(item.short)}</p>
+      </div>
+      <div class="location-popup-body">
+        <div class="location-popup-box">
+          <b>Ruolo</b>
+          <p>${htmlEscape(item.role)}</p>
+        </div>
+        <div class="location-popup-box">
+          <b>Indirizzo / area</b>
+          <p>${htmlEscape(item.address)}</p>
+        </div>
+        <div class="location-popup-box">
+          <b>Sintesi</b>
+          <p>${htmlEscape(item.summary)}</p>
+        </div>
+        <div class="location-popup-box">
+          <b>Dettagli</b>
+          <ul>${detailItems}</ul>
+        </div>
+        <div class="location-popup-box">
+          <b>Coordinate</b>
+          <p>${htmlEscape(item.coords)}</p>
+        </div>
+      </div>
+    </div>`;
+}
+
+function locationIcon(item) {
+  const label = item.proposed ? 'LA' : 'SX';
+  const cls = item.proposed ? 'location-dot proposed' : 'location-dot';
+  return L.divIcon({
+    className: 'pad-marker',
+    html: `<div class="${cls}">${label}</div>`,
+    iconSize: [34, 34],
+    iconAnchor: [17, 17],
+    popupAnchor: [0, -19]
+  });
+}
+
+function renderLocationSideList() {
+  const list = document.getElementById('location-side-list');
+  if (!list) return;
+  list.innerHTML = '';
+  spacexLocations
+    .filter((item) => activeLocationFilter === 'Tutti' || item.region === activeLocationFilter || (activeLocationFilter === 'Proposta' && item.proposed))
+    .forEach((item) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = `location-list-item ${item.proposed ? 'proposed' : ''}`;
+      button.dataset.location = item.id;
+      button.innerHTML = `<strong>${htmlEscape(item.name)}</strong><span>${htmlEscape(item.role)} · ${htmlEscape(item.short)}</span>`;
+      button.addEventListener('click', () => openLocation(item.id));
+      list.appendChild(button);
+    });
+}
+
+function setLocationActive(id) {
+  document.querySelectorAll('.location-list-item').forEach((item) => {
+    item.classList.toggle('active', item.dataset.location === id);
+  });
+}
+
+function openLocation(id) {
+  const item = spacexLocations.find((candidate) => candidate.id === id);
+  const marker = locationMarkers[id];
+  if (!item || !marker) return;
+  setLocationActive(id);
+  const zoom = item.proposed ? 9 : 10;
+  locationMap.flyTo([item.lat, item.lng], zoom, { duration: 0.9 });
+  window.setTimeout(() => marker.openPopup(), 650);
+}
+
+function filterLocations(region) {
+  activeLocationFilter = region;
+  document.querySelectorAll('.pad-filter').forEach((button) => button.classList.toggle('active', button.dataset.region === region));
+  spacexLocations.forEach((item) => {
+    const marker = locationMarkers[item.id];
+    if (!marker) return;
+    const visible = region === 'Tutti' || item.region === region || (region === 'Proposta' && item.proposed);
+    if (visible && !locationMap.hasLayer(marker)) marker.addTo(locationMap);
+    if (!visible && locationMap.hasLayer(marker)) marker.remove();
+  });
+  if (locationPolygon) {
+    const showPolygon = region === 'Tutti' || region === 'Louisiana' || region === 'Proposta';
+    if (showPolygon && !locationMap.hasLayer(locationPolygon)) locationPolygon.addTo(locationMap);
+    if (!showPolygon && locationMap.hasLayer(locationPolygon)) locationPolygon.remove();
+  }
+  renderLocationSideList();
+}
+
+function initLocationMap() {
+  const mapEl = document.getElementById('location-map');
+  if (!mapEl || typeof L === 'undefined') return;
+  locationMap = L.map('location-map', { zoomControl: true, minZoom: 3, maxZoom: 18 }).setView([38.1, -98.4], 4);
+  const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(locationMap);
+  const satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    attribution: 'Tiles &copy; Esri'
+  });
+  L.control.layers({ 'OpenStreetMap': osm, 'Satellite': satellite }, null, { position: 'topright', collapsed: true }).addTo(locationMap);
+
+  spacexLocations.forEach((item) => {
+    const marker = L.marker([item.lat, item.lng], { icon: locationIcon(item), title: item.name })
+      .bindPopup(locationPopup(item), { maxWidth: 440, minWidth: 300, className: 'custom-popup' });
+    marker.on('click', () => setLocationActive(item.id));
+    marker.addTo(locationMap);
+    locationMarkers[item.id] = marker;
+
+    if (item.polygon) {
+      locationPolygon = L.polygon(item.polygon, {
+        color: '#f2b84b',
+        weight: 2,
+        dashArray: '7, 5',
+        fillColor: '#f2b84b',
+        fillOpacity: 0.12,
+        opacity: 0.9
+      }).bindPopup(locationPopup(item), { maxWidth: 440, minWidth: 300, className: 'custom-popup' });
+      locationPolygon.addTo(locationMap);
+    }
+  });
+
+  document.querySelectorAll('.pad-filter').forEach((button) => {
+    button.addEventListener('click', () => filterLocations(button.dataset.region));
+  });
+  renderLocationSideList();
+}
+
+window.addEventListener('load', initLocationMap);
+</script>
+</body>
+</html>

@@ -1,7 +1,7 @@
 import json
 import subprocess
 import ast
-from datetime import date, datetime
+from datetime import date, datetime, timezone
 from html import escape
 from pathlib import Path
 from urllib.parse import quote
@@ -108,6 +108,12 @@ UTILITY_SECTIONS = [
         "status": "Attiva",
         "copy": "Mappa dei complessi SpaceX, schede operative e infografiche dei pad.",
     },
+    {
+        "title": "Localita SpaceX",
+        "slug": "localita-spacex",
+        "status": "Attiva",
+        "copy": "Mappa delle principali localita SpaceX negli Stati Uniti, inclusa la proposta Louisiana.",
+    },
 ]
 
 PLACEHOLDER_SECTIONS = MAIN_SECTIONS + THEME_SECTIONS
@@ -167,15 +173,30 @@ console.log(JSON.stringify(launches.map((launch) => ({
 """
     try:
         output = subprocess.check_output(["node", "-e", node_code], cwd=ROOT, text=True, encoding="utf-8")
-        return json.loads(output)
+        launches = json.loads(output)
     except Exception:
         return []
+    now = datetime.now(timezone.utc)
+    upcoming = []
+    for launch in launches:
+        categories = launch.get("cat") or []
+        iso = launch.get("iso")
+        if "exact" in categories and iso:
+            try:
+                launch_time = datetime.fromisoformat(str(iso).replace("Z", "+00:00"))
+            except ValueError:
+                launch_time = None
+            if launch_time and launch_time <= now:
+                continue
+        upcoming.append(launch)
+    return sorted(upcoming, key=lambda item: str(item.get("iso") or "9999"))
 
 
 def falcon_data():
     path = ROOT / "01_workbook" / "lanci_spacex_falcon.xlsx"
     workbook = openpyxl.load_workbook(path, read_only=True, data_only=True)
     dashboard = workbook["dashboard"]
+    elenco = workbook["elenco"]
     metrics = {
         "lanci": clean(dashboard["A4"].value),
         "successi": clean(dashboard["C4"].value),
@@ -228,7 +249,25 @@ def falcon_data():
         for row in landing_rows
         if row.get("codice landing")
     ][:8]
-    return {"metrics": metrics, "annual": annual, "launchers": launchers, "pads": pads, "landing": landing}
+    latest = {}
+    for values in elenco.iter_rows(min_row=2, values_only=True):
+        data = values[1] if len(values) > 1 else None
+        lanciatore = values[3] if len(values) > 3 else None
+        cliente = values[4] if len(values) > 4 else None
+        if data and lanciatore and cliente:
+            latest = {
+                "nr": clean(values[0] if len(values) > 0 else None),
+                "data": clean(data),
+                "lanciatore": clean(lanciatore),
+                "cliente": clean(cliente),
+                "stato": clean(values[5] if len(values) > 5 else None),
+                "orbita": clean(values[7] if len(values) > 7 else None),
+                "landing": clean(values[8] if len(values) > 8 else None),
+                "booster": clean(values[9] if len(values) > 9 else None),
+                "voli": clean(values[10] if len(values) > 10 else None),
+                "pad": clean(values[11] if len(values) > 11 else None),
+            }
+    return {"metrics": metrics, "annual": annual, "launchers": launchers, "pads": pads, "landing": landing, "latest": latest}
 
 
 def starship_data():
@@ -372,6 +411,171 @@ def pad_launch_data():
     return pads
 
 
+def spacex_locations_data():
+    return [
+        {
+            "id": "loc-hawthorne",
+            "name": "SpaceX Hawthorne",
+            "short": "Hawthorne, California",
+            "region": "California",
+            "status": "Operativa",
+            "role": "Sede storica e produzione",
+            "lat": 33.9199,
+            "lng": -118.3275,
+            "address": "1 Rocket Road, Hawthorne, CA 90250",
+            "coords": "33.9199 N, 118.3275 W",
+            "summary": "Sede storica e principale stabilimento ingegneristico-produttivo di SpaceX.",
+            "details": [
+                "Qui sono stati progettati e costruiti Falcon 9, Falcon Heavy e Dragon.",
+                "Resta un nodo tecnico e produttivo centrale anche dopo gli annunci di trasferimento operativo in Texas.",
+                "Il marker rappresenta il complesso di Rocket Road.",
+            ],
+            "source_note": "Punto e descrizione ripresi dal file mappa locale originario.",
+        },
+        {
+            "id": "loc-redmond",
+            "name": "SpaceX Starlink Redmond",
+            "short": "Redmond, Washington",
+            "region": "Washington",
+            "status": "Operativa",
+            "role": "Produzione satelliti Starlink",
+            "lat": 47.6939,
+            "lng": -122.0336,
+            "address": "Redmond, Washington, area Seattle",
+            "coords": "47.6939 N, 122.0336 W",
+            "summary": "Stabilimento dedicato alla produzione in serie dei satelliti Starlink.",
+            "details": [
+                "La struttura sostiene il rapido dispiegamento della costellazione Starlink.",
+                "Il punto e rappresentativo dell'area industriale Redmond usata per Starlink.",
+                "La mappa locale indicava una media 2026 di circa 70 satelliti prodotti a settimana.",
+            ],
+            "source_note": "Punto rappresentativo e note dal file mappa locale originario.",
+        },
+        {
+            "id": "loc-vandenberg",
+            "name": "SpaceX Vandenberg SLC-4E",
+            "short": "Vandenberg SFB, California",
+            "region": "California",
+            "status": "Operativa",
+            "role": "Lanci costa ovest",
+            "lat": 34.6320,
+            "lng": -120.6106,
+            "address": "Space Launch Complex 4 East, Vandenberg Space Force Base, CA",
+            "coords": "34.6320 N, 120.6106 W",
+            "summary": "Pad Falcon 9 per orbite polari, SSO e missioni dalla costa ovest.",
+            "details": [
+                "Usato per missioni Starlink ad alta inclinazione e payload governativi.",
+                "Lavora con LZ-4 per i ritorni a terra quando il profilo missione lo consente.",
+                "E il riferimento operativo SpaceX principale sulla West Coast.",
+            ],
+            "source_note": "Coordinate e descrizione dalla mappa locale, coerenti con la pagina pad.",
+        },
+        {
+            "id": "loc-mcgregor",
+            "name": "SpaceX McGregor Test Facility",
+            "short": "McGregor, Texas",
+            "region": "Texas",
+            "status": "Operativa",
+            "role": "Test motori e stadi",
+            "lat": 31.3916,
+            "lng": -97.4574,
+            "address": "McGregor Rocket Development and Test Facility, McGregor, TX",
+            "coords": "31.3916 N, 97.4574 W",
+            "summary": "Complesso di prova per motori, propulsori e stadi prima del volo.",
+            "details": [
+                "Qui vengono collaudati motori Merlin e Raptor.",
+                "La struttura ospita prove statiche e test di qualifica di componenti critici.",
+                "Il punto indica l'area rappresentativa del grande sito di test.",
+            ],
+            "source_note": "Punto e sintesi derivati dal file mappa locale originario.",
+        },
+        {
+            "id": "loc-starbase",
+            "name": "SpaceX Starbase",
+            "short": "Starbase, Texas",
+            "region": "Texas",
+            "status": "Operativa / in espansione",
+            "role": "Sviluppo, produzione e lancio Starship",
+            "lat": 25.9970,
+            "lng": -97.1570,
+            "address": "Boca Chica Blvd, Starbase, Brownsville, TX 78521",
+            "coords": "25.9970 N, 97.1570 W",
+            "summary": "Sito integrato di sviluppo, produzione e lancio orbitale Starship.",
+            "details": [
+                "Comprende fabbriche, pad orbitali, aree di test e infrastrutture di controllo.",
+                "E il centro piu visibile della transizione SpaceX verso Starship.",
+                "Il marker e un punto rappresentativo dell'area Starbase/Boca Chica.",
+            ],
+            "source_note": "Punto rappresentativo dal file mappa locale originario.",
+        },
+        {
+            "id": "loc-lc39a",
+            "name": "SpaceX LC-39A",
+            "short": "Kennedy Space Center, Florida",
+            "region": "Florida",
+            "status": "Operativa",
+            "role": "Crew Dragon, Falcon Heavy, missioni speciali",
+            "lat": 28.6084,
+            "lng": -80.6043,
+            "address": "Launch Complex 39A, Kennedy Space Center, Merritt Island, FL",
+            "coords": "28.6084 N, 80.6043 W",
+            "summary": "Pad storico Apollo/Shuttle gestito da SpaceX per missioni ad alta complessita.",
+            "details": [
+                "Usato per Crew Dragon, Falcon Heavy e missioni commerciali o scientifiche speciali.",
+                "Resta uno dei pad piu iconici e strategici della Space Coast.",
+                "La pagina pad contiene la cronologia infrastrutturale completa.",
+            ],
+            "source_note": "Coordinate e testo sintetico dal file mappa locale originario.",
+        },
+        {
+            "id": "loc-slc40",
+            "name": "SpaceX SLC-40",
+            "short": "Cape Canaveral SFS, Florida",
+            "region": "Florida",
+            "status": "Operativa",
+            "role": "Workhorse Falcon 9",
+            "lat": 28.5619,
+            "lng": -80.5772,
+            "address": "Space Launch Complex 40, Cape Canaveral Space Force Station, FL",
+            "coords": "28.5619 N, 80.5772 W",
+            "summary": "Pad Falcon 9 ad altissima cadenza sulla costa est.",
+            "details": [
+                "Supporta gran parte dei lanci Starlink, CRS e payload commerciali.",
+                "La torre Dragon ha aumentato la ridondanza rispetto a LC-39A.",
+                "E il sito operativo piu regolare nella macchina Falcon 9.",
+            ],
+            "source_note": "Coordinate e sintesi dal file mappa locale originario.",
+        },
+        {
+            "id": "loc-louisiana",
+            "name": "SpaceX Louisiana",
+            "short": "Pecan Island / Freshwater City, Louisiana",
+            "region": "Louisiana",
+            "status": "Proposta / ipotesi",
+            "role": "Possibile futuro mega-sito Starship",
+            "lat": 29.580,
+            "lng": -92.450,
+            "address": "Zona costiera a sud della LA-82, Vermilion Parish",
+            "coords": "29.580 N, 92.450 W, punto rappresentativo",
+            "summary": "Ipotesi di acquisizione, non struttura SpaceX attiva.",
+            "details": [
+                "Area indicativa di circa 136.000 acri di marshland costiera.",
+                "Le note locali parlano di negoziati o interesse per espansione Starship, senza sito operativo avviato.",
+                "Nessuna costruzione, licenza FAA o pad operativo e indicato nel file sorgente.",
+                "La mappa mostra anche un poligono approssimativo per ricordare che il punto non e una localita puntuale.",
+            ],
+            "source_note": "Ipotesi riportata nel file locale con fonti giornalistiche e dichiarazioni locali citate.",
+            "proposed": True,
+            "polygon": [
+                [29.632, -92.525],
+                [29.632, -92.365],
+                [29.385, -92.365],
+                [29.385, -92.525],
+            ],
+        },
+    ]
+
+
 def json_for_html(data):
     return json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
 
@@ -441,6 +645,16 @@ def percent(value):
     return f"{round(value * 1000) / 10}%"
 
 
+def display_date(value):
+    if not value:
+        return "n.d."
+    try:
+        parsed = datetime.fromisoformat(str(value))
+        return parsed.strftime("%d/%m/%Y")
+    except ValueError:
+        return str(value)
+
+
 def render_css():
     return f""":root {{
   --bg:#050607;
@@ -500,17 +714,33 @@ section{{padding:72px clamp(18px,4vw,56px);border-top:1px solid var(--line)}}
 .story-card small{{display:block;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;font-size:11px;font-weight:900;margin-bottom:10px}}
 .story-card p{{max-width:760px;margin:10px 0 0;color:#cbd2d8}}
 .story-card .button{{display:inline-flex;margin-top:18px}}
-.launch-grid{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}}
-.launch{{border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.05));border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:12px;min-height:318px}}
+.agenda-strip{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:22px}}
+.agenda-note{{border:1px solid var(--line);background:rgba(255,255,255,.055);border-radius:8px;padding:16px;min-height:96px}}
+.agenda-note b{{display:block;font-size:24px;margin-bottom:6px}}
+.agenda-note span{{display:block;color:var(--muted);font-size:13px;line-height:1.4}}
+.next-launch{{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:18px;border:1px solid rgba(105,200,255,.45);background:linear-gradient(135deg,rgba(105,200,255,.16),rgba(255,255,255,.055));border-radius:8px;padding:20px;margin-top:18px}}
+.next-launch h3{{font-size:30px}}
+.next-launch p{{margin:8px 0 0;color:#d9e2e8}}
+.launch-grid{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}
+.launch-grid.compact{{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.launch{{border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.05));border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:12px;min-height:360px}}
 .launch-top{{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}}
 .pill{{display:inline-flex;border:1px solid rgba(105,200,255,.5);color:#dff4ff;border-radius:999px;padding:5px 8px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:900}}
 .pill.net{{border-color:rgba(242,184,75,.6);color:#ffe1a3}}
 .date{{color:#d6dde3;text-align:right;font-size:13px;font-weight:800}}
 .launch h3{{font-size:21px}}
 .launch p{{margin:0;font-size:14px;color:#cbd2d8}}
+.launch-summary{{display:grid;gap:8px}}
+.launch-summary p{{line-height:1.45}}
+.launch-meta{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}}
+.launch-meta div{{border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:9px;background:rgba(0,0,0,.2);min-width:0}}
+.launch-meta b{{display:block;color:var(--gold);font-size:10px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px}}
+.launch-meta span{{display:block;color:#dce4ea;font-size:12px;line-height:1.35;overflow-wrap:break-word}}
+.history-meta{{grid-template-columns:repeat(4,minmax(0,1fr));margin-top:12px}}
 .source-links{{display:flex;flex-wrap:wrap;gap:7px;margin-top:2px}}
 .source-links a{{border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:5px 8px;color:#dcebf4;font-size:11px;text-transform:uppercase;letter-spacing:.06em;font-weight:850}}
 .countdown{{margin-top:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:6px}}
+.countdown.pending{{grid-template-columns:1fr}}
 .timebox{{background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:8px 4px;text-align:center}}
 .timebox strong{{display:block;font-size:20px}}
 .timebox span{{display:block;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.08em}}
@@ -539,7 +769,7 @@ td{{color:#d8dee3}}
 .pad-side-item:hover,.pad-side-item.active{{border-color:rgba(105,200,255,.58);background:rgba(105,200,255,.1)}}
 .pad-side-item strong{{display:block;font-size:14px;line-height:1.2}}
 .pad-side-item span{{display:block;color:var(--muted);font-size:12px;line-height:1.35;margin-top:3px}}
-#pad-map{{min-height:620px;background:#07101a}}
+#pad-map,#location-map{{min-height:620px;background:#07101a}}
 .leaflet-container{{font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;background:#07101a}}
 .leaflet-popup-content-wrapper{{background:#101418;color:var(--ink);border-radius:8px;border:1px solid rgba(255,255,255,.16);box-shadow:0 18px 50px rgba(0,0,0,.42);overflow:hidden}}
 .leaflet-popup-content{{margin:0!important;line-height:1.45}}
@@ -555,6 +785,23 @@ td{{color:#d8dee3}}
 .pad-popup p{{font-size:13px;color:#d7dee4;line-height:1.45;margin:8px 0}}
 .pad-popup ul{{margin:8px 0 0;padding-left:18px;color:#d7dee4;font-size:13px;line-height:1.38}}
 .pad-popup li{{margin-bottom:4px}}
+.location-popup{{width:min(420px,calc(100vw - 52px));max-height:min(640px,78vh);overflow:auto;background:#101418}}
+.location-popup-head{{padding:14px 14px 12px;border-bottom:1px solid rgba(255,255,255,.12);background:linear-gradient(135deg,rgba(105,200,255,.18),rgba(255,255,255,.045))}}
+.location-popup.proposed .location-popup-head{{background:linear-gradient(135deg,rgba(242,184,75,.24),rgba(255,255,255,.045))}}
+.location-popup h3{{font-size:21px;margin:7px 0 4px;line-height:1.12}}
+.location-popup p{{font-size:13px;color:#d8e1e6;line-height:1.45;margin:0}}
+.location-popup-body{{padding:14px;display:grid;gap:10px}}
+.location-popup-box{{border:1px solid rgba(255,255,255,.12);border-radius:7px;background:rgba(0,0,0,.26);padding:11px}}
+.location-popup-box b{{display:block;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;font-size:10px;margin-bottom:5px}}
+.location-popup-box ul{{margin:0;padding-left:17px;color:#d8e1e6;font-size:13px;line-height:1.42}}
+.location-popup-box li{{margin:0 0 5px}}
+.location-list-item{{width:100%;text-align:left;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.045);border-radius:7px;padding:11px;color:#fff;cursor:pointer}}
+.location-list-item:hover,.location-list-item.active{{border-color:rgba(105,200,255,.55);background:rgba(105,200,255,.12)}}
+.location-list-item.proposed:hover,.location-list-item.proposed.active{{border-color:rgba(242,184,75,.65);background:rgba(242,184,75,.13)}}
+.location-list-item strong{{display:block;font-size:14px;line-height:1.25}}
+.location-list-item span{{display:block;color:var(--muted);font-size:12px;line-height:1.32;margin-top:4px}}
+.location-dot{{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:999px;border:2px solid #fff;background:#d34949;color:#fff;font-size:11px;font-weight:950;box-shadow:0 8px 18px rgba(0,0,0,.35)}}
+.location-dot.proposed{{border-radius:8px;border-style:dashed;background:#d99b28;color:#130d04}}
 .pad-list{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}}
 .pad-card{{display:grid;grid-template-columns:220px 1fr;gap:18px;border:1px solid var(--line);border-radius:8px;background:linear-gradient(180deg,var(--panel2),var(--panel));padding:14px;min-width:0}}
 .pad-card figure{{margin:0;min-width:0}}
@@ -575,9 +822,9 @@ td{{color:#d8dee3}}
 .construction{{border-color:rgba(242,184,75,.45);background:linear-gradient(180deg,rgba(242,184,75,.12),rgba(255,255,255,.055))}}
 .muted{{color:var(--muted)}}
 .footer{{padding:34px clamp(18px,4vw,56px);border-top:1px solid var(--line);color:var(--muted);font-size:13px;line-height:1.5}}
-@media(max-width:1120px){{.grid,.launch-grid,.pad-list{{grid-template-columns:repeat(2,minmax(0,1fr))}}.split,.dash-grid,.cols,.pad-map-wrap{{grid-template-columns:1fr}}.pad-map-side{{border-right:0;border-bottom:1px solid var(--line)}}.pad-side-list{{max-height:none;grid-template-columns:repeat(2,minmax(0,1fr))}}}}
+@media(max-width:1120px){{.grid,.launch-grid,.launch-grid.compact,.agenda-strip,.pad-list{{grid-template-columns:repeat(2,minmax(0,1fr))}}.split,.dash-grid,.cols,.next-launch,.pad-map-wrap{{grid-template-columns:1fr}}.pad-map-side{{border-right:0;border-bottom:1px solid var(--line)}}.pad-side-list{{max-height:none;grid-template-columns:repeat(2,minmax(0,1fr))}}}}
 @media(max-width:900px){{.pad-list{{grid-template-columns:1fr}}.pad-card{{grid-template-columns:160px 1fr}}.story-card{{grid-template-columns:1fr}}.story-card img{{height:auto;max-height:420px}}}}
-@media(max-width:760px){{.topbar{{align-items:flex-start;flex-direction:column}}.nav{{justify-content:flex-start}}.grid,.launch-grid,.metrics,.split .panel .metrics,.pad-side-list,.spacex-actions{{grid-template-columns:1fr}}section{{padding:56px 18px}}.hero{{padding:92px 18px 42px}}h1{{font-size:43px}}.section-head{{display:block}}.bar-row{{grid-template-columns:58px 1fr 44px}}#pad-map{{min-height:460px}}.pad-map-wrap{{min-height:460px}}.pad-card{{grid-template-columns:1fr}}.pad-card img{{max-height:420px}}.pad-mini-event{{grid-template-columns:1fr;gap:2px}}}}
+@media(max-width:760px){{.topbar{{align-items:flex-start;flex-direction:column}}.nav{{justify-content:flex-start}}.grid,.launch-grid,.launch-grid.compact,.agenda-strip,.launch-meta,.metrics,.split .panel .metrics,.pad-side-list,.spacex-actions{{grid-template-columns:1fr}}section{{padding:56px 18px}}.hero{{padding:92px 18px 42px}}h1{{font-size:43px}}.section-head{{display:block}}.bar-row{{grid-template-columns:58px 1fr 44px}}#pad-map,#location-map{{min-height:460px}}.pad-map-wrap{{min-height:460px}}.pad-card{{grid-template-columns:1fr}}.pad-card img{{max-height:420px}}.pad-mini-event{{grid-template-columns:1fr;gap:2px}}}}
 """
 
 
@@ -614,27 +861,56 @@ def render_home():
     return shell("Home", "home", False, body)
 
 
-def render_launch_cards(launches):
-    return "\n".join(
-        f"""<article class="launch" data-iso="{escape(str(item.get('iso') or ''))}">
+def render_launch_cards(launches, compact=False):
+    cards = []
+    for item in launches:
+        categories = item.get("cat") or []
+        is_net = "net" in categories
+        meta_rows = "".join(
+            f"<div><b>{escape(label)}</b><span>{escape(str(value))}</span></div>"
+            for label, value in [
+                ("Finestra", item.get("window") or item.get("dateLabel") or "Da confermare"),
+                ("Orbita", item.get("orbit") or "Da confermare"),
+                ("Recupero", item.get("landing") or "Da confermare"),
+            ]
+        )
+        sources = "".join(
+            f'<a href="{escape(str(src.get("url") or "#"))}" target="_blank" rel="noopener">{escape(str(src.get("label") or "Fonte"))}</a>'
+            for src in item.get("sources", [])
+        )
+        countdown = (
+            f"""<div class="countdown pending">
+    <div class="timebox"><strong>NET</strong><span>{escape(str(item.get('dateLabel') or 'finestra indicativa'))}</span></div>
+  </div>"""
+            if is_net
+            else """<div class="countdown">
+    <div class="timebox"><strong class="d">0</strong><span>giorni</span></div>
+    <div class="timebox"><strong class="h">00</strong><span>ore</span></div>
+    <div class="timebox"><strong class="m">00</strong><span>min</span></div>
+    <div class="timebox"><strong class="s">00</strong><span>sec</span></div>
+  </div>"""
+        )
+        cards.append(
+            f"""<article class="launch" data-iso="{escape(str(item.get('iso') or ''))}">
   <div class="launch-top">
-    <span class="pill {'net' if 'net' in (item.get('cat') or []) else ''}">{'NET' if 'net' in (item.get('cat') or []) else 'T-0'}</span>
+    <span class="pill {'net' if is_net else ''}">{'NET' if is_net else 'T-0'}</span>
     <span class="date">{escape(str(item.get('dateLabel') or 'Data da confermare'))}</span>
   </div>
   <h3>{escape(str(item.get('name') or 'Missione'))}</h3>
   <p><strong>{escape(str(item.get('rocket') or ''))}</strong></p>
   <p>{escape(str(item.get('site') or ''))}</p>
   <p>{escape(str(item.get('payload') or ''))}</p>
-  <div class="source-links">{''.join(f'<a href="{escape(str(src.get("url") or "#"))}" target="_blank" rel="noopener">{escape(str(src.get("label") or "Fonte"))}</a>' for src in item.get("sources", []))}</div>
-  <div class="countdown">
-    <div class="timebox"><strong class="d">0</strong><span>giorni</span></div>
-    <div class="timebox"><strong class="h">00</strong><span>ore</span></div>
-    <div class="timebox"><strong class="m">00</strong><span>min</span></div>
-    <div class="timebox"><strong class="s">00</strong><span>sec</span></div>
+  <div class="launch-meta">{meta_rows}</div>
+  <div class="launch-summary">
+    <p>{escape(str(item.get('summary') or ''))}</p>
+    <p class="muted">{escape(str(item.get('news') or item.get('status') or ''))}</p>
   </div>
+  <div class="source-links">{sources}</div>
+  {countdown}
 </article>"""
-        for item in launches
-    )
+        )
+    class_name = "launch-grid compact" if compact else "launch-grid"
+    return f'<div class="{class_name}">' + "\n".join(cards) + "</div>"
 
 
 def countdown_script():
@@ -648,6 +924,7 @@ function countdown(iso){
 }
 function tick(){
   document.querySelectorAll('.launch[data-iso]').forEach(card => {
+    if (!card.querySelector('.d')) return;
     const parts = countdown(card.dataset.iso);
     card.querySelector('.d').textContent = parts[0];
     card.querySelector('.h').textContent = parts[1];
@@ -662,6 +939,30 @@ setInterval(tick, 1000);
 
 def render_falcon_dashboard(falcon):
     f = falcon["metrics"]
+    latest = falcon.get("latest") or {}
+    latest_meta = "".join(
+        f"<div><b>{escape(label)}</b><span>{escape(str(value or 'n.d.'))}</span></div>"
+        for label, value in [
+            ("Pad", latest.get("pad")),
+            ("Orbita", latest.get("orbita")),
+            ("Recupero", latest.get("landing")),
+            ("Booster", f"{latest.get('booster') or 'n.d.'}, volo {latest.get('voli') or 'n.d.'}"),
+        ]
+    )
+    latest_block = f"""
+<article class="next-launch history-latest">
+  <div>
+    <p class="badge">Ultimo lancio registrato</p>
+    <h3>{escape(str(latest.get('cliente') or 'n.d.'))}</h3>
+    <p>{escape(display_date(latest.get('data')))} · volo Falcon #{escape(str(latest.get('nr') or 'n.d.'))}</p>
+  </div>
+  <div>
+    <p><strong>{escape(str(latest.get('lanciatore') or 'n.d.'))}</strong></p>
+    <p>Esito: {escape(str(latest.get('stato') or 'n.d.'))}</p>
+    <div class="launch-meta history-meta">{latest_meta}</div>
+  </div>
+</article>
+"""
     metric_html = "".join(
         [
             metric(f"{f['lanci']:,}".replace(",", "."), "lanci principali"),
@@ -692,7 +993,10 @@ def render_falcon_dashboard(falcon):
         for row in falcon["landing"]
     )
     return f"""
+{latest_block}
+<div style="margin-top:18px">
 <div class="metrics">{metric_html}</div>
+</div>
 <div class="dash-grid" style="margin-top:18px">
   <div class="panel"><h3>Lanci per anno</h3><div class="bars">{bars}</div></div>
   <div class="panel"><h3>Famiglie Falcon</h3><table><thead><tr><th>Lanciatore</th><th>Lanci</th><th>Successo</th></tr></thead><tbody>{launcher_rows}</tbody></table></div>
@@ -935,6 +1239,214 @@ window.addEventListener('load', initPadMap);
     return shell("Pad di lancio", "pad-di-lancio", True, body, leaflet_script, leaflet_head)
 
 
+def render_locations_page(data):
+    locations = data["locations"]
+    source_rows = "\n".join(f"<li>{escape(item['name'])}: {escape(item['source_note'])}</li>" for item in locations)
+    leaflet_head = '<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">'
+    leaflet_script = (
+        '<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>\n'
+        "<script>\n"
+        "const spacexLocations = "
+        + json_for_html(locations)
+        + r""";
+let locationMap;
+let locationMarkers = {};
+let locationPolygon;
+let activeLocationFilter = 'Tutti';
+
+function htmlEscape(value) {
+  return String(value ?? '').replace(/[&<>"']/g, (char) => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  }[char]));
+}
+
+function locationPopup(item) {
+  const detailItems = (item.details || []).map((line) => `<li>${htmlEscape(line)}</li>`).join('');
+  const classes = item.proposed ? 'location-popup proposed' : 'location-popup';
+  return `
+    <div class="${classes}">
+      <div class="location-popup-head">
+        <span class="badge">${htmlEscape(item.status)}</span>
+        <h3>${htmlEscape(item.name)}</h3>
+        <p>${htmlEscape(item.short)}</p>
+      </div>
+      <div class="location-popup-body">
+        <div class="location-popup-box">
+          <b>Ruolo</b>
+          <p>${htmlEscape(item.role)}</p>
+        </div>
+        <div class="location-popup-box">
+          <b>Indirizzo / area</b>
+          <p>${htmlEscape(item.address)}</p>
+        </div>
+        <div class="location-popup-box">
+          <b>Sintesi</b>
+          <p>${htmlEscape(item.summary)}</p>
+        </div>
+        <div class="location-popup-box">
+          <b>Dettagli</b>
+          <ul>${detailItems}</ul>
+        </div>
+        <div class="location-popup-box">
+          <b>Coordinate</b>
+          <p>${htmlEscape(item.coords)}</p>
+        </div>
+      </div>
+    </div>`;
+}
+
+function locationIcon(item) {
+  const label = item.proposed ? 'LA' : 'SX';
+  const cls = item.proposed ? 'location-dot proposed' : 'location-dot';
+  return L.divIcon({
+    className: 'pad-marker',
+    html: `<div class="${cls}">${label}</div>`,
+    iconSize: [34, 34],
+    iconAnchor: [17, 17],
+    popupAnchor: [0, -19]
+  });
+}
+
+function renderLocationSideList() {
+  const list = document.getElementById('location-side-list');
+  if (!list) return;
+  list.innerHTML = '';
+  spacexLocations
+    .filter((item) => activeLocationFilter === 'Tutti' || item.region === activeLocationFilter || (activeLocationFilter === 'Proposta' && item.proposed))
+    .forEach((item) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = `location-list-item ${item.proposed ? 'proposed' : ''}`;
+      button.dataset.location = item.id;
+      button.innerHTML = `<strong>${htmlEscape(item.name)}</strong><span>${htmlEscape(item.role)} · ${htmlEscape(item.short)}</span>`;
+      button.addEventListener('click', () => openLocation(item.id));
+      list.appendChild(button);
+    });
+}
+
+function setLocationActive(id) {
+  document.querySelectorAll('.location-list-item').forEach((item) => {
+    item.classList.toggle('active', item.dataset.location === id);
+  });
+}
+
+function openLocation(id) {
+  const item = spacexLocations.find((candidate) => candidate.id === id);
+  const marker = locationMarkers[id];
+  if (!item || !marker) return;
+  setLocationActive(id);
+  const zoom = item.proposed ? 9 : 10;
+  locationMap.flyTo([item.lat, item.lng], zoom, { duration: 0.9 });
+  window.setTimeout(() => marker.openPopup(), 650);
+}
+
+function filterLocations(region) {
+  activeLocationFilter = region;
+  document.querySelectorAll('.pad-filter').forEach((button) => button.classList.toggle('active', button.dataset.region === region));
+  spacexLocations.forEach((item) => {
+    const marker = locationMarkers[item.id];
+    if (!marker) return;
+    const visible = region === 'Tutti' || item.region === region || (region === 'Proposta' && item.proposed);
+    if (visible && !locationMap.hasLayer(marker)) marker.addTo(locationMap);
+    if (!visible && locationMap.hasLayer(marker)) marker.remove();
+  });
+  if (locationPolygon) {
+    const showPolygon = region === 'Tutti' || region === 'Louisiana' || region === 'Proposta';
+    if (showPolygon && !locationMap.hasLayer(locationPolygon)) locationPolygon.addTo(locationMap);
+    if (!showPolygon && locationMap.hasLayer(locationPolygon)) locationPolygon.remove();
+  }
+  renderLocationSideList();
+}
+
+function initLocationMap() {
+  const mapEl = document.getElementById('location-map');
+  if (!mapEl || typeof L === 'undefined') return;
+  locationMap = L.map('location-map', { zoomControl: true, minZoom: 3, maxZoom: 18 }).setView([38.1, -98.4], 4);
+  const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(locationMap);
+  const satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    attribution: 'Tiles &copy; Esri'
+  });
+  L.control.layers({ 'OpenStreetMap': osm, 'Satellite': satellite }, null, { position: 'topright', collapsed: true }).addTo(locationMap);
+
+  spacexLocations.forEach((item) => {
+    const marker = L.marker([item.lat, item.lng], { icon: locationIcon(item), title: item.name })
+      .bindPopup(locationPopup(item), { maxWidth: 440, minWidth: 300, className: 'custom-popup' });
+    marker.on('click', () => setLocationActive(item.id));
+    marker.addTo(locationMap);
+    locationMarkers[item.id] = marker;
+
+    if (item.polygon) {
+      locationPolygon = L.polygon(item.polygon, {
+        color: '#f2b84b',
+        weight: 2,
+        dashArray: '7, 5',
+        fillColor: '#f2b84b',
+        fillOpacity: 0.12,
+        opacity: 0.9
+      }).bindPopup(locationPopup(item), { maxWidth: 440, minWidth: 300, className: 'custom-popup' });
+      locationPolygon.addTo(locationMap);
+    }
+  });
+
+  document.querySelectorAll('.pad-filter').forEach((button) => {
+    button.addEventListener('click', () => filterLocations(button.dataset.region));
+  });
+  renderLocationSideList();
+}
+
+window.addEventListener('load', initLocationMap);
+</script>"""
+    )
+    body = f"""
+{page_hero("Localita SpaceX", "Mappa operativa", "Le principali localita SpaceX negli Stati Uniti: sedi, produzione, test, pad di lancio e l'ipotesi Louisiana non ancora attiva.")}
+<section id="mappa-localita-spacex">
+  <div class="inner">
+    <div class="section-head">
+      <h2>Mappa localita</h2>
+      <p>La logica e la navigazione riprendono la mappa dei pad: clicca un marker o una voce dell'elenco per aprire un dettaglio leggibile. La Louisiana e segnata come proposta, non come struttura operativa.</p>
+    </div>
+    <div class="pad-map-wrap">
+      <aside class="pad-map-side">
+        <div>
+          <p class="badge">SpaceX USA</p>
+          <h3>Sedi, test, produzione e lancio</h3>
+          <p>Il dataset finale contiene solo punti specificamente SpaceX.</p>
+        </div>
+        <div class="pad-filter-row" aria-label="Filtri mappa localita SpaceX">
+          <button class="pad-filter active" type="button" data-region="Tutti">Tutti</button>
+          <button class="pad-filter" type="button" data-region="California">California</button>
+          <button class="pad-filter" type="button" data-region="Texas">Texas</button>
+          <button class="pad-filter" type="button" data-region="Florida">Florida</button>
+          <button class="pad-filter" type="button" data-region="Proposta">Proposta</button>
+        </div>
+        <div id="location-side-list" class="pad-side-list"></div>
+      </aside>
+      <div id="location-map" aria-label="Mappa delle localita SpaceX negli Stati Uniti"></div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="inner">
+    <div class="section-head">
+      <h2>Note dati</h2>
+      <p>Le coordinate sono pubbliche o rappresentative per aree estese. La localita Louisiana e deliberatamente trattata come scenario futuro/ipotetico.</p>
+    </div>
+    <div class="source-panel">
+      <p>Dataset derivato dal file locale <strong>mappa_spacex_xai_usa.html</strong>, filtrando le sole localita SpaceX e mantenendo la proposta Louisiana.</p>
+      <ul>{source_rows}</ul>
+    </div>
+  </div>
+</section>
+"""
+    return shell("Localita SpaceX", "spacex", True, body, leaflet_script, leaflet_head)
+
+
 def page_hero(title, eyebrow, copy, construction=False):
     badge = '<p class="badge">Pagina in costruzione</p>' if construction else ""
     return f"""
@@ -951,6 +1463,12 @@ def page_hero(title, eyebrow, copy, construction=False):
 
 def render_spacex(data):
     f = data["falcon"]["metrics"]
+    upcoming_exact = [item for item in data["upcoming"] if "net" not in (item.get("cat") or [])][:3]
+    upcoming_block = (
+        render_launch_cards(upcoming_exact, compact=True)
+        if upcoming_exact
+        else '<div class="panel"><p class="muted">Nessun T-0 puntuale disponibile al momento.</p></div>'
+    )
     top_metrics = "".join(
         [
             metric(f"{f['lanci']:,}".replace(",", "."), "lanci Falcon principali"),
@@ -972,13 +1490,27 @@ def render_spacex(data):
         <a class="button secondary" href="storico-lanci.html">Storico lanci</a>
         <a class="button secondary" href="starship.html">Starship</a>
         <a class="button secondary" href="pad-di-lancio.html">Pad di lancio</a>
+        <a class="button secondary" href="localita-spacex.html">Localita SpaceX</a>
       </div>
     </article>
     <aside class="panel"><h3>Cruscotto rapido</h3><div class="metrics">{top_metrics}</div></aside>
   </div>
 </section>
+<section>
+  <div class="inner">
+    <div class="section-head">
+      <h2>Prossimi lanci</h2>
+      <p>Anteprima dei T-0 piu vicini, ripulita dai voli gia avvenuti e allineata alla pagina agenda. Per finestre NET e fonti complete resta la sezione dedicata.</p>
+    </div>
+    {upcoming_block}
+    <div class="actions">
+      <a class="button" href="lanci-imminenti.html">Apri agenda completa</a>
+      <a class="button secondary" href="storico-lanci.html">Vedi storico aggiornato</a>
+    </div>
+  </div>
+</section>
 """
-    return shell("SpaceX", "spacex", True, body)
+    return shell("SpaceX", "spacex", True, body, countdown_script())
 
 
 def render_spacex_history_page(data):
@@ -1017,13 +1549,74 @@ def render_spacex_history_page(data):
 
 
 def render_launches_page(data):
-    body = f"""
-{page_hero("Lanci imminenti", "Agenda SpaceX", "Tutti i voli gia censiti nella prima agenda, con countdown in tempo reale. I voli NET restano finestre indicative.")}
+    launches = data["upcoming"]
+    exact = [item for item in launches if "net" not in (item.get("cat") or [])]
+    net = [item for item in launches if "net" in (item.get("cat") or [])]
+    next_item = exact[0] if exact else (launches[0] if launches else None)
+    if next_item:
+        next_block = f"""
+    <article class="next-launch">
+      <div>
+        <p class="badge">Prossimo in agenda</p>
+        <h3>{escape(str(next_item.get('name') or 'Missione'))}</h3>
+        <p>{escape(str(next_item.get('dateLabel') or 'Data da confermare'))}</p>
+      </div>
+      <div>
+        <p><strong>{escape(str(next_item.get('rocket') or ''))}</strong></p>
+        <p>{escape(str(next_item.get('site') or ''))}</p>
+        <p>{escape(str(next_item.get('payload') or ''))}</p>
+      </div>
+    </article>"""
+        next_label = str(next_item.get("dateLabel") or "Da confermare")
+    else:
+        next_block = ""
+        next_label = "Da confermare"
+    exact_section = (
+        f"""
 <section>
   <div class="inner">
-    <div class="launch-grid">{render_launch_cards(data['upcoming'])}</div>
+    <div class="section-head">
+      <h2>T-0 confermati</h2>
+      <p>Missioni con orario puntuale gia indicato dalle fonti operative. Sono le card da ricontrollare piu spesso, perche finestre e meteo possono cambiare in poche ore.</p>
+    </div>
+    {render_launch_cards(exact)}
+  </div>
+</section>"""
+        if exact
+        else ""
+    )
+    net_section = (
+        f"""
+<section>
+  <div class="inner">
+    <div class="section-head">
+      <h2>Finestre NET</h2>
+      <p>Voli senza T-0 stabile: restano utili per orientarsi, ma non vanno letti come appuntamenti puntuali.</p>
+    </div>
+    {render_launch_cards(net, compact=True)}
+  </div>
+</section>"""
+        if net
+        else ""
+    )
+    body = f"""
+{page_hero("Lanci imminenti", "Agenda SpaceX", "Agenda ripulita dai voli gia avvenuti: T-0 puntuali separati dalle finestre NET, con countdown solo dove ha senso.")}
+<section>
+  <div class="inner">
+    <div class="section-head">
+      <h2>Quadro rapido</h2>
+      <p>Ultimo aggiornamento locale: {escape(str(data.get('generatedAt') or ''))}. Il volo Starlink Group 17-54 del 15 giugno 2026 e stato tolto dall'agenda perche gia avvenuto.</p>
+    </div>
+    <div class="agenda-strip">
+      <div class="agenda-note"><b>{len(exact)}</b><span>lanci con T-0 puntuale ancora in agenda</span></div>
+      <div class="agenda-note"><b>{len(net)}</b><span>finestre NET o missioni senza data stabile</span></div>
+      <div class="agenda-note"><b>{escape(next_label)}</b><span>prossimo appuntamento mostrato</span></div>
+    </div>
+    {next_block}
   </div>
 </section>
+{exact_section}
+{net_section}
 """
     return shell("Lanci imminenti", "lanci-imminenti", True, body, countdown_script())
 
@@ -1078,6 +1671,7 @@ def render():
         "falcon": falcon_data(),
         "starship": starship_data(),
         "pads": pad_launch_data(),
+        "locations": spacex_locations_data(),
         "generatedAt": datetime.now().strftime("%Y-%m-%d %H:%M"),
     }
     write(CSS_DIR / "style.css", render_css())
@@ -1088,6 +1682,7 @@ def render():
     write(SECTIONS_DIR / "storico-lanci.html", render_history_page(data))
     write(SECTIONS_DIR / "starship.html", render_starship_page(data))
     write(SECTIONS_DIR / "pad-di-lancio.html", render_pad_page(data))
+    write(SECTIONS_DIR / "localita-spacex.html", render_locations_page(data))
     for item in PLACEHOLDER_SECTIONS:
         if item["slug"] != "spacex":
             write(SECTIONS_DIR / f"{item['slug']}.html", render_placeholder(item))
