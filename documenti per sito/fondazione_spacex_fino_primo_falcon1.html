@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SpaceX, prima del primo Falcon 1</title>
+<style>
+:root{
+  --bg:#050607;
+  --ink:#f4f6f8;
+  --muted:#a9b0b7;
+  --line:rgba(255,255,255,.16);
+  --soft:rgba(255,255,255,.075);
+  --soft2:rgba(255,255,255,.11);
+  --cyan:#67c7ff;
+  --amber:#f5b941;
+  --red:#e95f45;
+  --green:#79d18b;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;
+  letter-spacing:0;
+}
+a{color:var(--cyan);text-decoration:none}
+a:hover{text-decoration:underline}
+.topbar{
+  position:fixed;
+  inset:0 0 auto 0;
+  z-index:10;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:22px;
+  padding:18px clamp(18px,4vw,56px);
+  background:linear-gradient(180deg,rgba(0,0,0,.92),rgba(0,0,0,.54),rgba(0,0,0,0));
+}
+.brand{
+  font-weight:900;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  font-size:15px;
+}
+.brand span{color:var(--cyan)}
+.nav{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  font-weight:800;
+}
+.nav a{color:#fff}
+.hero{
+  min-height:92vh;
+  display:grid;
+  align-items:end;
+  padding:110px clamp(18px,4vw,56px) 50px;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.88),rgba(0,0,0,.45) 42%,rgba(0,0,0,.12)),
+    linear-gradient(180deg,rgba(0,0,0,.15),rgba(5,6,7,.95) 92%),
+    url("assets_fondazione/falcon1_flight4_launch.jpg") center/cover no-repeat;
+}
+.hero-inner{
+  width:min(980px,100%);
+}
+.eyebrow{
+  margin:0 0 14px;
+  color:var(--amber);
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  font-size:13px;
+  font-weight:900;
+}
+h1{
+  margin:0;
+  max-width:900px;
+  font-size:clamp(38px,8vw,92px);
+  line-height:.92;
+  text-transform:uppercase;
+  font-weight:950;
+}
+.lead{
+  max-width:780px;
+  margin:24px 0 0;
+  color:#e6ebef;
+  font-size:clamp(17px,2vw,22px);
+  line-height:1.48;
+  font-weight:500;
+}
+section{
+  padding:76px clamp(18px,4vw,56px);
+  border-top:1px solid var(--line);
+}
+.section-inner{max-width:1180px;margin:0 auto}
+.split{
+  display:grid;
+  grid-template-columns:minmax(0,1.02fr) minmax(280px,.72fr);
+  gap:42px;
+  align-items:start;
+}
+h2{
+  margin:0 0 24px;
+  font-size:clamp(28px,4vw,48px);
+  line-height:1;
+  text-transform:uppercase;
+}
+h3{
+  margin:34px 0 12px;
+  font-size:22px;
+  line-height:1.15;
+}
+p{
+  color:#d9dde1;
+  font-size:17px;
+  line-height:1.72;
+  margin:0 0 18px;
+}
+.big{
+  font-size:clamp(20px,2.3vw,28px);
+  line-height:1.42;
+  color:#fff;
+  font-weight:750;
+}
+.facts{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:12px;
+  margin-top:34px;
+}
+.fact{
+  border:1px solid var(--line);
+  background:var(--soft);
+  border-radius:8px;
+  padding:18px;
+  min-height:118px;
+}
+.fact b{
+  display:block;
+  font-size:28px;
+  line-height:1;
+  margin-bottom:10px;
+}
+.fact span{
+  display:block;
+  color:var(--muted);
+  line-height:1.42;
+  font-size:14px;
+}
+.panel{
+  border:1px solid var(--line);
+  background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.045));
+  border-radius:8px;
+  padding:22px;
+}
+.panel h3:first-child{margin-top:0}
+.panel p,.panel li{font-size:15px;color:#d6dbe0;line-height:1.62}
+.tag{
+  display:inline-block;
+  border:1px solid rgba(103,199,255,.55);
+  color:#d9f2ff;
+  background:rgba(103,199,255,.12);
+  border-radius:999px;
+  padding:6px 10px;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.09em;
+  font-weight:850;
+  margin:0 7px 8px 0;
+}
+.timeline{
+  display:grid;
+  gap:14px;
+  margin-top:24px;
+}
+.event{
+  display:grid;
+  grid-template-columns:150px minmax(0,1fr);
+  gap:20px;
+  border-top:1px solid var(--line);
+  padding-top:18px;
+}
+.date{
+  color:var(--amber);
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-size:13px;
+}
+.event h3{margin:0 0 6px}
+.event p{margin:0;color:#cfd5da}
+.media-grid{
+  display:grid;
+  grid-template-columns:1.3fr .8fr;
+  gap:14px;
+  align-items:stretch;
+}
+figure{
+  margin:0;
+  border:1px solid var(--line);
+  background:#0c0f12;
+  border-radius:8px;
+  overflow:hidden;
+}
+figure img{
+  display:block;
+  width:100%;
+  height:100%;
+  max-height:520px;
+  object-fit:cover;
+}
+.media-grid figure:first-child{grid-row:span 2}
+.media-grid figure:nth-child(2) img,
+.media-grid figure:nth-child(3) img{max-height:252px}
+figcaption{
+  padding:12px 14px;
+  color:#b7c0c8;
+  font-size:13px;
+  line-height:1.45;
+  border-top:1px solid var(--line);
+}
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:22px;
+  font-size:15px;
+}
+th,td{
+  border-top:1px solid var(--line);
+  padding:13px 10px;
+  text-align:left;
+  vertical-align:top;
+  line-height:1.45;
+}
+th{
+  color:#fff;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-size:12px;
+}
+td{color:#d8dde2}
+.sources{
+  columns:2 360px;
+  column-gap:42px;
+  padding-left:18px;
+}
+.sources li{
+  break-inside:avoid;
+  color:#d9dde1;
+  margin:0 0 12px;
+  line-height:1.5;
+  font-size:15px;
+}
+.callout{
+  border-left:4px solid var(--red);
+  padding:16px 18px;
+  background:rgba(233,95,69,.095);
+  margin:26px 0;
+}
+.callout p{margin:0}
+.ok{color:var(--green)}
+.warn{color:var(--amber)}
+@media(max-width:850px){
+  .topbar{position:absolute;align-items:flex-start}
+  .nav{display:none}
+  .hero{min-height:88vh}
+  .split,.media-grid{grid-template-columns:1fr}
+  .media-grid figure:first-child{grid-row:auto}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .event{grid-template-columns:1fr;gap:6px}
+}
+@media(max-width:520px){
+  .facts{grid-template-columns:1fr}
+  section{padding:54px 18px}
+  .hero{padding:96px 18px 42px}
+  h1{font-size:42px}
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">Space<span>X</span> origins</div>
+  <nav class="nav" aria-label="Sezioni">
+    <a href="#tesi">Tesi</a>
+    <a href="#storia">Storia</a>
+    <a href="#falcon">Falcon 1</a>
+    <a href="#omelek">Omelek</a>
+    <a href="#lancio">Primo lancio</a>
+    <a href="#fonti">Fonti</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" aria-label="Introduzione">
+    <div class="hero-inner">
+      <p class="eyebrow">2001-2006, prima che l'orbita diventasse una promessa credibile</p>
+      <h1>La SpaceX prima del primo Falcon 1</h1>
+      <p class="lead">Non nasce come “azienda spaziale” nel senso comodo del termine. Nasce come risposta brutale a una domanda molto semplice: se comprare un razzo costa troppo, quanto costa imparare a costruirlo?</p>
+    </div>
+  </section>
+
+  <section id="tesi">
+    <div class="section-inner">
+      <div class="split">
+        <div>
+          <h2>Perimetro</h2>
+          <p class="big">Questa pagina si ferma al 24 marzo 2006, cioe al primo lancio del Falcon 1 da Omelek Island. Non arriva al successo orbitale del 2008, se non quando serve come confronto. Qui interessa la parte piu scomoda: la nascita, la scelta industriale, i ritardi, il trasferimento nel Pacifico, e il primo volo che finisce in mare.</p>
+          <p>Wikipedia inglese, fino a quel punto, fa un lavoro ordinato: Mars Oasis, trattativa russa fallita, SpaceX incorporata nel 2002, primi dipendenti, El Segundo, Falcon 1, Vandenberg, Omelek, primo lancio e guasto. Il punto e che quella ricostruzione resta compressa. Corretta, ma compatta. Per arrivare a 110 bisogna guardare non solo cosa succede, ma perche quella sequenza cambia il modo di pensare un'azienda aerospaziale.</p>
+        </div>
+        <aside class="panel">
+          <span class="tag">Ricerca storica</span>
+          <span class="tag">Fonti incrociate</span>
+          <span class="tag">Fonti coeve</span>
+          <h3>Come leggere questa storia</h3>
+          <p>Il racconto isola il periodo che va dall'idea Mars Oasis al primo volo del Falcon 1. Il resto della storia SpaceX, dal successo orbitale del 2008 a Dragon e Falcon 9, resta sullo sfondo solo quando aiuta a capire la direzione gia presente all'inizio.</p>
+          <p>La distinzione e importante: nel marzo 2006 SpaceX non aveva ancora dimostrato di saper raggiungere l'orbita. Aveva pero gia scelto un metodo industriale molto diverso da quello dominante nel settore.</p>
+        </aside>
+      </div>
+
+      <div class="facts">
+        <div class="fact"><b>14.03.2002</b><span>Data di incorporazione indicata da Wikipedia e dai materiali societari.</span></div>
+        <div class="fact"><b>El Segundo</b><span>Primo quartier generale: piu officina che palazzo, piu test che immagine.</span></div>
+        <div class="fact"><b>$6M</b><span>Prezzo target del Falcon nei paper iniziali: aggressivo, quasi provocatorio.</span></div>
+        <div class="fact"><b>24.03.2006</b><span>Primo Falcon 1: decollo da Omelek, guasto, impatto sul reef.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="storia">
+    <div class="section-inner split">
+      <article>
+        <h2>Prima del razzo</h2>
+        <p>La partenza non e un business plan classico. Musk, dopo PayPal, guarda al programma spaziale americano e trova un buco narrativo e politico: tutti parlano di Marte come orizzonte, ma nessuno sembra avere un piano concreto per andarci. Da qui nasce Mars Oasis, l'idea di mandare su Marte una piccola serra automatica, piu gesto simbolico che missione scientifica completa. Non doveva colonizzare Marte; doveva riaccendere la domanda pubblica. Una pianta su un altro pianeta come schiaffo culturale, non come prodotto.</p>
+        <p>Il passaggio decisivo arriva quando il progetto cerca un lanciatore. Musk, con Jim Cantrell e poi con Michael Griffin, prova la strada russa: acquistare un missile Dnepr riconvertito. La trattativa va male. Il prezzo sale, l'atteggiamento degli interlocutori e freddo, e la sensazione finale e semplice: se il lanciatore resta una rendita di posizione, Marte resta una slide.</p>
+        <p>La leggenda del volo di ritorno da Mosca funziona perche contiene una cosa vera: SpaceX nasce da un calcolo industriale prima ancora che da una vocazione romantica. Il problema non e solo “voglio andare su Marte”. Il problema e: il costo di accesso allo spazio e strutturalmente fuori scala, quindi bisogna entrare nel punto piu duro della catena, il lanciatore.</p>
+
+        <h3>Il nucleo iniziale</h3>
+        <p>Nel 2002 Musk cerca persone capaci di costruire davvero, non solo di approvare specifiche. Michael Griffin, Jim Cantrell e John Garvey non entrano nel gruppo. Tom Mueller e Chris Thompson si. Hans Koenigsmann arriva presto sull'avionica, Gwynne Shotwell viene assunta nel 2002 per vendite e sviluppo commerciale. La fotografia e interessante: propulsione, strutture, avionica, business. Pochi nomi, ma gia tutte le parti critiche di un'azienda di lancio.</p>
+        <p>La sede di El Segundo, nelle ricostruzioni, sembra quasi anti-aerospaziale: poco spazio, pochi livelli, persone che passano da un ruolo all'altro. Qui nasce una differenza che dopo diventera cultura aziendale: SpaceX non prova solo a comprare componenti a minor prezzo. Prova a tenere dentro casa progettazione, produzione e test, per accorciare il tempo tra problema e modifica. La fisica, come sempre, non legge i comunicati stampa; pero risponde abbastanza bene ai cicli corti.</p>
+      </article>
+      <aside class="panel">
+        <h3>Persone chiave entro il primo lancio</h3>
+        <table>
+          <thead><tr><th>Persona</th><th>Ruolo nel periodo</th></tr></thead>
+          <tbody>
+            <tr><td>Elon Musk</td><td>Fondatore, finanziatore principale, CEO e guida tecnica di sistema.</td></tr>
+            <tr><td>Tom Mueller</td><td>Propulsione: Merlin e Kestrel sono il cuore tecnico del Falcon 1.</td></tr>
+            <tr><td>Chris Thompson</td><td>Strutture, corpo del razzo e accoppiamenti meccanici.</td></tr>
+            <tr><td>Hans Koenigsmann</td><td>Avionica, software, guida e controllo.</td></tr>
+            <tr><td>Gwynne Shotwell</td><td>Sviluppo commerciale e credibilita verso clienti istituzionali e privati.</td></tr>
+          </tbody>
+        </table>
+      </aside>
+    </div>
+  </section>
+
+  <section id="falcon">
+    <div class="section-inner">
+      <div class="split">
+        <article>
+          <h2>Falcon 1: piccolo solo sulla carta</h2>
+          <p>Il Falcon 1 viene presentato nei paper tecnici iniziali come un veicolo a due stadi, alimentato a ossigeno liquido e cherosene RP-1, costruito “from the ground up”. La formula sembra normale, ma per una societa nata da poco e pesantissima. Significa motori, serbatoi, avionica, strutture, ground systems, operazioni di lancio. Non un componente. Un sistema.</p>
+          <p>Nel paper SmallSat del 2003, SpaceX insiste su tre parole: affidabilita, basso costo, ambiente di volo benigno. C'e anche l'idea di recuperare il primo stadio con paracadute e ammaraggio, quindi il riuso non e un'aggiunta tardiva alla mitologia SpaceX. Era gia nella testa del progetto, anche se la realta operativa sarebbe arrivata molto dopo e con una tecnologia diversa.</p>
+          <p>Il punto tecnico piu intelligente, forse, e la ricerca di semplicita: due motori in tutto, un solo evento di separazione tra gli stadi, avionica ridondante. Non per eleganza accademica, ma per togliere modi di fallire. In aerospazio togliere e spesso piu difficile che aggiungere. Aggiungere sembra prudente; togliere richiede fiducia nel progetto.</p>
+        </article>
+        <aside class="panel">
+          <h3>Architettura essenziale</h3>
+          <p><strong>Primo stadio:</strong> un Merlin, LOX/RP-1, turbopompa, spinta nell'ordine di decine di migliaia di libbre.</p>
+          <p><strong>Secondo stadio:</strong> un Kestrel, sempre LOX/RP-1, pensato per il vuoto e per restare semplice.</p>
+          <p><strong>Mercato:</strong> piccoli satelliti, prezzo target molto piu basso dei lanciatori tradizionali.</p>
+          <p><strong>Promessa:</strong> accesso allo spazio meno costoso, non per slogan, ma ridisegnando produzione e test.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="omelek">
+    <div class="section-inner">
+      <h2>Dal capannone al Pacifico</h2>
+      <div class="media-grid">
+        <figure>
+          <img src="assets_fondazione/kwajalein_landsat.png" alt="Immagine Landsat dell'atollo di Kwajalein">
+          <figcaption>Kwajalein Atoll visto dall'alto. La distanza logistica non e un dettaglio romantico, e un vincolo operativo.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets_fondazione/omelek_island.jpg" alt="Omelek Island vista dall'alto">
+          <figcaption>Omelek Island: piccola, umida, salina, lontana da tutto. Perfetta per la sicurezza di traiettoria, pessima per la manutenzione.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets_fondazione/falcon1_flight4_launch.jpg" alt="Falcon 1 durante il lancio da Omelek">
+          <figcaption>Falcon 1 da Omelek: il piccolo lanciatore su cui SpaceX concentro la sua prima scommessa tecnica.</figcaption>
+        </figure>
+      </div>
+
+      <div class="split" style="margin-top:42px">
+        <article>
+          <p>Il primo piano di SpaceX era Vandenberg, in California. Aveva senso: vicino alla sede, infrastruttura militare, orbite polari. Ma Falcon 1 finisce incastrato in conflitti di range e priorita con lanci governativi piu grandi. Wikipedia inglese racconta correttamente questo passaggio: SpaceX aveva costruito e preparato a Vandenberg, poi resta in attesa, e l'attesa diventa finanziariamente tossica.</p>
+          <p>Omelek Island, nell'atollo di Kwajalein, e la soluzione laterale. Vicina all'equatore, con infrastrutture radar del Reagan Test Site, abbastanza isolata per ridurre i rischi verso popolazioni e territorio. Pero e anche un pezzo di corallo in mezzo al Pacifico. Ogni cosa deve arrivare via nave o via aerea. Il sale entra ovunque. L'umidita diventa un attore tecnico. In una storia pulita, il sito di lancio e una riga; nella storia reale, e uno dei personaggi principali.</p>
+        </article>
+        <aside class="panel">
+          <h3>Perche Omelek contava</h3>
+          <p>Per RazakSAT e per missioni a bassa inclinazione, una posizione piu equatoriale era piu sensata di Vandenberg. Ma anche il primo lancio con FalconSAT-2 avviene li, perche ormai SpaceX aveva spostato la sua infrastruttura operativa.</p>
+          <p>Il trasferimento non e un episodio secondario: mostra quanto presto SpaceX dovette imparare che il razzo non e mai solo il razzo. E range, licenze, meteo, logistica, corrosione, ricambi, persone stanche, procedure.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="lancio">
+    <div class="section-inner">
+      <h2>Il primo lancio</h2>
+      <p class="big">Il 24 marzo 2006, alle 22:30 UTC, Falcon 1 decolla da Omelek con FalconSAT-2, satellite dell'U.S. Air Force Academy sponsorizzato da DARPA. Per SpaceX e il primo volo. Per il mercato, e una prova: una startup puo davvero costruire un lanciatore orbitale a propellenti liquidi?</p>
+      <div class="callout">
+        <p>Risposta breve: non ancora. Risposta utile: il volo fallisce, ma fallisce abbastanza tardi da restituire dati, e abbastanza presto da ricordare che nessuna architettura industriale cancella la brutalita del primo hardware.</p>
+      </div>
+      <div class="timeline">
+        <div class="event">
+          <div class="date">2001</div>
+          <div><h3>Mars Oasis</h3><p>Musk cerca un gesto marziano semplice e visibile. L'obiettivo e riaccendere interesse, non fare subito una missione completa.</p></div>
+        </div>
+        <div class="event">
+          <div class="date">ott 2001 - feb 2002</div>
+          <div><h3>Trattative russe</h3><p>La strada del missile riconvertito si chiude. Il prezzo e il rapporto con i venditori rendono evidente il problema strutturale del costo di lancio.</p></div>
+        </div>
+        <div class="event">
+          <div class="date">14 mar 2002</div>
+          <div><h3>Incorporazione</h3><p>Nasce Space Exploration Technologies Corp. Il nome abbreviato diventa rapidamente SpaceX.</p></div>
+        </div>
+        <div class="event">
+          <div class="date">2003</div>
+          <div><h3>Paper Falcon</h3><p>SpaceX presenta Falcon come lanciatore LOX/RP-1, prevalentemente riutilizzabile, con prezzo target aggressivo e architettura semplificata.</p></div>
+        </div>
+        <div class="event">
+          <div class="date">2004-2005</div>
+          <div><h3>Vandenberg si complica</h3><p>Il veicolo viene preparato in California, ma i conflitti di range e la necessita di una traiettoria piu equatoriale spingono verso Kwajalein.</p></div>
+        </div>
+        <div class="event">
+          <div class="date">dic 2005</div>
+          <div><h3>Scrub e danno al primo stadio</h3><p>Un tentativo viene annullato; durante le operazioni di detanking un problema di valvola porta al danneggiamento del serbatoio. Serve un nuovo primo stadio.</p></div>
+        </div>
+        <div class="event">
+          <div class="date">24 mar 2006</div>
+          <div><h3>Falcon 1 Flight 1</h3><p>Il razzo decolla, poi una perdita di RP-1 causa un incendio nella zona motore. La pressione pneumatica cala, le prevalvole si chiudono, il Merlin si spegne e il veicolo impatta vicino all'isola.</p></div>
+        </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr><th>Elemento</th><th>Dato</th><th>Lettura</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Payload</td><td>FalconSAT-2, U.S. Air Force Academy</td><td>Cliente istituzionale: per una startup, gia una forma di fiducia.</td></tr>
+          <tr><td>Sponsor</td><td>DARPA</td><td>Il primo volo non nasce nel vuoto commerciale, ma dentro una domanda pubblica di lancio responsive.</td></tr>
+          <tr><td>Luogo</td><td>Omelek Island, Kwajalein Atoll</td><td>Soluzione operativa brillante, ma logisticamente dura.</td></tr>
+          <tr><td>Guasto</td><td>Perdita carburante e incendio; revisione successiva attribuita a un dado in alluminio corroso</td><td>Non solo “il razzo esplode”: il nemico e un dettaglio materiale, invisibile, aggravato dall'ambiente.</td></tr>
+          <tr><td>Esito</td><td>Perdita del veicolo; FalconSAT-2 recuperato a terra dopo l'impatto</td><td>Fallimento netto, ma con telemetria e lezioni industriali.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="fonti">
+    <div class="section-inner">
+      <h2>Fonti</h2>
+      <ol class="sources">
+        <li><a href="https://en.wikipedia.org/wiki/History_of_SpaceX" target="_blank" rel="noopener">Wikipedia EN, History of SpaceX</a>. Usata come controllo della sequenza fondazione, Mars Oasis, Russia, primi assunti, El Segundo, Falcon 1, Vandenberg e Omelek.</li>
+        <li><a href="https://en.wikipedia.org/wiki/SpaceX" target="_blank" rel="noopener">Wikipedia EN, SpaceX</a>. Usata per verifica sintetica su fondazione, obiettivo di ridurre i costi di lancio e quadro storico generale.</li>
+        <li><a href="https://en.wikipedia.org/wiki/Falcon_1" target="_blank" rel="noopener">Wikipedia EN, Falcon 1</a>. Usata per dati del veicolo, sito di lancio, data del primo volo e tabella missioni.</li>
+        <li><a href="https://digitalcommons.usu.edu/smallsat/2003/All2003/3/" target="_blank" rel="noopener">Musk, Koenigsmann, Gurevich, “The Falcon Launch Vehicle”, Small Satellite Conference, 2003</a>. Fonte tecnica coeva su architettura Falcon, prezzo target, riuso previsto e filosofia di semplicità.</li>
+        <li><a href="https://digitalcommons.usu.edu/cgi/viewcontent.cgi?article=1737&context=smallsat" target="_blank" rel="noopener">Koenigsmann et al., “The Falcon I Launch Vehicle”, Small Satellite Conference, 2004</a>. Fonte tecnica su Falcon 1, Merlin, Kestrel e impostazione del programma.</li>
+        <li><a href="https://www.spaceflightnow.com/falcon/f1/060325leak.html" target="_blank" rel="noopener">Spaceflight Now, “Fuel leak apparently doomed Falcon 1”, 25 marzo 2006</a>. Fonte coeva sulle prime informazioni post-lancio e sulle dichiarazioni di Musk.</li>
+        <li><a href="https://www.space.com/2643-falcon-1-failure-traced-busted-nut.html" target="_blank" rel="noopener">Space.com, “Falcon 1 Failure Traced to a Busted Nut”, 19 luglio 2006</a>. Fonte sulla revisione DARPA e sulla causa attribuita alla corrosione del dado in alluminio.</li>
+        <li><a href="https://www.wired.com/2007/05/ff-space-musk/" target="_blank" rel="noopener">Wired, “Elon Musk Is Betting His Fortune on a Mission Beyond Earth's Orbit”, 2007</a>. Fonte narrativa coeva utile per contesto operativo, ambiente Omelek e cultura iniziale.</li>
+        <li><a href="https://www.nasa.gov/wp-content/uploads/2015/04/189228main_setc_nnj06ta26a.pdf?emrc=12cb23" target="_blank" rel="noopener">NASA, Space Act Agreement for COTS, 2006</a>. Non e dentro il perimetro del primo lancio, ma aiuta a leggere come le scelte iniziali diventeranno poi un modello milestone-based.</li>
+        <li><a href="https://oig.nasa.gov/docs/IG-13-016.pdf" target="_blank" rel="noopener">NASA OIG, IG-13-016, 2013</a>. Usata solo come contesto successivo sul modello COTS/CRS e sui contratti fixed-price.</li>
+      </ol>
+
+      <h3>Fonti immagini e licenze</h3>
+      <ol class="sources">
+        <li><a href="https://commons.wikimedia.org/wiki/File:Falcon_1_Flight_4_launch.jpg" target="_blank" rel="noopener">Falcon 1 Flight 4 launch.jpg</a>. Autore SpaceX, immagine donata al pubblico dominio, CC0 1.0 via Wikimedia Commons.</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Omelek_Island.jpg" target="_blank" rel="noopener">Omelek Island.jpg</a>. Opera di dipendente o militare U.S. Army in servizio, pubblico dominio negli Stati Uniti.</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Kwajalein_Atoll_2003-02-07_-_Landsat_7_-_30m.png" target="_blank" rel="noopener">Kwajalein Atoll Landsat 7</a>. Immagine NASA/USGS, pubblico dominio o uso libero secondo indicazioni Wikimedia Commons.</li>
+      </ol>
+    </div>
+  </section>
+</main>
+</body>
+</html>
