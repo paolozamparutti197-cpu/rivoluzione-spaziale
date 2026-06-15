@@ -265,3 +265,13 @@ Sessione 15/06/2026 - storia SpaceX come sottosezione
   - destinazione: documenti per sito\fondazione_spacex_fino_primo_falcon1.html
   - asset: documenti per sito\assets_fondazione\
 - Regola per il futuro: aggiungere nuove parti storiche come nuove card dentro storia-spacex.html o nel generatore, non dentro la pagina porta SpaceX e non nella nav globale.
+
+Sessione 15/06/2026 - storia SpaceX parte seconda
+- Aggiunta in sezioni\storia-spacex.html la card:
+  - Seconda parte
+  - Dal primo fallimento al quarto lancio
+- La card punta a:
+  - documenti per sito\falcon1_dal_primo_fallimento_al_quarto_lancio.html
+- La pagina e' stata ricavata dal documento di lavoro:
+  - documenti per sito\SpaceX tra il primo fallimento di Falcon 1 e il quarto lancio.docx
+- Tema della seconda parte: Flight 1, Flight 2, Flight 3, Flight 4, correzioni tecniche Falcon 1, crisi 2008, ruolo del metodo di apprendimento SpaceX.

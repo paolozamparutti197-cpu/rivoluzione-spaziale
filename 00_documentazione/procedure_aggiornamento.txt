@@ -12,6 +12,7 @@ Aggiornare il sito statico Rivoluzione Spaziale
    - sottosezioni SpaceX: Lanci imminenti, Storico lanci, Starship, Pad di lancio, Storia; questi link stanno dentro sezioni\spacex.html;
    - Storia SpaceX e' una sottosezione autonoma in sezioni\storia-spacex.html, non un blocco narrativo dentro la pagina porta SpaceX;
    - la prima parte della sottosezione Storia si intitola "Dalla fondazione fino al primo lancio" e punta al dossier documenti per sito\fondazione_spacex_fino_primo_falcon1.html;
+   - la seconda parte si intitola "Dal primo fallimento al quarto lancio" e punta al dossier documenti per sito\falcon1_dal_primo_fallimento_al_quarto_lancio.html;
    - pagine tematiche provvisorie: Luna, Marte, Infrastrutture orbitali, Cronologia; non devono comparire nella nav globale finche' non diventano macro-sezioni deliberate.
 5. Se si aggiunge una nuova sottosezione di una compagnia, creare il file HTML autonomo ma collegarlo dalla pagina della compagnia, non da index.html.
 6. Dopo la verifica locale, pubblicare con commit e push su main e gh-pages.

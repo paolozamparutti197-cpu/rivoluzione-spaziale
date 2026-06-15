@@ -38,7 +38,7 @@ Root
 sezioni
 -------
 - spacex.html: pagina porta della sezione SpaceX; contiene i link a storia-spacex.html, lanci-imminenti.html, storico-lanci.html, starship.html e pad-di-lancio.html.
-- storia-spacex.html: sottosezione narrativa SpaceX. Funziona da indice di parti storiche selezionabili; la prima parte e' "Dalla fondazione fino al primo lancio".
+- storia-spacex.html: sottosezione narrativa SpaceX. Funziona da indice di parti storiche selezionabili; contiene almeno la prima parte "Dalla fondazione fino al primo lancio" e la seconda "Dal primo fallimento al quarto lancio".
 - lanci-imminenti.html: sottosezione operativa SpaceX, non voce di nav globale.
 - storico-lanci.html: sottosezione operativa SpaceX, non voce di nav globale.
 - starship.html: sottosezione operativa SpaceX, non voce di nav globale.
@@ -58,6 +58,7 @@ sezioni
 documenti per sito
 ------------------
 - fondazione_spacex_fino_primo_falcon1.html: prima parte pubblicata della storia SpaceX, raggiungibile da sezioni\storia-spacex.html.
+- falcon1_dal_primo_fallimento_al_quarto_lancio.html: seconda parte pubblicata della storia SpaceX, dal Flight 1 fallito al successo orbitale di Flight 4.
 - assets_fondazione\: immagini usate dalla prima parte storica, incluse Falcon 1, Omelek Island e Kwajalein.
 - I .txt e .docx in questa cartella sono ricerche o bozze di lavoro; pubblicare solo quando vengono trasformati in pagina/link deliberati.
 

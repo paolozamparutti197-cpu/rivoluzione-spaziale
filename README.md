@@ -8,7 +8,7 @@ Regola di architettura: la navigazione globale e la homepage non devono elencare
 
 Tra i dossier SpaceX attivi sono disponibili l'agenda lanci, lo storico Falcon, Starship, la pagina "Pad di lancio" e la sottosezione narrativa "Storia". Questi link devono restare dentro `sezioni/spacex.html`.
 
-La sottosezione `sezioni/storia-spacex.html` e' un indice di parti storiche selezionabili. La prima parte pubblicata e' "Dalla fondazione fino al primo lancio" e punta a `documenti per sito/fondazione_spacex_fino_primo_falcon1.html`, con asset in `documenti per sito/assets_fondazione/`.
+La sottosezione `sezioni/storia-spacex.html` e' un indice di parti storiche selezionabili. La prima parte pubblicata e' "Dalla fondazione fino al primo lancio" e punta a `documenti per sito/fondazione_spacex_fino_primo_falcon1.html`; la seconda e' "Dal primo fallimento al quarto lancio" e punta a `documenti per sito/falcon1_dal_primo_fallimento_al_quarto_lancio.html`. Gli asset comuni sono in `documenti per sito/assets_fondazione/`.
 
 ## File principali
 

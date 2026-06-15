@@ -33,6 +33,7 @@ Lo script 03_script\genera_sito_rivoluzione.py genera il sito statico multipagin
 - Lanci imminenti, Storico lanci, Starship, Pad di lancio e Storia sono sottosezioni di SpaceX e devono restare linkate da sezioni\spacex.html;
 - Storia SpaceX vive in sezioni\storia-spacex.html come indice di parti selezionabili. Non inserire il racconto storico direttamente nella pagina porta sezioni\spacex.html;
 - La prima parte storica pubblicata e' "Dalla fondazione fino al primo lancio" e punta a documenti per sito\fondazione_spacex_fino_primo_falcon1.html;
+- La seconda parte storica pubblicata e' "Dal primo fallimento al quarto lancio" e punta a documenti per sito\falcon1_dal_primo_fallimento_al_quarto_lancio.html;
 - Luna, Marte, Infrastrutture orbitali e Cronologia sono pagine provvisorie non visibili nella nav globale finche' non vengono ridefinite come macro-sezioni;
 - per modifiche al sito aggiornare il generatore e rigenerare, non modificare soltanto gli HTML finali.
 

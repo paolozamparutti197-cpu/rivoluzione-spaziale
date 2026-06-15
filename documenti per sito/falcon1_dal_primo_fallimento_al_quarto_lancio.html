@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SpaceX, dal primo fallimento al quarto lancio</title>
+<style>
+:root{
+  --bg:#050607;
+  --ink:#f4f6f8;
+  --muted:#a9b0b7;
+  --line:rgba(255,255,255,.16);
+  --soft:rgba(255,255,255,.075);
+  --soft2:rgba(255,255,255,.11);
+  --cyan:#67c7ff;
+  --amber:#f5b941;
+  --red:#e95f45;
+  --green:#79d18b;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;letter-spacing:0}
+a{color:var(--cyan);text-decoration:none}
+a:hover{text-decoration:underline}
+.topbar{position:fixed;inset:0 0 auto 0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:18px clamp(18px,4vw,56px);background:linear-gradient(180deg,rgba(0,0,0,.92),rgba(0,0,0,.54),rgba(0,0,0,0))}
+.brand{font-weight:900;letter-spacing:.16em;text-transform:uppercase;font-size:15px;color:#fff}
+.brand span{color:var(--cyan)}
+.nav{display:flex;gap:18px;flex-wrap:wrap;justify-content:flex-end;font-size:12px;text-transform:uppercase;letter-spacing:.1em;font-weight:800}
+.nav a{color:#fff}
+.hero{min-height:86vh;display:grid;align-items:end;padding:110px clamp(18px,4vw,56px) 50px;background:linear-gradient(90deg,rgba(0,0,0,.88),rgba(0,0,0,.48) 44%,rgba(0,0,0,.12)),linear-gradient(180deg,rgba(0,0,0,.16),rgba(5,6,7,.96) 92%),url("assets_fondazione/falcon1_flight4_launch.jpg") center/cover no-repeat}
+.hero-inner,.section-inner{max-width:1180px;margin:0 auto}
+.eyebrow{margin:0 0 14px;color:var(--amber);text-transform:uppercase;letter-spacing:.14em;font-size:13px;font-weight:900}
+h1{margin:0;max-width:980px;font-size:clamp(38px,8vw,92px);line-height:.92;text-transform:uppercase;font-weight:950}
+h2{margin:0 0 24px;font-size:clamp(28px,4vw,48px);line-height:1;text-transform:uppercase}
+h3{margin:30px 0 12px;font-size:22px;line-height:1.15}
+p{color:#d9dde1;font-size:17px;line-height:1.72;margin:0 0 18px}
+.lead{max-width:820px;margin:24px 0 0;color:#e6ebef;font-size:clamp(17px,2vw,22px);line-height:1.48;font-weight:500}
+section{padding:76px clamp(18px,4vw,56px);border-top:1px solid var(--line)}
+.split{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(280px,.72fr);gap:42px;align-items:start}
+.panel{border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.045));border-radius:8px;padding:22px}
+.panel h3:first-child{margin-top:0}
+.panel p,.panel li{font-size:15px;color:#d6dbe0;line-height:1.62}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:34px}
+.fact{border:1px solid var(--line);background:var(--soft);border-radius:8px;padding:18px;min-height:118px}
+.fact b{display:block;font-size:25px;line-height:1;margin-bottom:10px}
+.fact span{display:block;color:var(--muted);line-height:1.42;font-size:14px}
+.timeline{display:grid;gap:14px;margin-top:24px}
+.event{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;border-top:1px solid var(--line);padding-top:18px}
+.date{color:var(--amber);font-weight:900;text-transform:uppercase;letter-spacing:.08em;font-size:13px}
+.event h3{margin:0 0 6px}
+.event p{margin:0;color:#cfd5da}
+table{width:100%;border-collapse:collapse;margin-top:22px;font-size:15px}
+th,td{border-top:1px solid var(--line);padding:13px 10px;text-align:left;vertical-align:top;line-height:1.45}
+th{color:#fff;text-transform:uppercase;letter-spacing:.08em;font-size:12px}
+td{color:#d8dde2}
+.callout{border-left:4px solid var(--red);padding:16px 18px;background:rgba(233,95,69,.095);margin:26px 0}
+.callout p{margin:0}
+.sources{columns:2 360px;column-gap:42px;padding-left:18px}
+.sources li{break-inside:avoid;color:#d9dde1;margin:0 0 12px;line-height:1.5;font-size:15px}
+.button{display:inline-flex;border:1px solid var(--line);padding:12px 16px;border-radius:4px;text-transform:uppercase;font-size:12px;letter-spacing:.09em;font-weight:900;background:rgba(0,0,0,.22);color:#fff;margin-top:8px}
+@media(max-width:850px){.topbar{position:absolute;align-items:flex-start}.nav{display:none}.hero{min-height:82vh}.split{grid-template-columns:1fr}.facts{grid-template-columns:repeat(2,minmax(0,1fr))}.event{grid-template-columns:1fr;gap:6px}}
+@media(max-width:520px){.facts{grid-template-columns:1fr}section{padding:54px 18px}.hero{padding:96px 18px 42px}h1{font-size:42px}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../sezioni/storia-spacex.html">Space<span>X</span> history</a>
+  <nav class="nav" aria-label="Sezioni">
+    <a href="../sezioni/storia-spacex.html">Indice storia</a>
+    <a href="#voli">Voli</a>
+    <a href="#crisi">Crisi 2008</a>
+    <a href="#fonti">Fonti</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" aria-label="Introduzione">
+    <div class="hero-inner">
+      <p class="eyebrow">2006-2008, dalla perdita del primo Falcon 1 al primo successo orbitale</p>
+      <h1>Dal primo fallimento al quarto lancio</h1>
+      <p class="lead">Questa parte racconta come SpaceX trasformo tre fallimenti di natura diversa in un metodo: isolare il failure mode, correggerlo in modo mirato, tornare al volo prima che il capitale e la credibilita finissero.</p>
+      <a class="button" href="../sezioni/storia-spacex.html">Torna a Storia SpaceX</a>
+    </div>
+  </section>
+
+  <section id="tesi">
+    <div class="section-inner">
+      <div class="split">
+        <article>
+          <h2>La tesi</h2>
+          <p>Tra marzo 2006 e settembre 2008 Falcon 1 passa da un decollo finito in incendio a un inserimento orbitale riuscito. Il salto non arriva da una singola invenzione risolutiva, ma da una serie di correzioni precise: corrosione dopo Flight 1, dinamica dello slosh dopo Flight 2, spinta residua e timing di separazione dopo Flight 3.</p>
+          <p>Omelek rende tutto piu duro. L'isola e utile per traiettorie e sicurezza, ma costringe la squadra a lavorare con logistica fragile, ambiente salino, tempi stretti e pressione finanziaria. Falcon 1 non e solo un razzo: e un sistema fatto di materiali, software di countdown, procedure di lancio, supply chain e persone stanche in un posto remoto.</p>
+        </article>
+        <aside class="panel">
+          <h3>Perche conta</h3>
+          <p>Questi trenta mesi fissano un tratto culturale che tornera in Falcon 9 e Starship: volare presto, leggere i dati senza romanticismo, cambiare cio che ha fallito e riprovare.</p>
+          <p>Il quarto lancio non cancella i tre precedenti. Li rende leggibili come una sequenza di apprendimento industriale accelerato.</p>
+        </aside>
+      </div>
+      <div class="facts">
+        <div class="fact"><b>24.03.2006</b><span>Flight 1: FalconSAT-2 perso dopo incendio al motore.</span></div>
+        <div class="fact"><b>21.03.2007</b><span>Flight 2: spazio raggiunto, orbita mancata per instabilita del secondo stadio.</span></div>
+        <div class="fact"><b>03.08.2008</b><span>Flight 3: ricontatto tra stadi dopo il nuovo Merlin 1C.</span></div>
+        <div class="fact"><b>28.09.2008</b><span>Flight 4: RatSat raggiunge l'orbita e salva la credibilita di SpaceX.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="voli">
+    <div class="section-inner">
+      <h2>I quattro voli</h2>
+      <p>Ogni missione chiude un buco diverso nella comprensione del sistema. La progressione e piu interessante della sola statistica: tre insuccessi non identici, tre diagnosi diverse, tre correzioni sempre piu disciplinate.</p>
+      <div class="timeline">
+        <div class="event">
+          <div class="date">Flight 1</div>
+          <div><h3>Il dado corroso</h3><p>Una perdita di RP-1 porta a incendio e spegnimento del Merlin. L'indagine attribuisce il cedimento a un B-nut in alluminio indebolito dall'ambiente salino. La correzione piu importante e sostituire componenti vulnerabili con acciaio inox e aumentare protezioni e controllo automatico.</p></div>
+        </div>
+        <div class="event">
+          <div class="date">Flight 2</div>
+          <div><h3>Slosh e controllo</h3><p>Il veicolo arriva nello spazio ma non in orbita. Le oscillazioni del secondo stadio e lo sloshing dell'ossigeno liquido sovrastano il controllo di assetto e portano al flame-out del Kestrel. La risposta e introdurre baffles, rivedere logiche di controllo e correggere anomalie di ground support.</p></div>
+        </div>
+        <div class="event">
+          <div class="date">Flight 3</div>
+          <div><h3>Il transiente invisibile a terra</h3><p>Con il Merlin 1C rigenerativo, la spinta residua dopo lo spegnimento dura piu del previsto nel vuoto. Il primo stadio ricontatta il secondo durante la separazione. La soluzione non e rifare il veicolo, ma cambiare il timing: attendere abbastanza per dissipare la spinta residua.</p></div>
+        </div>
+        <div class="event">
+          <div class="date">Flight 4</div>
+          <div><h3>RatSat in orbita</h3><p>Con un simulatore di massa al posto di un satellite operativo, SpaceX riduce le variabili e verifica la correzione. Il Falcon 1 raggiunge l'orbita: e il primo vettore orbitale privato a propellente liquido pienamente sviluppato e finanziato fuori dai programmi statali tradizionali.</p></div>
+        </div>
+      </div>
+
+      <table>
+        <thead><tr><th>Volo</th><th>Payload</th><th>Problema</th><th>Correzione</th></tr></thead>
+        <tbody>
+          <tr><td>Flight 1</td><td>FalconSAT-2</td><td>Perdita carburante e incendio da raccordo corroso.</td><td>Materiali meno vulnerabili, schermature, automazione countdown.</td></tr>
+          <tr><td>Flight 2</td><td>DemoSat</td><td>Instabilita secondo stadio, slosh LOX e flame-out Kestrel.</td><td>Baffles nei serbatoi e logica di controllo rivista.</td></tr>
+          <tr><td>Flight 3</td><td>Trailblazer, PRESat, NanoSail-D e altri payload</td><td>Ricontatto tra stadi da spinta residua Merlin 1C.</td><td>Sequenza di separazione con maggiore margine temporale.</td></tr>
+          <tr><td>Flight 4</td><td>RatSat</td><td>Nessuna anomalia mission-ending pubblica.</td><td>Validazione delle correzioni e inserimento orbitale.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="crisi">
+    <div class="section-inner split">
+      <article>
+        <h2>La crisi del 2008</h2>
+        <p>Il terzo fallimento arriva nel momento peggiore: SpaceX deve sostenere Falcon 1, Falcon 9 e Dragon mentre la crisi finanziaria globale restringe il capitale. Il successo del quarto volo diventa quindi una prova tecnica e insieme una prova di sopravvivenza.</p>
+        <p>Il documento sorgente sottolinea anche il ruolo commerciale di Gwynne Shotwell: mantenere vivi clienti, fiducia istituzionale e prospettiva NASA mentre il razzo non ha ancora dimostrato l'orbita. Pochi mesi dopo Flight 4, il contratto CRS NASA da 1,6 miliardi di dollari cambia la scala dell'azienda.</p>
+        <div class="callout"><p>La lezione non e "fallire va bene". La lezione e che un fallimento serve solo se l'organizzazione e abbastanza rapida, onesta e precisa da trasformarlo in una correzione verificabile.</p></div>
+      </article>
+      <aside class="panel">
+        <h3>Metodo che emerge</h3>
+        <ul>
+          <li>Non riscrivere tutto dopo ogni incidente.</li>
+          <li>Isolare il failure mode che ha chiuso la missione.</li>
+          <li>Separare errore umano, ambiente, modello fisico e processo.</li>
+          <li>Far crescere software e procedure insieme all'hardware.</li>
+          <li>Usare il volo successivo come verifica, non come gesto simbolico.</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section id="fonti">
+    <div class="section-inner">
+      <h2>Fonti</h2>
+      <p>Pagina ricavata dal documento locale <strong>SpaceX tra il primo fallimento di Falcon 1 e il quarto lancio.docx</strong>, con sintesi armonizzata per il sito.</p>
+      <ol class="sources">
+        <li>SpaceX Falcon 1 Flight 2 review e materiale DARPA/SpaceX sul secondo volo.</li>
+        <li>SpaceX, paper IAC sul Falcon 1 Flight 3 e analisi del transiente di spinta residua.</li>
+        <li>Falcon 1 User's Guide Rev. 7 per architettura e processi di integrazione.</li>
+        <li>Space.com e Spaceflight Now per cronache contemporanee dei fallimenti e del Flight 4.</li>
+        <li>NASA COTS Space Act Agreement e fonti successive sul contesto COTS/CRS.</li>
+        <li>Wired 2007 per contesto umano e operativo della fase Falcon 1.</li>
+      </ol>
+    </div>
+  </section>
+</main>
+</body>
+</html>
