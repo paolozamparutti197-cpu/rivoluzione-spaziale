@@ -477,6 +477,7 @@ p{{color:#d9dee3;line-height:1.64}}
 .button.secondary{{background:rgba(0,0,0,.22);color:#fff}}
 .spacex-actions{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));max-width:430px}}
 .spacex-actions .button{{display:flex;align-items:center;justify-content:center;text-align:center;min-height:44px;padding:12px 14px}}
+.spacex-actions .button.history-link{{grid-column:1/-1}}
 section{{padding:72px clamp(18px,4vw,56px);border-top:1px solid var(--line)}}
 .section-head{{display:flex;justify-content:space-between;gap:28px;align-items:end;margin-bottom:28px}}
 .section-head p{{max-width:660px;color:var(--muted);line-height:1.58;margin:0}}
@@ -492,6 +493,16 @@ section{{padding:72px clamp(18px,4vw,56px);border-top:1px solid var(--line)}}
 .metric{{min-width:0;border:1px solid var(--line);background:rgba(255,255,255,.065);border-radius:8px;padding:18px;min-height:112px}}
 .metric b{{display:block;font-size:clamp(25px,2.6vw,34px);line-height:1.05;margin-bottom:8px;overflow-wrap:break-word}}
 .metric span{{display:block;color:var(--muted);font-size:13px;line-height:1.35}}
+.history-grid{{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);gap:20px;align-items:stretch}}
+.history-media{{min-height:100%;overflow:hidden;border:1px solid var(--line);border-radius:8px;background:#090d11}}
+.history-media img{{display:block;width:100%;height:100%;min-height:390px;object-fit:cover;object-position:center}}
+.history-copy{{display:grid;gap:14px}}
+.history-lead{{margin:0;color:#eef4f8;font-size:clamp(20px,2.4vw,30px);line-height:1.32;font-weight:760}}
+.history-copy p:not(.history-lead){{margin:0;color:#cfd7de}}
+.history-timeline{{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:4px}}
+.history-event{{border-top:2px solid rgba(105,200,255,.55);background:rgba(255,255,255,.055);border-radius:0 0 8px 8px;padding:14px;min-height:150px}}
+.history-event strong{{display:block;color:var(--gold);font-size:12px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}}
+.history-event span{{display:block;color:#d9e0e6;font-size:13px;line-height:1.42}}
 .launch-grid{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}}
 .launch{{border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.05));border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:12px;min-height:318px}}
 .launch-top{{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}}
@@ -567,9 +578,9 @@ td{{color:#d8dee3}}
 .construction{{border-color:rgba(242,184,75,.45);background:linear-gradient(180deg,rgba(242,184,75,.12),rgba(255,255,255,.055))}}
 .muted{{color:var(--muted)}}
 .footer{{padding:34px clamp(18px,4vw,56px);border-top:1px solid var(--line);color:var(--muted);font-size:13px;line-height:1.5}}
-@media(max-width:1120px){{.grid,.launch-grid,.pad-list{{grid-template-columns:repeat(2,minmax(0,1fr))}}.split,.dash-grid,.cols,.pad-map-wrap{{grid-template-columns:1fr}}.pad-map-side{{border-right:0;border-bottom:1px solid var(--line)}}.pad-side-list{{max-height:none;grid-template-columns:repeat(2,minmax(0,1fr))}}}}
+@media(max-width:1120px){{.grid,.launch-grid,.pad-list{{grid-template-columns:repeat(2,minmax(0,1fr))}}.split,.dash-grid,.cols,.pad-map-wrap,.history-grid{{grid-template-columns:1fr}}.history-media img{{height:auto;max-height:520px}}.pad-map-side{{border-right:0;border-bottom:1px solid var(--line)}}.pad-side-list{{max-height:none;grid-template-columns:repeat(2,minmax(0,1fr))}}}}
 @media(max-width:900px){{.pad-list{{grid-template-columns:1fr}}.pad-card{{grid-template-columns:160px 1fr}}}}
-@media(max-width:760px){{.topbar{{align-items:flex-start;flex-direction:column}}.nav{{justify-content:flex-start}}.grid,.launch-grid,.metrics,.split .panel .metrics,.pad-side-list,.spacex-actions{{grid-template-columns:1fr}}section{{padding:56px 18px}}.hero{{padding:92px 18px 42px}}h1{{font-size:43px}}.section-head{{display:block}}.bar-row{{grid-template-columns:58px 1fr 44px}}#pad-map{{min-height:460px}}.pad-map-wrap{{min-height:460px}}.pad-card{{grid-template-columns:1fr}}.pad-card img{{max-height:420px}}.pad-mini-event{{grid-template-columns:1fr;gap:2px}}}}
+@media(max-width:760px){{.topbar{{align-items:flex-start;flex-direction:column}}.nav{{justify-content:flex-start}}.grid,.launch-grid,.metrics,.split .panel .metrics,.pad-side-list,.spacex-actions,.history-timeline{{grid-template-columns:1fr}}section{{padding:56px 18px}}.hero{{padding:92px 18px 42px}}h1{{font-size:43px}}.section-head{{display:block}}.bar-row{{grid-template-columns:58px 1fr 44px}}#pad-map{{min-height:460px}}.pad-map-wrap{{min-height:460px}}.pad-card{{grid-template-columns:1fr}}.pad-card img{{max-height:420px}}.pad-mini-event{{grid-template-columns:1fr;gap:2px}}}}
 """
 
 
@@ -952,13 +963,37 @@ def render_spacex(data):
         ]
     )
     body = f"""
-{page_hero("SpaceX", "Sezione attiva", "L'area SpaceX raccoglie la parte viva del sito: agenda dei lanci, storico Falcon, riuso dei booster e sviluppo Starship.")}
+{page_hero("SpaceX", "Sezione attiva", "L'area SpaceX raccoglie storia, agenda dei lanci, storico Falcon, riuso dei booster e sviluppo Starship.")}
+<section id="storia">
+  <div class="inner history-grid">
+    <figure class="history-media">
+      <img src="../documenti%20per%20sito/assets_fondazione/falcon1_flight4_launch.jpg" alt="Falcon 1 durante un lancio da Omelek Island" loading="lazy">
+    </figure>
+    <article class="panel history-copy">
+      <p class="eyebrow">Storia</p>
+      <h2>Dall'idea Marte al primo sistema industriale</h2>
+      <p class="history-lead">La storia SpaceX non comincia con la cadenza Falcon 9: comincia quando il costo di un lanciatore diventa il problema da attaccare, non una voce da accettare.</p>
+      <p>Dalla frustrazione di Mars Oasis alla fondazione del 2002, SpaceX sceglie presto una strada anomala: integrare progettazione, produzione, test e operazioni per accorciare il ciclo tra errore e modifica. Falcon 1 e Omelek sono il laboratorio ruvido di questa idea; i fallimenti del 2006-2008 non la smentiscono, la rendono misurabile.</p>
+      <p>Entro il 2010 la traiettoria cambia scala: il quarto Falcon 1 raggiunge l'orbita, arrivano i contratti COTS/CRS, debutta Falcon 9 e Dragon rientra dall'orbita. Da li in poi, riuso e alta cadenza diventano evoluzione di un'impostazione gia presente all'inizio.</p>
+      <div class="history-timeline" aria-label="Cronologia sintetica SpaceX 2001-2010">
+        <div class="history-event"><strong>2001-2002</strong><span>Mars Oasis e trattative russe fallite trasformano Marte in un problema di accesso economico all'orbita.</span></div>
+        <div class="history-event"><strong>2002-2006</strong><span>Nascono azienda, team iniziale, motori Merlin/Kestrel, test a McGregor e pad remoto a Omelek.</span></div>
+        <div class="history-event"><strong>2008</strong><span>Dopo tre fallimenti, Falcon 1 Flight 4 diventa il primo vettore orbitale privato a propellenti liquidi.</span></div>
+        <div class="history-event"><strong>2010</strong><span>Falcon 9 debutta e Dragon completa il primo volo orbitale con recupero, aprendo la fase operativa NASA.</span></div>
+      </div>
+      <div class="actions">
+        <a class="button secondary" href="../documenti%20per%20sito/fondazione_spacex_fino_primo_falcon1.html">Leggi il dossier</a>
+      </div>
+    </article>
+  </div>
+</section>
 <section>
   <div class="inner split">
     <article class="panel">
       <h2>Macchina operativa</h2>
       <p>SpaceX non viene trattata come una semplice azienda di lanci. Qui e il primo laboratorio della nuova industria spaziale: cadenza, costi, recupero, riuso, infrastrutture e sviluppo rapido nello stesso sistema.</p>
       <div class="actions spacex-actions">
+        <a class="button history-link" href="#storia">Storia</a>
         <a class="button" href="lanci-imminenti.html">Lanci imminenti</a>
         <a class="button secondary" href="storico-lanci.html">Storico lanci</a>
         <a class="button secondary" href="starship.html">Starship</a>
