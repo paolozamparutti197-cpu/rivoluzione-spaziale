@@ -1541,6 +1541,15 @@ def render_spacex_history_page(data):
           <span class="button secondary">Apri approfondimento</span>
         </div>
       </a>
+      <a class="story-card" href="../documenti%20per%20sito/falcon1_successo_orbitale_contratto_crs.html">
+        <img src="../documenti%20per%20sito/assets_fondazione/falcon1_flight4_launch.jpg" alt="Falcon 1 durante il lancio orbitale riuscito del 2008" loading="lazy">
+        <div>
+          <small>Terza parte</small>
+          <h3>Dal primo successo orbitale al contratto CRS</h3>
+          <p>Il quarto Falcon 1 diede a SpaceX l'orbita; il contratto NASA del dicembre 2008 diede all'azienda una traiettoria industriale. RazakSAT chiuse la storia del piccolo lanciatore.</p>
+          <span class="button secondary">Apri approfondimento</span>
+        </div>
+      </a>
     </div>
   </div>
 </section>

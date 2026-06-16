@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SpaceX, dal primo successo orbitale al contratto CRS</title>
+<style>
+:root{
+  --bg:#050607;
+  --ink:#f4f6f8;
+  --muted:#a9b0b7;
+  --line:rgba(255,255,255,.16);
+  --soft:rgba(255,255,255,.075);
+  --cyan:#67c7ff;
+  --amber:#f5b941;
+  --red:#e95f45;
+  --green:#79d18b;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;letter-spacing:0}
+a{color:var(--cyan);text-decoration:none}
+a:hover{text-decoration:underline}
+.topbar{position:fixed;inset:0 0 auto 0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:18px clamp(18px,4vw,56px);background:linear-gradient(180deg,rgba(0,0,0,.92),rgba(0,0,0,.54),rgba(0,0,0,0))}
+.brand{font-weight:900;letter-spacing:.16em;text-transform:uppercase;font-size:15px;color:#fff}
+.brand span{color:var(--cyan)}
+.nav{display:flex;gap:18px;flex-wrap:wrap;justify-content:flex-end;font-size:12px;text-transform:uppercase;letter-spacing:.1em;font-weight:800}
+.nav a{color:#fff}
+.hero{min-height:86vh;display:grid;align-items:end;padding:110px clamp(18px,4vw,56px) 50px;background:linear-gradient(90deg,rgba(0,0,0,.88),rgba(0,0,0,.48) 44%,rgba(0,0,0,.12)),linear-gradient(180deg,rgba(0,0,0,.16),rgba(5,6,7,.96) 92%),url("assets_fondazione/falcon1_flight4_launch.jpg") center/cover no-repeat}
+.hero-inner,.section-inner{max-width:1180px;margin:0 auto}
+.eyebrow{margin:0 0 14px;color:var(--amber);text-transform:uppercase;letter-spacing:.14em;font-size:13px;font-weight:900}
+h1{margin:0;max-width:1000px;font-size:clamp(38px,8vw,92px);line-height:.92;text-transform:uppercase;font-weight:950}
+h2{margin:0 0 24px;font-size:clamp(28px,4vw,48px);line-height:1;text-transform:uppercase}
+h3{margin:30px 0 12px;font-size:22px;line-height:1.15}
+p{color:#d9dde1;font-size:17px;line-height:1.72;margin:0 0 18px}
+.lead{max-width:840px;margin:24px 0 0;color:#e6ebef;font-size:clamp(17px,2vw,22px);line-height:1.48;font-weight:500}
+section{padding:76px clamp(18px,4vw,56px);border-top:1px solid var(--line)}
+.split{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(280px,.72fr);gap:42px;align-items:start}
+.panel{border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.045));border-radius:8px;padding:22px}
+.panel h3:first-child{margin-top:0}
+.panel p,.panel li{font-size:15px;color:#d6dbe0;line-height:1.62}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:34px}
+.fact{border:1px solid var(--line);background:var(--soft);border-radius:8px;padding:18px;min-height:118px}
+.fact b{display:block;font-size:25px;line-height:1;margin-bottom:10px}
+.fact span{display:block;color:var(--muted);line-height:1.42;font-size:14px}
+.timeline{display:grid;gap:14px;margin-top:24px}
+.event{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;border-top:1px solid var(--line);padding-top:18px}
+.date{color:var(--amber);font-weight:900;text-transform:uppercase;letter-spacing:.08em;font-size:13px}
+.event h3{margin:0 0 6px}
+.event p{margin:0;color:#cfd5da}
+table{width:100%;border-collapse:collapse;margin-top:22px;font-size:15px}
+th,td{border-top:1px solid var(--line);padding:13px 10px;text-align:left;vertical-align:top;line-height:1.45}
+th{color:#fff;text-transform:uppercase;letter-spacing:.08em;font-size:12px}
+td{color:#d8dde2}
+.callout{border-left:4px solid var(--red);padding:16px 18px;background:rgba(233,95,69,.095);margin:26px 0}
+.callout p{margin:0}
+.media-grid{display:grid;grid-template-columns:1.25fr .9fr;gap:14px;margin-top:26px;align-items:stretch}
+figure{margin:0;border:1px solid var(--line);background:#0c0f12;border-radius:8px;overflow:hidden}
+figure img{display:block;width:100%;height:100%;max-height:520px;object-fit:cover}
+.media-grid figure:first-child{grid-row:span 2}
+.media-grid figure:nth-child(2) img,.media-grid figure:nth-child(3) img{max-height:252px}
+figcaption{padding:12px 14px;color:#b7c0c8;font-size:13px;line-height:1.45;border-top:1px solid var(--line)}
+.sources{columns:2 360px;column-gap:42px;padding-left:18px}
+.sources li{break-inside:avoid;color:#d9dde1;margin:0 0 12px;line-height:1.5;font-size:15px}
+.button{display:inline-flex;border:1px solid var(--line);padding:12px 16px;border-radius:4px;text-transform:uppercase;font-size:12px;letter-spacing:.09em;font-weight:900;background:rgba(0,0,0,.22);color:#fff;margin-top:8px}
+@media(max-width:850px){.topbar{position:absolute;align-items:flex-start}.nav{display:none}.hero{min-height:82vh}.split,.media-grid{grid-template-columns:1fr}.media-grid figure:first-child{grid-row:auto}.facts{grid-template-columns:repeat(2,minmax(0,1fr))}.event{grid-template-columns:1fr;gap:6px}}
+@media(max-width:520px){.facts{grid-template-columns:1fr}section{padding:54px 18px}.hero{padding:96px 18px 42px}h1{font-size:42px}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../sezioni/storia-spacex.html">Space<span>X</span> history</a>
+  <nav class="nav" aria-label="Sezioni">
+    <a href="../sezioni/storia-spacex.html">Indice storia</a>
+    <a href="#orbita">Orbita</a>
+    <a href="#crs">CRS</a>
+    <a href="#razaksat">RazakSAT</a>
+    <a href="#fonti">Fonti</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" aria-label="Introduzione">
+    <div class="hero-inner">
+      <p class="eyebrow">2008-2009, quando SpaceX smise di essere soltanto una promessa</p>
+      <h1>Dal primo successo orbitale al contratto CRS</h1>
+      <p class="lead">Il 28 settembre 2008 il Falcon 1 mise RatSat in orbita. Tre mesi dopo NASA assegnò a SpaceX il contratto cargo per la Stazione Spaziale Internazionale. In mezzo non c'è una favola sulla fortuna: c'è il passaggio, stretto e documentabile, da credibilità tecnica a sopravvivenza industriale.</p>
+      <a class="button" href="../sezioni/storia-spacex.html">Torna a Storia SpaceX</a>
+    </div>
+  </section>
+
+  <section id="tesi">
+    <div class="section-inner">
+      <div class="split">
+        <article>
+          <h2>La tesi</h2>
+          <p>La versione breve dice che il quarto Falcon 1 salvò SpaceX. È vera solo a metà. Il successo orbitale rese credibile l'azienda nel momento in cui il capitale stava finendo, ma non bastava a finanziare Falcon 9, Dragon, test, personale e fornitori. Il lancio del 28 settembre aprì la porta. Il contratto Commercial Resupply Services, annunciato da NASA il 23 dicembre 2008, mise dietro quella porta un cliente istituzionale e un flusso di lavoro pluriennale.</p>
+          <p>La distinzione conta perché impedisce di trasformare la storia in un aneddoto. SpaceX non ricevette 1,6 miliardi di dollari in un unico versamento e non uscì dalla crisi con un solo colpo di scena. Ricevette un contratto a prezzo fisso, con task order, work plan e milestone. Per una società privata che non pubblicava bilanci completi, quella struttura era più utile di una frase epica: rendeva finanziabile il futuro.</p>
+        </article>
+        <aside class="panel">
+          <h3>Che cosa cambia</h3>
+          <p><strong>Prima:</strong> SpaceX aveva tre fallimenti Falcon 1, un programma COTS in corso e capitale privato insufficiente per una lunga traversata.</p>
+          <p><strong>Dopo Flight 4:</strong> aveva dimostrato l'orbita con un vettore liquido sviluppato privatamente.</p>
+          <p><strong>Dopo CRS:</strong> aveva un cliente NASA per 12 missioni cargo verso la ISS, basate su Falcon 9 e Dragon.</p>
+        </aside>
+      </div>
+      <div class="facts">
+        <div class="fact"><b>28.09.2008</b><span>Falcon 1 Flight 4 raggiunge l'orbita con RatSat, simulatore di massa.</span></div>
+        <div class="fact"><b>23.12.2008</b><span>NASA annuncia il CRS: 12 missioni a SpaceX per circa 1,6 miliardi di dollari.</span></div>
+        <div class="fact"><b>IDIQ</b><span>Il contratto è firm-fixed-price e gestito con task order e work plan.</span></div>
+        <div class="fact"><b>14.07.2009</b><span>RazakSAT diventa il primo payload cliente portato in orbita da SpaceX.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="immagini">
+    <div class="section-inner">
+      <h2>Le immagini della soglia</h2>
+      <p>Questa fase della storia SpaceX vive in luoghi molto concreti: una rampa minuscola su Omelek, un atollo remoto usato come infrastruttura di range, e un Falcon 1 che finalmente lascia dietro di sé una traiettoria abbastanza pulita da trasformarsi in orbita. Le immagini non sono decorazione; servono a tenere insieme scala fisica, isolamento logistico e fragilità del programma.</p>
+      <div class="media-grid">
+        <figure>
+          <img src="assets_fondazione/falcon1_flight4_launch.jpg" alt="Falcon 1 durante il lancio del Flight 4 da Omelek Island" loading="lazy">
+          <figcaption>Falcon 1 Flight 4, 28 settembre 2008. Il lancio di RatSat non portava un satellite operativo, ma dimostrò che il veicolo poteva completare l'inserimento orbitale.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets_fondazione/omelek_island.jpg" alt="Omelek Island vista dall'alto" loading="lazy">
+          <figcaption>Omelek Island. La rampa dava a SpaceX isolamento e traiettorie utili, ma ogni ricambio e ogni persona dovevano attraversare il Pacifico.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets_fondazione/kwajalein_landsat.png" alt="Atollo di Kwajalein visto da satellite" loading="lazy">
+          <figcaption>Kwajalein Atoll. Nel racconto Falcon 1 il sito di lancio non è sfondo: è una variabile tecnica, logistica e ambientale.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="orbita">
+    <div class="section-inner split">
+      <article>
+        <h2>L'orbita come prova</h2>
+        <p>Il quarto Falcon 1 non era una missione commerciale normale. A bordo non c'era il satellite malese RazakSAT, previsto in origine, ma RatSat, un carico inerte. Dopo tre fallimenti, nessun cliente ragionevole voleva essere il prossimo esperimento. SpaceX doveva prima dimostrare che il piccolo lanciatore di Omelek poteva completare una sequenza pulita: ascesa del primo stadio, separazione, accensione del Kestrel, inserimento orbitale.</p>
+        <p>Il guasto da chiudere era molto specifico. Nel terzo volo, il 3 agosto 2008 UTC, il nuovo Merlin 1C raffreddato rigenerativamente aveva continuato a produrre una spinta residua dopo lo spegnimento. Nel vuoto quella coda, troppo debole per emergere chiaramente nei test a terra, era bastata a far ricontattare il primo stadio con il secondo. SpaceX non risolse il problema con una riprogettazione generale. Cambiò il timer: più tempo tra MECO e separazione fisica degli stadi.</p>
+        <p>La lezione non era che fallire fosse di per sé virtuoso. La lezione era più dura: un fallimento vale qualcosa solo se l'organizzazione lo riduce a una causa verificabile e poi verifica la correzione in volo. Flight 4 fu questo. Non un riscatto morale, ma un test di una modifica.</p>
+        <div class="callout">
+          <p>Il risultato cambiò il peso specifico di SpaceX. Prima poteva promettere di arrivare in orbita. Dopo il 28 settembre 2008 poteva dire di esserci arrivata.</p>
+        </div>
+      </article>
+      <aside class="panel">
+        <h3>Il fix di Flight 4</h3>
+        <ul>
+          <li>Problema: spinta residua del Merlin 1C dopo il comando di spegnimento.</li>
+          <li>Effetto: ricontatto tra primo e secondo stadio nel Flight 3.</li>
+          <li>Correzione: timer portato a circa cinque secondi prima della separazione.</li>
+          <li>Verifica: Flight 4 raggiunge l'orbita il 28 settembre 2008.</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section id="crs">
+    <div class="section-inner">
+      <h2>Il contratto che cambiò scala</h2>
+      <p>Il contratto decisivo non fu un accordo militare Falcon 1 e non fu il COTS del 2006. Il COTS era il prerequisito: un accordo di sviluppo e dimostrazione, con milestone, per portare avanti Falcon 9 e Dragon. Il salto di scala arrivò con il CRS, cioè il contratto di approvvigionamento per rifornire operativamente la ISS dopo lo Shuttle.</p>
+      <p>NASA annunciò il 23 dicembre 2008 due contratti commerciali cargo: circa 1,6 miliardi di dollari a SpaceX per 12 missioni e circa 1,9 miliardi a Orbital Sciences per 8. Per SpaceX era una scelta rischiosa da parte dell'agenzia. Falcon 9 non aveva ancora volato. Dragon non era ancora arrivata alla Stazione. Ma il programma COTS era avviato da 28 mesi, le revisioni di sistema erano state completate, e il successo del Falcon 1 aveva tolto all'azienda l'etichetta più pericolosa: quella di costruttore di razzi mai arrivati in orbita.</p>
+      <p>La struttura contrattuale spiega perché l'award contasse anche prima delle missioni ISS. Il basic contract CRS era un veicolo IDIQ, firm-fixed-price, con periodo di performance dal 2009 al 2015 e valore massimo per contratto di 3,1 miliardi di dollari. I work plan legavano autorizzazioni, pagamenti e milestone. L'Inspector General della NASA scrisse poi che l'agenzia diede ai contractor autorità e fondi per costruire sistemi di lancio prima del completamento delle prime dimostrazioni, accettando quel rischio per non restare senza capacità cargo nel dopo-Shuttle.</p>
+      <table>
+        <thead><tr><th>Strumento</th><th>Natura</th><th>Perché conta</th></tr></thead>
+        <tbody>
+          <tr><td>COTS, 2006</td><td>Space Act Agreement di sviluppo e dimostrazione, legato a milestone.</td><td>Aiuta a costruire Falcon 9 e Dragon, ma non compra ancora un servizio operativo.</td></tr>
+          <tr><td>CRS, 2008</td><td>Contratto FAR-based, firm-fixed-price, IDIQ per servizi cargo ISS.</td><td>Trasforma SpaceX in fornitore selezionato per missioni operative NASA.</td></tr>
+          <tr><td>Capitale privato</td><td>Round e filing SEC nel 2008-2009.</td><td>Mostra che il CRS non cancellò il fabbisogno di cassa, ma lo rese più credibile.</td></tr>
+          <tr><td>PlanetSpace GAO</td><td>Ricorso respinto il 22 aprile 2009.</td><td>Conferma che NASA valutò anche rischio finanziario, gestione e dipendenza da subappaltatori.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="planetspace">
+    <div class="section-inner split">
+      <article>
+        <h2>Il ricorso PlanetSpace</h2>
+        <p>La selezione CRS non rimase incontestata. PlanetSpace presentò ricorso al Government Accountability Office contro l'award a Orbital Sciences. La decisione del GAO, pubblicata il 22 aprile 2009, è utile anche per capire l'ambiente in cui SpaceX era stata scelta: NASA non stava soltanto confrontando prezzi. Stava valutando chi potesse davvero assumersi il rischio di consegnare cargo alla ISS in tempi stretti.</p>
+        <p>Il GAO respinse il ricorso. Nella decisione, il rischio di PlanetSpace veniva legato alla forte dipendenza da subappaltatori, alla limitata esperienza diretta e a una struttura finanziaria che avrebbe richiesto debito e nuovi investimenti per quasi tutta la performance. Il punto non era una vittoria retorica dell'integrazione verticale. Era una valutazione amministrativa: chi controlla il proprio hardware, i propri test e la propria catena decisionale può essere un rischio diverso da chi coordina un consorzio fragile.</p>
+      </article>
+      <aside class="panel">
+        <h3>Perché inserirlo qui</h3>
+        <p>La controversia PlanetSpace non riguarda direttamente il Falcon 1, ma illumina la scelta NASA. CRS non premiava solo un prezzo: premiava una probabilità di esecuzione in un momento in cui la ISS non poteva aspettare un programma elegante ma senza trazione industriale.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section id="razaksat">
+    <div class="section-inner">
+      <h2>RazakSAT, l'epilogo del Falcon 1</h2>
+      <p>Il Falcon 1 non scomparve il giorno del contratto CRS. Aveva ancora una missione da chiudere. Il 14 luglio 2009 UTC, da Omelek Island, il quinto volo portò in orbita RazakSAT, satellite malese di osservazione terrestre. Fu il primo lancio SpaceX con un payload cliente consegnato con successo, e rimase anche l'ultimo volo del Falcon 1.</p>
+      <p>Il lancio aveva una propria complessità. RazakSAT doveva operare in un'orbita quasi equatoriale, utile per aumentare i passaggi sopra la Malesia. Dopo un rinvio, SpaceX e ATSB introdussero un sistema di isolamento vibrazionale SoftRide per mitigare una possibile interazione sfavorevole tra satellite e lanciatore. È un dettaglio piccolo solo in apparenza: segnala il passaggio da "far funzionare il razzo" a "far funzionare il razzo con il carico del cliente".</p>
+      <p>Il forum di NASASpaceflight, letto come fonte di contesto e non come prova primaria, aiuta a cogliere come venne percepito il volo nei giorni immediatamente successivi. Nella discussione live su RazakSAT, Jonathan McDowell precisò che RatSat era rimasto fissato al secondo stadio in orbita, mentre altri interventi insistevano sul fatto che Flight 5 fosse la prima missione Falcon 1 davvero completa con spacecraft cliente. È una sfumatura utile: il Flight 4 provò l'orbita; RazakSAT provò una missione commerciale con separazione e presa in carico del satellite.</p>
+      <p>Dopo RazakSAT, la direzione era già decisa. Falcon 1 aveva fatto il suo lavoro: dimostrare motori, strutture, avionica, operazioni e cultura di correzione. Il prodotto industriale vero sarebbe stato Falcon 9 con Dragon. SpaceX non abbandonò il Falcon 1 perché avesse fallito, ma perché il successo aveva reso più urgente il salto di scala.</p>
+      <div class="timeline">
+        <div class="event">
+          <div class="date">03.08.2008</div>
+          <div><h3>Flight 3 fallisce</h3><p>Il Merlin 1C lascia una spinta residua sufficiente a provocare il ricontatto tra gli stadi.</p></div>
+        </div>
+        <div class="event">
+          <div class="date">28.09.2008</div>
+          <div><h3>Flight 4 riesce</h3><p>RatSat raggiunge l'orbita e SpaceX supera la soglia tecnica più importante per un lanciatore.</p></div>
+        </div>
+        <div class="event">
+          <div class="date">23.12.2008</div>
+          <div><h3>NASA assegna CRS</h3><p>SpaceX riceve 12 missioni cargo ISS per circa 1,6 miliardi di dollari.</p></div>
+        </div>
+        <div class="event">
+          <div class="date">22.04.2009</div>
+          <div><h3>GAO respinge PlanetSpace</h3><p>Il ricorso viene negato e la selezione CRS resta in piedi.</p></div>
+        </div>
+        <div class="event">
+          <div class="date">14.07.2009</div>
+          <div><h3>RazakSAT in orbita</h3><p>Il quinto Falcon 1 chiude la linea con un payload cliente operativo.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fonti">
+    <div class="section-inner">
+      <h2>Fonti</h2>
+      <p>La pagina è stata costruita dai documenti locali in "documenti per sito" e verificata con fonti primarie o cronache tecniche contemporanee. Dove la tesi resta inferenziale, il testo lo segnala invece di trasformarla in certezza contabile.</p>
+      <ol class="sources">
+        <li><a href="https://spaceflightnow.com/falcon/003/update.html" target="_blank" rel="noopener">Spaceflight Now, "Collision between rocket stages doomed Falcon 1"</a>. Verifica del ricontatto tra stadi nel Flight 3, della spinta residua del Merlin 1C e della pressione di camera residua.</li>
+        <li><a href="https://spaceflightnow.com/falcon/004/080927preview.html" target="_blank" rel="noopener">Spaceflight Now, preview Flight 4</a>. Verifica della modifica del timer a circa cinque secondi prima della separazione.</li>
+        <li><a href="https://oig.nasa.gov/docs/IG-13-016.pdf" target="_blank" rel="noopener">NASA Office of Inspector General, IG-13-016</a>. Verifica di CRS, COTS, work plan, task order, 12 missioni SpaceX per 1,6 miliardi e fondi autorizzati prima delle dimostrazioni complete.</li>
+        <li><a href="https://www.nasa.gov/wp-content/uploads/2015/03/NNJ09GA04B_BasicContract_Redacted.pdf" target="_blank" rel="noopener">NASA, CRS basic contract NNJ09GA04B redatto</a>. Verifica della struttura IDIQ, firm-fixed-price, periodo 2009-2015, milestone e ceiling contrattuale.</li>
+        <li><a href="https://www.sec.gov/Archives/edgar/data/1181412/000118141209000003/xslFormDX01/primary_doc.xml" target="_blank" rel="noopener">SEC Form D SpaceX, marzo 2009</a>. Verifica della nuova offerta da 60 milioni di dollari e dei 15,025 milioni già venduti dopo l'award CRS.</li>
+        <li><a href="https://www.gao.gov/products/b-401016%2Cb-401016.2" target="_blank" rel="noopener">GAO, PlanetSpace, Inc., B-401016; B-401016.2</a>. Verifica del ricorso, della data del 22 aprile 2009 e delle ragioni di rischio finanziario/gestionale esaminate dal GAO.</li>
+        <li><a href="https://spaceflightnow.com/falcon/005/" target="_blank" rel="noopener">Spaceflight Now, "Commercial launch of SpaceX Falcon 1 rocket a success"</a>. Verifica di RazakSAT, data, profilo di volo, orbita e ruolo di primo payload cliente riuscito.</li>
+        <li><a href="https://www.space-travel.com/reports/SPACEX_And_ATSB_Announce_New_Launch_Date_For_Razaksat_Satellite_999.html" target="_blank" rel="noopener">SpaceX/ATSB announcement via Space-Travel, giugno 2009</a>. Verifica del rinvio e dell'adozione del sistema SoftRide.</li>
+        <li><a href="https://www.aprsaf.org/newsmails_newsletters/pastnews_2009/feature_93.php" target="_blank" rel="noopener">APRSAF, RazakSAT feature</a>. Contesto tecnico sul payload malese e sull'orbita quasi equatoriale.</li>
+        <li><a href="https://forum.nasaspaceflight.com/index.php?topic=16054.860" target="_blank" rel="noopener">NASASpaceflight Forum, thread live Falcon 1 Flight 5/RazakSAT</a>. Fonte di contesto contemporaneo sulla distinzione tra RatSat, separazione payload e lettura del Flight 5 come prima missione Falcon 1 pienamente operativa con carico cliente.</li>
+        <li><a href="https://forum.nasaspaceflight.com/index.php?topic=13507.160" target="_blank" rel="noopener">NASASpaceflight Forum, thread live Falcon 1 Flight 4</a>. Fonte di contesto contemporaneo sulla campagna di lancio del quarto Falcon 1 e sulle discussioni tecniche attorno alla preparazione finale.</li>
+      </ol>
+
+      <h3>Fonti immagini</h3>
+      <ol class="sources">
+        <li><a href="https://commons.wikimedia.org/wiki/File:Falcon_1_Flight_4_launch.jpg" target="_blank" rel="noopener">Falcon 1 Flight 4 launch.jpg</a>. Immagine SpaceX via Wikimedia Commons, pubblico dominio/CC0 secondo la scheda della fonte.</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Omelek_Island.jpg" target="_blank" rel="noopener">Omelek Island.jpg</a>. Immagine governativa statunitense via Wikimedia Commons.</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Kwajalein_Atoll_2003-02-07_-_Landsat_7_-_30m.png" target="_blank" rel="noopener">Kwajalein Atoll Landsat 7</a>. Immagine NASA/USGS via Wikimedia Commons.</li>
+      </ol>
+    </div>
+  </section>
+</main>
+</body>
+</html>
