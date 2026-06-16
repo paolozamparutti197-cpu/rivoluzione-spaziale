@@ -232,11 +232,11 @@ def falcon_data():
         for row in rows_from_sheet(path, "per_lanciatore", 3)
         if row.get("lanciatore")
     ][:7]
-    pad_rows = rows_from_sheet(path, "per_pad_orbita", 3)
+    pad_sheet = workbook["per_pad_orbita"]
     pads = [
-        {"pad": row.get("pad"), "lanci": row.get("lanci principali"), "quota": row.get("quota")}
-        for row in pad_rows
-        if row.get("pad")
+        {"pad": clean(row[0]), "lanci": clean(row[1]), "quota": row[2]}
+        for row in pad_sheet.iter_rows(min_row=4, max_col=3, values_only=True)
+        if row[0]
     ]
     landing_rows = rows_from_sheet(path, "booster_landing", 3)
     landing = [
