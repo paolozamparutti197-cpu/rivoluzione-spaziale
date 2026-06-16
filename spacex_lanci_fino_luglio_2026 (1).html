@@ -94,27 +94,464 @@ footer{max-width:1260px;margin:0 auto 35px;padding:0 18px;color:#b2c3d1;font-siz
   </div>
 </div>
 <footer>
-  Fonti principali: Next Spaceflight per il manifesto e le schede missione; Space Launch Schedule per alcuni T-0 e dettagli supplementari; pagina ufficiale SpaceX quando accessibile dal risultato pubblico. I dati vanno ricontrollati prima di usarli per pianificare una visione dal vivo o una diretta.
+  Fonte principale: The Space Devs, Launch Library 2. I dati vanno ricontrollati prima di usarli per pianificare una visione dal vivo o una diretta.
 </footer>
 <script>
 const launches = [
-  {id:'bluebird-8-10',cat:['exact'],name:'BlueBird 8 to 10',status:'Go for launch',rocket:'Falcon 9 Block 5',dateLabel:'17 giugno 2026, 06:39 UTC',iso:'2026-06-17T06:39:00Z',window:'06:39 UTC, opportunita aggiuntiva indicata alle 08:15 UTC',site:'SLC-40, Cape Canaveral SFS, Florida',landing:'ASOG, booster B1077, volo 29',orbit:'LEO',payload:'3 satelliti AST SpaceMobile BlueBird Block 2 FM3-FM5, massa complessiva indicata 13.500 kg',summary:'I BlueBird Block 2 sono satelliti AST SpaceMobile per connettività cellulare diretta. Sono descritti come capaci di aumentare fino a 10 volte la capacità rispetto ai BlueBird già in orbita.',news:'La pagina SpaceX indica lancio da SLC-40 con liftoff alle 2:39 a.m. ET e backup il 18 giugno. Missione importante per i grandi array dispiegabili AST SpaceMobile.',sources:[['SpaceX','https://www.spacex.com/launches/bluebird8-10'],['Next Spaceflight','https://nextspaceflight.com/launches/details/7691/'],['Space Launch Schedule','https://www.spacelaunchschedule.com/']]},
-  {id:'nrol-179',cat:['exact'],name:'NROL-179',status:'Go for launch',rocket:'Falcon 9 Block 5',dateLabel:'18 giugno 2026, 08:54 UTC',iso:'2026-06-18T08:54:00Z',window:'T-0 indicato: 08:54 UTC',site:'SLC-4E, Vandenberg SFB, California',landing:'RTLS su Landing Zone 4, booster B1103, volo 3',orbit:'Classificata, indicata come sconosciuta',payload:'Payload NRO classificato, quattordicesimo gruppo per costellazione di ricognizione indicata da Space Launch Schedule',summary:'Missione classificata per il National Reconnaissance Office. I dettagli orbitali non sono pubblici.',news:'SpaceX e NRO indicano NET 18 giugno da Vandenberg; il recupero RTLS su LZ-4 resta il dettaglio operativo piu leggibile.',sources:[['SpaceX','https://www.spacex.com/launches/nrol179'],['NRO','https://www.nro.gov/launches/launch-nrol-179/'],['Space Launch Schedule','https://www.spacelaunchschedule.com/launch/falcon-9-block-5-nrol-179/']]},
-  {id:'globalstar-2r-1',cat:['exact'],name:'Globalstar 2-R Mission 1',status:'Date/time may change',rocket:'Falcon 9 Block 5',dateLabel:'20 giugno 2026, 06:39 UTC',iso:'2026-06-20T06:39:00Z',window:'06:39-07:51 UTC',site:'SLC-40, Cape Canaveral SFS, Florida',landing:'ASOG, booster non identificato da Next Spaceflight, volo 12',orbit:'LEO, circa 1410 km e 52° per la costellazione Globalstar',payload:'9 satelliti Globalstar di refresh, massa indicata 4.500 kg',summary:'Missione per rinnovare la costellazione Globalstar, rete mobile satellitare per voce, dati e messaggistica. Satelliti costruiti da MDA con bus e dispenser Rocket Lab.',news:'SpaceX segnala preparazione del lancio da SLC-40; RocketLaunch.Live e Next Spaceflight riportano il T-0 del 20 giugno alle 06:39 UTC.',sources:[['SpaceX','https://www.spacex.com/launches/globalstar2-rlaunch1'],['Next Spaceflight','https://nextspaceflight.com/launches/details/7275/'],['RocketLaunch.Live','https://www.rocketlaunch.live/launch/globalstar-2-r-missi'],['Space Launch Schedule','https://www.spacelaunchschedule.com/']]},
-  {id:'starlink-17-28',cat:['exact','starlink'],name:'Starlink Group 17-28',status:'Go for launch',rocket:'Falcon 9 Block 5',dateLabel:'20 giugno 2026, 14:00 UTC',iso:'2026-06-20T14:00:00Z',window:'T-0 indicato: 14:00 UTC',site:'SLC-4E, Vandenberg SFB, California',landing:'OCISLY, booster B1063, volo 33',orbit:'LEO',payload:'24 satelliti Starlink',summary:'Altro lotto Starlink dalla California. Space Launch Schedule indica 24 satelliti per la mega-costellazione internet in orbita bassa.',news:'La rotazione serrata dei booster da Vandenberg continua. B1063 sarebbe al 33° volo, quindi in zona record di riutilizzo.',sources:[['Space Launch Schedule','https://www.spacelaunchschedule.com/launch/falcon-9-block-5-starlink-group-17-28/']]},
-  {id:'starfall-demo',cat:['exact'],name:'Starfall Demo',status:'Date/time may change',rocket:'Falcon 9 Block 5',dateLabel:'NET 21 giugno 2026, 10:43 UTC',iso:'2026-06-21T10:43:00Z',window:'10:43-15:26 UTC secondo Next Spaceflight; data e orario da ricontrollare',site:'SLC-40, Cape Canaveral SFS, Florida',landing:'Recupero booster non indicato; rientro Starfall previsto nel Pacifico se autorizzato in licenza',orbit:'Profilo TBD: fonti indicano LEO/suborbitale per dimostrazione di rientro',payload:'Veicolo dimostrativo Starfall, capsula di rientro SpaceX da circa 2.100 kg con capacita payload indicata fino a 1.000 kg',summary:'Starfall e il nuovo veicolo di rientro SpaceX pensato per riportare autonomamente carichi e esperimenti dalla microgravita, incluso possibile uso per manifattura in orbita.',news:'Next Spaceflight e Space Launch Schedule mostrano il 21 giugno alle 10:43 UTC, ma con dettagli missione ancora TBD. La FAA ha pubblicato la Final EA per consentire due rientri Starfall nel Pacifico, passaggio ambientale necessario ma non equivalente a certezza operativa del volo.',sources:[['Next Spaceflight','https://nextspaceflight.com/launches/details/8281/'],['Space Launch Schedule','https://www.spacelaunchschedule.com/launch/falcon-9-block-5-project-starfall-demonstration-mission/'],['RocketLaunch.org','https://rocketlaunch.org/launch-schedule'],['FAA NEPA','https://www.faa.gov/space/environmental/nepa_docs']]},
-  {id:'starlink-17-45',cat:['exact','starlink'],name:'Starlink Group 17-45',status:'Go for launch',rocket:'Falcon 9 Block 5',dateLabel:'24 giugno 2026, 11:00 UTC',iso:'2026-06-24T11:00:00Z',window:'T-0 indicato: 11:00 UTC',site:'SLC-4E, Vandenberg SFB, California',landing:'OCISLY, booster B1081, volo 25',orbit:'LEO',payload:'24 satelliti Starlink',summary:'Missione Starlink da Vandenberg. Space Launch Schedule indica Falcon 9 Block 5, SLC-4E e recupero su OCISLY.',news:'B1081 è indicato come booster al 25° volo, con Crew-7 tra le missioni precedenti.',sources:[['Space Launch Schedule','https://www.spacelaunchschedule.com/launch/falcon-9-block-5-starlink-group-17-45/']]},
-  {id:'sxm-11',cat:['net'],name:'SXM-11',status:'NET giugno 2026',rocket:'Falcon 9 Block 5',dateLabel:'NET giugno 2026',iso:'2026-06-30T00:00:00Z',window:'Mese non puntuale',site:'SLC-40, Cape Canaveral SFS, Florida',landing:'Non indicato',orbit:'GTO',payload:'1 satellite SiriusXM, massa indicata 7.000 kg',summary:'SXM-11 è un satellite radio digitale ad alta potenza costruito da Lanteris Space Systems, ex Maxar / SSL, per SiriusXM.',news:'Il satellite usa piattaforma IM-1300, con grande riflettore dispiegabile a maglia di quasi 10 metri per raggiungere radio SiriusXM anche su veicoli in movimento.',sources:[['Next Spaceflight','https://nextspaceflight.com/launches/details/8258/']]},
-  {id:'sda-t1tl-f',cat:['net','sda'],name:'SDA Tranche 1 Transport Layer F',status:'NET giugno 2026',rocket:'Falcon 9 Block 5',dateLabel:'NET giugno 2026',iso:'2026-06-30T00:00:00Z',window:'TBD, proiettato a giugno',site:'SLC-4E, Vandenberg SFB, California',landing:'Non indicato',orbit:'Polar orbit',payload:'21 satelliti indicati per Transport Layer',summary:'Missione SDA per la Proliferated Warfighter Space Architecture, rete militare LEO resiliente e a bassa latenza.',news:'Transport Layer fornisce connettività militare globale, con collegamenti ottici inter-satellite e architettura distribuita più resistente ai guasti.',sources:[['Next Spaceflight','https://nextspaceflight.com/launches/details/7334/'],['Space Launch Schedule','https://www.spacelaunchschedule.com/']]},
-  {id:'sda-t1tr-a',cat:['net','sda'],name:'SDA Tranche 1 Tracking Layer A',status:'NET giugno 2026',rocket:'Falcon 9 Block 5',dateLabel:'NET giugno 2026',iso:'2026-06-30T00:00:00Z',window:'TBD, proiettato a giugno',site:'SLC-4E, Vandenberg SFB, California',landing:'Non indicato',orbit:'Polar orbit',payload:'Payload SDA Tracking Layer',summary:'Missione SDA per tracking e warning globali di minacce missilistiche avanzate, inclusi sistemi ipersonici.',news:'Il Tracking Layer è la componente di allerta, tracciamento e targeting della PWSA.',sources:[['Next Spaceflight','https://nextspaceflight.com/launches/details/7335/'],['Space Launch Schedule','https://www.spacelaunchschedule.com/']]},
-  {id:'sda-t1tr-c',cat:['net','sda'],name:'SDA Tranche 1 Tracking Layer C',status:'NET Q2 / giugno 2026',rocket:'Falcon 9 Block 5',dateLabel:'NET Q2 2026',iso:'2026-06-30T00:00:00Z',window:'TBD, proiettato a giugno',site:'SLC-4E, Vandenberg SFB, California',landing:'Non indicato',orbit:'Polar orbit',payload:'Payload SDA Tracking Layer',summary:'Missione Tracking Layer della Space Development Agency per indicazioni, warning, tracking e targeting di minacce missilistiche avanzate.',news:'Next Spaceflight la elenca come NET Q2 2026; Space Launch Schedule la proietta a giugno.',sources:[['Next Spaceflight','https://nextspaceflight.com/launches/details/7223/'],['Space Launch Schedule','https://www.spacelaunchschedule.com/']]},
-  {id:'sda-t1tr-e',cat:['net','sda'],name:'SDA Tranche 1 Tracking Layer E',status:'NET giugno 2026',rocket:'Falcon 9 Block 5',dateLabel:'NET Q2 / giugno 2026',iso:'2026-06-30T00:00:00Z',window:'TBD, proiettato a giugno',site:'SLC-4E, Vandenberg SFB, California',landing:'Non indicato',orbit:'Polar orbit',payload:'Payload SDA Tracking Layer',summary:'Ulteriore missione Tracking Layer della costellazione PWSA Tranche 1.',news:'Resta nella categoria ad alta incertezza: la concentrazione di molte missioni SDA a fine Q2 implica che diversi voli possano slittare.',sources:[['Next Spaceflight','https://nextspaceflight.com/launches/details/7336/'],['Space Launch Schedule','https://www.spacelaunchschedule.com/page/2/']]},
-  {id:'sda-t1tl-a',cat:['net','sda'],name:'SDA Tranche 1 Transport Layer A',status:'NET Q2 / giugno 2026',rocket:'Falcon 9 Block 5',dateLabel:'NET Q2 2026',iso:'2026-06-30T00:00:00Z',window:'TBD, proiettato a giugno',site:'SLC-4E, Vandenberg SFB, California',landing:'Non indicato',orbit:'Polar orbit',payload:'21 satelliti, produttore indicato Northrop Grumman',summary:'Missione Transport Layer A per rete militare dati LEO a bassa latenza, parte della PWSA Tranche 1.',news:'Next Spaceflight nota che, nonostante il nome A, questa missione arriverebbe dopo T1TL-B e C lanciati nel 2025.',sources:[['Next Spaceflight','https://nextspaceflight.com/launches/details/6963/'],['Space Launch Schedule','https://www.spacelaunchschedule.com/page/2/']]},
-  {id:'sda-t1tl-d',cat:['net','sda'],name:'SDA Tranche 1 Transport Layer D',status:'NET Q2 / giugno 2026',rocket:'Falcon 9 Block 5',dateLabel:'NET Q2 2026',iso:'2026-06-30T00:00:00Z',window:'TBD, proiettato a giugno',site:'SLC-4E, Vandenberg SFB, California',landing:'Non indicato',orbit:'Polar orbit',payload:'21 satelliti indicati',summary:'Missione Transport Layer D della SDA, con rete dinamica e collegamenti ottici inter-satellite.',news:'Rientra nel gruppo di missioni Tranche 1 ancora con data non puntuale.',sources:[['Next Spaceflight','https://nextspaceflight.com/launches/details/7221/'],['Space Launch Schedule','https://www.spacelaunchschedule.com/page/2/']]},
-  {id:'sda-t1tl-e',cat:['net','sda'],name:'SDA Tranche 1 Transport Layer E',status:'NET Q2 / giugno 2026',rocket:'Falcon 9 Block 5',dateLabel:'NET Q2 2026',iso:'2026-06-30T00:00:00Z',window:'TBD, proiettato a giugno',site:'SLC-4E, Vandenberg SFB, California',landing:'Non indicato',orbit:'Polar orbit',payload:'21 satelliti indicati',summary:'Missione Transport Layer E per la costellazione distribuita della SDA.',news:'Probabile candidato a slittamento, dato l’addensamento di missioni simili nella stessa finestra.',sources:[['Next Spaceflight','https://nextspaceflight.com/launches/details/7222/'],['Space Launch Schedule','https://www.spacelaunchschedule.com/page/2/']]},
-  {id:'starship-flight-13',cat:['net','starship'],name:'Starship Flight 13',status:'NET luglio 2026',rocket:'Starship-Super Heavy v3',dateLabel:'NET luglio 2026',iso:'2026-07-01T00:00:00Z',window:'Mese non puntuale',site:'Starbase, Texas',landing:'Profilo di test; dati soggetti a FAA, NOTAM/NOTMAR e readiness hardware',orbit:'Test Starship, profilo non definitivo',payload:'Test flight, nessun payload operativo indicato',summary:'Next Spaceflight elenca Flight 13 come NET luglio 2026 con Starship-Super Heavy v3. La pagina Starship indica Booster 20 e Ship 40 attesi per questo volo.',news:'La data è fragile: fonti giornalistiche recenti parlano di ritorno al volo subordinato all’indagine FAA dopo il precedente test. Da trattare come candidato, non appuntamento.',sources:[['Next Spaceflight','https://nextspaceflight.com/launches/details/8279/'],['Next Spaceflight Starship hardware','https://nextspaceflight.com/starship/'],['RocketLaunch.Live','https://www.rocketlaunch.live/launch/starship-flight-13']]},
-  {id:'transporter-17',cat:['net'],name:'Transporter 17',status:'NET luglio 2026',rocket:'Falcon 9 Block 5',dateLabel:'NET luglio 2026',iso:'2026-07-01T00:00:00Z',window:'Mese non puntuale',site:'SLC-4E, Vandenberg SFB, California',landing:'Non indicato',orbit:'SSO',payload:'Rideshare smallsat, payload multipli non tutti pubblici',summary:'Missione rideshare dedicata di SpaceX verso orbita eliosincrona. Il programma SmallSat Rideshare offre voli Falcon 9 regolari per operatori di piccoli satelliti.',news:'Next Spaceflight cita prezzi da 350.000 dollari per missione inclusivi di 50 kg di massa payload, dato del programma rideshare.',sources:[['Next Spaceflight','https://nextspaceflight.com/launches/details/7610/'],['Space Launch Schedule','https://www.spacelaunchschedule.com/page/2/']]},
-  {id:'bluebird-11-13',cat:['net'],name:'BlueBird 11 to 13',status:'NET luglio 2026',rocket:'Falcon 9 Block 5',dateLabel:'NET luglio 2026',iso:'2026-07-01T00:00:00Z',window:'Mese non puntuale',site:'SLC-40, Cape Canaveral SFS, Florida',landing:'Non indicato',orbit:'LEO',payload:'3 satelliti AST SpaceMobile BlueBird Block 2 FM6-FM8, massa indicata 13.500 kg',summary:'Secondo lotto ravvicinato di satelliti AST SpaceMobile BlueBird Block 2 su Falcon 9.',news:'Come il lotto 8-10, punta alla connettività cellulare broadband diretta, con grandi array dispiegabili in orbita bassa.',sources:[['Next Spaceflight','https://nextspaceflight.com/launches/details/7688/'],['Space Launch Schedule','https://www.spacelaunchschedule.com/page/2/']]}
+  {
+    "id": "falcon-9-block-5-bluebird-block-2-3-5",
+    "cat": [
+      "exact"
+    ],
+    "name": "BlueBird Block 2 #3-5",
+    "status": "Go for launch",
+    "rocket": "Falcon 9 Block 5",
+    "dateLabel": "17 giugno 2026, 06:39 UTC",
+    "iso": "2026-06-17T06:39:00Z",
+    "window": "06:39-08:15 UTC",
+    "site": "Space Launch Complex 40, Cape Canaveral SFS, FL, USA",
+    "landing": "ASOG, booster B1077, volo 29",
+    "orbit": "LEO",
+    "payload": "BlueBird Block 2 #3-5 (Communications)",
+    "summary": "AST SpaceMobile’s Block 2 BlueBird satellites are designed to deliver up to 10 times the bandwidth capacity of the BlueBird Block 1 satellites, required to achieve 24/7 continuous cellular broadband service coverage in the United States, with beams designed to support a capacity of up to 40 MHz, enabling peak data transmission speeds up to 120 Mbps, supporting voice, full data and video applications. The Block 2 BlueBirds,...",
+    "news": "Current T-0 confirmed by official or reliable sources.",
+    "sources": [
+      [
+        "The Space Devs",
+        "https://ll.thespacedevs.com/2.3.0/launches/c3f48f48-0e0a-4bca-917e-de494cfca35b/?format=json"
+      ],
+      [
+        "spacex.com",
+        "https://www.spacex.com/launches/bluebird8-10"
+      ]
+    ]
+  },
+  {
+    "id": "falcon-9-block-5-nrol-179",
+    "cat": [
+      "exact"
+    ],
+    "name": "NROL-179",
+    "status": "Go for launch",
+    "rocket": "Falcon 9 Block 5",
+    "dateLabel": "18 giugno 2026, 08:54 UTC",
+    "iso": "2026-06-18T08:54:00Z",
+    "window": "08:54-09:29 UTC",
+    "site": "Space Launch Complex 4E, Vandenberg SFB, CA, USA",
+    "landing": "LZ-4, booster B1103, volo 3",
+    "orbit": "N/A",
+    "payload": "NROL-179 (Government/Top Secret)",
+    "summary": "Fourteenth batch of satellites for a reconnaissance satellite constellation built by SpaceX and Northrop Grumman for the National Reconnaissance Office to provide imaging and other reconnaissance capabilities.",
+    "news": "Current T-0 confirmed by official or reliable sources.",
+    "sources": [
+      [
+        "The Space Devs",
+        "https://ll.thespacedevs.com/2.3.0/launches/5d4099bf-a0be-4f54-b236-b6ab3aed4146/?format=json"
+      ],
+      [
+        "spacex.com",
+        "https://www.spacex.com/launches/nrol179"
+      ],
+      [
+        "Webcast",
+        "https://x.com/i/broadcasts/1dGYllVmbpAKX"
+      ]
+    ]
+  },
+  {
+    "id": "falcon-9-block-5-starlink-group-17-28",
+    "cat": [
+      "exact",
+      "starlink"
+    ],
+    "name": "Starlink Group 17-28",
+    "status": "Go for launch",
+    "rocket": "Falcon 9 Block 5",
+    "dateLabel": "20 giugno 2026, 14:00 UTC",
+    "iso": "2026-06-20T14:00:00Z",
+    "window": "14:00-18:00 UTC",
+    "site": "Space Launch Complex 4E, Vandenberg SFB, CA, USA",
+    "landing": "OCISLY, booster B1063, volo 33",
+    "orbit": "LEO",
+    "payload": "Starlink Group 17-28 (Communications)",
+    "summary": "A batch of 24 satellites for the Starlink mega-constellation - SpaceX's project for space-based Internet communication system.",
+    "news": "Current T-0 confirmed by official or reliable sources.",
+    "sources": [
+      [
+        "The Space Devs",
+        "https://ll.thespacedevs.com/2.3.0/launches/de5fbae3-66b9-4bbf-8938-4d55f3318c07/?format=json"
+      ],
+      [
+        "spacex.com",
+        "https://www.spacex.com/launches/sl-17-28"
+      ],
+      [
+        "Webcast",
+        "https://x.com/i/broadcasts/1jGXggXNMdVKZ"
+      ]
+    ]
+  },
+  {
+    "id": "falcon-9-block-5-project-starfall-demonstration-mi",
+    "cat": [
+      "exact"
+    ],
+    "name": "Starfall Demo",
+    "status": "Date/time may change",
+    "rocket": "Falcon 9 Block 5",
+    "dateLabel": "NET 21 giugno 2026, 10:43 UTC",
+    "iso": "2026-06-21T10:43:00Z",
+    "window": "10:43-15:26 UTC; data e orario da ricontrollare",
+    "site": "Space Launch Complex 40, Cape Canaveral SFS, FL, USA",
+    "landing": "Recupero booster non indicato da The Space Devs",
+    "orbit": "LEO",
+    "payload": "Starfall Demo (Technology)",
+    "summary": "Note: Mission profile and payload details are TBD. Demonstration mission for SpaceX’s Project Starfall, which aims to mass-produce reentry capsules designed to autonomously transport valuable customer experiments and other payloads safely back from space to Earth, including for in-orbit manufacturing. Starfall is a cylindrical shaped capsule approximately 0.75 meters tall with a diameter of 3.1 meters, weighing approximately...",
+    "news": "Awaiting official confirmation - current date is known with some certainty.",
+    "sources": [
+      [
+        "The Space Devs",
+        "https://ll.thespacedevs.com/2.3.0/launches/74bf8472-9ba1-42d6-9245-b014f8e91de9/?format=json"
+      ]
+    ]
+  },
+  {
+    "id": "falcon-9-block-5-starlink-group-17-45",
+    "cat": [
+      "exact",
+      "starlink"
+    ],
+    "name": "Starlink Group 17-45",
+    "status": "Go for launch",
+    "rocket": "Falcon 9 Block 5",
+    "dateLabel": "24 giugno 2026, 02:48 UTC",
+    "iso": "2026-06-24T02:48:00Z",
+    "window": "02:48-04:48 UTC",
+    "site": "Space Launch Complex 4E, Vandenberg SFB, CA, USA",
+    "landing": "OCISLY, booster B1081, volo 25",
+    "orbit": "LEO",
+    "payload": "Starlink Group 17-45 (Communications)",
+    "summary": "A batch of 24 satellites for the Starlink mega-constellation - SpaceX's project for space-based Internet communication system.",
+    "news": "Current T-0 confirmed by official or reliable sources.",
+    "sources": [
+      [
+        "The Space Devs",
+        "https://ll.thespacedevs.com/2.3.0/launches/a4fb0d1a-2655-4552-b950-f2f6340ef85a/?format=json"
+      ],
+      [
+        "spacex.com",
+        "https://www.spacex.com/launches/sl-17-45"
+      ],
+      [
+        "Webcast",
+        "https://x.com/i/broadcasts/1nJOLLzylYExR"
+      ]
+    ]
+  },
+  {
+    "id": "falcon-9-block-5-sirius-sxm-11",
+    "cat": [
+      "net"
+    ],
+    "name": "Sirius SXM-11",
+    "status": "NET / da definire",
+    "rocket": "Falcon 9 Block 5",
+    "dateLabel": "NET giugno 2026",
+    "iso": "2026-06-30T00:00:00Z",
+    "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
+    "site": "Space Launch Complex 40, Cape Canaveral SFS, FL, USA",
+    "landing": "Recupero booster non indicato da The Space Devs",
+    "orbit": "GTO",
+    "payload": "Sirius SXM-11 (Communications)",
+    "summary": "SXM-11 is the 12th high-powered, digital, audio radio satellite built by Lanteris Space (ex-Maxar, Space System/Loral) for SiriusXM. The SXM-11 satellite will be based on the proven IM-1300 (ex-LS-1300)-class platform and built at the company’s manufacturing facility in Palo Alto, California. SXM-11 has a large, mesh, unfurlable reflector almost 10 meters in diameter that allows SiriusXM programming to reach its radios,...",
+    "news": "Current date is a placeholder or rough estimation based on unreliable or interpreted sources.",
+    "sources": [
+      [
+        "The Space Devs",
+        "https://ll.thespacedevs.com/2.3.0/launches/ce3db8f7-ba9b-4a2a-953c-c6c6ee926541/?format=json"
+      ]
+    ]
+  },
+  {
+    "id": "falcon-9-block-5-sda-tranche-1-tracking-layer-a",
+    "cat": [
+      "net",
+      "sda"
+    ],
+    "name": "SDA Tranche 1 Tracking Layer A",
+    "status": "NET / da definire",
+    "rocket": "Falcon 9 Block 5",
+    "dateLabel": "NET giugno 2026",
+    "iso": "2026-06-30T00:00:00Z",
+    "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
+    "site": "Space Launch Complex 4E, Vandenberg SFB, CA, USA",
+    "landing": "Recupero booster non indicato da The Space Devs",
+    "orbit": "PO",
+    "payload": "SDA Tranche 1 Tracking Layer A (Government/Top Secret)",
+    "summary": "Tranche 1 Tracking Layer A is one of five missions by the United States Space Force Space Development Agency (SDA) for the Proliferated Warfighter Space Architecture (PWSA) Tranche 1 Tracking Layer constellation, which will provide global indications, warning, tracking, and targeting of advanced missile threats, including hypersonic missile systems.",
+    "news": "Current date is a placeholder or rough estimation based on unreliable or interpreted sources.",
+    "sources": [
+      [
+        "The Space Devs",
+        "https://ll.thespacedevs.com/2.3.0/launches/2d0472b9-463d-49c8-afb1-7925e49a3368/?format=json"
+      ]
+    ]
+  },
+  {
+    "id": "falcon-9-block-5-sda-tranche-1-tracking-layer-c",
+    "cat": [
+      "net",
+      "sda"
+    ],
+    "name": "SDA Tranche 1 Tracking Layer C",
+    "status": "NET / da definire",
+    "rocket": "Falcon 9 Block 5",
+    "dateLabel": "NET giugno 2026",
+    "iso": "2026-06-30T00:00:00Z",
+    "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
+    "site": "Space Launch Complex 4E, Vandenberg SFB, CA, USA",
+    "landing": "Recupero booster non indicato da The Space Devs",
+    "orbit": "PO",
+    "payload": "SDA Tranche 1 Tracking Layer C (Government/Top Secret)",
+    "summary": "Tranche 1 Tracking Layer C is one of five missions by the United States Space Force Space Development Agency (SDA) for the Proliferated Warfighter Space Architecture (PWSA) Tranche 1 Tracking Layer constellation, which will provide global indications, warning, tracking, and targeting of advanced missile threats, including hypersonic missile systems.",
+    "news": "Current date is a placeholder or rough estimation based on unreliable or interpreted sources.",
+    "sources": [
+      [
+        "The Space Devs",
+        "https://ll.thespacedevs.com/2.3.0/launches/dca8749f-1552-485a-8061-f1ad79055b8d/?format=json"
+      ]
+    ]
+  },
+  {
+    "id": "falcon-9-block-5-globalstar-2-r-mission-1-x-9",
+    "cat": [
+      "net"
+    ],
+    "name": "Globalstar 2-R Mission 1 (x 9)",
+    "status": "NET / da definire",
+    "rocket": "Falcon 9 Block 5",
+    "dateLabel": "NET giugno 2026",
+    "iso": "2026-06-30T00:00:00Z",
+    "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
+    "site": "Space Launch Complex 40, Cape Canaveral SFS, FL, USA",
+    "landing": "ASOG, booster non identificato",
+    "orbit": "LEO",
+    "payload": "Globalstar 2-R Mission 1 (x 9) (Communications)",
+    "summary": "The Globalstar global mobile communications network offers global, digital real time voice, data and fax services via its Low Earth Orbit satellite constellation. The constellation operates in a 1410 km orbit inclined at 52 degrees. In early 2022, Globalstar contracted with MDA for the construction of 17 new 2nd generation refresh satellites to replenish the existing constellation. Rocket Lab is sub-contracted to build the...",
+    "news": "Current date is a placeholder or rough estimation based on unreliable or interpreted sources.",
+    "sources": [
+      [
+        "The Space Devs",
+        "https://ll.thespacedevs.com/2.3.0/launches/be8b4b0d-1989-48a5-a96d-e8e4d59ed8b3/?format=json"
+      ],
+      [
+        "spacex.com",
+        "https://www.spacex.com/launches/globalstar2-rlaunch1"
+      ],
+      [
+        "Webcast",
+        "https://x.com/i/broadcasts/1nJOLERVPDzxR"
+      ]
+    ]
+  },
+  {
+    "id": "falcon-9-block-5-sda-tranche-1-transport-layer-e",
+    "cat": [
+      "net",
+      "sda"
+    ],
+    "name": "SDA Tranche 1 Transport Layer E",
+    "status": "NET / da definire",
+    "rocket": "Falcon 9 Block 5",
+    "dateLabel": "NET giugno 2026",
+    "iso": "2026-06-30T00:00:00Z",
+    "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
+    "site": "Space Launch Complex 4E, Vandenberg SFB, CA, USA",
+    "landing": "Recupero booster non indicato da The Space Devs",
+    "orbit": "PO",
+    "payload": "SDA Tranche 1 Transport Layer E (Government/Top Secret)",
+    "summary": "Tranche 1 Transport Layer E is one of six missions by the United States Space Force Space Development Agency (SDA) for the Proliferated Warfighter Space Architecture (PWSA) Tranche 1 Transport Layer constellation, which will provide assured, resilient, low-latency military data and connectivity worldwide to the full range of warfighter platforms from Low Earth Orbit satellites. The constellation will be interconnected with...",
+    "news": "Current date is a placeholder or rough estimation based on unreliable or interpreted sources.",
+    "sources": [
+      [
+        "The Space Devs",
+        "https://ll.thespacedevs.com/2.3.0/launches/d9adedc4-8fa1-4a36-84f9-43b8893a6865/?format=json"
+      ]
+    ]
+  },
+  {
+    "id": "falcon-9-block-5-sda-tranche-1-tracking-layer-e",
+    "cat": [
+      "net",
+      "sda"
+    ],
+    "name": "SDA Tranche 1 Tracking Layer E",
+    "status": "NET / da definire",
+    "rocket": "Falcon 9 Block 5",
+    "dateLabel": "NET giugno 2026",
+    "iso": "2026-06-30T00:00:00Z",
+    "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
+    "site": "Space Launch Complex 4E, Vandenberg SFB, CA, USA",
+    "landing": "Recupero booster non indicato da The Space Devs",
+    "orbit": "PO",
+    "payload": "SDA Tranche 1 Tracking Layer E (Government/Top Secret)",
+    "summary": "Tranche 1 Tracking Layer E is one of five missions by the United States Space Force Space Development Agency (SDA) for the Proliferated Warfighter Space Architecture (PWSA) Tranche 1 Tracking Layer constellation, which will provide global indications, warning, tracking, and targeting of advanced missile threats, including hypersonic missile systems.",
+    "news": "Current date is a placeholder or rough estimation based on unreliable or interpreted sources.",
+    "sources": [
+      [
+        "The Space Devs",
+        "https://ll.thespacedevs.com/2.3.0/launches/fcbc4550-e69e-4458-a9e6-4a5b6b6b15a5/?format=json"
+      ]
+    ]
+  },
+  {
+    "id": "falcon-9-block-5-sda-tranche-1-transport-layer-d",
+    "cat": [
+      "net",
+      "sda"
+    ],
+    "name": "SDA Tranche 1 Transport Layer D",
+    "status": "NET / da definire",
+    "rocket": "Falcon 9 Block 5",
+    "dateLabel": "NET giugno 2026",
+    "iso": "2026-06-30T00:00:00Z",
+    "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
+    "site": "Space Launch Complex 4E, Vandenberg SFB, CA, USA",
+    "landing": "Recupero booster non indicato da The Space Devs",
+    "orbit": "PO",
+    "payload": "SDA Tranche 1 Transport Layer D (Government/Top Secret)",
+    "summary": "Tranche 1 Transport Layer D is one of six missions by the United States Space Force Space Development Agency (SDA) for the Proliferated Warfighter Space Architecture (PWSA) Tranche 1 Transport Layer constellation, which will provide assured, resilient, low-latency military data and connectivity worldwide to the full range of warfighter platforms from Low Earth Orbit satellites. The constellation will be interconnected with...",
+    "news": "Current date is a placeholder or rough estimation based on unreliable or interpreted sources.",
+    "sources": [
+      [
+        "The Space Devs",
+        "https://ll.thespacedevs.com/2.3.0/launches/4541ce85-0e38-42ac-a9a0-20474bb5f2cd/?format=json"
+      ]
+    ]
+  },
+  {
+    "id": "falcon-9-block-5-sda-tranche-1-transport-layer-a",
+    "cat": [
+      "net",
+      "sda"
+    ],
+    "name": "SDA Tranche 1 Transport Layer A",
+    "status": "NET / da definire",
+    "rocket": "Falcon 9 Block 5",
+    "dateLabel": "NET giugno 2026",
+    "iso": "2026-06-30T00:00:00Z",
+    "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
+    "site": "Space Launch Complex 4E, Vandenberg SFB, CA, USA",
+    "landing": "Recupero booster non indicato da The Space Devs",
+    "orbit": "PO",
+    "payload": "SDA Tranche 1 Transport Layer A (Government/Top Secret)",
+    "summary": "Tranche 1 Transport Layer A is one of six missions by the United States Space Force Space Development Agency (SDA) for the Proliferated Warfighter Space Architecture (PWSA) Tranche 1 Transport Layer constellation, which will provide assured, resilient, low-latency military data and connectivity worldwide to the full range of warfighter platforms from Low Earth Orbit satellites. The constellation will be interconnected with...",
+    "news": "Current date is a placeholder or rough estimation based on unreliable or interpreted sources.",
+    "sources": [
+      [
+        "The Space Devs",
+        "https://ll.thespacedevs.com/2.3.0/launches/da43dc2c-00af-4cc1-8ef1-90a60b2eb9e5/?format=json"
+      ]
+    ]
+  },
+  {
+    "id": "falcon-9-block-5-sda-tranche-1-transport-layer-f",
+    "cat": [
+      "net",
+      "sda"
+    ],
+    "name": "SDA Tranche 1 Transport Layer F",
+    "status": "NET / da definire",
+    "rocket": "Falcon 9 Block 5",
+    "dateLabel": "NET giugno 2026",
+    "iso": "2026-06-30T00:00:00Z",
+    "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
+    "site": "Space Launch Complex 4E, Vandenberg SFB, CA, USA",
+    "landing": "Recupero booster non indicato da The Space Devs",
+    "orbit": "PO",
+    "payload": "SDA Tranche 1 Transport Layer F (Government/Top Secret)",
+    "summary": "Tranche 1 Transport Layer F is one of six missions by the United States Space Force Space Development Agency (SDA) for the Proliferated Warfighter Space Architecture (PWSA) Tranche 1 Transport Layer constellation, which will provide assured, resilient, low-latency military data and connectivity worldwide to the full range of warfighter platforms from Low Earth Orbit satellites. The constellation will be interconnected with...",
+    "news": "Current date is a placeholder or rough estimation based on unreliable or interpreted sources.",
+    "sources": [
+      [
+        "The Space Devs",
+        "https://ll.thespacedevs.com/2.3.0/launches/c5783e2b-d458-4b99-9936-4043c236190b/?format=json"
+      ]
+    ]
+  },
+  {
+    "id": "starship-flight-13",
+    "cat": [
+      "net",
+      "starship"
+    ],
+    "name": "Flight 13",
+    "status": "NET / da definire",
+    "rocket": "Starship V3",
+    "dateLabel": "NET luglio 2026",
+    "iso": "2026-07-31T00:00:00Z",
+    "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
+    "site": "Orbital Launch Pad 2, SpaceX Starbase, TX, USA",
+    "landing": "Recupero booster non indicato da The Space Devs",
+    "orbit": "Sub",
+    "payload": "Flight 13 (Test Flight)",
+    "summary": "13th test flight of the two-stage Starship launch vehicle. Second flight of Starship V3",
+    "news": "Current date is a placeholder or rough estimation based on unreliable or interpreted sources.",
+    "sources": [
+      [
+        "The Space Devs",
+        "https://ll.thespacedevs.com/2.3.0/launches/ac897b9f-44d2-4ff4-8416-1a0a076e98a2/?format=json"
+      ]
+    ]
+  },
+  {
+    "id": "falcon-9-block-5-transporter-17-dedicated-sso-ride",
+    "cat": [
+      "net"
+    ],
+    "name": "Transporter 17 (Dedicated SSO Rideshare)",
+    "status": "NET / da definire",
+    "rocket": "Falcon 9 Block 5",
+    "dateLabel": "NET luglio 2026",
+    "iso": "2026-07-31T00:00:00Z",
+    "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
+    "site": "Space Launch Complex 4E, Vandenberg SFB, CA, USA",
+    "landing": "Recupero booster non indicato da The Space Devs",
+    "orbit": "SSO",
+    "payload": "Transporter 17 (Dedicated SSO Rideshare) (Dedicated Rideshare)",
+    "summary": "Dedicated rideshare flight to a sun-synchronous orbit with dozens of small microsatellites and nanosatellites for commercial and government customers.",
+    "news": "Current date is a placeholder or rough estimation based on unreliable or interpreted sources.",
+    "sources": [
+      [
+        "The Space Devs",
+        "https://ll.thespacedevs.com/2.3.0/launches/a6db1e67-5860-47c9-a674-adc0f35b62e0/?format=json"
+      ]
+    ]
+  },
+  {
+    "id": "falcon-9-block-5-bluebird-block-2-6-8",
+    "cat": [
+      "net"
+    ],
+    "name": "BlueBird Block 2 #6-8",
+    "status": "NET / da definire",
+    "rocket": "Falcon 9 Block 5",
+    "dateLabel": "NET luglio 2026",
+    "iso": "2026-07-31T00:00:00Z",
+    "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
+    "site": "Space Launch Complex 40, Cape Canaveral SFS, FL, USA",
+    "landing": "Recupero booster non indicato da The Space Devs",
+    "orbit": "LEO",
+    "payload": "BlueBird Block 2 #6-8 (Communications)",
+    "summary": "AST SpaceMobile’s Block 2 BlueBird satellites are designed to deliver up to 10 times the bandwidth capacity of the BlueBird Block 1 satellites, required to achieve 24/7 continuous cellular broadband service coverage in the United States, with beams designed to support a capacity of up to 40 MHz, enabling peak data transmission speeds up to 120 Mbps, supporting voice, full data and video applications. The Block 2 BlueBirds,...",
+    "news": "Current date is a placeholder or rough estimation based on unreliable or interpreted sources.",
+    "sources": [
+      [
+        "The Space Devs",
+        "https://ll.thespacedevs.com/2.3.0/launches/56a85c82-ea71-449b-828c-b583f6f4a18b/?format=json"
+      ]
+    ]
+  }
 ];
 function pad(n){return String(n).padStart(2,'0')}
 function countdownParts(iso){
