@@ -1,4 +1,5 @@
 import json
+import re
 import subprocess
 import ast
 from datetime import date, datetime, timezone
@@ -126,6 +127,16 @@ def clean(value):
         return value.isoformat()[:10]
     if isinstance(value, float):
         return round(value, 4)
+    if isinstance(value, str):
+        lines = [re.sub(r"\s+", " ", line).strip() for line in value.splitlines()]
+        lines = [line for line in lines if line]
+        if lines:
+            deduped = []
+            for line in lines:
+                if not deduped or deduped[-1] != line:
+                    deduped.append(line)
+            return re.sub(r"\s+", " ", " ".join(deduped)).strip()
+        return ""
     return value
 
 
@@ -197,6 +208,7 @@ def falcon_data():
     workbook = openpyxl.load_workbook(path, read_only=True, data_only=True)
     dashboard = workbook["dashboard"]
     elenco = workbook["elenco"]
+    current_year = datetime.now().year
     metrics = {
         "lanci": clean(dashboard["A4"].value),
         "successi": clean(dashboard["C4"].value),
@@ -220,7 +232,7 @@ def falcon_data():
             "tasso": row.get("tasso successo"),
         }
         for row in rows_from_sheet(path, "serie_annuale", 3)
-        if row.get("anno") is not None
+        if row.get("anno") is not None and int(row.get("anno")) <= current_year
     ]
     launchers = [
         {
@@ -249,23 +261,31 @@ def falcon_data():
         for row in landing_rows
         if row.get("codice landing")
     ][:8]
+    headers = [clean(cell.value) for cell in elenco[1]]
     latest = {}
     for values in elenco.iter_rows(min_row=2, values_only=True):
-        data = values[1] if len(values) > 1 else None
-        lanciatore = values[3] if len(values) > 3 else None
-        cliente = values[4] if len(values) > 4 else None
-        if data and lanciatore and cliente:
+        row = {
+            header: clean(values[index]) if index < len(values) else None
+            for index, header in enumerate(headers)
+            if header
+        }
+        if (
+            row.get("tipo_record") == "Lancio principale"
+            and row.get("data")
+            and row.get("lanciatore")
+            and row.get("cliente")
+        ):
             latest = {
-                "nr": clean(values[0] if len(values) > 0 else None),
-                "data": clean(data),
-                "lanciatore": clean(lanciatore),
-                "cliente": clean(cliente),
-                "stato": clean(values[5] if len(values) > 5 else None),
-                "orbita": clean(values[7] if len(values) > 7 else None),
-                "landing": clean(values[8] if len(values) > 8 else None),
-                "booster": clean(values[9] if len(values) > 9 else None),
-                "voli": clean(values[10] if len(values) > 10 else None),
-                "pad": clean(values[11] if len(values) > 11 else None),
+                "nr": row.get("nr"),
+                "data": row.get("data"),
+                "lanciatore": row.get("lanciatore"),
+                "cliente": row.get("cliente"),
+                "stato": row.get("stato"),
+                "orbita": row.get("orbita"),
+                "landing": row.get("landing"),
+                "booster": row.get("booster"),
+                "voli": row.get("voli"),
+                "pad": row.get("dove"),
             }
     return {"metrics": metrics, "annual": annual, "launchers": launchers, "pads": pads, "landing": landing, "latest": latest}
 
@@ -1683,19 +1703,48 @@ def render():
         "locations": spacex_locations_data(),
         "generatedAt": datetime.now().strftime("%Y-%m-%d %H:%M"),
     }
-    write(CSS_DIR / "style.css", render_css())
-    write(ROOT / "index.html", render_home())
-    write(SECTIONS_DIR / "spacex.html", render_spacex(data))
-    write(SECTIONS_DIR / "storia-spacex.html", render_spacex_history_page(data))
-    write(SECTIONS_DIR / "lanci-imminenti.html", render_launches_page(data))
-    write(SECTIONS_DIR / "storico-lanci.html", render_history_page(data))
-    write(SECTIONS_DIR / "starship.html", render_starship_page(data))
-    write(SECTIONS_DIR / "pad-di-lancio.html", render_pad_page(data))
-    write(SECTIONS_DIR / "localita-spacex.html", render_locations_page(data))
+    outputs = [
+        (CSS_DIR / "style.css", render_css()),
+        (ROOT / "index.html", render_home()),
+        (SECTIONS_DIR / "spacex.html", render_spacex(data)),
+        (SECTIONS_DIR / "storia-spacex.html", render_spacex_history_page(data)),
+        (SECTIONS_DIR / "lanci-imminenti.html", render_launches_page(data)),
+        (SECTIONS_DIR / "storico-lanci.html", render_history_page(data)),
+        (SECTIONS_DIR / "starship.html", render_starship_page(data)),
+        (SECTIONS_DIR / "pad-di-lancio.html", render_pad_page(data)),
+        (SECTIONS_DIR / "localita-spacex.html", render_locations_page(data)),
+    ]
+    for path, content in outputs:
+        write(path, content)
     for item in PLACEHOLDER_SECTIONS:
         if item["slug"] != "spacex":
-            write(SECTIONS_DIR / f"{item['slug']}.html", render_placeholder(item))
+            path = SECTIONS_DIR / f"{item['slug']}.html"
+            write(path, render_placeholder(item))
+            outputs.append((path, None))
+    return data, [path for path, _ in outputs]
+
+
+def main():
+    data, outputs = render()
+    falcon = data["falcon"]
+    metrics = falcon["metrics"]
+    latest = falcon.get("latest") or {}
+    print("Aggiornamento sito da Excel completato.")
+    print(
+        "Storico Falcon: "
+        f"{metrics.get('lanci')} lanci principali, "
+        f"{metrics.get('successi')} successi, "
+        f"{metrics.get('recuperiRiusciti')} recuperi booster."
+    )
+    if latest:
+        print(
+            "Ultimo lancio registrato: "
+            f"{latest.get('cliente')} - {latest.get('data')} - Falcon #{latest.get('nr')}."
+        )
+    print("File aggiornati:")
+    for path in outputs:
+        print(f"- {path.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":
-    render()
+    main()
