@@ -26,7 +26,7 @@ a:hover{text-decoration:underline}
 .brand span{color:var(--cyan)}
 .nav{display:flex;gap:18px;flex-wrap:wrap;justify-content:flex-end;font-size:12px;text-transform:uppercase;letter-spacing:.1em;font-weight:800}
 .nav a{color:#fff}
-.hero{min-height:86vh;display:grid;align-items:end;padding:110px clamp(18px,4vw,56px) 50px;background:linear-gradient(90deg,rgba(0,0,0,.88),rgba(0,0,0,.48) 44%,rgba(0,0,0,.12)),linear-gradient(180deg,rgba(0,0,0,.16),rgba(5,6,7,.96) 92%),url("assets_fondazione/falcon1_flight4_launch.jpg") center/cover no-repeat}
+.hero{min-height:86vh;display:grid;align-items:end;padding:110px clamp(18px,4vw,56px) 50px;background:linear-gradient(90deg,rgba(0,0,0,.88),rgba(0,0,0,.48) 44%,rgba(0,0,0,.12)),linear-gradient(180deg,rgba(0,0,0,.16),rgba(5,6,7,.96) 92%),url("assets_fondazione/falcon1-flight4/falcon1-flight4-lift-off.jpg") center/cover no-repeat}
 .hero-inner,.section-inner{max-width:1180px;margin:0 auto}
 .eyebrow{margin:0 0 14px;color:var(--amber);text-transform:uppercase;letter-spacing:.14em;font-size:13px;font-weight:900}
 h1{margin:0;max-width:1000px;font-size:clamp(38px,8vw,92px);line-height:.92;text-transform:uppercase;font-weight:950}
@@ -54,16 +54,18 @@ th{color:#fff;text-transform:uppercase;letter-spacing:.08em;font-size:12px}
 td{color:#d8dde2}
 .callout{border-left:4px solid var(--red);padding:16px 18px;background:rgba(233,95,69,.095);margin:26px 0}
 .callout p{margin:0}
-.media-grid{display:grid;grid-template-columns:1.25fr .9fr;gap:14px;margin-top:26px;align-items:stretch}
-figure{margin:0;border:1px solid var(--line);background:#0c0f12;border-radius:8px;overflow:hidden}
-figure img{display:block;width:100%;height:100%;max-height:520px;object-fit:cover}
-.media-grid figure:first-child{grid-row:span 2}
-.media-grid figure:nth-child(2) img,.media-grid figure:nth-child(3) img{max-height:252px}
+.media-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;margin-top:26px;align-items:stretch}
+figure{margin:0;border:1px solid var(--line);background:#0c0f12;border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
+figure img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.media-grid figure:first-child{grid-column:span 4;grid-row:span 2}
+.media-grid figure:first-child img{min-height:430px;flex:1}
+.media-grid figure:nth-child(2),.media-grid figure:nth-child(3){grid-column:span 2}
+.media-grid figure:nth-child(n+4){grid-column:span 3}
 figcaption{padding:12px 14px;color:#b7c0c8;font-size:13px;line-height:1.45;border-top:1px solid var(--line)}
 .sources{columns:2 360px;column-gap:42px;padding-left:18px}
 .sources li{break-inside:avoid;color:#d9dde1;margin:0 0 12px;line-height:1.5;font-size:15px}
 .button{display:inline-flex;border:1px solid var(--line);padding:12px 16px;border-radius:4px;text-transform:uppercase;font-size:12px;letter-spacing:.09em;font-weight:900;background:rgba(0,0,0,.22);color:#fff;margin-top:8px}
-@media(max-width:850px){.topbar{position:absolute;align-items:flex-start}.nav{display:none}.hero{min-height:82vh}.split,.media-grid{grid-template-columns:1fr}.media-grid figure:first-child{grid-row:auto}.facts{grid-template-columns:repeat(2,minmax(0,1fr))}.event{grid-template-columns:1fr;gap:6px}}
+@media(max-width:850px){.topbar{position:absolute;align-items:flex-start}.nav{display:none}.hero{min-height:82vh}.split,.media-grid{grid-template-columns:1fr}.media-grid figure,.media-grid figure:first-child,.media-grid figure:nth-child(n){grid-column:auto;grid-row:auto}.media-grid figure:first-child img{min-height:0;flex:none}.facts{grid-template-columns:repeat(2,minmax(0,1fr))}.event{grid-template-columns:1fr;gap:6px}}
 @media(max-width:520px){.facts{grid-template-columns:1fr}section{padding:54px 18px}.hero{padding:96px 18px 42px}h1{font-size:42px}}
 </style>
 </head>
@@ -116,19 +118,27 @@ figcaption{padding:12px 14px;color:#b7c0c8;font-size:13px;line-height:1.45;borde
   <section id="immagini">
     <div class="section-inner">
       <h2>Le immagini della soglia</h2>
-      <p>Questa fase della storia SpaceX vive in luoghi molto concreti: una rampa minuscola su Omelek, un atollo remoto usato come infrastruttura di range, e un Falcon 1 che finalmente lascia dietro di sé una traiettoria abbastanza pulita da trasformarsi in orbita. Le immagini non sono decorazione; servono a tenere insieme scala fisica, isolamento logistico e fragilità del programma.</p>
+      <p>Questa fase della storia SpaceX vive in luoghi molto concreti: una rampa minuscola su Omelek, un atollo remoto usato come infrastruttura di range, e un Falcon 1 che finalmente lascia dietro di sé una traiettoria abbastanza pulita da trasformarsi in orbita. La sequenza del Flight 4 mostra la campagna nel suo ordine naturale: veicolo in rampa, decollo, struttura del razzo, separazione degli stadi e trasformazione del test in prova orbitale.</p>
       <div class="media-grid">
         <figure>
-          <img src="assets_fondazione/falcon1_flight4_launch.jpg" alt="Falcon 1 durante il lancio del Flight 4 da Omelek Island" loading="lazy">
-          <figcaption>Falcon 1 Flight 4, 28 settembre 2008. Il lancio di RatSat non portava un satellite operativo, ma dimostrò che il veicolo poteva completare l'inserimento orbitale.</figcaption>
+          <img src="assets_fondazione/falcon1-flight4/falcon1-flight4-lift-off.jpg" alt="Falcon 1 Flight 4 al decollo da Omelek Island" loading="lazy">
+          <figcaption>Lift-off da Omelek Island, 28 settembre 2008. Il quarto Falcon 1 non portava un satellite operativo, ma RatSat: un simulatore di massa sufficiente a dimostrare che il veicolo poteva completare l'inserimento orbitale.</figcaption>
         </figure>
         <figure>
-          <img src="assets_fondazione/omelek_island.jpg" alt="Omelek Island vista dall'alto" loading="lazy">
-          <figcaption>Omelek Island. La rampa dava a SpaceX isolamento e traiettorie utili, ma ogni ricambio e ogni persona dovevano attraversare il Pacifico.</figcaption>
+          <img src="assets_fondazione/falcon1-flight4/falcon1-flight4-rampa.jpg" alt="Falcon 1 Flight 4 sulla rampa di lancio a Omelek" loading="lazy">
+          <figcaption>Il veicolo in rampa. Nel Falcon 1 la scala ridotta non significava semplicità: ogni procedura doveva funzionare in un sito remoto, con margini logistici minimi.</figcaption>
         </figure>
         <figure>
-          <img src="assets_fondazione/kwajalein_landsat.png" alt="Atollo di Kwajalein visto da satellite" loading="lazy">
-          <figcaption>Kwajalein Atoll. Nel racconto Falcon 1 il sito di lancio non è sfondo: è una variabile tecnica, logistica e ambientale.</figcaption>
+          <img src="assets_fondazione/falcon1-flight4/falcon1-flight4-omelek.jpg" alt="Falcon 1 Flight 4 in partenza da Omelek Island" loading="lazy">
+          <figcaption>La partenza dal pad compatto di Omelek rende visibile la sproporzione del programma: un'infrastruttura piccola, ma caricata di una posta industriale enorme.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets_fondazione/falcon1-flight4/falcon1-flight4-interstage.jpg" alt="Dettaglio dell'interstage del Falcon 1 Flight 4" loading="lazy">
+          <figcaption>La zona interstage richiama il punto tecnico lasciato aperto dal Flight 3: il ricontatto tra gli stadi, risolto allungando il tempo tra spegnimento e separazione.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets_fondazione/falcon1-flight4/falcon1-flight4-staging.jpg" alt="Separazione degli stadi del Falcon 1 Flight 4" loading="lazy">
+          <figcaption>La separazione degli stadi fu il passaggio da verificare. Dopo la spinta residua del Merlin 1C nel volo precedente, questa immagine è la soglia tecnica dell'articolo.</figcaption>
         </figure>
       </div>
     </div>
@@ -241,9 +251,7 @@ figcaption{padding:12px 14px;color:#b7c0c8;font-size:13px;line-height:1.45;borde
 
       <h3>Fonti immagini</h3>
       <ol class="sources">
-        <li><a href="https://commons.wikimedia.org/wiki/File:Falcon_1_Flight_4_launch.jpg" target="_blank" rel="noopener">Falcon 1 Flight 4 launch.jpg</a>. Immagine SpaceX via Wikimedia Commons, pubblico dominio/CC0 secondo la scheda della fonte.</li>
-        <li><a href="https://commons.wikimedia.org/wiki/File:Omelek_Island.jpg" target="_blank" rel="noopener">Omelek Island.jpg</a>. Immagine governativa statunitense via Wikimedia Commons.</li>
-        <li><a href="https://commons.wikimedia.org/wiki/File:Kwajalein_Atoll_2003-02-07_-_Landsat_7_-_30m.png" target="_blank" rel="noopener">Kwajalein Atoll Landsat 7</a>. Immagine NASA/USGS via Wikimedia Commons.</li>
+        <li>Archivio locale del sito, cartella <code>assets_fondazione/falcon1-flight4</code>. Sequenza fotografica del quarto volo Falcon 1 usata per rampa, lift-off, interstage e staging.</li>
       </ol>
     </div>
   </section>
