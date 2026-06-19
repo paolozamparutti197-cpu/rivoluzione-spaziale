@@ -1458,7 +1458,7 @@ window.addEventListener('load', initLocationMap);
       <p>Le coordinate sono pubbliche o rappresentative per aree estese. La localita Louisiana e deliberatamente trattata come scenario futuro/ipotetico.</p>
     </div>
     <div class="source-panel">
-      <p>Dataset derivato dal file locale <strong>mappa_spacex_xai_usa.html</strong>, filtrando le sole localita SpaceX e mantenendo la proposta Louisiana.</p>
+      <p>Dataset derivato dal file locale <strong>00_documentazione/fonti_html/mappa_spacex_xai_usa.html</strong>, filtrando le sole localita SpaceX e mantenendo la proposta Louisiana.</p>
       <ul>{source_rows}</ul>
     </div>
   </div>
@@ -1562,7 +1562,7 @@ def render_spacex_history_page(data):
         </div>
       </a>
       <a class="story-card" href="../documenti%20per%20sito/falcon1_successo_orbitale_contratto_crs.html">
-        <img src="../documenti%20per%20sito/assets_fondazione/falcon1_flight4_launch.jpg" alt="Falcon 1 durante il lancio orbitale riuscito del 2008" loading="lazy">
+        <img src="../documenti%20per%20sito/assets_fondazione/falcon1-flight4/falcon1-flight4-lift-off.jpg" alt="Falcon 1 Flight 4 al decollo da Omelek Island" loading="lazy">
         <div>
           <small>Terza parte</small>
           <h3>Dal primo successo orbitale al contratto CRS</h3>

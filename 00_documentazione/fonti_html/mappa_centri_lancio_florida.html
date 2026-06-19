@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centri di Lancio Florida • LC &amp; SLC (Attivi + Storici)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+
+    body { font-family: 'Inter', system_ui, sans-serif; }
+    .title-font { font-family: 'Space Grotesk', 'Inter', system_ui, sans-serif; font-weight: 600; letter-spacing: -0.025em; }
+
+    #map { background: #0a0f1a; }
+
+    .leaflet-popup-content-wrapper {
+      border-radius: 12px;
+      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+      padding: 0;
+      overflow: hidden;
+    }
+    .leaflet-popup-content { margin: 0 !important; line-height: 1.5; }
+
+    .custom-marker { background: transparent; border: none; }
+
+    .location-item {
+      transition: all 0.1s cubic-bezier(0.4, 0.0, 0.2, 1);
+    }
+    .location-item:hover { transform: translateX(3px); background-color: #181f2e; }
+    .location-item.active { background-color: #1f2937; border-left: 3px solid #22c55e; }
+
+    .status-active { background-color: #166534; color: #86efac; }
+    .status-construction { background-color: #854d0e; color: #fde047; }
+    .status-inactive { background-color: #374151; color: #9ca3af; }
+
+    .filter-btn.active { background-color: white; color: #111827; }
+
+    .map-legend { background: rgba(17, 24, 39, 0.95); backdrop-filter: blur(8px); }
+  </style>
+</head>
+<body class="bg-zinc-950 text-zinc-200">
+  <!-- Header -->
+  <div class="bg-gradient-to-r from-slate-950 to-zinc-950 border-b border-zinc-800">
+    <div class="max-w-[1500px] mx-auto px-6 py-4">
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+        <div class="flex items-center gap-x-4">
+          <div class="flex items-center gap-x-3">
+            <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-sky-500 via-blue-500 to-indigo-600 flex items-center justify-center text-white text-2xl shadow-inner">🚀</div>
+            <div>
+              <h1 class="title-font text-3xl font-semibold tracking-tighter">Centri di Lancio Florida</h1>
+              <p class="text-xs text-zinc-400 -mt-0.5">LC &amp; SLC • Attivi, in costruzione e storici (tutte le aziende)</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2">
+          <!-- Search -->
+          <div class="relative">
+            <input id="search-input" type="text" placeholder="Cerca per nome o operatore..."
+                   class="bg-zinc-900 border border-zinc-700 text-sm pl-9 pr-4 py-2 rounded-3xl w-64 focus:outline-none focus:border-zinc-500"
+                   oninput="filterList()">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 absolute left-3.5 top-3 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </div>
+
+          <!-- Filters -->
+          <div class="flex items-center bg-zinc-900 border border-zinc-800 rounded-3xl p-1 text-sm">
+            <button onclick="applyFilter('all')" id="filter-all"
+                    class="filter-btn active px-4 py-1.5 font-medium rounded-3xl bg-white text-zinc-900">Tutti</button>
+            <button onclick="applyFilter('active')" id="filter-active"
+                    class="filter-btn px-3 py-1.5 font-medium rounded-3xl hover:bg-zinc-800 flex items-center gap-x-1.5">
+              <span class="w-2 h-2 bg-emerald-400 rounded-full"></span> Attivi
+            </button>
+            <button onclick="applyFilter('construction')" id="filter-construction"
+                    class="filter-btn px-3 py-1.5 font-medium rounded-3xl hover:bg-zinc-800 flex items-center gap-x-1.5">
+              <span class="w-2 h-2 bg-yellow-400 rounded-full"></span> In costr.
+            </button>
+            <button onclick="applyFilter('inactive')" id="filter-inactive"
+                    class="filter-btn px-3 py-1.5 font-medium rounded-3xl hover:bg-zinc-800 flex items-center gap-x-1.5">
+              <span class="w-2 h-2 bg-zinc-400 rounded-full"></span> Storici
+            </button>
+          </div>
+
+          <button onclick="resetMapView()"
+                  class="px-4 py-2 text-sm font-semibold bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 rounded-3xl flex items-center gap-x-2">
+            Reimposta vista
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-[1500px] mx-auto flex flex-col lg:flex-row" style="height: calc(100vh - 88px);">
+    <!-- Sidebar -->
+    <div class="w-full lg:w-96 border-b lg:border-b-0 lg:border-r border-zinc-800 bg-zinc-900 flex flex-col">
+      <div class="p-4 border-b border-zinc-800 flex items-center justify-between">
+        <div>
+          <div class="text-xs uppercase tracking-widest text-zinc-400">Space Coast, Florida</div>
+          <div class="font-semibold">LC &amp; SLC (tutti i complessi)</div>
+        </div>
+        <div class="text-right text-[10px] text-zinc-500 leading-none">pad principali<br>+ integrazioni moderne</div>
+      </div>
+
+      <!-- List -->
+      <div id="locations-list" class="flex-1 overflow-y-auto p-2 text-sm space-y-0.5">
+        <!-- Populated by JS -->
+      </div>
+
+      <div class="p-3 border-t border-zinc-800 bg-zinc-950 text-[10px] text-zinc-500">
+        Dati da fonti pubbliche (NASA, USSF, Space Florida, aziende, cataloghi storici). Coordinate precise dove disponibili; alcuni siti storici o aree estese sono indicati come punti rappresentativi. Clicca marker o voci per dettagli.
+      </div>
+    </div>
+
+    <!-- Map -->
+    <div class="flex-1 relative">
+      <div id="map" class="w-full h-full"></div>
+
+      <div class="absolute top-4 right-4 map-legend border border-zinc-700 rounded-2xl px-3 py-2 text-xs shadow-xl hidden lg:block">
+        <div class="font-medium px-1 mb-1 text-zinc-300">Legenda stato</div>
+        <div class="space-y-1">
+          <div class="flex items-center gap-x-2 px-1"><span class="inline-block w-3 h-3 bg-emerald-400 rounded-full"></span> <span class="text-zinc-400">Attivo / Operativo</span></div>
+          <div class="flex items-center gap-x-2 px-1"><span class="inline-block w-3 h-3 bg-yellow-400 rounded-full"></span> <span class="text-zinc-400">In costruzione / Futuro</span></div>
+          <div class="flex items-center gap-x-2 px-1"><span class="inline-block w-3 h-3 bg-zinc-400 rounded-full"></span> <span class="text-zinc-400">Storico / Inattivo</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const locations = [
+      {
+        id: 1,
+        name: "LC-39A",
+        full: "Launch Complex 39A",
+        lat: 28.6084,
+        lng: -80.6043,
+        operator: "SpaceX (lease NASA)",
+        status: "active",
+        statusLabel: "Attivo",
+        vehicles: "Falcon 9, Falcon Heavy • Futuro: Starship",
+        history: "Storica rampa Apollo e Space Shuttle. Dal 2014 gestita da SpaceX per missioni crewed e commerciali. Uno dei pad più iconici al mondo.",
+        coords: "28.6084° N, 80.6043° W",
+        location: "Kennedy Space Center (KSC)"
+      },
+      {
+        id: 2,
+        name: "LC-39B",
+        full: "Launch Complex 39B",
+        lat: 28.627,
+        lng: -80.620,
+        operator: "NASA",
+        status: "active",
+        statusLabel: "Attivo",
+        vehicles: "Space Launch System (SLS) - Artemis",
+        history: "Pad gemello del 39A. Usato per Saturn V, Shuttle e ora SLS per Artemis (ritorno sulla Luna). In fase di preparazione per voli crewed.",
+        coords: "28.627° N, 80.620° W",
+        location: "Kennedy Space Center (KSC)"
+      },
+      {
+        id: 3,
+        name: "SLC-40",
+        full: "Space Launch Complex 40",
+        lat: 28.5619,
+        lng: -80.5772,
+        operator: "SpaceX",
+        status: "active",
+        statusLabel: "Attivo",
+        vehicles: "Falcon 9 (principalmente Starlink e commerciali)",
+        history: "Ex pad Titan. Dal 2008 modificato per SpaceX. Altissima cadenza di lancio. Uno dei pad più utilizzati al mondo per Falcon 9.",
+        coords: "28.5619° N, 80.5772° W",
+        location: "Cape Canaveral Space Force Station (CCSFS)"
+      },
+      {
+        id: 4,
+        name: "SLC-41",
+        full: "Space Launch Complex 41",
+        lat: 28.583,
+        lng: -80.583,
+        operator: "United Launch Alliance (ULA)",
+        status: "active",
+        statusLabel: "Attivo",
+        vehicles: "Atlas V • Futuro: Vulcan Centaur",
+        history: "Pad storico Atlas. Attualmente usato per Atlas V (Kuiper, Starliner, ecc.). In transizione verso Vulcan come pad primario ULA sulla East Coast.",
+        coords: "28.583° N, 80.583° W",
+        location: "Cape Canaveral Space Force Station (CCSFS)"
+      },
+      {
+        id: 5,
+        name: "SLC-37",
+        full: "Space Launch Complex 37 (SLC-37B)",
+        lat: 28.531986,
+        lng: -80.566821,
+        operator: "SpaceX (in leasing)",
+        status: "construction",
+        statusLabel: "In costruzione",
+        vehicles: "Ex Delta IV Heavy (ULA fino 2024) • Futuro: Starship",
+        history: "Ex pad Saturn I/IB e poi Delta IV Heavy (ultimo volo aprile 2024). SpaceX ha ottenuto il lease per convertire il sito in pad Starship (OLIT). Lavori in corso 2025-2026.",
+        coords: "28.531986° N, 80.566821° W",
+        location: "Cape Canaveral Space Force Station (CCSFS)"
+      },
+      {
+        id: 6,
+        name: "LC-36",
+        full: "Launch Complex 36 (SLC-36)",
+        lat: 28.47056,
+        lng: -80.54000,
+        operator: "Blue Origin",
+        status: "construction",
+        statusLabel: "Danneggiato / Ricostruzione",
+        vehicles: "New Glenn",
+        history: "Ricostruito da Blue Origin (investimento >1 miliardo $). Primo lancio New Glenn nel 2025. Gravemente danneggiato da esplosione durante static fire il 28 maggio 2026. Ricostruzione in corso.",
+        coords: "28.47056° N, 80.54000° W",
+        location: "Cape Canaveral Space Force Station (CCSFS)"
+      },
+      {
+        id: 7,
+        name: "LC-34",
+        full: "Launch Complex 34",
+        lat: 28.522,
+        lng: -80.561,
+        operator: "NASA (storico)",
+        status: "inactive",
+        statusLabel: "Storico / Inattivo",
+        vehicles: "Saturn I, Saturn IB (Apollo)",
+        history: "Pad usato per test Apollo (inclusa la tragica missione Apollo 1). Oggi memoriale. Parte del Cape Canaveral Space Force Museum area.",
+        coords: "28.522° N, 80.561° W",
+        location: "Cape Canaveral Space Force Station (CCSFS)"
+      },
+      {
+        id: 8,
+        name: "LC-13 (LZ-1 / LZ-2)",
+        full: "Launch Complex 13 - Landing Zones",
+        lat: 28.48583,
+        lng: -80.54444,
+        operator: "SpaceX",
+        status: "active",
+        statusLabel: "Attivo (atterraggi)",
+        vehicles: "Falcon 9 / Heavy landing zone",
+        history: "Ex pad Atlas. Ora convertito in Landing Zone 1 e 2 per il recupero dei booster Falcon di SpaceX. Uno dei primi siti di atterraggio a terra sulla East Coast.",
+        coords: "28.48583° N, 80.54444° W",
+        location: "Cape Canaveral Space Force Station (CCSFS)"
+      },
+      {
+        id: 9,
+        name: "SLC-17",
+        full: "Space Launch Complex 17 (A/B)",
+        lat: 28.447,
+        lng: -80.565,
+        operator: "Riservato (ex ULA Delta)",
+        status: "inactive",
+        statusLabel: "Inattivo / Riservato",
+        vehicles: "Ex Delta II / Delta IV",
+        history: "Storico pad Delta (centinaia di lanci). Ultimi voli Delta II intorno al 2018. Attualmente riservato per potenziali clienti commerciali (es. Moon Express in passato).",
+        coords: "28.447° N, 80.565° W",
+        location: "Cape Canaveral Space Force Station (CCSFS)"
+      },
+      {
+        id: 10,
+        name: "LC-14",
+        full: "Launch Complex 14",
+        lat: 28.4900,
+        lng: -80.5470,
+        operator: "NASA / USAF (storico)",
+        status: "inactive",
+        statusLabel: "Storico",
+        vehicles: "Atlas (Mercury-Atlas, Atlas-Agena)",
+        history: "Famoso per il lancio di John Glenn (Friendship 7, primo americano in orbita, 1962) e altre missioni Mercury. Ora sito storico visitabile.",
+        coords: "28.4900° N, 80.5470° W",
+        location: "Cape Canaveral Space Force Station (CCSFS)"
+      },
+      {
+        id: 11,
+        name: "LC-5 / LC-6",
+        full: "Launch Complex 5 / 6",
+        lat: 28.4397,
+        lng: -80.5729,
+        operator: "NASA / USAF (storico)",
+        status: "inactive",
+        statusLabel: "Storico",
+        vehicles: "Redstone, Jupiter, Mercury-Redstone",
+        history: "Pad dei primi voli suborbitali americani (Alan Shepard Freedom 7, Gus Grissom). Parte del museo. Molto vicini tra loro.",
+        coords: "28.4397° N, 80.5729° W",
+        location: "Cape Canaveral Space Force Station (CCSFS)"
+      },
+      {
+        id: 12,
+        name: "LC-46",
+        full: "Launch Complex 46",
+        lat: 28.45833,
+        lng: -80.52833,
+        operator: "Space Florida (commercial)",
+        status: "active",
+        statusLabel: "Attivo / Multiuso",
+        vehicles: "Pad multiuso Space Florida: piccoli lanciatori, missioni suborbitali e usi speciali",
+        history: "Ex sito Trident, oggi gestito da Space Florida come complesso multiuso. Ha supportato lanci Athena e Astra ed è mantenuto come infrastruttura commerciale della Space Coast.",
+        coords: "28.45833° N, 80.52833° W",
+        location: "Cape Canaveral Space Force Station (CCSFS)"
+      },
+      {
+        id: 14,
+        name: "LC-11",
+        full: "Launch Complex 11",
+        lat: 28.476,
+        lng: -80.540,
+        operator: "Blue Origin (test / storage)",
+        status: "inactive",
+        statusLabel: "Storico / Riuso parziale",
+        vehicles: "Atlas (storico)",
+        history: "Uno dei primi pad Atlas. Oggi utilizzato da Blue Origin come area test BE-4 o storage per New Glenn.",
+        coords: "28.476° N, 80.540° W",
+        location: "Cape Canaveral Space Force Station (CCSFS)"
+      },
+      {
+        id: 15,
+        name: "LC-19",
+        full: "Launch Complex 19",
+        lat: 28.5067,
+        lng: -80.5546,
+        operator: "USAF (storico)",
+        status: "inactive",
+        statusLabel: "Storico",
+        vehicles: "Titan II (Gemini)",
+        history: "Pad principale per i lanci Gemini con equipaggio (10 missioni). Ora inattivo e in stato di conservazione parziale.",
+        coords: "28.5067° N, 80.5546° W",
+        location: "Cape Canaveral Space Force Station (CCSFS)"
+      },
+      {
+        id: 16,
+        name: "LC-48",
+        full: "Launch Complex 48",
+        lat: 28.601389,
+        lng: -80.590278,
+        operator: "NASA",
+        status: "active",
+        statusLabel: "Completato / Multi-user",
+        vehicles: "Piccoli lanciatori e piccoli satelliti",
+        history: "Pad NASA multi-user a nord di SLC-41 e a sud di LC-39A. La costruzione del primo pad è stata completata nel 2020; progettato come clean pad espandibile a due postazioni.",
+        coords: "28.601389° N, 80.590278° W",
+        location: "Kennedy Space Center (KSC)"
+      },
+      {
+        id: 17,
+        name: "LC-16",
+        full: "Launch Complex 16",
+        lat: 28.5015,
+        lng: -80.5520,
+        operator: "United States Space Force / Relativity Space",
+        status: "construction",
+        statusLabel: "In ristrutturazione",
+        vehicles: "Storico Titan e Pershing • Futuro: Terran R",
+        history: "Storico pad Titan e Pershing. Relativity Space lo ha usato per Terran 1 e lo sta ristrutturando per Terran R. Ha senso includerlo nella nuova generazione commerciale della Space Coast.",
+        coords: "28.5015° N, 80.5520° W",
+        location: "Cape Canaveral Space Force Station (CCSFS)"
+      },
+      {
+        id: 18,
+        name: "SLC-47",
+        full: "Space Launch Complex 47",
+        lat: 28.4600,
+        lng: -80.5300,
+        operator: "Space Florida / U.S. Space Force",
+        status: "active",
+        statusLabel: "Suborbitale",
+        vehicles: "Razzi sonda meteorologici e missioni suborbitali",
+        history: "Complesso Space Florida usato per razzi sonda e attività suborbitali. Non è un pad orbitale pesante, ma rientra nei complessi di lancio attivi della Space Coast.",
+        coords: "28.4600° N, 80.5300° W (approssimato)",
+        location: "Cape Canaveral Space Force Station (CCSFS)"
+      }
+    ]
+
+    let map
+    let markers = {}
+    let allMarkersLayer
+    let currentFilter = 'all'
+    let activeId = null
+
+    function getStatusColor(status) {
+      if (status === 'active') return '#10b981'
+      if (status === 'construction') return '#eab308'
+      return '#6b7280'
+    }
+
+    function createMarkerIcon(status) {
+      const color = getStatusColor(status)
+      const isActive = status === 'active'
+      const emoji = status === 'active' ? '🚀' : (status === 'construction' ? '🏗️' : '📜')
+
+      return L.divIcon({
+        className: 'custom-marker',
+        html: `
+          <div style="
+            width: ${isActive ? 32 : 28}px;
+            height: ${isActive ? 32 : 28}px;
+            background: ${color};
+            border: 3px solid #fff;
+            border-radius: ${status === 'construction' ? '6px' : '9999px'};
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 8px -1px rgb(0 0 0 / 0.35);
+            font-size: 14px;
+          ">${emoji}</div>
+        `,
+        iconSize: [isActive ? 32 : 28, isActive ? 32 : 28],
+        iconAnchor: [isActive ? 16 : 14, isActive ? 16 : 14],
+        popupAnchor: [0, -18]
+      })
+    }
+
+    function createPopup(loc) {
+      const statusColor = loc.status === 'active' ? 'emerald' : (loc.status === 'construction' ? 'yellow' : 'zinc')
+      const statusText = loc.statusLabel
+
+      return `
+        <div class="w-[310px] max-w-[310px] bg-zinc-900 text-zinc-100">
+          <div class="px-4 pt-4 pb-3 border-b border-zinc-800">
+            <div class="flex items-center justify-between">
+              <div>
+                <div class="font-mono text-emerald-400 text-sm">${loc.name}</div>
+                <h3 class="font-semibold text-lg leading-none mt-0.5">${loc.full}</h3>
+              </div>
+              <div class="px-2.5 py-1 text-xs font-semibold rounded-full status-${loc.status}">${statusText}</div>
+            </div>
+            <div class="text-xs text-zinc-400 mt-1">${loc.location}</div>
+          </div>
+
+          <div class="px-4 py-3 space-y-3 text-sm">
+            <div>
+              <div class="text-[10px] uppercase tracking-widest text-zinc-500">Operatore</div>
+              <div class="font-medium">${loc.operator}</div>
+            </div>
+
+            <div>
+              <div class="text-[10px] uppercase tracking-widest text-zinc-500">Veicoli / Uso</div>
+              <div class="text-zinc-300">${loc.vehicles}</div>
+            </div>
+
+            <div>
+              <div class="text-[10px] uppercase tracking-widest text-zinc-500">Storia</div>
+              <div class="text-zinc-300 leading-snug">${loc.history}</div>
+            </div>
+
+            <div class="pt-2 border-t border-zinc-800 flex justify-between text-xs">
+              <div>
+                <span class="font-mono text-emerald-400">${loc.coords}</span>
+              </div>
+              <div class="text-zinc-500">Clicca altrove per chiudere</div>
+            </div>
+          </div>
+        </div>
+      `
+    }
+
+    function initMap() {
+      map = L.map('map', {
+        zoomControl: true,
+        minZoom: 9,
+        maxZoom: 18
+      }).setView([28.52, -80.60], 11)
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(map)
+
+      const satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        attribution: 'Esri'
+      })
+
+      L.control.layers({ "Mappa": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'), "Satellite": satellite }, null, { position: 'topright', collapsed: true }).addTo(map)
+
+      allMarkersLayer = L.featureGroup().addTo(map)
+
+      locations.forEach(loc => {
+        const marker = L.marker([loc.lat, loc.lng], {
+          icon: createMarkerIcon(loc.status),
+          title: loc.full
+        })
+
+        marker.bindPopup(createPopup(loc), {
+          closeButton: true,
+          maxWidth: 330,
+          className: 'custom-popup'
+        })
+
+        marker.on('click', () => {
+          highlightListItem(loc.id)
+        })
+
+        markers[loc.id] = marker
+        allMarkersLayer.addLayer(marker)
+      })
+
+      renderList()
+    }
+
+    function renderList(filteredLocations = null) {
+      const container = document.getElementById('locations-list')
+      container.innerHTML = ''
+
+      const list = filteredLocations || locations
+
+      list.forEach(loc => {
+        const isActive = activeId === loc.id
+        const color = getStatusColor(loc.status)
+
+        const div = document.createElement('div')
+        div.className = `location-item px-3 py-2 mx-1 rounded-2xl cursor-pointer border border-transparent flex items-start gap-x-3 ${isActive ? 'active ring-1 ring-zinc-700' : ''}`
+
+        div.innerHTML = `
+          <div class="mt-1">
+            <div style="background:${color}; width:13px; height:13px; border-radius:9999px; border:2px solid #fff;"></div>
+          </div>
+          <div class="min-w-0 flex-1">
+            <div class="flex items-center gap-x-2">
+              <span class="font-semibold">${loc.name}</span>
+              <span class="text-[10px] px-1.5 py-px rounded ${loc.status === 'active' ? 'bg-emerald-900 text-emerald-300' : loc.status === 'construction' ? 'bg-yellow-900 text-yellow-300' : 'bg-zinc-700 text-zinc-300'}">${loc.statusLabel}</span>
+            </div>
+            <div class="text-xs text-zinc-400">${loc.operator} • ${loc.location.split('(')[0].trim()}</div>
+          </div>
+        `
+
+        div.onclick = () => zoomToLocation(loc.id)
+        container.appendChild(div)
+      })
+    }
+
+    function highlightListItem(id) {
+      activeId = id
+      renderList()
+    }
+
+    function zoomToLocation(id) {
+      const loc = locations.find(l => l.id === id)
+      if (!loc || !markers[id]) return
+
+      map.flyTo([loc.lat, loc.lng], 14, { duration: 0.9 })
+
+      setTimeout(() => {
+        Object.values(markers).forEach(m => m.closePopup())
+        markers[id].openPopup()
+      }, 950)
+
+      highlightListItem(id)
+    }
+
+    function applyFilter(type) {
+      currentFilter = type
+
+      // Button styles
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('active', 'bg-white', 'text-zinc-900')
+        btn.classList.add('hover:bg-zinc-800')
+      })
+
+      let btnId = 'filter-all'
+      if (type === 'active') btnId = 'filter-active'
+      if (type === 'construction') btnId = 'filter-construction'
+      if (type === 'inactive') btnId = 'filter-inactive'
+
+      const btn = document.getElementById(btnId)
+      if (btn) {
+        btn.classList.add('active', 'bg-white', 'text-zinc-900')
+        btn.classList.remove('hover:bg-zinc-800')
+      }
+
+      let filtered = locations
+      if (type === 'active') filtered = locations.filter(l => l.status === 'active')
+      if (type === 'construction') filtered = locations.filter(l => l.status === 'construction')
+      if (type === 'inactive') filtered = locations.filter(l => l.status === 'inactive')
+
+      // Show/hide markers
+      Object.keys(markers).forEach(key => {
+        const m = markers[key]
+        const loc = locations.find(l => l.id == key)
+        const shouldShow = (type === 'all') || (loc &&
+          (type === 'active' && loc.status === 'active') ||
+          (type === 'construction' && loc.status === 'construction') ||
+          (type === 'inactive' && loc.status === 'inactive')
+        )
+
+        if (shouldShow) {
+          if (!allMarkersLayer.hasLayer(m)) allMarkersLayer.addLayer(m)
+        } else {
+          if (allMarkersLayer.hasLayer(m)) allMarkersLayer.removeLayer(m)
+        }
+      })
+
+      renderList(filtered)
+    }
+
+    function filterList() {
+      const q = document.getElementById('search-input').value.toLowerCase().trim()
+      if (!q) {
+        // respect current filter
+        let filtered = locations
+        if (currentFilter === 'active') filtered = locations.filter(l => l.status === 'active')
+        if (currentFilter === 'construction') filtered = locations.filter(l => l.status === 'construction')
+        if (currentFilter === 'inactive') filtered = locations.filter(l => l.status === 'inactive')
+        renderList(filtered)
+        return
+      }
+
+      const filtered = locations.filter(l =>
+        l.name.toLowerCase().includes(q) ||
+        l.full.toLowerCase().includes(q) ||
+        l.operator.toLowerCase().includes(q) ||
+        l.history.toLowerCase().includes(q) ||
+        l.vehicles.toLowerCase().includes(q)
+      )
+      renderList(filtered)
+    }
+
+    function resetMapView() {
+      map.flyTo([28.52, -80.60], 11, { duration: 1.0 })
+
+      activeId = null
+      Object.values(markers).forEach(m => m.closePopup())
+
+      // show all markers
+      locations.forEach(loc => {
+        if (!allMarkersLayer.hasLayer(markers[loc.id])) allMarkersLayer.addLayer(markers[loc.id])
+      })
+
+      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active', 'bg-white', 'text-zinc-900'))
+      const allBtn = document.getElementById('filter-all')
+      if (allBtn) allBtn.classList.add('active', 'bg-white', 'text-zinc-900')
+
+      currentFilter = 'all'
+      document.getElementById('search-input').value = ''
+      renderList()
+    }
+
+    function initialize() {
+      initMap()
+
+      // Initial render
+      document.getElementById('filter-all').classList.add('active', 'bg-white', 'text-zinc-900')
+
+      // Keyboard
+      document.addEventListener('keydown', e => {
+        if (e.key.toLowerCase() === 'r') resetMapView()
+        if (e.key === 'Escape') Object.values(markers).forEach(m => m.closePopup())
+      })
+
+      // Make sure list is populated
+      setTimeout(() => {
+        renderList()
+      }, 100)
+    }
+
+    window.onload = initialize
+  </script>
+</body>
+</html>

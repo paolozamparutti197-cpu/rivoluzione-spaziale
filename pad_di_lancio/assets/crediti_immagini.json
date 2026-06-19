@@ -1,0 +1,68 @@
+{
+  "slc40": {
+    "title": "File:NG-21 at SLC-40 1.jpg",
+    "file": "slc40.jpg",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:NG-21%20at%20SLC-40%201.jpg",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/NG-21_at_SLC-40_1.jpg",
+    "license": "Public domain",
+    "usage_terms": "Public domain",
+    "artist": "SpaceX staff",
+    "credit": "https://images.nasa.gov/details/KSC-20240804-PH-SPX01_0001",
+    "date": "2024-08-04"
+  },
+  "lc39a": {
+    "title": "File:KSC-20190624-PH KLS01 0056.jpg",
+    "file": "lc39a.jpg",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:KSC-20190624-PH%20KLS01%200056.jpg",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/2/28/KSC-20190624-PH_KLS01_0056.jpg",
+    "license": "Public domain",
+    "usage_terms": "Public domain",
+    "artist": "Kim Shiflett",
+    "credit": "https://www.flickr.com/photos/nasakennedy/48122751761/in/photostream/",
+    "date": "2019-06-24 15:16:55"
+  },
+  "slc4e": {
+    "title": "File:NROL-87 Launches from Vandenberg (7032050).jpeg",
+    "file": "slc4e.jpeg",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:NROL-87%20Launches%20from%20Vandenberg%20(7032050).jpeg",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/8/8d/NROL-87_Launches_from_Vandenberg_%287032050%29.jpeg",
+    "license": "Public domain",
+    "usage_terms": "Public domain",
+    "artist": "U.S. Space Force/Michael Peterson",
+    "credit": "https://www.dvidshub.net/image/7032050",
+    "date": "Taken on 2 February 2022"
+  },
+  "slc6": {
+    "title": "File:First Delta IV Heavy launch from SLC-6 at Vandenberg AFB.jpg",
+    "file": "slc6.jpg",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:First%20Delta%20IV%20Heavy%20launch%20from%20SLC-6%20at%20Vandenberg%20AFB.jpg",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/d/da/First_Delta_IV_Heavy_launch_from_SLC-6_at_Vandenberg_AFB.jpg",
+    "license": "Public domain",
+    "usage_terms": "Public domain",
+    "artist": "U.S. Air Force photo/Joe Davila",
+    "credit": "http://www.vandenberg.af.mil/photos/media_search.asp?q=delta&amp;btnG.x=0&amp;btnG.y=0 direct link to the picture:http://www.vandenberg.af.mil/shared/media/photodb/photos/110120-F-0000D-002.jpg",
+    "date": "2011-01-20"
+  },
+  "boca1": {
+    "title": "File:Tower-OLM.jpg",
+    "file": "boca1.jpg",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:Tower-OLM.jpg",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/2/27/Tower-OLM.jpg",
+    "license": "CC BY-SA 4.0",
+    "usage_terms": "Creative Commons Attribution-Share Alike 4.0",
+    "artist": "Jenny Hautmann",
+    "credit": "Own work",
+    "date": "2023-03-14 20:11:30"
+  },
+  "boca2": {
+    "title": "File:SpaceX Starbase Launch Site Early 2026.jpg",
+    "file": "boca2.jpg",
+    "commons_url": "https://commons.wikimedia.org/wiki/File:SpaceX%20Starbase%20Launch%20Site%20Early%202026.jpg",
+    "source_url": "https://upload.wikimedia.org/wikipedia/commons/0/01/SpaceX_Starbase_Launch_Site_Early_2026.jpg",
+    "license": "Public domain",
+    "usage_terms": "Public domain",
+    "artist": "NOAA / NODD",
+    "credit": "https://registry.opendata.aws/noaa-eri/ https://noaa-eri-pds.s3.amazonaws.com/index.html https://storms.ngs.noaa.gov/storms/2026_eri/index.html#7.48/35.171/-88.807 https://noaa-eri-pds.s3.amazonaws.com/index.html#2026_Pre_Event/",
+    "date": "2026-01"
+  }
+}

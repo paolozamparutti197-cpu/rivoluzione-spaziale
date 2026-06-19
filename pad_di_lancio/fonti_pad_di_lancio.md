@@ -53,6 +53,8 @@ Ricerca aggiornata al 14 giugno 2026. Le infografiche sintetizzano fonti ufficia
   https://www.vandenberg.spaceforce.mil/News/Article-Display/Article/3351366/space-launch-delta-30-to-lease-space-launch-complex-6-to-space-x/
 - Vandenberg SFB, Final EIS/ROD Falcon Launch Program (2025): SLC-6 per Falcon 9/Falcon Heavy, cadenza combinata SLC-4/SLC-6 e Falcon Heavy fino a 5/anno.
   https://www.vandenberg.spaceforce.mil/News/Article-Display/Article/4323318/notice-of-availability-of-the-final-environmental-impact-statement-and-record-o/
+- Vandenberg SFB / Space Launch Delta 30, comunicato 16 giugno 2026: demolizione programmata delle strutture legacy di SLC-6 dopo l'outgrant 2025 a SpaceX, per modernizzare il complesso e aumentare capacita' e resilienza dei lanci dalla West Coast.
+  https://www.vandenberg.spaceforce.mil/News/Article-Display/Article/4519296/vandenberg-space-force-base-modernizes-historic-space-launch-complex-6-for-next/
 
 ## Boca Chica OLP-1 e OLP-2
 

@@ -14,8 +14,13 @@ Nota: per aggiornare l'indice Storia SpaceX in modo persistente modificare anche
 
 ## File principali
 
+- `.gitignore`: tiene fuori da git workbook locali, backup, cache Python, temporanei, bozze Office e output HTML intermedi.
 - `index.html`: homepage generale.
 - `css/style.css`: stile condiviso.
 - `sezioni/`: pagine HTML autonome, incluse SpaceX, Storia SpaceX, lanci imminenti, storico lanci, Starship, pad di lancio e localita SpaceX.
 - `pad_di_lancio/`: infografiche e fonti usate dalla pagina dei pad.
 - `03_script/genera_sito_rivoluzione.py`: generatore locale che ricostruisce il sito dai dati del progetto.
+
+## Pubblicazione
+
+Il sito pubblico GitHub Pages viene servito dal ramo `gh-pages`. Per rendere visibili online le modifiche al sito, spingere sia `main` sia `main:gh-pages`, poi verificare la URL pubblica con cache-buster.

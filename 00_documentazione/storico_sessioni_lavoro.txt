@@ -275,3 +275,22 @@ Sessione 15/06/2026 - storia SpaceX parte seconda
 - La pagina e' stata ricavata dal documento di lavoro:
   - documenti per sito\SpaceX tra il primo fallimento di Falcon 1 e il quarto lancio.docx
 - Tema della seconda parte: Flight 1, Flight 2, Flight 3, Flight 4, correzioni tecniche Falcon 1, crisi 2008, ruolo del metodo di apprendimento SpaceX.
+
+Sessione 19/06/2026 - riordino generale directory e memoria operativa
+- Ripristinati i due articoli storici tracciati che risultavano cancellati localmente ma ancora linkati da sezioni\storia-spacex.html:
+  - documenti per sito\fondazione_spacex_fino_primo_falcon1.html
+  - documenti per sito\falcon1_dal_primo_fallimento_al_quarto_lancio.html
+- Aggiunto .gitignore per separare dati locali e temporanei dai file pubblici/versionati:
+  - ignorati 01_workbook, 02_backup, 04_dati_geo, 05_fonti_originali, 99_temporanei, cache Python, lock Excel, bozze Office e output lanci_*.html intermedi.
+- Spostate le vecchie mappe HTML sorgenti dalla root a 00_documentazione\fonti_html.
+- Spostato il collegamento legacy lanci_spacex_falcon - collegamento.lnk in 99_temporanei\collegamenti_legacy, lasciando in root solo i quattro shortcut operativi numerati.
+- Rimossa la cartella vuota immagini dopo lo spostamento delle foto Falcon 1 Flight 4 nella sottocartella pubblica corretta.
+- Allineata la documentazione interna:
+  - README.md
+  - README.txt
+  - 00_documentazione\README_manutenzione.txt
+  - 00_documentazione\procedure_aggiornamento.txt
+  - 00_documentazione\inventario_file.txt
+  - 00_documentazione\storico_sessioni_lavoro.txt
+- Confermato che il sito pubblico deve essere pubblicato su main e gh-pages; la verifica utile e' sulla URL GitHub Pages, non solo sui file locali.
+- Stato storia SpaceX: la pagina sezioni\storia-spacex.html contiene tre parti pubblicate; la terza usa la sottocartella documenti per sito\assets_fondazione\falcon1-flight4 per le immagini del quarto volo Falcon 1.

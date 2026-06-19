@@ -1,0 +1,25 @@
+Mappa rinomine del 26/05/2026
+=============================
+
+Workbook correnti
+-----------------
+- spacex.xlsx -> 01_workbook\lanci_spacex_falcon.xlsx
+- Sviluppp_starship.xlsx -> 01_workbook\sviluppo_starship.xlsx
+
+Backup
+------
+- spacex.backup_20260516_114429.xlsx -> 02_backup\lanci_spacex_falcon_backup_20260516_114429.xlsx
+- spacex.backup_20260525_205000.xlsx -> 02_backup\lanci_spacex_falcon_backup_20260525_205000.xlsx
+- Sviluppp_starship_backup_20260524_aggiornamento_flight12.xlsx -> 02_backup\sviluppo_starship_backup_20260524_aggiornamento_flight12.xlsx
+
+Script e dati
+-------------
+- create_starship_workbook.py -> 03_script\genera_workbook_starship.py
+- spacex.kml -> 04_dati_geo\atakani_space_centre.kml
+
+Documentazione e temporanei
+---------------------------
+- README_sessione_lavoro.txt -> 00_documentazione\storico_sessioni_lavoro.txt
+- prompt_aggiornamento_spacex.txt -> 00_documentazione\prompt_aggiornamento_lanci_spacex.txt
+- Nuovo documento di testo.txt -> 99_temporanei\nota_vuota_20260513.txt
+- ~$spacex.xlsx -> 99_temporanei\lock_excel_spacex_20250521.tmp

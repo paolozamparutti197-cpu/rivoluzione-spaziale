@@ -1,0 +1,5 @@
+Controlla gli ultimi lanci SpaceX su Wikipedia e, se necessario, su fonti ufficiali SpaceX. Aggiorna il foglio `elenco` del workbook dei lanci.
+
+Percorso preferito: `01_workbook\lanci_spacex_falcon.xlsx`.
+
+Usa Excel COM per modificare il file, mantenendo formule e stili esistenti. Non modificare l'xlsx a livello ZIP/XML. Crea un backup in `02_backup` prima di scrivere, salva con Excel, poi riapri il file con Excel in read-only e verifica l'ultima riga reale.

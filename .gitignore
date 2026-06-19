@@ -1,0 +1,24 @@
+# Python/cache
+__pycache__/
+*.py[cod]
+
+# Local Excel/Office state
+~$*
+*.tmp
+
+# Local operational data and backups
+01_workbook/
+02_backup/
+04_dati_geo/
+05_fonti_originali/
+99_temporanei/
+
+# Generated launch-provider scratch exports
+03_script/lanci_*.html
+
+# Local draft/source documents
+documenti per sito/*.docx
+documenti per sito/*.txt
+
+# Empty staging/drop folders
+immagini/

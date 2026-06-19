@@ -16,7 +16,10 @@ Aggiornare il sito statico Rivoluzione Spaziale
    - la terza parte si intitola "Dal primo successo orbitale al contratto CRS" e punta al dossier documenti per sito\falcon1_successo_orbitale_contratto_crs.html;
    - pagine tematiche provvisorie: Luna, Marte, Infrastrutture orbitali, Cronologia; non devono comparire nella nav globale finche' non diventano macro-sezioni deliberate.
 5. Se si aggiunge una nuova sottosezione di una compagnia, creare il file HTML autonomo ma collegarlo dalla pagina della compagnia, non da index.html.
-6. Dopo la verifica locale, pubblicare con commit e push su main e gh-pages.
+6. Dopo la verifica locale, pubblicare con commit e push su main e gh-pages:
+   git push origin main
+   git push origin main:gh-pages
+7. Verificare la URL pubblica con cache-buster, perche' la verifica locale non garantisce che GitHub Pages sia aggiornato.
 
 Aggiornare il workbook lanci SpaceX/Falcon
 ------------------------------------------
@@ -79,3 +82,4 @@ Pulizia
 - I file in 99_temporanei possono essere eliminati solo dopo conferma che non servono.
 - I file di lock Excel possono essere rimossi solo se Excel e' chiuso e il workbook non e' aperto.
 - Non eliminare backup senza una richiesta esplicita.
+- .gitignore tiene fuori da git workbook locali, backup, sorgenti Office, cache, temporanei e output HTML intermedi. Se un file ignorato diventa parte pubblica del sito, spostarlo in una cartella pubblica appropriata o forzarne consapevolmente il tracking.

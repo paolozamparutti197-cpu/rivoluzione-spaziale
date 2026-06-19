@@ -1,0 +1,54 @@
+SCRIPT PYTHON PER AGGIORNARE IL SITO
+
+01 - Aggiorna sito da Excel.lnk
+Esegue:
+E:\spacex\03_script\genera_sito_rivoluzione.py
+
+Serve quando hai aggiornato i file Excel.
+Aggiorna le pagine locali del sito, per esempio storico-lanci.html.
+Non pubblica online da solo.
+
+
+02 - Aggiorna lanci SpaceX da web.lnk
+Esegue:
+E:\spacex\03_script\aggiorna_lanci_spacex_sito.py
+
+Scarica i prossimi lanci SpaceX da The Space Devs.
+Aggiorna i file locali dell'agenda lanci.
+Non pubblica online da solo.
+
+
+03 - Aggiorna e pubblica lanci SpaceX online.lnk
+Esegue:
+E:\spacex\03_script\aggiorna_lanci_spacex_sito.py --publish
+
+Scarica i prossimi lanci SpaceX.
+Aggiorna la pagina locale.
+Fa commit e push su GitHub.
+Aggiorna anche il branch gh-pages, quindi pubblica il sito online.
+
+
+04 - Genera infografiche pad.lnk
+Esegue:
+E:\spacex\03_script\genera_infografiche_pad.py
+
+Rigenera le immagini dei pad nella cartella:
+E:\spacex\pad_di_lancio
+
+Serve solo quando vuoi rifare quelle infografiche.
+Non pubblica online da solo.
+
+
+NOTA RAPIDA
+
+Se vuoi solo aggiornare lo storico dopo Excel:
+usa 01.
+
+Se vuoi aggiornare i lanci SpaceX solo sul PC:
+usa 02.
+
+Se vuoi aggiornare i lanci SpaceX anche sul sito pubblico:
+usa 03.
+
+Pagina pubblica:
+https://paolozamparutti197-cpu.github.io/rivoluzione-spaziale/sezioni/lanci-imminenti.html

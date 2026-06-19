@@ -1,0 +1,188 @@
+
+
+- Riga 208, nr 199, 2022-11-08, "Hakuto-R M1 & Lunar Flashlight": Data diversa su data; workbook="2022-11-08"; fonte="2022-12-11"; missione fonte="Hakuto-R Mission 1 Emirates Lunar Mission Lunar Flashlight"; fonte=F9/FH 2020-2022
+- Riga 209, nr 200, 2022-12-16, "SWOT": Booster diverso su booster; workbook="B1071"; fonte="B1067"; missione fonte="O3b mPOWER 1 & 2"; fonte=F9/FH 2020-2022
+- Riga 209, nr 200, 2022-12-16, "SWOT": Numero volo booster diverso su voli; workbook="6"; fonte="8"; missione fonte="O3b mPOWER 1 & 2"; fonte=F9/FH 2020-2022
+- Riga 209, nr 200, 2022-12-16, "SWOT": Pad diverso su pad; workbook="SLC-4E"; fonte="SLC-40"; missione fonte="O3b mPOWER 1 & 2"; fonte=F9/FH 2020-2022
+- Riga 210, nr 201, 2022-12-16, "O3b mPower 1 & 2": Booster diverso su booster; workbook="B1067"; fonte="B1071"; missione fonte="Surface Water and Ocean Topography (SWOT)"; fonte=F9/FH 2020-2022
+- Riga 210, nr 201, 2022-12-16, "O3b mPower 1 & 2": Numero volo booster diverso su voli; workbook="8"; fonte="6"; missione fonte="Surface Water and Ocean Topography (SWOT)"; fonte=F9/FH 2020-2022
+- Riga 210, nr 201, 2022-12-16, "O3b mPower 1 & 2": Pad diverso su pad; workbook="SLC-40"; fonte="SLC-4E"; missione fonte="Surface Water and Ocean Topography (SWOT)"; fonte=F9/FH 2020-2022
+- Riga 222, nr 211, 2023-01-31, "Starlink 2-6 + ION": Pad diverso su pad; workbook="SLC-40"; fonte="SLC-4E"; missione fonte="Starlink: Group 2-6 (49 satellites)"; fonte=F9/FH 2023
+- Riga 228, nr 217, 2023-02-28, "Starlink 6-1": Numero volo booster diverso su voli; workbook="6"; fonte="3"; missione fonte="Starlink: Group 6-1 (21 satellites)"; fonte=F9/FH 2023
+- Riga 233, nr 222, 2023-03-17, "Starlink 2-8": Booster diverso su booster; workbook="B1071"; fonte="B1069"; missione fonte="SES-18 & SES-19"; fonte=F9/FH 2023
+- Riga 233, nr 222, 2023-03-17, "Starlink 2-8": Numero volo booster diverso su voli; workbook="8"; fonte="6"; missione fonte="SES-18 & SES-19"; fonte=F9/FH 2023
+- Riga 233, nr 222, 2023-03-17, "Starlink 2-8": Pad diverso su pad; workbook="SLC-4E"; fonte="SLC-40"; missione fonte="SES-18 & SES-19"; fonte=F9/FH 2023
+- Riga 234, nr 223, 2023-03-18, "SES-18 & SES-19": Booster diverso su booster; workbook="B1069"; fonte="B1071"; missione fonte="Starlink: Group 2-8 (52 satellites)"; fonte=F9/FH 2023
+- Riga 234, nr 223, 2023-03-18, "SES-18 & SES-19": Numero volo booster diverso su voli; workbook="6"; fonte="8"; missione fonte="Starlink: Group 2-8 (52 satellites)"; fonte=F9/FH 2023
+- Riga 234, nr 223, 2023-03-18, "SES-18 & SES-19": Pad diverso su pad; workbook="SLC-40"; fonte="SLC-4E"; missione fonte="Starlink: Group 2-8 (52 satellites)"; fonte=F9/FH 2023
+- Riga 267, nr 254, 2023-07-28, "Starlink 6-7": Numero volo booster diverso su voli; workbook="12"; fonte="15"; missione fonte="Starlink: Group 6-7 (22 satellites)"; fonte=F9/FH 2023
+- Riga 316, nr 299, 2023-12-29, "USSF-52": Booster diverso su booster; workbook="B1084"; fonte="B1069"; missione fonte="Starlink: Group 6-36 (23 satellites)"; fonte=F9/FH 2023
+- Riga 316, nr 299, 2023-12-29, "USSF-52": Numero volo booster diverso su voli; workbook="1"; fonte="12"; missione fonte="Starlink: Group 6-36 (23 satellites)"; fonte=F9/FH 2023
+- Riga 316, nr 299, 2023-12-29, "USSF-52": Pad diverso su pad; workbook="LC-39A"; fonte="SLC-40"; missione fonte="Starlink: Group 6-36 (23 satellites)"; fonte=F9/FH 2023
+- Riga 319, nr 300, 2023-12-29, "Starlink 6-36": Booster diverso su booster; workbook="B1069"; fonte="B1084"; missione fonte="USSF-52 (Boeing X-37B OTV-7)"; fonte=F9/FH 2023
+- Riga 319, nr 300, 2023-12-29, "Starlink 6-36": Pad diverso su pad; workbook="SLC-40"; fonte="LC-39A"; missione fonte="USSF-52 (Boeing X-37B OTV-7)"; fonte=F9/FH 2023
+- Riga 320, nr 301, 2024-01-03, "Starlink 7-9": Booster diverso su booster; workbook="B1082"; fonte="B1076"; missione fonte="Ovzon-3"; fonte=F9/FH 2024-2026
+- Riga 320, nr 301, 2024-01-03, "Starlink 7-9": Numero volo booster diverso su voli; workbook="1"; fonte="10"; missione fonte="Ovzon-3"; fonte=F9/FH 2024-2026
+- Riga 320, nr 301, 2024-01-03, "Starlink 7-9": Pad diverso su pad; workbook="SLC-4E"; fonte="SLC-40"; missione fonte="Ovzon-3"; fonte=F9/FH 2024-2026
+- Riga 321, nr 302, 2024-01-04, "Ovzon-3": Booster diverso su booster; workbook="B1076"; fonte="B1082"; missione fonte="Starlink: Group 7-9 (22 satellites)"; fonte=F9/FH 2024-2026
+- Riga 321, nr 302, 2024-01-04, "Ovzon-3": Numero volo booster diverso su voli; workbook="10"; fonte="1"; missione fonte="Starlink: Group 7-9 (22 satellites)"; fonte=F9/FH 2024-2026
+- Riga 321, nr 302, 2024-01-04, "Ovzon-3": Pad diverso su pad; workbook="SLC-40"; fonte="SLC-4E"; missione fonte="Starlink: Group 7-9 (22 satellites)"; fonte=F9/FH 2024-2026
+- Riga 322, nr 303, 2024-01-07, "Starlink 6-35": Pad diverso su pad; workbook="SLC-4E"; fonte="SLC-40"; missione fonte="Starlink: Group 6-35 (23 satellites)"; fonte=F9/FH 2024-2026
+- Riga 335, nr 316, 2024-02-22, "HTS-113BT": Data diversa su data; workbook="2024-02-22"; fonte="2024-02-20"; missione fonte="Telkomsat HTS 113BT"; fonte=F9/FH 2024-2026
+- Riga 337, nr 318, 2024-02-25, "Starlink 6-39": Pad diverso su pad; workbook="LC-39A"; fonte="SLC-40"; missione fonte="Starlink: Group 6-39 (24 satellites)"; fonte=F9/FH 2024-2026
+- Riga 340, nr 321, 2024-03-04, "Transporter-10": Booster diverso su booster; workbook="B1081"; fonte="B1073"; missione fonte="Starlink: Group 6-41 (23 satellites)"; fonte=F9/FH 2024-2026
+- Riga 340, nr 321, 2024-03-04, "Transporter-10": Numero volo booster diverso su voli; workbook="5"; fonte="13"; missione fonte="Starlink: Group 6-41 (23 satellites)"; fonte=F9/FH 2024-2026
+- Riga 340, nr 321, 2024-03-04, "Transporter-10": Pad diverso su pad; workbook="SLC-4E"; fonte="SLC-40"; missione fonte="Starlink: Group 6-41 (23 satellites)"; fonte=F9/FH 2024-2026
+- Riga 341, nr 322, 2024-03-05, "Starlink 6-41": Booster diverso su booster; workbook="B1073"; fonte="B1081"; missione fonte="Transporter-10 (53 payload smallsat rideshare)"; fonte=F9/FH 2024-2026
+- Riga 341, nr 322, 2024-03-05, "Starlink 6-41": Numero volo booster diverso su voli; workbook="13"; fonte="5"; missione fonte="Transporter-10 (53 payload smallsat rideshare)"; fonte=F9/FH 2024-2026
+- Riga 341, nr 322, 2024-03-05, "Starlink 6-41": Pad diverso su pad; workbook="SLC-40"; fonte="SLC-4E"; missione fonte="Transporter-10 (53 payload smallsat rideshare)"; fonte=F9/FH 2024-2026
+- Riga 353, nr 334, 2024-04-07, "Starlink 8-1": Booster diverso su booster; workbook="B1081"; fonte="B1073"; missione fonte="Bandwagon-1 (11 payload smallsat rideshare) 425 Project Flight 2"; fonte=F9/FH 2024-2026
+- Riga 353, nr 334, 2024-04-07, "Starlink 8-1": Numero volo booster diverso su voli; workbook="6"; fonte="14"; missione fonte="Bandwagon-1 (11 payload smallsat rideshare) 425 Project Flight 2"; fonte=F9/FH 2024-2026
+- Riga 353, nr 334, 2024-04-07, "Starlink 8-1": Pad diverso su pad; workbook="SLC-4E"; fonte="LC-39A"; missione fonte="Bandwagon-1 (11 payload smallsat rideshare) 425 Project Flight 2"; fonte=F9/FH 2024-2026
+- Riga 354, nr 335, 2024-04-08, "Bandwagon-1": Booster diverso su booster; workbook="B1073"; fonte="B1081"; missione fonte="Starlink: Group 8-1 (21 satellites)"; fonte=F9/FH 2024-2026
+- Riga 354, nr 335, 2024-04-08, "Bandwagon-1": Numero volo booster diverso su voli; workbook="14"; fonte="6"; missione fonte="Starlink: Group 8-1 (21 satellites)"; fonte=F9/FH 2024-2026
+- Riga 354, nr 335, 2024-04-08, "Bandwagon-1": Pad diverso su pad; workbook="LC-39A"; fonte="SLC-4E"; missione fonte="Starlink: Group 8-1 (21 satellites)"; fonte=F9/FH 2024-2026
+- Riga 374, nr 355, 2024-05-28, "Starlink:6-60": Booster diverso su booster; workbook="B1078"; fonte="B1081"; missione fonte="EarthCARE"; fonte=F9/FH 2024-2026
+- Riga 374, nr 355, 2024-05-28, "Starlink:6-60": Numero volo booster diverso su voli; workbook="10"; fonte="7"; missione fonte="EarthCARE"; fonte=F9/FH 2024-2026
+- Riga 374, nr 355, 2024-05-28, "Starlink:6-60": Pad diverso su pad; workbook="SLC-40"; fonte="SLC-4E"; missione fonte="EarthCARE"; fonte=F9/FH 2024-2026
+- Riga 375, nr 356, 2024-05-28, "EarthCARE": Booster diverso su booster; workbook="B1081"; fonte="B1078"; missione fonte="Starlink: Group 6-60 (23 satellites)"; fonte=F9/FH 2024-2026
+- Riga 375, nr 356, 2024-05-28, "EarthCARE": Numero volo booster diverso su voli; workbook="7"; fonte="10"; missione fonte="Starlink: Group 6-60 (23 satellites)"; fonte=F9/FH 2024-2026
+- Riga 375, nr 356, 2024-05-28, "EarthCARE": Pad diverso su pad; workbook="SLC-4E"; fonte="SLC-40"; missione fonte="Starlink: Group 6-60 (23 satellites)"; fonte=F9/FH 2024-2026
+- Riga 388, nr 367, 2024-06-29, "NROL-186": Booster diverso su booster; workbook="B1061"; fonte="B1081"; missione fonte="NROL-186 (~21 Starshield satellites)"; fonte=F9/FH 2024-2026
+- Riga 396, nr 375, 2024-08-04, "Starlink:11-1": Booster diverso su booster; workbook="B1082"; fonte="B1080"; missione fonte="CRS NG-21 (S.S. Francis R. "Dick" Scobee)"; fonte=F9/FH 2024-2026
+- Riga 396, nr 375, 2024-08-04, "Starlink:11-1": Numero volo booster diverso su voli; workbook="6"; fonte="10"; missione fonte="CRS NG-21 (S.S. Francis R. "Dick" Scobee)"; fonte=F9/FH 2024-2026
+- Riga 396, nr 375, 2024-08-04, "Starlink:11-1": Pad diverso su pad; workbook="SLC-4E"; fonte="SLC-40"; missione fonte="CRS NG-21 (S.S. Francis R. "Dick" Scobee)"; fonte=F9/FH 2024-2026
+- Riga 397, nr 376, 2024-08-04, "CRS NG-21": Booster diverso su booster; workbook="B1080"; fonte="B1082"; missione fonte="Starlink: Group 11-1 (23 satellites)"; fonte=F9/FH 2024-2026
+- Riga 397, nr 376, 2024-08-04, "CRS NG-21": Numero volo booster diverso su voli; workbook="10"; fonte="6"; missione fonte="Starlink: Group 11-1 (23 satellites)"; fonte=F9/FH 2024-2026
+- Riga 397, nr 376, 2024-08-04, "CRS NG-21": Pad diverso su pad; workbook="SLC-40"; fonte="SLC-4E"; missione fonte="Starlink: Group 11-1 (23 satellites)"; fonte=F9/FH 2024-2026
+- Riga 414, nr 393, 2024-06-25, "Starlink 9-8": Data diversa su data; workbook="2024-06-25"; fonte="2024-09-25"; missione fonte="Starlink: Group 9-8 (20 satellites)"; fonte=F9/FH 2024-2026
+- Riga 414, nr 393, 2024-06-25, "Starlink 9-8": Booster diverso su booster; workbook="B1085"; fonte="B1081"; missione fonte="Starlink: Group 9-8 (20 satellites)"; fonte=F9/FH 2024-2026
+- Riga 414, nr 393, 2024-06-25, "Starlink 9-8": Numero volo booster diverso su voli; workbook="2"; fonte="10"; missione fonte="Starlink: Group 9-8 (20 satellites)"; fonte=F9/FH 2024-2026
+- Riga 415, nr 394, 2024-09-28, "Crew-9": Booster diverso su booster; workbook="B1081"; fonte="B1085"; missione fonte="Crew-9 (Crew Dragon C212-4 Freedom)"; fonte=F9/FH 2024-2026
+- Riga 415, nr 394, 2024-09-28, "Crew-9": Numero volo booster diverso su voli; workbook="10"; fonte="2"; missione fonte="Crew-9 (Crew Dragon C212-4 Freedom)"; fonte=F9/FH 2024-2026
+- Riga 427, nr 404, 2024-10-30, "Starlink:9-9": Booster diverso su booster; workbook="B1075"; fonte="B1078"; missione fonte="Starlink: Group 10-13 (23 satellites)"; fonte=F9/FH 2024-2026
+- Riga 427, nr 404, 2024-10-30, "Starlink:9-9": Pad diverso su pad; workbook="SLC-4E"; fonte="SLC-40"; missione fonte="Starlink: Group 10-13 (23 satellites)"; fonte=F9/FH 2024-2026
+- Riga 428, nr 405, 2024-10-30, "Starlink:10-13": Booster diverso su booster; workbook="B1078"; fonte="B1075"; missione fonte="Starlink: Group 9-9 (20 satellites)"; fonte=F9/FH 2024-2026
+- Riga 428, nr 405, 2024-10-30, "Starlink:10-13": Pad diverso su pad; workbook="SLC-40"; fonte="SLC-4E"; missione fonte="Starlink: Group 9-9 (20 satellites)"; fonte=F9/FH 2024-2026
+- Riga 434, nr 411, 2024-11-14, "Starlink:9-11": Booster diverso su booster; workbook="B1082"; fonte="B1076"; missione fonte="Starlink: Group 6-68 (24 satellites)"; fonte=F9/FH 2024-2026
+- Riga 434, nr 411, 2024-11-14, "Starlink:9-11": Numero volo booster diverso su voli; workbook="8"; fonte="18"; missione fonte="Starlink: Group 6-68 (24 satellites)"; fonte=F9/FH 2024-2026
+- Riga 434, nr 411, 2024-11-14, "Starlink:9-11": Pad diverso su pad; workbook="SLC-4E"; fonte="SLC-40"; missione fonte="Starlink: Group 6-68 (24 satellites)"; fonte=F9/FH 2024-2026
+- Riga 435, nr 412, 2024-11-14, "Starlink:6-68": Booster diverso su booster; workbook="B1076"; fonte="B1082"; missione fonte="Starlink: Group 9-11 (20 satellites)"; fonte=F9/FH 2024-2026
+- Riga 435, nr 412, 2024-11-14, "Starlink:6-68": Numero volo booster diverso su voli; workbook="18"; fonte="8"; missione fonte="Starlink: Group 9-11 (20 satellites)"; fonte=F9/FH 2024-2026
+- Riga 435, nr 412, 2024-11-14, "Starlink:6-68": Pad diverso su pad; workbook="SLC-40"; fonte="SLC-4E"; missione fonte="Starlink: Group 9-11 (20 satellites)"; fonte=F9/FH 2024-2026
+- Riga 437, nr 414, 2024-11-18, "Starlink:9-12": Booster diverso su booster; workbook="B1071"; fonte="B1073"; missione fonte="GSAT-20 (GSAT-N2)"; fonte=F9/FH 2024-2026
+- Riga 437, nr 414, 2024-11-18, "Starlink:9-12": Numero volo booster diverso su voli; workbook="20"; fonte="19"; missione fonte="GSAT-20 (GSAT-N2)"; fonte=F9/FH 2024-2026
+- Riga 437, nr 414, 2024-11-18, "Starlink:9-12": Pad diverso su pad; workbook="SLC-4E"; fonte="SLC-40"; missione fonte="GSAT-20 (GSAT-N2)"; fonte=F9/FH 2024-2026
+- Riga 438, nr 415, 2024-11-18, "GSAT-20 (GSAT-N2)": Booster diverso su booster; workbook="B1073"; fonte="B1071"; missione fonte="Starlink: Group 9-12 (20 satellites)"; fonte=F9/FH 2024-2026
+- Riga 438, nr 415, 2024-11-18, "GSAT-20 (GSAT-N2)": Numero volo booster diverso su voli; workbook="19"; fonte="20"; missione fonte="Starlink: Group 9-12 (20 satellites)"; fonte=F9/FH 2024-2026
+- Riga 438, nr 415, 2024-11-18, "GSAT-20 (GSAT-N2)": Pad diverso su pad; workbook="SLC-40"; fonte="SLC-4E"; missione fonte="Starlink: Group 9-12 (20 satellites)"; fonte=F9/FH 2024-2026
+- Riga 443, nr 420, 2024-11-30, "Starlink:6-65": Booster diverso su booster; workbook="B1083"; fonte="B1088"; missione fonte="NROL-126 (2 Starshield satellites) + Starlink: Group N-01 (20 satellites)"; fonte=F9/FH 2024-2026
+- Riga 443, nr 420, 2024-11-30, "Starlink:6-65": Numero volo booster diverso su voli; workbook="6"; fonte="1"; missione fonte="NROL-126 (2 Starshield satellites) + Starlink: Group N-01 (20 satellites)"; fonte=F9/FH 2024-2026
+- Riga 443, nr 420, 2024-11-30, "Starlink:6-65": Pad diverso su pad; workbook="SLC-40"; fonte="SLC-4E"; missione fonte="NROL-126 (2 Starshield satellites) + Starlink: Group N-01 (20 satellites)"; fonte=F9/FH 2024-2026
+- Riga 444, nr 421, 2024-11-30, "NROL-126 + Starlink:N-01": Booster diverso su booster; workbook="B1088"; fonte="B1083"; missione fonte="Starlink: Group 6-65 (24 satellites)"; fonte=F9/FH 2024-2026
+- Riga 444, nr 421, 2024-11-30, "NROL-126 + Starlink:N-01": Numero volo booster diverso su voli; workbook="1"; fonte="6"; missione fonte="Starlink: Group 6-65 (24 satellites)"; fonte=F9/FH 2024-2026
+- Riga 444, nr 421, 2024-11-30, "NROL-126 + Starlink:N-01": Pad diverso su pad; workbook="SLC-4E"; fonte="SLC-40"; missione fonte="Starlink: Group 6-65 (24 satellites)"; fonte=F9/FH 2024-2026
+- Riga 455, nr 432, 2024-12-29, "Starlink:11-3": Booster diverso su booster; workbook="B1075"; fonte="B1083"; missione fonte="Astranis: From One to Many (4 satellites)"; fonte=F9/FH 2024-2026
+- Riga 455, nr 432, 2024-12-29, "Starlink:11-3": Numero volo booster diverso su voli; workbook="16"; fonte="7"; missione fonte="Astranis: From One to Many (4 satellites)"; fonte=F9/FH 2024-2026
+- Riga 455, nr 432, 2024-12-29, "Starlink:11-3": Pad diverso su pad; workbook="SLC-4E"; fonte="SLC-40"; missione fonte="Astranis: From One to Many (4 satellites)"; fonte=F9/FH 2024-2026
+- Riga 456, nr 433, 2024-12-29, "Astranis: From One to Many": Booster diverso su booster; workbook="B1083"; fonte="B1075"; missione fonte="Starlink: Group 11-3 (22 satellites)"; fonte=F9/FH 2024-2026
+- Riga 456, nr 433, 2024-12-29, "Astranis: From One to Many": Numero volo booster diverso su voli; workbook="7"; fonte="16"; missione fonte="Starlink: Group 11-3 (22 satellites)"; fonte=F9/FH 2024-2026
+- Riga 456, nr 433, 2024-12-29, "Astranis: From One to Many": Pad diverso su pad; workbook="SLC-40"; fonte="SLC-4E"; missione fonte="Starlink: Group 11-3 (22 satellites)"; fonte=F9/FH 2024-2026
+- Riga 466, nr 443, 2025-01-21, "Starlink: 13-1": Booster diverso su booster; workbook="B1083"; fonte="B1082"; missione fonte="Starlink: Group 11-8 (27 satellites)"; fonte=F9/FH 2024-2026
+- Riga 466, nr 443, 2025-01-21, "Starlink: 13-1": Numero volo booster diverso su voli; workbook="8"; fonte="10"; missione fonte="Starlink: Group 11-8 (27 satellites)"; fonte=F9/FH 2024-2026
+- Riga 466, nr 443, 2025-01-21, "Starlink: 13-1": Pad diverso su pad; workbook="LC-39A"; fonte="SLC-4E"; missione fonte="Starlink: Group 11-8 (27 satellites)"; fonte=F9/FH 2024-2026
+- Riga 467, nr 444, 2025-01-21, "Starlink:11-8": Booster diverso su booster; workbook="B1082"; fonte="B1083"; missione fonte="Starlink: Group 13-1 (21 satellites) + 2 Starshield satellites"; fonte=F9/FH 2024-2026
+- Riga 467, nr 444, 2025-01-21, "Starlink:11-8": Numero volo booster diverso su voli; workbook="10"; fonte="8"; missione fonte="Starlink: Group 13-1 (21 satellites) + 2 Starshield satellites"; fonte=F9/FH 2024-2026
+- Riga 467, nr 444, 2025-01-21, "Starlink:11-8": Pad diverso su pad; workbook="SLC-4E"; fonte="LC-39A"; missione fonte="Starlink: Group 13-1 (21 satellites) + 2 Starshield satellites"; fonte=F9/FH 2024-2026
+- Riga 479, nr 456, 2025-02-21, "Starlink12-14": Pad diverso su pad; workbook="SLC-4E"; fonte="SLC-40"; missione fonte="Starlink: Group 12-14 (23 satellites)"; fonte=F9/FH 2024-2026
+- Riga 487, nr 464, 2025-03-15, "Transporter 13": Booster diverso su booster; workbook="B1081"; fonte="B1078"; missione fonte="Starlink: Group 12-16"; fonte=F9/FH 2024-2026
+- Riga 487, nr 464, 2025-03-15, "Transporter 13": Numero volo booster diverso su voli; workbook="13"; fonte="18"; missione fonte="Starlink: Group 12-16"; fonte=F9/FH 2024-2026
+- Riga 487, nr 464, 2025-03-15, "Transporter 13": Pad diverso su pad; workbook="SLC-4E"; fonte="SLC-40"; missione fonte="Starlink: Group 12-16"; fonte=F9/FH 2024-2026
+- Riga 488, nr 465, 2025-03-15, "Starlink12-16": Booster diverso su booster; workbook="B1078"; fonte="B1081"; missione fonte="Transporter-13 (74 payload smallsat rideshare)"; fonte=F9/FH 2024-2026
+- Riga 488, nr 465, 2025-03-15, "Starlink12-16": Numero volo booster diverso su voli; workbook="18"; fonte="13"; missione fonte="Transporter-13 (74 payload smallsat rideshare)"; fonte=F9/FH 2024-2026
+- Riga 488, nr 465, 2025-03-15, "Starlink12-16": Pad diverso su pad; workbook="SLC-40"; fonte="SLC-4E"; missione fonte="Transporter-13 (74 payload smallsat rideshare)"; fonte=F9/FH 2024-2026
+- Riga 505, nr 482, 2025-04-28, "Starlink12-23": Booster diverso su booster; workbook="B1077"; fonte="B1063"; missione fonte="Starlink: Group 11-9"; fonte=F9/FH 2024-2026
+- Riga 505, nr 482, 2025-04-28, "Starlink12-23": Numero volo booster diverso su voli; workbook="20"; fonte="25"; missione fonte="Starlink: Group 11-9"; fonte=F9/FH 2024-2026
+- Riga 505, nr 482, 2025-04-28, "Starlink12-23": Pad diverso su pad; workbook="SLC-40"; fonte="SLC-4E"; missione fonte="Starlink: Group 11-9"; fonte=F9/FH 2024-2026
+- Riga 506, nr 483, 2025-04-28, "Starlink11-9": Booster diverso su booster; workbook="B1063"; fonte="B1077"; missione fonte="Starlink: Group 12-23"; fonte=F9/FH 2024-2026
+- Riga 506, nr 483, 2025-04-28, "Starlink11-9": Numero volo booster diverso su voli; workbook="25"; fonte="20"; missione fonte="Starlink: Group 12-23"; fonte=F9/FH 2024-2026
+- Riga 506, nr 483, 2025-04-28, "Starlink11-9": Pad diverso su pad; workbook="SLC-4E"; fonte="SLC-40"; missione fonte="Starlink: Group 12-23"; fonte=F9/FH 2024-2026
+- Riga 509, nr 486, 2025-05-04, "Starlink6-84": Numero volo booster diverso su voli; workbook="19"; fonte="20"; missione fonte="Starlink: Group 6-84"; fonte=F9/FH 2024-2026
+- Riga 529, nr 506, 2025-06-13, "Starlink 15-6": Booster diverso su booster; workbook="B1081"; fonte="B1078"; missione fonte="Starlink: Group 12-26"; fonte=F9/FH 2024-2026
+- Riga 529, nr 506, 2025-06-13, "Starlink 15-6": Numero volo booster diverso su voli; workbook="15"; fonte="21"; missione fonte="Starlink: Group 12-26"; fonte=F9/FH 2024-2026
+- Riga 529, nr 506, 2025-06-13, "Starlink 15-6": Pad diverso su pad; workbook="SLC-4E"; fonte="SLC-40"; missione fonte="Starlink: Group 12-26"; fonte=F9/FH 2024-2026
+- Riga 530, nr 507, 2025-06-13, "Starlink 12-26": Booster diverso su booster; workbook="B1078"; fonte="B1081"; missione fonte="Starlink: Group 15-6"; fonte=F9/FH 2024-2026
+- Riga 530, nr 507, 2025-06-13, "Starlink 12-26": Numero volo booster diverso su voli; workbook="21"; fonte="15"; missione fonte="Starlink: Group 15-6"; fonte=F9/FH 2024-2026
+- Riga 530, nr 507, 2025-06-13, "Starlink 12-26": Pad diverso su pad; workbook="SLC-40"; fonte="SLC-4E"; missione fonte="Starlink: Group 15-6"; fonte=F9/FH 2024-2026
+- Riga 541, nr 518, 2025-07-08, "Starlink:10-28": Pad diverso su pad; workbook="SLC-4E"; fonte="SLC-40"; missione fonte="Starlink: Group 10-28"; fonte=F9/FH 2024-2026
+- Riga 543, nr 520, 2025-07-16, "Starlink15-2": Booster diverso su booster; workbook="B1093"; fonte="B1096"; missione fonte="KuiperSat x 24 (KF-01)"; fonte=F9/FH 2024-2026
+- Riga 543, nr 520, 2025-07-16, "Starlink15-2": Numero volo booster diverso su voli; workbook="4"; fonte="1"; missione fonte="KuiperSat x 24 (KF-01)"; fonte=F9/FH 2024-2026
+- Riga 543, nr 520, 2025-07-16, "Starlink15-2": Pad diverso su pad; workbook="SLC-4E"; fonte="SLC-40"; missione fonte="KuiperSat x 24 (KF-01)"; fonte=F9/FH 2024-2026
+- Riga 544, nr 521, 2025-07-16, "Project Kuiper KF-01": Booster diverso su booster; workbook="B1096"; fonte="B1093"; missione fonte="Starlink: Group 15-2"; fonte=F9/FH 2024-2026
+- Riga 544, nr 521, 2025-07-16, "Project Kuiper KF-01": Numero volo booster diverso su voli; workbook="1"; fonte="4"; missione fonte="Starlink: Group 15-2"; fonte=F9/FH 2024-2026
+- Riga 544, nr 521, 2025-07-16, "Project Kuiper KF-01": Pad diverso su pad; workbook="SLC-40"; fonte="SLC-4E"; missione fonte="Starlink: Group 15-2"; fonte=F9/FH 2024-2026
+- Riga 546, nr 523, 2025-07-22, "O3b mPOWER": Pad diverso su pad; workbook="SLC-4E"; fonte="SLC-40"; missione fonte="O3b mPOWER 9 & 10"; fonte=F9/FH 2024-2026
+- Riga 555, nr 532, 2025-08-13, "Starlink17-4": Booster diverso su booster; workbook="B1093"; fonte="B1085"; missione fonte="Starlink: Group 10-20"; fonte=F9/FH 2024-2026
+- Riga 555, nr 532, 2025-08-13, "Starlink17-4": Numero volo booster diverso su voli; workbook="5"; fonte="10"; missione fonte="Starlink: Group 10-20"; fonte=F9/FH 2024-2026
+- Riga 555, nr 532, 2025-08-13, "Starlink17-4": Pad diverso su pad; workbook="SLC-4E"; fonte="SLC-40"; missione fonte="Starlink: Group 10-20"; fonte=F9/FH 2024-2026
+- Riga 556, nr 533, 2025-08-14, "Starlink10-20": Booster diverso su booster; workbook="B1081"; fonte="B1093"; missione fonte="Starlink: Group 17-4"; fonte=F9/FH 2024-2026
+- Riga 556, nr 533, 2025-08-14, "Starlink10-20": Numero volo booster diverso su voli; workbook="17"; fonte="5"; missione fonte="Starlink: Group 17-4"; fonte=F9/FH 2024-2026
+- Riga 556, nr 533, 2025-08-14, "Starlink10-20": Pad diverso su pad; workbook="SLC-40"; fonte="SLC-4E"; missione fonte="Starlink: Group 17-4"; fonte=F9/FH 2024-2026
+- Riga 558, nr 535, 2025-08-22, "USSF-36": Booster diverso su booster; workbook="B1092"; fonte="B1081"; missione fonte="Starlink: Group 17-6"; fonte=F9/FH 2024-2026
+- Riga 558, nr 535, 2025-08-22, "USSF-36": Numero volo booster diverso su voli; workbook="6"; fonte="17"; missione fonte="Starlink: Group 17-6"; fonte=F9/FH 2024-2026
+- Riga 558, nr 535, 2025-08-22, "USSF-36": Pad diverso su pad; workbook="LC-39A"; fonte="SLC-4E"; missione fonte="Starlink: Group 17-6"; fonte=F9/FH 2024-2026
+- Riga 559, nr 536, 2025-08-22, "Starlink:17-6": Booster diverso su booster; workbook="B1081"; fonte="B1092"; missione fonte="USSF-36 (Boeing X-37B OTV-8)"; fonte=F9/FH 2024-2026
+- Riga 559, nr 536, 2025-08-22, "Starlink:17-6": Numero volo booster diverso su voli; workbook="17"; fonte="6"; missione fonte="USSF-36 (Boeing X-37B OTV-8)"; fonte=F9/FH 2024-2026
+- Riga 559, nr 536, 2025-08-22, "Starlink:17-6": Pad diverso su pad; workbook="SLC-4E"; fonte="LC-39A"; missione fonte="USSF-36 (Boeing X-37B OTV-8)"; fonte=F9/FH 2024-2026
+- Riga 566, nr 543, 2025-09-03, "Starlink:17-8": Booster diverso su booster; workbook="B1097"; fonte="B1083"; missione fonte="Starlink: Group 10-22"; fonte=F9/FH 2024-2026
+- Riga 566, nr 543, 2025-09-03, "Starlink:17-8": Numero volo booster diverso su voli; workbook="1"; fonte="14"; missione fonte="Starlink: Group 10-22"; fonte=F9/FH 2024-2026
+- Riga 566, nr 543, 2025-09-03, "Starlink:17-8": Pad diverso su pad; workbook="SLC-4E"; fonte="SLC-40"; missione fonte="Starlink: Group 10-22"; fonte=F9/FH 2024-2026
+- Riga 567, nr 544, 2025-09-03, "Starlink:10-22": Booster diverso su booster; workbook="B1083"; fonte="B1097"; missione fonte="Starlink: Group 17-8"; fonte=F9/FH 2024-2026
+- Riga 567, nr 544, 2025-09-03, "Starlink:10-22": Numero volo booster diverso su voli; workbook="14"; fonte="1"; missione fonte="Starlink: Group 17-8"; fonte=F9/FH 2024-2026
+- Riga 567, nr 544, 2025-09-03, "Starlink:10-22": Pad diverso su pad; workbook="SLC-40"; fonte="SLC-4E"; missione fonte="Starlink: Group 17-8"; fonte=F9/FH 2024-2026
+- Riga 576, nr 553, 2025-09-21, "Starlink:10-27": Booster diverso su booster; workbook="B1065"; fonte="B1085"; missione fonte="Starlink: Group 10-27"; fonte=F9/FH 2024-2026
+- Riga 579, nr 556, 2025-09-26, "Starlink: Group 10-15": Pad diverso su pad; workbook="LC-39A"; fonte="SLC-40"; missione fonte="Starlink: Group 10-15"; fonte=F9/FH 2024-2026
+- Riga 598, nr 575, 2025-11-06, "starlink 6-81": Booster diverso su booster; workbook="B1094"; fonte="B1093"; missione fonte="Starlink: Group 11-14"; fonte=F9/FH 2024-2026
+- Riga 598, nr 575, 2025-11-06, "starlink 6-81": Numero volo booster diverso su voli; workbook="5"; fonte="8"; missione fonte="Starlink: Group 11-14"; fonte=F9/FH 2024-2026
+- Riga 598, nr 575, 2025-11-06, "starlink 6-81": Pad diverso su pad; workbook="SLC-40"; fonte="SLC-4E"; missione fonte="Starlink: Group 11-14"; fonte=F9/FH 2024-2026
+- Riga 599, nr 576, 2025-11-06, "starlink 11-14": Booster diverso su booster; workbook="B1093"; fonte="B1094"; missione fonte="Starlink: Group 6-81"; fonte=F9/FH 2024-2026
+- Riga 599, nr 576, 2025-11-06, "starlink 11-14": Numero volo booster diverso su voli; workbook="8"; fonte="5"; missione fonte="Starlink: Group 6-81"; fonte=F9/FH 2024-2026
+- Riga 599, nr 576, 2025-11-06, "starlink 11-14": Pad diverso su pad; workbook="SLC-4E"; fonte="SLC-40"; missione fonte="Starlink: Group 6-81"; fonte=F9/FH 2024-2026
+- Riga 602, nr 579, 2025-11-15, "starlink 6-89": Booster diverso su booster; workbook="B1092"; fonte="B1078"; missione fonte="Starlink: Group 6-85"; fonte=F9/FH 2024-2026
+- Riga 602, nr 579, 2025-11-15, "starlink 6-89": Numero volo booster diverso su voli; workbook="8"; fonte="24"; missione fonte="Starlink: Group 6-85"; fonte=F9/FH 2024-2026
+- Riga 602, nr 579, 2025-11-15, "starlink 6-89": Pad diverso su pad; workbook="LC-39A"; fonte="SLC-40"; missione fonte="Starlink: Group 6-85"; fonte=F9/FH 2024-2026
+- Riga 603, nr 580, 2025-11-15, "starlink 6-85": Booster diverso su booster; workbook="B1078"; fonte="B1092"; missione fonte="Starlink: Group 6-89"; fonte=F9/FH 2024-2026
+- Riga 603, nr 580, 2025-11-15, "starlink 6-85": Numero volo booster diverso su voli; workbook="24"; fonte="8"; missione fonte="Starlink: Group 6-89"; fonte=F9/FH 2024-2026
+- Riga 603, nr 580, 2025-11-15, "starlink 6-85": Pad diverso su pad; workbook="SLC-40"; fonte="LC-39A"; missione fonte="Starlink: Group 6-89"; fonte=F9/FH 2024-2026
+- Riga 619, nr 596, 2025-12-15, "Starlink6-82": Booster diverso su booster; workbook="B1092"; fonte="B1093"; missione fonte="Starlink: Group 15-12"; fonte=F9/FH 2024-2026
+- Riga 619, nr 596, 2025-12-15, "Starlink6-82": Pad diverso su pad; workbook="SLC-40"; fonte="SLC-4E"; missione fonte="Starlink: Group 15-12"; fonte=F9/FH 2024-2026
+- Riga 620, nr 597, 2025-12-16, "Starlink 6-82": Booster diverso su booster; workbook="B1093"; fonte="B1092"; missione fonte="Starlink: Group 6-82"; fonte=F9/FH 2024-2026
+- Riga 620, nr 597, 2025-12-16, "Starlink 6-82": Pad diverso su pad; workbook="SLC-4E"; fonte="SLC-40"; missione fonte="Starlink: Group 6-82"; fonte=F9/FH 2024-2026
+- Riga 621, nr 598, 2025-12-17, "Starlink 6-99": Booster diverso su booster; workbook="B1094"; fonte="B1063"; missione fonte="Starlink: Group 15-13"; fonte=F9/FH 2024-2026
+- Riga 621, nr 598, 2025-12-17, "Starlink 6-99": Numero volo booster diverso su voli; workbook="6"; fonte="30"; missione fonte="Starlink: Group 15-13"; fonte=F9/FH 2024-2026
+- Riga 621, nr 598, 2025-12-17, "Starlink 6-99": Pad diverso su pad; workbook="LC-39A"; fonte="SLC-4E"; missione fonte="Starlink: Group 15-13"; fonte=F9/FH 2024-2026
+- Riga 622, nr 599, 2025-12-17, "Starlink 15-13": Booster diverso su booster; workbook="B1063"; fonte="B1094"; missione fonte="Starlink: Group 6-99"; fonte=F9/FH 2024-2026
+- Riga 622, nr 599, 2025-12-17, "Starlink 15-13": Numero volo booster diverso su voli; workbook="30"; fonte="6"; missione fonte="Starlink: Group 6-99"; fonte=F9/FH 2024-2026
+- Riga 622, nr 599, 2025-12-17, "Starlink 15-13": Pad diverso su pad; workbook="SLC-4E"; fonte="LC-39A"; missione fonte="Starlink: Group 6-99"; fonte=F9/FH 2024-2026
+- Riga 655, nr 632, 2026-03-17, "Starlink Group 17-24": Booster diverso su booster; workbook="B1088"; fonte="B1090"; missione fonte="Starlink: Group 10-46"; fonte=F9/FH 2024-2026
+- Riga 655, nr 632, 2026-03-17, "Starlink Group 17-24": Numero volo booster diverso su voli; workbook="14"; fonte="11"; missione fonte="Starlink: Group 10-46"; fonte=F9/FH 2024-2026
+- Riga 655, nr 632, 2026-03-17, "Starlink Group 17-24": Pad diverso su pad; workbook="SLC-4E"; fonte="SLC-40"; missione fonte="Starlink: Group 10-46"; fonte=F9/FH 2024-2026
+- Riga 656, nr 633, 2026-03-17, "Starlink Group 10-46": Booster diverso su booster; workbook="B1090"; fonte="B1088"; missione fonte="Starlink: Group 17-24"; fonte=F9/FH 2024-2026
+- Riga 656, nr 633, 2026-03-17, "Starlink Group 10-46": Numero volo booster diverso su voli; workbook="11"; fonte="14"; missione fonte="Starlink: Group 17-24"; fonte=F9/FH 2024-2026
+- Riga 656, nr 633, 2026-03-17, "Starlink Group 10-46": Pad diverso su pad; workbook="SLC-40"; fonte="SLC-4E"; missione fonte="Starlink: Group 17-24"; fonte=F9/FH 2024-2026
+- Riga 661, nr 638, 2026-03-30, "Transporter-16": Booster diverso su booster; workbook="B1093"; fonte="B1067"; missione fonte="Starlink: Group 10-44"; fonte=F9/FH 2024-2026
+- Riga 661, nr 638, 2026-03-30, "Transporter-16": Numero volo booster diverso su voli; workbook="12"; fonte="34"; missione fonte="Starlink: Group 10-44"; fonte=F9/FH 2024-2026
+- Riga 661, nr 638, 2026-03-30, "Transporter-16": Pad diverso su pad; workbook="SLC-4E"; fonte="SLC-40"; missione fonte="Starlink: Group 10-44"; fonte=F9/FH 2024-2026
+- Riga 662, nr 639, 2026-03-30, "Starlink Group 10-44": Booster diverso su booster; workbook="B1067"; fonte="B1093"; missione fonte="Transporter-16 (119 payloads smallsat rideshare)"; fonte=F9/FH 2024-2026
+- Riga 662, nr 639, 2026-03-30, "Starlink Group 10-44": Numero volo booster diverso su voli; workbook="34"; fonte="12"; missione fonte="Transporter-16 (119 payloads smallsat rideshare)"; fonte=F9/FH 2024-2026
+- Riga 662, nr 639, 2026-03-30, "Starlink Group 10-44": Pad diverso su pad; workbook="SLC-40"; fonte="SLC-4E"; missione fonte="Transporter-16 (119 payloads smallsat rideshare)"; fonte=F9/FH 2024-2026
+- Riga 665, nr 642, 2026-04-11, "Starlink Group 17-21": Booster diverso su booster; workbook="B1063"; fonte="B1094"; missione fonte="Cygnus NG-24"; fonte=F9/FH 2024-2026
+- Riga 665, nr 642, 2026-04-11, "Starlink Group 17-21": Numero volo booster diverso su voli; workbook="32"; fonte="7"; missione fonte="Cygnus NG-24"; fonte=F9/FH 2024-2026
+- Riga 665, nr 642, 2026-04-11, "Starlink Group 17-21": Pad diverso su pad; workbook="SLC-4E"; fonte="SLC-40"; missione fonte="Cygnus NG-24"; fonte=F9/FH 2024-2026
+- Riga 666, nr 643, 2026-04-11, "Cygnus CRS-2 NG-24": Booster diverso su booster; workbook="B1094"; fonte="B1063"; missione fonte="Starlink: Group 17-21"; fonte=F9/FH 2024-2026
+- Riga 666, nr 643, 2026-04-11, "Cygnus CRS-2 NG-24": Numero volo booster diverso su voli; workbook="7"; fonte="32"; missione fonte="Starlink: Group 17-21"; fonte=F9/FH 2024-2026
+- Riga 666, nr 643, 2026-04-11, "Cygnus CRS-2 NG-24": Pad diverso su pad; workbook="SLC-40"; fonte="SLC-4E"; missione fonte="Starlink: Group 17-21"; fonte=F9/FH 2024-2026
+
+
+
+Fine report.

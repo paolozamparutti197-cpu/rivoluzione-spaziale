@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mappa SpaceX &amp; xAI • Stati Uniti</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+
+    :root {
+      --spacex-red: #ef4444;
+      --xai-purple: #7c3aed;
+    }
+
+    body {
+      font-family: 'Inter', system_ui, sans-serif;
+    }
+
+    .title-font {
+      font-family: 'Space Grotesk', 'Inter', system_ui, sans-serif;
+      font-weight: 600;
+      letter-spacing: -0.025em;
+    }
+
+    #map {
+      background: #0a0f1a;
+    }
+
+    .leaflet-popup-content-wrapper {
+      border-radius: 12px;
+      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .leaflet-popup-content {
+      margin: 0 !important;
+      line-height: 1.5;
+    }
+
+    .custom-marker {
+      background: transparent;
+      border: none;
+    }
+
+    .location-item {
+      transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .location-item:hover {
+      transform: translateX(4px);
+      background-color: #181f2e;
+    }
+
+    .location-item.active {
+      background-color: #1f2937;
+      border-left: 3px solid #ef4444;
+    }
+
+    .spacex-badge {
+      background-color: #fee2e2;
+      color: #b91c1c;
+      font-weight: 600;
+    }
+
+    .xai-badge {
+      background-color: #ede9fe;
+      color: #5b21b6;
+      font-weight: 600;
+    }
+
+    .leaflet-control-zoom a {
+      background-color: #111827 !important;
+      color: #e5e7eb !important;
+      border-color: #374151 !important;
+    }
+
+    .map-legend {
+      background: rgba(17, 24, 39, 0.95);
+      backdrop-filter: blur(8px);
+    }
+
+    .header-gradient {
+      background: linear-gradient(to right, #0f172a, #1e1135);
+    }
+  </style>
+</head>
+<body class="bg-zinc-950 text-zinc-200">
+  <!-- Header -->
+  <div class="header-gradient border-b border-zinc-800">
+    <div class="max-w-[1400px] mx-auto px-6 py-5 flex items-center justify-between">
+      <div class="flex items-center gap-x-4">
+        <div class="flex items-center gap-x-3">
+          <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center text-white text-2xl shadow-inner">🚀</div>
+          <div>
+            <h1 class="title-font text-3xl font-semibold tracking-tighter">SpaceX &amp; xAI</h1>
+            <p class="text-xs text-zinc-400 -mt-1">Mappa delle strutture chiave — Stati Uniti</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-x-2">
+        <!-- Filters -->
+        <div class="flex items-center bg-zinc-900 border border-zinc-800 rounded-3xl p-1 shadow-inner">
+          <button onclick="filterLocations('all')"
+                  id="filter-all"
+                  class="filter-btn active px-4 py-1.5 text-sm font-medium rounded-3xl bg-white text-zinc-900 flex items-center gap-x-2">
+            <span>Tutti</span>
+          </button>
+          <button onclick="filterLocations('spacex')"
+                  id="filter-spacex"
+                  class="filter-btn px-3 py-1.5 text-sm font-medium rounded-3xl flex items-center gap-x-1.5 hover:bg-zinc-800">
+            <span class="inline-block w-2.5 h-2.5 bg-red-500 rounded-full"></span>
+            <span>SpaceX</span>
+          </button>
+          <button onclick="filterLocations('xai')"
+                  id="filter-xai"
+                  class="filter-btn px-3 py-1.5 text-sm font-medium rounded-3xl flex items-center gap-x-1.5 hover:bg-zinc-800">
+            <span class="inline-block w-2.5 h-2.5 bg-violet-500 rounded-full"></span>
+            <span>xAI</span>
+          </button>
+          <button onclick="filterLocations('proposed')"
+                  id="filter-proposed"
+                  class="filter-btn px-3 py-1.5 text-sm font-medium rounded-3xl flex items-center gap-x-1.5 hover:bg-zinc-800">
+            <span class="inline-block w-2.5 h-2.5 bg-amber-500 rounded-full"></span>
+            <span>Proposta</span>
+          </button>
+        </div>
+
+        <button onclick="resetMapView()"
+                class="px-5 py-2 text-sm font-semibold bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 rounded-3xl flex items-center gap-x-2 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1v-5m10 0v5a1 1 0 01-1 1v-5m-6 0h6" />
+          </svg>
+          <span class="hidden sm:inline">Reimposta vista</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-[1400px] mx-auto flex flex-col lg:flex-row" style="height: calc(100vh - 85px);">
+    <!-- Sidebar -->
+    <div class="w-full lg:w-80 xl:w-96 border-b lg:border-b-0 lg:border-r border-zinc-800 bg-zinc-900 flex flex-col">
+      <div class="p-4 border-b border-zinc-800">
+        <div class="flex items-center justify-between mb-2">
+          <div>
+            <div class="uppercase text-[10px] tracking-[1.5px] font-semibold text-zinc-400">10 località + 1 zona in ipotesi</div>
+            <div class="text-lg font-semibold">Strutture operative</div>
+          </div>
+          <div class="text-right text-xs leading-tight text-zinc-500">
+            Coordinate<br>pubbliche / rappresentative
+          </div>
+        </div>
+      </div>
+
+      <!-- Locations List -->
+      <div id="locations-list" class="flex-1 overflow-y-auto p-2 space-y-1 text-sm">
+        <!-- Populated by JS -->
+      </div>
+
+      <div class="p-4 border-t border-zinc-800 bg-zinc-950/60">
+        <div class="flex items-center gap-x-4 text-xs">
+          <div class="flex items-center gap-x-1.5">
+            <span class="inline-block w-3 h-3 rounded-full bg-red-500"></span>
+            <span class="font-medium text-zinc-300">SpaceX</span>
+          </div>
+          <div class="flex items-center gap-x-1.5">
+            <span class="inline-block w-3 h-3 rounded-full bg-violet-500"></span>
+            <span class="font-medium text-zinc-300">xAI</span>
+          </div>
+        </div>
+        <div class="mt-3 text-[10px] text-zinc-500 leading-snug">
+          Dati aggiornati al 2026, con punti rappresentativi per aree estese. Clicca su una voce o sul pin sulla mappa per i dettagli completi.
+        </div>
+      </div>
+    </div>
+
+    <!-- Map -->
+    <div class="flex-1 relative min-h-[420px]">
+      <div id="map" class="w-full h-full"></div>
+
+      <!-- Legend overlay -->
+      <div class="absolute bottom-4 right-4 map-legend border border-zinc-700 rounded-2xl px-3 py-2 text-xs shadow-xl hidden lg:flex flex-col gap-y-1.5">
+        <div class="font-medium px-1 text-zinc-300">Legenda</div>
+        <div class="flex items-center gap-x-2 px-1">
+          <div class="flex items-center">
+            <span class="w-3.5 h-3.5 inline-flex items-center justify-center text-[11px]">🚀</span>
+          </div>
+          <span class="text-zinc-400">SpaceX — Razzi, Starlink, test</span>
+        </div>
+        <div class="flex items-center gap-x-2 px-1">
+          <div class="flex items-center">
+            <span class="w-3.5 h-3.5 inline-flex items-center justify-center text-[11px]">🧠</span>
+          </div>
+          <span class="text-zinc-400">xAI — AI research &amp; training</span>
+        </div>
+        <div class="flex items-center gap-x-2 px-1 border-t border-zinc-700 pt-1.5 mt-0.5">
+          <div class="flex items-center">
+            <span class="w-3.5 h-3.5 inline-flex items-center justify-center text-[11px]">🚧</span>
+          </div>
+          <span class="text-amber-400">Proposta Louisiana — in acquisizione (non attiva)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-[1400px] mx-auto px-6 py-2.5 text-[10px] text-zinc-500 border-t border-zinc-900 flex items-center justify-between text-center lg:text-left">
+    <div>Coordinate da fonti pubbliche; per aree estese o siti non puntuali il marker è un punto rappresentativo. La mappa usa tile OpenStreetMap ed è pienamente zoomabile e cliccabile.</div>
+    <div class="hidden lg:block font-mono text-[9px]">Leaflet + Tailwind</div>
+  </div>
+
+  <script>
+    // Tailwind script
+    function initTailwind() {
+      document.documentElement.style.setProperty('--accent-red', '#ef4444');
+    }
+
+    // Data: verified coordinates and facts (June 2026)
+    const locations = [
+      {
+        id: 1,
+        name: "SpaceX Hawthorne",
+        short: "Hawthorne, CA",
+        lat: 33.9199,
+        lng: -118.3275,
+        type: "spacex",
+        address: "1 Rocket Road, Hawthorne, CA 90250",
+        coords: "33.9199° N, 118.3275° W",
+        desc: "Sede storica e principale stabilimento di produzione di SpaceX. Qui vengono progettati e costruiti i razzi Falcon 9, Falcon Heavy e le capsule Dragon. Per oltre 15 anni è stato il cuore ingegneristico e produttivo dell'azienda (anche dopo gli annunci di trasferimento operativo in Texas)."
+      },
+      {
+        id: 2,
+        name: "SpaceX Starlink Redmond",
+        short: "Redmond, WA",
+        lat: 47.6939,
+        lng: -122.0336,
+        type: "spacex",
+        address: "Redmond, Washington (area Seattle)",
+        coords: "47.6939° N, 122.0336° W",
+        desc: "Stabilimento dedicato alla produzione in serie di satelliti Starlink. Nel 2026 produceva in media circa 70 satelliti a settimana. Fondamentale per il rapido dispiegamento della costellazione globale di internet satellitare di SpaceX."
+      },
+      {
+        id: 3,
+        name: "xAI Headquarters",
+        short: "Palo Alto, CA",
+        lat: 37.4164,
+        lng: -122.1491,
+        type: "xai",
+        address: "1450 Page Mill Road, Palo Alto, CA 94304",
+        coords: "37.4164° N, 122.1491° W",
+        desc: "Quartier generale di xAI. Ospita i team di ricerca principali, leadership e gran parte delle attività di sviluppo dei modelli di intelligenza artificiale avanzata (inclusi i modelli Grok). Situato nel cuore della Silicon Valley."
+      },
+      {
+        id: 4,
+        name: "xAI San Francisco Office",
+        short: "San Francisco, CA",
+        lat: 37.7622,
+        lng: -122.4147,
+        type: "xai",
+        address: "3180 18th Street, San Francisco, CA 94110 (Pioneer Building, Mission District)",
+        coords: "37.7622° N, 122.4147° W",
+        desc: "Ufficio operativo di xAI nel distretto Mission di San Francisco, nell'ex sede di OpenAI (Pioneer Building). Supporta team aggiuntivi e favorisce la collaborazione con l'ecosistema tech della Bay Area."
+      },
+      {
+        id: 5,
+        name: "SpaceX Vandenberg (SLC-4E)",
+        short: "Vandenberg SFB, CA",
+        lat: 34.6320,
+        lng: -120.6106,
+        type: "spacex",
+        address: "Space Launch Complex 4 East, Vandenberg Space Force Base, CA",
+        coords: "34.6320° N, 120.6106° W",
+        desc: "Sito di lancio della West Coast per orbite polari e Sun-synchronous. Utilizzato principalmente per il dispiegamento di batch di satelliti Starlink e missioni governative in orbita alta inclinazione."
+      },
+      {
+        id: 6,
+        name: "SpaceX McGregor Test Facility",
+        short: "McGregor, TX",
+        lat: 31.3916,
+        lng: -97.4574,
+        type: "spacex",
+        address: "McGregor Rocket Development and Test Facility, McGregor, TX",
+        coords: "31.3916° N, 97.4574° W",
+        desc: "Enorme complesso di test (oltre 1600 ettari) dove vengono collaudati i motori Merlin e Raptor, i propulsori e interi stadi dei razzi. Qui si svolgono le prove di accensione più rumorose e critiche prima dei voli."
+      },
+      {
+        id: 7,
+        name: "SpaceX Starbase",
+        short: "Starbase, TX",
+        lat: 25.9970,
+        lng: -97.1570,
+        type: "spacex",
+        address: "Boca Chica Blvd, Starbase (Brownsville), TX 78521",
+        coords: "25.9970° N, 97.1570° W (punto rappresentativo Starbase)",
+        desc: "Il sito di sviluppo, produzione e lancio orbitale di Starship. Comprende fabbriche, rampe di lancio, aree di atterraggio e controllo. Rappresenta il futuro di SpaceX: il veicolo riutilizzabile più potente mai costruito e il principale centro operativo in espansione."
+      },
+      {
+        id: 8,
+        name: "xAI Colossus (Memphis Supercluster)",
+        short: "Memphis, TN",
+        lat: 35.0592,
+        lng: -90.1557,
+        type: "xai",
+        address: "3231 Riverport Road / Paul Lowry Road, Memphis, TN 38109",
+        coords: "35.0592° N, 90.1557° W",
+        desc: "Il supercomputer di addestramento AI più potente al mondo (Colossus). Nato da un ex stabilimento Electrolux, ha raggiunto centinaia di migliaia di GPU NVIDIA. Alimenta l'addestramento rapido dei modelli frontier di xAI come Grok. Espansioni successive in corso."
+      },
+      {
+        id: 9,
+        name: "SpaceX LC-39A (Kennedy Space Center)",
+        short: "Kennedy Space Center, FL",
+        lat: 28.6084,
+        lng: -80.6043,
+        type: "spacex",
+        address: "Launch Complex 39A, Kennedy Space Center, Merritt Island, FL",
+        coords: "28.6084° N, 80.6043° W",
+        desc: "Storica rampa (Apollo e Space Shuttle) ora gestita da SpaceX. Utilizzata per le missioni con equipaggio (Crew Dragon verso la ISS), lanci di Falcon Heavy e importanti missioni commerciali e scientifiche. Uno dei pad più iconici e attivi al mondo."
+      },
+      {
+        id: 10,
+        name: "SpaceX SLC-40 (Cape Canaveral)",
+        short: "Cape Canaveral SFS, FL",
+        lat: 28.5619,
+        lng: -80.5772,
+        type: "spacex",
+        address: "Space Launch Complex 40, Cape Canaveral Space Force Station, FL",
+        coords: "28.5619° N, 80.5772° W",
+        desc: "Il 'workhorse' di SpaceX sulla East Coast. Utilizzato per la stragrande maggioranza dei lanci Falcon 9, in particolare le missioni Starlink, CRS verso la ISS e decine di payload commerciali. Altissima cadenza di lancio."
+      },
+      {
+        id: 11,
+        name: "SpaceX Louisiana (Proposta acquisizione)",
+        short: "Pecan Island / Freshwater City, LA",
+        lat: 29.580,
+        lng: -92.450,
+        type: "proposed",
+        address: "Zona marshland costiera a sud della LA-82, Vermilion Parish (Pecan Island / Freshwater City area)",
+        coords: "29.580° N, 92.450° W (punto rappresentativo; area ~136.000 acri)",
+        desc: "IPOTESI DI ACQUISIZIONE (non ancora attiva). Ampio sito di circa 136.000 acri (212 miglia quadrate / ~55.000 ettari) di paludi costiere. Negoziati in corso confermati a maggio 2026."
+      }
+    ]
+
+    let map
+    let markers = {} // id -> marker
+    let spacexLayer, xaiLayer, proposedLayer
+    let currentFilter = 'all'
+    let activeLocationId = null
+
+    function createCustomIcon(type) {
+      if (type === 'proposed') {
+        return L.divIcon({
+          className: 'custom-marker',
+          html: `
+            <div style="
+              width: 36px;
+              height: 36px;
+              background: #f59e0b;
+              border: 3px dashed #fff;
+              border-radius: 8px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              box-shadow: 0 4px 10px -1px rgb(245 158 11 / 0.4);
+              font-size: 18px;
+              line-height: 1;
+            ">🚧</div>
+          `,
+          iconSize: [36, 36],
+          iconAnchor: [18, 18],
+          popupAnchor: [0, -20]
+        })
+      }
+      const isSpaceX = type === 'spacex'
+      const bg = isSpaceX ? '#ef4444' : '#7c3aed'
+      const emoji = isSpaceX ? '🚀' : '🧠'
+
+      return L.divIcon({
+        className: 'custom-marker',
+        html: `
+          <div style="
+            width: 34px;
+            height: 34px;
+            background: ${bg};
+            border: 3px solid #fff;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+            font-size: 16px;
+            line-height: 1;
+          ">${emoji}</div>
+        `,
+        iconSize: [34, 34],
+        iconAnchor: [17, 17],
+        popupAnchor: [0, -19]
+      })
+    }
+
+    function createPopupContent(loc) {
+      if (loc.type === 'proposed') {
+        return `
+          <div class="w-[340px] max-w-[340px] bg-zinc-900 text-zinc-100 overflow-hidden rounded-xl">
+            <!-- Header banner -->
+            <div class="bg-gradient-to-r from-amber-500 to-orange-500 px-4 py-2.5">
+              <div class="flex items-center gap-x-2 text-white">
+                <span class="text-xl">🚧</span>
+                <div>
+                  <div class="font-bold text-sm tracking-[1px] uppercase">IPOTESI DI ACQUISIZIONE</div>
+                  <div class="text-[11px] opacity-90 -mt-0.5">NON ANCORA ATTIVA / IN FASE DI NEGOZIATO</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="px-4 pt-4 pb-2">
+              <h3 class="font-semibold text-[17px] leading-tight">${loc.name}</h3>
+              <div class="text-sm text-amber-300 mt-0.5">${loc.short}</div>
+
+              <div class="mt-3 grid grid-cols-1 gap-2 text-xs">
+                <div class="bg-zinc-950 border border-zinc-800 rounded-lg p-3">
+                  <div class="uppercase tracking-widest text-amber-400 text-[10px] mb-0.5">Dimensione area</div>
+                  <div class="font-semibold">~136.000 acri (212 miglia quadrate / 55.000+ ettari)</div>
+                  <div class="text-[10px] text-zinc-400 mt-1">Molto più grande dell'attuale Starbase in Texas. Zona di marshland costiera di proprietà ExxonMobil dal 1950.</div>
+                </div>
+
+                <div class="bg-zinc-950 border border-zinc-800 rounded-lg p-3">
+                  <div class="uppercase tracking-widest text-amber-400 text-[10px] mb-0.5">Stato attuale (giugno 2026)</div>
+                  <ul class="list-disc pl-4 space-y-0.5 text-zinc-300">
+                    <li>Negoziati attivi confermati dal Sen. Bob Hensgens (maggio 2026) tra "space exploration company" ed ExxonMobil per il terreno a sud della LA-82.</li>
+                    <li>Realtor locale Jim Keaty (Keaty Real Estate) ha dichiarato pubblicamente che SpaceX sta acquisendo o in procinto di acquisire il sito.</li>
+                    <li>SpaceX ha confermato di esplorare nuovi siti per espandere le operazioni Starship, senza ancora nominare ufficialmente questa location.</li>
+                    <li><strong>Nessuna costruzione avviata, nessun permesso FAA operativo noto. Sito non attivo.</strong></li>
+                  </ul>
+                </div>
+
+                <div class="bg-zinc-950 border border-zinc-800 rounded-lg p-3">
+                  <div class="uppercase tracking-widest text-amber-400 text-[10px] mb-0.5">Scopo ipotizzato</div>
+                  <div class="text-zinc-300">Mega-sito integrato per produzione ad alto volume e lanci orbitali Starship (multipli pad/torri di lancio, Starfactory, test, integrazione verticale). Obiettivo: supportare migliaia di voli Starship all'anno.</div>
+                </div>
+
+                <div class="bg-zinc-950 border border-zinc-800 rounded-lg p-3">
+                  <div class="uppercase tracking-widest text-amber-400 text-[10px] mb-0.5">Perché Louisiana (vantaggi della zona)</div>
+                  <div class="text-zinc-300 text-[13px] leading-snug">Accesso diretto al Golfo del Messico • Gulf Intracoastal Waterway per trasporto via acqua di booster e navicelle • Infrastrutture LNG già presenti (metano per Raptor) • Posizione intermedia strategica tra Starbase (TX) e Cape Canaveral (FL) • Ampie aree costiere per traiettorie di lancio e recupero su acqua.</div>
+                </div>
+              </div>
+
+              <div class="mt-3 pt-2.5 border-t border-zinc-800 text-[10px]">
+                <span class="font-mono text-emerald-400">${loc.coords}</span><br>
+                <span class="text-zinc-500">Fonti principali: Louisiana Illuminator, NOLA.com, San Antonio Express-News, KLFY, dichiarazioni Sen. Hensgens, Keaty Real Estate, comunicati SpaceX su espansione Starship (maggio 2026).</span>
+              </div>
+
+              <div class="mt-2 text-[10px] text-amber-400/80">
+                Preoccupazioni locali: impatto su wetlands, terre tradizionali di caccia/pesca, cambiamenti per la piccola comunità di Pecan Island (~100-300 residenti).
+              </div>
+            </div>
+          </div>
+        `
+      }
+
+      const badgeClass = loc.type === 'spacex' ?
+        'spacex-badge px-3 py-0.5 rounded-full text-xs tracking-wide' :
+        'xai-badge px-3 py-0.5 rounded-full text-xs tracking-wide'
+
+      const badgeText = loc.type === 'spacex' ? 'SPACEX' : 'xAI'
+
+      return `
+        <div class="w-[320px] max-w-[320px] bg-zinc-900 text-zinc-100">
+          <div class="px-4 pt-4 pb-3">
+            <div class="flex items-start justify-between gap-x-3">
+              <div>
+                <div class="${badgeClass} inline-block mb-2">${badgeText}</div>
+                <h3 class="font-semibold text-xl leading-tight pr-1">${loc.name}</h3>
+                <div class="text-sm text-zinc-400 mt-0.5">${loc.short}</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="px-4 pb-4">
+            <div class="bg-zinc-950 border border-zinc-800 rounded-xl p-3 mb-3 text-sm">
+              <div class="text-[10px] uppercase tracking-widest text-zinc-500 mb-px">Indirizzo</div>
+              <div class="font-medium leading-tight">${loc.address}</div>
+            </div>
+
+            <div class="text-sm leading-relaxed text-zinc-300">
+              ${loc.desc}
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-zinc-800 flex items-center justify-between text-xs">
+              <div>
+                <span class="font-mono text-emerald-400">${loc.coords}</span>
+              </div>
+              <div class="text-zinc-500">Clicca altrove per chiudere</div>
+            </div>
+          </div>
+        </div>
+      `
+    }
+
+    function initMap() {
+      map = L.map('map', {
+        zoomControl: true,
+        attributionControl: true,
+        minZoom: 3,
+        maxZoom: 18
+      }).setView([39.5, -98.5], 4)
+
+      // OpenStreetMap base
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        className: 'map-tiles',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map)
+
+      // Optional satellite layer (Esri) - added via layer control
+      const satelliteLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        attribution: 'Tiles &copy; Esri'
+      })
+
+      const baseLayers = {
+        "OpenStreetMap": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap' }),
+        "Satellite (Esri)": satelliteLayer
+      }
+
+      L.control.layers(baseLayers, null, { position: 'topright', collapsed: true }).addTo(map)
+
+      // Layer groups
+      spacexLayer = L.featureGroup()
+      xaiLayer = L.featureGroup()
+      proposedLayer = L.featureGroup()
+
+      // Add markers
+      locations.forEach(loc => {
+        const marker = L.marker([loc.lat, loc.lng], {
+          icon: createCustomIcon(loc.type),
+          title: loc.name
+        })
+
+        marker.bindPopup(createPopupContent(loc), {
+          closeButton: true,
+          offset: [0, -2],
+          maxWidth: 360,
+          minWidth: 300,
+          className: 'custom-popup'
+        })
+
+        // Store reference
+        markers[loc.id] = marker
+
+        // Click on marker -> highlight in list
+        marker.on('click', () => {
+          highlightListItem(loc.id)
+        })
+
+        // Add to correct layer
+        if (loc.type === 'spacex') {
+          spacexLayer.addLayer(marker)
+        } else if (loc.type === 'xai') {
+          xaiLayer.addLayer(marker)
+        } else if (loc.type === 'proposed') {
+          proposedLayer.addLayer(marker)
+        }
+      })
+
+      spacexLayer.addTo(map)
+      xaiLayer.addTo(map)
+
+      // Proposed Louisiana site - special layer + large area polygon (dashed, semi-transparent)
+      // Approximate zone south of LA-82 (Pecan Island / Freshwater City marshland) - 136k acres
+      const laProposedPolygon = L.polygon([
+        [29.632, -92.525],  // NW - just south of Hwy 82
+        [29.632, -92.365],  // NE
+        [29.385, -92.365],  // SE (toward Gulf)
+        [29.385, -92.525]   // SW
+      ], {
+        color: '#f59e0b',
+        weight: 2.5,
+        dashArray: '7, 5',
+        fillColor: '#f59e0b',
+        fillOpacity: 0.12,
+        opacity: 0.9
+      })
+
+      const proposedLoc = locations.find(l => l.type === 'proposed')
+      if (proposedLoc) {
+        laProposedPolygon.bindPopup(createPopupContent(proposedLoc), {
+          closeButton: true,
+          maxWidth: 360,
+          className: 'custom-popup'
+        })
+        proposedLayer.addLayer(laProposedPolygon)
+      }
+      proposedLayer.addTo(map)
+
+      // Initial active state in list
+      renderLocationsList()
+    }
+
+    function renderLocationsList(filterType = 'all') {
+      const container = document.getElementById('locations-list')
+      container.innerHTML = ''
+
+      const filtered = locations.filter(l => filterType === 'all' || l.type === filterType)
+
+      filtered.forEach(loc => {
+        const isActive = activeLocationId === loc.id
+        let badge = ''
+        if (loc.type === 'spacex') {
+          badge = `<span class="spacex-badge text-[10px] px-1.5 py-px rounded">SPACEX</span>`
+        } else if (loc.type === 'xai') {
+          badge = `<span class="xai-badge text-[10px] px-1.5 py-px rounded">xAI</span>`
+        } else if (loc.type === 'proposed') {
+          badge = `<span class="px-1.5 py-px rounded text-[10px] font-semibold" style="background:#fef3c7;color:#92400e;">PROPOSTA</span>`
+        }
+
+        const div = document.createElement('div')
+        const extraClass = loc.type === 'proposed' ? 'border-l-4 border-amber-500 bg-amber-950/30' : ''
+        div.className = `location-item px-3 py-2.5 mx-1 rounded-2xl cursor-pointer border border-transparent ${isActive ? 'active ring-1 ring-zinc-700' : ''} ${extraClass}`
+        div.innerHTML = `
+          <div class="flex items-center justify-between gap-x-2">
+            <div class="min-w-0">
+              <div class="font-semibold leading-tight">${loc.name}</div>
+              <div class="text-xs text-zinc-400">${loc.short}</div>
+            </div>
+            <div class="flex-shrink-0 mt-0.5">
+              ${badge}
+            </div>
+          </div>
+        `
+
+        div.onclick = () => {
+          zoomToLocation(loc.id)
+        }
+
+        // Right-click or long press could do something else, but simple click is fine
+        container.appendChild(div)
+      })
+    }
+
+    function highlightListItem(id) {
+      activeLocationId = id
+      // Re-render list with active state
+      const currentFilterBtn = document.querySelector('.filter-btn.active')
+      let filter = 'all'
+      if (currentFilterBtn && currentFilterBtn.id === 'filter-spacex') filter = 'spacex'
+      if (currentFilterBtn && currentFilterBtn.id === 'filter-xai') filter = 'xai'
+      if (currentFilterBtn && currentFilterBtn.id === 'filter-proposed') filter = 'proposed'
+
+      renderLocationsList(filter)
+    }
+
+    function zoomToLocation(id) {
+      const loc = locations.find(l => l.id === id)
+      if (!loc || !markers[id]) return
+
+      // Fly + open popup
+      map.flyTo([loc.lat, loc.lng], 11, {
+        duration: 1.1,
+        easeLinearity: 0.25
+      })
+
+      // Close other popups and open this one after movement
+      setTimeout(() => {
+        Object.values(markers).forEach(m => m.closePopup())
+        markers[id].openPopup()
+      }, 1050)
+
+      highlightListItem(id)
+    }
+
+    function filterLocations(type) {
+      currentFilter = type
+
+      // Update button styles
+      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active', 'bg-white', 'text-zinc-900'))
+      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.add('hover:bg-zinc-800'))
+
+      let activeBtnId = 'filter-all'
+      if (type === 'spacex') activeBtnId = 'filter-spacex'
+      if (type === 'xai') activeBtnId = 'filter-xai'
+      if (type === 'proposed') activeBtnId = 'filter-proposed'
+
+      const activeBtn = document.getElementById(activeBtnId)
+      if (activeBtn) {
+        activeBtn.classList.add('active', 'bg-white', 'text-zinc-900')
+        activeBtn.classList.remove('hover:bg-zinc-800')
+      }
+
+      // Show/hide layers
+      if (type === 'all') {
+        if (!map.hasLayer(spacexLayer)) map.addLayer(spacexLayer)
+        if (!map.hasLayer(xaiLayer)) map.addLayer(xaiLayer)
+        if (!map.hasLayer(proposedLayer)) map.addLayer(proposedLayer)
+      } else if (type === 'spacex') {
+        if (map.hasLayer(xaiLayer)) map.removeLayer(xaiLayer)
+        if (map.hasLayer(proposedLayer)) map.removeLayer(proposedLayer)
+        if (!map.hasLayer(spacexLayer)) map.addLayer(spacexLayer)
+      } else if (type === 'xai') {
+        if (map.hasLayer(spacexLayer)) map.removeLayer(spacexLayer)
+        if (map.hasLayer(proposedLayer)) map.removeLayer(proposedLayer)
+        if (!map.hasLayer(xaiLayer)) map.addLayer(xaiLayer)
+      } else if (type === 'proposed') {
+        if (map.hasLayer(spacexLayer)) map.removeLayer(spacexLayer)
+        if (map.hasLayer(xaiLayer)) map.removeLayer(xaiLayer)
+        if (!map.hasLayer(proposedLayer)) map.addLayer(proposedLayer)
+      }
+
+      // Re-render sidebar list
+      renderLocationsList(type)
+    }
+
+    function resetMapView() {
+      map.flyTo([39.5, -98.5], 4, { duration: 1.0 })
+
+      // Clear active + show all layers
+      activeLocationId = null
+      Object.values(markers).forEach(m => m.closePopup())
+
+      if (!map.hasLayer(spacexLayer)) map.addLayer(spacexLayer)
+      if (!map.hasLayer(xaiLayer)) map.addLayer(xaiLayer)
+      if (!map.hasLayer(proposedLayer)) map.addLayer(proposedLayer)
+
+      // Reset filter buttons and list
+      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active', 'bg-white', 'text-zinc-900'))
+      const allBtn = document.getElementById('filter-all')
+      if (allBtn) allBtn.classList.add('active', 'bg-white', 'text-zinc-900')
+
+      currentFilter = 'all'
+      renderLocationsList('all')
+    }
+
+    // Keyboard support: press "r" to reset, Escape to close popups
+    function setupKeyboard() {
+      document.addEventListener('keydown', function(e) {
+        if (e.key.toLowerCase() === 'r') {
+          resetMapView()
+        }
+        if (e.key === 'Escape') {
+          Object.values(markers).forEach(m => m.closePopup())
+        }
+        if (e.key === '?') {
+          const allBtn = document.getElementById('filter-all')
+          if (allBtn) allBtn.click()
+        }
+      })
+
+      // Helpful hint in console for devs
+      console.log('%c[Mappa SpaceX/xAI] Scorciatoie: R = reset vista | ESC = chiudi popup | ? = mostra tutti', 'color:#64748b')
+    }
+
+    function initFilters() {
+      // Initial active button style
+      const allBtn = document.getElementById('filter-all')
+      if (allBtn) {
+        allBtn.classList.add('bg-white', 'text-zinc-900')
+      }
+
+      // Make sure initial list is rendered
+      renderLocationsList('all')
+    }
+
+    // Boot everything
+    function initialize() {
+      initTailwind()
+      initMap()
+      initFilters()
+      setupKeyboard()
+
+      // Optional: zoom a bit more on load for better visual (continental US still visible)
+      // map.setView([39.5, -98.5], 4.2)
+
+      // Accessibility note
+      console.log('%c[Ready] Mappa SpaceX & xAI caricata. 10 località con coordinate pubbliche o punti rappresentativi.', 'color:#64748b')
+    }
+
+    // Start
+    window.onload = initialize
+  </script>
+</body>
+</html>

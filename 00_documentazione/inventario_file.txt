@@ -4,6 +4,13 @@ Inventario file
 Root
 ----
 - README.txt: introduzione alla struttura della cartella.
+- README.md: riepilogo breve della struttura pubblica del sito.
+- .gitignore: separa sorgenti pubblici/versionati da dati locali, cache, backup, temporanei e bozze.
+- LEGGIMI_SCRIPT_SITO.txt: guida rapida per i quattro shortcut operativi in root.
+- 01 - Aggiorna sito da Excel.lnk: collegamento per rigenerare il sito dai workbook locali.
+- 02 - Aggiorna lanci SpaceX da web.lnk: collegamento per aggiornare l'agenda lanci SpaceX da web.
+- 03 - Aggiorna e pubblica lanci SpaceX online.lnk: collegamento per aggiornare e pubblicare l'agenda online.
+- 04 - Genera infografiche pad.lnk: collegamento per rigenerare le infografiche dei pad.
 - index.html: homepage pubblica del sito "Rivoluzione Spaziale"; deve mostrare solo le sezioni principali di primo livello.
 - css\style.css: CSS condiviso generato da 03_script\genera_sito_rivoluzione.py.
 
@@ -16,29 +23,36 @@ Root
 - procedure_aggiornamento.txt: procedure operative per aggiornare workbook e fonti.
 - prompt_aggiornamento_lanci_spacex.txt: prompt riusabile per aggiornare il workbook dei lanci.
 - storico_sessioni_lavoro.txt: storico operativo delle sessioni precedenti, conservato per tracciabilita'.
+- fonti_html\: vecchie mappe HTML locali usate come fonti o prototipi, conservate fuori dalla root.
+- fonti_html\mappa_spacex_xai_usa.html: fonte/prototipo da cui e' stata derivata la pagina Localita SpaceX.
+- fonti_html\mappa_centri_lancio_florida.html: fonte/prototipo locale sui centri di lancio in Florida.
 
 01_workbook
 -----------
 - sviluppo_starship.xlsx: workbook corrente sul programma Starship.
 - lanci_spacex_falcon.xlsx: workbook corrente dei lanci SpaceX/Falcon.
 - sviluppo_starship_generato.xlsx: workbook generato dallo script; usare per confronto prima di sostituire il corrente.
+- Nota git: cartella operativa locale ignorata da .gitignore; non e' parte del sito pubblicato.
 
 02_backup
 ---------
 - lanci_spacex_falcon_backup_20260516_114429.xlsx: backup storico del workbook Falcon/SpaceX.
 - lanci_spacex_falcon_backup_20260525_205000.xlsx: backup storico del workbook Falcon/SpaceX.
 - sviluppo_starship_backup_20260524_aggiornamento_flight12.xlsx: backup storico del workbook Starship.
+- Nota git: cartella locale ignorata da .gitignore; non committare backup senza richiesta esplicita.
 
 03_script
 ---------
 - genera_workbook_starship.py: script Python per generare un workbook Starship da documenti Word sorgente.
 - genera_infografiche_pad.py: script Python/Pillow per rigenerare le infografiche PNG in pad_di_lancio usando testi, layout e asset fotografici locali.
+- lanci_spaziali_html.py: utility GUI per esportare liste HTML di lanci imminenti da The Space Devs per diversi provider; gli output lanci_*.html sono intermedi ignorati.
+- aggiorna_lanci_spacex_sito.py: updater SpaceX-only per agenda lanci imminenti e pubblicazione opzionale.
 - genera_sito_rivoluzione.py: generatore del sito statico multipagina. Contiene la gerarchia editoriale: nav globale solo per Home, SpaceX, Blue Origin, ULA, Rocket Lab, Arianespace, Cina; sottosezioni SpaceX collegate da sezioni\spacex.html.
 
 sezioni
 -------
 - spacex.html: pagina porta della sezione SpaceX; contiene i link a storia-spacex.html, lanci-imminenti.html, storico-lanci.html, starship.html e pad-di-lancio.html.
-- storia-spacex.html: sottosezione narrativa SpaceX. Funziona da indice di parti storiche selezionabili; contiene almeno la prima parte "Dalla fondazione fino al primo lancio" e la seconda "Dal primo fallimento al quarto lancio".
+- storia-spacex.html: sottosezione narrativa SpaceX. Funziona da indice di parti storiche selezionabili; contiene la prima parte "Dalla fondazione fino al primo lancio", la seconda "Dal primo fallimento al quarto lancio" e la terza "Dal primo successo orbitale al contratto CRS".
 - lanci-imminenti.html: sottosezione operativa SpaceX, non voce di nav globale.
 - storico-lanci.html: sottosezione operativa SpaceX, non voce di nav globale.
 - starship.html: sottosezione operativa SpaceX, non voce di nav globale.
@@ -59,7 +73,9 @@ documenti per sito
 ------------------
 - fondazione_spacex_fino_primo_falcon1.html: prima parte pubblicata della storia SpaceX, raggiungibile da sezioni\storia-spacex.html.
 - falcon1_dal_primo_fallimento_al_quarto_lancio.html: seconda parte pubblicata della storia SpaceX, dal Flight 1 fallito al successo orbitale di Flight 4.
-- assets_fondazione\: immagini usate dalla prima parte storica, incluse Falcon 1, Omelek Island e Kwajalein.
+- falcon1_successo_orbitale_contratto_crs.html: terza parte pubblicata della storia SpaceX, dal primo successo orbitale Falcon 1 al contratto CRS e a RazakSAT.
+- assets_fondazione\: immagini usate dai dossier storici Falcon 1, incluse Falcon 1, Omelek Island e Kwajalein.
+- assets_fondazione\falcon1-flight4\: sequenza fotografica locale del quarto volo Falcon 1, usata dall'articolo sul successo orbitale e dalla miniatura della terza card Storia.
 - I .txt e .docx in questa cartella sono ricerche o bozze di lavoro; pubblicare solo quando vengono trasformati in pagina/link deliberati.
 
 pad_di_lancio

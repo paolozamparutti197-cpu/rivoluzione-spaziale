@@ -10,6 +10,7 @@ File correnti
 - 01_workbook\sviluppo_starship.xlsx: workbook corrente sullo sviluppo Starship.
 - 01_workbook\lanci_spacex_falcon.xlsx: workbook corrente dei lanci SpaceX/Falcon.
 - pad_di_lancio\: cartella corrente delle infografiche pad di lancio SpaceX, aggiornata al 14/06/2026.
+- Nota git: i workbook, i backup, le fonti Office, i temporanei, le cache e gli output HTML intermedi sono locali e ignorati; i sorgenti Python, HTML pubblici, immagini pubblicate, fonti e guide vanno versionati.
 
 Nomi standard
 -------------
@@ -37,6 +38,7 @@ Lo script 03_script\genera_sito_rivoluzione.py genera il sito statico multipagin
 - La terza parte storica pubblicata e' "Dal primo successo orbitale al contratto CRS" e punta a documenti per sito\falcon1_successo_orbitale_contratto_crs.html;
 - Luna, Marte, Infrastrutture orbitali e Cronologia sono pagine provvisorie non visibili nella nav globale finche' non vengono ridefinite come macro-sezioni;
 - per modifiche al sito aggiornare il generatore e rigenerare, non modificare soltanto gli HTML finali.
+- il sito pubblico e' servito da gh-pages; dopo modifiche pubbliche spingere main e poi main:gh-pages, quindi verificare la URL pubblica.
 
 Lo script 03_script\genera_workbook_starship.py genera un workbook Starship partendo da due documenti Word. Cerca i sorgenti in 05_fonti_originali:
 - programma_starship_spacex.docx

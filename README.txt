@@ -5,6 +5,8 @@ Questa cartella contiene due workbook operativi:
 - 01_workbook\lanci_spacex_falcon.xlsx: registro dei lanci SpaceX/Falcon.
 - 01_workbook\sviluppo_starship.xlsx: workbook analitico sul programma Starship.
 
+Nota git: workbook, backup, sorgenti Office, temporanei e output HTML intermedi sono dati locali di lavoro e sono ignorati da .gitignore. Gli script, gli HTML pubblici, le immagini pubblicate, le fonti e i file guida devono invece restare versionati quando cambiano.
+
 Se una nuova sessione deve capire rapidamente il contesto, partire da qui e poi leggere:
 - 00_documentazione\README_manutenzione.txt
 - 00_documentazione\procedure_aggiornamento.txt
@@ -52,10 +54,11 @@ Sito Rivoluzione Spaziale
   - la homepage e la nav globale mostrano solo il primo livello: Home, SpaceX, Blue Origin, ULA, Rocket Lab, Arianespace, Cina;
   - Luna, Marte, Infrastrutture orbitali e Cronologia restano pagine provvisorie, ma non devono apparire nella nav globale finche' non vengono ripensate come macro-sezioni vere;
   - Lanci imminenti, Storico lanci, Starship, Pad di lancio e Storia sono sottosezioni di SpaceX e devono restare collegate da sezioni\spacex.html, non da index.html o dalla nav principale;
-  - sezioni\storia-spacex.html e' l'indice storico: contiene parti selezionabili. La prima parte e' "Dalla fondazione fino al primo lancio" e punta a documenti per sito\fondazione_spacex_fino_primo_falcon1.html; la seconda e' "Dal primo fallimento al quarto lancio" e punta a documenti per sito\falcon1_dal_primo_fallimento_al_quarto_lancio.html;
-  - documenti per sito\assets_fondazione contiene le immagini usate dal dossier storico fondazione/Falcon 1;
+  - sezioni\storia-spacex.html e' l'indice storico: contiene parti selezionabili. La prima parte e' "Dalla fondazione fino al primo lancio" e punta a documenti per sito\fondazione_spacex_fino_primo_falcon1.html; la seconda e' "Dal primo fallimento al quarto lancio" e punta a documenti per sito\falcon1_dal_primo_fallimento_al_quarto_lancio.html; la terza e' "Dal primo successo orbitale al contratto CRS" e punta a documenti per sito\falcon1_successo_orbitale_contratto_crs.html;
+  - documenti per sito\assets_fondazione contiene le immagini usate dai dossier storici Falcon 1; la sottocartella falcon1-flight4 contiene la sequenza fotografica del quarto volo Falcon 1;
   - in futuro altre compagnie potranno avere sottosezioni equivalenti, ma sempre dentro la pagina della compagnia.
 - Quando si cambia il sito, modificare il generatore e poi rigenerare gli HTML, non intervenire solo sui file HTML prodotti.
+- Il sito pubblico GitHub Pages viene servito da gh-pages: dopo un commit che cambia il sito, usare git push origin main e git push origin main:gh-pages, poi verificare la URL pubblica.
 
 Infografiche pad di lancio
 --------------------------
