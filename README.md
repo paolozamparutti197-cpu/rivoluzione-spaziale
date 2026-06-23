@@ -6,7 +6,9 @@ La home presenta il tema generale della rivoluzione spaziale in atto e collega s
 
 Regola di architettura: la navigazione globale e la homepage non devono elencare sottosezioni SpaceX. Lanci imminenti, storico lanci, Starship, Pad di lancio, Localita SpaceX e Storia sono pagine interne alla sezione SpaceX. In futuro potranno esistere sottosezioni equivalenti per altre compagnie, ma non vanno messe nella nav principale.
 
-Tra i dossier SpaceX attivi sono disponibili l'agenda lanci, lo storico Falcon, Starship, la pagina "Pad di lancio", la mappa "Localita SpaceX" e la sottosezione narrativa "Storia". Questi link devono restare dentro `sezioni/spacex.html`.
+Tra i dossier SpaceX attivi sono disponibili l'agenda lanci, lo storico Falcon, Starship, la pagina "Pad di lancio", la mappa "Localita SpaceX", la guida pratica "Vedere un lancio da SLC-40" e la sottosezione narrativa "Storia". Questi link devono restare dentro `sezioni/spacex.html`.
+
+`sezioni/guida-lancio-slc40.html` e' una pagina editoriale autonoma, costruita dalla ricerca locale `Guida pratica per vedere un lancio SpaceX da SLC-40 a Cape Canaveral.docx`. Contiene mappa Leaflet, punti di osservazione, logistica, fotografia, sicurezza e fonti operative. Il generatore conserva il suo collegamento nel portale SpaceX ma non ne riscrive il contenuto.
 
 La sottosezione `sezioni/storia-spacex.html` e' un indice di parti storiche selezionabili. La prima parte pubblicata e' "Dalla fondazione fino al primo lancio" e punta a `documenti per sito/fondazione_spacex_fino_primo_falcon1.html`; la seconda e' "Dal primo fallimento al quarto lancio" e punta a `documenti per sito/falcon1_dal_primo_fallimento_al_quarto_lancio.html`; la terza e' "Dal primo successo orbitale al contratto CRS" e punta a `documenti per sito/falcon1_successo_orbitale_contratto_crs.html`. Gli asset comuni sono in `documenti per sito/assets_fondazione/`.
 

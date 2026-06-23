@@ -1,0 +1,21 @@
+IMMAGINI GUIDA SLC-40
+
+max-brewer-bridge.jpg
+- Titolo NASA: Artemis I Launch Day Max Brewer Bridge Activities
+- NASA ID: KSC-20220829-PH-SBS01_0027
+- Autore: NASA / Steven Scifer
+- Data: 29 agosto 2022
+- Fonte: https://images.nasa.gov/details/KSC-20220829-PH-SBS01_0027
+- Licenza: pubblico dominio (immagine NASA)
+
+playalinda-beach.jpg
+- Titolo NASA: Rescued Sea Turtles Released at Playalinda Beach, Florida
+- NASA ID: KSC-20210226-PH-CMS01_0063
+- Autore: NASA / Kim Shiflett
+- Data: 26 febbraio 2021
+- Fonte: https://images.nasa.gov/details/KSC-20210226-PH-CMS01_0063
+- Licenza: pubblico dominio (immagine NASA)
+
+La foto SLC-40 riutilizzata dalla guida si trova in
+pad_di_lancio/assets/slc40.jpg; i relativi crediti sono registrati in
+pad_di_lancio/assets/crediti_immagini.json.

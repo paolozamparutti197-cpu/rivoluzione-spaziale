@@ -51,12 +51,13 @@ Root
 
 sezioni
 -------
-- spacex.html: pagina porta della sezione SpaceX; contiene i link a storia-spacex.html, lanci-imminenti.html, storico-lanci.html, starship.html e pad-di-lancio.html.
+- spacex.html: pagina porta della sezione SpaceX; contiene i link a storia-spacex.html, lanci-imminenti.html, storico-lanci.html, starship.html, pad-di-lancio.html, localita-spacex.html e guida-lancio-slc40.html.
 - storia-spacex.html: sottosezione narrativa SpaceX. Funziona da indice di parti storiche selezionabili; contiene la prima parte "Dalla fondazione fino al primo lancio", la seconda "Dal primo fallimento al quarto lancio" e la terza "Dal primo successo orbitale al contratto CRS".
 - lanci-imminenti.html: sottosezione operativa SpaceX, non voce di nav globale.
 - storico-lanci.html: sottosezione operativa SpaceX, non voce di nav globale.
 - starship.html: sottosezione operativa SpaceX, non voce di nav globale.
 - pad-di-lancio.html: sottosezione operativa SpaceX con mappa Leaflet e schede pad, non voce di nav globale.
+- guida-lancio-slc40.html: guida pratica autonoma per vedere un lancio SpaceX dal pad 40, con mappa dei punti pubblici, confronto, logistica, fotografia, scrub e fonti aggiornabili. Usa le immagini in sezioni\assets\guida-slc40 e la foto SLC-40 gia presente in pad_di_lancio\assets.
 - luna.html, marte.html, infrastrutture-orbitali.html, cronologia.html: pagine provvisorie generate ma non visibili nella nav globale finche' non vengono ripensate come macro-sezioni.
 
 04_dati_geo

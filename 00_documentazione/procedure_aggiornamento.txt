@@ -9,7 +9,8 @@ Aggiornare il sito statico Rivoluzione Spaziale
 3. Controllare index.html, css\style.css e le pagine in sezioni.
 4. Gerarchia da rispettare:
    - nav globale e homepage: solo primo livello, cioe' Home, SpaceX, Blue Origin, ULA, Rocket Lab, Arianespace, Cina;
-   - sottosezioni SpaceX: Lanci imminenti, Storico lanci, Starship, Pad di lancio, Storia; questi link stanno dentro sezioni\spacex.html;
+   - sottosezioni SpaceX: Lanci imminenti, Storico lanci, Starship, Pad di lancio, Localita SpaceX, Vedere un lancio da SLC-40, Storia; questi link stanno dentro sezioni\spacex.html;
+   - la guida SLC-40 e' editoriale e autonoma: il generatore deve conservarne il collegamento nel portale, ma il contenuto di sezioni\guida-lancio-slc40.html si aggiorna direttamente controllando fonti, accessi, prezzi e orari;
    - Storia SpaceX e' una sottosezione autonoma in sezioni\storia-spacex.html, non un blocco narrativo dentro la pagina porta SpaceX;
    - la prima parte della sottosezione Storia si intitola "Dalla fondazione fino al primo lancio" e punta al dossier documenti per sito\fondazione_spacex_fino_primo_falcon1.html;
    - la seconda parte si intitola "Dal primo fallimento al quarto lancio" e punta al dossier documenti per sito\falcon1_dal_primo_fallimento_al_quarto_lancio.html;

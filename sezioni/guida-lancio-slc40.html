@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Guida pratica in italiano per organizzare un viaggio e vedere un lancio SpaceX dal pad SLC-40 di Cape Canaveral: mappa, punti di osservazione, parcheggi, tempi, foto e piano B.">
+<title>Vedere un lancio SpaceX da SLC-40 | Rivoluzione Spaziale</title>
+<link rel="stylesheet" href="../css/style.css?v=20260623-guida-slc40">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+:root{--guide-blue:#69c8ff;--guide-gold:#f2b84b;--guide-green:#64d89b;--guide-red:#ff7a73}
+.guide-hero{min-height:82vh;display:grid;align-items:end;padding:118px clamp(18px,4vw,56px) 54px;background:linear-gradient(90deg,rgba(2,6,10,.95),rgba(2,7,12,.68) 52%,rgba(2,7,12,.22)),linear-gradient(180deg,rgba(0,0,0,.06),rgba(5,6,7,.96) 96%),url('../pad_di_lancio/assets/slc40.jpg') center 42%/cover no-repeat}
+.guide-hero h1{max-width:1100px;font-size:clamp(46px,8vw,104px)}
+.guide-hero .subtitle{max-width:880px}
+.hero-chips{display:flex;gap:9px;flex-wrap:wrap;margin-top:24px}
+.hero-chip{border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:8px 11px;background:rgba(0,0,0,.38);font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+.guide-nav{position:sticky;top:66px;z-index:700;border-block:1px solid var(--line);background:rgba(7,10,13,.94);backdrop-filter:blur(12px);padding:11px clamp(18px,4vw,56px);overflow:auto}
+.guide-nav div{max-width:1240px;margin:auto;display:flex;gap:8px;min-width:max-content}
+.guide-nav a{border:1px solid var(--line);border-radius:999px;padding:8px 11px;color:#dfe8ee;font-size:11px;font-weight:900;letter-spacing:.06em;text-transform:uppercase}
+.guide-nav a:hover{border-color:var(--guide-blue);color:#fff}
+.guide-alert{border:1px solid rgba(242,184,75,.5);background:linear-gradient(135deg,rgba(242,184,75,.15),rgba(255,255,255,.045));border-radius:9px;padding:20px}
+.guide-alert strong{color:#ffe2a5}
+.choice-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.choice{border:1px solid var(--line);border-radius:9px;background:linear-gradient(180deg,var(--panel2),var(--panel));padding:20px;min-height:230px;display:flex;flex-direction:column}
+.choice .choice-icon{font-size:28px;margin-bottom:20px}
+.choice small{color:var(--guide-gold);font-weight:900;text-transform:uppercase;letter-spacing:.1em}
+.choice h3{margin-top:8px}
+.choice p{font-size:14px;margin:8px 0 16px;color:#cbd4da}
+.choice a{margin-top:auto;color:#dff4ff;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.07em}
+.guide-map-shell{display:grid;grid-template-columns:340px 1fr;min-height:680px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#07101a}
+.guide-map-side{padding:18px;background:rgba(255,255,255,.055);border-right:1px solid var(--line)}
+.guide-map-side p{font-size:14px;color:var(--muted)}
+.map-list{display:grid;gap:7px;margin-top:14px;max-height:520px;overflow:auto;padding-right:4px}
+.map-place{width:100%;text-align:left;border:1px solid rgba(255,255,255,.12);border-radius:8px;background:rgba(255,255,255,.04);color:#fff;padding:11px;cursor:pointer}
+.map-place:hover,.map-place.active{border-color:rgba(105,200,255,.7);background:rgba(105,200,255,.12)}
+.map-place strong,.map-place span{display:block}
+.map-place strong{font-size:14px}.map-place span{font-size:12px;color:var(--muted);margin-top:4px}
+#slc40-view-map{min-height:680px;background:#07101a}
+.view-dot{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#1478aa;color:#fff;border:2px solid #fff;font-size:11px;font-weight:950;box-shadow:0 6px 18px rgba(0,0,0,.42)}
+.view-dot.pad{background:#e2483f}.view-dot.official{background:#c58a20}
+.view-popup{max-width:280px}.view-popup h3{font-size:19px;margin:0 0 7px}.view-popup p{font-size:13px;margin:5px 0}.view-popup a{color:#8bd6ff;font-weight:800}
+.compare-wrap{overflow:auto;border:1px solid var(--line);border-radius:9px}
+.compare-wrap table{min-width:980px;background:rgba(255,255,255,.03)}
+.compare-wrap th{background:#11171d;position:sticky;top:0}.rank{font-size:17px;font-weight:950;color:#fff}.yes{color:var(--guide-green);font-weight:850}.warn{color:#ffd88b;font-weight:850}
+.spot-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.spot{border:1px solid var(--line);border-radius:9px;padding:21px;background:linear-gradient(180deg,var(--panel2),var(--panel))}
+.spot-head{display:flex;justify-content:space-between;gap:16px;align-items:start}.spot-head .badge{white-space:nowrap}
+.spot dl{display:grid;grid-template-columns:110px 1fr;gap:8px 12px;font-size:13px;margin:18px 0 0}
+.spot dt{color:var(--muted);font-weight:900;text-transform:uppercase;letter-spacing:.06em;font-size:10px}.spot dd{margin:0;color:#dce5ea}
+.spot .actions{margin-top:18px}
+.photo-strip{display:grid;grid-template-columns:1.18fr .82fr;grid-template-rows:260px 260px;gap:12px}
+.photo{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:9px;background:#0c1116;margin:0}
+.photo:first-child{grid-row:1/-1}.photo img{width:100%;height:100%;object-fit:cover;display:block}.photo:first-child img{object-position:center 44%}
+.photo figcaption{position:absolute;inset:auto 0 0;padding:46px 15px 14px;background:linear-gradient(transparent,rgba(0,0,0,.9));font-size:12px;color:#e7edf1}.photo figcaption strong{display:block;font-size:15px;color:#fff;margin-bottom:3px}
+.plan-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.plan-card{border:1px solid var(--line);border-radius:9px;padding:20px;background:rgba(255,255,255,.05)}
+.plan-card .num{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--guide-blue);color:#06121a;font-weight:950;margin-bottom:15px}
+.plan-card h3{font-size:20px}.plan-card p,.plan-card li{font-size:14px;color:#ccd5db;line-height:1.5}.plan-card ul{padding-left:18px;margin:10px 0 0}
+.timeline{display:grid;gap:0;margin-top:12px}
+.timeline article{display:grid;grid-template-columns:120px 24px 1fr;gap:12px;min-height:105px}
+.timeline time{font-weight:950;color:var(--guide-gold);text-align:right}.timeline i{position:relative;display:block;width:12px;height:12px;border-radius:50%;background:var(--guide-blue);margin-top:4px}.timeline i:after{content:"";position:absolute;top:14px;left:5px;width:2px;height:88px;background:rgba(105,200,255,.35)}.timeline article:last-child i:after{display:none}
+.timeline h3{font-size:18px}.timeline p{margin:4px 0 0;font-size:14px;color:#cbd4da}
+.kit{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;list-style:none;padding:0;margin:0}.kit li{border:1px solid rgba(255,255,255,.12);border-radius:7px;padding:11px;background:rgba(0,0,0,.2);font-size:13px;color:#d9e2e8}.kit li:before{content:"✓";color:var(--guide-green);font-weight:950;margin-right:8px}
+.do-dont{display:grid;grid-template-columns:1fr 1fr;gap:14px}.safe,.danger{border:1px solid var(--line);border-radius:9px;padding:20px}.safe{background:rgba(100,216,155,.08);border-color:rgba(100,216,155,.32)}.danger{background:rgba(255,122,115,.08);border-color:rgba(255,122,115,.3)}.do-dont li{margin-bottom:9px;color:#d5dee4;line-height:1.45}
+.source-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.source-card{border:1px solid var(--line);border-radius:8px;padding:14px;background:rgba(255,255,255,.045)}.source-card strong{display:block}.source-card span{display:block;color:var(--muted);font-size:12px;margin:5px 0 9px}.source-card a{font-size:12px;color:#a9e2ff;font-weight:850}
+.updated{color:var(--muted);font-size:12px;margin-top:18px}
+@media(max-width:1100px){.choice-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.guide-map-shell{grid-template-columns:1fr}.guide-map-side{border-right:0;border-bottom:1px solid var(--line)}.map-list{grid-template-columns:repeat(2,minmax(0,1fr));max-height:none}.plan-grid{grid-template-columns:1fr}.photo-strip{grid-template-columns:1fr 1fr;grid-template-rows:380px 240px}.photo:first-child{grid-column:1/-1;grid-row:auto}}
+@media(max-width:760px){.guide-hero{padding:108px 18px 42px;min-height:76vh}.guide-nav{top:98px}.choice-grid,.spot-grid,.source-grid,.do-dont,.kit,.map-list{grid-template-columns:1fr}.guide-map-side{padding:14px}#slc40-view-map{min-height:520px}.photo-strip{display:grid;grid-template-columns:1fr;grid-template-rows:320px 220px 220px}.photo:first-child{grid-column:auto}.timeline article{grid-template-columns:72px 18px 1fr;gap:8px}.timeline time{font-size:12px}.spot dl{grid-template-columns:86px 1fr}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../index.html">Rivoluzione <span>Spaziale</span></a>
+  <nav class="nav" aria-label="Navigazione principale">
+    <a href="../index.html">Home</a><a class="active" href="spacex.html">SpaceX</a><a href="blue-origin.html">Blue Origin</a><a href="ula.html">ULA</a><a href="rocket-lab.html">Rocket Lab</a><a href="arianespace.html">Arianespace</a><a href="cina.html">Cina</a>
+  </nav>
+</header>
+<main>
+<section class="guide-hero" id="inizio">
+  <div class="hero-inner">
+    <p class="eyebrow">Guida pratica · Cape Canaveral, Florida</p>
+    <h1>Vedere un lancio SpaceX da SLC-40</h1>
+    <p class="subtitle">Dove mettersi, quando arrivare, come parcheggiare e cosa fare se il Falcon 9 non parte. Una guida pensata per chi arriva davvero sulla Space Coast, non per chi la guarda soltanto sulla mappa.</p>
+    <div class="hero-chips"><span class="hero-chip">7 punti sulla mappa</span><span class="hero-chip">Auto quasi indispensabile</span><span class="hero-chip">Piano anti-scrub</span><span class="hero-chip">Consigli fotografici</span></div>
+    <div class="actions"><a class="button" href="#scelta">Scegli il punto</a><a class="button secondary" href="#mappa">Apri la mappa</a><a class="button secondary" href="lanci-imminenti.html">Controlla i lanci</a></div>
+  </div>
+</section>
+
+<nav class="guide-nav" aria-label="Indice della guida"><div><a href="#scelta">Scelta rapida</a><a href="#mappa">Mappa</a><a href="#confronto">Confronto</a><a href="#punti">Punti di osservazione</a><a href="#giornata">Giornata tipo</a><a href="#logistica">Logistica</a><a href="#fotografia">Fotografia</a><a href="#scrub">Scrub e piano B</a><a href="#sicurezza">Sicurezza</a><a href="#fonti">Fonti</a></div></nav>
+
+<section id="scelta"><div class="inner">
+  <div class="section-head"><h2>La scelta in 30 secondi</h2><p>Non esiste un punto perfetto per tutti. Scegli in base alla tua priorità e tieni sempre un secondo posto già deciso: accessi, meteo e capacità dei parcheggi possono cambiare.</p></div>
+  <div class="guide-alert"><strong>Il verdetto pratico:</strong> Cherie Down è il compromesso più semplice lato mare; Max Brewer è ottimo per seguire l'ascesa e fotografare; Jetty Park è molto piacevole ma richiede il pass; Playalinda è più vicina e naturale, però è la più delicata per accesso e capacità. KSC è la soluzione ufficiale soltanto quando vende un'opzione specifica per quel lancio.</div>
+  <div class="choice-grid" style="margin-top:14px">
+    <article class="choice"><div class="choice-icon">◎</div><small>Voglio semplicità</small><h3>Cherie Down Park</h3><p>Spiaggia, servizi essenziali e logistica generalmente meno tesa di Jetty Park. Avvicinati alla battigia per superare dune e vegetazione.</p><a href="#cherie">Vai alla scheda ↓</a></article>
+    <article class="choice"><div class="choice-icon">⌁</div><small>Voglio fotografare</small><h3>Max Brewer Bridge</h3><p>Posizione rialzata, orizzonte ampio e buona lettura della traiettoria. Perfetto con un 100–400 mm, ma può riempirsi presto.</p><a href="#max-brewer">Vai alla scheda ↓</a></article>
+    <article class="choice"><div class="choice-icon">≈</div><small>Voglio mare e servizi</small><h3>Jetty Park</h3><p>Atmosfera Cape Canaveral, spiaggia e pier. Compra prima il pass della data esatta: al cancello non si paga.</p><a href="#jetty">Vai alla scheda ↓</a></article>
+    <article class="choice"><div class="choice-icon">✦</div><small>Voglio l'opzione ufficiale</small><h3>KSC Visitor Complex</h3><p>Acquista solo quando compare la pagina del lancio con il viewing disponibile. Un normale biglietto non equivale automaticamente a una vista premium.</p><a href="#ksc">Vai alla scheda ↓</a></article>
+  </div>
+</div></section>
+
+<section id="mappa"><div class="inner">
+  <div class="section-head"><h2>Mappa operativa</h2><p>Il marker rosso è SLC-40. Seleziona un punto per leggere il consiglio essenziale, stimare la distanza in linea d'aria e aprire direttamente l'itinerario stradale.</p></div>
+  <div class="guide-map-shell"><aside class="guide-map-side"><h3>Punti di osservazione</h3><p>Le distanze stradali e i tempi cambiano molto con i controlli e il traffico del giorno del lancio.</p><div id="map-place-list" class="map-list"></div></aside><div id="slc40-view-map" aria-label="Mappa interattiva dei punti da cui vedere i lanci di SLC-40"></div></div>
+</div></section>
+
+<section id="confronto"><div class="inner">
+  <div class="section-head"><h2>Confronto senza brochure</h2><p>Valutazione editoriale basata sulla ricerca locale e sulle informazioni ufficiali disponibili al 23 giugno 2026. “Distanza” indica una stima in linea d'aria dal pad, non il percorso in auto.</p></div>
+  <div class="compare-wrap"><table><thead><tr><th>Punto</th><th>Distanza indicativa</th><th>Accesso / parcheggio</th><th>Punto forte</th><th>Limite reale</th><th>Ideale per</th></tr></thead><tbody>
+    <tr><td><span class="rank">Cherie Down</span></td><td>circa 19,0 km</td><td><span class="yes">Generalmente semplice</span>, posti limitati</td><td>Compromesso mare/vicinanza</td><td>Dune e parcheggio ridotto</td><td>Prima esperienza, famiglie</td></tr>
+    <tr><td><span class="rank">Max Brewer</span></td><td>circa 22,5 km</td><td><span class="warn">Arrivare presto</span>, traffico evento</td><td>Vista rialzata e traiettoria</td><td>Uscita lenta dopo il lancio</td><td>Foto e space enthusiast</td></tr>
+    <tr><td><span class="rank">Jetty Park</span></td><td>circa 17,3 km</td><td><span class="warn">Pass online prima</span></td><td>Servizi, spiaggia, atmosfera</td><td>Capacità, navi e strutture portuali</td><td>Giornata mare + lancio</td></tr>
+    <tr><td><span class="rank">Playalinda</span></td><td>circa 11,6 km</td><td><span class="warn">Ingresso NPS, capacità ridotta</span></td><td>Vicinanza e paesaggio naturale</td><td>Chiusure e saturazione possibili</td><td>Chi ha auto e piano B</td></tr>
+    <tr><td><span class="rank">Alan Shepard</span></td><td>circa 22,9 km</td><td><span class="yes">Molti posti</span>, a pagamento</td><td>Accesso facile e servizi</td><td>Più lontano dal pad</td><td>Famiglie e video ambientati</td></tr>
+    <tr><td><span class="rank">Cocoa Beach Pier</span></td><td>circa 21,7 km</td><td>Parcheggi turistici a pagamento</td><td>Ristoranti e zero isolamento</td><td>Razzo piccolo a occhio nudo</td><td>Vacanza balneare</td></tr>
+    <tr><td><span class="rank">KSC Visitor Complex</span></td><td>Dipende dal sito assegnato</td><td><span class="warn">Biglietto/evento dedicato</span></td><td>Organizzazione ufficiale</td><td>Costo e policy scrub</td><td>Chi vuole un'esperienza guidata</td></tr>
+  </tbody></table></div>
+</div></section>
+
+<section id="punti"><div class="inner">
+  <div class="section-head"><h2>I punti, uno per uno</h2><p>Le coordinate portano al parcheggio o al punto di accesso utile. Non puntano a zone operative: non oltrepassare cancelli, recinzioni o aree militari.</p></div>
+  <div class="spot-grid">
+    <article class="spot" id="cherie"><div class="spot-head"><div><p class="eyebrow">Scelta equilibrata</p><h3>Cherie Down Park</h3></div><span class="badge">Cape Canaveral</span></div><p>Meno “evento” di Jetty Park, più facile da trasformare in una giornata normale di spiaggia. Per vedere i primissimi secondi, porta l'osservazione verso la battigia invece di restare dietro le dune.</p><dl><dt>Coordinate</dt><dd>28.39184, -80.59696</dd><dt>Arrivo</dt><dd>1,5–2,5 ore prima; molto prima nei weekend o per missioni seguite</dd><dt>Servizi</dt><dd>Docce, bagni, shelter e area spiaggia</dd><dt>Ottica</dt><dd>70–200 mm come scelta versatile</dd></dl><div class="actions"><a class="button secondary" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=28.39184,-80.59696">Indicazioni</a></div></article>
+    <article class="spot" id="max-brewer"><div class="spot-head"><div><p class="eyebrow">Scelta fotografica</p><h3>A. Max Brewer Bridge</h3></div><span class="badge">Titusville</span></div><p>Il vantaggio non è solo la distanza: è l'elevazione. Il razzo si segue bene sopra l'orizzonte, con meno ostacoli in primo piano. Nei grandi eventi la gestione del traffico può includere limitazioni temporanee.</p><dl><dt>Coordinate</dt><dd>28.62030, -80.79850</dd><dt>Arrivo</dt><dd>1–2 ore per un lancio ordinario, molto prima per missioni popolari</dd><dt>Parcheggio</dt><dd>Area Titusville, Sand Point e marina; verificare la segnaletica evento</dd><dt>Ottica</dt><dd>100–400 mm; 70–200 mm per contesto</dd></dl><div class="actions"><a class="button secondary" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=28.62030,-80.79850">Indicazioni</a></div></article>
+    <article class="spot" id="jetty"><div class="spot-head"><div><p class="eyebrow">Mare e atmosfera</p><h3>Jetty Park</h3></div><span class="badge">Pass richiesto</span></div><p>È la scelta più “Cape Canaveral”: spiaggia, pier, servizi e navi. Il parcheggio richiede un pass acquistato online; con day pass della data esatta l'ingresso è garantito, ma il rientro non lo è quando il parco è pieno.</p><dl><dt>Coordinate</dt><dd>28.40698, -80.59386</dd><dt>Orari</dt><dd>7:00–21:00 alla verifica del 23/06/2026</dd><dt>Ingresso</dt><dd>Niente pagamento al cancello; acquistare prima sul sito ufficiale</dd><dt>Attenzione</dt><dd>Navi da crociera e infrastrutture possono coprire il liftoff</dd></dl><div class="actions"><a class="button" target="_blank" rel="noopener" href="https://www.portcanaveral.com/park-services/jetty-park/beach-and-pier">Pass e regole</a><a class="button secondary" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=28.40698,-80.59386">Indicazioni</a></div></article>
+    <article class="spot" id="playalinda"><div class="spot-head"><div><p class="eyebrow">Più vicina e naturale</p><h3>Playalinda Beach, lotti 1–2</h3></div><span class="badge">Piano B obbligatorio</span></div><p>È magnifica quando tutto fila: costa naturale e ottima vicinanza al pad. Ma i lotti sono piccoli, possono riempirsi e l'accesso può cambiare per operazioni o sicurezza. Prima di partire controlla NPS e non considerarla mai l'unica opzione.</p><dl><dt>Coordinate</dt><dd>28.65493, -80.63209</dd><dt>Ingresso NPS</dt><dd>$25 per veicolo, valido 7 giorni, alla verifica del 23/06/2026</dd><dt>Pagamento</dt><dd>Solo carta/touchless; il parco è cashless</dd><dt>Ottica</dt><dd>24–70 mm ambientata, 70–200 mm per l'ascesa</dd></dl><div class="actions"><a class="button" target="_blank" rel="noopener" href="https://www.nps.gov/cana/planyourvisit/fees.htm">Tariffe ufficiali</a><a class="button secondary" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=28.65493,-80.63209">Indicazioni</a></div></article>
+    <article class="spot"><div class="spot-head"><div><p class="eyebrow">Logistica facile</p><h3>Alan Shepard Park</h3></div><span class="badge">Cocoa Beach</span></div><p>È più lontano, ma offre una giornata semplice: molti parcheggi, spiaggia, servizi e una zona servita anche dalla rete autobus. Il lancio si vede bene in ascesa, con meno vibrazione e impatto rispetto ai punti più vicini.</p><dl><dt>Coordinate</dt><dd>28.35722, -80.60472</dd><dt>Parcheggio</dt><dd>Oltre 300 posti; tariffa e regole da verificare sul posto</dd><dt>Trasporto</dt><dd>Route 9 utile per l'area Cocoa Beach</dd><dt>Ottica</dt><dd>70–200 o 100–400 mm; grandangolo per persone e scia</dd></dl><div class="actions"><a class="button secondary" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=28.35722,-80.60472">Indicazioni</a></div></article>
+    <article class="spot" id="ksc"><div class="spot-head"><div><p class="eyebrow">Esperienza ufficiale</p><h3>Kennedy Space Center</h3></div><span class="badge">Solo se disponibile</span></div><p>Le opportunità dipendono da missione, pad, orari e autorizzazioni. Il sito KSC pubblica soltanto informazioni ufficiali: se non esiste una pagina o un'opzione per quel lancio, non dare per scontato il viewing ravvicinato.</p><dl><dt>Regola</dt><dd>Controllare la pagina del singolo lancio, non soltanto il calendario generale</dd><dt>Scrub</dt><dd>Leggere la policy prima dell'acquisto: trasporto già usato e rinvio possono cambiare i diritti di riutilizzo</dd><dt>Parcheggio</dt><dd>Separato dal biglietto; rideshare ammesso nell'area indicata</dd><dt>Ideale</dt><dd>Prima visita, commento guidato, servizi completi</dd></dl><div class="actions"><a class="button" target="_blank" rel="noopener" href="https://www.kennedyspacecenter.com/launches-and-events/see-a-launch/">See a Launch</a></div></article>
+  </div>
+</div></section>
+
+<section aria-label="Fotografie della Space Coast"><div class="inner">
+  <div class="photo-strip">
+    <figure class="photo"><img src="../pad_di_lancio/assets/slc40.jpg" alt="Falcon 9 sulla rampa SLC-40 a Cape Canaveral"><figcaption><strong>Il pad che stai cercando</strong>SLC-40 con Falcon 9. Foto SpaceX/NASA, pubblico dominio.</figcaption></figure>
+    <figure class="photo"><img src="assets/guida-slc40/max-brewer-bridge.jpg" alt="Pubblico sul Max Brewer Bridge durante una giornata di lancio"><figcaption><strong>Max Brewer Bridge</strong>L'attesa è parte dell'esperienza. Foto NASA/Steven Scifer, pubblico dominio.</figcaption></figure>
+    <figure class="photo"><img src="assets/guida-slc40/playalinda-beach.jpg" alt="La spiaggia naturale di Playalinda sulla Space Coast"><figcaption><strong>Playalinda Beach</strong>Area naturale protetta: accesso e capacità vanno controllati. Foto NASA/Kim Shiflett, pubblico dominio.</figcaption></figure>
+  </div>
+</div></section>
+
+<section id="giornata"><div class="inner">
+  <div class="section-head"><h2>Una giornata tipo che regge agli imprevisti</h2><p>Il decollo dura pochi minuti; l'esperienza completa occupa mezza giornata o più. Costruiscila attorno a margine, parcheggio e possibilità di rinvio.</p></div>
+  <div class="timeline">
+    <article><time>T − 24 ore</time><i></i><div><h3>Conferma il pad e la finestra</h3><p>Controlla che la missione parta davvero da SLC-40, non da LC-39A. Salva pagina SpaceX, meteo, KSC/Port/NPS e un secondo punto di osservazione.</p></div></article>
+    <article><time>T − 3 ore</time><i></i><div><h3>Parti con acqua, batteria e pieno</h3><p>Scarica la mappa offline, fai carburante prima della zona evento e non contare su un rideshare immediato per il ritorno.</p></div></article>
+    <article><time>T − 2 ore</time><i></i><div><h3>Parcheggia e verifica l'orizzonte</h3><p>Individua il nord, trova il pad sulla mappa e scegli una posizione senza alberi, dune o lampioni. Non aspettare l'ultimo minuto per montare il treppiede.</p></div></article>
+    <article><time>T − 15 min</time><i></i><div><h3>Ascolta il webcast, guarda il cielo</h3><p>Il video in streaming può avere ritardo. Tieni il volume basso, lascia un occhio all'orizzonte e non fissarti sullo schermo proprio al decollo.</p></div></article>
+    <article><time>T + 10 min</time><i></i><div><h3>Non correre subito all'auto</h3><p>Se il recupero è in mare, segui la missione; poi aspetta che il primo picco di traffico si muova. È spesso più piacevole di passare gli stessi minuti in coda.</p></div></article>
+  </div>
+</div></section>
+
+<section id="logistica"><div class="inner">
+  <div class="section-head"><h2>Logistica per chi arriva dall'Italia</h2><p>La Space Coast non è organizzata come una città europea. Per vedere SLC-40 bene, l'auto è quasi sempre la soluzione più robusta.</p></div>
+  <div class="plan-grid">
+    <article class="plan-card"><div class="num">1</div><h3>Dove dormire</h3><p><strong>Cape Canaveral/Cocoa Beach</strong> se vuoi mare, Jetty e Cherie Down. <strong>Titusville</strong> se preferisci Max Brewer, KSC e una logistica più flessibile.</p><ul><li>Prenota una tariffa cancellabile.</li><li>Evita di costruire il viaggio su una sola notte.</li><li>Concediti almeno un giorno cuscinetto.</li></ul></article>
+    <article class="plan-card"><div class="num">2</div><h3>Come muoversi</h3><p>Noleggio auto consigliato. Route 9 è utile per Cocoa Beach/Alan Shepard, ma non risolve Jetty Park o Playalinda. Uber e Lyft operano nell'area, con domanda e prezzi più alti dopo un lancio.</p><ul><li>Scarica l'area offline.</li><li>Annota il luogo esatto dell'auto.</li><li>Non fare affidamento sul treno per l'ultimo tratto.</li></ul></article>
+    <article class="plan-card"><div class="num">3</div><h3>Cosa portare</h3><ul class="kit"><li>Acqua e snack</li><li>Crema solare</li><li>Repellente insetti</li><li>Cappello o felpa</li><li>Power bank</li><li>Torcia rossa/notturna</li><li>Sedia pieghevole</li><li>Binocolo</li><li>Mappa offline</li><li>Piano B scritto</li></ul></article>
+  </div>
+</div></section>
+
+<section id="fotografia"><div class="inner">
+  <div class="section-head"><h2>Fotografare senza perdere il lancio</h2><p>La foto più memorabile non è necessariamente quella col razzo più grande. Scegli prima se vuoi atmosfera, scia, persone o dettaglio del veicolo.</p></div>
+  <div class="plan-grid">
+    <article class="plan-card"><div class="num">24</div><h3>24–70 mm</h3><p>Per spiaggia, persone, ponte e scia. È la lente giusta se vuoi raccontare dove eri, non soltanto dimostrare che c'era un razzo.</p></article>
+    <article class="plan-card"><div class="num">200</div><h3>70–200 mm</h3><p>La scelta più equilibrata per Jetty, Cherie Down e Playalinda. Permette di seguire bene la prima ascesa senza trasformare la ricerca del razzo in una caccia al francobollo.</p></article>
+    <article class="plan-card"><div class="num">400</div><h3>100–400 mm</h3><p>Utile da Titusville e Cocoa Beach. Usa stabilizzazione o supporto e prova in anticipo messa a fuoco e movimento: il Falcon accelera molto più in fretta di quanto sembri in video.</p></article>
+  </div>
+  <div class="guide-alert" style="margin-top:14px"><strong>Impostazione semplice di giorno:</strong> tempo rapido, indicativamente 1/1000 s o più veloce, raffica moderata, autofocus continuo. Di notte evita di inseguire insieme una lunga esposizione e il razzo: valuta un'inquadratura ambientata o registra video. E soprattutto guarda almeno una parte del lancio con gli occhi.</div>
+</div></section>
+
+<section id="scrub"><div class="inner">
+  <div class="section-head"><h2>Se il lancio viene rinviato</h2><p>Uno scrub non è un incidente nel viaggio: è una possibilità normale da includere nel progetto fin dall'inizio.</p></div>
+  <div class="do-dont">
+    <article class="safe"><h3>Piano robusto</h3><ul><li>Alloggio cancellabile o almeno due notti disponibili.</li><li>Un punto principale e uno alternativo già salvati.</li><li>Biglietti KSC acquistati dopo aver letto la scrub policy.</li><li>Giornata alternativa: KSC, spiaggia, Port Canaveral o Titusville.</li><li>Aggiornamenti solo da fonti ufficiali e pagina missione.</li></ul></article>
+    <article class="danger"><h3>Piano fragile</h3><ul><li>Volo di ritorno poche ore dopo il T-0.</li><li>Un solo parcheggio possibile e arrivo all'ultimo minuto.</li><li>Hotel non rimborsabile scelto soltanto per una data NET.</li><li>Fidarsi di screenshot o calendari non aggiornati.</li><li>Confondere un rinvio di minuti con un annullamento della giornata.</li></ul></article>
+  </div>
+</div></section>
+
+<section id="sicurezza"><div class="inner">
+  <div class="section-head"><h2>Regole che non vale la pena sfidare</h2><p>SLC-40 è dentro una base operativa della U.S. Space Force. La vista migliore non giustifica mai una scorciatoia in area riservata.</p></div>
+  <div class="plan-grid">
+    <article class="plan-card"><div class="num">!</div><h3>Niente aree chiuse</h3><p>Resta su spiagge, parchi, strade e strutture aperte al pubblico. Cancelli, banchine, strade di servizio e aree militari non sono “punti segreti”.</p></article>
+    <article class="plan-card"><div class="num">⌁</div><h3>Niente droni</h3><p>Port Canaveral vieta le operazioni UAS senza autorizzazione scritta; KSC vieta i droni sulla proprietà. Lascialo in hotel: non è il posto per improvvisare.</p></article>
+    <article class="plan-card"><div class="num">☀</div><h3>Caldo, buio, fauna</h3><p>Idratazione e protezione solare di giorno; luce discreta e attenzione al traffico di notte. A Playalinda rispetta dune, fauna, ranger e ogni chiusura.</p></article>
+  </div>
+</div></section>
+
+<section id="fonti"><div class="inner">
+  <div class="section-head"><h2>Controlli da fare prima di partire</h2><p>Questa pagina serve a scegliere e organizzarsi. Il giorno del lancio, accessi, prezzi, orari e finestre devono essere ricontrollati nelle fonti operative.</p></div>
+  <div class="source-grid">
+    <article class="source-card"><strong>SpaceX · Launches</strong><span>Missione, webcast e aggiornamenti del T-0.</span><a href="https://www.spacex.com/launches/" target="_blank" rel="noopener">Apri spacex.com →</a></article>
+    <article class="source-card"><strong>Kennedy Space Center · See a Launch</strong><span>Eventi ufficiali, opzioni di viewing e scrub policy.</span><a href="https://www.kennedyspacecenter.com/launches-and-events/see-a-launch/" target="_blank" rel="noopener">Apri la pagina ufficiale →</a></article>
+    <article class="source-card"><strong>Port Canaveral · Jetty Park</strong><span>Pass, capacità, orari e regole del parco.</span><a href="https://www.portcanaveral.com/park-services/jetty-park/beach-and-pier" target="_blank" rel="noopener">Controlla Jetty Park →</a></article>
+    <article class="source-card"><strong>National Park Service · Canaveral</strong><span>Tariffe, accessi e informazioni su Playalinda Beach.</span><a href="https://www.nps.gov/cana/planyourvisit/fees.htm" target="_blank" rel="noopener">Controlla NPS →</a></article>
+    <article class="source-card"><strong>321Transit</strong><span>Rete autobus, orari, tracker e accessibilità.</span><a href="https://321transit.com/" target="_blank" rel="noopener">Apri 321Transit →</a></article>
+    <article class="source-card"><strong>Visit Space Coast</strong><span>Informazioni locali, spiagge, parcheggi e aggiornamenti visitatori.</span><a href="https://www.visitspacecoast.com/visitor-information/" target="_blank" rel="noopener">Apri Visit Space Coast →</a></article>
+  </div>
+  <p class="updated">Ricerca di base: “Guida pratica per vedere un lancio SpaceX da SLC-40 a Cape Canaveral”, aggiunta al progetto il 23 giugno 2026. Controllo pagine ufficiali effettuato il 23 giugno 2026. Crediti immagini: SpaceX/NASA; NASA/Steven Scifer; NASA/Kim Shiflett. Dati cartografici © OpenStreetMap contributors.</p>
+  <div class="actions"><a class="button" href="spacex.html">Torna alla sezione SpaceX</a><a class="button secondary" href="#inizio">Torna in alto</a></div>
+</div></section>
+</main>
+<footer class="footer">Rivoluzione Spaziale. Guida editoriale indipendente: verificare sempre le disposizioni ufficiali del giorno del lancio.</footer>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const pad={name:'SLC-40',lat:28.5619,lon:-80.5774,type:'pad',note:'Pad operativo SpaceX. Non è accessibile al pubblico.'};
+const places=[
+ {name:'Jetty Park',lat:28.40698,lon:-80.59386,tag:'Pass online',note:'Spiaggia e servizi; controlla capacità e pass prima di partire.'},
+ {name:'Cherie Down Park',lat:28.39184,lon:-80.59696,tag:'Compromesso semplice',note:'Buona alternativa lato Cape; vai verso la battigia per ridurre gli ostacoli.'},
+ {name:'Playalinda Beach 1–2',lat:28.65493,lon:-80.63209,tag:'Vicino, accesso delicato',note:'Ingresso NPS e capacità limitata. Verifica sempre apertura e piano B.'},
+ {name:'A. Max Brewer Bridge',lat:28.62030,lon:-80.79850,tag:'Vista rialzata',note:'Ottimo per seguire e fotografare l’ascesa; aspettati traffico evento.'},
+ {name:'Cocoa Beach Pier',lat:28.36774,lon:-80.60164,tag:'Servizi e ristoranti',note:'Più lontano ma facile per una giornata di vacanza senza logistica estrema.'},
+ {name:'Alan Shepard Park',lat:28.35722,lon:-80.60472,tag:'Parcheggio facile',note:'Molti posti e servizi; buono per famiglie e immagini ambientate.'},
+ {name:'KSC Visitor Complex',lat:28.5230,lon:-80.6819,tag:'Opzione ufficiale',type:'official',note:'Viewing solo quando offerto per la missione specifica.'}
+];
+function km(a,b){const r=6371,toRad=x=>x*Math.PI/180;const dLat=toRad(b.lat-a.lat),dLon=toRad(b.lon-a.lon);const q=Math.sin(dLat/2)**2+Math.cos(toRad(a.lat))*Math.cos(toRad(b.lat))*Math.sin(dLon/2)**2;return 2*r*Math.asin(Math.sqrt(q));}
+if(window.L){
+ const map=L.map('slc40-view-map',{scrollWheelZoom:false}).setView([28.51,-80.66],10);
+ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
+ const all=[pad,...places],markers=[];
+ all.forEach((p,index)=>{const icon=L.divIcon({className:'',html:`<div class="view-dot ${p.type||''}">${p.type==='pad'?'40':index}</div>`,iconSize:[34,34],iconAnchor:[17,17]});const distance=p.type==='pad'?'':`<p><strong>${km(pad,p).toFixed(1)} km</strong> in linea d’aria dal pad</p>`;const directions=p.type==='pad'?'':`<p><a target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=${p.lat},${p.lon}">Apri indicazioni stradali →</a></p>`;const marker=L.marker([p.lat,p.lon],{icon}).addTo(map).bindPopup(`<div class="view-popup"><h3>${p.name}</h3><p>${p.note}</p>${distance}${directions}</div>`);markers.push(marker);if(p.type!=='pad')L.polyline([[pad.lat,pad.lon],[p.lat,p.lon]],{color:'#69c8ff',weight:1,opacity:.28,dashArray:'4 7'}).addTo(map);});
+ const list=document.getElementById('map-place-list');places.forEach((p,i)=>{const b=document.createElement('button');b.type='button';b.className='map-place';b.innerHTML=`<strong>${p.name}</strong><span>${p.tag} · ${km(pad,p).toFixed(1)} km in linea d’aria</span>`;b.addEventListener('click',()=>{document.querySelectorAll('.map-place').forEach(x=>x.classList.remove('active'));b.classList.add('active');map.setView([p.lat,p.lon],12);markers[i+1].openPopup();});list.appendChild(b);});
+ map.fitBounds(L.latLngBounds(all.map(p=>[p.lat,p.lon])).pad(.08));
+}
+</script>
+</body>
+</html>

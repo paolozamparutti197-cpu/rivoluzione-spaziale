@@ -115,6 +115,12 @@ UTILITY_SECTIONS = [
         "status": "Attiva",
         "copy": "Mappa delle principali localita SpaceX negli Stati Uniti, inclusa la proposta Louisiana.",
     },
+    {
+        "title": "Vedere un lancio da SLC-40",
+        "slug": "guida-lancio-slc40",
+        "status": "Attiva",
+        "copy": "Guida pratica per organizzare il viaggio, scegliere il punto di osservazione e gestire rinvii e logistica.",
+    },
 ]
 
 PLACEHOLDER_SECTIONS = MAIN_SECTIONS + THEME_SECTIONS
@@ -1511,6 +1517,7 @@ def render_spacex(data):
         <a class="button secondary" href="starship.html">Starship</a>
         <a class="button secondary" href="pad-di-lancio.html">Pad di lancio</a>
         <a class="button secondary" href="localita-spacex.html">Localita SpaceX</a>
+        <a class="button history-link" href="guida-lancio-slc40.html">Vedere un lancio da SLC-40</a>
       </div>
     </article>
     <aside class="panel"><h3>Cruscotto rapido</h3><div class="metrics">{top_metrics}</div></aside>
