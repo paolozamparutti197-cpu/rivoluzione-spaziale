@@ -42,6 +42,7 @@ Non pubblica online da solo.
 05 - Aggiorna tutto e pubblica sito.bat
 Esegue in un solo passaggio:
 - aggiornamento dei prossimi lanci SpaceX dal web;
+- aggiornamento dei prossimi lanci Electron dal web;
 - rigenerazione dello storico e delle statistiche dai file Excel;
 - commit e push su GitHub;
 - pubblicazione dei branch main e gh-pages.

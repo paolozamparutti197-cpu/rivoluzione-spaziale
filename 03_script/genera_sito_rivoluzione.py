@@ -38,10 +38,11 @@ MAIN_SECTIONS = [
         "copy": "Vulcan, sicurezza nazionale e transizione dalla stagione Atlas/Delta.",
     },
     {
-        "title": "Rocket Lab",
-        "slug": "rocket-lab",
-        "status": "In costruzione",
-        "copy": "Electron, Neutron e la via agile al lancio commerciale integrato.",
+        "title": "Electron Lab",
+        "slug": "electron-lab",
+        "status": "Attiva",
+        "copy": "Il programma Electron di Rocket Lab: agenda dei prossimi voli e statistiche complete.",
+        "active": True,
     },
     {
         "title": "Arianespace",
@@ -294,6 +295,73 @@ def falcon_data():
                 "pad": row.get("dove"),
             }
     return {"metrics": metrics, "annual": annual, "launchers": launchers, "pads": pads, "landing": landing, "latest": latest}
+
+
+def electron_data():
+    path = ROOT / "electronlab" / "lanci_electron.xlsx"
+    workbook = openpyxl.load_workbook(path, read_only=True, data_only=True)
+    sheet = workbook["elenco"]
+    headers = [clean(cell.value) for cell in sheet[1]]
+    launches = []
+    for values in sheet.iter_rows(min_row=2, values_only=True):
+        if not any(value is not None for value in values):
+            continue
+        launches.append(
+            {
+                header: clean(values[index]) if index < len(values) else None
+                for index, header in enumerate(headers)
+                if header
+            }
+        )
+    successes = sum(row.get("stato") == "successo" for row in launches)
+    failures = sum(row.get("stato") == "fallito" for row in launches)
+    annual = []
+    for year in sorted({int(row["anno"]) for row in launches if row.get("anno") is not None}):
+        rows = [row for row in launches if int(row.get("anno") or 0) == year]
+        ok = sum(row.get("stato") == "successo" for row in rows)
+        annual.append({"anno": year, "lanci": len(rows), "successi": ok, "falliti": len(rows) - ok})
+    pads = []
+    for pad in sorted({str(row.get("pad") or "Non indicato") for row in launches}):
+        count = sum(str(row.get("pad") or "Non indicato") == pad for row in launches)
+        pads.append({"pad": pad, "lanci": count, "quota": count / len(launches) if launches else 0})
+    pads.sort(key=lambda item: item["lanci"], reverse=True)
+    orbits = []
+    for orbit in sorted({str(row.get("orbita") or "Non indicata") for row in launches}):
+        count = sum(str(row.get("orbita") or "Non indicata") == orbit for row in launches)
+        orbits.append({"orbita": orbit, "lanci": count, "quota": count / len(launches) if launches else 0})
+    orbits.sort(key=lambda item: item["lanci"], reverse=True)
+    latest = launches[-1] if launches else {}
+    metrics = {
+        "lanci": len(launches),
+        "successi": successes,
+        "fallimenti": failures,
+        "tasso": successes / len(launches) if launches else None,
+        "primo": launches[0].get("data") if launches else None,
+        "ultimo": latest.get("data"),
+        "annoCorrente": sum(int(row.get("anno") or 0) == datetime.now().year for row in launches),
+        "pad": len(pads),
+    }
+    return {"metrics": metrics, "annual": annual, "pads": pads, "orbits": orbits, "latest": latest}
+
+
+def electron_upcoming_data():
+    path = ROOT / "electronlab" / "prossimi_lanci_electron.json"
+    if not path.exists():
+        return []
+    launches = json.loads(path.read_text(encoding="utf-8"))
+    now = datetime.now(timezone.utc)
+    upcoming = []
+    for launch in launches:
+        iso = launch.get("iso")
+        if iso:
+            try:
+                launch_time = datetime.fromisoformat(str(iso).replace("Z", "+00:00"))
+            except ValueError:
+                launch_time = None
+            if launch_time and launch_time <= now:
+                continue
+        upcoming.append(launch)
+    return sorted(upcoming, key=lambda item: str(item.get("iso") or "9999"))
 
 
 def starship_data():
@@ -1481,7 +1549,7 @@ def page_hero(title, eyebrow, copy, construction=False):
     <p class="eyebrow">{escape(eyebrow)}</p>
     <h1>{escape(title)}</h1>
     <p class="subtitle">{escape(copy)}</p>
-    {badge}
+{badge}
   </div>
 </section>
 """
@@ -1538,6 +1606,131 @@ def render_spacex(data):
 </section>
 """
     return shell("SpaceX", "spacex", True, body, countdown_script())
+
+
+def render_electron_dashboard(electron):
+    metrics = electron["metrics"]
+    latest = electron.get("latest") or {}
+    max_launches = max((row["lanci"] for row in electron["annual"]), default=1)
+    annual_rows = "\n".join(
+        f'<div class="bar-row"><span>{row["anno"]}</span><div class="bar"><i style="width:{max(2, row["lanci"] / max_launches * 100)}%"></i></div><strong>{row["lanci"]}</strong></div>'
+        for row in electron["annual"]
+    )
+    pad_rows = "\n".join(
+        f'<tr><td>{escape(str(row["pad"]))}</td><td>{row["lanci"]}</td><td>{percent(row["quota"])}</td></tr>'
+        for row in electron["pads"]
+    )
+    orbit_rows = "\n".join(
+        f'<tr><td>{escape(str(row["orbita"]))}</td><td>{row["lanci"]}</td><td>{percent(row["quota"])}</td></tr>'
+        for row in electron["orbits"][:8]
+    )
+    latest_block = (
+        f"""<article class="next-launch history-latest">
+  <div><p class="badge">Ultimo lancio registrato</p><h3>{escape(str(latest.get('missione') or 'Electron'))}</h3>
+  <p>{display_date(latest.get('data'))} · volo Electron #{escape(str(latest.get('nr') or ''))}</p></div>
+  <div><p><strong>Electron</strong></p><p>Esito: {escape(str(latest.get('stato') or 'n.d.'))}</p>
+  <div class="launch-meta history-meta"><div><b>Pad</b><span>{escape(str(latest.get('pad') or 'n.d.'))}</span></div><div><b>Orbita</b><span>{escape(str(latest.get('orbita') or 'n.d.'))}</span></div><div><b>Ora UTC</b><span>{escape(str(latest.get('ora UTC') or 'n.d.'))}</span></div></div></div>
+</article>"""
+        if latest
+        else ""
+    )
+    metric_block = "".join(
+        [
+            metric(metrics["lanci"], "lanci Electron"),
+            metric(metrics["successi"], "successi"),
+            metric(metrics["fallimenti"], "fallimenti"),
+            metric(percent(metrics["tasso"]), "tasso successo"),
+            metric(display_date(metrics["primo"]), "primo lancio"),
+            metric(display_date(metrics["ultimo"]), "ultimo lancio"),
+            metric(metrics["annoCorrente"], f"lanci nel {datetime.now().year}"),
+            metric(metrics["pad"], "pad utilizzati"),
+        ]
+    )
+    return f"""
+{latest_block}
+<div style="margin-top:18px"><div class="metrics">{metric_block}</div></div>
+<div class="dash-grid" style="margin-top:18px">
+  <div class="panel"><h3>Lanci per anno</h3><div class="bars">{annual_rows}</div></div>
+  <div class="panel"><h3>Orbite principali</h3><table><thead><tr><th>Orbita</th><th>Lanci</th><th>Quota</th></tr></thead><tbody>{orbit_rows}</tbody></table></div>
+</div>
+<div class="panel" style="margin-top:18px"><h3>Pad di lancio</h3><table><thead><tr><th>Pad</th><th>Lanci</th><th>Quota</th></tr></thead><tbody>{pad_rows}</tbody></table></div>
+"""
+
+
+def render_electron_lab(data):
+    electron = data["electron"]
+    metrics = electron["metrics"]
+    preview = data["electronUpcoming"][:3]
+    preview_block = (
+        render_launch_cards(preview, compact=True)
+        if preview
+        else '<div class="panel"><p class="muted">Nessun lancio Electron futuro disponibile al momento.</p></div>'
+    )
+    top_metrics = "".join(
+        [
+            metric(metrics["lanci"], "lanci Electron"),
+            metric(metrics["successi"], "successi"),
+            metric(percent(metrics["tasso"]), "success rate storico"),
+            metric(metrics["annoCorrente"], f"lanci nel {datetime.now().year}"),
+        ]
+    )
+    body = f"""
+{page_hero("Electron Lab", "Sezione attiva", "Il laboratorio dedicato a Electron, il lanciatore leggero di Rocket Lab: prossime missioni e statistiche dell'intero programma.")}
+<section>
+  <div class="inner split">
+    <article class="panel">
+      <h2>Programma Electron</h2>
+      <p>Una sezione operativa per seguire la cadenza di Rocket Lab: agenda dei voli futuri, storico completo, successi, fallimenti, pad e profili orbitali.</p>
+      <div class="actions spacex-actions">
+        <a class="button" href="lanci-imminenti-electron.html">Prossimi lanci</a>
+        <a class="button secondary" href="statistiche-electron.html">Statistiche</a>
+      </div>
+    </article>
+    <aside class="panel"><h3>Cruscotto rapido</h3><div class="metrics">{top_metrics}</div></aside>
+  </div>
+</section>
+<section>
+  <div class="inner">
+    <div class="section-head"><h2>Prossimi lanci</h2><p>Anteprima delle missioni Electron disponibili in Launch Library 2, con T-0 puntuali separati dalle finestre NET.</p></div>
+    {preview_block}
+    <div class="actions"><a class="button" href="lanci-imminenti-electron.html">Apri agenda Electron</a><a class="button secondary" href="statistiche-electron.html">Apri statistiche</a></div>
+  </div>
+</section>
+"""
+    return shell("Electron Lab", "electron-lab", True, body, countdown_script())
+
+
+def render_electron_launches_page(data):
+    launches = data["electronUpcoming"]
+    exact = [item for item in launches if "net" not in (item.get("cat") or [])]
+    net = [item for item in launches if "net" in (item.get("cat") or [])]
+    body = f"""
+{page_hero("Prossimi lanci Electron", "Agenda Electron Lab", "Le prossime missioni del lanciatore Electron di Rocket Lab, aggiornate da The Space Devs / Launch Library 2.")}
+<section>
+  <div class="inner">
+    <div class="agenda-strip">
+      <div class="agenda-note"><b>{len(exact)}</b><span>missioni con T-0 puntuale</span></div>
+      <div class="agenda-note"><b>{len(net)}</b><span>finestre NET o non stabili</span></div>
+      <div class="agenda-note"><b>{len(launches)}</b><span>missioni Electron in agenda</span></div>
+    </div>
+  </div>
+</section>
+{f'<section><div class="inner"><div class="section-head"><h2>T-0 confermati</h2><p>Missioni con data e orario puntuali indicati dalla fonte.</p></div>{render_launch_cards(exact)}</div></section>' if exact else ''}
+{f'<section><div class="inner"><div class="section-head"><h2>Finestre NET</h2><p>Missioni ancora soggette a variazioni di data o orario.</p></div>{render_launch_cards(net, compact=True)}</div></section>' if net else ''}
+"""
+    return shell("Prossimi lanci Electron", "electron-lab", True, body, countdown_script())
+
+
+def render_electron_statistics_page(data):
+    body = f"""
+{page_hero("Statistiche Electron", "Dashboard Electron Lab", "Riepilogo completo del programma Electron: cadenza annuale, successi, fallimenti, pad e orbite.")}
+<section><div class="inner">{render_electron_dashboard(data['electron'])}</div></section>
+"""
+    return shell("Statistiche Electron", "electron-lab", True, body)
+
+
+def render_rocket_lab_redirect():
+    return """<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="0; url=electron-lab.html"><link rel="canonical" href="electron-lab.html"><title>Electron Lab | Rivoluzione Spaziale</title></head><body><p>La sezione Rocket Lab è ora <a href="electron-lab.html">Electron Lab</a>.</p></body></html>"""
 
 
 def render_spacex_history_page(data):
@@ -1705,6 +1898,8 @@ def render():
     data = {
         "upcoming": extract_upcoming_launches(),
         "falcon": falcon_data(),
+        "electron": electron_data(),
+        "electronUpcoming": electron_upcoming_data(),
         "starship": starship_data(),
         "pads": pad_launch_data(),
         "locations": spacex_locations_data(),
@@ -1714,6 +1909,10 @@ def render():
         (CSS_DIR / "style.css", render_css()),
         (ROOT / "index.html", render_home()),
         (SECTIONS_DIR / "spacex.html", render_spacex(data)),
+        (SECTIONS_DIR / "electron-lab.html", render_electron_lab(data)),
+        (SECTIONS_DIR / "lanci-imminenti-electron.html", render_electron_launches_page(data)),
+        (SECTIONS_DIR / "statistiche-electron.html", render_electron_statistics_page(data)),
+        (SECTIONS_DIR / "rocket-lab.html", render_rocket_lab_redirect()),
         (SECTIONS_DIR / "storia-spacex.html", render_spacex_history_page(data)),
         (SECTIONS_DIR / "lanci-imminenti.html", render_launches_page(data)),
         (SECTIONS_DIR / "storico-lanci.html", render_history_page(data)),
@@ -1724,7 +1923,7 @@ def render():
     for path, content in outputs:
         write(path, content)
     for item in PLACEHOLDER_SECTIONS:
-        if item["slug"] != "spacex":
+        if not item.get("active"):
             path = SECTIONS_DIR / f"{item['slug']}.html"
             write(path, render_placeholder(item))
             outputs.append((path, None))

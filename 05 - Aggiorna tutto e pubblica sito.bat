@@ -26,10 +26,19 @@ if not exist "03_script\genera_sito_rivoluzione.py" (
     goto :errore
 )
 
-echo 1. Scarico i prossimi lanci SpaceX dal web.
-echo 2. Rigenero il sito e lo storico usando i file Excel.
-echo 3. Pubblico le modifiche su main e gh-pages.
+if not exist "electronlab\aggiorna_lanci_electron_sito.py" (
+    echo ERRORE: script dei prossimi lanci Electron non trovato.
+    goto :errore
+)
+
+echo 1. Scarico i prossimi lanci Electron dal web.
+echo 2. Scarico i prossimi lanci SpaceX dal web.
+echo 3. Rigenero il sito e gli storici usando i file Excel.
+echo 4. Pubblico le modifiche su main e gh-pages.
 echo.
+
+"%PYTHON%" "electronlab\aggiorna_lanci_electron_sito.py"
+if errorlevel 1 goto :errore
 
 "%PYTHON%" "03_script\aggiorna_lanci_spacex_sito.py" --publish
 if errorlevel 1 goto :errore
@@ -44,6 +53,9 @@ echo https://paolozamparutti197-cpu.github.io/rivoluzione-spaziale/sezioni/lanci
 echo.
 echo Pagina storico lanci:
 echo https://paolozamparutti197-cpu.github.io/rivoluzione-spaziale/sezioni/storico-lanci.html
+echo.
+echo Pagina Electron Lab:
+echo https://paolozamparutti197-cpu.github.io/rivoluzione-spaziale/sezioni/electron-lab.html
 echo.
 pause
 exit /b 0
