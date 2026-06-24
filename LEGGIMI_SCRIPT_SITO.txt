@@ -39,6 +39,16 @@ Serve solo quando vuoi rifare quelle infografiche.
 Non pubblica online da solo.
 
 
+05 - Aggiorna tutto e pubblica sito.bat
+Esegue in un solo passaggio:
+- aggiornamento dei prossimi lanci SpaceX dal web;
+- rigenerazione dello storico e delle statistiche dai file Excel;
+- commit e push su GitHub;
+- pubblicazione dei branch main e gh-pages.
+
+E il file consigliato quando vuoi aggiornare tutto il sito con un doppio clic.
+
+
 NOTA RAPIDA
 
 Se vuoi solo aggiornare lo storico dopo Excel:
@@ -49,6 +59,9 @@ usa 02.
 
 Se vuoi aggiornare i lanci SpaceX anche sul sito pubblico:
 usa 03.
+
+Se vuoi aggiornare insieme prossimi lanci e storico Excel e pubblicare tutto:
+usa 05.
 
 Pagina pubblica:
 https://paolozamparutti197-cpu.github.io/rivoluzione-spaziale/sezioni/lanci-imminenti.html

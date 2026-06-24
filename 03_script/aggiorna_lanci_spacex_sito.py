@@ -43,9 +43,12 @@ SPECIAL_NAMES = {
 
 TARGET_FILES = [
     "03_script/aggiorna_lanci_spacex_sito.py",
+    "05 - Aggiorna tutto e pubblica sito.bat",
+    "LEGGIMI_SCRIPT_SITO.txt",
     "spacex_lanci_fino_luglio_2026 (1).html",
     "sezioni/lanci-imminenti.html",
     "sezioni/spacex.html",
+    "sezioni/storico-lanci.html",
 ]
 
 
