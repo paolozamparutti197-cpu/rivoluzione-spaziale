@@ -7,7 +7,7 @@ import sys
 import tempfile
 import time
 from contextlib import contextmanager
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -19,6 +19,9 @@ ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "spacex_lanci_fino_luglio_2026 (1).html"
 SITE_GENERATOR = ROOT / "03_script" / "genera_sito_rivoluzione.py"
 PUBLIC_PAGE = "https://paolozamparutti197-cpu.github.io/rivoluzione-spaziale/sezioni/lanci-imminenti.html"
+CHECK_STATE = Path(tempfile.gettempdir()) / "rivoluzione-spaziale-space-launches-check.json"
+CHECK_COOLDOWN_SECONDS = 600
+MAX_AUTOMATIC_WAIT_SECONDS = 90
 
 MONTHS_IT = {
     1: "gennaio",
@@ -61,6 +64,27 @@ def run_git(*args, capture=False):
     if capture:
         return subprocess.check_output(command, cwd=ROOT, text=True, encoding="utf-8").strip()
     subprocess.check_call(command, cwd=ROOT)
+
+
+def recent_successful_check():
+    try:
+        state = json.loads(CHECK_STATE.read_text(encoding="utf-8"))
+        checked_at = float(state.get("checked_at", 0))
+    except (OSError, ValueError, TypeError):
+        return 0
+    age = time.time() - checked_at
+    return max(0, CHECK_COOLDOWN_SECONDS - age) if 0 <= age < CHECK_COOLDOWN_SECONDS else 0
+
+
+def record_successful_check():
+    try:
+        CHECK_STATE.write_text(json.dumps({"checked_at": time.time()}), encoding="utf-8")
+    except OSError:
+        pass
+
+
+def agenda_files_are_clean():
+    return subprocess.run(["git", "diff", "--quiet", "--", *PUBLISH_FILES], cwd=ROOT).returncode == 0
 
 
 @contextmanager
@@ -137,6 +161,12 @@ def fetch_spacex_launches(max_launches=100, retries=3):
                     break
                 retry_after = response.headers.get("Retry-After")
                 wait_seconds = int(retry_after) if retry_after and retry_after.isdigit() else 10 * (attempt + 1)
+                if wait_seconds > MAX_AUTOMATIC_WAIT_SECONDS:
+                    retry_at = datetime.now().astimezone() + timedelta(seconds=wait_seconds)
+                    raise RuntimeError(
+                        "The Space Devs ha temporaneamente esaurito la quota di richieste. "
+                        f"Riprova dopo le {retry_at:%H:%M}; nessun file e stato modificato."
+                    )
                 log(f"Fonte temporaneamente occupata ({response.status_code}); nuovo tentativo tra {wait_seconds} s...")
                 time.sleep(wait_seconds)
             except requests.RequestException:
@@ -495,14 +525,24 @@ def main():
     parser.add_argument("--include-all", action="store_true", help="Non limitare l'output alla fine del mese prossimo.")
     parser.add_argument("--publish", action="store_true", help="Commit e push automatico su main e gh-pages.")
     parser.add_argument("--dry-run", action="store_true", help="Scarica e mostra il riepilogo senza scrivere file.")
+    parser.add_argument("--force", action="store_true", help="Ignora la pausa di 10 minuti tra due controlli consecutivi.")
     args = parser.parse_args()
     with single_instance():
+        cooldown = recent_successful_check()
+        if cooldown and not args.force and agenda_files_are_clean():
+            log(
+                "Controllo gia eseguito da pochi minuti. "
+                f"Per evitare richieste e pubblicazioni inutili, riprova tra {max(1, int(cooldown // 60) + 1)} min."
+            )
+            return
+
         if args.publish:
             log("[1/4] Controllo repository e collegamento con GitHub...")
             prepare_publish()
 
         log("[2/4] Leggo e confronto i prossimi lanci SpaceX...")
         launches = build_manifest_launches(max_launches=args.max, include_all=args.include_all)
+        record_successful_check()
         exact = sum(1 for item in launches if "exact" in item.get("cat", []))
         net = sum(1 for item in launches if "net" in item.get("cat", []))
         log(f"Fonte letta correttamente: {len(launches)} lanci ({exact} T-0, {net} NET).")

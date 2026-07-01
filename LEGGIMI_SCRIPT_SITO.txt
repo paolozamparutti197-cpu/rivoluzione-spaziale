@@ -30,6 +30,9 @@ attende la propagazione e conferma quando la nuova versione e davvero online.
 
 IMPORTANTE: fai un solo doppio clic e lascia aperta la finestra fino al messaggio finale.
 Se lo avvii di nuovo mentre sta lavorando, il secondo avvio viene bloccato automaticamente.
+Per proteggere la fonte dati, due controlli consecutivi sono separati da 10 minuti.
+Se The Space Devs impone un'attesa molto lunga, il programma si ferma subito e indica
+l'orario dopo il quale riprovare, senza lasciare la finestra bloccata per decine di minuti.
 
 
 04 - Genera infografiche pad.lnk
