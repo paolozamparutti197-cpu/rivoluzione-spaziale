@@ -210,6 +210,17 @@ console.log(JSON.stringify(launches.map((launch) => ({
     return sorted(upcoming, key=lambda item: str(item.get("iso") or "9999"))
 
 
+def launch_manifest_metadata():
+    path = ROOT / "spacex_lanci_fino_luglio_2026 (1).html"
+    text = path.read_text(encoding="utf-8") if path.exists() else ""
+    updated_at = re.search(r'const launchesUpdatedAt = "([^"]+)";', text)
+    version = re.search(r'const launchesDataVersion = "([^"]+)";', text)
+    return {
+        "updatedAt": updated_at.group(1) if updated_at else "data non disponibile",
+        "version": version.group(1) if version else "non-disponibile",
+    }
+
+
 def falcon_data():
     path = ROOT / "01_workbook" / "lanci_spacex_falcon.xlsx"
     workbook = openpyxl.load_workbook(path, read_only=True, data_only=True)
@@ -1834,7 +1845,7 @@ def render_launches_page(data):
   <div class="inner">
     <div class="section-head">
       <h2>Quadro rapido</h2>
-      <p>Ultimo aggiornamento locale: {escape(str(data.get('generatedAt') or ''))}. Il volo Starlink Group 17-54 del 15 giugno 2026 e stato tolto dall'agenda perche gia avvenuto.</p>
+      <p>Dati aggiornati: {escape(str(data.get('generatedAt') or ''))}. Fonte: The Space Devs / Launch Library 2.</p>
     </div>
     <div class="agenda-strip">
       <div class="agenda-note"><b>{len(exact)}</b><span>lanci con T-0 puntuale ancora in agenda</span></div>
@@ -1847,7 +1858,15 @@ def render_launches_page(data):
 {exact_section}
 {net_section}
 """
-    return shell("Lanci imminenti", "lanci-imminenti", True, body, countdown_script())
+    version = escape(str(data.get("launchesVersion") or "non-disponibile"))
+    return shell(
+        "Lanci imminenti",
+        "lanci-imminenti",
+        True,
+        body,
+        countdown_script(),
+        f'<meta name="space-data-version" content="{version}">',
+    )
 
 
 def render_history_page(data):
@@ -1891,10 +1910,14 @@ def render_placeholder(item):
 
 def write(path, content):
     path.parent.mkdir(parents=True, exist_ok=True)
+    if path.exists() and path.read_text(encoding="utf-8") == content:
+        return False
     path.write_text(content, encoding="utf-8")
+    return True
 
 
 def render():
+    launch_metadata = launch_manifest_metadata()
     data = {
         "upcoming": extract_upcoming_launches(),
         "falcon": falcon_data(),
@@ -1903,7 +1926,8 @@ def render():
         "starship": starship_data(),
         "pads": pad_launch_data(),
         "locations": spacex_locations_data(),
-        "generatedAt": datetime.now().strftime("%Y-%m-%d %H:%M"),
+        "generatedAt": launch_metadata["updatedAt"],
+        "launchesVersion": launch_metadata["version"],
     }
     outputs = [
         (CSS_DIR / "style.css", render_css()),
@@ -1920,18 +1944,21 @@ def render():
         (SECTIONS_DIR / "pad-di-lancio.html", render_pad_page(data)),
         (SECTIONS_DIR / "localita-spacex.html", render_locations_page(data)),
     ]
+    changed = []
     for path, content in outputs:
-        write(path, content)
+        if write(path, content):
+            changed.append(path)
     for item in PLACEHOLDER_SECTIONS:
         if not item.get("active"):
             path = SECTIONS_DIR / f"{item['slug']}.html"
-            write(path, render_placeholder(item))
+            if write(path, render_placeholder(item)):
+                changed.append(path)
             outputs.append((path, None))
-    return data, [path for path, _ in outputs]
+    return data, [path for path, _ in outputs], changed
 
 
 def main():
-    data, outputs = render()
+    data, outputs, changed = render()
     falcon = data["falcon"]
     metrics = falcon["metrics"]
     latest = falcon.get("latest") or {}
@@ -1947,9 +1974,12 @@ def main():
             "Ultimo lancio registrato: "
             f"{latest.get('cliente')} - {latest.get('data')} - Falcon #{latest.get('nr')}."
         )
-    print("File aggiornati:")
-    for path in outputs:
-        print(f"- {path.relative_to(ROOT)}")
+    if changed:
+        print("File modificati:")
+        for path in changed:
+            print(f"- {path.relative_to(ROOT)}")
+    else:
+        print("Nessun file modificato: i contenuti generati sono gia aggiornati.")
 
 
 if __name__ == "__main__":

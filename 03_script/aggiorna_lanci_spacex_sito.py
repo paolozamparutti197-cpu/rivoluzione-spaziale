@@ -1,9 +1,12 @@
 import argparse
+import hashlib
 import json
 import re
 import subprocess
 import sys
+import tempfile
 import time
+from contextlib import contextmanager
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlparse
@@ -15,6 +18,7 @@ API_BASE = "https://ll.thespacedevs.com/2.3.0/launches/upcoming/"
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "spacex_lanci_fino_luglio_2026 (1).html"
 SITE_GENERATOR = ROOT / "03_script" / "genera_sito_rivoluzione.py"
+PUBLIC_PAGE = "https://paolozamparutti197-cpu.github.io/rivoluzione-spaziale/sezioni/lanci-imminenti.html"
 
 MONTHS_IT = {
     1: "gennaio",
@@ -41,38 +45,48 @@ SPECIAL_NAMES = {
     "Project Starfall Demonstration Mission": "Starfall Demo",
 }
 
-TARGET_FILES = [
-    "03_script/aggiorna_lanci_spacex_sito.py",
-    "03_script/genera_sito_rivoluzione.py",
-    "05 - Aggiorna tutto e pubblica sito.bat",
-    "LEGGIMI_SCRIPT_SITO.txt",
-    "css/style.css",
-    "index.html",
-    "electronlab/aggiorna_lanci_electron_sito.py",
-    "electronlab/crea_workbook_storico_electron.py",
-    "electronlab/lanci_electron.xlsx",
-    "electronlab/prossimi_lanci_electron.json",
+PUBLISH_FILES = [
     "spacex_lanci_fino_luglio_2026 (1).html",
-    "sezioni/electron-lab.html",
-    "sezioni/lanci-imminenti-electron.html",
-    "sezioni/statistiche-electron.html",
-    "sezioni/rocket-lab.html",
-    "sezioni/arianespace.html",
-    "sezioni/blue-origin.html",
-    "sezioni/cina.html",
-    "sezioni/cronologia.html",
-    "sezioni/infrastrutture-orbitali.html",
-    "sezioni/localita-spacex.html",
-    "sezioni/luna.html",
-    "sezioni/marte.html",
-    "sezioni/pad-di-lancio.html",
-    "sezioni/starship.html",
-    "sezioni/storia-spacex.html",
-    "sezioni/ula.html",
     "sezioni/lanci-imminenti.html",
     "sezioni/spacex.html",
-    "sezioni/storico-lanci.html",
 ]
+
+
+def log(message):
+    print(message, flush=True)
+
+
+def run_git(*args, capture=False):
+    command = ["git", *args]
+    if capture:
+        return subprocess.check_output(command, cwd=ROOT, text=True, encoding="utf-8").strip()
+    subprocess.check_call(command, cwd=ROOT)
+
+
+@contextmanager
+def single_instance():
+    lock_path = Path(tempfile.gettempdir()) / "rivoluzione-spaziale-space-launches.lock"
+    handle = lock_path.open("a+b")
+    handle.seek(0)
+    if handle.tell() == 0:
+        handle.write(b"0")
+        handle.flush()
+    try:
+        import msvcrt
+
+        handle.seek(0)
+        msvcrt.locking(handle.fileno(), msvcrt.LK_NBLCK, 1)
+    except (ImportError, OSError):
+        handle.close()
+        raise RuntimeError(
+            "Un altro aggiornamento SpaceX e gia in corso. Attendi che termini: non serve aprire di nuovo il numero 3."
+        )
+    try:
+        yield
+    finally:
+        handle.seek(0)
+        msvcrt.locking(handle.fileno(), msvcrt.LK_UNLCK, 1)
+        handle.close()
 
 
 def safe_get(dct, *keys, default=""):
@@ -109,14 +123,30 @@ def fetch_spacex_launches(max_launches=100, retries=3):
             "limit": limit,
             "offset": offset,
         }
+        response = None
         for attempt in range(retries):
-            response = requests.get(API_BASE, params=params, timeout=30)
-            if response.status_code != 429 or attempt == retries - 1:
-                break
-            retry_after = response.headers.get("Retry-After")
-            wait_seconds = int(retry_after) if retry_after and retry_after.isdigit() else 20 * (attempt + 1)
-            print(f"Rate limit The Space Devs: attendo {wait_seconds}s e riprovo...")
-            time.sleep(wait_seconds)
+            try:
+                response = requests.get(
+                    API_BASE,
+                    params=params,
+                    timeout=(10, 45),
+                    headers={"Accept": "application/json", "User-Agent": "Rivoluzione-Spaziale-Updater/2.0"},
+                )
+                retryable = response.status_code == 429 or 500 <= response.status_code < 600
+                if not retryable or attempt == retries - 1:
+                    break
+                retry_after = response.headers.get("Retry-After")
+                wait_seconds = int(retry_after) if retry_after and retry_after.isdigit() else 10 * (attempt + 1)
+                log(f"Fonte temporaneamente occupata ({response.status_code}); nuovo tentativo tra {wait_seconds} s...")
+                time.sleep(wait_seconds)
+            except requests.RequestException:
+                if attempt == retries - 1:
+                    raise
+                wait_seconds = 10 * (attempt + 1)
+                log(f"Problema di rete; nuovo tentativo tra {wait_seconds} s...")
+                time.sleep(wait_seconds)
+        if response is None:
+            raise RuntimeError("La fonte The Space Devs non ha restituito alcuna risposta.")
         response.raise_for_status()
         data = response.json()
         results = data.get("results", [])
@@ -330,7 +360,28 @@ def build_manifest_launches(max_launches, include_all=False):
     return sorted(converted, key=lambda item: item.get("iso") or "9999")
 
 
+def launches_version(launches):
+    canonical = json.dumps(launches, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    return hashlib.sha256(canonical.encode("utf-8")).hexdigest()[:16]
+
+
+def read_manifest_launches(text):
+    match = re.search(r"const launches = (\[[\s\S]*?\]);", text)
+    if not match:
+        raise RuntimeError("Blocco 'const launches = [...]' non trovato nel manifesto.")
+    return json.loads(match.group(1))
+
+
 def replace_launches_block(text, launches):
+    previous = read_manifest_launches(text)
+    data_changed = previous != launches
+    version = launches_version(launches)
+    existing_updated_at = re.search(r'const launchesUpdatedAt = "([^"]+)";', text)
+    updated_at = existing_updated_at.group(1) if existing_updated_at else ""
+
+    if data_changed or not updated_at:
+        updated_at = datetime.now().astimezone().strftime("%Y-%m-%d %H:%M")
+
     data = json.dumps(launches, ensure_ascii=False, indent=2)
     updated, count = re.subn(
         r"const launches = \[[\s\S]*?\];",
@@ -340,36 +391,100 @@ def replace_launches_block(text, launches):
     )
     if count != 1:
         raise RuntimeError("Blocco 'const launches = [...]' non trovato nel manifesto.")
-    now = datetime.now()
-    today = f"{now.day} {MONTHS_IT[now.month]} {now.year}"
-    updated = re.sub(
-        r"fotografia ragionata del quadro disponibile al [^.<]+",
-        f"fotografia ragionata del quadro disponibile al {today}",
-        updated,
-        count=1,
+
+    metadata = (
+        f'const launchesUpdatedAt = "{updated_at}";\n'
+        f'const launchesDataVersion = "{version}";\n'
     )
-    return updated
+    if re.search(r'const launchesUpdatedAt = "[^"]*";\s*const launchesDataVersion = "[^"]*";\s*', updated):
+        updated = re.sub(
+            r'const launchesUpdatedAt = "[^"]*";\s*const launchesDataVersion = "[^"]*";\s*',
+            metadata,
+            updated,
+            count=1,
+        )
+    else:
+        updated = updated.replace("const launches = [", metadata + "const launches = [", 1)
+
+    if data_changed:
+        now = datetime.now()
+        today = f"{now.day} {MONTHS_IT[now.month]} {now.year}"
+        updated = re.sub(
+            r"fotografia ragionata del quadro disponibile al [^.<]+",
+            f"fotografia ragionata del quadro disponibile al {today}",
+            updated,
+            count=1,
+        )
+    return updated, previous, data_changed, version, updated_at
 
 
 def update_manifest(launches):
     text = MANIFEST.read_text(encoding="utf-8")
-    updated = replace_launches_block(text, launches)
-    MANIFEST.write_text(updated, encoding="utf-8")
+    updated, previous, data_changed, version, updated_at = replace_launches_block(text, launches)
+    file_changed = updated != text
+    if file_changed:
+        MANIFEST.write_text(updated, encoding="utf-8")
+    return file_changed, data_changed, previous, version, updated_at
 
 
 def regenerate_site():
     subprocess.check_call([sys.executable, str(SITE_GENERATOR)], cwd=ROOT)
 
 
-def publish_to_github(message):
-    subprocess.check_call(["git", "add", "--", *TARGET_FILES], cwd=ROOT)
-    staged = subprocess.check_output(["git", "diff", "--cached", "--name-only"], cwd=ROOT, text=True)
-    if not staged.strip():
-        print("Nessuna modifica da pubblicare.")
+def prepare_publish():
+    branch = run_git("branch", "--show-current", capture=True)
+    if branch != "main":
+        raise RuntimeError(f"Pubblicazione interrotta: il branch attivo e '{branch}', non 'main'.")
+    if subprocess.run(["git", "diff", "--cached", "--quiet", "--", *PUBLISH_FILES], cwd=ROOT).returncode != 0:
+        raise RuntimeError("Ci sono gia modifiche in staging nei file dell'agenda. Rivedile prima di usare il numero 3.")
+
+    run_git("fetch", "origin", "main", "--quiet")
+    remote_main = run_git("rev-parse", "origin/main", capture=True)
+    head = run_git("rev-parse", "HEAD", capture=True)
+    if subprocess.run(["git", "merge-base", "--is-ancestor", remote_main, head], cwd=ROOT).returncode == 0:
         return
-    subprocess.check_call(["git", "commit", "-m", message], cwd=ROOT)
-    subprocess.check_call(["git", "push", "origin", "main"], cwd=ROOT)
-    subprocess.check_call(["git", "push", "origin", "main:gh-pages"], cwd=ROOT)
+    if subprocess.run(["git", "merge-base", "--is-ancestor", head, remote_main], cwd=ROOT).returncode == 0:
+        log("Il repository locale e indietro: allineamento veloce con GitHub...")
+        run_git("merge", "--ff-only", "origin/main")
+        return
+    raise RuntimeError("Il branch locale e GitHub hanno storie divergenti. Serve un controllo manuale prima del push.")
+
+
+def verify_public_page(version, timeout_seconds=600):
+    deadline = time.monotonic() + timeout_seconds
+    log("[4/4] Attendo che GitHub Pages renda visibile la nuova versione...")
+    while time.monotonic() < deadline:
+        try:
+            response = requests.get(
+                PUBLIC_PAGE,
+                params={"v": version, "t": int(time.time())},
+                timeout=(10, 30),
+                headers={"Cache-Control": "no-cache", "User-Agent": "Rivoluzione-Spaziale-Updater/2.0"},
+            )
+            if response.ok and f'content="{version}"' in response.text:
+                log(f"OK: versione {version} visibile online: {PUBLIC_PAGE}?v={version}")
+                return True
+        except requests.RequestException:
+            pass
+        time.sleep(15)
+    log(f"ATTENZIONE: push riuscito, ma GitHub Pages non ha confermato la versione entro {timeout_seconds // 60} minuti.")
+    log(f"Controlla piu tardi: {PUBLIC_PAGE}?v={version}")
+    return False
+
+
+def publish_to_github(message, version):
+    run_git("add", "--", *PUBLISH_FILES)
+    if subprocess.run(["git", "diff", "--cached", "--quiet", "--", *PUBLISH_FILES], cwd=ROOT).returncode == 0:
+        log("Nessuna modifica da pubblicare: non creo commit e non avvio GitHub Pages.")
+        return False
+    run_git("commit", "--only", "-m", message, "--", *PUBLISH_FILES)
+    commit = run_git("rev-parse", "HEAD", capture=True)
+    log("[3/4] Invio un solo aggiornamento a main e gh-pages...")
+    run_git("push", "origin", "main")
+    run_git("push", "origin", "main:gh-pages")
+    verify_public_page(version)
+    log(f"Pubblicazione completata con commit {commit[:8]}.")
+    return True
 
 
 def main():
@@ -381,27 +496,51 @@ def main():
     parser.add_argument("--publish", action="store_true", help="Commit e push automatico su main e gh-pages.")
     parser.add_argument("--dry-run", action="store_true", help="Scarica e mostra il riepilogo senza scrivere file.")
     args = parser.parse_args()
+    with single_instance():
+        if args.publish:
+            log("[1/4] Controllo repository e collegamento con GitHub...")
+            prepare_publish()
 
-    launches = build_manifest_launches(max_launches=args.max, include_all=args.include_all)
-    exact = sum(1 for item in launches if "exact" in item.get("cat", []))
-    net = sum(1 for item in launches if "net" in item.get("cat", []))
+        log("[2/4] Leggo e confronto i prossimi lanci SpaceX...")
+        launches = build_manifest_launches(max_launches=args.max, include_all=args.include_all)
+        exact = sum(1 for item in launches if "exact" in item.get("cat", []))
+        net = sum(1 for item in launches if "net" in item.get("cat", []))
+        log(f"Fonte letta correttamente: {len(launches)} lanci ({exact} T-0, {net} NET).")
+        for item in launches[:8]:
+            log(f"- {item['dateLabel']}: {item['name']}")
 
-    print(f"Lanci SpaceX pronti per il sito: {len(launches)} ({exact} T-0, {net} NET).")
-    for item in launches[:8]:
-        print(f"- {item['dateLabel']}: {item['name']}")
+        if args.dry_run:
+            log("Controllo terminato: nessun file modificato.")
+            return
 
-    if args.dry_run:
-        return
+        file_changed, data_changed, previous, version, updated_at = update_manifest(launches)
+        old_by_id = {item.get("id"): item for item in previous}
+        new_by_id = {item.get("id"): item for item in launches}
+        added = len(new_by_id.keys() - old_by_id.keys())
+        removed = len(old_by_id.keys() - new_by_id.keys())
+        revised = sum(old_by_id[key] != new_by_id[key] for key in old_by_id.keys() & new_by_id.keys())
 
-    update_manifest(launches)
-    regenerate_site()
-    print(f"Aggiornati: {MANIFEST}")
-    print(f"Aggiornata: {ROOT / 'sezioni' / 'lanci-imminenti.html'}")
+        if not file_changed:
+            log(f"Nessuna variazione nei dati (versione {version}, aggiornata il {updated_at}).")
+            if args.publish:
+                log("Nessun commit e nessun nuovo deployment: la pagina pubblicata resta valida.")
+            return
 
-    if args.publish:
-        publish_to_github("Aggiorna agenda SpaceX da The Space Devs")
-        print("Pubblicato su main e gh-pages.")
+        regenerate_site()
+        if data_changed:
+            log(f"Agenda aggiornata: +{added} nuovi, -{removed} rimossi, {revised} modificati.")
+        else:
+            log("Metadati tecnici dell'agenda normalizzati; dati dei lanci invariati.")
+
+        if args.publish:
+            publish_to_github("Aggiorna agenda SpaceX da The Space Devs", version)
+        else:
+            log("File locali aggiornati. Nessuna pubblicazione richiesta.")
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as exc:
+        log(f"ERRORE: {exc}")
+        sys.exit(1)

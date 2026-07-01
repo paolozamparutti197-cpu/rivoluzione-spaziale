@@ -23,9 +23,13 @@ Esegue:
 E:\spacex\03_script\aggiorna_lanci_spacex_sito.py --publish
 
 Scarica i prossimi lanci SpaceX.
-Aggiorna la pagina locale.
-Fa commit e push su GitHub.
-Aggiorna anche il branch gh-pages, quindi pubblica il sito online.
+Confronta i dati con quelli gia presenti e aggiorna solo se cambia qualcosa.
+Se i dati sono identici non crea commit e non avvia una pubblicazione inutile.
+Se ci sono cambiamenti fa un solo commit e push su GitHub, aggiorna gh-pages,
+attende la propagazione e conferma quando la nuova versione e davvero online.
+
+IMPORTANTE: fai un solo doppio clic e lascia aperta la finestra fino al messaggio finale.
+Se lo avvii di nuovo mentre sta lavorando, il secondo avvio viene bloccato automaticamente.
 
 
 04 - Genera infografiche pad.lnk
