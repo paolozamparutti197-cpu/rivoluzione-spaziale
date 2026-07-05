@@ -50,8 +50,20 @@ SPECIAL_NAMES = {
 
 PUBLISH_FILES = [
     "spacex_lanci_fino_luglio_2026 (1).html",
+    "electronlab/prossimi_lanci_electron.json",
+    "css/style.css",
+    "index.html",
     "sezioni/lanci-imminenti.html",
     "sezioni/spacex.html",
+    "sezioni/electron-lab.html",
+    "sezioni/lanci-imminenti-electron.html",
+    "sezioni/statistiche-electron.html",
+    "sezioni/rocket-lab.html",
+    "sezioni/storia-spacex.html",
+    "sezioni/storico-lanci.html",
+    "sezioni/starship.html",
+    "sezioni/pad-di-lancio.html",
+    "sezioni/localita-spacex.html",
 ]
 
 
@@ -480,25 +492,34 @@ def prepare_publish():
     raise RuntimeError("Il branch locale e GitHub hanno storie divergenti. Serve un controllo manuale prima del push.")
 
 
-def verify_public_page(version, timeout_seconds=600):
+def verify_public_pages(version, published_files, timeout_seconds=600):
+    html_files = [path for path in published_files if path.endswith(".html")]
+    if not html_files:
+        html_files = ["sezioni/lanci-imminenti.html"]
     deadline = time.monotonic() + timeout_seconds
-    log("[4/4] Attendo che GitHub Pages renda visibile la nuova versione...")
+    log("[4/4] Attendo che GitHub Pages renda visibili i file appena pubblicati...")
     while time.monotonic() < deadline:
-        try:
-            response = requests.get(
-                PUBLIC_PAGE,
-                params={"v": version, "t": int(time.time())},
-                timeout=(10, 30),
-                headers={"Cache-Control": "no-cache", "User-Agent": "Rivoluzione-Spaziale-Updater/2.0"},
-            )
-            if response.ok and f'content="{version}"' in response.text:
-                log(f"OK: versione {version} visibile online: {PUBLIC_PAGE}?v={version}")
-                return True
-        except requests.RequestException:
-            pass
+        pending = []
+        for path in html_files:
+            public_url = f"https://paolozamparutti197-cpu.github.io/rivoluzione-spaziale/{path}"
+            try:
+                response = requests.get(
+                    public_url,
+                    params={"v": version, "t": int(time.time())},
+                    timeout=(10, 30),
+                    headers={"Cache-Control": "no-cache", "User-Agent": "Rivoluzione-Spaziale-Updater/2.0"},
+                )
+                local_text = (ROOT / path).read_text(encoding="utf-8")
+                if not response.ok or response.text.replace("\r\n", "\n") != local_text.replace("\r\n", "\n"):
+                    pending.append(path)
+            except (OSError, requests.RequestException):
+                pending.append(path)
+        if not pending:
+            log(f"OK: {len(html_files)} pagina/e aggiornate e verificate online.")
+            return True
         time.sleep(15)
-    log(f"ATTENZIONE: push riuscito, ma GitHub Pages non ha confermato la versione entro {timeout_seconds // 60} minuti.")
-    log(f"Controlla piu tardi: {PUBLIC_PAGE}?v={version}")
+    log(f"ATTENZIONE: push riuscito, ma GitHub Pages non ha confermato tutti i file entro {timeout_seconds // 60} minuti.")
+    log(f"File ancora non confermati: {', '.join(pending)}")
     return False
 
 
@@ -507,12 +528,13 @@ def publish_to_github(message, version):
     if subprocess.run(["git", "diff", "--cached", "--quiet", "--", *PUBLISH_FILES], cwd=ROOT).returncode == 0:
         log("Nessuna modifica da pubblicare: non creo commit e non avvio GitHub Pages.")
         return False
+    published_files = run_git("diff", "--cached", "--name-only", "--", *PUBLISH_FILES, capture=True).splitlines()
     run_git("commit", "--only", "-m", message, "--", *PUBLISH_FILES)
     commit = run_git("rev-parse", "HEAD", capture=True)
     log("[3/4] Invio un solo aggiornamento a main e gh-pages...")
     run_git("push", "origin", "main")
     run_git("push", "origin", "main:gh-pages")
-    verify_public_page(version)
+    verify_public_pages(version, published_files)
     log(f"Pubblicazione completata con commit {commit[:8]}.")
     return True
 
@@ -563,7 +585,7 @@ def main():
         if not file_changed:
             log(f"Nessuna variazione nei dati (versione {version}, aggiornata il {updated_at}).")
             if args.publish:
-                log("Nessun commit e nessun nuovo deployment: la pagina pubblicata resta valida.")
+                publish_to_github("Aggiorna pagine del sito dai file Excel", version)
             return
 
         regenerate_site()
