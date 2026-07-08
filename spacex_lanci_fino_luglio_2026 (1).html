@@ -81,7 +81,7 @@ footer{max-width:1260px;margin:0 auto 35px;padding:0 18px;color:#b2c3d1;font-siz
   </div>
 </header>
 <main>
-  <div class="notice">Nota secca: il manifesto SpaceX è mobile per definizione. I lanci Starlink e le missioni dimostrative possono comparire o cambiare a pochi giorni dal volo, quindi questo file è una fotografia ragionata del quadro disponibile al 7 luglio 2026.</div>
+  <div class="notice">Nota secca: il manifesto SpaceX è mobile per definizione. I lanci Starlink e le missioni dimostrative possono comparire o cambiare a pochi giorni dal volo, quindi questo file è una fotografia ragionata del quadro disponibile al 8 luglio 2026.</div>
   <section class="grid" id="cards"></section>
 </main>
 <div class="modal" id="modal" aria-hidden="true">
@@ -97,8 +97,8 @@ footer{max-width:1260px;margin:0 auto 35px;padding:0 18px;color:#b2c3d1;font-siz
   Fonte principale: The Space Devs, Launch Library 2. I dati vanno ricontrollati prima di usarli per pianificare una visione dal vivo o una diretta.
 </footer>
 <script>
-const launchesUpdatedAt = "2026-07-07 09:19";
-const launchesDataVersion = "2e037d867ebc01c4";
+const launchesUpdatedAt = "2026-07-08 08:10";
+const launchesDataVersion = "0b16354a382b642d";
 const launches = [
   {
     "id": "falcon-9-block-5-starlink-group-10-42",
@@ -175,9 +175,9 @@ const launches = [
     "name": "Starlink Group 15-14",
     "status": "Go for launch",
     "rocket": "Falcon 9 Block 5",
-    "dateLabel": "13 luglio 2026, 22:38 UTC",
-    "iso": "2026-07-13T22:38:00Z",
-    "window": "13 luglio 22:38 - 14 luglio 02:38 UTC",
+    "dateLabel": "14 luglio 2026, 01:16 UTC",
+    "iso": "2026-07-14T01:16:00Z",
+    "window": "01:16-02:16 UTC",
     "site": "Space Launch Complex 4E, Vandenberg SFB, CA, USA",
     "landing": "OCISLY, booster B1082, volo 23",
     "orbit": "LEO",
@@ -233,47 +233,23 @@ const launches = [
     ]
   },
   {
-    "id": "falcon-9-block-5-mrv-1",
-    "cat": [
-      "net"
-    ],
-    "name": "MRV-1",
-    "status": "NET / da definire",
-    "rocket": "Falcon 9 Block 5",
-    "dateLabel": "NET luglio 2026",
-    "iso": "2026-07-31T00:00:00Z",
-    "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
-    "site": "Unknown Pad, Cape Canaveral SFS, FL, USA",
-    "landing": "Recupero booster non indicato da The Space Devs",
-    "orbit": "GTO",
-    "payload": "MRV-1 (Mission Extension)",
-    "summary": "The SpaceLogistics MRV-1 is a mission extension payload including a mission robotic vehicle (MRV) and multiple mission extension pods (MEPs).",
-    "news": "Current date is a placeholder or rough estimation based on unreliable or interpreted sources.",
-    "sources": [
-      [
-        "The Space Devs",
-        "https://ll.thespacedevs.com/2.3.0/launches/0f6780cf-edae-4d7c-99d6-ce7de784d140/?format=json"
-      ]
-    ]
-  },
-  {
     "id": "starship-flight-13",
     "cat": [
-      "net",
+      "exact",
       "starship"
     ],
     "name": "Flight 13",
-    "status": "NET / da definire",
+    "status": "Date/time may change",
     "rocket": "Starship V3",
-    "dateLabel": "NET luglio 2026",
-    "iso": "2026-07-31T00:00:00Z",
-    "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
+    "dateLabel": "NET 14 luglio 2026, 22:45 UTC",
+    "iso": "2026-07-14T22:45:00Z",
+    "window": "14 luglio 22:45 - 15 luglio 00:56 UTC; data e orario da ricontrollare",
     "site": "Orbital Launch Pad 2, SpaceX Starbase, TX, USA",
     "landing": "Recupero booster non indicato da The Space Devs",
     "orbit": "Sub",
     "payload": "Flight 13 (Test Flight)",
     "summary": "13th test flight of the two-stage Starship launch vehicle. Second flight of Starship V3",
-    "news": "Current date is a placeholder or rough estimation based on unreliable or interpreted sources.",
+    "news": "Awaiting official confirmation - current date is known with some certainty.",
     "sources": [
       [
         "The Space Devs",
@@ -310,6 +286,30 @@ const launches = [
       [
         "Webcast",
         "https://x.com/i/broadcasts/1nJOLERVPDzxR"
+      ]
+    ]
+  },
+  {
+    "id": "falcon-9-block-5-mrv-1",
+    "cat": [
+      "net"
+    ],
+    "name": "MRV-1",
+    "status": "NET / da definire",
+    "rocket": "Falcon 9 Block 5",
+    "dateLabel": "NET luglio 2026",
+    "iso": "2026-07-31T00:00:00Z",
+    "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
+    "site": "Unknown Pad, Cape Canaveral SFS, FL, USA",
+    "landing": "Recupero booster non indicato da The Space Devs",
+    "orbit": "GTO",
+    "payload": "MRV-1 (Mission Extension)",
+    "summary": "The SpaceLogistics MRV-1 is a mission extension payload including a mission robotic vehicle (MRV) and multiple mission extension pods (MEPs).",
+    "news": "Current date is a placeholder or rough estimation based on unreliable or interpreted sources.",
+    "sources": [
+      [
+        "The Space Devs",
+        "https://ll.thespacedevs.com/2.3.0/launches/0f6780cf-edae-4d7c-99d6-ce7de784d140/?format=json"
       ]
     ]
   },
@@ -362,30 +362,6 @@ const launches = [
     ]
   },
   {
-    "id": "falcon-9-block-5-dragon-crs-2-spx-35",
-    "cat": [
-      "net"
-    ],
-    "name": "Dragon CRS-2 SpX-35",
-    "status": "NET / da definire",
-    "rocket": "Falcon 9 Block 5",
-    "dateLabel": "NET agosto 2026",
-    "iso": "2026-08-31T00:00:00Z",
-    "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
-    "site": "Unknown Pad, Cape Canaveral SFS, FL, USA",
-    "landing": "Recupero booster non indicato da The Space Devs",
-    "orbit": "LEO",
-    "payload": "Dragon CRS-2 SpX-35 (Resupply)",
-    "summary": "35th commercial resupply services mission to the International Space Station operated by SpaceX. The flight will be conducted under the second Commercial Resupply Services contract with NASA. Cargo Dragon 2 brings supplies and payloads, including critical materials to directly support science and research investigations that occur onboard the orbiting laboratory.",
-    "news": "Current date is a placeholder or rough estimation based on unreliable or interpreted sources.",
-    "sources": [
-      [
-        "The Space Devs",
-        "https://ll.thespacedevs.com/2.3.0/launches/bf2c3027-a314-403e-a416-2bfd5d165ad1/?format=json"
-      ]
-    ]
-  },
-  {
     "id": "falcon-9-block-5-sda-tranche-2-transport-layer-a",
     "cat": [
       "net",
@@ -407,6 +383,30 @@ const launches = [
       [
         "The Space Devs",
         "https://ll.thespacedevs.com/2.3.0/launches/c703fab3-2ce4-4cf1-861d-754da3f3ad42/?format=json"
+      ]
+    ]
+  },
+  {
+    "id": "falcon-9-block-5-dragon-crs-2-spx-35",
+    "cat": [
+      "net"
+    ],
+    "name": "Dragon CRS-2 SpX-35",
+    "status": "NET / da definire",
+    "rocket": "Falcon 9 Block 5",
+    "dateLabel": "NET agosto 2026",
+    "iso": "2026-08-31T00:00:00Z",
+    "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
+    "site": "Unknown Pad, Cape Canaveral SFS, FL, USA",
+    "landing": "Recupero booster non indicato da The Space Devs",
+    "orbit": "LEO",
+    "payload": "Dragon CRS-2 SpX-35 (Resupply)",
+    "summary": "35th commercial resupply services mission to the International Space Station operated by SpaceX. The flight will be conducted under the second Commercial Resupply Services contract with NASA. Cargo Dragon 2 brings supplies and payloads, including critical materials to directly support science and research investigations that occur onboard the orbiting laboratory.",
+    "news": "Current date is a placeholder or rough estimation based on unreliable or interpreted sources.",
+    "sources": [
+      [
+        "The Space Devs",
+        "https://ll.thespacedevs.com/2.3.0/launches/bf2c3027-a314-403e-a416-2bfd5d165ad1/?format=json"
       ]
     ]
   }
