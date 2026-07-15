@@ -744,9 +744,9 @@ def head_html(title, css_href, extra_head=""):
 """
 
 
-def shell(title, current, from_section, body, extra_script="", extra_head=""):
+def shell(title, current, from_section, body, extra_script="", extra_head="", css_version=None):
     css_path = "../css/style.css" if from_section else "css/style.css"
-    css_href = f"{css_path}?v={CSS_VERSION}"
+    css_href = f"{css_path}?v={css_version or CSS_VERSION}"
     return f"""{head_html(title, css_href, extra_head)}
 <body>
 <header class="topbar">
@@ -889,51 +889,54 @@ td{{color:#d8dee3}}
 .theme-list{{display:grid;gap:12px}}
 .theme{{border-left:3px solid var(--accent);padding:0 0 0 14px}}
 .theme p{{margin:4px 0 0;font-size:14px;color:#cfd6dc}}
-.starship-dossier-hero{{min-height:70vh;display:grid;align-items:end;padding:110px clamp(18px,4vw,56px) 56px;background:linear-gradient(90deg,rgba(2,5,8,.96),rgba(2,5,8,.64) 54%,rgba(2,5,8,.18)),linear-gradient(180deg,rgba(2,5,8,.08),rgba(5,6,7,.98) 96%),url('../sezioni/assets/sviluppo-starship/starship-ift5-ignition.jpg') center 46%/cover no-repeat}}
+.starship-dossier>section{{padding-top:50px;padding-bottom:50px}}
+.starship-dossier .section-head{{margin-bottom:20px}}
+.starship-dossier .panel{{padding:17px}}
+.starship-dossier-hero{{min-height:54vh;display:grid;align-items:end;padding:92px clamp(18px,4vw,56px) 38px;background:linear-gradient(90deg,rgba(2,5,8,.96),rgba(2,5,8,.64) 54%,rgba(2,5,8,.18)),linear-gradient(180deg,rgba(2,5,8,.08),rgba(5,6,7,.98) 96%),url('../sezioni/assets/sviluppo-starship/starship-ift5-ignition.jpg') center 46%/cover no-repeat}}
 .starship-dossier-hero h1{{max-width:1050px}}
-.update-stamp{{display:inline-flex;margin-top:24px;border:1px solid rgba(120,213,140,.55);background:rgba(120,213,140,.12);color:#dfffe6;border-radius:999px;padding:8px 12px;text-transform:uppercase;letter-spacing:.1em;font-size:11px;font-weight:950}}
-.starship-lead-grid{{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr);gap:20px;align-items:start}}
-.starship-lead{{font-size:clamp(18px,2vw,23px);line-height:1.62;margin:0}}
-.starship-index{{display:grid;gap:9px;margin-top:18px}}
-.starship-index a{{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding:11px 0;color:#dfeaf1;font-weight:800}}
+.update-stamp{{display:inline-flex;margin-top:16px;border:1px solid rgba(120,213,140,.55);background:rgba(120,213,140,.12);color:#dfffe6;border-radius:999px;padding:7px 11px;text-transform:uppercase;letter-spacing:.1em;font-size:10px;font-weight:950}}
+.starship-lead-grid{{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);gap:16px;align-items:start}}
+.starship-lead{{font-size:clamp(17px,1.7vw,20px);line-height:1.52;margin:0}}
+.starship-index{{display:grid;gap:4px;margin-top:12px}}
+.starship-index a{{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding:8px 0;color:#dfeaf1;font-size:14px;font-weight:800}}
 .starship-index a::after{{content:'→';color:var(--accent)}}
 .starship-photo-grid{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}}
 .starship-photo{{margin:0;border:1px solid var(--line);background:rgba(255,255,255,.05);border-radius:8px;overflow:hidden}}
-.starship-photo img{{display:block;width:100%;height:clamp(300px,42vw,560px);object-fit:cover}}
-.starship-photo figcaption{{padding:14px;color:#bdc8d0;font-size:12px;line-height:1.5}}
+.starship-photo img{{display:block;width:100%;height:clamp(190px,22vw,285px);object-fit:cover}}
+.starship-photo figcaption{{padding:10px 12px;color:#bdc8d0;font-size:11px;line-height:1.4}}
 .starship-photo a{{color:#dff4ff;text-decoration:underline;text-underline-offset:3px}}
-.starship-phase-grid{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}}
-.starship-phase{{border:1px solid var(--line);border-radius:8px;background:linear-gradient(150deg,rgba(105,200,255,.1),rgba(255,255,255,.045));padding:20px}}
-.starship-phase .phase-date{{display:block;color:var(--gold);text-transform:uppercase;letter-spacing:.11em;font-size:11px;font-weight:950;margin-bottom:9px}}
-.starship-phase h3{{font-size:25px}}
-.starship-phase p{{margin:8px 0 0;color:#cbd5dc}}
-.starship-status-grid{{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-top:20px}}
-.starship-status{{border-top:3px solid var(--green);background:rgba(255,255,255,.055);border-radius:6px;padding:15px}}
+.starship-phase-grid{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}}
+.starship-phase{{border:1px solid var(--line);border-radius:8px;background:linear-gradient(150deg,rgba(105,200,255,.1),rgba(255,255,255,.045));padding:15px}}
+.starship-phase .phase-date{{display:block;color:var(--gold);text-transform:uppercase;letter-spacing:.11em;font-size:10px;font-weight:950;margin-bottom:6px}}
+.starship-phase h3{{font-size:21px}}
+.starship-phase p{{margin:6px 0 0;color:#cbd5dc;font-size:14px;line-height:1.45}}
+.starship-status-grid{{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-top:16px}}
+.starship-status{{border-top:3px solid var(--green);background:rgba(255,255,255,.055);border-radius:6px;padding:12px}}
 .starship-status.pending{{border-top-color:var(--gold)}}
-.starship-status b{{display:block;color:#fff;font-size:16px;line-height:1.25;margin-bottom:7px}}
-.starship-status span{{display:block;color:var(--muted);font-size:12px;line-height:1.4}}
-.starship-flight-grid{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}
-.starship-flight{{border:1px solid var(--line);border-radius:8px;background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.045));padding:18px;display:grid;gap:12px}}
+.starship-status b{{display:block;color:#fff;font-size:14px;line-height:1.25;margin-bottom:5px}}
+.starship-status span{{display:block;color:var(--muted);font-size:11px;line-height:1.36}}
+.starship-flight-grid{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}}
+.starship-flight{{border:1px solid var(--line);border-radius:8px;background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.045));padding:14px;display:grid;gap:8px}}
 .starship-flight-head{{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}}
-.starship-flight-head h3{{font-size:27px;margin:0}}
+.starship-flight-head h3{{font-size:23px;margin:0}}
 .starship-flight-head .pill{{flex:0 0 auto}}
 .starship-flight-meta{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}}
-.starship-flight-meta div{{border:1px solid rgba(255,255,255,.11);border-radius:6px;padding:9px;background:rgba(0,0,0,.2)}}
+.starship-flight-meta div{{border:1px solid rgba(255,255,255,.11);border-radius:6px;padding:7px;background:rgba(0,0,0,.2)}}
 .starship-flight-meta b{{display:block;color:var(--gold);font-size:10px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}}
 .starship-flight-meta span{{display:block;color:#d7e0e6;font-size:12px;line-height:1.36}}
-.starship-flight p{{margin:0;color:#cdd6dc;font-size:14px}}
+.starship-flight p{{margin:0;color:#cdd6dc;font-size:13px;line-height:1.42}}
 .starship-archive{{border:1px solid var(--line);border-radius:8px;background:rgba(255,255,255,.045);overflow:hidden}}
-.starship-archive summary{{cursor:pointer;padding:18px 20px;color:#fff;font-size:18px;font-weight:900;list-style:none}}
+.starship-archive summary{{cursor:pointer;padding:14px 16px;color:#fff;font-size:16px;font-weight:900;list-style:none}}
 .starship-archive summary::-webkit-details-marker{{display:none}}
 .starship-archive summary::after{{content:' +';color:var(--accent)}}
 .starship-archive[open] summary::after{{content:' −'}}
-.starship-timeline{{display:grid;gap:0;padding:0 20px 22px}}
-.starship-event{{position:relative;border-left:2px solid rgba(105,200,255,.42);padding:0 0 24px 22px}}
+.starship-timeline{{display:grid;gap:0;padding:0 16px 18px}}
+.starship-event{{position:relative;border-left:2px solid rgba(105,200,255,.42);padding:0 0 17px 18px}}
 .starship-event::before{{content:'';position:absolute;left:-6px;top:5px;width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px #0b1116}}
 .starship-event:last-child{{padding-bottom:0}}
 .starship-event small{{color:var(--gold);text-transform:uppercase;letter-spacing:.09em;font-weight:900}}
-.starship-event h3{{font-size:20px;margin:5px 0 7px}}
-.starship-event p{{margin:4px 0;color:#cbd5dc;font-size:14px}}
+.starship-event h3{{font-size:17px;margin:3px 0 5px}}
+.starship-event p{{margin:3px 0;color:#cbd5dc;font-size:13px;line-height:1.4}}
 .starship-event .event-impact{{color:#e8eef2}}
 .source-list{{display:grid;gap:9px;padding-left:20px}}
 .source-list li{{color:#cbd5dc;line-height:1.5}}
@@ -1005,7 +1008,7 @@ td{{color:#d8dee3}}
 .footer{{padding:34px clamp(18px,4vw,56px);border-top:1px solid var(--line);color:var(--muted);font-size:13px;line-height:1.5}}
 @media(max-width:1120px){{.grid,.launch-grid,.launch-grid.compact,.agenda-strip,.pad-list{{grid-template-columns:repeat(2,minmax(0,1fr))}}.split,.dash-grid,.cols,.next-launch,.pad-map-wrap,.starship-lead-grid{{grid-template-columns:1fr}}.starship-status-grid{{grid-template-columns:repeat(3,minmax(0,1fr))}}.pad-map-side{{border-right:0;border-bottom:1px solid var(--line)}}.pad-side-list{{max-height:none;grid-template-columns:repeat(2,minmax(0,1fr))}}}}
 @media(max-width:900px){{.pad-list{{grid-template-columns:1fr}}.pad-card{{grid-template-columns:160px 1fr}}.story-card{{grid-template-columns:1fr}}.story-card img{{height:auto;max-height:420px}}}}
-@media(max-width:760px){{.topbar{{align-items:flex-start;flex-direction:column}}.nav{{justify-content:flex-start}}.grid,.launch-grid,.launch-grid.compact,.agenda-strip,.launch-meta,.metrics,.split .panel .metrics,.pad-side-list,.spacex-actions,.starship-photo-grid,.starship-phase-grid,.starship-flight-grid,.starship-status-grid{{grid-template-columns:1fr}}section{{padding:56px 18px}}.hero,.starship-dossier-hero{{padding:92px 18px 42px}}h1{{font-size:43px}}.section-head{{display:block}}.bar-row{{grid-template-columns:58px 1fr 44px}}.starship-flight-meta{{grid-template-columns:1fr}}#pad-map,#location-map{{min-height:460px}}.pad-map-wrap{{min-height:460px}}.pad-card{{grid-template-columns:1fr}}.pad-card img{{max-height:420px}}.pad-mini-event{{grid-template-columns:1fr;gap:2px}}}}
+@media(max-width:760px){{.topbar{{align-items:flex-start;flex-direction:column}}.nav{{justify-content:flex-start}}.grid,.launch-grid,.launch-grid.compact,.agenda-strip,.launch-meta,.metrics,.split .panel .metrics,.pad-side-list,.spacex-actions,.starship-photo-grid,.starship-phase-grid,.starship-flight-grid,.starship-status-grid{{grid-template-columns:1fr}}section{{padding:56px 18px}}.starship-dossier>section{{padding-top:38px;padding-bottom:38px}}.hero,.starship-dossier-hero{{padding:78px 18px 30px}}.starship-dossier-hero{{min-height:44vh}}.starship-photo img{{height:190px}}h1{{font-size:43px}}.section-head{{display:block}}.bar-row{{grid-template-columns:58px 1fr 44px}}.starship-flight-meta{{grid-template-columns:1fr}}#pad-map,#location-map{{min-height:460px}}.pad-map-wrap{{min-height:460px}}.pad-card{{grid-template-columns:1fr}}.pad-card img{{max-height:420px}}.pad-mini-event{{grid-template-columns:1fr;gap:2px}}}}
 """
 
 
@@ -2007,6 +2010,7 @@ def render_starship_development_page(data):
         ]
     )
     body = f"""
+<div class="starship-dossier">
 <section class="starship-dossier-hero">
   <div class="hero-inner">
     <p class="eyebrow">Dossier SpaceX</p>
@@ -2135,8 +2139,9 @@ def render_starship_development_page(data):
     </aside>
   </div>
 </section>
+</div>
 """
-    return shell("Sviluppo Starship", "spacex", True, body)
+    return shell("Sviluppo Starship", "spacex", True, body, css_version="20260715-starship-compatto")
 
 
 def render_placeholder(item):
