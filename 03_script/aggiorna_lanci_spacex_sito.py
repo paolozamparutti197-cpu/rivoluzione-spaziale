@@ -62,6 +62,7 @@ PUBLISH_FILES = [
     "sezioni/storia-spacex.html",
     "sezioni/storico-lanci.html",
     "sezioni/starship.html",
+    "sezioni/assets/sviluppo-starship",
     "sezioni/pad-di-lancio.html",
     "sezioni/localita-spacex.html",
 ]

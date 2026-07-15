@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Starship | Rivoluzione Spaziale</title>
+<title>Sviluppo Starship | Rivoluzione Spaziale</title>
 <link rel="stylesheet" href="../css/style.css?v=20260614-nav-gerarchia">
 
 </head>
@@ -13,7 +13,7 @@
   <a class="brand" href="../index.html">Rivoluzione <span>Spaziale</span></a>
   <nav class="nav" aria-label="Navigazione principale">
 <a class="" href="../index.html">Home</a>
-<a class="" href="spacex.html">SpaceX</a>
+<a class="active" href="spacex.html">SpaceX</a>
 <a class="" href="blue-origin.html">Blue Origin</a>
 <a class="" href="ula.html">ULA</a>
 <a class="" href="electron-lab.html">Electron Lab</a>
@@ -23,43 +23,1160 @@
 </header>
 <main>
 
+<section class="starship-dossier-hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Dossier SpaceX</p>
+    <h1>Sviluppo Starship</h1>
+    <p class="subtitle">Dal concetto interplanetario ai voli integrati V3: evoluzione del veicolo, prove, fallimenti, recupero, motori Raptor, infrastrutture e obiettivi ancora aperti.</p>
+    <span class="update-stamp">Aggiornato al 15 luglio 2026</span>
+  </div>
+</section>
 
-<section class="page-hero">
+<section id="quadro-generale">
   <div class="inner">
-    <p class="eyebrow">Sviluppo SpaceX</p>
-    <h1>Starship</h1>
-    <p class="subtitle">Produzione rapida, riuso completo, rifornimento orbitale e logistica lunare: Starship merita una pagina separata dalla porta generale SpaceX.</p>
-
+    <div class="starship-lead-grid">
+      <article>
+        <p class="starship-lead">Starship non e un singolo razzo arrivato improvvisamente sulla rampa. E il risultato di oltre un decennio di cambi di scala, materiali, motori, metodo produttivo e infrastrutture. Il programma nasce come architettura per Marte, passa attraverso MCT, ITS e BFR, abbandona fibra di carbonio e ali tradizionali, adotta acciaio inossidabile, rientro controllato sulle flaps e una famiglia di motori Raptor a metano. Ogni prototipo ha trasformato un problema teorico in un test fisico, spesso distruttivo ma immediatamente riutilizzato nel progetto successivo.</p>
+        <p>Questa pagina deriva dal workbook locale <strong>sviluppo_starship.xlsx</strong> appena aggiornato. La data di taglio e il <strong>15 luglio 2026</strong>: Flight 13 non e ancora conteggiato tra i voli effettuati, mentre sono registrati i test di Ship 40 e Booster 20, la chiusura dell'indagine FAA su Flight 12 e il tentativo annunciato per il 16 luglio alle 22:45 UTC, corrispondente alle 00:45 CEST del 17 luglio in Italia.</p>
+      </article>
+      <aside class="panel">
+        <h3>Indice del dossier</h3>
+        <nav class="starship-index" aria-label="Indice Sviluppo Starship">
+          <a href="#fasi">Le grandi fasi</a>
+          <a href="#flight-13">Situazione Flight 13</a>
+          <a href="#voli">Tutti i voli integrati</a>
+          <a href="#temi">Nodi tecnici</a>
+          <a href="#cronologia">Cronologia completa</a>
+          <a href="#fonti">Fonti e immagini</a>
+        </nav>
+      </aside>
+    </div>
+    <div class="metrics" style="margin-top:24px"><div class="metric"><b>101</b><span>eventi nella cronologia completa</span></div><div class="metric"><b>12</b><span>voli integrati completati</span></div><div class="metric"><b>3</b><span>catture Super Heavy riuscite</span></div><div class="metric"><b>1</b><span>reflight Super Heavy</span></div></div>
   </div>
 </section>
 
 <section>
   <div class="inner">
-<div class="metrics"><div class="metric"><b>98</b><span>eventi timeline</span></div><div class="metric"><b>12</b><span>voli integrati</span></div><div class="metric"><b>3</b><span>catch booster</span></div><div class="metric"><b>1</b><span>reflight Super Heavy</span></div></div>
-<div class="dash-grid" style="margin-top:18px">
-  <div class="panel"><h3>Voli integrati</h3><table><thead><tr><th>Flight</th><th>Data</th><th>Milestone</th><th>Esito</th></tr></thead><tbody><tr><td>IFT-1</td><td>20/04/2023</td><td>Primo volo integrato</td><td>Fallimento</td></tr>
-<tr><td>IFT-2</td><td>18/11/2023</td><td>Primo hot-staging riuscito</td><td>Parziale</td></tr>
-<tr><td>IFT-3</td><td>14/03/2024</td><td>Operazioni in-space: propellant transfer demo e payload door</td><td>Parziale</td></tr>
-<tr><td>IFT-4</td><td>06/06/2024</td><td>Primo rientro e splashdown controllato di entrambi gli stadi</td><td>Successo / parziale</td></tr>
-<tr><td>IFT-5</td><td>13/10/2024</td><td>Prima cattura booster con Mechazilla</td><td>Successo</td></tr>
-<tr><td>IFT-6</td><td>19/11/2024</td><td>Primo in-space relight riuscito</td><td>Parziale</td></tr>
-<tr><td>Flight 7</td><td>16/01/2025</td><td>Debutto Ship Block 2, secondo catch booster</td><td>Parziale</td></tr>
-<tr><td>Flight 8</td><td>06/03/2025</td><td>Terzo catch booster</td><td>Parziale</td></tr>
-<tr><td>Flight 9</td><td>27/05/2025</td><td>Primo reflight Super Heavy</td><td>Parziale</td></tr>
-<tr><td>Flight 10</td><td>26/08/2025</td><td>Primo deployment riuscito simulatori Starlink</td><td>Successo</td></tr>
-<tr><td>Flight 11</td><td>13/10/2025</td><td>Chiusura positiva fase Block 2</td><td>Successo</td></tr>
-<tr><td>Flight 12</td><td>22/05/2026 22:30 UTC (23/05 CEST)</td><td>Debutto Starship/Super Heavy V3 e Pad 2; 22 simulatori Starlink V3 dispiegati</td><td>Successo / parziale</td></tr></tbody></table></div>
-  <div class="panel"><h3>Temi tecnici</h3><div class="theme-list"><div class="theme"><h3>Evoluzione architetturale</h3><p>Il programma passa da BFR/MCT e ITS da 12 m a BFR/Starship da 9 m, poi al sistema acciaio inox + Raptor + hot-staging. Le tre potature decisive sono geometria, materiale e semplificazione motoristica/aerodinamica.</p><p class="muted">Rende il sistema producibile, testabile e iterabile con una logica industriale, non solo dimostrativa.</p></div>
-<div class="theme"><h3>Raptor come collo di bottiglia</h3><p>Raptor evolve da full-flow methalox complesso a Raptor 2 piu semplice e Raptor 3 piu compatto. Flight 12 conferma il salto prestazionale, ma mostra che affidabilita multi-engine, boostback e relight restano colli di bottiglia concreti.</p><p class="muted">La maturita del motore condiziona payload, cadenza, riuso e passaggio da test suborbitali a missioni operative.</p></div>
-<div class="theme"><h3>Produzione e infrastruttura</h3><p>Boca Chica evolve da ring stack all&#x27;aperto a High Bay, Mega Bay, Starfactory, Pad 2 e piani Gigabay/Florida. L&#x27;infrastruttura diventa parte del veicolo.</p><p class="muted">La cadenza futura dipende da fabbriche, pad, GSE e licenze tanto quanto dal razzo.</p></div>
-<div class="theme"><h3>Maturita booster/ship dopo Flight 12</h3><p>Dal 2024-2025 i catch booster sembravano piu maturi della ship; Flight 12 ha riequilibrato il quadro. Ora Ship 40 ha completato static fire a singolo motore e con tutti e sei i Raptor 3, mentre B20 attende ancora il test dei 33 motori. La maturazione V3 riguarda quindi entrambi gli stadi e resta subordinata anche al gate FAA.</p><p class="muted">Il rischio principale resta distribuito tra affidabilita Raptor 3, boostback/landing burn booster, relight in-space, TPS/refill e gate regolatorio FAA prima del ritorno al volo.</p></div>
-<div class="theme"><h3>FAA e regolazione</h3><p>La FAA impone mitigazioni e corrective actions, ma amplia anche il perimetro operativo con 25 voli/anno in Texas e dossier LC-39A/Florida.</p><p class="muted">La narrativa &#x27;FAA blocca tutto&#x27; e&#x27; incompleta: ritardi regolatori e guasti tecnici si alimentano a vicenda.</p></div>
-<div class="theme"><h3>Artemis HLS e rifornimento orbitale</h3><p>Starship HLS resta centrale, ma la sfida principale e&#x27; trasferire e conservare propellente criogenico in orbita con cadenza di tanker elevata. Il Doc 1 aggiorna il pivot NASA 2026 verso demo LEO nel 2027 e landing Artemis IV nel 2028.</p><p class="muted">Il successo lunare dipende dalla logistica spaziale piu che dal solo lancio.</p></div>
-<div class="theme"><h3>Starlink V3 come driver economico</h3><p>Starship deve diventare il camion orbitale di Starlink V3. Flight 12 rafforza il driver economico dispiegando 22 simulatori Starlink V3, inclusi due veicoli modificati per osservare la ship, ma resta da arrivare a missioni orbitali operative.</p><p class="muted">Il business case puo accelerare la cadenza, ma dipende da affidabilita, payload deployment ripetibile e recupero degli stadi.</p></div>
-<div class="theme"><h3>Controversie ambientali e sociali</h3><p>Debris, rumore, hazard areas, impatti su Boca Chica e incorporazione della City of Starbase generano attrito politico e ambientale.</p><p class="muted">Il rischio non e&#x27; solo tecnico: licenze, consenso locale e gestione traffico aereo restano vincoli concreti.</p></div>
-<div class="theme"><h3>Elementi speculativi del Doc 2</h3><p>Valutazione fino a 1,75 trilioni, data center orbitali/xAI e alcuni target tecnici sono trattati come scenari o claim da verificare, non come fatti consolidati.</p><p class="muted">Inclusi per completezza, ma separati dalle milestone documentate.</p></div></div></div>
-</div>
-</div>
+    <div class="section-head"><h2>Un sistema, non solo un razzo</h2><p>Starship comprende Ship, Super Heavy, Raptor, torri di cattura, fabbriche, serbatoi, pad, software e un modello operativo che punta al riuso rapido.</p></div>
+    <div class="starship-photo-grid">
+      <figure class="starship-photo">
+        <img src="assets/sviluppo-starship/starship-ift5-ignition.jpg" alt="Accensione di Starship durante il quinto volo integrato" loading="lazy">
+        <figcaption>Accensione durante IFT-5, 13 ottobre 2024. Foto di Steve Jurvetson, <a href="https://commons.wikimedia.org/wiki/File:SpaceX_Starship_ignition_during_IFT-5.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>, licenza CC BY 2.0.</figcaption>
+      </figure>
+      <figure class="starship-photo">
+        <img src="assets/sviluppo-starship/super-heavy-ift5-approach.jpg" alt="Super Heavy in avvicinamento alla torre di cattura durante IFT-5" loading="lazy">
+        <figcaption>Super Heavy rientra verso i bracci della torre durante IFT-5. Foto di Steve Jurvetson, <a href="https://commons.wikimedia.org/wiki/File:SpaceX_Starship_booster_landing_approach_IFT-5.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>, licenza CC BY 2.0.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="fasi">
+  <div class="inner">
+    <div class="section-head"><h2>Le grandi fasi dello sviluppo</h2><p>La continuita del programma si capisce seguendo le decisioni che hanno cambiato architettura e metodo industriale.</p></div>
+    <div class="starship-phase-grid">
+      <article class="starship-phase"><span class="phase-date">2005-2015</span><h3>Da Marte al motore</h3><p>Le prime idee Mars Colonial Transporter definiscono la missione prima del veicolo: trasportare grandi masse oltre l'orbita bassa. Il punto decisivo diventa Raptor, motore methalox a ciclo full-flow staged combustion, scelto per prestazioni, produzione di propellente su Marte e possibilita di riuso profondo.</p></article>
+      <article class="starship-phase"><span class="phase-date">2016-2018</span><h3>ITS, BFR e la potatura del progetto</h3><p>L'Interplanetary Transport System del 2016 propone un veicolo da 12 metri. Il BFR del 2017-2018 riduce il diametro a 9 metri e concentra equipaggio, cargo e missioni lunari in una stessa architettura. Nel 2018 arrivano il nome Starship e la svolta dall'enorme struttura in composito all'acciaio inossidabile.</p></article>
+      <article class="starship-phase"><span class="phase-date">2019-2021</span><h3>Starhopper e la scuola dei prototipi</h3><p>Starhopper dimostra il controllo con Raptor. Mk1 e la serie SN trasformano Boca Chica in un laboratorio a cielo aperto. I voli a 10-12,5 km introducono salita, spegnimento motori, belly-flop e flip finale. SN8-SN11 falliscono in modi diversi; SN15, nel maggio 2021, completa atterraggio e sopravvivenza del veicolo.</p></article>
+      <article class="starship-phase"><span class="phase-date">2022-2023</span><h3>Dalla Ship al sistema completo</h3><p>Il lavoro si sposta sull'integrazione con Super Heavy, sui 33 motori, sul pad e sull'hot staging. Booster 7 e Ship 24 portano a IFT-1: il volo del 20 aprile 2023 distrugge il piano originale del pad e rende indispensabili deluge, flame deflector, affidabilita multi-engine e AFTS piu rapido. IFT-2 riesce invece a separare gli stadi con hot staging.</p></article>
+      <article class="starship-phase"><span class="phase-date">2024</span><h3>Dal sopravvivere al recuperare</h3><p>IFT-3 porta operazioni in-space e rientro profondo; IFT-4 completa per la prima volta splashdown controllato di entrambi gli stadi. IFT-5 realizza la prima cattura di Super Heavy con i bracci della torre. IFT-6 conferma funzioni in-space, incluso il primo relight Raptor, ma rinuncia alla cattura e chiude con splashdown.</p></article>
+      <article class="starship-phase"><span class="phase-date">2025</span><h3>Block 2: crisi, reflight e recupero</h3><p>Flight 7 e Flight 8 mostrano una maturita booster superiore a quella della Ship: catture riuscite, ma perdita delle upper stage. Flight 9 porta il primo reflight di Super Heavy senza chiudere bene il profilo. Flight 10 e Flight 11 recuperano il programma con deployment, relight e rientri controllati.</p></article>
+      <article class="starship-phase"><span class="phase-date">2026</span><h3>V3, Raptor 3 e Pad 2</h3><p>La terza generazione integra serbatoi piu grandi, avionica alleggerita, Raptor 3 e infrastruttura di rifornimento piu matura. Flight 12 debutta con Booster 19 e Ship 39 da Pad 2: il deployment e il rientro della Ship funzionano, ma boostback del booster e relight in-space restano incompleti.</p></article>
+      <article class="starship-phase"><span class="phase-date">Obiettivo industriale</span><h3>Riuso completo e alta cadenza</h3><p>Il vero salto non e un singolo volo spettacolare. E il ciclo lancio, recupero, ispezione, rifornimento e rilancio di entrambi gli stadi. Per questo torri, Starfactory, Mega Bay, Pad 2, Florida e produzione Raptor sono parte integrante della stessa architettura.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="flight-13">
+  <div class="inner">
+    <div class="section-head"><h2>Flight 13 al 15 luglio 2026</h2><p>Il dossier distingue nettamente cio che e gia avvenuto dal tentativo ancora programmato.</p></div>
+    <article class="panel">
+      <h3>Secondo volo della generazione V3</h3>
+      <p>Flight 13 impiega <strong>Booster 20</strong> e <strong>Ship 40</strong> da Pad 2. Riprende gli obiettivi non chiusi da Flight 12: orientamento corretto dopo hot staging, boostback completo del Super Heavy, riaccensione di un Raptor della Ship nello spazio, deployment e rientri controllati. La novita di carico e costituita da <strong>20 satelliti Starlink V3 funzionali</strong>; sei portano telecamere per osservare scudo termico e superficie esterna della Ship. La traiettoria resta suborbitale: i satelliti testeranno pannelli, antenne e collegamenti, poi rientreranno in atmosfera.</p>
+      <div class="starship-status-grid">
+        <div class="starship-status"><b>25 giugno</b><span>Ship 40 completa uno static fire di circa 15 secondi con un Raptor 3 centrale.</span></div>
+        <div class="starship-status"><b>2 luglio</b><span>Ship 40 accende tutti i sei Raptor 3 per circa 60 secondi.</span></div>
+        <div class="starship-status"><b>10 luglio</b><span>Booster 20 completa circa 25 secondi di static fire con tutti i 33 Raptor 3.</span></div>
+        <div class="starship-status"><b>13 luglio</b><span>La FAA chiude l'indagine Flight 12, accetta quattro azioni correttive e consente il passaggio a Flight 13.</span></div>
+        <div class="starship-status pending"><b>16 luglio, 22:45 UTC</b><span>Target SpaceX in finestra di 90 minuti. In Italia: 17 luglio, 00:45 CEST. Al taglio del 15 luglio il volo non e ancora avvenuto.</span></div>
+      </div>
+    </article>
+    <div class="cols" style="margin-top:18px">
+      <article class="panel"><h3>Cosa corregge Flight 13</h3><p>Flight 12 ha lasciato il booster ruotato con un orientamento errato di circa 90 gradi dopo la separazione e cinque motori non riaccesi durante il boostback. SpaceX ha modificato sequenza di avvio della Ship, hardware e software del Super Heavy, logiche di allarme e abort. La FAA ha indicato come cause piu probabili gli effetti termici sui componenti propulsivi e impostazioni errate degli allarmi motore.</p></article>
+      <article class="panel"><h3>Cosa deve dimostrare</h3><p>Il successo utile non coincide soltanto con il decollo. Servono separazione pulita, boostback completo, landing burn e splashdown mirato del booster, deployment dei 20 Starlink V3, relight Raptor in-space, dati sullo scudo termico, controllo in rientro e splashdown della Ship nell'oceano Indiano.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="voli">
+  <div class="inner">
+    <div class="section-head"><h2>I dodici voli integrati</h2><p>Ogni scheda riporta veicolo, risultato e soprattutto la lezione trasferita al volo successivo. Flight 13 verra aggiunto solo dopo il lancio.</p></div>
+    <div class="starship-flight-grid"><article class="starship-flight">
+  <div class="starship-flight-head">
+    <div><small class="eyebrow">20/04/2023</small><h3>IFT-1</h3></div>
+    <span class="pill">Fallimento</span>
+  </div>
+  <p><strong>Primo volo integrato</strong></p>
+  <div class="starship-flight-meta">
+    <div><b>Veicolo</b><span>Booster 7 + Ship 24</span></div>
+    <div><b>Block</b><span>Block 1</span></div>
+    <div><b>Booster</b><span>Perdita controllo, nessuna separazione</span></div>
+  </div>
+  <p><strong>Ship:</strong> Persa con stack</p>
+  <p><strong>Lezione:</strong> Pad, AFTS, flame diverter/deluge e affidabilita multi-engine diventano priorita.</p>
+</article>
+<article class="starship-flight">
+  <div class="starship-flight-head">
+    <div><small class="eyebrow">18/11/2023</small><h3>IFT-2</h3></div>
+    <span class="pill">Parziale</span>
+  </div>
+  <p><strong>Primo hot-staging riuscito</strong></p>
+  <div class="starship-flight-meta">
+    <div><b>Veicolo</b><span>Booster 9 + Ship 25</span></div>
+    <div><b>Block</b><span>Block 1</span></div>
+    <div><b>Booster</b><span>Perso durante boostback</span></div>
+  </div>
+  <p><strong>Ship:</strong> Persa dopo coast/ascent per incendio/sfiato LOX</p>
+  <p><strong>Lezione:</strong> Superato il blocco della separazione; resta aperta la maturita di recovery e ship.</p>
+</article>
+<article class="starship-flight">
+  <div class="starship-flight-head">
+    <div><small class="eyebrow">14/03/2024</small><h3>IFT-3</h3></div>
+    <span class="pill">Parziale</span>
+  </div>
+  <p><strong>Operazioni in-space: propellant transfer demo e payload door</strong></p>
+  <div class="starship-flight-meta">
+    <div><b>Veicolo</b><span>Booster 10 + Ship 28</span></div>
+    <div><b>Block</b><span>Block 1</span></div>
+    <div><b>Booster</b><span>Hard splashdown</span></div>
+  </div>
+  <p><strong>Ship:</strong> Persa in rientro</p>
+  <p><strong>Lezione:</strong> Traiettoria transatmosferica/quasi-orbitale; evitare di presentarla come orbita operativa stabile.</p>
+</article>
+<article class="starship-flight">
+  <div class="starship-flight-head">
+    <div><small class="eyebrow">06/06/2024</small><h3>IFT-4</h3></div>
+    <span class="pill">Successo / parziale</span>
+  </div>
+  <p><strong>Primo rientro e splashdown controllato di entrambi gli stadi</strong></p>
+  <div class="starship-flight-meta">
+    <div><b>Veicolo</b><span>Booster 11 + Ship 29</span></div>
+    <div><b>Block</b><span>Block 1</span></div>
+    <div><b>Booster</b><span>Splashdown morbido</span></div>
+  </div>
+  <p><strong>Ship:</strong> Rientro completato con grave danno flap</p>
+  <p><strong>Lezione:</strong> Il sistema dimostra profilo end-to-end, ma TPS/flap resta area critica.</p>
+</article>
+<article class="starship-flight">
+  <div class="starship-flight-head">
+    <div><small class="eyebrow">13/10/2024</small><h3>IFT-5</h3></div>
+    <span class="pill">Successo</span>
+  </div>
+  <p><strong>Prima cattura booster con Mechazilla</strong></p>
+  <div class="starship-flight-meta">
+    <div><b>Veicolo</b><span>Booster 12 + Ship 30</span></div>
+    <div><b>Block</b><span>Block 1</span></div>
+    <div><b>Booster</b><span>Catch riuscito</span></div>
+  </div>
+  <p><strong>Ship:</strong> Splashdown controllato</p>
+  <p><strong>Lezione:</strong> Booster-side entra in fase di maturazione rapida.</p>
+</article>
+<article class="starship-flight">
+  <div class="starship-flight-head">
+    <div><small class="eyebrow">19/11/2024</small><h3>IFT-6</h3></div>
+    <span class="pill">Parziale</span>
+  </div>
+  <p><strong>Primo in-space relight riuscito</strong></p>
+  <div class="starship-flight-meta">
+    <div><b>Veicolo</b><span>Booster 13 + Ship 31</span></div>
+    <div><b>Block</b><span>Block 1</span></div>
+    <div><b>Booster</b><span>Catch annullato, splashdown</span></div>
+  </div>
+  <p><strong>Ship:</strong> Relight e splashdown</p>
+  <p><strong>Lezione:</strong> La missione sposta il focus sulle funzioni in-space della ship.</p>
+</article>
+<article class="starship-flight">
+  <div class="starship-flight-head">
+    <div><small class="eyebrow">16/01/2025</small><h3>Flight 7</h3></div>
+    <span class="pill">Parziale</span>
+  </div>
+  <p><strong>Debutto Ship Block 2, secondo catch booster</strong></p>
+  <div class="starship-flight-meta">
+    <div><b>Veicolo</b><span>Booster 14 + Ship 33</span></div>
+    <div><b>Block</b><span>Block 2</span></div>
+    <div><b>Booster</b><span>Catch riuscito</span></div>
+  </div>
+  <p><strong>Ship:</strong> Persa in ascesa; detriti su Turks and Caicos</p>
+  <p><strong>Lezione:</strong> La maturita booster supera nettamente quella ship.</p>
+</article>
+<article class="starship-flight">
+  <div class="starship-flight-head">
+    <div><small class="eyebrow">06/03/2025</small><h3>Flight 8</h3></div>
+    <span class="pill">Parziale</span>
+  </div>
+  <p><strong>Terzo catch booster</strong></p>
+  <div class="starship-flight-meta">
+    <div><b>Veicolo</b><span>Booster 15 + Ship 34</span></div>
+    <div><b>Block</b><span>Block 2</span></div>
+    <div><b>Booster</b><span>Catch riuscito</span></div>
+  </div>
+  <p><strong>Ship:</strong> Persa tardi in ascesa</p>
+  <p><strong>Lezione:</strong> Ancora criticita propulsion-side della ship.</p>
+</article>
+<article class="starship-flight">
+  <div class="starship-flight-head">
+    <div><small class="eyebrow">27/05/2025</small><h3>Flight 9</h3></div>
+    <span class="pill">Parziale</span>
+  </div>
+  <p><strong>Primo reflight Super Heavy</strong></p>
+  <div class="starship-flight-meta">
+    <div><b>Veicolo</b><span>Booster 14-2 + Ship 35</span></div>
+    <div><b>Block</b><span>Block 2</span></div>
+    <div><b>Booster</b><span>Perso prima dello splashdown</span></div>
+  </div>
+  <p><strong>Ship:</strong> Leak, no relight, no deployment, breakup</p>
+  <p><strong>Lezione:</strong> Riuso booster dimostrato come campagna, non ancora come recovery completo.</p>
+</article>
+<article class="starship-flight">
+  <div class="starship-flight-head">
+    <div><small class="eyebrow">26/08/2025</small><h3>Flight 10</h3></div>
+    <span class="pill">Successo</span>
+  </div>
+  <p><strong>Primo deployment riuscito simulatori Starlink</strong></p>
+  <div class="starship-flight-meta">
+    <div><b>Veicolo</b><span>Booster 16 + Ship 37</span></div>
+    <div><b>Block</b><span>Block 2</span></div>
+    <div><b>Booster</b><span>Splashdown controllato</span></div>
+  </div>
+  <p><strong>Ship:</strong> Deployment, relight, rientro e splashdown</p>
+  <p><strong>Lezione:</strong> Miglior volo ship-side fino a quel punto.</p>
+</article>
+<article class="starship-flight">
+  <div class="starship-flight-head">
+    <div><small class="eyebrow">13/10/2025</small><h3>Flight 11</h3></div>
+    <span class="pill">Successo</span>
+  </div>
+  <p><strong>Chiusura positiva fase Block 2</strong></p>
+  <div class="starship-flight-meta">
+    <div><b>Veicolo</b><span>Booster 15-2 + Ship 38</span></div>
+    <div><b>Block</b><span>Block 2</span></div>
+    <div><b>Booster</b><span>Controlled splashdown</span></div>
+  </div>
+  <p><strong>Ship:</strong> Deployment, relight e rientro controllato</p>
+  <p><strong>Lezione:</strong> Missione sostanzialmente completa secondo fonti pubbliche disponibili.</p>
+</article>
+<article class="starship-flight">
+  <div class="starship-flight-head">
+    <div><small class="eyebrow">22/05/2026 22:30 UTC (23/05 CEST)</small><h3>Flight 12</h3></div>
+    <span class="pill">Successo / parziale</span>
+  </div>
+  <p><strong>Debutto Starship/Super Heavy V3 e Pad 2; 22 simulatori Starlink V3 dispiegati</strong></p>
+  <div class="starship-flight-meta">
+    <div><b>Veicolo</b><span>Booster 19 + Ship 39</span></div>
+    <div><b>Block</b><span>Block 3 / V3</span></div>
+    <div><b>Booster</b><span>Separazione riuscita; boostback incompleto e splashdown fuori target nel Golfo</span></div>
+  </div>
+  <p><strong>Ship:</strong> 1 motore perso in ascesa; deployment riuscito; no relight; rientro e splashdown nell&#x27;oceano Indiano</p>
+  <p><strong>Lezione:</strong> V3 e Pad 2 superano il debutto; la prossima maturazione riguarda affidabilita Raptor, targeting booster, relight in-space e profili orbitale/refill.</p>
+</article></div>
+  </div>
+</section>
+
+<section id="temi">
+  <div class="inner">
+    <div class="section-head"><h2>I nodi tecnici ancora aperti</h2><p>La cronologia diventa utile quando chiarisce quali problemi limitano davvero il passaggio da prototipo a sistema operativo.</p></div>
+    <div class="starship-phase-grid"><article class="starship-phase">
+  <span class="phase-date">Tema tecnico</span>
+  <h3>Evoluzione architetturale</h3>
+  <p>Il programma passa da BFR/MCT e ITS da 12 m a BFR/Starship da 9 m, poi al sistema acciaio inox + Raptor + hot-staging. Le tre potature decisive sono geometria, materiale e semplificazione motoristica/aerodinamica.</p>
+  <p><strong>Perche conta:</strong> Rende il sistema producibile, testabile e iterabile con una logica industriale, non solo dimostrativa.</p>
+</article>
+<article class="starship-phase">
+  <span class="phase-date">Tema tecnico</span>
+  <h3>Raptor come collo di bottiglia</h3>
+  <p>Raptor evolve da full-flow methalox complesso a Raptor 2 piu semplice e Raptor 3 piu compatto. Flight 12 conferma il salto prestazionale, ma mostra che affidabilita multi-engine, boostback e relight restano colli di bottiglia concreti.</p>
+  <p><strong>Perche conta:</strong> La maturita del motore condiziona payload, cadenza, riuso e passaggio da test suborbitali a missioni operative.</p>
+</article>
+<article class="starship-phase">
+  <span class="phase-date">Tema tecnico</span>
+  <h3>Produzione e infrastruttura</h3>
+  <p>Boca Chica evolve da ring stack all&#x27;aperto a High Bay, Mega Bay, Starfactory, Pad 2 e piani Gigabay/Florida. L&#x27;infrastruttura diventa parte del veicolo.</p>
+  <p><strong>Perche conta:</strong> La cadenza futura dipende da fabbriche, pad, GSE e licenze tanto quanto dal razzo.</p>
+</article>
+<article class="starship-phase">
+  <span class="phase-date">Tema tecnico</span>
+  <h3>Maturita booster/ship dopo Flight 12</h3>
+  <p>Dal 2024-2025 i catch booster sembravano piu maturi della ship; Flight 12 ha riequilibrato il quadro. Per Flight 13, Ship 40 ha completato static fire a singolo motore e con tutti e sei i Raptor 3, mentre Booster 20 ha superato il test con tutti i 33 motori. Il 13/07 la FAA ha chiuso l indagine Flight 12.</p>
+  <p><strong>Perche conta:</strong> Con i principali gate propulsivi e regolatori superati, il rischio immediato si concentra sull esecuzione del profilo: boostback/landing burn booster, affidabilita Raptor 3, relight in-space e rientro/TPS della ship.</p>
+</article>
+<article class="starship-phase">
+  <span class="phase-date">Tema tecnico</span>
+  <h3>FAA e regolazione</h3>
+  <p>La FAA impone mitigazioni e corrective actions, ma amplia anche il perimetro operativo con 25 voli/anno in Texas e dossier LC-39A/Florida.</p>
+  <p><strong>Perche conta:</strong> La narrativa &#x27;FAA blocca tutto&#x27; e&#x27; incompleta: ritardi regolatori e guasti tecnici si alimentano a vicenda.</p>
+</article>
+<article class="starship-phase">
+  <span class="phase-date">Tema tecnico</span>
+  <h3>Artemis HLS e rifornimento orbitale</h3>
+  <p>Starship HLS resta centrale, ma la sfida principale e&#x27; trasferire e conservare propellente criogenico in orbita con cadenza di tanker elevata. Il Doc 1 aggiorna il pivot NASA 2026 verso demo LEO nel 2027 e landing Artemis IV nel 2028.</p>
+  <p><strong>Perche conta:</strong> Il successo lunare dipende dalla logistica spaziale piu che dal solo lancio.</p>
+</article>
+<article class="starship-phase">
+  <span class="phase-date">Tema tecnico</span>
+  <h3>Starlink V3 come driver economico</h3>
+  <p>Starship deve diventare il camion orbitale di Starlink V3. Dopo i 22 simulatori dispiegati su Flight 12, Flight 13 prevede 20 satelliti V3 funzionali: sei con telecamere per osservare lo scudo termico e tutti su traiettoria suborbitale destinata al rientro.</p>
+  <p><strong>Perche conta:</strong> Il test avvicina il payload reale, ma non equivale ancora a una missione Starlink orbitale operativa: servono deployment, connessioni, affidabilita e poi cadenza riutilizzabile.</p>
+</article>
+<article class="starship-phase">
+  <span class="phase-date">Tema tecnico</span>
+  <h3>Controversie ambientali e sociali</h3>
+  <p>Debris, rumore, hazard areas, impatti su Boca Chica e incorporazione della City of Starbase generano attrito politico e ambientale.</p>
+  <p><strong>Perche conta:</strong> Il rischio non e&#x27; solo tecnico: licenze, consenso locale e gestione traffico aereo restano vincoli concreti.</p>
+</article>
+<article class="starship-phase">
+  <span class="phase-date">Tema tecnico</span>
+  <h3>Elementi speculativi del Doc 2</h3>
+  <p>Valutazione fino a 1,75 trilioni, data center orbitali/xAI e alcuni target tecnici sono trattati come scenari o claim da verificare, non come fatti consolidati.</p>
+  <p><strong>Perche conta:</strong> Inclusi per completezza, ma separati dalle milestone documentate.</p>
+</article></div>
+  </div>
+</section>
+
+<section id="cronologia">
+  <div class="inner">
+    <div class="section-head"><h2>Cronologia completa</h2><p>Tutti i 101 eventi presenti nel workbook, dalle origini concettuali al ritorno al volo del luglio 2026.</p></div>
+    <details class="starship-archive">
+      <summary>Apri la cronologia integrale del workbook</summary>
+      <div class="starship-timeline"><article class="starship-event">
+  <small>14/11/2005 · Ideazione/Annuncio</small>
+  <h3>Prima menzione pubblica del concetto “BFR”</h3>
+  <p><strong>Genesi concettuale e scelte fondative</strong></p>
+  <p>Elon Musk descrive un heavy-lift da circa 100 t in LEO, molto prima del primo volo di Falcon 1. È il seme politico e industriale della linea che porterà a Starship.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Primo riferimento noto al nome BFR in senso tecnico.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>16/11/2012 · Ideazione/Annuncio</small>
+  <h3>Visione Mars Colonial Transporter</h3>
+  <p><strong>Genesi concettuale e scelte fondative</strong></p>
+  <p>Presentando la colonizzazione di Marte, Musk parla di un sistema riutilizzabile a metano/ossigeno per aprire una colonia marziana, con ticket price drasticamente più bassi delle architetture Apollo-style.</p>
+  <p class="event-impact"><strong>Impatto:</strong> La colonizzazione non è un accessorio retorico. È il requisito che guida riuso, rifornimento in orbita e propellente metano.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>2013 · Ideazione/Annuncio</small>
+  <h3>Il nome MCT viene esplicitato</h3>
+  <p><strong>Genesi concettuale e scelte fondative</strong></p>
+  <p>“MCT” viene sciolto pubblicamente in “Mars Colonial Transporter”, cioè sistema di trasporto verso e da Marte, non solo razzo.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Momento importante perché definisce l’obiettivo come architettura di trasporto, non semplice lanciatore.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>2014–2016 · Design/Decisione</small>
+  <h3>Avvio sviluppo Raptor</h3>
+  <p><strong>Genesi concettuale e scelte fondative</strong></p>
+  <p>Test di componenti a Stennis dal 2014, poi primi engine test a McGregor nel 2016. Raptor nasce come methalox full-flow staged combustion, una scelta radicale per riuso intenso e alte prestazioni.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Questo è il vero collo di bottiglia tecnico di tutta la famiglia Starship.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>27/09/2016 · Ideazione/Annuncio</small>
+  <h3>ITS alla IAC di Guadalajara</h3>
+  <p><strong>Genesi concettuale e scelte fondative</strong> · booster 21</p>
+  <p>Presentato l’Interplanetary Transport System: booster da 12 m, 42 Raptor sul booster, configurazione motori booster 21+14+7, veicolo in carbonio composito, ship con 9 Raptor, 300 t in LEO e fino a 450 t verso Marte con rifornimento orbitale; obiettivo di 100+ passeggeri.</p>
+  <p class="event-impact"><strong>Impatto:</strong> È la versione più “imperiale” del concetto. Molto ambiziosa, ma troppo grande, costosa e non ancora producibile.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>27/09/2016 · Ideazione/Annuncio</small>
+  <h3>Motivazione esplicita della colonizzazione di Marte</h3>
+  <p><strong>Genesi concettuale e scelte fondative</strong></p>
+  <p>Musk definisce l’alternativa binaria: restare su un solo pianeta o diventare specie multiplanetaria. Marte è scelto perché più “terraformabile” e scalabile della Luna.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Qui nasce la logica economica di Starship: riuso totale, refill in orbita, produzione propellente su Marte.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>29/09/2017 · Ideazione/Annuncio</small>
+  <h3>BFR v0.2 alla IAC di Adelaide</h3>
+  <p><strong>Genesi concettuale e scelte fondative</strong></p>
+  <p>Ridimensionamento drastico: diametro 9 m, booster da 31 Raptor, ship da 6 Raptor, 150 t in LEO da completamente riutilizzabile. Vengono aggiunte missioni commerciali, cargo, Luna, ISS e point-to-point terrestre. Struttura ancora in composito.</p>
+  <p class="event-impact"><strong>Impatto:</strong> È il passaggio da “architettura marziana pura” a sistema multifunzione economicamente più credibile.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>29/09/2017 · Design/Decisione</small>
+  <h3>Configurazione motori della ship semplificata</h3>
+  <p><strong>Genesi concettuale e scelte fondative</strong> · ship 2017</p>
+  <p>La BFR ship 2017 usa 4 Raptor Vacuum e 2 sea-level, tutti gimbaling.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Primo grosso passo verso la semplificazione. Più avanti la ship convergerà sulla configurazione da 6 motori, ma 3 sea-level + 3 vacuum.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>2018–03/2019 · Prototipazione/Ground Test</small>
+  <h3>Starhopper costruito a cielo aperto a Boca Chica</h3>
+  <p><strong>Genesi concettuale e scelte fondative</strong> · Starhopper</p>
+  <p>Primo articolo d’acciaio a 9 m. Supera tanking, wet dress rehearsal e preburner test; una tempesta danneggia il nosecone, che viene rimosso.</p>
+  <p class="event-impact"><strong>Impatto:</strong> La produzione è rozza, quasi artigianale, ma rapidissima. Questo approccio resterà un marchio di fabbrica del programma.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>17/09/2018 · Ideazione/Annuncio</small>
+  <h3>Presentazione dearMoon</h3>
+  <p><strong>Genesi concettuale e scelte fondative</strong></p>
+  <p>Con Yusaku Maezawa, SpaceX presenta la versione 2018 della ship per flyby lunare: 7 motori sulla ship, grandi superfici aerodinamiche, volume abitabile enorme, target operativo iniziale 2023.</p>
+  <p class="event-impact"><strong>Impatto:</strong> dearMoon è il momento in cui Starship smette di sembrare un concept powerpoint e diventa anche prodotto mediatico e commerciale.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>19/11/2018 · Design/Decisione</small>
+  <h3>BFR rinominata “Starship” e “Super Heavy”</h3>
+  <p><strong>Genesi concettuale e scelte fondative</strong></p>
+  <p>Musk separa ufficialmente il nome della ship da quello del booster.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Da qui in poi “Starship” indica sia il secondo stadio sia, in pratica, l’intero sistema nel linguaggio pubblico.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>23/12/2018 · Design/Decisione</small>
+  <h3>Switch dall composito al stainless steel</h3>
+  <p><strong>Genesi concettuale e scelte fondative</strong></p>
+  <p>Musk annuncia il cambio materiale. Ragioni: costo molto inferiore, maggiore facilità di fabbricazione e riparazione, miglior comportamento criogenico, migliore tolleranza termica in rientro.</p>
+  <p class="event-impact"><strong>Impatto:</strong> È una delle decisioni più importanti dell’intero programma. Senza questo switch, l’iterazione rapida a basso costo sarebbe stata molto più difficile.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>24/12/2018 · Design/Decisione</small>
+  <h3>Razionale termico dello stainless steel</h3>
+  <p><strong>Genesi concettuale e scelte fondative</strong></p>
+  <p>Musk aggiunge che la finitura lucida/metallica riduce la necessità di verniciatura e aiuta termicamente; il concetto iniziale prevedeva anche raffreddamento traspirante sul lato caldo.</p>
+  <p class="event-impact"><strong>Impatto:</strong> In seguito il concetto di transpiration cooling verrà in gran parte rimpiazzato da tile riutilizzabili.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>2019 · Design/Decisione</small>
+  <h3>Heat shield tiles e flaps evolvono</h3>
+  <p><strong>Prototipi suborbitali e apprendimento rapido</strong></p>
+  <p>SpaceX converge verso tile riutilizzabili “tipo Shuttle” e riduce gli aft flaps da tre a due per ridurre massa. La ship si avvicina alla configurazione da 6 motori, 3 sea-level e 3 vacuum.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Questa è l’ossatura della Starship moderna.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>22/01/2019 · Design/Decisione</small>
+  <h3>Raffreddamento traspirante discusso pubblicamente</h3>
+  <p><strong>Prototipi suborbitali e apprendimento rapido</strong></p>
+  <p>Musk descrive l’idea di usare acqua o metano cryo in pelle doppia porosa per gestire il heat load sul lato windward.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Soluzione elegante sulla carta, ma non quella che finirà per dominare il programma.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>25/07/2019 · Volo Suborbitale</small>
+  <h3>Primo hop di Starhopper</h3>
+  <p><strong>Prototipi suborbitali e apprendimento rapido</strong> · Starhopper</p>
+  <p>Volo a circa 20 m con singolo Raptor. Test di controllabilità e capacità di atterraggio verticale.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Primo uso in volo del Raptor. Incendi al suolo mostrarono che anche i “mini hop” hanno impatti ambientali e operativi reali.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>27/08/2019 · Volo Suborbitale</small>
+  <h3>Secondo hop di Starhopper</h3>
+  <p><strong>Prototipi suborbitali e apprendimento rapido</strong> · Starhopper</p>
+  <p>Salita a 150 m e atterraggio controllato ~100 m dal pad.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Fine della fase “water tower”. Da qui si passa ai full-size prototypes.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>28/09/2019 · Ideazione/Annuncio</small>
+  <h3>Aggiornamento di Boca Chica con Mk1</h3>
+  <p><strong>Prototipi suborbitali e apprendimento rapido</strong> · Mk1</p>
+  <p>Presentazione pubblica dell’hardware in acciaio; Musk definisce un primo percorso verso test a 20 km, poi orbita.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Segna la transizione dal concetto BFR/Starship a un programma di test hardware visibile e locale a Brownsville.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>20/11/2019 · Esplosione/RUD/Fallimento</small>
+  <h3>Mk1 esplode durante pressure test</h3>
+  <p><strong>Prototipi suborbitali e apprendimento rapido</strong> · Mk1, Mk2</p>
+  <p>Il dome superiore cede durante prova criogenica/di pressione. Mk1 non volerà mai. Mk2 in Florida verrà poi abbandonato e il sito smantellato nel 2020.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Lezione brutale ma utile: processi di saldatura, domes e qualità strutturale dovevano maturare molto.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>10/01/2020 · Prototipazione/Ground Test</small>
+  <h3>TT1 portato a rottura</h3>
+  <p><strong>Prototipi suborbitali e apprendimento rapido</strong></p>
+  <p>Subscale test tank distrutto a 7,1 bar in test a temperatura ambiente.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Test distruttivo mirato per capire margini materiali e saldature.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>27–29/01/2020 · Prototipazione/Ground Test</small>
+  <h3>TT2 testato e distrutto</h3>
+  <p><strong>Prototipi suborbitali e apprendimento rapido</strong></p>
+  <p>Prima prova ambientale, poi cryoproof-to-failure fino a 8,5 bar.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Verifica comparativa dei nuovi metodi costruttivi.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>28/02/2020 · Esplosione/RUD/Fallimento</small>
+  <h3>SN1 distrutto nel cryogenic proof test</h3>
+  <p><strong>Prototipi suborbitali e apprendimento rapido</strong> · SN1</p>
+  <p>Cede il lower tank thrust structure.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Primo grande “RUD didattico” dell’era SN. In pratica, la ship era ancora troppo fragile nella zona di trasferimento carichi.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>03/04/2020 · Esplosione/RUD/Fallimento</small>
+  <h3>SN3 collassa in test</h3>
+  <p><strong>Prototipi suborbitali e apprendimento rapido</strong> · SN3</p>
+  <p>La causa pubblica indicata è una failure nella test configuration più che nel veicolo puro.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Lezione classica: nei prototipi puoi perdere il veicolo anche per l’apparato di prova, non solo per il design.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>30/04/2020 · Milestone Regolatorio/Contrattuale</small>
+  <h3>Selezione iniziale HLS di NASA</h3>
+  <p><strong>Prototipi suborbitali e apprendimento rapido</strong></p>
+  <p>NASA seleziona SpaceX tra i team per studi preliminari HLS, insieme a concorrenti. Starship entra da allora nel percorso istituzionale Artemis.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Primo aggancio contrattuale diretto tra Starship e programma lunare NASA.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>26/04–29/05/2020 · Prototipazione/Ground Test</small>
+  <h3>SN4: cryoproof, static fires, poi esplosione</h3>
+  <p><strong>Prototipi suborbitali e apprendimento rapido</strong> · SN4</p>
+  <p>SN4 supera cryoproof e static fire, ma il 29/05 esplode per failure del quick-disconnect GSE dopo test motore. Un leak di metano innesca l’incendio.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Lezione doppiamente importante: affidabilità GSE e protezione wiring/base skirt.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>06/2020 · Prototipazione/Ground Test</small>
+  <h3>SN7 e 304L</h3>
+  <p><strong>Prototipi suborbitali e apprendimento rapido</strong> · SN7</p>
+  <p>SN7 viene usato per provare 304L, meno fragile e più saldabile del 301.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Transizione metallurgica cruciale. I test strutturali sono essenziali per validare materiali e saldature.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>30/07/2020 · Prototipazione/Ground Test</small>
+  <h3>Static fire SN5</h3>
+  <p><strong>Prototipi suborbitali e apprendimento rapido</strong> · SN5, SN4</p>
+  <p>Validazione pre-volo del primo article hop-capable dopo SN4.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Passaggio dal “test tank che muore” al “veicolo che vola”.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>04/08/2020 · Volo Suborbitale</small>
+  <h3>SN5 hop a 150 m</h3>
+  <p><strong>Prototipi suborbitali e apprendimento rapido</strong> · SN5</p>
+  <p>Primo hop del “vero” Starship cylindrical article, con un solo Raptor e senza nosecone/flaps. Atterraggio riuscito.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Stabilisce che il regime di controllo e atterraggio a bassa quota è ripetibile.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>24/08–03/09/2020 · Volo Suborbitale</small>
+  <h3>SN6 static fire e hop a 150 m</h3>
+  <p><strong>Prototipi suborbitali e apprendimento rapido</strong> · SN6, SN5</p>
+  <p>Replica quasi identica a SN5, ma conferma ripetibilità.</p>
+  <p class="event-impact"><strong>Impatto:</strong> In test flight development, il “bis” vale quasi più del “primo”.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>25/09/2020 · Prototipazione/Ground Test</small>
+  <h3>Primo full-duration fire di Raptor Vacuum</h3>
+  <p><strong>Prototipi suborbitali e apprendimento rapido</strong></p>
+  <p>Test a McGregor del Raptor Vacuum, essenziale per le future ship orbitali.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Senza RVac non esiste una Starship competitiva come upper stage/spacecraft.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>10–11/2020 · Prototipazione/Ground Test</small>
+  <h3>SN8 quattro static fire e danni da debris</h3>
+  <p><strong>Prototipi suborbitali e apprendimento rapido</strong> · SN8</p>
+  <p>Quattro test statici; il 12/11 i detriti del pad causano perdita di pneumatica.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Anticipa un tema ricorrente: non basta accendere 3 o 6 Raptor, il pad deve sopravvivere.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>09/12/2020 · Volo Suborbitale</small>
+  <h3>SN8 high-altitude test a 10 km circa</h3>
+  <p><strong>Prototipi suborbitali e apprendimento rapido</strong> · SN8</p>
+  <p>Ascent, cut-off sequenziale, belly-flop e discesa controllata funzionano; fallisce il landing burn per bassa pressione nel methane header tank, impatto duro ed esplosione.</p>
+  <p class="event-impact"><strong>Impatto:</strong> È considerato un “fallimento utile” fondamentale. Il belly-flop è dimostrato. Il problema reale si sposta su header tanks e transizione finale.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>11/12/2020 · Esplosione/RUD/Fallimento</small>
+  <h3>SN9 tip-over nell’High Bay</h3>
+  <p><strong>Prototipi suborbitali e apprendimento rapido</strong> · SN9</p>
+  <p>Cede il supporto; il veicolo urta la struttura e richiede sostituzione del flap anteriore.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Anche la logistica da capannone può fare danni da programma orbitale.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>01/2021 · Prototipazione/Ground Test</small>
+  <h3>SN9 sei static fire, inclusi tre nello stesso giorno</h3>
+  <p><strong>Prototipi suborbitali e apprendimento rapido</strong> · SN9</p>
+  <p>Vengono provate accensioni multiple, poi sostituiti due motori.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Fase di stress test su engine ops e turnaround.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>02/02/2021 · Volo Suborbitale</small>
+  <h3>SN9 high-altitude test</h3>
+  <p><strong>Prototipi suborbitali e apprendimento rapido</strong> · SN9</p>
+  <p>Volo nominale fino alla fase finale; uno dei motori non completa correttamente il relight per failure all’oxygen preburner, crash sul pad.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Dopo SN8, SpaceX adotta la logica di tentare il landing burn con tutti e tre i motori per maggiore engine-out margin.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>03–04/2021 · Altro</small>
+  <h3>SN12, SN13 e SN14 cancellati</h3>
+  <p><strong>Prototipi suborbitali e apprendimento rapido</strong> · SN12, SN13, SN14, SN15</p>
+  <p>Questi vehicle serials non volano; le modifiche confluiscono in SN15.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Scelta tipica del programma: evitare di volare hardware già superato.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>18/03/2021–19/07/2021 · Prototipazione/Ground Test</small>
+  <h3>BN1 e Booster 3</h3>
+  <p><strong>Prototipi suborbitali e apprendimento rapido</strong> · Booster 3, BN1</p>
+  <p>BN1 è un pathfinder non destinato al volo, pienamente stackato e poi demolito. Booster 3 compie cryoproof e static fire ma viene infine usato solo come ground test article.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Lezione industriale: prima si impara a costruire e muovere un booster di quasi 70 m, poi si pensa a lanciarlo.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>08/02–03/03/2021 · Volo Suborbitale</small>
+  <h3>SN10 cryoproof, static fire, abort e volo</h3>
+  <p><strong>Prototipi suborbitali e apprendimento rapido</strong> · SN10</p>
+  <p>Primo tentativo abortito per thrust alto su un engine; al secondo tentativo SN10 atterra ma con hard landing, probabile ingestione parziale di elio dall’header tank, gambe non bloccate, esplosione dopo circa otto minuti.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Primo touchdown di fatto, ma non “survivable” a lungo. La differenza tra landing e post-landing integrity diventa esplicita.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>12–30/03/2021 · Volo Suborbitale</small>
+  <h3>SN11 cryoproof, abort static fire, engine swap e volo</h3>
+  <p><strong>Prototipi suborbitali e apprendimento rapido</strong> · SN11</p>
+  <p>Dopo abort e sostituzione motore, SN11 vola in nebbia fitta; c’è fuoco visibile su un motore in ascesa e la ship si disintegra poco dopo il relight per l’atterraggio.</p>
+  <p class="event-impact"><strong>Impatto:</strong> SN11 chiude la fase “quasi, ma ancora no”. Problema ormai concentrato sull’affidabilità motori nella sequenza finale.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>26/04/2021–30/07/2021 · Milestone Regolatorio/Contrattuale</small>
+  <h3>Proteste GAO su HLS e successivo rigetto</h3>
+  <p><strong>Prototipi suborbitali e apprendimento rapido</strong></p>
+  <p>Le proteste di Blue Origin e Dynetics sospendono l’avvio del contratto; il GAO le rigetta il 30/07.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Ritardo reale, ma non definitivo. Il fattore regolatorio-legale comincia a incidere sul calendario HLS.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>16/04/2021 · Milestone Regolatorio/Contrattuale</small>
+  <h3>NASA assegna a SpaceX l’Option A HLS</h3>
+  <p><strong>Prototipi suborbitali e apprendimento rapido</strong></p>
+  <p>NASA seleziona Starship HLS per la prima dimostrazione uncrewed e la prima missione crewed lunare del programma.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Contratto trasformativo. Starship non è più solo “Mars rocket”, ma anche lander lunare nazionale.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>09/04–05/05/2021 · Volo Suborbitale</small>
+  <h3>SN15 test campaign e volo riuscito</h3>
+  <p><strong>Prototipi suborbitali e apprendimento rapido</strong> · SN15</p>
+  <p>SN15 introduce avionics software migliorato, architettura propellant nell’aft skirt aggiornata e nuova configurazione Raptor. Dopo ambient pressure test, cryoproof, header tank test e static fires, vola a 10 km e atterra con successo; piccolo incendio post-landing domato.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Primo successo netto della campagna suborbitale full-profile. Segna la fine della corsa “SN8-SN15” come dimostratore di assetto e atterraggio.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>31/05/2021 e oltre · Altro</small>
+  <h3>SN15 va nel Rocket Garden; SN16 scrapped, SN17-19 mai completati</h3>
+  <p><strong>Prototipi suborbitali e apprendimento rapido</strong> · SN15, SN16, SN17</p>
+  <p>Spostamento del focus verso hardware orbitale e combinazione ship+booster.</p>
+  <p class="event-impact"><strong>Impatto:</strong> È il momento in cui SpaceX smette di inseguire il “salto perfetto” e passa al problema molto peggiore, cioè il sistema completo.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>11/07/2021 · Design/Decisione</small>
+  <h3>Decisione finale: booster da 33 Raptor</h3>
+  <p><strong>Prototipi suborbitali e apprendimento rapido</strong></p>
+  <p>Musk conferma che il Super Heavy volerà con 33 motori a circa 230 tf ciascuno.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Questa decisione chiude anni di oscillazioni sull’engine count del primo stadio.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>05–06/08/2021 · Prototipazione/Ground Test</small>
+  <h3>Ship 20 e Booster 4: primo full stack orbitale</h3>
+  <p><strong>Prototipi suborbitali e apprendimento rapido</strong> · Booster 4, B4, Ship 20, S20</p>
+  <p>S20, primo veicolo con TPS completo, viene stackato su B4 per fit-check. Il complesso diventa il razzo più alto mai assemblato al tempo.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Primo segnale che il programma stava uscendo dalla fase “hopper gigante” ed entrando nell’era orbitale.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>21/10/2021 · Prototipazione/Ground Test</small>
+  <h3>Static fire di Ship 20</h3>
+  <p><strong>Prototipi suborbitali e apprendimento rapido</strong> · Ship 20</p>
+  <p>Prova dell’hardware destinato in origine al primo tentativo orbitale.</p>
+  <p class="event-impact"><strong>Impatto:</strong> S20 e B4 finiranno però superati da hardware più recente in attesa della licenza.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>18/01/2022 · Esplosione/RUD/Fallimento</small>
+  <h3>Burst di GSE 4.1</h3>
+  <p><strong>Pad, booster e licenze pre-volo integrato</strong></p>
+  <p>Test tank di ground support equipment portato apparentemente a failure.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Anche il GSE veniva sviluppato col metodo “testa finché si rompe”.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>13/06/2022 · Milestone Regolatorio/Contrattuale</small>
+  <h3>FAA chiude la PEA con oltre 75 mitigazioni</h3>
+  <p><strong>Pad, booster e licenze pre-volo integrato</strong></p>
+  <p>La FAA non impone un EIS completo per Boca Chica, ma richiede oltre 75 azioni mitigative ambientali e operative prima della licenza.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Primo grande collo di bottiglia regolatorio formalizzato. Allo stesso tempo, è ciò che evita il blocco totale del sito.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>31/03–11/07/2022 · Prototipazione/Ground Test</small>
+  <h3>Booster 7: pad tests e grossa esplosione sotto motori</h3>
+  <p><strong>Pad, booster e licenze pre-volo integrato</strong> · Booster 7, B7</p>
+  <p>B7 entra sull’orbital launch mount, soffre rupture del downcomer nelle cryoproof di aprile, viene riparato, poi il 11/07 una detonation sotto i motori durante tentato 33-engine spin prime danneggia tubazioni e pad.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Evento chiave. Dimostra che il booster completo e il pad sono un unico sistema. Dimostra la forte interdipendenza tra booster e pad.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>12/10/2022 · Prototipazione/Ground Test</small>
+  <h3>Primo full stack B7 + Ship 24</h3>
+  <p><strong>Pad, booster e licenze pre-volo integrato</strong> · B7, Ship 24</p>
+  <p>Primo stacking completo del sistema flight-worthy che volerà sul primo test integrato.</p>
+  <p class="event-impact"><strong>Impatto:</strong> L’immagine iconica precede ancora molti mesi di test, WDR e static fires.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>15/11/2022 · Milestone Regolatorio/Contrattuale</small>
+  <h3>NASA estende il contratto HLS con una seconda missione</h3>
+  <p><strong>Pad, booster e licenze pre-volo integrato</strong></p>
+  <p>NASA modifica il contratto SpaceX per includere una seconda missione crewed HLS.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Rafforza la centralità di Starship nelle architetture lunari di medio termine.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>2023–2024 · Altro</small>
+  <h3>Ship 26 e Ship 27 come articoli specializzati</h3>
+  <p><strong>Primi voli integrati</strong> · Ship 26, Ship 27</p>
+  <p>Ship 26 viene configurata come expendable article senza TPS/flaps per test di deorbit/static fire; Ship 27, con dispenser rinforzato, viene scrappata dopo failure del common dome e parti vengono riusate come articolo di prova.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Esempio di hardware “non glamour” ma utilissimo per carichi, dispenser e burn dedicati.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>09/02/2023 · Prototipazione/Ground Test</small>
+  <h3>Static fire a 31 motori di Booster 7</h3>
+  <p><strong>Primi voli integrati</strong> · Booster 7</p>
+  <p>Primo grande static fire multi-engine quasi completo.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Sblocco simbolico e tecnico verso il primo flight test.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>17/04/2023 · Prototipazione/Ground Test</small>
+  <h3>Primo tentativo IFT-1 abortito</h3>
+  <p><strong>Primi voli integrati</strong></p>
+  <p>Count abortito poco prima del decollo.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Ricorda che, a questi livelli, persino aprire una valvola al momento sbagliato può costarti giorni.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>20/04/2023 13:33 UTC · Volo Integrato/Orbitale</small>
+  <h3>Integrated Flight Test 1, Booster 7 + Ship 24</h3>
+  <p><strong>Primi voli integrati</strong> · Booster 7, Ship 24</p>
+  <p>Decollo incompleto con diversi motori out già in sequenza iniziale; nessuna stage separation; il booster perde thrust vectoring/controllo, il veicolo ruota e viene distrutto con AFTS.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Pad devastato: craterizzazione, ejecta, detriti sul sito e dintorni. Lezione enorme su deluge, flame diverter, AFTS e affidabilità multi-engine.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>20/04/2023 e mesi successivi · Altro</small>
+  <h3>Danni al pad dopo IFT-1 e redesign infrastrutturale</h3>
+  <p><strong>Primi voli integrati</strong></p>
+  <p>Dopo IFT-1, SpaceX rinforza fondazioni e costruisce il water-cooled flame deflector/deluge system sotto l’OLM.</p>
+  <p class="event-impact"><strong>Impatto:</strong> La correzione infrastrutturale del pad ha cambiato in modo sostanziale il programma.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>08/09/2023 · Milestone Regolatorio/Contrattuale</small>
+  <h3>FAA chiude l’indagine IFT-1</h3>
+  <p><strong>Primi voli integrati</strong></p>
+  <p>La FAA chiude l’indagine sul mishap del 20/04: il report finale identifica cause multiple e 63 corrective actions.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Punto importante nelle controversie: non fu solo “colpa FAA”, ma nemmeno solo “colpa hardware”; il sistema richiese sia correzioni tecniche sia ritorno regolatorio al volo.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>18/11/2023 13:02 UTC · Volo Integrato/Orbitale</small>
+  <h3>Integrated Flight Test 2, Booster 9 + Ship 25</h3>
+  <p><strong>Primi voli integrati</strong> · Booster 9, B9, Ship 25, S25</p>
+  <p>Tutti i 33 Raptor accesi fino allo staging; primo hot-staging di successo. B9 esplode durante il boostback burn, poi l’indagine indica blockage in un LOX filter e failure cascata. S25 prosegue ma un LOX dump/engine-bay fire porta a perdita del veicolo e AFTS.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Primo vero superamento dell’ostacolo IFT-1: lo staging. Da qui il programma smette di essere “riuscirà a separare?” e diventa “riuscirà a recuperare e riusare?”.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>14/03/2024 · Volo Integrato/Orbitale</small>
+  <h3>Integrated Flight Test 3, Booster 10 + Ship 28</h3>
+  <p><strong>Maturazione rientro, hot-staging e catch</strong> · Booster 10, Ship 28</p>
+  <p>Ascent del booster senza engine failures e stage separation riuscita; lo ship entra in fase coast. Vengono tentati i primi test di payload door e propellant transfer demo; il rientro finisce con perdita del veicolo. Il booster perde molti motori nel ritorno e non completa il recovery.</p>
+  <p class="event-impact"><strong>Impatto:</strong> IFT-3 è il passaggio dal “lancio+staging” alla dimostrazione di operazioni in spazio quasi-orbitale.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>06/06/2024 12:50 UTC · Volo Integrato/Orbitale</small>
+  <h3>Integrated Flight Test 4, Booster 11 + Ship 29</h3>
+  <p><strong>Maturazione rientro, hot-staging e catch</strong> · Booster 11, B11, Ship 29, S29</p>
+  <p>Primo flight test in cui entrambe le fasi completano sostanzialmente i rispettivi profili di rientro. B11 effettua splashdown morbido nel Golfo; S29 sopravvive al peak heating, perde quasi del tutto un flap anteriore ma mantiene attitudine e conclude landing burn/splashdown.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Primo grande “end-to-end partial success” credibile del sistema. Il flap damage non uccide il volo, e questa è notizia enorme.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>03/08/2024 · Design/Decisione</small>
+  <h3>Debutto pubblico dei dati Raptor 3</h3>
+  <p><strong>Maturazione rientro, hot-staging e catch</strong></p>
+  <p>SpaceX pubblica i dati del Raptor 3 sea-level: 280 tf, 350 s, 1.525 kg; Musk indica obiettivi ulteriori verso ~300 tf.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Raptor 3 non è un semplice incremento di thrust. È una ripulitura radicale dell’engine package per riuso rapido e minore shielding.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>13/10/2024 · Volo Integrato/Orbitale</small>
+  <h3>Integrated Flight Test 5, Booster 12 + Ship 30</h3>
+  <p><strong>Maturazione rientro, hot-staging e catch</strong> · Booster 12, Ship 30</p>
+  <p>Primo catch riuscito del booster con i chopsticks di Mechazilla dopo rientro RTLS nominale; lo ship completa rientro e splashdown controllato nell’oceano Indiano.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Milestone storica del programma: il recupero del primo stadio torna letteralmente alla torre.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>19/11/2024 · Volo Integrato/Orbitale</small>
+  <h3>Integrated Flight Test 6, Booster 13 + Ship 31</h3>
+  <p><strong>Maturazione rientro, hot-staging e catch</strong> · Booster 13, B13, Ship 31, S31</p>
+  <p>B13 completa ascent, boostback e landing burns, ma il catch viene annullato per un problema alla tower e il booster viene deviato a splashdown nel Golfo. S31 completa il primo successful in-space relight; il “banana for scale” diventa il primo payload interno/zero-g indicator della serie, ma non viene rilasciato.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Test molto importante per propagarsi dai voli di dimostrazione ai voli con funzioni in-space reali.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>16/01/2025 · Volo Integrato/Orbitale</small>
+  <h3>Flight 7, Booster 14 + Ship 33</h3>
+  <p><strong>Block 2, riuso booster e stabilizzazione ship</strong> · Booster 14, B14, Ship 33</p>
+  <p>Primo impiego di ship Block 2. B14 esegue ascent nominale, non riaccende un motore nel boostback ma torna comunque al sito e viene catturato. Ship 33 perde il veicolo poco prima del cutoff e si frammenta sopra Turks and Caicos; persi anche 10 simulatori Starlink.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Secondo booster catch riuscito. Al tempo stesso, Block 2 ship mostra che la parte “ship” restava molto più fragile del booster.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>06/03/2025 · Volo Integrato/Orbitale</small>
+  <h3>Flight 8, Booster 15 + Ship 34</h3>
+  <p><strong>Block 2, riuso booster e stabilizzazione ship</strong> · Booster 15, B15, Ship 34, S34</p>
+  <p>B15 completa ascent e torna al sito, venendo catturato. S34 fallisce nuovamente tardi in ascesa, con perdita della ship prima di completare il profilo previsto.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Terzo catch riuscito del booster. In quel momento il booster è già più avanti della ship sul fronte riusabilità.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>06/03/2025 · Milestone Regolatorio/Contrattuale</small>
+  <h3>FAA apre l’indagine Flight 8</h3>
+  <p><strong>Block 2, riuso booster e stabilizzazione ship</strong></p>
+  <p>Debris response area attivata, rallentando velivoli fuori area di caduta detriti.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Questo conferma che l’impatto FAA non è solo “licenza sì/no”, ma anche gestione dinamica del traffico aereo e delle hazard areas.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>31/03/2025 · Milestone Regolatorio/Contrattuale</small>
+  <h3>FAA chiude l’indagine Flight 7</h3>
+  <p><strong>Block 2, riuso booster e stabilizzazione ship</strong></p>
+  <p>La FAA indica come probable root cause vibrazioni più forti del previsto che aumentano gli stress e causano failure nell’hardware del propulsion system; 11 corrective actions implementate prima di Flight 8.</p>
+  <p class="event-impact"><strong>Impatto:</strong> È una delle poche root-cause publiche, non solo ipotesi di community.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>03/04/2025 · Prototipazione/Ground Test</small>
+  <h3>Static fire del booster riutilizzato B14-2</h3>
+  <p><strong>Block 2, riuso booster e stabilizzazione ship</strong> · B14-2</p>
+  <p>Primo static fire di un Super Heavy già volato e recuperato.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Passo fondamentale verso la riusabilità vera, non solo il catch “da museo”.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>03/05/2025 · Milestone Regolatorio/Contrattuale</small>
+  <h3>Voto per incorporare Starbase come città</h3>
+  <p><strong>Block 2, riuso booster e stabilizzazione ship</strong></p>
+  <p>L’area del sito passa attraverso il voto locale che approva la City of Starbase con ampio margine.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Impatto politico-amministrativo notevole, ma anche fortemente controverso come modello di company town.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>24/04–15/05/2025 · Milestone Regolatorio/Contrattuale</small>
+  <h3>FAA aumenta la cadenza autorizzata fino a 25 voli/anno e approva Flight 9</h3>
+  <p><strong>Block 2, riuso booster e stabilizzazione ship</strong></p>
+  <p>L’EA tiered del 2025 e la license modification autorizzano fino a 25 lanci/atterraggi annui per Starship/Super Heavy da Texas; per Flight 9 la FAA amplia le hazard areas, anche perché SpaceX intende rifare volare un booster recuperato per la prima volta.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Punto spesso ignorato nei discorsi “FAA blocca tutto”: nello stesso 2025 la FAA amplia drasticamente il perimetro autorizzato, ma pretende safety analysis più robuste.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>22/05/2025 · Milestone Regolatorio/Contrattuale</small>
+  <h3>FAA autorizza il return-to-flight del veicolo Starship per Flight 9</h3>
+  <p><strong>Block 2, riuso booster e stabilizzazione ship</strong></p>
+  <p>La FAA conclude che SpaceX ha affrontato abbastanza le cause del mishap di Flight 8 da consentire il volo, pur mantenendo verifiche sulle corrective actions.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Decisione importante perché mostra che il “return to flight” può avvenire anche con l’indagine ancora formalmente aperta, se la sicurezza pubblica è soddisfatta.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>27/05/2025 23:36 UTC · Volo Integrato/Orbitale</small>
+  <h3>Flight 9, Booster 14-2 riusato + Ship 35</h3>
+  <p><strong>Block 2, riuso booster e stabilizzazione ship</strong> · Booster 14-2, Ship 35, S35</p>
+  <p>Primo reflight di un Super Heavy. Il booster completa ascent, boostback e reentry ad alto angle of attack ma viene perso prima dello splashdown. S35 raggiunge l’engine cutoff, ma un leak di propellente causa perdita di attitude control; nessun relight, payload door non si apre, nessun deployment, breakup in reentry.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Milestone doppia: prima riaccensione di programma verso vero riuso del booster, ma anche promemoria feroce che la ship può ancora perdere la missione in coast phase.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>30/05/2025 · Milestone Regolatorio/Contrattuale</small>
+  <h3>FAA apre l’indagine Flight 9</h3>
+  <p><strong>Block 2, riuso booster e stabilizzazione ship</strong></p>
+  <p>L’indagine si concentra solo sulla perdita della ship; la perdita del booster rientra in una test-induced damage exception approvata pre-volo.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Dettaglio regolatorio interessante: non tutti gli esiti “negativi” del booster implicano stessa classificazione di mishap.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>30/05/2025 · Ideazione/Annuncio</small>
+  <h3>Musk illustra Block 3, riuso e obiettivi marziani allo Starfactory</h3>
+  <p><strong>Block 2, riuso booster e stabilizzazione ship</strong></p>
+  <p>Presentati goal per Block 3, Raptor 3 e crescita della capacità produttiva, con payload riutilizzabile verso 100+ t e sviluppo di varianti future a 9 engine ship.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Il programma viene esplicitamente orientato a una cadenza industriale molto più alta.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>18/06/2025 · Esplosione/RUD/Fallimento</small>
+  <h3>Ship 36 esplode al Massey durante six-engine static fire</h3>
+  <p><strong>Block 2, riuso booster e stabilizzazione ship</strong> · Ship 36</p>
+  <p>Ship 36, prevista per Flight 10, subisce una catastrophic failure al test stand. Il sito Massey resta gravemente danneggiato e la campagna successiva deve essere riorganizzata.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Uno dei peggiori incidenti a terra dopo B7 nel 2022 e IFT-1 sul pad. Impatto diretto sul sequencing di Flight 10 e oltre.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>15/08/2025 · Milestone Regolatorio/Contrattuale</small>
+  <h3>FAA chiude l’indagine Flight 9</h3>
+  <p><strong>Block 2, riuso booster e stabilizzazione ship</strong></p>
+  <p>Root cause pubblica: failure di un fuel component sul veicolo Starship. Flight 10 può procedere.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Le tre root causes ufficializzate FAA per Flights 7, 8 e 9 sono molto preziose perché smontano parecchie congetture troppo creative online.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>24/08/2025 · Altro</small>
+  <h3>Proteste ambientali offshore e scrub di tentativo Flight 10</h3>
+  <p><strong>Block 2, riuso booster e stabilizzazione ship</strong></p>
+  <p>Ambientalisti messicani protestano contro debris e impatti ambientali vicino al sito mentre Flight 10 viene rinviato per un problema di sito.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Le proteste locali e transfrontaliere non scompaiono con i successi tecnici, anzi.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>26/08/2025 23:30 UTC · Volo Integrato/Orbitale</small>
+  <h3>Flight 10, Booster 16 + Ship 37</h3>
+  <p><strong>Block 2, riuso booster e stabilizzazione ship</strong> · Booster 16, B16, Ship 37, S37</p>
+  <p>Volo riuscito dopo due scrub. B16 completa il landing-burn experiment e splashdown controllato. S37 dispensa con successo 8 simulatori Starlink, riaccende un motore in spazio e completa rientro/splashdown nell’oceano Indiano.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Primo payload deployment riuscito della campagna integrata. Per molti aspetti è il miglior volo ship-side fino a quel momento.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>13/10/2025 23:23 UTC · Volo Integrato/Orbitale</small>
+  <h3>Flight 11, Booster 15-2 + Ship 38</h3>
+  <p><strong>Block 2, riuso booster e stabilizzazione ship</strong> · Booster 15-2, B15, Ship 38</p>
+  <p>Primo retry di B15. Le fonti pubbliche accessibili indicano una missione sostanzialmente completa: booster in controlled Gulf splashdown e ship con deployment di 8 simulatori, relight e rientro controllato.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Segna la chiusura molto positiva della fase Block 2/Pad 1 prima del salto a Block 3.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>21/11/2025 · Esplosione/RUD/Fallimento</small>
+  <h3>Anomalia di Booster 18 al Massey</h3>
+  <p><strong>Block 2, riuso booster e stabilizzazione ship</strong> · Booster 18</p>
+  <p>Primo booster Block 3/V3 danneggiato gravemente nella testing campaign iniziale e poi scrappato.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Ritardo importante per Flight 12, che passa da B18 a B19.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>29/01/2026 · Milestone Regolatorio/Contrattuale</small>
+  <h3>FAA final EIS/ROD per Starship al Kennedy Space Center LC-39A</h3>
+  <p><strong>Block 3 / V3 e preparazione Flight 12</strong></p>
+  <p>La FAA seleziona l’alternativa che consente una nuova licenza o modifica di licenza per Starship/Super Heavy a LC-39A, Florida.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Tassello decisivo per la cadenza futura: Starship non può vivere a lungo con un solo sito texano.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>02/2026–14/04/2026 · Prototipazione/Ground Test</small>
+  <h3>Ship 39 completa cryo campaign e six-engine static fire</h3>
+  <p><strong>Block 3 / V3 e preparazione Flight 12</strong> · Ship 39</p>
+  <p>Ship 39, primo ship Block 3/V3 destinato al volo, completa proof tests e un static fire di circa un minuto il 14/04.</p>
+  <p class="event-impact"><strong>Impatto:</strong> È la prima ship Block 3 pronta a testare sul serio le novità di tile, Raptor 3 e hardware da refill/docking in LEO.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>13/02/2026 · Milestone Regolatorio/Contrattuale</small>
+  <h3>FAA finalizza EA/FONSI per traiettorie aggiuntive e profili Starship RTLS a Boca Chica</h3>
+  <p><strong>Block 3 / V3 e preparazione Flight 12</strong></p>
+  <p>L’agenzia pubblica la final Tiered EA e FONSI/ROD per additional launch trajectories e Starship return-to-launch-site profiles, tiered da PEA 2022 ed EA 2025.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Segnale che il regolatore si sta adattando a un programma più maturo e frequente, non solo contenendolo.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>01/02–10/03/2026 · Prototipazione/Ground Test</small>
+  <h3>Booster 19 avvia la campagna Flight 12 e inaugura Pad 2</h3>
+  <p><strong>Block 3 / V3 e preparazione Flight 12</strong> · Booster 19, B19</p>
+  <p>B19 inizia il proof campaign, torna per engine install, poi su Pad 2 effettua il primo caricamento propellente di quel pad il 10/03.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Flight 12 non è solo “un altro volo”: è il debutto operativo dell’infrastruttura Block 3/Pad 2.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>16/03/2026 · Prototipazione/Ground Test</small>
+  <h3>Primo static fire del Block 3 booster B19 su Pad 2</h3>
+  <p><strong>Block 3 / V3 e preparazione Flight 12</strong> · B19</p>
+  <p>Test a 10 motori Raptor 3, chiuso anticipatamente per un problema ground-side del pad.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Buona notizia: tutti i motori installati arrivano allo startup. Cattiva notizia: il pad nuovo deve ancora diventare “routine-grade”.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>15/04/2026 · Prototipazione/Ground Test</small>
+  <h3>B19 full 33-engine static fire</h3>
+  <p><strong>Block 3 / V3 e preparazione Flight 12</strong> · B19</p>
+  <p>Primo static fire completo a 33 Raptor 3 di un Super Heavy Block 3.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Punto di maturità chiave per considerare Flight 12 vicino al via.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>23/04/2026 · Altro</small>
+  <h3>Flight 12 in preparazione, B19 + Ship 39</h3>
+  <p><strong>Block 3 / V3 e preparazione Flight 12</strong> · B19, B18, Ship 39</p>
+  <p>Public trackers e reporting tecnico convergono su Flight 12 come primo volo Block 3, primo lancio da Pad 2, con B19 al posto del B18 perso. Nelle fonti pubbliche consultate non ho trovato un hard NET ufficiale SpaceX; i tracker pubblici lo davano ormai scivolato verso maggio 2026.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Debutto atteso di Block 3/V3, Raptor 3 throughout, Pad 2 e prime capacità più mature di refueling-hardware a bordo.</p>
+  <p class="muted">Fonte nel workbook: Doc 1 - cronologia strutturata</p>
+</article>
+<article class="starship-event">
+  <small>04-05/05/2026 · Prototipazione/Ground Test</small>
+  <h3>Ship 40 completa due cryogenic proof test a Massey</h3>
+  <p><strong>Flight 13 in preparazione</strong> · Ship 40, S40</p>
+  <p>Ship 40, upper stage Block 3/V3 indicata per Flight 13, completa due prove criogeniche al Massey Outpost. I test verificano integrita strutturale, serbatoi e sistemi criogenici prima dell installazione motori e della campagna di static fire.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Avvia concretamente il flusso hardware Flight 13 lato ship: S40 passa da articolo in produzione a veicolo in preparazione pre-volo.</p>
+  <p class="muted">Fonte nel workbook: Aggiornamento 12/06/2026</p>
+</article>
+<article class="starship-event">
+  <small>07/05/2026 · Prototipazione/Ground Test</small>
+  <h3>Nuovo static fire del booster B19 prima di Flight 12</h3>
+  <p><strong>Block 3 / V3 e preparazione Flight 12</strong> · B19</p>
+  <p>Osservato nella campagna finale pre-volo di Super Heavy Booster 19 su Pad 2, dopo i test di marzo-aprile. Per il fuso europeo cade il 07/05; alcune annotazioni pubbliche lo indicano come 06/05 locale Starbase. Rafforza la readiness del booster e del nuovo pad in vista del primo volo Block 3/V3.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Ultimo gate tecnico booster-side prima dello stack e della WDR completa.</p>
+  <p class="muted">Fonte nel workbook: Aggiornamento 15/05/2026</p>
+</article>
+<article class="starship-event">
+  <small>2026-05-10 · Prototipazione/Ground Test</small>
+  <h3>Stack completo B19 + Ship 39 su Pad 2</h3>
+  <p><strong>Block 3 / V3 e preparazione Flight 12</strong> · Booster 19, B19, Ship 39, S39, OLP-2</p>
+  <p>Nel weekend 9-10 maggio SpaceX completa lo stacking del primo veicolo Starship/Super Heavy V3 destinato al volo, portando Ship 39 sopra Booster 19 sul nuovo pad OLP-2 a Starbase.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Primo stack completo V3 e nuovo record di altezza del sistema; passaggio dalla campagna di test separati alla configurazione flight-like.</p>
+  <p class="muted">Fonte nel workbook: Aggiornamento 15/05/2026</p>
+</article>
+<article class="starship-event">
+  <small>2026-05-11 · Prototipazione/Ground Test</small>
+  <h3>Launch rehearsal/WDR completa per Starship V3 Flight 12</h3>
+  <p><strong>Block 3 / V3 e preparazione Flight 12</strong> · B19 + S39, OLP-2</p>
+  <p>SpaceX completa una prova di countdown flight-like caricando oltre 5.000 tonnellate di ossigeno e metano liquidi sullo stack V3 completo.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Prima prova integrata di prop load dello stack V3 completo e del nuovo pad; riduce il rischio GSE/pad prima del tentativo di lancio.</p>
+  <p class="muted">Fonte nel workbook: Aggiornamento 15/05/2026</p>
+</article>
+<article class="starship-event">
+  <small>2026-05-12 · Ideazione/Annuncio</small>
+  <h3>SpaceX pubblica il piano Flight 12 e target NET 19 maggio</h3>
+  <p><strong>Block 3 / V3 e preparazione Flight 12</strong> · Flight 12, B19, Ship 39</p>
+  <p>SpaceX pubblica la pagina missione: target NET 19/05/2026 alle 22:30 UTC da Starbase OLP-2. Obiettivi: debutto V3/Raptor 3/Pad 2, deployment di 22 simulatori Starlink V3, relight Raptor in spazio, test TPS/flap e rientro con splashdown di booster nel Golfo e ship nell&#x27;oceano Indiano.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Flight 12 passa da campagna di preparazione a tentativo schedulato ufficialmente; il focus si sposta su dati TPS, deployment Starlink V3 e maturita del nuovo stack.</p>
+  <p class="muted">Fonte nel workbook: Aggiornamento 15/05/2026</p>
+</article>
+<article class="starship-event">
+  <small>22/05/2026 22:30 UTC (23/05 00:30 CEST) · Volo Integrato/Orbitale</small>
+  <h3>Flight 12: debutto V3, B19 + Ship 39 da Pad 2</h3>
+  <p><strong>Block 3 / V3 e primo volo Flight 12</strong> · Booster 19, B19, Ship 39, S39, Pad 2, OLP-2</p>
+  <p>Liftoff da Starbase Pad 2 alle 22:30 UTC. Separazione riuscita circa a T+2:24; B19 non completa correttamente il boostback e cade nel Golfo fuori target. Ship 39 raggiunge una traiettoria suborbitale accettabile con un motore spento, dispiega 22 simulatori Starlink V3, non effettua il relight Raptor previsto e completa rientro e splashdown nell&#x27;oceano Indiano.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Debutto positivo per V3, Raptor 3 e Pad 2, con dati utili su TPS, payload deployment e manovra di landing. Restano da maturare affidabilita motori, boostback booster, relight in-space e passaggio a profili orbitale/refill.</p>
+  <p class="muted">Fonte nel workbook: Aggiornamento 24/05/2026</p>
+</article>
+<article class="starship-event">
+  <small>27/05/2026 · Milestone Regolatorio/Contrattuale</small>
+  <h3>FAA richiede indagine SpaceX-led prima del Flight 13</h3>
+  <p><strong>Post-Flight 12 e preparazione Flight 13</strong> · Flight 12, Flight 13, B19</p>
+  <p>Dopo il Flight 12 del 22/05, la FAA determina che la prestazione off-nominal del booster B19 costituisce un mishap e richiede a SpaceX un indagine con supervisione FAA prima del prossimo lancio Starship.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Il flusso hardware di Flight 13 puo avanzare, ma il lancio resta subordinato alla chiusura dell indagine, al rapporto finale e alle eventuali azioni correttive approvate.</p>
+  <p class="muted">Fonte nel workbook: Aggiornamento 12/06/2026</p>
+</article>
+<article class="starship-event">
+  <small>06-07/06/2026 · Prototipazione/Ground Test</small>
+  <h3>Booster 20 completa i primi cryogenic proof test per Flight 13</h3>
+  <p><strong>Flight 13 in preparazione</strong> · Booster 20, B20</p>
+  <p>B20, booster Super Heavy V3 atteso per Flight 13, effettua due cryogenic proof test al Massey Outpost: test #1 il 06/06 e test #2 il 07/06. Next Spaceflight li descrive come prove di integrita strutturale del veicolo.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Passaggio chiave prima di installazione motori, grid fins e campagna static fire: dopo Flight 12 il programma riparte rapidamente sul secondo stack V3.</p>
+  <p class="muted">Fonte nel workbook: Aggiornamento 12/06/2026</p>
+</article>
+<article class="starship-event">
+  <small>10-12/06/2026 · Prototipazione/Ground Test</small>
+  <h3>Flusso Flight 13: B20 rientra verso Mega Bay 1, S40 verso installazione Raptor 3</h3>
+  <p><strong>Flight 13 in preparazione</strong> · B20, S40, Flight 13</p>
+  <p>Dopo la campagna criogenica, B20 viene riportato verso Mega Bay 1 per la fase di outfitting e installazione motori; S40 risulta in preparazione con installazione Raptor 3 in corso/attesa. Le dichiarazioni pubbliche del 12/06 indicano Flight 13 come prossimo passo, ma senza hard date ufficiale di lancio.</p>
+  <p class="event-impact"><strong>Impatto:</strong> La campagna entra nella fase pre-static-fire: motori, grid fins, checkouts, eventuale static fire/WDR e chiusura del gate FAA diventano i prossimi elementi critici.</p>
+  <p class="muted">Fonte nel workbook: Aggiornamento 12/06/2026</p>
+</article>
+<article class="starship-event">
+  <small>25/06/2026 (pubblicato 26/06) · Prototipazione/Ground Test</small>
+  <h3>Ship 40 completa un full-duration static fire a singolo Raptor 3</h3>
+  <p><strong>Flight 13 in preparazione</strong> · Ship 40, S40, Flight 13</p>
+  <p>Al Massey test site S40 accende un solo Raptor 3 centrale per circa 15 secondi. Il test isola e valida il profilo del motore sea-level impiegato nelle fasi finali della missione.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Primo test a caldo della campagna Flight 13: la ship passa dai cryogenic proof test alla validazione propulsiva.</p>
+  <p class="muted">Fonte nel workbook: Aggiornamento 03/07/2026</p>
+</article>
+<article class="starship-event">
+  <small>02/07/2026 · Prototipazione/Ground Test</small>
+  <h3>Ship 40 completa static fire di circa 60 secondi con tutti e sei i Raptor 3</h3>
+  <p><strong>Flight 13 in preparazione</strong> · Ship 40, S40, Flight 13</p>
+  <p>S40 esegue al Massey test site un test di durata prossima al minuto con i sei motori della ship: tre sea-level e tre vacuum-optimized. SpaceX lo definisce static fire di 60 secondi in vista del tredicesimo volo.</p>
+  <p class="event-impact"><strong>Impatto:</strong> La campagna motori della ship raggiunge il principale gate pre-volo. Al 03/07 resta ancora da completare lo static fire dei 33 Raptor di Booster 20 e non esiste una data ufficiale di lancio.</p>
+  <p class="muted">Fonte nel workbook: Aggiornamento 03/07/2026</p>
+</article>
+<article class="starship-event">
+  <small>10/07/2026 · Prototipazione/Ground Test</small>
+  <h3>Booster 20 completa un full-duration static fire con tutti i 33 Raptor 3</h3>
+  <p><strong>Flight 13 in preparazione</strong> · Booster 20, B20, Flight 13, Pad 2</p>
+  <p>Dopo il rollout del 09/07, B20 accende tutti i 33 Raptor 3 su Pad 2 per circa 25 secondi, simulando durata e condizioni del profilo di lancio.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Il principale gate propulsivo booster-side e completato: insieme ai test di S40, il secondo stack V3 passa alla fase finale pre-volo.</p>
+  <p class="muted">Fonte nel workbook: Aggiornamento 15/07/2026</p>
+</article>
+<article class="starship-event">
+  <small>11/07/2026 · Ideazione/Annuncio</small>
+  <h3>SpaceX pubblica piano Flight 13 e target 16 luglio</h3>
+  <p><strong>Flight 13 in preparazione</strong> · Flight 13, Booster 20, Ship 40, Starlink V3, Pad 2</p>
+  <p>SpaceX indica il lancio non prima del 16/07 alle 22:45 UTC, in una finestra di 90 minuti. Il profilo resta suborbitale e include 20 Starlink V3 funzionali, relight Raptor in spazio e splashdown nel Golfo e nell oceano Indiano.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Per la prima volta Starship deve collaudare veri satelliti Starlink V3: sei useranno telecamere per osservare lo scudo termico durante il volo.</p>
+  <p class="muted">Fonte nel workbook: Aggiornamento 15/07/2026</p>
+</article>
+<article class="starship-event">
+  <small>13/07/2026 · Milestone Regolatorio/Contrattuale</small>
+  <h3>FAA chiude l indagine sul mishap Flight 12 e autorizza il passaggio a Flight 13</h3>
+  <p><strong>Post-Flight 12 e ritorno al volo</strong> · FAA, Flight 12, Flight 13, Booster 19, Booster 20</p>
+  <p>La FAA accetta conclusioni e azioni correttive SpaceX. Indica come cause piu probabili gli effetti termici su componenti propulsivi durante l ascesa e impostazioni errate degli allarmi motore; SpaceX definisce quattro azioni correttive hardware/software.</p>
+  <p class="event-impact"><strong>Impatto:</strong> Viene rimosso il principale gate regolatorio aperto dopo Flight 12; Flight 13 puo procedere se restano soddisfatti tutti gli altri requisiti di sicurezza e licenza.</p>
+  <p class="muted">Fonte nel workbook: Aggiornamento 15/07/2026</p>
+</article></div>
+    </details>
+  </div>
+</section>
+
+<section id="fonti">
+  <div class="inner split">
+    <article class="panel">
+      <h2>Fonti e metodo</h2>
+      <p>La struttura narrativa e i dati storici derivano da <strong>01_workbook/sviluppo_starship.xlsx</strong>. Le voci piu recenti sono state controllate con pagine missione SpaceX, comunicazioni FAA e tracker tecnici. Le previsioni sono indicate come target o NET; non vengono trasformate in eventi completati.</p>
+      <ul class="source-list">
+        <li><a href="https://www.spacex.com/launches/starship-flight-13" target="_blank" rel="noopener">SpaceX, pagina missione Flight 13</a></li>
+        <li><a href="https://www.faa.gov/newsroom/statements/general-statements" target="_blank" rel="noopener">FAA, chiusura dell'indagine Flight 12 del 13 luglio 2026</a></li>
+        <li><a href="https://www.space.com/space-exploration/launches-spacecraft/spacex-ignites-all-33-powerful-engines-on-starship-booster-test-ahead-of-flight-13-test-launch" target="_blank" rel="noopener">Static fire di Booster 20</a></li>
+        <li><a href="https://nextspaceflight.com/launches/details/8279/" target="_blank" rel="noopener">Next Spaceflight, scheda Flight 13</a></li>
+      </ul>
+    </article>
+    <aside class="panel">
+      <h3>Crediti immagini</h3>
+      <p>Le due fotografie sono di Steve Jurvetson e sono distribuite con licenza <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener"><strong>Creative Commons Attribution 2.0</strong></a>. I file sono conservati localmente nel sito per evitare dipendenze esterne; attribuzione e collegamento alla scheda Wikimedia sono riportati sotto ogni immagine.</p>
+      <div class="actions"><a class="button secondary" href="spacex.html">Torna a SpaceX</a><a class="button" href="starship.html">Apri dashboard Starship</a></div>
+    </aside>
+  </div>
 </section>
 
 </main>

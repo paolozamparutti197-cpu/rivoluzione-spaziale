@@ -391,8 +391,13 @@ def starship_data():
         {
             "flight": row.get("Flight"),
             "data": row.get("Data"),
+            "veicolo": row.get("Veicolo"),
+            "block": row.get("Block"),
             "milestone": row.get("Milestone"),
+            "booster": row.get("Booster"),
+            "ship": row.get("Ship"),
             "esito": row.get("Esito integrato"),
+            "lezione": row.get("Lezione"),
         }
         for row in rows_from_sheet(path, "Voli integrati", 4)
         if row.get("Flight")
@@ -406,7 +411,29 @@ def starship_data():
         for row in rows_from_sheet(path, "Temi e sintesi", 4)
         if row.get("Tema")
     ]
-    return {"metrics": metrics, "flights": flights, "themes": themes}
+    timeline = [
+        {
+            "data": row.get("Data"),
+            "anno": row.get("Anno"),
+            "fase": row.get("Fase"),
+            "evento": row.get("Evento"),
+            "categoria": row.get("Categoria"),
+            "veicolo": row.get("Veicolo/Missione"),
+            "esito": row.get("Esito"),
+            "dettagli": row.get("Dettagli"),
+            "impatto": row.get("Impatto"),
+            "fonte": row.get("Fonte"),
+        }
+        for row in rows_from_sheet(path, "Timeline integrata", 4)
+        if row.get("Evento")
+    ]
+    sources = [
+        {"documento": row.get("Documento"), "fonte": row.get("Fonte")}
+        for row in rows_from_sheet(path, "Fonti", 4)
+        if row.get("Documento") and row.get("Fonte")
+    ]
+    metrics["eventi"] = len(timeline)
+    return {"metrics": metrics, "flights": flights, "themes": themes, "timeline": timeline, "sources": sources}
 
 
 def literal_assignment(path, name):
@@ -862,6 +889,55 @@ td{{color:#d8dee3}}
 .theme-list{{display:grid;gap:12px}}
 .theme{{border-left:3px solid var(--accent);padding:0 0 0 14px}}
 .theme p{{margin:4px 0 0;font-size:14px;color:#cfd6dc}}
+.starship-dossier-hero{{min-height:70vh;display:grid;align-items:end;padding:110px clamp(18px,4vw,56px) 56px;background:linear-gradient(90deg,rgba(2,5,8,.96),rgba(2,5,8,.64) 54%,rgba(2,5,8,.18)),linear-gradient(180deg,rgba(2,5,8,.08),rgba(5,6,7,.98) 96%),url('../sezioni/assets/sviluppo-starship/starship-ift5-ignition.jpg') center 46%/cover no-repeat}}
+.starship-dossier-hero h1{{max-width:1050px}}
+.update-stamp{{display:inline-flex;margin-top:24px;border:1px solid rgba(120,213,140,.55);background:rgba(120,213,140,.12);color:#dfffe6;border-radius:999px;padding:8px 12px;text-transform:uppercase;letter-spacing:.1em;font-size:11px;font-weight:950}}
+.starship-lead-grid{{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr);gap:20px;align-items:start}}
+.starship-lead{{font-size:clamp(18px,2vw,23px);line-height:1.62;margin:0}}
+.starship-index{{display:grid;gap:9px;margin-top:18px}}
+.starship-index a{{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding:11px 0;color:#dfeaf1;font-weight:800}}
+.starship-index a::after{{content:'→';color:var(--accent)}}
+.starship-photo-grid{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}}
+.starship-photo{{margin:0;border:1px solid var(--line);background:rgba(255,255,255,.05);border-radius:8px;overflow:hidden}}
+.starship-photo img{{display:block;width:100%;height:clamp(300px,42vw,560px);object-fit:cover}}
+.starship-photo figcaption{{padding:14px;color:#bdc8d0;font-size:12px;line-height:1.5}}
+.starship-photo a{{color:#dff4ff;text-decoration:underline;text-underline-offset:3px}}
+.starship-phase-grid{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}}
+.starship-phase{{border:1px solid var(--line);border-radius:8px;background:linear-gradient(150deg,rgba(105,200,255,.1),rgba(255,255,255,.045));padding:20px}}
+.starship-phase .phase-date{{display:block;color:var(--gold);text-transform:uppercase;letter-spacing:.11em;font-size:11px;font-weight:950;margin-bottom:9px}}
+.starship-phase h3{{font-size:25px}}
+.starship-phase p{{margin:8px 0 0;color:#cbd5dc}}
+.starship-status-grid{{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-top:20px}}
+.starship-status{{border-top:3px solid var(--green);background:rgba(255,255,255,.055);border-radius:6px;padding:15px}}
+.starship-status.pending{{border-top-color:var(--gold)}}
+.starship-status b{{display:block;color:#fff;font-size:16px;line-height:1.25;margin-bottom:7px}}
+.starship-status span{{display:block;color:var(--muted);font-size:12px;line-height:1.4}}
+.starship-flight-grid{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}
+.starship-flight{{border:1px solid var(--line);border-radius:8px;background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.045));padding:18px;display:grid;gap:12px}}
+.starship-flight-head{{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}}
+.starship-flight-head h3{{font-size:27px;margin:0}}
+.starship-flight-head .pill{{flex:0 0 auto}}
+.starship-flight-meta{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}}
+.starship-flight-meta div{{border:1px solid rgba(255,255,255,.11);border-radius:6px;padding:9px;background:rgba(0,0,0,.2)}}
+.starship-flight-meta b{{display:block;color:var(--gold);font-size:10px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}}
+.starship-flight-meta span{{display:block;color:#d7e0e6;font-size:12px;line-height:1.36}}
+.starship-flight p{{margin:0;color:#cdd6dc;font-size:14px}}
+.starship-archive{{border:1px solid var(--line);border-radius:8px;background:rgba(255,255,255,.045);overflow:hidden}}
+.starship-archive summary{{cursor:pointer;padding:18px 20px;color:#fff;font-size:18px;font-weight:900;list-style:none}}
+.starship-archive summary::-webkit-details-marker{{display:none}}
+.starship-archive summary::after{{content:' +';color:var(--accent)}}
+.starship-archive[open] summary::after{{content:' −'}}
+.starship-timeline{{display:grid;gap:0;padding:0 20px 22px}}
+.starship-event{{position:relative;border-left:2px solid rgba(105,200,255,.42);padding:0 0 24px 22px}}
+.starship-event::before{{content:'';position:absolute;left:-6px;top:5px;width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px #0b1116}}
+.starship-event:last-child{{padding-bottom:0}}
+.starship-event small{{color:var(--gold);text-transform:uppercase;letter-spacing:.09em;font-weight:900}}
+.starship-event h3{{font-size:20px;margin:5px 0 7px}}
+.starship-event p{{margin:4px 0;color:#cbd5dc;font-size:14px}}
+.starship-event .event-impact{{color:#e8eef2}}
+.source-list{{display:grid;gap:9px;padding-left:20px}}
+.source-list li{{color:#cbd5dc;line-height:1.5}}
+.source-list a{{color:#dff4ff;text-decoration:underline;text-underline-offset:3px}}
 .pad-map-wrap{{display:grid;grid-template-columns:320px 1fr;min-height:620px;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#080b0f}}
 .pad-map-side{{background:rgba(255,255,255,.055);border-right:1px solid var(--line);padding:18px;display:flex;flex-direction:column;gap:12px}}
 .pad-map-side h3{{margin-bottom:2px}}
@@ -927,9 +1003,9 @@ td{{color:#d8dee3}}
 .construction{{border-color:rgba(242,184,75,.45);background:linear-gradient(180deg,rgba(242,184,75,.12),rgba(255,255,255,.055))}}
 .muted{{color:var(--muted)}}
 .footer{{padding:34px clamp(18px,4vw,56px);border-top:1px solid var(--line);color:var(--muted);font-size:13px;line-height:1.5}}
-@media(max-width:1120px){{.grid,.launch-grid,.launch-grid.compact,.agenda-strip,.pad-list{{grid-template-columns:repeat(2,minmax(0,1fr))}}.split,.dash-grid,.cols,.next-launch,.pad-map-wrap{{grid-template-columns:1fr}}.pad-map-side{{border-right:0;border-bottom:1px solid var(--line)}}.pad-side-list{{max-height:none;grid-template-columns:repeat(2,minmax(0,1fr))}}}}
+@media(max-width:1120px){{.grid,.launch-grid,.launch-grid.compact,.agenda-strip,.pad-list{{grid-template-columns:repeat(2,minmax(0,1fr))}}.split,.dash-grid,.cols,.next-launch,.pad-map-wrap,.starship-lead-grid{{grid-template-columns:1fr}}.starship-status-grid{{grid-template-columns:repeat(3,minmax(0,1fr))}}.pad-map-side{{border-right:0;border-bottom:1px solid var(--line)}}.pad-side-list{{max-height:none;grid-template-columns:repeat(2,minmax(0,1fr))}}}}
 @media(max-width:900px){{.pad-list{{grid-template-columns:1fr}}.pad-card{{grid-template-columns:160px 1fr}}.story-card{{grid-template-columns:1fr}}.story-card img{{height:auto;max-height:420px}}}}
-@media(max-width:760px){{.topbar{{align-items:flex-start;flex-direction:column}}.nav{{justify-content:flex-start}}.grid,.launch-grid,.launch-grid.compact,.agenda-strip,.launch-meta,.metrics,.split .panel .metrics,.pad-side-list,.spacex-actions{{grid-template-columns:1fr}}section{{padding:56px 18px}}.hero{{padding:92px 18px 42px}}h1{{font-size:43px}}.section-head{{display:block}}.bar-row{{grid-template-columns:58px 1fr 44px}}#pad-map,#location-map{{min-height:460px}}.pad-map-wrap{{min-height:460px}}.pad-card{{grid-template-columns:1fr}}.pad-card img{{max-height:420px}}.pad-mini-event{{grid-template-columns:1fr;gap:2px}}}}
+@media(max-width:760px){{.topbar{{align-items:flex-start;flex-direction:column}}.nav{{justify-content:flex-start}}.grid,.launch-grid,.launch-grid.compact,.agenda-strip,.launch-meta,.metrics,.split .panel .metrics,.pad-side-list,.spacex-actions,.starship-photo-grid,.starship-phase-grid,.starship-flight-grid,.starship-status-grid{{grid-template-columns:1fr}}section{{padding:56px 18px}}.hero,.starship-dossier-hero{{padding:92px 18px 42px}}h1{{font-size:43px}}.section-head{{display:block}}.bar-row{{grid-template-columns:58px 1fr 44px}}.starship-flight-meta{{grid-template-columns:1fr}}#pad-map,#location-map{{min-height:460px}}.pad-map-wrap{{min-height:460px}}.pad-card{{grid-template-columns:1fr}}.pad-card img{{max-height:420px}}.pad-mini-event{{grid-template-columns:1fr;gap:2px}}}}
 """
 
 
@@ -1880,13 +1956,187 @@ def render_history_page(data):
 
 
 def render_starship_page(data):
+    return render_starship_development_page(data)
+
+
+def render_starship_development_page(data):
+    starship = data["starship"]
+    flight_cards = "\n".join(
+        f"""<article class="starship-flight">
+  <div class="starship-flight-head">
+    <div><small class="eyebrow">{escape(str(item.get('data') or 'Data non indicata'))}</small><h3>{escape(str(item.get('flight') or 'Volo'))}</h3></div>
+    <span class="pill">{escape(str(item.get('esito') or 'n.d.'))}</span>
+  </div>
+  <p><strong>{escape(str(item.get('milestone') or 'Milestone non indicata'))}</strong></p>
+  <div class="starship-flight-meta">
+    <div><b>Veicolo</b><span>{escape(str(item.get('veicolo') or 'n.d.'))}</span></div>
+    <div><b>Block</b><span>{escape(str(item.get('block') or 'n.d.'))}</span></div>
+    <div><b>Booster</b><span>{escape(str(item.get('booster') or 'n.d.'))}</span></div>
+  </div>
+  <p><strong>Ship:</strong> {escape(str(item.get('ship') or 'n.d.'))}</p>
+  <p><strong>Lezione:</strong> {escape(str(item.get('lezione') or 'n.d.'))}</p>
+</article>"""
+        for item in starship["flights"]
+    )
+    theme_cards = "\n".join(
+        f"""<article class="starship-phase">
+  <span class="phase-date">Tema tecnico</span>
+  <h3>{escape(str(item.get('tema') or 'Tema'))}</h3>
+  <p>{escape(str(item.get('sintesi') or ''))}</p>
+  <p><strong>Perche conta:</strong> {escape(str(item.get('impatto') or ''))}</p>
+</article>"""
+        for item in starship["themes"]
+    )
+    timeline_events = "\n".join(
+        f"""<article class="starship-event">
+  <small>{escape(str(item.get('data') or item.get('anno') or 'Data n.d.'))} · {escape(str(item.get('categoria') or 'Sviluppo'))}</small>
+  <h3>{escape(str(item.get('evento') or 'Evento'))}</h3>
+  <p><strong>{escape(str(item.get('fase') or 'Programma Starship'))}</strong>{' · ' + escape(str(item.get('veicolo'))) if item.get('veicolo') else ''}</p>
+  <p>{escape(str(item.get('dettagli') or ''))}</p>
+  <p class="event-impact"><strong>Impatto:</strong> {escape(str(item.get('impatto') or 'Non indicato nel workbook.'))}</p>
+  <p class="muted">Fonte nel workbook: {escape(str(item.get('fonte') or 'non indicata'))}</p>
+</article>"""
+        for item in starship["timeline"]
+    )
+    metrics = "".join(
+        [
+            metric(starship["metrics"]["eventi"], "eventi nella cronologia completa"),
+            metric(starship["metrics"]["voli"], "voli integrati completati"),
+            metric(starship["metrics"]["catch"], "catture Super Heavy riuscite"),
+            metric(starship["metrics"]["reflight"], "reflight Super Heavy"),
+        ]
+    )
     body = f"""
-{page_hero("Starship", "Sviluppo SpaceX", "Produzione rapida, riuso completo, rifornimento orbitale e logistica lunare: Starship merita una pagina separata dalla porta generale SpaceX.")}
+<section class="starship-dossier-hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Dossier SpaceX</p>
+    <h1>Sviluppo Starship</h1>
+    <p class="subtitle">Dal concetto interplanetario ai voli integrati V3: evoluzione del veicolo, prove, fallimenti, recupero, motori Raptor, infrastrutture e obiettivi ancora aperti.</p>
+    <span class="update-stamp">Aggiornato al 15 luglio 2026</span>
+  </div>
+</section>
+
+<section id="quadro-generale">
+  <div class="inner">
+    <div class="starship-lead-grid">
+      <article>
+        <p class="starship-lead">Starship non e un singolo razzo arrivato improvvisamente sulla rampa. E il risultato di oltre un decennio di cambi di scala, materiali, motori, metodo produttivo e infrastrutture. Il programma nasce come architettura per Marte, passa attraverso MCT, ITS e BFR, abbandona fibra di carbonio e ali tradizionali, adotta acciaio inossidabile, rientro controllato sulle flaps e una famiglia di motori Raptor a metano. Ogni prototipo ha trasformato un problema teorico in un test fisico, spesso distruttivo ma immediatamente riutilizzato nel progetto successivo.</p>
+        <p>Questa pagina deriva dal workbook locale <strong>sviluppo_starship.xlsx</strong> appena aggiornato. La data di taglio e il <strong>15 luglio 2026</strong>: Flight 13 non e ancora conteggiato tra i voli effettuati, mentre sono registrati i test di Ship 40 e Booster 20, la chiusura dell'indagine FAA su Flight 12 e il tentativo annunciato per il 16 luglio alle 22:45 UTC, corrispondente alle 00:45 CEST del 17 luglio in Italia.</p>
+      </article>
+      <aside class="panel">
+        <h3>Indice del dossier</h3>
+        <nav class="starship-index" aria-label="Indice Sviluppo Starship">
+          <a href="#fasi">Le grandi fasi</a>
+          <a href="#flight-13">Situazione Flight 13</a>
+          <a href="#voli">Tutti i voli integrati</a>
+          <a href="#temi">Nodi tecnici</a>
+          <a href="#cronologia">Cronologia completa</a>
+          <a href="#fonti">Fonti e immagini</a>
+        </nav>
+      </aside>
+    </div>
+    <div class="metrics" style="margin-top:24px">{metrics}</div>
+  </div>
+</section>
+
 <section>
-  <div class="inner">{render_starship(data['starship'])}</div>
+  <div class="inner">
+    <div class="section-head"><h2>Un sistema, non solo un razzo</h2><p>Starship comprende Ship, Super Heavy, Raptor, torri di cattura, fabbriche, serbatoi, pad, software e un modello operativo che punta al riuso rapido.</p></div>
+    <div class="starship-photo-grid">
+      <figure class="starship-photo">
+        <img src="assets/sviluppo-starship/starship-ift5-ignition.jpg" alt="Accensione di Starship durante il quinto volo integrato" loading="lazy">
+        <figcaption>Accensione durante IFT-5, 13 ottobre 2024. Foto di Steve Jurvetson, <a href="https://commons.wikimedia.org/wiki/File:SpaceX_Starship_ignition_during_IFT-5.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>, licenza CC BY 2.0.</figcaption>
+      </figure>
+      <figure class="starship-photo">
+        <img src="assets/sviluppo-starship/super-heavy-ift5-approach.jpg" alt="Super Heavy in avvicinamento alla torre di cattura durante IFT-5" loading="lazy">
+        <figcaption>Super Heavy rientra verso i bracci della torre durante IFT-5. Foto di Steve Jurvetson, <a href="https://commons.wikimedia.org/wiki/File:SpaceX_Starship_booster_landing_approach_IFT-5.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>, licenza CC BY 2.0.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="fasi">
+  <div class="inner">
+    <div class="section-head"><h2>Le grandi fasi dello sviluppo</h2><p>La continuita del programma si capisce seguendo le decisioni che hanno cambiato architettura e metodo industriale.</p></div>
+    <div class="starship-phase-grid">
+      <article class="starship-phase"><span class="phase-date">2005-2015</span><h3>Da Marte al motore</h3><p>Le prime idee Mars Colonial Transporter definiscono la missione prima del veicolo: trasportare grandi masse oltre l'orbita bassa. Il punto decisivo diventa Raptor, motore methalox a ciclo full-flow staged combustion, scelto per prestazioni, produzione di propellente su Marte e possibilita di riuso profondo.</p></article>
+      <article class="starship-phase"><span class="phase-date">2016-2018</span><h3>ITS, BFR e la potatura del progetto</h3><p>L'Interplanetary Transport System del 2016 propone un veicolo da 12 metri. Il BFR del 2017-2018 riduce il diametro a 9 metri e concentra equipaggio, cargo e missioni lunari in una stessa architettura. Nel 2018 arrivano il nome Starship e la svolta dall'enorme struttura in composito all'acciaio inossidabile.</p></article>
+      <article class="starship-phase"><span class="phase-date">2019-2021</span><h3>Starhopper e la scuola dei prototipi</h3><p>Starhopper dimostra il controllo con Raptor. Mk1 e la serie SN trasformano Boca Chica in un laboratorio a cielo aperto. I voli a 10-12,5 km introducono salita, spegnimento motori, belly-flop e flip finale. SN8-SN11 falliscono in modi diversi; SN15, nel maggio 2021, completa atterraggio e sopravvivenza del veicolo.</p></article>
+      <article class="starship-phase"><span class="phase-date">2022-2023</span><h3>Dalla Ship al sistema completo</h3><p>Il lavoro si sposta sull'integrazione con Super Heavy, sui 33 motori, sul pad e sull'hot staging. Booster 7 e Ship 24 portano a IFT-1: il volo del 20 aprile 2023 distrugge il piano originale del pad e rende indispensabili deluge, flame deflector, affidabilita multi-engine e AFTS piu rapido. IFT-2 riesce invece a separare gli stadi con hot staging.</p></article>
+      <article class="starship-phase"><span class="phase-date">2024</span><h3>Dal sopravvivere al recuperare</h3><p>IFT-3 porta operazioni in-space e rientro profondo; IFT-4 completa per la prima volta splashdown controllato di entrambi gli stadi. IFT-5 realizza la prima cattura di Super Heavy con i bracci della torre. IFT-6 conferma funzioni in-space, incluso il primo relight Raptor, ma rinuncia alla cattura e chiude con splashdown.</p></article>
+      <article class="starship-phase"><span class="phase-date">2025</span><h3>Block 2: crisi, reflight e recupero</h3><p>Flight 7 e Flight 8 mostrano una maturita booster superiore a quella della Ship: catture riuscite, ma perdita delle upper stage. Flight 9 porta il primo reflight di Super Heavy senza chiudere bene il profilo. Flight 10 e Flight 11 recuperano il programma con deployment, relight e rientri controllati.</p></article>
+      <article class="starship-phase"><span class="phase-date">2026</span><h3>V3, Raptor 3 e Pad 2</h3><p>La terza generazione integra serbatoi piu grandi, avionica alleggerita, Raptor 3 e infrastruttura di rifornimento piu matura. Flight 12 debutta con Booster 19 e Ship 39 da Pad 2: il deployment e il rientro della Ship funzionano, ma boostback del booster e relight in-space restano incompleti.</p></article>
+      <article class="starship-phase"><span class="phase-date">Obiettivo industriale</span><h3>Riuso completo e alta cadenza</h3><p>Il vero salto non e un singolo volo spettacolare. E il ciclo lancio, recupero, ispezione, rifornimento e rilancio di entrambi gli stadi. Per questo torri, Starfactory, Mega Bay, Pad 2, Florida e produzione Raptor sono parte integrante della stessa architettura.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="flight-13">
+  <div class="inner">
+    <div class="section-head"><h2>Flight 13 al 15 luglio 2026</h2><p>Il dossier distingue nettamente cio che e gia avvenuto dal tentativo ancora programmato.</p></div>
+    <article class="panel">
+      <h3>Secondo volo della generazione V3</h3>
+      <p>Flight 13 impiega <strong>Booster 20</strong> e <strong>Ship 40</strong> da Pad 2. Riprende gli obiettivi non chiusi da Flight 12: orientamento corretto dopo hot staging, boostback completo del Super Heavy, riaccensione di un Raptor della Ship nello spazio, deployment e rientri controllati. La novita di carico e costituita da <strong>20 satelliti Starlink V3 funzionali</strong>; sei portano telecamere per osservare scudo termico e superficie esterna della Ship. La traiettoria resta suborbitale: i satelliti testeranno pannelli, antenne e collegamenti, poi rientreranno in atmosfera.</p>
+      <div class="starship-status-grid">
+        <div class="starship-status"><b>25 giugno</b><span>Ship 40 completa uno static fire di circa 15 secondi con un Raptor 3 centrale.</span></div>
+        <div class="starship-status"><b>2 luglio</b><span>Ship 40 accende tutti i sei Raptor 3 per circa 60 secondi.</span></div>
+        <div class="starship-status"><b>10 luglio</b><span>Booster 20 completa circa 25 secondi di static fire con tutti i 33 Raptor 3.</span></div>
+        <div class="starship-status"><b>13 luglio</b><span>La FAA chiude l'indagine Flight 12, accetta quattro azioni correttive e consente il passaggio a Flight 13.</span></div>
+        <div class="starship-status pending"><b>16 luglio, 22:45 UTC</b><span>Target SpaceX in finestra di 90 minuti. In Italia: 17 luglio, 00:45 CEST. Al taglio del 15 luglio il volo non e ancora avvenuto.</span></div>
+      </div>
+    </article>
+    <div class="cols" style="margin-top:18px">
+      <article class="panel"><h3>Cosa corregge Flight 13</h3><p>Flight 12 ha lasciato il booster ruotato con un orientamento errato di circa 90 gradi dopo la separazione e cinque motori non riaccesi durante il boostback. SpaceX ha modificato sequenza di avvio della Ship, hardware e software del Super Heavy, logiche di allarme e abort. La FAA ha indicato come cause piu probabili gli effetti termici sui componenti propulsivi e impostazioni errate degli allarmi motore.</p></article>
+      <article class="panel"><h3>Cosa deve dimostrare</h3><p>Il successo utile non coincide soltanto con il decollo. Servono separazione pulita, boostback completo, landing burn e splashdown mirato del booster, deployment dei 20 Starlink V3, relight Raptor in-space, dati sullo scudo termico, controllo in rientro e splashdown della Ship nell'oceano Indiano.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="voli">
+  <div class="inner">
+    <div class="section-head"><h2>I dodici voli integrati</h2><p>Ogni scheda riporta veicolo, risultato e soprattutto la lezione trasferita al volo successivo. Flight 13 verra aggiunto solo dopo il lancio.</p></div>
+    <div class="starship-flight-grid">{flight_cards}</div>
+  </div>
+</section>
+
+<section id="temi">
+  <div class="inner">
+    <div class="section-head"><h2>I nodi tecnici ancora aperti</h2><p>La cronologia diventa utile quando chiarisce quali problemi limitano davvero il passaggio da prototipo a sistema operativo.</p></div>
+    <div class="starship-phase-grid">{theme_cards}</div>
+  </div>
+</section>
+
+<section id="cronologia">
+  <div class="inner">
+    <div class="section-head"><h2>Cronologia completa</h2><p>Tutti i {escape(str(starship['metrics']['eventi']))} eventi presenti nel workbook, dalle origini concettuali al ritorno al volo del luglio 2026.</p></div>
+    <details class="starship-archive">
+      <summary>Apri la cronologia integrale del workbook</summary>
+      <div class="starship-timeline">{timeline_events}</div>
+    </details>
+  </div>
+</section>
+
+<section id="fonti">
+  <div class="inner split">
+    <article class="panel">
+      <h2>Fonti e metodo</h2>
+      <p>La struttura narrativa e i dati storici derivano da <strong>01_workbook/sviluppo_starship.xlsx</strong>. Le voci piu recenti sono state controllate con pagine missione SpaceX, comunicazioni FAA e tracker tecnici. Le previsioni sono indicate come target o NET; non vengono trasformate in eventi completati.</p>
+      <ul class="source-list">
+        <li><a href="https://www.spacex.com/launches/starship-flight-13" target="_blank" rel="noopener">SpaceX, pagina missione Flight 13</a></li>
+        <li><a href="https://www.faa.gov/newsroom/statements/general-statements" target="_blank" rel="noopener">FAA, chiusura dell'indagine Flight 12 del 13 luglio 2026</a></li>
+        <li><a href="https://www.space.com/space-exploration/launches-spacecraft/spacex-ignites-all-33-powerful-engines-on-starship-booster-test-ahead-of-flight-13-test-launch" target="_blank" rel="noopener">Static fire di Booster 20</a></li>
+        <li><a href="https://nextspaceflight.com/launches/details/8279/" target="_blank" rel="noopener">Next Spaceflight, scheda Flight 13</a></li>
+      </ul>
+    </article>
+    <aside class="panel">
+      <h3>Crediti immagini</h3>
+      <p>Le due fotografie sono di Steve Jurvetson e sono distribuite con licenza <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener"><strong>Creative Commons Attribution 2.0</strong></a>. I file sono conservati localmente nel sito per evitare dipendenze esterne; attribuzione e collegamento alla scheda Wikimedia sono riportati sotto ogni immagine.</p>
+      <div class="actions"><a class="button secondary" href="spacex.html">Torna a SpaceX</a><a class="button" href="starship.html">Apri dashboard Starship</a></div>
+    </aside>
+  </div>
 </section>
 """
-    return shell("Starship", "starship", True, body)
+    return shell("Sviluppo Starship", "spacex", True, body)
 
 
 def render_placeholder(item):
