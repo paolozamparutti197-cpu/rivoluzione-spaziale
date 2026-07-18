@@ -66,8 +66,6 @@ section{padding:72px clamp(18px,4vw,56px);border-top:1px solid var(--line)}
 .launch-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .launch-grid.compact{grid-template-columns:repeat(3,minmax(0,1fr))}
 .launch{border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.05));border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:12px;min-height:360px}
-.starship-highlight{border-color:rgba(242,184,75,.48);background:linear-gradient(155deg,rgba(242,184,75,.15),rgba(173,99,58,.09) 48%,rgba(255,255,255,.055));box-shadow:inset 0 3px 0 rgba(242,184,75,.5),0 10px 28px rgba(0,0,0,.12)}
-.starship-highlight h3,.starship-highlight> b{color:#ffe2a6}
 .launch-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
 .pill{display:inline-flex;border:1px solid rgba(105,200,255,.5);color:#dff4ff;border-radius:999px;padding:5px 8px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:900}
 .pill.net{border-color:rgba(242,184,75,.6);color:#ffe1a3}

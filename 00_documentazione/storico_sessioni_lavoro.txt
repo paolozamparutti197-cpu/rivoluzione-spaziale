@@ -294,3 +294,35 @@ Sessione 19/06/2026 - riordino generale directory e memoria operativa
   - 00_documentazione\storico_sessioni_lavoro.txt
 - Confermato che il sito pubblico deve essere pubblicato su main e gh-pages; la verifica utile e' sulla URL GitHub Pages, non solo sui file locali.
 - Stato storia SpaceX: la pagina sezioni\storia-spacex.html contiene tre parti pubblicate; la terza usa la sottocartella documenti per sito\assets_fondazione\falcon1-flight4 per le immagini del quarto volo Falcon 1.
+
+03/07/2026 - Aggiornamento sviluppo_starship.xlsx
+- Aggiornata la timeline al 03/07/2026 con i due static fire di Ship 40 per Flight 13: singolo Raptor 3 del 25/06 e test di circa 60 secondi con tutti e sei i motori del 02/07.
+- Aggiornati Dashboard, Confronti tecnici, Temi e sintesi, Discrepanze e Fonti; mantenuto Booster 20 come static fire ancora atteso e Flight 13 senza data ufficiale.
+- Verificati apertura Excel, assenza di errori formula e chiusura dei processi COM; creato backup pre-modifica in 01_workbook.
+
+09/07/2026 - Correzione grafici lanci_spacex_falcon.xlsx
+- Corretto un refuso nel foglio elenco: riga 668, Starlink Group 17-27, aveva "/" nella colonna data.
+- Impostata la data italiana 15/04/2026, coerente con il lancio 15/04/2026 04:29 UTC.
+- Aggiornate le formule derivate di elenco per evitare che righe vuote propaghino date/aree fittizie fino alla riga 5000.
+- Ricalcolato e salvato il workbook via Excel COM; verificati zero errori formula nei fogli dashboard, serie_annuale, per_lanciatore, per_pad_orbita e booster_landing.
+- Backup pre-correzione creato in 02_backup.
+
+15/07/2026 - Aggiornamento sviluppo_starship.xlsx
+- Aggiunti alla timeline lo static fire di Booster 20 con 33 Raptor 3 del 10/07, il piano ufficiale Flight 13 pubblicato l'11/07 e la chiusura FAA dell'indagine Flight 12 del 13/07.
+- Aggiornati Dashboard, Confronti tecnici, Temi e sintesi, Discrepanze e Fonti con il target del 16/07 alle 22:45 UTC, i 20 Starlink V3 funzionali e gli obiettivi di relight e splashdown.
+- Flight 13 resta correttamente escluso da Voli integrati finche il volo non avviene; verifica Excel completata con zero errori formula e tre nuove righe timeline.
+- Backup pre-modifica creato in 01_workbook; workbook salvato e riaperto in sola lettura per il controllo finale.
+
+15/07/2026 - Ampliamento pagina pubblica Starship
+- Sostituita la precedente dashboard sintetica di sezioni/starship.html con un dossier completo generato dal workbook sviluppo_starship.xlsx e dichiarato aggiornato al 15/07/2026.
+- Inserite fasi storiche, focus Flight 13, dodici schede dei voli integrati, temi tecnici e cronologia espandibile di 101 eventi.
+- Aggiunte due fotografie IFT-5 di Steve Jurvetson con licenza CC BY 2.0, crediti in pagina e file locali sotto sezioni/assets/sviluppo-starship.
+- Mantenuto il pulsante Starship gia esistente nel portale SpaceX, senza creare una sottosezione duplicata.
+
+18/07/2026 - Aggiornamento elenco lanci Falcon e sito pubblico
+- Recuperato il salvataggio Excel completo rimasto nel temporaneo 01_workbook\D6F40400 dopo l'interruzione di corrente.
+- Aggiornato 01_workbook\lanci_spacex_falcon.xlsx con il lancio principale nr 684: SDA Tranche 1 Transport Layer E, 16/07/2026, Falcon 9 bl 5, B1103 volo 4, SLC-4E, OCISLY, orbita polare, Vandenberg.
+- Dashboard ricalcolato: 684 lanci principali, 678 successi, 660 tentativi di recupero, 636 recuperi riusciti e 583 riutilizzi booster.
+- Creato backup pre-recupero in 02_backup e verificati sette fogli, grafici e assenza di errori formula.
+- Conservati come validi gli HTML locali dei prossimi lanci generati il 18/07/2026, senza ulteriori chiamate a The Space Devs per esaurimento della quota API.
+- Preparati per la pubblicazione gli aggiornamenti agenda SpaceX ed Electron Lab e il dossier Starship al 18/07/2026.

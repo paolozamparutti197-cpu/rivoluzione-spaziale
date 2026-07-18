@@ -2016,7 +2016,7 @@ def render_starship_development_page(data):
     <p class="eyebrow">Dossier SpaceX</p>
     <h1>Sviluppo Starship</h1>
     <p class="subtitle">Dal concetto interplanetario ai voli integrati V3: evoluzione del veicolo, prove, fallimenti, recupero, motori Raptor, infrastrutture e obiettivi ancora aperti.</p>
-    <span class="update-stamp">Aggiornato al 15 luglio 2026</span>
+    <span class="update-stamp">Aggiornato al 18 luglio 2026</span>
   </div>
 </section>
 
@@ -2025,7 +2025,7 @@ def render_starship_development_page(data):
     <div class="starship-lead-grid">
       <article>
         <p class="starship-lead">Starship non e un singolo razzo arrivato improvvisamente sulla rampa. E il risultato di oltre un decennio di cambi di scala, materiali, motori, metodo produttivo e infrastrutture. Il programma nasce come architettura per Marte, passa attraverso MCT, ITS e BFR, abbandona fibra di carbonio e ali tradizionali, adotta acciaio inossidabile, rientro controllato sulle flaps e una famiglia di motori Raptor a metano. Ogni prototipo ha trasformato un problema teorico in un test fisico, spesso distruttivo ma immediatamente riutilizzato nel progetto successivo.</p>
-        <p>Questa pagina deriva dal workbook locale <strong>sviluppo_starship.xlsx</strong> appena aggiornato. La data di taglio e il <strong>15 luglio 2026</strong>: Flight 13 non e ancora conteggiato tra i voli effettuati, mentre sono registrati i test di Ship 40 e Booster 20, la chiusura dell'indagine FAA su Flight 12 e il tentativo annunciato per il 16 luglio alle 22:45 UTC, corrispondente alle 00:45 CEST del 17 luglio in Italia.</p>
+        <p>Questa pagina deriva dal workbook locale <strong>sviluppo_starship.xlsx</strong> appena aggiornato. La data di taglio e il <strong>18 luglio 2026</strong>: Flight 13 non e ancora conteggiato tra i voli effettuati. Il tentativo del 16 luglio UTC, nella notte italiana del 17 luglio, e stato abortito automaticamente prima del liftoff per la mancata accensione di alcuni Raptor. SpaceX ha sostituito due motori e ora punta al 20 luglio alle 22:45 UTC, corrispondenti alle 00:45 CEST del 21 luglio in Italia.</p>
       </article>
       <aside class="panel">
         <h3>Indice del dossier</h3>
@@ -2077,7 +2077,7 @@ def render_starship_development_page(data):
 
 <section id="flight-13">
   <div class="inner">
-    <div class="section-head"><h2>Flight 13 al 15 luglio 2026</h2><p>Il dossier distingue nettamente cio che e gia avvenuto dal tentativo ancora programmato.</p></div>
+    <div class="section-head"><h2>Flight 13 al 18 luglio 2026</h2><p>Il primo countdown si e chiuso con uno scrub a T-0; il volo resta programmato per un nuovo tentativo.</p></div>
     <article class="panel">
       <h3>Secondo volo della generazione V3</h3>
       <p>Flight 13 impiega <strong>Booster 20</strong> e <strong>Ship 40</strong> da Pad 2. Riprende gli obiettivi non chiusi da Flight 12: orientamento corretto dopo hot staging, boostback completo del Super Heavy, riaccensione di un Raptor della Ship nello spazio, deployment e rientri controllati. La novita di carico e costituita da <strong>20 satelliti Starlink V3 funzionali</strong>; sei portano telecamere per osservare scudo termico e superficie esterna della Ship. La traiettoria resta suborbitale: i satelliti testeranno pannelli, antenne e collegamenti, poi rientreranno in atmosfera.</p>
@@ -2086,7 +2086,8 @@ def render_starship_development_page(data):
         <div class="starship-status"><b>2 luglio</b><span>Ship 40 accende tutti i sei Raptor 3 per circa 60 secondi.</span></div>
         <div class="starship-status"><b>10 luglio</b><span>Booster 20 completa circa 25 secondi di static fire con tutti i 33 Raptor 3.</span></div>
         <div class="starship-status"><b>13 luglio</b><span>La FAA chiude l'indagine Flight 12, accetta quattro azioni correttive e consente il passaggio a Flight 13.</span></div>
-        <div class="starship-status pending"><b>16 luglio, 22:45 UTC</b><span>Target SpaceX in finestra di 90 minuti. In Italia: 17 luglio, 00:45 CEST. Al taglio del 15 luglio il volo non e ancora avvenuto.</span></div>
+        <div class="starship-status"><b>16 luglio UTC / 17 luglio CEST</b><span>Scrub a ridosso del liftoff: alcuni Raptor non si avviano e il sistema automatico interrompe la sequenza. Il veicolo resta sulla rampa.</span></div>
+        <div class="starship-status pending"><b>20 luglio, 22:45 UTC</b><span>Nuovo target SpaceX in finestra di 90 minuti. In Italia: 21 luglio, 00:45 CEST.</span></div>
       </div>
     </article>
     <div class="cols" style="margin-top:18px">
@@ -2112,7 +2113,7 @@ def render_starship_development_page(data):
 
 <section id="cronologia">
   <div class="inner">
-    <div class="section-head"><h2>Cronologia completa</h2><p>Tutti i {escape(str(starship['metrics']['eventi']))} eventi presenti nel workbook, dalle origini concettuali al ritorno al volo del luglio 2026.</p></div>
+    <div class="section-head"><h2>Cronologia completa</h2><p>Tutti i {escape(str(starship['metrics']['eventi']))} eventi presenti nel workbook, dalle origini concettuali allo scrub e al nuovo tentativo di Flight 13.</p></div>
     <details class="starship-archive">
       <summary>Apri la cronologia integrale del workbook</summary>
       <div class="starship-timeline">{timeline_events}</div>
@@ -2127,6 +2128,7 @@ def render_starship_development_page(data):
       <p>La struttura narrativa e i dati storici derivano da <strong>01_workbook/sviluppo_starship.xlsx</strong>. Le voci piu recenti sono state controllate con pagine missione SpaceX, comunicazioni FAA e tracker tecnici. Le previsioni sono indicate come target o NET; non vengono trasformate in eventi completati.</p>
       <ul class="source-list">
         <li><a href="https://www.spacex.com/launches/starship-flight-13" target="_blank" rel="noopener">SpaceX, pagina missione Flight 13</a></li>
+        <li><a href="https://apnews.com/article/starship-spacex-rocket-musk-nasa-455927b93b0fdc5512a4567a53eb3228" target="_blank" rel="noopener">Associated Press, abort automatico del 16 luglio</a></li>
         <li><a href="https://www.faa.gov/newsroom/statements/general-statements" target="_blank" rel="noopener">FAA, chiusura dell'indagine Flight 12 del 13 luglio 2026</a></li>
         <li><a href="https://www.space.com/space-exploration/launches-spacecraft/spacex-ignites-all-33-powerful-engines-on-starship-booster-test-ahead-of-flight-13-test-launch" target="_blank" rel="noopener">Static fire di Booster 20</a></li>
         <li><a href="https://nextspaceflight.com/launches/details/8279/" target="_blank" rel="noopener">Next Spaceflight, scheda Flight 13</a></li>
@@ -2141,7 +2143,7 @@ def render_starship_development_page(data):
 </section>
 </div>
 """
-    return shell("Sviluppo Starship", "spacex", True, body, css_version="20260715-starship-compatto")
+    return shell("Sviluppo Starship", "spacex", True, body, css_version="20260718-flight13-rinvio")
 
 
 def render_placeholder(item):
