@@ -65,8 +65,6 @@ a.metric-link:hover,a.metric-link:focus-visible{
 }
 a.metric-link b{color:#eaf7ff;font-size:clamp(16px,1.7vw,22px);line-height:1.2}
 a.metric-link span{color:#9fd8f5;font-weight:800}
-a.metric-link span::after{content:"";display:inline-block;margin-left:0}
-
 .story-list{display:grid;gap:16px}
 .story-card{display:grid;grid-template-columns:minmax(220px,320px) minmax(0,1fr);gap:20px;align-items:stretch;border:1px solid var(--line);background:linear-gradient(180deg,var(--panel2),var(--panel));border-radius:8px;padding:14px;transition:transform .18s ease,border-color .18s ease}
 .story-card:hover{transform:translateY(-3px);border-color:rgba(105,200,255,.55)}
