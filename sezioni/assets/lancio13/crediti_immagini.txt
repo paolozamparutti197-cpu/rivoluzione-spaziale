@@ -1,0 +1,20 @@
+Immagini della pagina "Starship Flight 13" (lancio13.html)
+
+1. starship-flight13-pad.jpg
+   Titolo: Starship - Flight 13 (Sunset/Sunrise)
+   Autore: SpaceX
+   Data: 23 luglio 2026
+   Fonte: https://commons.wikimedia.org/wiki/File:Starship_-_Flight_13_(Sunset).jpg
+   Licenza: Creative Commons Attribution 2.0 Generic (CC BY 2.0)
+   Licenza: https://creativecommons.org/licenses/by/2.0/
+   Nota: ridimensionata a 1280 px lato lungo da Wikimedia Commons.
+
+2. starship-ift5-ignition.jpg (riuso da sviluppo-starship)
+   Autore: Steve Jurvetson
+   Fonte: https://commons.wikimedia.org/wiki/File:SpaceX_Starship_ignition_during_IFT-5.jpg
+   Licenza: CC BY 2.0
+
+3. super-heavy-ift5-approach.jpg (riuso da sviluppo-starship)
+   Autore: Steve Jurvetson
+   Fonte: https://commons.wikimedia.org/wiki/File:SpaceX_Starship_booster_landing_approach_IFT-5.jpg
+   Licenza: CC BY 2.0

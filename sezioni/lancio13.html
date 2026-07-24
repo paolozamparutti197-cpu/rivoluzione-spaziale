@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Starship Flight 13 | Rivoluzione Spaziale</title>
+<meta name="description" content="Scheda illustrativa del tredicesimo volo di prova Starship: Booster 20, Ship 40, Pad 2, countdown, timeline e obiettivi.">
+<link rel="stylesheet" href="../css/style.css?v=20260724-lancio13">
+<style>
+.f13-hero{
+  min-height:58vh;display:grid;align-items:end;
+  padding:92px clamp(18px,4vw,56px) 40px;
+  background:
+    linear-gradient(90deg,rgba(2,5,8,.96),rgba(2,5,8,.62) 52%,rgba(2,5,8,.2)),
+    linear-gradient(180deg,rgba(2,5,8,.05),rgba(5,6,7,.98) 96%),
+    url('assets/lancio13/starship-flight13-pad.jpg') center 42%/cover no-repeat;
+  border-bottom:1px solid var(--line);
+}
+.f13-hero .subtitle{max-width:760px}
+.f13-countdown-wrap{
+  border:1px solid rgba(105,200,255,.5);
+  background:linear-gradient(135deg,rgba(105,200,255,.16),rgba(255,255,255,.05));
+  border-radius:10px;padding:22px;margin-top:8px;
+}
+.f13-countdown-wrap .countdown{margin-top:14px}
+.f13-countdown-wrap .timebox{padding:14px 8px}
+.f13-countdown-wrap .timebox strong{font-size:clamp(28px,4vw,40px)}
+.f13-meta-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:18px}
+.f13-meta-grid .agenda-note b{font-size:18px;line-height:1.25}
+.f13-objectives{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.f13-obj{border:1px solid var(--line);border-radius:8px;padding:16px;background:rgba(255,255,255,.05)}
+.f13-obj h3{margin:0 0 8px;font-size:18px}
+.f13-obj ul{margin:0;padding-left:18px;color:#d0d8de;font-size:14px;line-height:1.5}
+.f13-obj li{margin-bottom:6px}
+.f13-timeline-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.f13-timeline-cols .panel h3{margin-bottom:14px}
+.f13-event.planned{opacity:.92}
+.f13-event.planned::before{background:var(--gold)}
+.f13-event.done::before{background:var(--green)}
+.f13-event.abort::before{background:#e07a6a}
+.f13-live-bar{
+  display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;
+  border:1px solid rgba(120,213,140,.45);background:rgba(120,213,140,.1);
+  border-radius:8px;padding:14px 16px;margin-top:16px;
+}
+.f13-live-bar p{margin:0;color:#dfffe6;font-size:14px}
+@media(max-width:900px){
+  .f13-meta-grid,.f13-objectives,.f13-timeline-cols{grid-template-columns:1fr}
+  .f13-hero{min-height:46vh;padding:78px 18px 30px}
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../index.html">Rivoluzione <span>Spaziale</span></a>
+  <nav class="nav" aria-label="Navigazione principale">
+    <a href="../index.html">Home</a>
+    <a class="active" href="spacex.html">SpaceX</a>
+    <a href="blue-origin.html">Blue Origin</a>
+    <a href="ula.html">ULA</a>
+    <a href="electron-lab.html">Electron Lab</a>
+    <a href="arianespace.html">Arianespace</a>
+    <a href="cina.html">Cina</a>
+  </nav>
+</header>
+
+<main>
+<section class="f13-hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Dossier SpaceX · Starship</p>
+    <h1>Flight 13</h1>
+    <p class="subtitle">Tredicesimo volo di prova del sistema Starship/Super Heavy V3: Booster 20 e Ship 40 da Orbital Launch Pad 2 a Starbase, Texas.</p>
+    <span class="update-stamp">Target: 25 luglio 2026, 00:45 CEST · 24 luglio 22:45 UTC</span>
+    <div class="actions">
+      <a class="button" href="https://www.spacex.com/launches/starship-flight-13" target="_blank" rel="noopener">Pagina ufficiale SpaceX</a>
+      <a class="button secondary" href="https://www.youtube.com/watch?v=0EnOQCjgq4E" target="_blank" rel="noopener">Webcast</a>
+      <a class="button secondary" href="starship.html#flight-13">Torna al dossier Starship</a>
+      <a class="button secondary" href="spacex.html">Portale SpaceX</a>
+    </div>
+  </div>
+</section>
+
+<section id="countdown">
+  <div class="inner">
+    <div class="section-head">
+      <h2>Conto alla rovescia</h2>
+      <p>T-0 di riferimento: apertura finestra SpaceX. Orario italiano evidenziato per chi segue dall&rsquo;Europa.</p>
+    </div>
+    <div class="f13-countdown-wrap launch" data-iso="2026-07-24T22:45:00Z">
+      <div class="launch-top">
+        <span class="pill">T-0 target</span>
+        <span class="date">25 luglio 2026 · 00:45 CEST<br>24 luglio 2026 · 22:45 UTC</span>
+      </div>
+      <h3 style="margin:10px 0 0;font-size:clamp(24px,3vw,34px)">Nuovo tentativo Flight 13</h3>
+      <p class="muted" style="margin:8px 0 0">Finestra di 90 minuti: 22:45–00:15 UTC (00:45–02:15 CEST). Il countdown scende a zero se il T-0 e&rsquo; superato o non ancora aggiornato.</p>
+      <div class="countdown">
+        <div class="timebox"><strong class="d">0</strong><span>giorni</span></div>
+        <div class="timebox"><strong class="h">00</strong><span>ore</span></div>
+        <div class="timebox"><strong class="m">00</strong><span>min</span></div>
+        <div class="timebox"><strong class="s">00</strong><span>sec</span></div>
+      </div>
+      <div class="f13-live-bar">
+        <p><strong>In diretta:</strong> SpaceX pubblica il webcast sulla pagina missione e su YouTube.</p>
+        <a class="button" href="https://www.youtube.com/watch?v=0EnOQCjgq4E" target="_blank" rel="noopener">Apri webcast</a>
+      </div>
+    </div>
+    <div class="f13-meta-grid">
+      <div class="agenda-note"><b>Booster 20</b><span>Super Heavy Block 3 · primo volo</span></div>
+      <div class="agenda-note"><b>Ship 40</b><span>Starship Block 3 / V3 · primo volo</span></div>
+      <div class="agenda-note"><b>Pad 2</b><span>OLP-2 · Starbase, Boca Chica, TX</span></div>
+      <div class="agenda-note"><b>20 Starlink V3</b><span>primo carico funzionale V3 · traiettoria suborbitale</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="quadro">
+  <div class="inner">
+    <div class="section-head">
+      <h2>Informazioni generali</h2>
+      <p>Sintesi allineata alla pagina ufficiale SpaceX &ldquo;Starship&rsquo;s Thirteenth Flight Test&rdquo; e al profilo missione pubblico.</p>
+    </div>
+    <div class="cols">
+      <article class="panel">
+        <h3>Cosa e&rsquo; Flight 13</h3>
+        <p>E&rsquo; il <strong>secondo volo</strong> della generazione Starship/Super Heavy V3 e il tredicesimo test integrato del programma. Dopo lo scrub automatico del 16 luglio UTC (notte del 17 in Italia), SpaceX ha sostituito due Raptor e ripuntato la finestra al 24 luglio 22:45 UTC.</p>
+        <p>La traiettoria della Ship resta <strong>suborbitale controllata</strong>: i 20 satelliti Starlink V3 testeranno pannelli, antenne e link laser, poi rientreranno in atmosfera. Sei satelliti montano telecamere per ispezionare scudo termico e superficie esterna di Ship 40 in volo.</p>
+      </article>
+      <article class="panel">
+        <h3>Scheda rapida</h3>
+        <div class="launch-meta history-meta" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+          <div><b>Missione</b><span>Flight 13 · Test Flight</span></div>
+          <div><b>Veicolo</b><span>Starship V3 + Super Heavy V3</span></div>
+          <div><b>Sito</b><span>Orbital Launch Pad 2, Starbase</span></div>
+          <div><b>Finestra</b><span>90 min · 17:45–19:15 CT</span></div>
+          <div><b>Booster</b><span>Landing burn e splashdown mirato nel Golfo</span></div>
+          <div><b>Ship</b><span>Splashdown controllato Oceano Indiano</span></div>
+          <div><b>Payload</b><span>~20 Starlink V3 · ~34 t indicativi</span></div>
+          <div><b>Stato</b><span>Nuovo tentativo programmato</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="obiettivi">
+  <div class="inner">
+    <div class="section-head">
+      <h2>Obiettivi di prova</h2>
+      <p>Obiettivi primari dichiarati da SpaceX per booster e upper stage.</p>
+    </div>
+    <div class="f13-objectives">
+      <article class="f13-obj">
+        <h3>Super Heavy · Booster 20</h3>
+        <ul>
+          <li>Lancio e ascesa multi-motore con i 33 Raptor 3</li>
+          <li>Hot-staging e separazione stadi</li>
+          <li>Boostback burn completo</li>
+          <li>Landing burn e splashdown mirato offshore nel Golfo del Messico</li>
+        </ul>
+      </article>
+      <article class="f13-obj">
+        <h3>Starship · Ship 40</h3>
+        <ul>
+          <li>Deployment di 20 satelliti Starlink V3 funzionali</li>
+          <li>Collegamenti a stazioni a terra (Sudafrica) e laser verso la costellazione</li>
+          <li>Riaccensione di un singolo Raptor in spazio</li>
+          <li>Rientro controllato, discesa e splashdown nell&rsquo;Oceano Indiano</li>
+          <li>Dati termici e di scudo da telecamere su 6 satelliti</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="foto">
+  <div class="inner">
+    <div class="section-head">
+      <h2>Immagini</h2>
+      <p>Solo materiali con licenza libera esplicita (CC BY 2.0), pubblicabili con attribuzione.</p>
+    </div>
+    <div class="starship-photo-grid" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+      <figure class="starship-photo">
+        <img src="assets/lancio13/starship-flight13-pad.jpg" alt="Starship su Pad 2 prima del Flight 13" loading="lazy">
+        <figcaption>Starship su rampa prima del Flight 13, 23 luglio 2026. Foto SpaceX via <a href="https://commons.wikimedia.org/wiki/File:Starship_-_Flight_13_(Sunset).jpg" target="_blank" rel="noopener">Wikimedia Commons</a>, CC BY 2.0.</figcaption>
+      </figure>
+      <figure class="starship-photo">
+        <img src="assets/sviluppo-starship/starship-ift5-ignition.jpg" alt="Accensione Starship durante IFT-5" loading="lazy">
+        <figcaption>Accensione multi-motore in IFT-5 (riferimento visuale del decollo). Foto Steve Jurvetson, <a href="https://commons.wikimedia.org/wiki/File:SpaceX_Starship_ignition_during_IFT-5.jpg" target="_blank" rel="noopener">Commons</a>, CC BY 2.0.</figcaption>
+      </figure>
+      <figure class="starship-photo">
+        <img src="assets/sviluppo-starship/super-heavy-ift5-approach.jpg" alt="Super Heavy in avvicinamento durante IFT-5" loading="lazy">
+        <figcaption>Super Heavy in rientro/avvicinamento (IFT-5). Foto Steve Jurvetson, <a href="https://commons.wikimedia.org/wiki/File:SpaceX_Starship_booster_landing_approach_IFT-5.jpg" target="_blank" rel="noopener">Commons</a>, CC BY 2.0.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="timeline">
+  <div class="inner">
+    <div class="section-head">
+      <h2>Timeline</h2>
+      <p>A sinistra la campagna pre-lancio e i tentativi; a destra il profilo di volo previsto (post-liftoff), da aggiornare dopo l&rsquo;evento.</p>
+    </div>
+    <div class="f13-timeline-cols">
+      <article class="panel">
+        <h3>Pre-lancio e tentativi</h3>
+        <div class="starship-timeline">
+          <article class="starship-event f13-event done">
+            <small>25 giugno 2026</small>
+            <h3>Ship 40 · static fire singolo Raptor</h3>
+            <p>Primo test a caldo della campagna Flight 13: circa 15 secondi con un Raptor 3 centrale.</p>
+          </article>
+          <article class="starship-event f13-event done">
+            <small>1–2 luglio 2026</small>
+            <h3>Ship 40 · sei Raptor 3</h3>
+            <p>Static fire completo upper stage, circa 60 secondi, validazione propulsiva pre-volo.</p>
+          </article>
+          <article class="starship-event f13-event done">
+            <small>10 luglio 2026</small>
+            <h3>Booster 20 · 33 motori</h3>
+            <p>Static fire full-duration del Super Heavy su Pad 2: milestone principale del primo stadio.</p>
+          </article>
+          <article class="starship-event f13-event done">
+            <small>11–13 luglio 2026</small>
+            <h3>Piano missione e via libera FAA</h3>
+            <p>SpaceX pubblica la pagina Flight 13. La FAA chiude l&rsquo;indagine post Flight 12 e consente il passaggio al volo successivo.</p>
+          </article>
+          <article class="starship-event f13-event abort">
+            <small>16 luglio 2026 · 22:45 UTC · 17 luglio CEST</small>
+            <h3>Tentativo 1 · abort automatico a T-0</h3>
+            <p>Alcuni Raptor del Super Heavy non raggiungono i parametri di accensione: il software interrompe il decollo. SpaceX scarica i propellenti e sostituisce due motori.</p>
+          </article>
+          <article class="starship-event f13-event abort">
+            <small>23 luglio 2026</small>
+            <h3>Tentativo 2 · scrub (meteo / condizioni osservazione)</h3>
+            <p>Tentativo spostato: SpaceX indica condizioni non adatte anche per l&rsquo;esame visivo delle tile in rientro.</p>
+          </article>
+          <article class="starship-event f13-event planned">
+            <small>24 luglio 22:45 UTC · 25 luglio 00:45 CEST</small>
+            <h3>Tentativo 3 · finestra attuale</h3>
+            <p>Nuovo target ufficiale in finestra di 90 minuti da Pad 2. Aggiornare questa riga dopo il liftoff o un eventuale nuovo rinvio.</p>
+          </article>
+        </div>
+      </article>
+
+      <article class="panel">
+        <h3>Post-lancio previsto (profilo di volo)</h3>
+        <p class="muted" style="margin:0 0 14px;font-size:13px">Tempi indicativi dalla sequenza pubblica SpaceX (riferimento tentativo 16 luglio). Non sono ancora eventi avvenuti sul Flight 13.</p>
+        <div class="starship-timeline">
+          <article class="starship-event f13-event planned">
+            <small>T+0:00</small>
+            <h3>Liftoff</h3>
+            <p>Accensione sequenza Super Heavy e decollo da OLP-2.</p>
+          </article>
+          <article class="starship-event f13-event planned">
+            <small>T+0:58</small>
+            <h3>Max Q</h3>
+            <p>Picco di carico aerodinamico in ascesa.</p>
+          </article>
+          <article class="starship-event f13-event planned">
+            <small>T+2:18 / +2:21</small>
+            <h3>MECO e hot-staging</h3>
+            <p>Spegnimento motori booster, accensione Ship e separazione stadi.</p>
+          </article>
+          <article class="starship-event f13-event planned">
+            <small>T+2:25 → +6:53</small>
+            <h3>Boostback e landing burn booster</h3>
+            <p>Ritorno e splashdown mirato del Super Heavy nel Golfo.</p>
+          </article>
+          <article class="starship-event f13-event planned">
+            <small>T+8:05</small>
+            <h3>SECO · cutoff Ship</h3>
+            <p>Fine spinta ascesa upper stage su traiettoria suborbitale.</p>
+          </article>
+          <article class="starship-event f13-event planned">
+            <small>T+16:40 → +27:39</small>
+            <h3>Deployment Starlink V3</h3>
+            <p>Dispiegamento dei 20 satelliti; test di pannelli, antenne e laser. Su traiettoria suborbitale rientrano dopo circa 20 minuti dal deployment.</p>
+          </article>
+          <article class="starship-event f13-event planned">
+            <small>T+38:58</small>
+            <h3>Relight Raptor in spazio</h3>
+            <p>Dimostrazione di riaccensione di un singolo motore.</p>
+          </article>
+          <article class="starship-event f13-event planned">
+            <small>T+47:30 → +1:05:21</small>
+            <h3>Rientro e splashdown Ship</h3>
+            <p>Entry, discesa, flip e landing burn nell&rsquo;Oceano Indiano.</p>
+          </article>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="fonti">
+  <div class="inner split">
+    <article class="panel">
+      <h3>Fonti principali</h3>
+      <ul class="source-list">
+        <li><a href="https://www.spacex.com/launches/starship-flight-13" target="_blank" rel="noopener">SpaceX — Starship&rsquo;s Thirteenth Flight Test</a> (obiettivi, finestra, profilo)</li>
+        <li><a href="https://www.youtube.com/watch?v=0EnOQCjgq4E" target="_blank" rel="noopener">Webcast ufficiale</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Starship_flight_test_13" target="_blank" rel="noopener">Wikipedia — Starship flight test 13</a> (sintesi tentativi e sequenza)</li>
+        <li><a href="https://ll.thespacedevs.com/2.3.0/launches/ac897b9f-44d2-4ff4-8416-1a0a076e98a2/?format=json" target="_blank" rel="noopener">The Space Devs / Launch Library 2</a></li>
+        <li><a href="starship.html">Dossier locale Sviluppo Starship</a></li>
+      </ul>
+    </article>
+    <article class="panel">
+      <h3>Navigazione</h3>
+      <p class="muted">Questa scheda e&rsquo; una pagina dedicata al singolo volo, collegata dal cruscotto SpaceX e dal dossier Starship.</p>
+      <div class="actions" style="margin-top:14px">
+        <a class="button" href="spacex.html">Portale SpaceX</a>
+        <a class="button secondary" href="lanci-imminenti.html">Lanci imminenti</a>
+        <a class="button secondary" href="starship.html#flight-13">Situazione nel dossier</a>
+      </div>
+      <p class="muted" style="margin-top:18px;font-size:13px">Dopo il volo: aggiornare countdown, esito tentativo, timeline post-lancio e metriche del portale SpaceX.</p>
+    </article>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  Rivoluzione Spaziale. Scheda Flight 13 · immagini CC BY 2.0 con attribuzione · sito statico su GitHub Pages.
+</footer>
+
+<script>
+function pad(n){return String(n).padStart(2,'0')}
+function countdown(iso){
+  const diff = new Date(iso).getTime() - Date.now();
+  if (!Number.isFinite(diff) || diff <= 0) return ['0','00','00','00'];
+  const total = Math.floor(diff / 1000);
+  return [Math.floor(total / 86400), pad(Math.floor(total % 86400 / 3600)), pad(Math.floor(total % 3600 / 60)), pad(total % 60)];
+}
+function tick(){
+  document.querySelectorAll('.launch[data-iso]').forEach(card => {
+    if (!card.querySelector('.d')) return;
+    const parts = countdown(card.dataset.iso);
+    card.querySelector('.d').textContent = parts[0];
+    card.querySelector('.h').textContent = parts[1];
+    card.querySelector('.m').textContent = parts[2];
+    card.querySelector('.s').textContent = parts[3];
+  });
+}
+tick();
+setInterval(tick, 1000);
+</script>
+</body>
+</html>
