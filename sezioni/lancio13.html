@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Starship Flight 13 | Rivoluzione Spaziale</title>
 <meta name="description" content="Scheda illustrativa del tredicesimo volo di prova Starship: Booster 20, Ship 40, Pad 2, countdown, timeline e obiettivi.">
-<link rel="stylesheet" href="../css/style.css?v=20260724-lancio13">
+<link rel="stylesheet" href="../css/style.css?v=20260724-lancio13-streams">
 <style>
 .f13-hero{
   min-height:58vh;display:grid;align-items:end;
@@ -44,9 +44,44 @@
   border-radius:8px;padding:14px 16px;margin-top:16px;
 }
 .f13-live-bar p{margin:0;color:#dfffe6;font-size:14px}
+.f13-stream-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+}
+.f13-stream{
+  display:flex;flex-direction:column;gap:10px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:16px;
+  background:linear-gradient(165deg,rgba(255,255,255,.09),rgba(255,255,255,.04));
+  min-height:168px;
+  transition:border-color .16s ease,transform .16s ease,background .16s ease;
+}
+a.f13-stream{color:inherit;text-decoration:none}
+a.f13-stream:hover,a.f13-stream:focus-visible{
+  border-color:rgba(105,200,255,.65);
+  background:linear-gradient(165deg,rgba(105,200,255,.14),rgba(255,255,255,.05));
+  transform:translateY(-2px);
+  outline:none;
+}
+.f13-stream-top{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.f13-stream h3{margin:0;font-size:18px;line-height:1.2}
+.f13-stream p{margin:0;color:#c8d2d9;font-size:13px;line-height:1.45;flex:1}
+.f13-stream .f13-stream-go{
+  display:inline-flex;align-items:center;gap:6px;
+  color:#dff4ff;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em;
+}
+.f13-stream .f13-stream-go::after{content:"→";color:var(--accent)}
+.pill.it{border-color:rgba(120,213,140,.55);color:#dfffe6}
+.pill.int{border-color:rgba(105,200,255,.55);color:#dff4ff}
+.pill.off{border-color:rgba(242,184,75,.6);color:#ffe1a3}
 @media(max-width:900px){
-  .f13-meta-grid,.f13-objectives,.f13-timeline-cols{grid-template-columns:1fr}
+  .f13-meta-grid,.f13-objectives,.f13-timeline-cols,.f13-stream-grid{grid-template-columns:1fr}
   .f13-hero{min-height:46vh;padding:78px 18px 30px}
+}
+@media(min-width:901px) and (max-width:1120px){
+  .f13-stream-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 </style>
 </head>
@@ -73,7 +108,7 @@
     <span class="update-stamp">Target: 25 luglio 2026, 00:45 CEST · 24 luglio 22:45 UTC</span>
     <div class="actions">
       <a class="button" href="https://www.spacex.com/launches/starship-flight-13" target="_blank" rel="noopener">Pagina ufficiale SpaceX</a>
-      <a class="button secondary" href="https://www.youtube.com/watch?v=0EnOQCjgq4E" target="_blank" rel="noopener">Webcast</a>
+      <a class="button secondary" href="#dirette">Dirette YouTube</a>
       <a class="button secondary" href="starship.html#flight-13">Torna al dossier Starship</a>
       <a class="button secondary" href="spacex.html">Portale SpaceX</a>
     </div>
@@ -100,8 +135,8 @@
         <div class="timebox"><strong class="s">00</strong><span>sec</span></div>
       </div>
       <div class="f13-live-bar">
-        <p><strong>In diretta:</strong> SpaceX pubblica il webcast sulla pagina missione e su YouTube.</p>
-        <a class="button" href="https://www.youtube.com/watch?v=0EnOQCjgq4E" target="_blank" rel="noopener">Apri webcast</a>
+        <p><strong>In diretta:</strong> webcast SpaceX e copertura indipendente (Italia + internazionali) nella sezione sotto.</p>
+        <a class="button" href="#dirette">Vai alle dirette</a>
       </div>
     </div>
     <div class="f13-meta-grid">
@@ -110,6 +145,93 @@
       <div class="agenda-note"><b>Pad 2</b><span>OLP-2 · Starbase, Boca Chica, TX</span></div>
       <div class="agenda-note"><b>20 Starlink V3</b><span>primo carico funzionale V3 · traiettoria suborbitale</span></div>
     </div>
+  </div>
+</section>
+
+<section id="dirette">
+  <div class="inner">
+    <div class="section-head">
+      <h2>Dirette e stream</h2>
+      <p>Canali YouTube con copertura Flight 13 gia prevista o usata nei tentativi recenti. Gli orari restano dinamici: conviene aprire il canale o il link poco prima della finestra.</p>
+    </div>
+
+    <h3 style="margin:0 0 12px;font-size:15px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold)">Ufficiale</h3>
+    <div class="f13-stream-grid" style="margin-bottom:22px">
+      <a class="f13-stream" href="https://www.youtube.com/watch?v=0EnOQCjgq4E" target="_blank" rel="noopener">
+        <div class="f13-stream-top">
+          <h3>SpaceX</h3>
+          <span class="pill off">Ufficiale</span>
+        </div>
+        <p>Webcast ufficiale della missione. In genere parte circa 30 minuti prima del T-0 previsto; angoli e telemetria dal team SpaceX.</p>
+        <span class="f13-stream-go">Apri su YouTube</span>
+      </a>
+      <a class="f13-stream" href="https://www.spacex.com/launches/starship-flight-13" target="_blank" rel="noopener">
+        <div class="f13-stream-top">
+          <h3>Pagina missione</h3>
+          <span class="pill off">spacex.com</span>
+        </div>
+        <p>Pagina dedicata Flight 13 con finestra di lancio, obiettivi e player del webcast quando attivo.</p>
+        <span class="f13-stream-go">Apri spacex.com</span>
+      </a>
+    </div>
+
+    <h3 style="margin:0 0 12px;font-size:15px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold)">In italiano</h3>
+    <div class="f13-stream-grid" style="margin-bottom:22px">
+      <a class="f13-stream" href="https://www.youtube.com/watch?v=ka6XZFovE6U" target="_blank" rel="noopener">
+        <div class="f13-stream-top">
+          <h3>VOLARE</h3>
+          <span class="pill it">IT · YouTube</span>
+        </div>
+        <p>Diretta annunciata per il 13° test di volo Starship. Copertura in italiano del tentativo in finestra.</p>
+        <span class="f13-stream-go">Apri su YouTube</span>
+      </a>
+      <a class="f13-stream" href="https://www.youtube.com/watch?v=BFC0813uPO4" target="_blank" rel="noopener">
+        <div class="f13-stream-top">
+          <h3>Chi ha paura del buio?</h3>
+          <span class="pill it">IT · YouTube</span>
+        </div>
+        <p>Stream &ldquo;Starship IFT-13 – Diretta del lancio&rdquo; sul canale CHPDB, con telecronaca in italiano.</p>
+        <span class="f13-stream-go">Apri su YouTube</span>
+      </a>
+      <a class="f13-stream" href="https://www.youtube.com/watch?v=BSYSQ1DXRBg" target="_blank" rel="noopener">
+        <div class="f13-stream-top">
+          <h3>Astrospace</h3>
+          <span class="pill it">IT · YouTube</span>
+        </div>
+        <p>Diretta volo 13 sul canale Astrospace: commento e contesto in italiano sulla campagna Flight 13.</p>
+        <span class="f13-stream-go">Apri su YouTube</span>
+      </a>
+    </div>
+
+    <h3 style="margin:0 0 12px;font-size:15px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold)">Internazionali</h3>
+    <div class="f13-stream-grid">
+      <a class="f13-stream" href="https://www.youtube.com/watch?v=bAxlKeEUSIw" target="_blank" rel="noopener">
+        <div class="f13-stream-top">
+          <h3>NASASpaceflight</h3>
+          <span class="pill int">EN · Stakeout</span>
+        </div>
+        <p>Stakeout stream del tentativo 3: ore di commento e viste da Starbase prima e durante la finestra di lancio.</p>
+        <span class="f13-stream-go">Apri su YouTube</span>
+      </a>
+      <a class="f13-stream" href="https://www.youtube.com/live/lC3RDO7tdLc" target="_blank" rel="noopener">
+        <div class="f13-stream-top">
+          <h3>NASASpaceflight</h3>
+          <span class="pill int">EN · Launch</span>
+        </div>
+        <p>Stream di commento NSF (produzione principale), di solito in onda alcune ore prima dell&rsquo;apertura finestra.</p>
+        <span class="f13-stream-go">Apri su YouTube</span>
+      </a>
+      <a class="f13-stream" href="https://www.youtube.com/live/-pR0eOj9hK0" target="_blank" rel="noopener">
+        <div class="f13-stream-top">
+          <h3>Everyday Astronaut</h3>
+          <span class="pill int">EN · YouTube</span>
+        </div>
+        <p>Copertura live di Tim Dodd: spiegazioni accessibili e Q&amp;A, tipicamente da ~1,5 ore prima della finestra.</p>
+        <span class="f13-stream-go">Apri su YouTube</span>
+      </a>
+    </div>
+
+    <p class="muted" style="margin:18px 0 0;font-size:13px;line-height:1.5">Nota: i link puntano alle coperture YouTube gia pubblicate o programmate per Flight 13 (inclusi tentativi precedenti e replay). Dopo uno scrub i creator ripubblicano spesso un nuovo stream sullo stesso canale: se un link e terminato, apri il canale e cerca l&rsquo;ultimo live Flight 13.</p>
   </div>
 </section>
 
@@ -299,7 +421,9 @@
       <h3>Fonti principali</h3>
       <ul class="source-list">
         <li><a href="https://www.spacex.com/launches/starship-flight-13" target="_blank" rel="noopener">SpaceX — Starship&rsquo;s Thirteenth Flight Test</a> (obiettivi, finestra, profilo)</li>
-        <li><a href="https://www.youtube.com/watch?v=0EnOQCjgq4E" target="_blank" rel="noopener">Webcast ufficiale</a></li>
+        <li><a href="#dirette">Dirette YouTube (SpaceX, canali IT, NSF, Everyday Astronaut)</a></li>
+        <li><a href="#dirette">Dirette YouTube (SpaceX, VOLARE, CHPDB, Astrospace, NSF, Everyday Astronaut)</a></li>
+        <li><a href="https://www.youtube.com/watch?v=0EnOQCjgq4E" target="_blank" rel="noopener">Webcast ufficiale SpaceX</a></li>
         <li><a href="https://en.wikipedia.org/wiki/Starship_flight_test_13" target="_blank" rel="noopener">Wikipedia — Starship flight test 13</a> (sintesi tentativi e sequenza)</li>
         <li><a href="https://ll.thespacedevs.com/2.3.0/launches/ac897b9f-44d2-4ff4-8416-1a0a076e98a2/?format=json" target="_blank" rel="noopener">The Space Devs / Launch Library 2</a></li>
         <li><a href="starship.html">Dossier locale Sviluppo Starship</a></li>
