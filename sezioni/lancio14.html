@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Starship Flight 14 · possibile Starship 1 (bozza) | Rivoluzione Spaziale</title>
+<meta name="description" content="Bozza speculativa su Starship Flight 14 (Ship 41 / Booster 21): possibile primo volo operativo vero, profilo orbitale, catch tower e satelliti reali. Non ufficiale.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="../css/style.css?v=20260725-agenda-locale">
+<style>
+/* Tema Flight 14: amber / rame — campagna aperta, non ancora volata */
+:root{
+  --f14-accent:#f0a35a;
+  --f14-accent2:#ffd29a;
+  --f14-glow:rgba(240,163,90,.22);
+  --f14-line:rgba(240,163,90,.45);
+  --f14-danger:#e07a6a;
+  --f14-ops:#78d58c;
+}
+.f14-hero{
+  min-height:58vh;display:grid;align-items:end;
+  padding:92px clamp(18px,4vw,56px) 40px;
+  background:
+    linear-gradient(90deg,rgba(8,4,2,.97),rgba(8,4,2,.7) 48%,rgba(8,4,2,.28)),
+    linear-gradient(180deg,rgba(8,4,2,.08),rgba(5,6,7,.98) 96%),
+    url('assets/sviluppo-starship/starship-ift5-ignition.jpg') center 40%/cover no-repeat;
+  border-bottom:1px solid var(--f14-line);
+}
+.f14-hero .eyebrow{color:var(--f14-accent)}
+.f14-hero .subtitle{max-width:860px}
+.f14-stamp-spec{
+  display:inline-flex;flex-wrap:wrap;gap:8px;align-items:center;
+  margin-top:16px;padding:8px 12px;border-radius:999px;
+  border:1px solid var(--f14-line);
+  background:rgba(240,163,90,.14);
+  color:var(--f14-accent2);
+  font-size:11px;font-weight:950;text-transform:uppercase;letter-spacing:.1em;
+}
+.f14-stamp-ops{
+  display:inline-flex;flex-wrap:wrap;gap:8px;align-items:center;
+  margin-top:10px;padding:8px 12px;border-radius:999px;
+  border:1px solid rgba(120,213,140,.5);
+  background:rgba(120,213,140,.12);
+  color:#dfffe6;
+  font-size:11px;font-weight:950;text-transform:uppercase;letter-spacing:.1em;
+}
+.f14-spec-banner{
+  border:1px solid rgba(242,184,75,.55);
+  background:linear-gradient(135deg,rgba(242,184,75,.18),rgba(255,255,255,.04));
+  border-radius:10px;padding:18px 20px;margin-top:18px;
+}
+.f14-spec-banner h3{margin:0 0 8px;font-size:18px;color:#ffe1a3}
+.f14-spec-banner p{margin:0;color:#e8e0d0;font-size:14px;line-height:1.55}
+.f14-ops-banner{
+  border:1px solid rgba(120,213,140,.5);
+  background:linear-gradient(135deg,rgba(120,213,140,.16),rgba(255,255,255,.04));
+  border-radius:10px;padding:18px 20px;margin-top:14px;
+}
+.f14-ops-banner h3{margin:0 0 8px;font-size:18px;color:#dfffe6}
+.f14-ops-banner p{margin:0;color:#d8e8dc;font-size:14px;line-height:1.55}
+.f14-ops-banner strong{color:#fff}
+.f14-estimate-wrap{
+  border:1px solid var(--f14-line);
+  background:linear-gradient(145deg,var(--f14-glow),rgba(255,255,255,.05));
+  border-radius:10px;padding:22px;margin-top:8px;
+}
+.f14-estimate-wrap .countdown{margin-top:14px}
+.f14-estimate-wrap .timebox{padding:14px 8px}
+.f14-estimate-wrap .timebox strong{font-size:clamp(28px,4vw,40px)}
+.f14-meta-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:18px}
+.f14-meta-grid .agenda-note b{font-size:17px;line-height:1.25;color:var(--f14-accent2)}
+.f14-objectives{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.f14-obj{border:1px solid var(--line);border-radius:8px;padding:16px;background:rgba(255,255,255,.05)}
+.f14-obj h3{margin:0 0 8px;font-size:18px}
+.f14-obj ul{margin:0;padding-left:18px;color:#d0d8de;font-size:14px;line-height:1.5}
+.f14-obj li{margin-bottom:6px}
+.f14-timeline-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.f14-timeline-cols .panel h3{margin-bottom:14px}
+.f14-event.planned{opacity:.95}
+.f14-event.planned::before{background:var(--f14-accent)}
+.f14-event.done::before{background:var(--green)}
+.f14-event.soft::before{background:var(--gold)}
+.f14-event.risk::before{background:var(--f14-danger)}
+.f14-live-bar{
+  display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;
+  border:1px solid var(--f14-line);background:rgba(240,163,90,.12);
+  border-radius:8px;padding:14px 16px;margin-top:16px;
+}
+.f14-live-bar p{margin:0;color:#ffe8cc;font-size:14px}
+.f14-band-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px}
+.f14-band{
+  border:1px solid var(--line);border-radius:8px;padding:16px;
+  background:rgba(0,0,0,.22);
+}
+.f14-band.hot{border-color:var(--f14-line);background:linear-gradient(160deg,rgba(240,163,90,.16),rgba(255,255,255,.04))}
+.f14-band small{display:block;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;font-size:10px;font-weight:950;margin-bottom:6px}
+.f14-band b{display:block;font-size:20px;line-height:1.2;margin-bottom:8px;color:#fff}
+.f14-band p{margin:0;font-size:13px;color:#cfd6dc;line-height:1.45}
+.f14-quote{
+  border-left:3px solid var(--f14-accent);
+  padding:4px 0 4px 16px;margin:14px 0 0;
+  color:#e8eef2;font-size:15px;line-height:1.5;font-style:italic;
+}
+.f14-quote cite{display:block;margin-top:8px;font-style:normal;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:850}
+.f14-conf{
+  display:inline-flex;align-items:center;gap:8px;margin-top:10px;
+  font-size:12px;font-weight:850;text-transform:uppercase;letter-spacing:.08em;color:var(--f14-accent2);
+}
+.f14-conf-bar{width:120px;height:6px;border-radius:999px;background:rgba(255,255,255,.12);overflow:hidden}
+.f14-conf-bar i{display:block;height:100%;width:42%;background:linear-gradient(90deg,var(--f14-accent),var(--gold));border-radius:999px}
+.pill.spec{border-color:var(--f14-line);color:var(--f14-accent2)}
+.pill.ops{border-color:rgba(120,213,140,.55);color:#dfffe6}
+.pill.xsrc{border-color:rgba(255,255,255,.28);color:#e8eef2}
+.f14-hw-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.f14-hw{
+  border:1px solid var(--line);border-radius:8px;padding:18px;
+  background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.04));
+}
+.f14-hw h3{margin:0 0 6px;font-size:22px}
+.f14-hw .tag{color:var(--f14-accent);font-size:11px;font-weight:950;text-transform:uppercase;letter-spacing:.1em}
+.f14-hw dl{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;margin:14px 0 0;font-size:13px}
+.f14-hw dt{color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-size:10px;font-weight:900}
+.f14-hw dd{margin:0;color:#dce4ea}
+.f14-check{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.f14-check li{
+  display:grid;grid-template-columns:18px 1fr;gap:10px;align-items:start;
+  font-size:14px;color:#d0d8de;line-height:1.45;
+}
+.f14-check li::before{
+  content:"";width:10px;height:10px;margin-top:5px;border-radius:50%;
+  background:var(--gold);box-shadow:0 0 0 3px rgba(242,184,75,.2);
+}
+.f14-check li.ok::before{background:var(--green);box-shadow:0 0 0 3px rgba(120,213,140,.2)}
+.f14-check li.open::before{background:var(--f14-accent);box-shadow:0 0 0 3px var(--f14-glow)}
+.f14-check li.risk::before{background:var(--f14-danger);box-shadow:0 0 0 3px rgba(224,122,106,.2)}
+.f14-logic{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px;
+}
+.f14-logic article{
+  border:1px solid var(--line);border-radius:8px;padding:16px;
+  background:rgba(255,255,255,.05);
+}
+.f14-logic h3{margin:0 0 8px;font-size:16px}
+.f14-logic p{margin:0;font-size:13px;color:#cfd6dc;line-height:1.45}
+.f14-logic .num{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:28px;height:28px;border-radius:50%;margin-bottom:10px;
+  background:rgba(240,163,90,.18);border:1px solid var(--f14-line);
+  color:var(--f14-accent2);font-size:12px;font-weight:950;
+}
+@media(max-width:900px){
+  .f14-meta-grid,.f14-objectives,.f14-timeline-cols,.f14-band-grid,.f14-hw-grid,.f14-logic{grid-template-columns:1fr}
+  .f14-hero{min-height:46vh;padding:78px 18px 30px}
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../index.html">Rivoluzione <span>Spaziale</span></a>
+  <nav class="nav" aria-label="Navigazione principale">
+    <a href="../index.html">Home</a>
+    <a class="active" href="spacex.html">SpaceX</a>
+    <a href="blue-origin.html">Blue Origin</a>
+    <a href="ula.html">ULA</a>
+    <a href="electron-lab.html">Electron Lab</a>
+    <a href="arianespace.html">Arianespace</a>
+    <a href="cina.html">Cina</a>
+  </nav>
+</header>
+
+<main>
+<section class="f14-hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Dossier SpaceX · Starship · bozza locale</p>
+    <h1>Flight 14</h1>
+    <p class="subtitle">
+      Quattordicesimo volo del sistema Starship/Super Heavy V3 — stack previsto <strong>Ship 41 + Booster 21</strong> da Starbase.
+      Nella lettura di questa redazione non e solo &ldquo;un altro test&rdquo;: e il candidato piu credibile a diventare il <strong>primo volo operativo vero</strong> del veicolo, il volo che merita di essere ricordato come <strong>Starship 1</strong> — se il profilo e <strong>orbitale</strong>.
+    </p>
+    <span class="f14-stamp-spec">Stato: pre-volo · non ufficiale · non pubblicata sul sito live</span>
+    <span class="f14-stamp-ops">Ipotesi redazione: Starship 1 · volo orbitale · catch + satelliti reali</span>
+    <div class="actions">
+      <a class="button" href="#starship1">Perche Starship 1</a>
+      <a class="button secondary" href="#orbitale">Profilo orbitale</a>
+      <a class="button secondary" href="#stima">Stima data</a>
+      <a class="button secondary" href="#hardware">Hardware S41 / B21</a>
+      <a class="button secondary" href="lancio13.html">Scheda Flight 13</a>
+    </div>
+  </div>
+</section>
+
+<section id="avviso">
+  <div class="inner">
+    <div class="f14-spec-banner">
+      <h3>Attenzione: contenuto fortemente speculativo</h3>
+      <p>
+        Al <strong>25 luglio 2026</strong> Flight 13 e gia volato; Flight 14 non ha ancora pagina missione SpaceX, non ha T-0 pubblico e non ha NOTAM/finestra FAA dedicata noti in forma ufficiale.
+        Questa scheda ricostruisce lo stato del veicolo da <strong>osservazione pubblica</strong> (NSF e community su X, immagini e cronologia open-source di Starbase) e dalla dichiarazione di <strong>Elon Musk</strong> post-Flight 13 sul catch della Ship.
+        Dove manca una fonte primaria, e scritto esplicitamente come <em>ipotesi di redazione</em>. Non usare questa pagina come calendario di viaggio o come fonte unica.
+      </p>
+    </div>
+    <div class="f14-ops-banner" id="starship1">
+      <h3>Flight 14 come possibile &ldquo;Starship 1&rdquo; — primo volo operativo vero</h3>
+      <p>
+        I tredici voli precedenti restano la campagna di sviluppo: prove, rotture, soft splashdown, hard landing, deploy di satelliti <em>di test</em> destinati al demise.
+        Flight 14 e il primo punto della sequenza in cui ha senso parlare di <strong>missione operativa</strong> — il volo che, se riesce, chiude l&rsquo;era dei soli IFT e apre quella del servizio: qui lo chiamiamo in bozza <strong>Starship 1</strong> (primo volo &ldquo;da macchina&rdquo;, non da laboratorio).
+        Non e un nome ufficiale SpaceX. E la cornice di questa scheda: <strong>numero di serie del test = 14</strong>, <strong>ruolo storico ipotizzato = Starship 1</strong>.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="orbitale">
+  <div class="inner">
+    <div class="section-head">
+      <h2>Perche il profilo deve essere orbitale</h2>
+      <p>La tesi centrale della redazione: solo un volo in orbita tiene insieme, nello stesso profilo, catch della Ship e dispiegamento di satelliti veri.</p>
+    </div>
+    <div class="cols">
+      <article class="panel">
+        <h3>Il vincolo fisico (in sintesi)</h3>
+        <p style="margin-top:0">
+          Un profilo <strong>suborbitale</strong> (come Flight 13) puo collaudare heatshield, soft splashdown e un deploy di satelliti di test che poi rientrano per design.
+          Non e pero lo schema di una missione che deve lasciare in orbita un carico utile commerciale e, nello stesso volo, riportare la Ship a casa per il catch.
+        </p>
+        <p class="muted" style="margin-bottom:0">
+          Per <strong>mettere in orbita satelliti veri</strong> serve un inserimento orbitale (o un profilo equivalente che non li rimandi al reentry immediato).
+          Per <strong>catturare la Ship con la tower</strong> serve un rientro controllato verso Starbase con energia e timing compatibili con le chopsticks — tipicamente dopo un arco di volo che non e un semplice splashdown oceanico di un IFT suborbitale.
+        </p>
+      </article>
+      <article class="panel">
+        <h3>Catch + satelliti reali = un solo schema</h3>
+        <p style="margin-top:0">
+          Se l&rsquo;obiettivo e fare entrambe le cose nello stesso volo — e questa e la lettura &ldquo;Starship 1&rdquo; — allora la baseline di redazione e:
+        </p>
+        <ul class="f14-check" style="margin-top:12px">
+          <li class="ok"><span><strong>Orbita</strong> (o inserimento orbitale della Ship / del payload)</span></li>
+          <li class="ok"><span><strong>Deploy di satelliti reali</strong> (non solo demo destinati al demise)</span></li>
+          <li class="ok"><span><strong>Rientro e catch Ship</strong> con la tower (dichiarazione Elon post-F13)</span></li>
+          <li class="open"><span>Booster: landing burn ripulita; catch booster non e il pezzo forte delle fonti pubbliche</span></li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="f14-logic">
+      <article>
+        <span class="num">1</span>
+        <h3>Senza orbita</h3>
+        <p>Puoi collaudare scudo e splashdown; puoi anche rilasciare satelliti di test. Non chiudi il cerchio del servizio: non e ancora &ldquo;operativo&rdquo; nel senso di mettere asset in orbita e recuperare la nave.</p>
+      </article>
+      <article>
+        <span class="num">2</span>
+        <h3>Solo orbita, senza catch</h3>
+        <p>Metti satelliti in orbita ma perdi il salto di riuso della Ship. Resta un volo di sviluppo/servizio parziale, non il debutto della macchina riutilizzabile completa.</p>
+      </article>
+      <article>
+        <span class="num">3</span>
+        <h3>Orbita + catch + payload vero</h3>
+        <p>Unico profilo che, se riesce, giustifica l&rsquo;etichetta <strong>Starship 1</strong>: primo volo in cui il sistema fa il lavoro di un lanciatore riusabile e di un carrier orbitale nello stesso giorno.</p>
+      </article>
+    </div>
+
+    <blockquote class="f14-quote">
+      &ldquo;Unless we discover problems after mission data review, SpaceX will attempt to catch the ship with the tower on next flight.&rdquo;
+      <cite>Elon Musk · X · 25 luglio 2026 · post pubblico post-Flight 13 · pezzo dichiarato; l&rsquo;orbita e la lettura di redazione che lo rende compatibile con satelliti reali</cite>
+    </blockquote>
+  </div>
+</section>
+
+<section id="stima">
+  <div class="inner">
+    <div class="section-head">
+      <h2>Stima data di lancio</h2>
+      <p>Esercizio investigativo, non previsione ufficiale. Ancoraggio: Flight 13 il 24 luglio 2026; B21 in cryo a Massey&rsquo;s a meta/fine luglio; target community &ldquo;fine agosto se F13 va bene&rdquo;.</p>
+    </div>
+
+    <div class="f14-estimate-wrap launch" data-iso="2026-08-31T22:00:00Z">
+      <div class="launch-top">
+        <span class="pill spec">NET stimato · non ufficiale</span>
+        <span class="date">
+          31 agosto 2026 · ~00:00 CEST (sera USA 30/08)
+          <span class="date-local" style="display:block;margin-top:4px;color:var(--f14-accent2);font-size:12px">finestra di redazione · da rivedere dopo static fire</span>
+        </span>
+      </div>
+      <h3 style="margin:12px 0 0;font-size:clamp(24px,3vw,34px)">Ipotesi centrale: fine agosto 2026</h3>
+      <p class="muted" style="margin:8px 0 0">
+        Punto medio della nostra forchetta. Countdown sotto solo se la data resta nel futuro; e un timer di lavoro, non un T-0 SpaceX. Un profilo orbitale + catch puo allungare i tempi rispetto a un IFT suborbitale &ldquo;semplice&rdquo;.
+      </p>
+      <div class="countdown">
+        <div class="timebox"><strong class="d">—</strong><span>giorni</span></div>
+        <div class="timebox"><strong class="h">—</strong><span>ore</span></div>
+        <div class="timebox"><strong class="m">—</strong><span>min</span></div>
+        <div class="timebox"><strong class="s">—</strong><span>sec</span></div>
+      </div>
+      <div class="f14-live-bar">
+        <p><strong>Confidenza redazione:</strong> media-bassa (~40%). Hardware avanza; manca static fire B21/S41, stack, license/polling e data review F13.</p>
+        <span class="f14-conf"><span class="f14-conf-bar"><i></i></span> ~40%</span>
+      </div>
+    </div>
+
+    <div class="f14-band-grid">
+      <article class="f14-band">
+        <small>Ottimistico</small>
+        <b>25–30 agosto 2026</b>
+        <p>Se la data review di Flight 13 e pulita, B21 completa cryo + static fire senza sostituzione motori, S41 chiude engine install e hotfire, e Pad 2 e libero senza riparazioni lunghe. Allinea al target community di fine agosto e ai timeline che proiettano ~30 agosto ricalcando B20.</p>
+      </article>
+      <article class="f14-band hot">
+        <small>Ipotesi centrale (scelta nostra)</small>
+        <b>28 agosto – 5 settembre 2026</b>
+        <p>
+          Banda piu credibile oggi. F13 ha chiuso con soft splashdown Ship e hard landing booster: serve assimilazione telemetria, eventuale lavoro su landing burn Super Heavy, e campagna test B21 che a fine luglio e ancora in fase cryo (non ancora static fire pubblico).
+          Un catch Ship in luce diurna — e un profilo orbitale — puo spostare ora di liftoff e durata di campagna rispetto ai voli serali suborbitali recenti.
+        </p>
+      </article>
+      <article class="f14-band">
+        <small>Conservativo</small>
+        <b>meta – fine settembre 2026</b>
+        <p>Scatta se emergono problemi in data review F13, se B21 richiede ripasso motori, se lo static fire fallisce, o se orbita + catch Ship impongono lavori extra a pad, software e licenza. Cadenza &ldquo;quasi mensile&rdquo; resterebbe aperta, ma non garantita.</p>
+      </article>
+    </div>
+
+    <div class="cols" style="margin-top:18px">
+      <article class="panel">
+        <h3>Come e&rsquo; costruita la stima</h3>
+        <ul class="f14-check">
+          <li class="ok"><span><strong>Ancora 1.</strong> Flight 13 ha volato il 24/07/2026 (22:51 UTC). Il pad e la catena di volo sono &ldquo;caldi&rdquo;.</span></li>
+          <li class="ok"><span><strong>Ancora 2.</strong> Meta/fine luglio: Booster 21 a Massey&rsquo;s in campagna cryo; NSF su X conferma un nuovo cryo test (~20/07).</span></li>
+          <li class="ok"><span><strong>Ancora 3.</strong> Ship 41: campagna cryo a Massey&rsquo;s tra fine giugno e primi di luglio (anche un secondo passaggio), con installazione motori come passo successivo tipico.</span></li>
+          <li class="soft"><span><strong>Ancora 4.</strong> Lettura community: missione desiderata entro fine agosto se F13 va bene — target operativo, non NET SpaceX.</span></li>
+          <li class="open"><span><strong>Ancora 5.</strong> Elon Musk post-F13: se la data review non trova problemi, al prossimo volo tenteranno il <strong>catch della Ship con la tower</strong>. Unito all&rsquo;ipotesi orbitale, alza la posta tecnica e puo allungare i tempi.</span></li>
+          <li class="risk"><span><strong>Buco.</strong> Nessuno static fire B21/S41 ancora documentato pubblicamente a fine luglio; nessun T-0; nessuna pagina spacex.com Flight 14 al 25/07.</span></li>
+        </ul>
+      </article>
+      <article class="panel">
+        <h3>Analogia con Flight 13 (B20)</h3>
+        <p style="margin-top:0">Per B20: static fire 33 motori ~10 luglio, liftoff ~24 luglio (circa due settimane), ma con abort T-0 e scrub in mezzo. B21 ha chiuso lo stack→cryo in tempi molto rapidi: segnale di cadenza, non di data fissa.</p>
+        <p class="muted" style="margin-bottom:0">Se B21 static fire cade verso inizio/meta agosto, un liftoff fine agosto resta fisicamente plausibile. Se lo static fire slitta a meta agosto — o se il profilo orbitale chiede piu validazione — settembre diventa lo scenario base.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="hardware">
+  <div class="inner">
+    <div class="section-head">
+      <h2>Hardware: Ship 41 e Booster 21</h2>
+      <p>Ricostruzione open-source da immagini, cronologia Starbase e reporting pubblico (NSF e community su X). Nessuna fonte a pagamento citata.</p>
+    </div>
+    <div class="f14-hw-grid">
+      <article class="f14-hw">
+        <span class="tag">Upper stage · candidato Starship 1</span>
+        <h3>Ship 41</h3>
+        <p style="margin:8px 0 0;color:#cfd6dc;font-size:14px;line-height:1.5">
+          Seconda Ship V3 della sequenza dopo S40. Lunga campagna di costruzione e TPS (ablative su nosecone, tiling) da meta 2025; stacking in Mega Bay 2 da aprile 2026.
+        </p>
+        <dl>
+          <dt>Stacking MB2</dt><dd>da ~21–22 aprile 2026</dd>
+          <dt>Massey&rsquo;s / cryo</dt><dd>proofing ~27/06; cryo ~30/06; ritorno 1/07; secondo passaggio cryo e ritorno ~7/07</dd>
+          <dt>Prossimo step tipico</dt><dd>engine install → static fire (non ancora chiuso pubblicamente a fine luglio)</dd>
+          <dt>Ruolo atteso</dt><dd>candidato al primo <strong>tower catch Ship V3</strong> e al profilo <strong>orbitale + payload reale</strong></dd>
+        </dl>
+      </article>
+      <article class="f14-hw">
+        <span class="tag">First stage · Super Heavy V3</span>
+        <h3>Booster 21</h3>
+        <p style="margin:8px 0 0;color:#cfd6dc;font-size:14px;line-height:1.5">
+          Super Heavy per Flight 14. Assemblaggio in Mega Bay 1 gia segnalato a fine maggio 2026; a luglio e nella fase cryo a Massey&rsquo;s — inclusa una seconda sessione di cryo test.
+        </p>
+        <dl>
+          <dt>Assemblaggio</dt><dd>MB1 · fine maggio 2026</dd>
+          <dt>Landing tank</dt><dd>visibile in ops con S41 (~inizio giugno)</dd>
+          <dt>Massey&rsquo;s / cryo</dt><dd>arrivo ~18/07; follow-up foto e NSF X: &ldquo;cryo test again&rdquo; (~20/07)</dd>
+          <dt>Static fire 33</dt><dd><strong>non ancora</strong> documentato (gap critico per la data)</dd>
+          <dt>Catch booster</dt><dd>incerto: F13 ha chiuso con hard splashdown; un return-to-launch-site e possibile in lettura community, non e un go ufficiale al catch B21</dd>
+        </dl>
+      </article>
+    </div>
+
+    <div class="f14-meta-grid">
+      <div class="agenda-note"><b>Pad atteso</b><span>OLP-2 · Starbase (come F12/F13) · da confermare</span></div>
+      <div class="agenda-note"><b>Generazione</b><span>Starship / Super Heavy V3</span></div>
+      <div class="agenda-note"><b>Stack</b><span>S41 + B21 · non ancora full stack pubblico</span></div>
+      <div class="agenda-note"><b>Profilo redazione</b><span>Orbitale · catch Ship · satelliti reali</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="ipotesi">
+  <div class="inner">
+    <div class="section-head">
+      <h2>Ipotesi di missione</h2>
+      <p>Cosa e ragionevole aspettarsi, separando fatti dichiarati da letture di redazione.</p>
+    </div>
+    <div class="f14-objectives">
+      <article class="f14-obj">
+        <h3>Cio che e ancorato a fonti pubbliche</h3>
+        <ul>
+          <li><strong>Catch Ship (dichiarato).</strong> Elon Musk, 25/07/2026: se la mission data review non trova problemi, SpaceX tenterà di catturare la Ship con la tower al prossimo volo.</li>
+          <li><strong>Veicolo.</strong> Reporting pubblico NSF e community associano Flight 14 a Ship 41 e Booster 21.</li>
+          <li><strong>Target temporale community.</strong> Fine agosto se F13 va bene — desiderio operativo, non NET SpaceX.</li>
+          <li><strong>Eredita da F13.</strong> Softest splashdown Ship e hard splashdown booster: apre (in teoria) la strada al catch Ship; impone lavoro sulla landing burn Super Heavy.</li>
+        </ul>
+      </article>
+      <article class="f14-obj">
+        <h3>Ipotesi di redazione (non ufficiali)</h3>
+        <ul>
+          <li><strong>Nome storico.</strong> Se riesce, Flight 14 e il candidato a <strong>Starship 1</strong>: primo volo operativo vero del sistema, non solo un IFT in piu.</li>
+          <li><strong>Profilo orbitale.</strong> Baseline di questa scheda. E l&rsquo;unico schema che puo sostenere insieme catch tower e dispiegamento di satelliti veri in orbita.</li>
+          <li><strong>Payload reale.</strong> Dopo i 20/20 Starlink V3 di test su F13, su F14 ha senso un lotto destinato a restare in servizio (o un carrier orbitale equivalente). Nessuna conferma ufficiale.</li>
+          <li><strong>Booster.</strong> Priorita probabile: landing burn completa. Catch booster possibile ma meno supportato delle parole sul catch Ship.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="timeline">
+  <div class="inner">
+    <div class="section-head">
+      <h2>Timeline hardware (ricostruzione pubblica)</h2>
+      <p>A sinistra Ship 41; a destra Booster 21 e contesto programma. Eventi futuri sono marcatamente planned / speculative.</p>
+    </div>
+    <div class="f14-timeline-cols">
+      <article class="panel">
+        <h3>Ship 41</h3>
+        <div class="starship-timeline">
+          <article class="starship-event f14-event done">
+            <small>2025 (da luglio)</small>
+            <h3>Costruzione e TPS</h3>
+            <p>Campagna lunga: turntable, ablative su nosecone, tiling progressivo fino a fine 2025 / inizio 2026.</p>
+          </article>
+          <article class="starship-event f14-event done">
+            <small>21–22 aprile 2026</small>
+            <h3>Stacking in Mega Bay 2</h3>
+            <p>Ship 41 entra in stacking ops MB2 e avanza a ritmo di sezioni nei giorni successivi.</p>
+          </article>
+          <article class="starship-event f14-event done">
+            <small>30 maggio 2026</small>
+            <h3>S41 in MB2 · dual flow con B21</h3>
+            <p>Flusso parallelo esplicito: S41 in MB2, B21 in assemblaggio MB1 — coppia hardware di Flight 14.</p>
+          </article>
+          <article class="starship-event f14-event done">
+            <small>27 giugno – 7 luglio 2026</small>
+            <h3>Campagna cryo a Massey&rsquo;s</h3>
+            <p>Ready for proofing (~27/06) → roll a Massey&rsquo;s (~29/06) → cryo e rientro rapido (30/06–1/07) → secondo trip/cryo e ritorno (~7/07). Passo successivo tipico: engine install.</p>
+          </article>
+          <article class="starship-event f14-event soft">
+            <small>luglio 2026 (parallelo a F13)</small>
+            <h3>Test in parallelo a Flight 13</h3>
+            <p>NSF su X (10/07): mentre la campagna F13 accelera, Ship 41 e gia in testing per Flight 14.</p>
+          </article>
+          <article class="starship-event f14-event planned">
+            <small>prossimo (atteso)</small>
+            <h3>Engine install + static fire</h3>
+            <p>Passo standard pre-volo non ancora chiuso pubblicamente a fine luglio. Condizione necessaria prima di qualsiasi NET serio.</p>
+          </article>
+          <article class="starship-event f14-event planned">
+            <small>ipotesi Starship 1</small>
+            <h3>Orbita · deploy reale · tower catch</h3>
+            <p>Profilo redazione: inserimento orbitale, satelliti destinati a restare in servizio, rientro e catch con le chopsticks (condizionato alla data review F13).</p>
+          </article>
+        </div>
+      </article>
+
+      <article class="panel">
+        <h3>Booster 21 e contesto</h3>
+        <div class="starship-timeline">
+          <article class="starship-event f14-event done">
+            <small>30 maggio 2026</small>
+            <h3>B21 in assemblaggio MB1</h3>
+            <p>Primo accoppiamento chiaro S41/B21 come stack del volo successivo a Flight 13.</p>
+          </article>
+          <article class="starship-event f14-event done">
+            <small>inizio giugno 2026</small>
+            <h3>Landing tank in vista</h3>
+            <p>Ops e immagini su Ship 41 e landing tank di B21 — segnale di hardware di rientro in lavorazione.</p>
+          </article>
+          <article class="starship-event f14-event done">
+            <small>18–21 luglio 2026</small>
+            <h3>B21 a Massey&rsquo;s · cryo (anche ripetuto)</h3>
+            <p>Arrivo a Massey&rsquo;s per cryo; follow-up fotografici. NSF X: &ldquo;Booster 21 is undergoing a cryo test again at Massey&rsquo;s.&rdquo; Community: stack→cryo tra i piu rapidi per un Super Heavy.</p>
+          </article>
+          <article class="starship-event f14-event done">
+            <small>24 luglio 2026</small>
+            <h3>Flight 13 vola · eredita dati a F14</h3>
+            <p>Softest splashdown Ship, hard splashdown booster. Apre (in teoria) la strada al catch Ship; impone lavoro sulla landing burn Super Heavy.</p>
+          </article>
+          <article class="starship-event f14-event planned">
+            <small>atteso · agosto?</small>
+            <h3>Static fire 33 Raptor · B21</h3>
+            <p>Milestone mancante. Su B20 e stata la spina dorsale del go-for-launch. Finche non avviene, ogni data e un castello di carte.</p>
+          </article>
+          <article class="starship-event f14-event planned">
+            <small>atteso</small>
+            <h3>Full stack S41/B21 su Pad 2</h3>
+            <p>Solo dopo hotfire di entrambi gli stadi (o comunque dopo validazione propulsiva). Poi eventuale wet dress / countdown practice.</p>
+          </article>
+          <article class="starship-event f14-event risk">
+            <small>variabile</small>
+            <h3>FAA / license / pad polling</h3>
+            <p>Un profilo orbitale con catch Ship e satelliti reali e diverso da un IFT suborbitale a splashdown oceanico: puo richiedere chiavi procedurali e condizioni pad diverse. Da monitorare, non da dare per scontate.</p>
+          </article>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="obiettivi">
+  <div class="inner">
+    <div class="section-head">
+      <h2>Obiettivi proposti (matrice Starship 1)</h2>
+      <p>Griglia di lavoro della redazione per un volo operativo orbitale. Le etichette OK/Parziale arriveranno solo post-volo.</p>
+    </div>
+    <div class="f14-objectives">
+      <article class="f14-obj">
+        <h3>Super Heavy · Booster 21</h3>
+        <ul>
+          <li><strong>Atteso</strong> — Ascesa e hot-staging stabili (continuita V3)</li>
+          <li><strong>Atteso</strong> — Boostback corretto (gia recuperato su F13 rispetto a F12)</li>
+          <li><strong>Critico</strong> — Landing burn completo e controllato (punto debole di F13)</li>
+          <li><strong>Opzionale / incerto</strong> — Tower catch booster (meno supportato dalle fonti rispetto al catch Ship)</li>
+        </ul>
+      </article>
+      <article class="f14-obj">
+        <h3>Starship · Ship 41 · &ldquo;Starship 1&rdquo;</h3>
+        <ul>
+          <li><strong>Baseline redazione</strong> — Inserimento <strong>orbitale</strong> (condizione per satelliti veri)</li>
+          <li><strong>Baseline redazione</strong> — Deploy di <strong>satelliti reali</strong> destinati a restare in servizio (non solo demo a demise)</li>
+          <li><strong>Dichiarato (Elon)</strong> — Tentativo di catch con le chopsticks, se data review F13 e pulita</li>
+          <li><strong>Backup</strong> — Rientro controllato e splashdown se il catch non e go</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="fonti">
+  <div class="inner split">
+    <article class="panel">
+      <h3>Fonti pubbliche e tracce</h3>
+      <ul class="source-list">
+        <li><span class="pill xsrc" style="margin-right:6px">X</span> <a href="https://x.com/elonmusk/status/2080876967839031712" target="_blank" rel="noopener">Elon Musk — catch Ship on next flight</a> (25/07/2026)</li>
+        <li><span class="pill xsrc" style="margin-right:6px">X</span> <a href="https://x.com/NASASpaceflight/status/2079324460121723328" target="_blank" rel="noopener">NSF — B21 cryo test again at Massey&rsquo;s</a> (20/07/2026)</li>
+        <li><span class="pill xsrc" style="margin-right:6px">X</span> <a href="https://x.com/NASASpaceflight/status/2075374477865562424" target="_blank" rel="noopener">NSF — Ship 41 testing while F13 approaches</a> (10/07/2026)</li>
+        <li><a href="https://www.spacex.com/launches/starship-flight-13" target="_blank" rel="noopener">SpaceX — pagina Flight 13</a> (contesto ereditato, non F14)</li>
+        <li><a href="lancio13.html">Scheda locale Flight 13</a> · <a href="starship.html">Dossier Starship</a></li>
+        <li class="muted" style="list-style:none;margin-top:8px;font-size:13px">Timeline hardware e date di ops: ricostruzione di redazione da osservazione pubblica di Starbase (immagini, cronologia open, reporting community). Ipotesi orbitale / Starship 1 / satelliti reali: cornice editoriale, non annuncio SpaceX.</li>
+      </ul>
+    </article>
+    <article class="panel">
+      <h3>Cosa manca ancora (checklist)</h3>
+      <ul class="f14-check">
+        <li class="open"><span>Static fire Booster 21 (33 Raptor)</span></li>
+        <li class="open"><span>Static fire Ship 41</span></li>
+        <li class="open"><span>Full stack e foto pad</span></li>
+        <li class="open"><span>Pagina ufficiale spacex.com / Flight 14</span></li>
+        <li class="open"><span>Conferma pubblica del profilo orbitale</span></li>
+        <li class="open"><span>Manifesto payload (satelliti reali vs demo)</span></li>
+        <li class="open"><span>T-0, finestra, NOTAM / avvisi navigazione</span></li>
+        <li class="open"><span>Conferma catch Ship vs piano di backup splashdown</span></li>
+        <li class="risk"><span>Esito data review Flight 13 (condizione di Elon)</span></li>
+      </ul>
+      <div class="actions" style="margin-top:16px">
+        <a class="button secondary" href="lancio13.html">Apri Flight 13</a>
+        <a class="button secondary" href="spacex.html">Portale SpaceX</a>
+        <a class="button secondary" href="starship.html">Dossier Starship</a>
+      </div>
+      <p class="muted" style="margin:16px 0 0;font-size:13px">File locale di bozza: <code>sezioni/lancio14.html</code>. Non collegato dalla home, non generato dagli script, non destinato a push finche non lo decidi tu.</p>
+    </article>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  Rivoluzione Spaziale · bozza Flight 14 / ipotesi Starship 1 · solo hard disk · aggiornata al 25 luglio 2026 · fonti pubbliche + stime di redazione, non SpaceX.
+</footer>
+
+<script>
+function pad(n){return String(n).padStart(2,'0')}
+function countdown(iso){
+  const diff = new Date(iso).getTime() - Date.now();
+  if (!Number.isFinite(diff) || diff <= 0) return ['0','00','00','00'];
+  const total = Math.floor(diff / 1000);
+  return [Math.floor(total / 86400), pad(Math.floor(total % 86400 / 3600)), pad(Math.floor(total % 3600 / 60)), pad(total % 60)];
+}
+function tick(){
+  document.querySelectorAll('.launch[data-iso]').forEach(card => {
+    if (!card.querySelector('.d')) return;
+    const parts = countdown(card.dataset.iso);
+    card.querySelector('.d').textContent = parts[0];
+    card.querySelector('.h').textContent = parts[1];
+    card.querySelector('.m').textContent = parts[2];
+    card.querySelector('.s').textContent = parts[3];
+  });
+}
+tick();
+setInterval(tick, 1000);
+</script>
+</body>
+</html>

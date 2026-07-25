@@ -16,7 +16,7 @@ SECTIONS_DIR = ROOT / "sezioni"
 CSS_DIR = ROOT / "css"
 
 HERO_IMAGE = "https://upload.wikimedia.org/wikipedia/commons/5/5d/Falcon_1_Flight_4_launch.jpg"
-CSS_VERSION = "20260725-agenda-locale"
+CSS_VERSION = "20260725-flight14-card"
 ROME_TZ = ZoneInfo("Europe/Rome")
 MONTHS_IT = {
     1: "gennaio",
@@ -783,11 +783,12 @@ def shell(title, current, from_section, body, extra_script="", extra_head="", cs
 """
 
 
-def metric(value, label, href=None, title=None):
+def metric(value, label, href=None, title=None, variant=None):
     if href:
         title_attr = f' title="{escape(title)}"' if title else ""
+        extra = f" metric-link-{variant}" if variant else ""
         return (
-            f'<a class="metric metric-link" href="{escape(href)}"{title_attr}>'
+            f'<a class="metric metric-link{extra}" href="{escape(href)}"{title_attr}>'
             f"<b>{escape(str(value))}</b><span>{escape(label)}</span></a>"
         )
     return f'<div class="metric"><b>{escape(str(value))}</b><span>{escape(label)}</span></div>'
@@ -877,6 +878,18 @@ a.metric-link:hover,a.metric-link:focus-visible{{
 }}
 a.metric-link b{{color:#eaf7ff;font-size:clamp(16px,1.7vw,22px);line-height:1.2}}
 a.metric-link span{{color:#9fd8f5;font-weight:800}}
+a.metric-link-f14{{
+  border-color:rgba(240,163,90,.55);
+  background:linear-gradient(145deg,rgba(240,163,90,.2),rgba(255,255,255,.07));
+  box-shadow:0 0 0 1px rgba(240,163,90,.18) inset;
+}}
+a.metric-link-f14:hover,a.metric-link-f14:focus-visible{{
+  border-color:rgba(240,163,90,.95);
+  background:linear-gradient(145deg,rgba(240,163,90,.3),rgba(255,255,255,.1));
+  box-shadow:0 10px 28px rgba(0,0,0,.28),0 0 0 1px rgba(240,163,90,.35) inset;
+}}
+a.metric-link-f14 b{{color:#fff0e0}}
+a.metric-link-f14 span{{color:#ffd29a;font-weight:800}}
 .story-list{{display:grid;gap:16px}}
 .story-card{{display:grid;grid-template-columns:minmax(220px,320px) minmax(0,1fr);gap:20px;align-items:stretch;border:1px solid var(--line);background:linear-gradient(180deg,var(--panel2),var(--panel));border-radius:8px;padding:14px;transition:transform .18s ease,border-color .18s ease}}
 .story-card:hover{{transform:translateY(-3px);border-color:rgba(105,200,255,.55)}}
@@ -2034,6 +2047,13 @@ def render_spacex(data):
                 "stato Starship · clicca per la scheda →",
                 href="lancio13.html",
                 title="Apri la scheda illustrativa Flight 13",
+            ),
+            metric(
+                "Flight 14 in preparazione: possibile Starship 1 (orbitale)",
+                "prossimo Starship · bozza · clicca per la scheda →",
+                href="lancio14.html",
+                title="Apri la bozza Flight 14 / ipotesi Starship 1",
+                variant="f14",
             ),
         ]
     )
