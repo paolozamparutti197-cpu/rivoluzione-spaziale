@@ -326,3 +326,47 @@ Sessione 19/06/2026 - riordino generale directory e memoria operativa
 - Creato backup pre-recupero in 02_backup e verificati sette fogli, grafici e assenza di errori formula.
 - Conservati come validi gli HTML locali dei prossimi lanci generati il 18/07/2026, senza ulteriori chiamate a The Space Devs per esaurimento della quota API.
 - Preparati per la pubblicazione gli aggiornamenti agenda SpaceX ed Electron Lab e il dossier Starship al 18/07/2026.
+
+21/07/2026 - Aggiornamento elenco lanci Falcon
+- Aggiunto nel foglio elenco il lancio principale nr 685: Starlink Group 17-39, 21/07/2026, Falcon 9 bl 5, B1082 volo 23, SLC-4E, OCISLY, LEO, Vandenberg.
+- Registrato il successo della missione con atterraggio del booster su OCISLY e dispiegamento di 24 satelliti Starlink V2 Mini; il tentativo del 20/07 era stato rinviato da uno scrub all'ultimo secondo.
+- Dashboard ricalcolato: 685 lanci principali, 679 successi, 661 tentativi di recupero, 637 recuperi riusciti e 584 riutilizzi booster.
+- Verificati sette fogli, grafici, formula progressiva del numero di lancio e assenza di errori formula.
+- Backup pre-modifica creato: 02_backup\lanci_spacex_falcon_backup_20260721_183443_pre_starlink17-39.xlsx.
+- Nessuna pubblicazione del sito eseguita in questa sessione.
+
+24/07/2026 - Aggiornamento elenco lanci Falcon (MRV-MEP mancante)
+- Controllato 01_workbook\lanci_spacex_falcon.xlsx: ultima riga era nr 685 Starlink Group 17-39 (21/07/2026); mancava il secondo lancio dello stesso giorno.
+- Aggiunto nel foglio elenco il lancio principale nr 686: MRV-MEP, 21/07/2026, Falcon 9 bl 5, B1069 volo 32, SLC-40, EXP, GTO, Cape Canaveral.
+- Missione Northrop Grumman (SpaceLogistics): Mission Robotic Vehicle + 3 Mission Extension Pods verso GTO; booster esaurito di proposito, nessun tentativo di recupero.
+- Dashboard ricalcolato: 686 lanci principali, 680 successi, 661 tentativi di recupero, 637 recuperi riusciti e 585 riutilizzi booster.
+- Verificati fogli elenco/dashboard e assenza di errori formula; formula progressiva del numero di lancio ok.
+- Backup pre-modifica creato: 02_backup\lanci_spacex_falcon_backup_20260724_110844_pre_mrv-mep.xlsx.
+- Nessuna pubblicazione del sito eseguita in questa sessione.
+
+24/07/2026 - Aggiornamento sviluppo_starship.xlsx (Flight 13 scrub e recovery)
+- Fonti: post ufficiali SpaceX su X (19/07 NET 23/07; 22/07 preflight Super Heavy; 23/07 retarget 24/07 per meteo e visibilita heatshield), NSF destack/engine swap, Spaceflight Now e Space.com.
+- Timeline: tre nuove righe (107-109) su destack/sostituzione Raptor e slip del 20/07, ritorno B20/restack S40 21-22/07, scrub meteo 23/07 con nuovo target 24/07 22:45 UTC.
+- Dashboard al 24/07/2026: 105 eventi timeline; stato Flight 13 secondo tentativo NET 24/07; 12 voli integrati invariati (nessun liftoff).
+- Aggiornati Confronti tecnici, Temi e sintesi, Discrepanze e Fonti; Voli integrati solo nota esplicativa, senza aggiungere Flight 13.
+- Primo tentativo Excel COM interrotto perche il file era aperto dall utente; completato con openpyxl a file libero.
+- Backup pre-modifica: 02_backup\sviluppo_starship_backup_20260724_111244_pre_flight13_scrub.xlsx e copia in 01_workbook.
+- Nessuna pubblicazione del sito in questa sessione.
+
+25/07/2026 - Aggiornamento sviluppo_starship.xlsx (Flight 13 volo completato)
+- Fonti: pagina missione SpaceX Flight 13; wrap Space.com softest splashdown; live Space.com 24/07; Spaceflight Now 25/07 mostly successful; diretta NSF; post Musk ship intact/transmitting.
+- Liftoff 24/07/2026 22:51 UTC (17:51 CDT) da Starbase Pad 2: Booster 20 + Ship 40, secondo volo V3.
+- Risultati chiave: 33/33 al decollo; hot-staging e boostback OK; landing burn booster incompleto (5/13) e hard splashdown Golfo; Ship 40 dispiega 20/20 Starlink V3, relight Raptor in-space, softest splashdown oceano Indiano con scafo integro e telemetria attiva.
+- Timeline: riga 110 con l'evento di volo; Dashboard al 25/07 (106 eventi, 13 voli integrati, stato Flight 13 completato).
+- Voli integrati: aggiunta riga Flight 13 (Successo/parziale) con link diretta NSF.
+- Aggiornati Confronti tecnici, Temi e sintesi, Discrepanze e Fonti.
+- Backup pre-modifica: 02_backup\sviluppo_starship_backup_20260725_pre_flight13.xlsx
+- Script usato: 99_temporanei\aggiorna_starship_flight13_volo.py (openpyxl).
+- Nessuna pubblicazione del sito in questa sessione.
+
+25/07/2026 - Sito pubblico Flight 13 + agenda + GitHub
+- Aggiornato 03_script\genera_sito_rivoluzione.py: dossier Starship e cruscotto SpaceX allineati al volo del 24/07 (softest splashdown ship, hard landing booster, 13 voli integrati).
+- Aggiornata sezioni\lancio13.html da scheda countdown a scheda esito post-volo.
+- Agenda The Space Devs rinfrescata: Flight 13 rimosso; prossimo T-0 Starlink Group 17-51 (25/07).
+- File generati: sezioni\starship.html, sezioni\spacex.html, sezioni\lanci-imminenti.html e CSS.
+- Pubblicazione prevista su main e gh-pages.

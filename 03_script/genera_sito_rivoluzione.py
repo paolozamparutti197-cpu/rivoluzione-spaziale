@@ -767,7 +767,13 @@ def shell(title, current, from_section, body, extra_script="", extra_head="", cs
 """
 
 
-def metric(value, label):
+def metric(value, label, href=None, title=None):
+    if href:
+        title_attr = f' title="{escape(title)}"' if title else ""
+        return (
+            f'<a class="metric metric-link" href="{escape(href)}"{title_attr}>'
+            f"<b>{escape(str(value))}</b><span>{escape(label)}</span></a>"
+        )
     return f'<div class="metric"><b>{escape(str(value))}</b><span>{escape(label)}</span></div>'
 
 
@@ -839,6 +845,22 @@ section{{padding:72px clamp(18px,4vw,56px);border-top:1px solid var(--line)}}
 .metric{{min-width:0;border:1px solid var(--line);background:rgba(255,255,255,.065);border-radius:8px;padding:18px;min-height:112px}}
 .metric b{{display:block;font-size:clamp(25px,2.6vw,34px);line-height:1.05;margin-bottom:8px;overflow-wrap:break-word}}
 .metric span{{display:block;color:var(--muted);font-size:13px;line-height:1.35}}
+a.metric-link{{
+  display:block;color:inherit;text-decoration:none;cursor:pointer;
+  border-color:rgba(105,200,255,.55);
+  background:linear-gradient(145deg,rgba(105,200,255,.18),rgba(255,255,255,.07));
+  box-shadow:0 0 0 1px rgba(105,200,255,.18) inset;
+  transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease,background .16s ease;
+}}
+a.metric-link:hover,a.metric-link:focus-visible{{
+  transform:translateY(-2px);
+  border-color:rgba(105,200,255,.9);
+  background:linear-gradient(145deg,rgba(105,200,255,.28),rgba(255,255,255,.1));
+  box-shadow:0 10px 28px rgba(0,0,0,.28),0 0 0 1px rgba(105,200,255,.35) inset;
+  outline:none;
+}}
+a.metric-link b{{color:#eaf7ff;font-size:clamp(16px,1.7vw,22px);line-height:1.2}}
+a.metric-link span{{color:#9fd8f5;font-weight:800}}
 .story-list{{display:grid;gap:16px}}
 .story-card{{display:grid;grid-template-columns:minmax(220px,320px) minmax(0,1fr);gap:20px;align-items:stretch;border:1px solid var(--line);background:linear-gradient(180deg,var(--panel2),var(--panel));border-radius:8px;padding:14px;transition:transform .18s ease,border-color .18s ease}}
 .story-card:hover{{transform:translateY(-3px);border-color:rgba(105,200,255,.55)}}
@@ -1653,12 +1675,18 @@ def render_spacex(data):
         if upcoming_exact
         else '<div class="panel"><p class="muted">Nessun T-0 puntuale disponibile al momento.</p></div>'
     )
+    starship_stato = data["starship"]["metrics"]["stato"]
     top_metrics = "".join(
         [
             metric(f"{f['lanci']:,}".replace(",", "."), "lanci Falcon principali"),
             metric(percent(f["tasso"]), "success rate storico"),
             metric(f["recuperiRiusciti"], "recuperi booster riusciti"),
-            metric(data["starship"]["metrics"]["stato"], "stato Starship"),
+            metric(
+                starship_stato,
+                "stato Starship · clicca per la scheda →",
+                href="lancio13.html",
+                title="Apri la scheda illustrativa Flight 13",
+            ),
         ]
     )
     body = f"""
@@ -2016,7 +2044,7 @@ def render_starship_development_page(data):
     <p class="eyebrow">Dossier SpaceX</p>
     <h1>Sviluppo Starship</h1>
     <p class="subtitle">Dal concetto interplanetario ai voli integrati V3: evoluzione del veicolo, prove, fallimenti, recupero, motori Raptor, infrastrutture e obiettivi ancora aperti.</p>
-    <span class="update-stamp">Aggiornato al 18 luglio 2026</span>
+    <span class="update-stamp">Aggiornato al 25 luglio 2026</span>
   </div>
 </section>
 
@@ -2025,13 +2053,14 @@ def render_starship_development_page(data):
     <div class="starship-lead-grid">
       <article>
         <p class="starship-lead">Starship non e un singolo razzo arrivato improvvisamente sulla rampa. E il risultato di oltre un decennio di cambi di scala, materiali, motori, metodo produttivo e infrastrutture. Il programma nasce come architettura per Marte, passa attraverso MCT, ITS e BFR, abbandona fibra di carbonio e ali tradizionali, adotta acciaio inossidabile, rientro controllato sulle flaps e una famiglia di motori Raptor a metano. Ogni prototipo ha trasformato un problema teorico in un test fisico, spesso distruttivo ma immediatamente riutilizzato nel progetto successivo.</p>
-        <p>Questa pagina deriva dal workbook locale <strong>sviluppo_starship.xlsx</strong> appena aggiornato. La data di taglio e il <strong>18 luglio 2026</strong>: Flight 13 non e ancora conteggiato tra i voli effettuati. Il tentativo del 16 luglio UTC, nella notte italiana del 17 luglio, e stato abortito automaticamente prima del liftoff per la mancata accensione di alcuni Raptor. SpaceX ha sostituito due motori e ora punta al 20 luglio alle 22:45 UTC, corrispondenti alle 00:45 CEST del 21 luglio in Italia.</p>
+        <p>Questa pagina deriva dal workbook locale <strong>sviluppo_starship.xlsx</strong>. La data di taglio e il <strong>25 luglio 2026</strong>: Flight 13 e stato completato il 24 luglio alle 22:51 UTC (25 luglio 00:51 CEST). E il tredicesimo volo integrato e il secondo della generazione V3: Ship 40 ha dispiegato i primi 20 Starlink V3, riacceso un Raptor in spazio e chiuso con lo splashdown piu morbido mai ottenuto, scafo integro e telemetria ancora attiva. Il Super Heavy ha corretto hot-staging e boostback rispetto a Flight 12, ma ha chiuso con hard splashdown per un landing burn incompleto.</p>
       </article>
       <aside class="panel">
         <h3>Indice del dossier</h3>
         <nav class="starship-index" aria-label="Indice Sviluppo Starship">
           <a href="#fasi">Le grandi fasi</a>
-          <a href="#flight-13">Situazione Flight 13</a>
+          <a href="#flight-13">Esito Flight 13</a>
+          <a href="lancio13.html">Scheda dedicata Flight 13</a>
           <a href="#voli">Tutti i voli integrati</a>
           <a href="#temi">Nodi tecnici</a>
           <a href="#cronologia">Cronologia completa</a>
@@ -2069,7 +2098,7 @@ def render_starship_development_page(data):
       <article class="starship-phase"><span class="phase-date">2022-2023</span><h3>Dalla Ship al sistema completo</h3><p>Il lavoro si sposta sull'integrazione con Super Heavy, sui 33 motori, sul pad e sull'hot staging. Booster 7 e Ship 24 portano a IFT-1: il volo del 20 aprile 2023 distrugge il piano originale del pad e rende indispensabili deluge, flame deflector, affidabilita multi-engine e AFTS piu rapido. IFT-2 riesce invece a separare gli stadi con hot staging.</p></article>
       <article class="starship-phase"><span class="phase-date">2024</span><h3>Dal sopravvivere al recuperare</h3><p>IFT-3 porta operazioni in-space e rientro profondo; IFT-4 completa per la prima volta splashdown controllato di entrambi gli stadi. IFT-5 realizza la prima cattura di Super Heavy con i bracci della torre. IFT-6 conferma funzioni in-space, incluso il primo relight Raptor, ma rinuncia alla cattura e chiude con splashdown.</p></article>
       <article class="starship-phase"><span class="phase-date">2025</span><h3>Block 2: crisi, reflight e recupero</h3><p>Flight 7 e Flight 8 mostrano una maturita booster superiore a quella della Ship: catture riuscite, ma perdita delle upper stage. Flight 9 porta il primo reflight di Super Heavy senza chiudere bene il profilo. Flight 10 e Flight 11 recuperano il programma con deployment, relight e rientri controllati.</p></article>
-      <article class="starship-phase"><span class="phase-date">2026</span><h3>V3, Raptor 3 e Pad 2</h3><p>La terza generazione integra serbatoi piu grandi, avionica alleggerita, Raptor 3 e infrastruttura di rifornimento piu matura. Flight 12 debutta con Booster 19 e Ship 39 da Pad 2: il deployment e il rientro della Ship funzionano, ma boostback del booster e relight in-space restano incompleti.</p></article>
+      <article class="starship-phase"><span class="phase-date">2026</span><h3>V3, Raptor 3 e Pad 2</h3><p>La terza generazione integra serbatoi piu grandi, avionica alleggerita, Raptor 3 e infrastruttura di rifornimento piu matura. Flight 12 debutta con Booster 19 e Ship 39 da Pad 2: deployment e rientro della Ship funzionano, ma boostback e relight restano incompleti. Flight 13 (24 luglio) chiude boostback e relight, dispiega i primi 20 Starlink V3 e ottiene lo splashdown ship piu morbido di sempre, con scafo integro; il Super Heavy chiude ancora con hard splashdown.</p></article>
       <article class="starship-phase"><span class="phase-date">Obiettivo industriale</span><h3>Riuso completo e alta cadenza</h3><p>Il vero salto non e un singolo volo spettacolare. E il ciclo lancio, recupero, ispezione, rifornimento e rilancio di entrambi gli stadi. Per questo torri, Starfactory, Mega Bay, Pad 2, Florida e produzione Raptor sono parte integrante della stessa architettura.</p></article>
     </div>
   </div>
@@ -2077,29 +2106,29 @@ def render_starship_development_page(data):
 
 <section id="flight-13">
   <div class="inner">
-    <div class="section-head"><h2>Flight 13 al 18 luglio 2026</h2><p>Il primo countdown si e chiuso con uno scrub a T-0; il volo resta programmato per un nuovo tentativo.</p></div>
+    <div class="section-head"><h2>Flight 13 al 25 luglio 2026</h2><p>Volo completato il 24 luglio: softest splashdown della Ship, hard landing del Super Heavy. <a href="lancio13.html" style="color:#dff4ff;text-decoration:underline;text-underline-offset:3px;font-weight:800">Apri la scheda dedicata Flight 13 →</a></p></div>
     <article class="panel">
-      <h3>Secondo volo della generazione V3</h3>
-      <p>Flight 13 impiega <strong>Booster 20</strong> e <strong>Ship 40</strong> da Pad 2. Riprende gli obiettivi non chiusi da Flight 12: orientamento corretto dopo hot staging, boostback completo del Super Heavy, riaccensione di un Raptor della Ship nello spazio, deployment e rientri controllati. La novita di carico e costituita da <strong>20 satelliti Starlink V3 funzionali</strong>; sei portano telecamere per osservare scudo termico e superficie esterna della Ship. La traiettoria resta suborbitale: i satelliti testeranno pannelli, antenne e collegamenti, poi rientreranno in atmosfera.</p>
+      <h3>Secondo volo V3: successo ship-side, recovery booster ancora aperta</h3>
+      <p>Flight 13 ha impiegato <strong>Booster 20</strong> e <strong>Ship 40</strong> da Pad 2, con decollo alle <strong>22:51 UTC del 24 luglio 2026</strong> (25 luglio 00:51 CEST). Dopo l'abort a T-0 del 16 luglio e lo scrub meteo del 23, il profilo suborbitale e andato in porto con esito integrato <strong>successo/parziale</strong>: 20 Starlink V3 dispiegati, relight Raptor in spazio, Ship integra galleggiante nell'oceano Indiano; booster con landing burn incompleto e hard splashdown nel Golfo.</p>
       <div class="starship-status-grid">
-        <div class="starship-status"><b>25 giugno</b><span>Ship 40 completa uno static fire di circa 15 secondi con un Raptor 3 centrale.</span></div>
-        <div class="starship-status"><b>2 luglio</b><span>Ship 40 accende tutti i sei Raptor 3 per circa 60 secondi.</span></div>
-        <div class="starship-status"><b>10 luglio</b><span>Booster 20 completa circa 25 secondi di static fire con tutti i 33 Raptor 3.</span></div>
-        <div class="starship-status"><b>13 luglio</b><span>La FAA chiude l'indagine Flight 12, accetta quattro azioni correttive e consente il passaggio a Flight 13.</span></div>
-        <div class="starship-status"><b>16 luglio UTC / 17 luglio CEST</b><span>Scrub a ridosso del liftoff: alcuni Raptor non si avviano e il sistema automatico interrompe la sequenza. Il veicolo resta sulla rampa.</span></div>
-        <div class="starship-status pending"><b>20 luglio, 22:45 UTC</b><span>Nuovo target SpaceX in finestra di 90 minuti. In Italia: 21 luglio, 00:45 CEST.</span></div>
+        <div class="starship-status"><b>16 luglio · abort T-0</b><span>Alcuni Raptor non si avviano; sostituzione di almeno due motori su B20.</span></div>
+        <div class="starship-status"><b>23 luglio · scrub meteo</b><span>Rinvio per visibilita e condizioni non adatte all'imagery heatshield.</span></div>
+        <div class="starship-status"><b>24 luglio 22:51 UTC</b><span>Liftoff da Pad 2: 33/33 al decollo, hot-staging e boostback corretti.</span></div>
+        <div class="starship-status"><b>Deploy 20/20 V3</b><span>Primi Starlink V3 funzionali; sei satelliti con telecamere sullo scudo termico.</span></div>
+        <div class="starship-status"><b>Softest splashdown Ship</b><span>Ship 40 integra, galleggiante e in telemetria nell'oceano Indiano; Dan Huot: softest splashdown.</span></div>
+        <div class="starship-status pending"><b>Hard splashdown B20</b><span>Landing burn incompleto (circa 5/13 motori): Super Heavy colpisce il Golfo a velocita elevata.</span></div>
       </div>
     </article>
     <div class="cols" style="margin-top:18px">
-      <article class="panel"><h3>Cosa corregge Flight 13</h3><p>Flight 12 ha lasciato il booster ruotato con un orientamento errato di circa 90 gradi dopo la separazione e cinque motori non riaccesi durante il boostback. SpaceX ha modificato sequenza di avvio della Ship, hardware e software del Super Heavy, logiche di allarme e abort. La FAA ha indicato come cause piu probabili gli effetti termici sui componenti propulsivi e impostazioni errate degli allarmi motore.</p></article>
-      <article class="panel"><h3>Cosa deve dimostrare</h3><p>Il successo utile non coincide soltanto con il decollo. Servono separazione pulita, boostback completo, landing burn e splashdown mirato del booster, deployment dei 20 Starlink V3, relight Raptor in-space, dati sullo scudo termico, controllo in rientro e splashdown della Ship nell'oceano Indiano.</p></article>
+      <article class="panel"><h3>Cosa ha chiuso Flight 13</h3><p>Rispetto a Flight 12, il booster ha eseguito flip e boostback con orientamento corretto dopo hot-staging. La Ship ha completato deployment di payload reale, relight in-space e un rientro che ha lasciato il veicolo integro in acqua: un salto qualitativo per i dati TPS e per la fiducia sul profilo end-to-end suborbitale.</p></article>
+      <article class="panel"><h3>Cosa resta da dimostrare</h3><p>Il landing burn multi-engine del Super Heavy V3 non e ancora un soft splashdown affidabile. Prima di catch, orbita e refill restano aperti affidabilita recovery booster, primo profilo orbitale, rifornimento criogenico e cadenza verso Starlink V3 operativo e HLS Artemis.</p></article>
     </div>
   </div>
 </section>
 
 <section id="voli">
   <div class="inner">
-    <div class="section-head"><h2>I dodici voli integrati</h2><p>Ogni scheda riporta veicolo, risultato e soprattutto la lezione trasferita al volo successivo. Flight 13 verra aggiunto solo dopo il lancio.</p></div>
+    <div class="section-head"><h2>I tredici voli integrati</h2><p>Ogni scheda riporta veicolo, risultato e la lezione trasferita al volo successivo. Flight 13 e incluso dopo il liftoff del 24 luglio 2026.</p></div>
     <div class="starship-flight-grid">{flight_cards}</div>
   </div>
 </section>
@@ -2113,7 +2142,7 @@ def render_starship_development_page(data):
 
 <section id="cronologia">
   <div class="inner">
-    <div class="section-head"><h2>Cronologia completa</h2><p>Tutti i {escape(str(starship['metrics']['eventi']))} eventi presenti nel workbook, dalle origini concettuali allo scrub e al nuovo tentativo di Flight 13.</p></div>
+    <div class="section-head"><h2>Cronologia completa</h2><p>Tutti i {escape(str(starship['metrics']['eventi']))} eventi presenti nel workbook, dalle origini concettuali al Flight 13 completato.</p></div>
     <details class="starship-archive">
       <summary>Apri la cronologia integrale del workbook</summary>
       <div class="starship-timeline">{timeline_events}</div>
@@ -2125,25 +2154,25 @@ def render_starship_development_page(data):
   <div class="inner split">
     <article class="panel">
       <h2>Fonti e metodo</h2>
-      <p>La struttura narrativa e i dati storici derivano da <strong>01_workbook/sviluppo_starship.xlsx</strong>. Le voci piu recenti sono state controllate con pagine missione SpaceX, comunicazioni FAA e tracker tecnici. Le previsioni sono indicate come target o NET; non vengono trasformate in eventi completati.</p>
+      <p>La struttura narrativa e i dati storici derivano da <strong>01_workbook/sviluppo_starship.xlsx</strong>. Le voci piu recenti sono state controllate con pagine missione SpaceX, reporting Space.com e Spaceflight Now. Le previsioni restano indicate come target o NET; i voli entrano in tabella solo dopo il liftoff.</p>
       <ul class="source-list">
         <li><a href="https://www.spacex.com/launches/starship-flight-13" target="_blank" rel="noopener">SpaceX, pagina missione Flight 13</a></li>
-        <li><a href="https://apnews.com/article/starship-spacex-rocket-musk-nasa-455927b93b0fdc5512a4567a53eb3228" target="_blank" rel="noopener">Associated Press, abort automatico del 16 luglio</a></li>
-        <li><a href="https://www.faa.gov/newsroom/statements/general-statements" target="_blank" rel="noopener">FAA, chiusura dell'indagine Flight 12 del 13 luglio 2026</a></li>
-        <li><a href="https://www.space.com/space-exploration/launches-spacecraft/spacex-ignites-all-33-powerful-engines-on-starship-booster-test-ahead-of-flight-13-test-launch" target="_blank" rel="noopener">Static fire di Booster 20</a></li>
-        <li><a href="https://nextspaceflight.com/launches/details/8279/" target="_blank" rel="noopener">Next Spaceflight, scheda Flight 13</a></li>
+        <li><a href="https://www.space.com/space-exploration/launches-spacecraft/spacexs-starship-megarocket-makes-the-softest-splashdown-ever-after-launching-next-gen-starlink-satellites-in-flight-13-test-video" target="_blank" rel="noopener">Space.com, softest splashdown Flight 13</a></li>
+        <li><a href="https://spaceflightnow.com/2026/07/25/super-heavy-starship-rocket-chalks-up-mostly-successful-test-flight/" target="_blank" rel="noopener">Spaceflight Now, mostly successful test flight</a></li>
+        <li><a href="https://www.youtube.com/watch?v=lC3RDO7tdLc" target="_blank" rel="noopener">NASASpaceflight, diretta Flight 13</a></li>
+        <li><a href="lancio13.html">Scheda locale dedicata Flight 13</a></li>
       </ul>
     </article>
     <aside class="panel">
       <h3>Crediti immagini</h3>
       <p>Le due fotografie sono di Steve Jurvetson e sono distribuite con licenza <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener"><strong>Creative Commons Attribution 2.0</strong></a>. I file sono conservati localmente nel sito per evitare dipendenze esterne; attribuzione e collegamento alla scheda Wikimedia sono riportati sotto ogni immagine.</p>
-      <div class="actions"><a class="button secondary" href="spacex.html">Torna a SpaceX</a><a class="button" href="starship.html">Apri dashboard Starship</a></div>
+      <div class="actions"><a class="button secondary" href="spacex.html">Torna a SpaceX</a><a class="button" href="lancio13.html">Scheda Flight 13</a></div>
     </aside>
   </div>
 </section>
 </div>
 """
-    return shell("Sviluppo Starship", "spacex", True, body, css_version="20260718-flight13-rinvio")
+    return shell("Sviluppo Starship", "spacex", True, body, css_version="20260725-flight13")
 
 
 def render_placeholder(item):

@@ -62,9 +62,13 @@ PUBLISH_FILES = [
     "sezioni/storia-spacex.html",
     "sezioni/storico-lanci.html",
     "sezioni/starship.html",
+    "sezioni/lancio13.html",
     "sezioni/assets/sviluppo-starship",
+    "sezioni/assets/lancio13",
     "sezioni/pad-di-lancio.html",
     "sezioni/localita-spacex.html",
+    "03_script/genera_sito_rivoluzione.py",
+    "03_script/aggiorna_lanci_spacex_sito.py",
 ]
 
 
