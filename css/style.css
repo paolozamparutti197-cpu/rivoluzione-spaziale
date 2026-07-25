@@ -85,7 +85,9 @@ a.metric-link span{color:#9fd8f5;font-weight:800}
 .launch-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
 .pill{display:inline-flex;border:1px solid rgba(105,200,255,.5);color:#dff4ff;border-radius:999px;padding:5px 8px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:900}
 .pill.net{border-color:rgba(242,184,75,.6);color:#ffe1a3}
-.date{color:#d6dde3;text-align:right;font-size:13px;font-weight:800}
+.date{color:#d6dde3;text-align:right;font-size:13px;font-weight:800;display:grid;gap:4px;justify-items:end}
+.date-local{display:block;color:var(--accent);font-size:12px;font-weight:800;letter-spacing:.01em}
+.next-launch-local{color:var(--accent)!important;font-weight:800}
 .launch h3{font-size:21px}
 .launch p{margin:0;font-size:14px;color:#cbd2d8}
 .launch-summary{display:grid;gap:8px}
@@ -95,8 +97,24 @@ a.metric-link span{color:#9fd8f5;font-weight:800}
 .launch-meta b{display:block;color:var(--gold);font-size:10px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px}
 .launch-meta span{display:block;color:#dce4ea;font-size:12px;line-height:1.35;overflow-wrap:break-word}
 .history-meta{grid-template-columns:repeat(4,minmax(0,1fr));margin-top:12px}
-.source-links{display:flex;flex-wrap:wrap;gap:7px;margin-top:2px}
-.source-links a{border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:5px 8px;color:#dcebf4;font-size:11px;text-transform:uppercase;letter-spacing:.06em;font-weight:850}
+.source-links{display:flex;flex-wrap:wrap;gap:7px;margin-top:2px;align-items:center}
+.source-links a,.source-links .ics-btn{border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:5px 8px;color:#dcebf4;font-size:11px;text-transform:uppercase;letter-spacing:.06em;font-weight:850;background:transparent;cursor:pointer;font-family:inherit}
+.source-links .ics-btn{border-color:rgba(105,200,255,.55);color:#dff4ff;background:rgba(105,200,255,.12)}
+.source-links .ics-btn:hover{border-color:rgba(105,200,255,.9);background:rgba(105,200,255,.22)}
+.agenda-toolbar{margin-top:22px;border:1px solid var(--line);border-radius:8px;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.04));padding:16px}
+.agenda-toolbar-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;flex-wrap:wrap;margin-bottom:14px}
+.agenda-toolbar-copy{margin:8px 0 0;color:var(--muted);font-size:14px;max-width:640px;line-height:1.45}
+.agenda-toolbar-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.agenda-filter-count{color:#dcebf4;font-size:12px;font-weight:850;text-transform:uppercase;letter-spacing:.06em}
+.agenda-filter-rows{display:grid;gap:12px}
+.agenda-filter-group{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.agenda-filter-label{min-width:72px;color:var(--gold);font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+.agenda-filter{border:1px solid var(--line);background:rgba(0,0,0,.22);color:#fff;border-radius:999px;padding:8px 11px;font-size:11px;text-transform:uppercase;letter-spacing:.07em;font-weight:900;cursor:pointer;font-family:inherit}
+.agenda-filter:hover{border-color:rgba(105,200,255,.55)}
+.agenda-filter.active{background:#fff;color:#000;border-color:#fff}
+.agenda-empty{margin:14px 0 0}
+.agenda-toolbar-actions .button:disabled{opacity:.45;cursor:not-allowed}
+article.launch[hidden]{display:none!important}
 .countdown{margin-top:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
 .countdown.pending{grid-template-columns:1fr}
 .timebox{background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:8px 4px;text-align:center}
@@ -234,4 +252,4 @@ td{color:#d8dee3}
 .footer{padding:34px clamp(18px,4vw,56px);border-top:1px solid var(--line);color:var(--muted);font-size:13px;line-height:1.5}
 @media(max-width:1120px){.grid,.launch-grid,.launch-grid.compact,.agenda-strip,.pad-list{grid-template-columns:repeat(2,minmax(0,1fr))}.split,.dash-grid,.cols,.next-launch,.pad-map-wrap,.starship-lead-grid{grid-template-columns:1fr}.starship-status-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.pad-map-side{border-right:0;border-bottom:1px solid var(--line)}.pad-side-list{max-height:none;grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:900px){.pad-list{grid-template-columns:1fr}.pad-card{grid-template-columns:160px 1fr}.story-card{grid-template-columns:1fr}.story-card img{height:auto;max-height:420px}}
-@media(max-width:760px){.topbar{align-items:flex-start;flex-direction:column}.nav{justify-content:flex-start}.grid,.launch-grid,.launch-grid.compact,.agenda-strip,.launch-meta,.metrics,.split .panel .metrics,.pad-side-list,.spacex-actions,.starship-photo-grid,.starship-phase-grid,.starship-flight-grid,.starship-status-grid{grid-template-columns:1fr}section{padding:56px 18px}.starship-dossier>section{padding-top:38px;padding-bottom:38px}.hero,.starship-dossier-hero{padding:78px 18px 30px}.starship-dossier-hero{min-height:44vh}.starship-photo img{height:190px}h1{font-size:43px}.section-head{display:block}.bar-row{grid-template-columns:58px 1fr 44px}.starship-flight-meta{grid-template-columns:1fr}#pad-map,#location-map{min-height:460px}.pad-map-wrap{min-height:460px}.pad-card{grid-template-columns:1fr}.pad-card img{max-height:420px}.pad-mini-event{grid-template-columns:1fr;gap:2px}}
+@media(max-width:760px){.topbar{align-items:flex-start;flex-direction:column}.nav{justify-content:flex-start}.grid,.launch-grid,.launch-grid.compact,.agenda-strip,.launch-meta,.metrics,.split .panel .metrics,.pad-side-list,.spacex-actions,.starship-photo-grid,.starship-phase-grid,.starship-flight-grid,.starship-status-grid{grid-template-columns:1fr}section{padding:56px 18px}.starship-dossier>section{padding-top:38px;padding-bottom:38px}.hero,.starship-dossier-hero{padding:78px 18px 30px}.starship-dossier-hero{min-height:44vh}.starship-photo img{height:190px}h1{font-size:43px}.section-head{display:block}.bar-row{grid-template-columns:58px 1fr 44px}.starship-flight-meta{grid-template-columns:1fr}#pad-map,#location-map{min-height:460px}.pad-map-wrap{min-height:460px}.pad-card{grid-template-columns:1fr}.pad-card img{max-height:420px}.pad-mini-event{grid-template-columns:1fr;gap:2px}.agenda-filter-label{min-width:100%;margin-bottom:2px}.agenda-toolbar-actions{width:100%}.agenda-toolbar-actions .button{flex:1 1 auto;text-align:center}}

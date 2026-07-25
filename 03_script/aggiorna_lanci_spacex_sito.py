@@ -346,13 +346,53 @@ def window_label(launch, dt, exact):
 
 def categories_for(launch, name, rocket, exact):
     text = f"{name} {rocket}".lower()
+    site = site_name(launch).lower()
     categories = ["exact"] if exact else ["net"]
     if "starlink" in text:
         categories.append("starlink")
+    else:
+        categories.append("non-starlink")
     if "sda " in text or "space development agency" in text or "tranche" in text:
         categories.append("sda")
-    if "starship" in text or "flight " in text and "starship" in rocket.lower():
+    if "starship" in text or ("flight " in text and "starship" in rocket.lower()):
         categories.append("starship")
+    elif "heavy" in rocket.lower():
+        categories.append("heavy")
+    else:
+        categories.append("falcon9")
+    # Attenzione: non usare "slc-4" nudo (matcherebbe anche SLC-40 Florida).
+    if any(
+        token in site
+        for token in (
+            "vandenberg",
+            "vafb",
+            "slc-4e",
+            "slc 4e",
+            "slc4e",
+            "complex 4e",
+            "complex 4-e",
+        )
+    ):
+        categories.append("vandenberg")
+    elif any(
+        token in site
+        for token in (
+            "cape canaveral",
+            "kennedy",
+            "ccsfs",
+            "ksc",
+            "slc-40",
+            "slc 40",
+            "slc40",
+            "lc-39",
+            "lc 39",
+            "lc39",
+            "florida",
+        )
+    ):
+        categories.append("florida")
+    else:
+        categories.append("altro-sito")
     return categories
 
 

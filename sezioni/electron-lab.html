@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Electron Lab | Rivoluzione Spaziale</title>
-<link rel="stylesheet" href="../css/style.css?v=20260614-nav-gerarchia">
+<link rel="stylesheet" href="../css/style.css?v=20260725-agenda-locale">
 
 </head>
 
@@ -49,7 +49,7 @@
 <section>
   <div class="inner">
     <div class="section-head"><h2>Prossimi lanci</h2><p>Anteprima delle missioni Electron disponibili in Launch Library 2, con T-0 puntuali separati dalle finestre NET.</p></div>
-    <div class="launch-grid compact"><article class="launch" data-iso="2026-07-31T00:00:00Z">
+    <div class="launch-grid compact"><article class="launch" data-iso="2026-07-31T00:00:00Z" data-tags="altro-sito falcon9 net non-starlink" data-slug="electron-the-grain-goddess-provides-iqps-launch-7" data-name="The Grain Goddess Provides (iQPS Launch 7)" data-site="Rocket Lab Launch Complex 1A, Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand" data-rocket="Electron" data-net="1">
   <div class="launch-top">
     <span class="pill net">NET</span>
     <span class="date">NET luglio 2026</span>
@@ -68,7 +68,7 @@
     <div class="timebox"><strong>NET</strong><span>NET luglio 2026</span></div>
   </div>
 </article>
-<article class="launch" data-iso="2026-07-31T00:00:00Z">
+<article class="launch" data-iso="2026-07-31T00:00:00Z" data-tags="altro-sito falcon9 net non-starlink" data-slug="electron-loxsat-1" data-name="LOXSAT 1" data-site="Unknown Pad, Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand" data-rocket="Electron" data-net="1">
   <div class="launch-top">
     <span class="pill net">NET</span>
     <span class="date">NET luglio 2026</span>
@@ -87,7 +87,7 @@
     <div class="timebox"><strong>NET</strong><span>NET luglio 2026</span></div>
   </div>
 </article>
-<article class="launch" data-iso="2026-07-31T00:00:00Z">
+<article class="launch" data-iso="2026-07-31T00:00:00Z" data-tags="altro-sito falcon9 net non-starlink" data-slug="electron-strix-launch-11" data-name="StriX Launch 11" data-site="Unknown Pad, Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand" data-rocket="Electron" data-net="1">
   <div class="launch-top">
     <span class="pill net">NET</span>
     <span class="date">NET luglio 2026</span>
@@ -132,6 +132,49 @@ function tick(){
     card.querySelector('.s').textContent = parts[3];
   });
 }
+function icsEscape(text){
+  return String(text || '').replace(/\\/g,'\\\\').replace(/\n/g,'\\n').replace(/,/g,'\\,').replace(/;/g,'\\;');
+}
+function toIcsUtc(iso){
+  const d = new Date(iso);
+  if (!Number.isFinite(d.getTime())) return null;
+  return d.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');
+}
+function downloadCardIcs(card){
+  if (!card || card.dataset.net === '1') return;
+  const iso = card.dataset.iso;
+  const start = toIcsUtc(iso);
+  if (!start) return;
+  const end = new Date(new Date(iso).getTime() + 60*60*1000).toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');
+  const name = card.dataset.name || (card.querySelector('h3') && card.querySelector('h3').textContent) || 'Lancio SpaceX';
+  const site = card.dataset.site || '';
+  const rocket = card.dataset.rocket || '';
+  const slug = card.dataset.slug || 'lancio';
+  const stamp = new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');
+  const desc = [rocket, site, 'Fonte: Rivoluzione Spaziale / The Space Devs'].filter(Boolean).join('\\n');
+  const body = [
+    'BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Rivoluzione Spaziale//Agenda Lanci//IT','CALSCALE:GREGORIAN','METHOD:PUBLISH',
+    'BEGIN:VEVENT',
+    'UID:' + slug + '-' + start + '@rivoluzione-spaziale',
+    'DTSTAMP:' + stamp,'DTSTART:' + start,'DTEND:' + end,
+    'SUMMARY:' + icsEscape('SpaceX: ' + name),
+    'LOCATION:' + icsEscape(site),
+    'DESCRIPTION:' + icsEscape(desc),
+    'END:VEVENT','END:VCALENDAR'
+  ].join('\r\n');
+  const blob = new Blob([body], {type:'text/calendar;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'spacex-' + slug + '.ics';
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1500);
+}
+document.querySelectorAll('button.ics-btn').forEach(btn => {
+  btn.addEventListener('click', (ev) => {
+    ev.preventDefault();
+    downloadCardIcs(btn.closest('article.launch'));
+  });
+});
 tick();
 setInterval(tick, 1000);
 </script>

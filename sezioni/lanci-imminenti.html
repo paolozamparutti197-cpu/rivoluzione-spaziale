@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lanci imminenti | Rivoluzione Spaziale</title>
-<link rel="stylesheet" href="../css/style.css?v=20260614-nav-gerarchia">
+<link rel="stylesheet" href="../css/style.css?v=20260725-agenda-locale">
 <meta name="space-data-version" content="5e6421defd7a3e06">
 </head>
 
@@ -28,7 +28,7 @@
   <div class="inner">
     <p class="eyebrow">Agenda SpaceX</p>
     <h1>Lanci imminenti</h1>
-    <p class="subtitle">Agenda ripulita dai voli gia avvenuti: T-0 puntuali separati dalle finestre NET, con countdown solo dove ha senso.</p>
+    <p class="subtitle">Agenda operativa: T-0 e NET, ora Italia accanto all&#x27;UTC, filtri rapidi e export calendario .ics.</p>
 
   </div>
 </section>
@@ -42,7 +42,7 @@
     <div class="agenda-strip">
       <div class="agenda-note"><b>4</b><span>lanci con T-0 puntuale ancora in agenda</span></div>
       <div class="agenda-note"><b>2</b><span>finestre NET o missioni senza data stabile</span></div>
-      <div class="agenda-note"><b>29 luglio 2026, 02:00 UTC</b><span>prossimo appuntamento mostrato</span></div>
+      <div class="agenda-note"><b>29 luglio 2026, 02:00 UTC · 29 luglio 2026, 04:00 CEST</b><span>prossimo appuntamento (UTC + Italia se T-0)</span></div>
     </div>
     
     <article class="next-launch">
@@ -50,6 +50,7 @@
         <p class="badge">Prossimo in agenda</p>
         <h3>Starlink Group 17-52</h3>
         <p>29 luglio 2026, 02:00 UTC</p>
+        <p class="next-launch-local">29 luglio 2026, 04:00 CEST · ora Italia</p>
       </div>
       <div>
         <p><strong>Falcon 9 Block 5</strong></p>
@@ -57,19 +58,35 @@
         <p>Starlink Group 17-52 (Communications)</p>
       </div>
     </article>
+    
+    <div class="agenda-toolbar" id="agenda-toolbar">
+      <div class="agenda-toolbar-head">
+        <div>
+          <p class="badge">Strumenti agenda</p>
+          <p class="agenda-toolbar-copy">Filtra le missioni e scarica i T-0 in calendario (.ics). Gli orari mostrano UTC e ora Italia (CET/CEST).</p>
+        </div>
+        <div class="agenda-toolbar-actions">
+          <span class="agenda-filter-count" id="agenda-filter-count">—</span>
+          <button type="button" class="button secondary" id="agenda-reset-filters">Azzera filtri</button>
+          <button type="button" class="button" id="agenda-export-ics">Calendario .ics</button>
+        </div>
+      </div>
+      <div class="agenda-filter-rows"><div class="agenda-filter-group" role="group" aria-label="Orario"><span class="agenda-filter-label">Orario</span><button type="button" class="agenda-filter active" data-group="timing" data-filter="all">Tutti</button><button type="button" class="agenda-filter" data-group="timing" data-filter="exact">T-0</button><button type="button" class="agenda-filter" data-group="timing" data-filter="net">NET</button></div><div class="agenda-filter-group" role="group" aria-label="Payload"><span class="agenda-filter-label">Payload</span><button type="button" class="agenda-filter active" data-group="payload" data-filter="all">Tutti</button><button type="button" class="agenda-filter" data-group="payload" data-filter="starlink">Starlink</button><button type="button" class="agenda-filter" data-group="payload" data-filter="non-starlink">Altri</button></div><div class="agenda-filter-group" role="group" aria-label="Razzo"><span class="agenda-filter-label">Razzo</span><button type="button" class="agenda-filter active" data-group="rocket" data-filter="all">Tutti</button><button type="button" class="agenda-filter" data-group="rocket" data-filter="falcon9">Falcon 9</button><button type="button" class="agenda-filter" data-group="rocket" data-filter="heavy">Heavy</button><button type="button" class="agenda-filter" data-group="rocket" data-filter="starship">Starship</button></div><div class="agenda-filter-group" role="group" aria-label="Sito"><span class="agenda-filter-label">Sito</span><button type="button" class="agenda-filter active" data-group="site" data-filter="all">Tutti</button><button type="button" class="agenda-filter" data-group="site" data-filter="florida">Florida</button><button type="button" class="agenda-filter" data-group="site" data-filter="vandenberg">Vandenberg</button><button type="button" class="agenda-filter" data-group="site" data-filter="altro-sito">Altri siti</button></div></div>
+      <p class="agenda-empty muted" id="agenda-empty" hidden>Nessuna missione corrisponde ai filtri selezionati.</p>
+    </div>
   </div>
 </section>
 
-<section>
+<section class="agenda-results" data-agenda-section="exact">
   <div class="inner">
     <div class="section-head">
       <h2>T-0 confermati</h2>
-      <p>Missioni con orario puntuale gia indicato dalle fonti operative. Sono le card da ricontrollare piu spesso, perche finestre e meteo possono cambiare in poche ore.</p>
+      <p>Missioni con orario puntuale gia indicato dalle fonti operative. Sono le card da ricontrollare piu spesso, perche finestre e meteo possono cambiare in poche ore. Su ogni card: ora Italia e bottone Calendario.</p>
     </div>
-    <div class="launch-grid"><article class="launch" data-iso="2026-07-29T02:00:00Z">
+    <div class="launch-grid"><article class="launch" data-iso="2026-07-29T02:00:00Z" data-tags="exact falcon9 starlink vandenberg" data-slug="falcon-9-block-5-starlink-group-17-52" data-name="Starlink Group 17-52" data-site="Space Launch Complex 4E, Vandenberg SFB, CA, USA" data-rocket="Falcon 9 Block 5" data-net="0">
   <div class="launch-top">
     <span class="pill ">T-0</span>
-    <span class="date">29 luglio 2026, 02:00 UTC</span>
+    <span class="date">29 luglio 2026, 02:00 UTC<span class="date-local">29 luglio 2026, 04:00 CEST · Italia</span></span>
   </div>
   <h3>Starlink Group 17-52</h3>
   <p><strong>Falcon 9 Block 5</strong></p>
@@ -80,7 +97,7 @@
     <p>A batch of 24 satellites for the Starlink mega-constellation - SpaceX&#x27;s project for space-based Internet communication system.</p>
     <p class="muted">Current T-0 confirmed by official or reliable sources.</p>
   </div>
-  <div class="source-links"><a href="https://ll.thespacedevs.com/2.3.0/launches/e7e55b53-6f69-4c22-9fc5-df00df653a3f/?format=json" target="_blank" rel="noopener">The Space Devs</a><a href="https://www.spacex.com/launches/sl-17-52" target="_blank" rel="noopener">spacex.com</a><a href="https://x.com/i/broadcasts/1AxRnnrObgzxl" target="_blank" rel="noopener">Webcast</a></div>
+  <div class="source-links"><a href="https://ll.thespacedevs.com/2.3.0/launches/e7e55b53-6f69-4c22-9fc5-df00df653a3f/?format=json" target="_blank" rel="noopener">The Space Devs</a><a href="https://www.spacex.com/launches/sl-17-52" target="_blank" rel="noopener">spacex.com</a><a href="https://x.com/i/broadcasts/1AxRnnrObgzxl" target="_blank" rel="noopener">Webcast</a><button type="button" class="ics-btn" data-ics="1" title="Scarica evento calendario (.ics)">Calendario</button></div>
   <div class="countdown">
     <div class="timebox"><strong class="d">0</strong><span>giorni</span></div>
     <div class="timebox"><strong class="h">00</strong><span>ore</span></div>
@@ -88,10 +105,10 @@
     <div class="timebox"><strong class="s">00</strong><span>sec</span></div>
   </div>
 </article>
-<article class="launch" data-iso="2026-07-30T07:09:00Z">
+<article class="launch" data-iso="2026-07-30T07:09:00Z" data-tags="exact falcon9 florida non-starlink" data-slug="falcon-9-block-5-nrol-95" data-name="NROL-95" data-site="Space Launch Complex 40, Cape Canaveral SFS, FL, USA" data-rocket="Falcon 9 Block 5" data-net="0">
   <div class="launch-top">
     <span class="pill ">T-0</span>
-    <span class="date">30 luglio 2026, 07:09 UTC</span>
+    <span class="date">30 luglio 2026, 07:09 UTC<span class="date-local">30 luglio 2026, 09:09 CEST · Italia</span></span>
   </div>
   <h3>NROL-95</h3>
   <p><strong>Falcon 9 Block 5</strong></p>
@@ -102,7 +119,7 @@
     <p>Classified payload for the US National Reconnaissance Office.</p>
     <p class="muted">Current T-0 confirmed by official or reliable sources.</p>
   </div>
-  <div class="source-links"><a href="https://ll.thespacedevs.com/2.3.0/launches/24675e3d-2458-48a3-8c70-5196e44d4dc3/?format=json" target="_blank" rel="noopener">The Space Devs</a><a href="https://www.spacex.com/launches/nrol95" target="_blank" rel="noopener">spacex.com</a><a href="https://x.com/i/broadcasts/1DxLddLoqayxm" target="_blank" rel="noopener">Webcast</a></div>
+  <div class="source-links"><a href="https://ll.thespacedevs.com/2.3.0/launches/24675e3d-2458-48a3-8c70-5196e44d4dc3/?format=json" target="_blank" rel="noopener">The Space Devs</a><a href="https://www.spacex.com/launches/nrol95" target="_blank" rel="noopener">spacex.com</a><a href="https://x.com/i/broadcasts/1DxLddLoqayxm" target="_blank" rel="noopener">Webcast</a><button type="button" class="ics-btn" data-ics="1" title="Scarica evento calendario (.ics)">Calendario</button></div>
   <div class="countdown">
     <div class="timebox"><strong class="d">0</strong><span>giorni</span></div>
     <div class="timebox"><strong class="h">00</strong><span>ore</span></div>
@@ -110,10 +127,10 @@
     <div class="timebox"><strong class="s">00</strong><span>sec</span></div>
   </div>
 </article>
-<article class="launch" data-iso="2026-08-01T14:00:00Z">
+<article class="launch" data-iso="2026-08-01T14:00:00Z" data-tags="exact falcon9 starlink vandenberg" data-slug="falcon-9-block-5-starlink-group-17-53" data-name="Starlink Group 17-53" data-site="Space Launch Complex 4E, Vandenberg SFB, CA, USA" data-rocket="Falcon 9 Block 5" data-net="0">
   <div class="launch-top">
     <span class="pill ">T-0</span>
-    <span class="date">1 agosto 2026, 14:00 UTC</span>
+    <span class="date">1 agosto 2026, 14:00 UTC<span class="date-local">1 agosto 2026, 16:00 CEST · Italia</span></span>
   </div>
   <h3>Starlink Group 17-53</h3>
   <p><strong>Falcon 9 Block 5</strong></p>
@@ -124,7 +141,7 @@
     <p>A batch of 24 satellites for the Starlink mega-constellation - SpaceX&#x27;s project for space-based Internet communication system.</p>
     <p class="muted">Current T-0 confirmed by official or reliable sources.</p>
   </div>
-  <div class="source-links"><a href="https://ll.thespacedevs.com/2.3.0/launches/0448d030-5175-4c1f-bd0b-4f3f87072921/?format=json" target="_blank" rel="noopener">The Space Devs</a><a href="https://www.spacex.com/launches/sl-17-53" target="_blank" rel="noopener">spacex.com</a><a href="https://x.com/i/broadcasts/1yKAPPDejLzxb" target="_blank" rel="noopener">Webcast</a></div>
+  <div class="source-links"><a href="https://ll.thespacedevs.com/2.3.0/launches/0448d030-5175-4c1f-bd0b-4f3f87072921/?format=json" target="_blank" rel="noopener">The Space Devs</a><a href="https://www.spacex.com/launches/sl-17-53" target="_blank" rel="noopener">spacex.com</a><a href="https://x.com/i/broadcasts/1yKAPPDejLzxb" target="_blank" rel="noopener">Webcast</a><button type="button" class="ics-btn" data-ics="1" title="Scarica evento calendario (.ics)">Calendario</button></div>
   <div class="countdown">
     <div class="timebox"><strong class="d">0</strong><span>giorni</span></div>
     <div class="timebox"><strong class="h">00</strong><span>ore</span></div>
@@ -132,10 +149,10 @@
     <div class="timebox"><strong class="s">00</strong><span>sec</span></div>
   </div>
 </article>
-<article class="launch" data-iso="2026-08-30T11:20:00Z">
+<article class="launch" data-iso="2026-08-30T11:20:00Z" data-tags="exact florida heavy non-starlink" data-slug="falcon-heavy-nancy-grace-roman-space-telescope" data-name="Nancy Grace Roman Space Telescope" data-site="Launch Complex 39A, Kennedy Space Center, FL, USA" data-rocket="Falcon Heavy" data-net="0">
   <div class="launch-top">
     <span class="pill ">T-0</span>
-    <span class="date">30 agosto 2026, 11:20 UTC</span>
+    <span class="date">30 agosto 2026, 11:20 UTC<span class="date-local">30 agosto 2026, 13:20 CEST · Italia</span></span>
   </div>
   <h3>Nancy Grace Roman Space Telescope</h3>
   <p><strong>Falcon Heavy</strong></p>
@@ -146,7 +163,7 @@
     <p>The Nancy Grace Roman Space Telescope is a NASA infrared space telescope with a 2.4 m (7.9 ft) wide field of view primary mirror and two scientific instruments. The Wide-Field Instrument (WFI) is a 300.8-megapixel multi-band visible and near-infrared camera, providing a sharpness of images comparable to that achieved by the Hubble Space Telescope over a 0.28 square degree field of view, 100 times larger than imaging cameras...</p>
     <p class="muted">Current T-0 confirmed by official or reliable sources.</p>
   </div>
-  <div class="source-links"><a href="https://ll.thespacedevs.com/2.3.0/launches/521f3a1c-f977-4306-9b7f-495858719adf/?format=json" target="_blank" rel="noopener">The Space Devs</a></div>
+  <div class="source-links"><a href="https://ll.thespacedevs.com/2.3.0/launches/521f3a1c-f977-4306-9b7f-495858719adf/?format=json" target="_blank" rel="noopener">The Space Devs</a><button type="button" class="ics-btn" data-ics="1" title="Scarica evento calendario (.ics)">Calendario</button></div>
   <div class="countdown">
     <div class="timebox"><strong class="d">0</strong><span>giorni</span></div>
     <div class="timebox"><strong class="h">00</strong><span>ore</span></div>
@@ -157,13 +174,13 @@
   </div>
 </section>
 
-<section>
+<section class="agenda-results" data-agenda-section="net">
   <div class="inner">
     <div class="section-head">
       <h2>Finestre NET</h2>
-      <p>Voli senza T-0 stabile: restano utili per orientarsi, ma non vanno letti come appuntamenti puntuali.</p>
+      <p>Voli senza T-0 stabile: restano utili per orientarsi, ma non vanno letti come appuntamenti puntuali. Non esportabili in calendario finche non c'e un orario fermo.</p>
     </div>
-    <div class="launch-grid compact"><article class="launch" data-iso="2026-08-31T00:00:00Z">
+    <div class="launch-grid compact"><article class="launch" data-iso="2026-08-31T00:00:00Z" data-tags="falcon9 florida net non-starlink" data-slug="falcon-9-block-5-globalstar-2-r-mission-1-x-9" data-name="Globalstar 2-R Mission 1 (x 9)" data-site="Space Launch Complex 40, Cape Canaveral SFS, FL, USA" data-rocket="Falcon 9 Block 5" data-net="1">
   <div class="launch-top">
     <span class="pill net">NET</span>
     <span class="date">NET agosto 2026</span>
@@ -182,7 +199,7 @@
     <div class="timebox"><strong>NET</strong><span>NET agosto 2026</span></div>
   </div>
 </article>
-<article class="launch" data-iso="2026-08-31T00:00:00Z">
+<article class="launch" data-iso="2026-08-31T00:00:00Z" data-tags="falcon9 florida net non-starlink" data-slug="falcon-9-block-5-bluebird-block-2-6-8" data-name="BlueBird Block 2 #6-8" data-site="Space Launch Complex 40, Cape Canaveral SFS, FL, USA" data-rocket="Falcon 9 Block 5" data-net="1">
   <div class="launch-top">
     <span class="pill net">NET</span>
     <span class="date">NET agosto 2026</span>
@@ -218,7 +235,7 @@ function countdown(iso){
 }
 function tick(){
   document.querySelectorAll('.launch[data-iso]').forEach(card => {
-    if (!card.querySelector('.d')) return;
+    if (card.hidden || !card.querySelector('.d')) return;
     const parts = countdown(card.dataset.iso);
     card.querySelector('.d').textContent = parts[0];
     card.querySelector('.h').textContent = parts[1];
@@ -226,8 +243,146 @@ function tick(){
     card.querySelector('.s').textContent = parts[3];
   });
 }
+function icsEscape(text){
+  return String(text || '').replace(/\\/g,'\\\\').replace(/\n/g,'\\n').replace(/,/g,'\\,').replace(/;/g,'\\;');
+}
+function toIcsUtc(iso){
+  const d = new Date(iso);
+  if (!Number.isFinite(d.getTime())) return null;
+  return d.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');
+}
+function cardToEvent(card){
+  const iso = card.dataset.iso;
+  const start = toIcsUtc(iso);
+  if (!start) return null;
+  const endDate = new Date(new Date(iso).getTime() + 60*60*1000);
+  const end = endDate.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');
+  const name = card.dataset.name || (card.querySelector('h3') && card.querySelector('h3').textContent) || 'Lancio SpaceX';
+  const site = card.dataset.site || '';
+  const rocket = card.dataset.rocket || '';
+  const slug = card.dataset.slug || 'lancio';
+  const stamp = new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');
+  const desc = [rocket, site, 'Fonte: Rivoluzione Spaziale / The Space Devs'].filter(Boolean).join('\\n');
+  return [
+    'BEGIN:VEVENT',
+    'UID:' + slug + '-' + start + '@rivoluzione-spaziale',
+    'DTSTAMP:' + stamp,
+    'DTSTART:' + start,
+    'DTEND:' + end,
+    'SUMMARY:' + icsEscape('SpaceX: ' + name),
+    'LOCATION:' + icsEscape(site),
+    'DESCRIPTION:' + icsEscape(desc),
+    'END:VEVENT'
+  ].join('\r\n');
+}
+function downloadIcs(events, filename){
+  if (!events.length) return;
+  const body = [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//Rivoluzione Spaziale//Agenda Lanci//IT',
+    'CALSCALE:GREGORIAN',
+    'METHOD:PUBLISH',
+    events.join('\r\n'),
+    'END:VCALENDAR'
+  ].join('\r\n');
+  const blob = new Blob([body], {type:'text/calendar;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename || 'lanci-spacex.ics';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1500);
+}
+function activeFilter(group){
+  const btn = document.querySelector('.agenda-filter[data-group="'+group+'"].active');
+  return btn ? btn.dataset.filter : 'all';
+}
+function applyAgendaFilters(){
+  const timing = activeFilter('timing');
+  const payload = activeFilter('payload');
+  const rocket = activeFilter('rocket');
+  const site = activeFilter('site');
+  let visible = 0;
+  document.querySelectorAll('article.launch').forEach(card => {
+    const tags = (card.dataset.tags || '').split(/\s+/).filter(Boolean);
+    let show = true;
+    if (timing !== 'all' && !tags.includes(timing)) show = false;
+    if (payload !== 'all' && !tags.includes(payload)) show = false;
+    if (rocket !== 'all' && !tags.includes(rocket)) show = false;
+    if (site !== 'all' && !tags.includes(site)) show = false;
+    card.hidden = !show;
+    if (show) visible += 1;
+  });
+  document.querySelectorAll('section.agenda-results').forEach(sec => {
+    const cards = sec.querySelectorAll('article.launch');
+    if (!cards.length) return;
+    const any = Array.prototype.some.call(cards, c => !c.hidden);
+    sec.hidden = !any;
+  });
+  const empty = document.getElementById('agenda-empty');
+  if (empty) empty.hidden = visible > 0;
+  const count = document.getElementById('agenda-filter-count');
+  if (count) count.textContent = visible === 1 ? '1 missione visibile' : visible + ' missioni visibili';
+  const exportBtn = document.getElementById('agenda-export-ics');
+  if (exportBtn){
+    const exactVisible = document.querySelectorAll('article.launch[data-net="0"]:not([hidden])').length;
+    exportBtn.disabled = exactVisible === 0;
+    exportBtn.textContent = exactVisible
+      ? 'Calendario .ics (' + exactVisible + ' T-0)'
+      : 'Calendario .ics';
+  }
+}
+function bindAgendaUi(){
+  document.querySelectorAll('.agenda-filter').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const group = btn.dataset.group;
+      document.querySelectorAll('.agenda-filter[data-group="'+group+'"]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      applyAgendaFilters();
+    });
+  });
+  document.querySelectorAll('button.ics-btn').forEach(btn => {
+    btn.addEventListener('click', (ev) => {
+      ev.preventDefault();
+      const card = btn.closest('article.launch');
+      if (!card || card.dataset.net === '1') return;
+      const event = cardToEvent(card);
+      if (!event) return;
+      const slug = card.dataset.slug || 'lancio';
+      downloadIcs([event], 'spacex-' + slug + '.ics');
+    });
+  });
+  const exportBtn = document.getElementById('agenda-export-ics');
+  if (exportBtn){
+    exportBtn.addEventListener('click', () => {
+      const events = [];
+      document.querySelectorAll('article.launch[data-net="0"]:not([hidden])').forEach(card => {
+        const event = cardToEvent(card);
+        if (event) events.push(event);
+      });
+      downloadIcs(events, 'spacex-lanci-imminenti.ics');
+    });
+  }
+  const resetBtn = document.getElementById('agenda-reset-filters');
+  if (resetBtn){
+    resetBtn.addEventListener('click', () => {
+      document.querySelectorAll('.agenda-filter-group').forEach(group => {
+        group.querySelectorAll('.agenda-filter').forEach(b => b.classList.remove('active'));
+        const all = group.querySelector('.agenda-filter[data-filter="all"]');
+        if (all) all.classList.add('active');
+      });
+      applyAgendaFilters();
+    });
+  }
+  applyAgendaFilters();
+}
 tick();
 setInterval(tick, 1000);
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bindAgendaUi);
+else bindAgendaUi();
 </script>
 </body>
 </html>

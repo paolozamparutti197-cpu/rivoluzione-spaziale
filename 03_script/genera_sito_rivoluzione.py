@@ -2,10 +2,11 @@ import json
 import re
 import subprocess
 import ast
-from datetime import date, datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from html import escape
 from pathlib import Path
 from urllib.parse import quote
+from zoneinfo import ZoneInfo
 
 import openpyxl
 
@@ -15,7 +16,22 @@ SECTIONS_DIR = ROOT / "sezioni"
 CSS_DIR = ROOT / "css"
 
 HERO_IMAGE = "https://upload.wikimedia.org/wikipedia/commons/5/5d/Falcon_1_Flight_4_launch.jpg"
-CSS_VERSION = "20260614-nav-gerarchia"
+CSS_VERSION = "20260725-agenda-locale"
+ROME_TZ = ZoneInfo("Europe/Rome")
+MONTHS_IT = {
+    1: "gennaio",
+    2: "febbraio",
+    3: "marzo",
+    4: "aprile",
+    5: "maggio",
+    6: "giugno",
+    7: "luglio",
+    8: "agosto",
+    9: "settembre",
+    10: "ottobre",
+    11: "novembre",
+    12: "dicembre",
+}
 
 MAIN_SECTIONS = [
     {
@@ -881,7 +897,9 @@ a.metric-link span{{color:#9fd8f5;font-weight:800}}
 .launch-top{{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}}
 .pill{{display:inline-flex;border:1px solid rgba(105,200,255,.5);color:#dff4ff;border-radius:999px;padding:5px 8px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:900}}
 .pill.net{{border-color:rgba(242,184,75,.6);color:#ffe1a3}}
-.date{{color:#d6dde3;text-align:right;font-size:13px;font-weight:800}}
+.date{{color:#d6dde3;text-align:right;font-size:13px;font-weight:800;display:grid;gap:4px;justify-items:end}}
+.date-local{{display:block;color:var(--accent);font-size:12px;font-weight:800;letter-spacing:.01em}}
+.next-launch-local{{color:var(--accent)!important;font-weight:800}}
 .launch h3{{font-size:21px}}
 .launch p{{margin:0;font-size:14px;color:#cbd2d8}}
 .launch-summary{{display:grid;gap:8px}}
@@ -891,8 +909,24 @@ a.metric-link span{{color:#9fd8f5;font-weight:800}}
 .launch-meta b{{display:block;color:var(--gold);font-size:10px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px}}
 .launch-meta span{{display:block;color:#dce4ea;font-size:12px;line-height:1.35;overflow-wrap:break-word}}
 .history-meta{{grid-template-columns:repeat(4,minmax(0,1fr));margin-top:12px}}
-.source-links{{display:flex;flex-wrap:wrap;gap:7px;margin-top:2px}}
-.source-links a{{border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:5px 8px;color:#dcebf4;font-size:11px;text-transform:uppercase;letter-spacing:.06em;font-weight:850}}
+.source-links{{display:flex;flex-wrap:wrap;gap:7px;margin-top:2px;align-items:center}}
+.source-links a,.source-links .ics-btn{{border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:5px 8px;color:#dcebf4;font-size:11px;text-transform:uppercase;letter-spacing:.06em;font-weight:850;background:transparent;cursor:pointer;font-family:inherit}}
+.source-links .ics-btn{{border-color:rgba(105,200,255,.55);color:#dff4ff;background:rgba(105,200,255,.12)}}
+.source-links .ics-btn:hover{{border-color:rgba(105,200,255,.9);background:rgba(105,200,255,.22)}}
+.agenda-toolbar{{margin-top:22px;border:1px solid var(--line);border-radius:8px;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.04));padding:16px}}
+.agenda-toolbar-head{{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;flex-wrap:wrap;margin-bottom:14px}}
+.agenda-toolbar-copy{{margin:8px 0 0;color:var(--muted);font-size:14px;max-width:640px;line-height:1.45}}
+.agenda-toolbar-actions{{display:flex;flex-wrap:wrap;gap:10px;align-items:center}}
+.agenda-filter-count{{color:#dcebf4;font-size:12px;font-weight:850;text-transform:uppercase;letter-spacing:.06em}}
+.agenda-filter-rows{{display:grid;gap:12px}}
+.agenda-filter-group{{display:flex;flex-wrap:wrap;gap:8px;align-items:center}}
+.agenda-filter-label{{min-width:72px;color:var(--gold);font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:900}}
+.agenda-filter{{border:1px solid var(--line);background:rgba(0,0,0,.22);color:#fff;border-radius:999px;padding:8px 11px;font-size:11px;text-transform:uppercase;letter-spacing:.07em;font-weight:900;cursor:pointer;font-family:inherit}}
+.agenda-filter:hover{{border-color:rgba(105,200,255,.55)}}
+.agenda-filter.active{{background:#fff;color:#000;border-color:#fff}}
+.agenda-empty{{margin:14px 0 0}}
+.agenda-toolbar-actions .button:disabled{{opacity:.45;cursor:not-allowed}}
+article.launch[hidden]{{display:none!important}}
 .countdown{{margin-top:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:6px}}
 .countdown.pending{{grid-template-columns:1fr}}
 .timebox{{background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:8px 4px;text-align:center}}
@@ -1030,7 +1064,7 @@ td{{color:#d8dee3}}
 .footer{{padding:34px clamp(18px,4vw,56px);border-top:1px solid var(--line);color:var(--muted);font-size:13px;line-height:1.5}}
 @media(max-width:1120px){{.grid,.launch-grid,.launch-grid.compact,.agenda-strip,.pad-list{{grid-template-columns:repeat(2,minmax(0,1fr))}}.split,.dash-grid,.cols,.next-launch,.pad-map-wrap,.starship-lead-grid{{grid-template-columns:1fr}}.starship-status-grid{{grid-template-columns:repeat(3,minmax(0,1fr))}}.pad-map-side{{border-right:0;border-bottom:1px solid var(--line)}}.pad-side-list{{max-height:none;grid-template-columns:repeat(2,minmax(0,1fr))}}}}
 @media(max-width:900px){{.pad-list{{grid-template-columns:1fr}}.pad-card{{grid-template-columns:160px 1fr}}.story-card{{grid-template-columns:1fr}}.story-card img{{height:auto;max-height:420px}}}}
-@media(max-width:760px){{.topbar{{align-items:flex-start;flex-direction:column}}.nav{{justify-content:flex-start}}.grid,.launch-grid,.launch-grid.compact,.agenda-strip,.launch-meta,.metrics,.split .panel .metrics,.pad-side-list,.spacex-actions,.starship-photo-grid,.starship-phase-grid,.starship-flight-grid,.starship-status-grid{{grid-template-columns:1fr}}section{{padding:56px 18px}}.starship-dossier>section{{padding-top:38px;padding-bottom:38px}}.hero,.starship-dossier-hero{{padding:78px 18px 30px}}.starship-dossier-hero{{min-height:44vh}}.starship-photo img{{height:190px}}h1{{font-size:43px}}.section-head{{display:block}}.bar-row{{grid-template-columns:58px 1fr 44px}}.starship-flight-meta{{grid-template-columns:1fr}}#pad-map,#location-map{{min-height:460px}}.pad-map-wrap{{min-height:460px}}.pad-card{{grid-template-columns:1fr}}.pad-card img{{max-height:420px}}.pad-mini-event{{grid-template-columns:1fr;gap:2px}}}}
+@media(max-width:760px){{.topbar{{align-items:flex-start;flex-direction:column}}.nav{{justify-content:flex-start}}.grid,.launch-grid,.launch-grid.compact,.agenda-strip,.launch-meta,.metrics,.split .panel .metrics,.pad-side-list,.spacex-actions,.starship-photo-grid,.starship-phase-grid,.starship-flight-grid,.starship-status-grid{{grid-template-columns:1fr}}section{{padding:56px 18px}}.starship-dossier>section{{padding-top:38px;padding-bottom:38px}}.hero,.starship-dossier-hero{{padding:78px 18px 30px}}.starship-dossier-hero{{min-height:44vh}}.starship-photo img{{height:190px}}h1{{font-size:43px}}.section-head{{display:block}}.bar-row{{grid-template-columns:58px 1fr 44px}}.starship-flight-meta{{grid-template-columns:1fr}}#pad-map,#location-map{{min-height:460px}}.pad-map-wrap{{min-height:460px}}.pad-card{{grid-template-columns:1fr}}.pad-card img{{max-height:420px}}.pad-mini-event{{grid-template-columns:1fr;gap:2px}}.agenda-filter-label{{min-width:100%;margin-bottom:2px}}.agenda-toolbar-actions{{width:100%}}.agenda-toolbar-actions .button{{flex:1 1 auto;text-align:center}}}}
 """
 
 
@@ -1067,11 +1101,112 @@ def render_home():
     return shell("Home", "home", False, body)
 
 
-def render_launch_cards(launches, compact=False):
+def parse_launch_iso(iso):
+    if not iso:
+        return None
+    try:
+        return datetime.fromisoformat(str(iso).replace("Z", "+00:00"))
+    except ValueError:
+        return None
+
+
+def format_local_it(iso, exact=True):
+    """Ora Italia (CET/CEST) per un T-0 ISO UTC."""
+    if not exact:
+        return ""
+    dt = parse_launch_iso(iso)
+    if not dt:
+        return ""
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    local = dt.astimezone(ROME_TZ)
+    tz_label = local.tzname() or ("CEST" if local.dst() else "CET")
+    return f"{local.day} {MONTHS_IT[local.month]} {local.year}, {local:%H:%M} {tz_label}"
+
+
+def launch_filter_tags(item):
+    """Tag per filtri agenda: timing, payload, razzo, sito."""
+    categories = {str(c).lower() for c in (item.get("cat") or [])}
+    name = str(item.get("name") or "").lower()
+    rocket = str(item.get("rocket") or "").lower()
+    site = str(item.get("site") or "").lower()
+    payload = str(item.get("payload") or "").lower()
+    blob = f"{name} {rocket} {payload}"
+
+    tags = set()
+    if "net" in categories:
+        tags.add("net")
+    else:
+        tags.add("exact")
+
+    if "starlink" in blob or "starlink" in categories:
+        tags.add("starlink")
+    else:
+        tags.add("non-starlink")
+
+    if "starship" in rocket or "starship" in name or "starship" in categories:
+        tags.add("starship")
+    elif "heavy" in rocket:
+        tags.add("heavy")
+    else:
+        tags.add("falcon9")
+
+    # Attenzione: non usare "slc-4" nudo (matcherebbe anche SLC-40 Florida).
+    if any(
+        token in site
+        for token in (
+            "vandenberg",
+            "vafb",
+            "slc-4e",
+            "slc 4e",
+            "slc4e",
+            "complex 4e",
+            "complex 4-e",
+        )
+    ):
+        tags.add("vandenberg")
+    elif any(
+        token in site
+        for token in (
+            "cape canaveral",
+            "kennedy",
+            "ccsfs",
+            "ksc",
+            "slc-40",
+            "slc 40",
+            "slc40",
+            "lc-39",
+            "lc 39",
+            "lc39",
+            "florida",
+        )
+    ):
+        tags.add("florida")
+    else:
+        tags.add("altro-sito")
+
+    return sorted(tags)
+
+
+def launch_slug(item):
+    raw = str(item.get("id") or item.get("name") or "lancio")
+    slug = re.sub(r"[^a-z0-9]+", "-", raw.lower()).strip("-")
+    return slug or "lancio"
+
+
+def render_launch_cards(launches, compact=False, tools=True):
     cards = []
     for item in launches:
-        categories = item.get("cat") or []
-        is_net = "net" in categories
+        tags = launch_filter_tags(item)
+        is_net = "net" in tags
+        iso = str(item.get("iso") or "")
+        local_label = format_local_it(iso, exact=not is_net)
+        date_block = escape(str(item.get("dateLabel") or "Data da confermare"))
+        if local_label:
+            date_block = (
+                f'{escape(str(item.get("dateLabel") or "Data da confermare"))}'
+                f'<span class="date-local">{escape(local_label)} · Italia</span>'
+            )
         meta_rows = "".join(
             f"<div><b>{escape(label)}</b><span>{escape(str(value))}</span></div>"
             for label, value in [
@@ -1084,6 +1219,11 @@ def render_launch_cards(launches, compact=False):
             f'<a href="{escape(str(src.get("url") or "#"))}" target="_blank" rel="noopener">{escape(str(src.get("label") or "Fonte"))}</a>'
             for src in item.get("sources", [])
         )
+        if tools and not is_net and iso:
+            sources += (
+                f'<button type="button" class="ics-btn" data-ics="1" '
+                f'title="Scarica evento calendario (.ics)">Calendario</button>'
+            )
         countdown = (
             f"""<div class="countdown pending">
     <div class="timebox"><strong>NET</strong><span>{escape(str(item.get('dateLabel') or 'finestra indicativa'))}</span></div>
@@ -1096,11 +1236,13 @@ def render_launch_cards(launches, compact=False):
     <div class="timebox"><strong class="s">00</strong><span>sec</span></div>
   </div>"""
         )
+        tags_attr = escape(" ".join(tags))
+        slug = escape(launch_slug(item))
         cards.append(
-            f"""<article class="launch" data-iso="{escape(str(item.get('iso') or ''))}">
+            f"""<article class="launch" data-iso="{escape(iso)}" data-tags="{tags_attr}" data-slug="{slug}" data-name="{escape(str(item.get('name') or 'Missione'))}" data-site="{escape(str(item.get('site') or ''))}" data-rocket="{escape(str(item.get('rocket') or ''))}" data-net="{'1' if is_net else '0'}">
   <div class="launch-top">
     <span class="pill {'net' if is_net else ''}">{'NET' if is_net else 'T-0'}</span>
-    <span class="date">{escape(str(item.get('dateLabel') or 'Data da confermare'))}</span>
+    <span class="date">{date_block}</span>
   </div>
   <h3>{escape(str(item.get('name') or 'Missione'))}</h3>
   <p><strong>{escape(str(item.get('rocket') or ''))}</strong></p>
@@ -1120,7 +1262,7 @@ def render_launch_cards(launches, compact=False):
 
 
 def countdown_script():
-    return """<script>
+    return r"""<script>
 function pad(n){return String(n).padStart(2,'0')}
 function countdown(iso){
   const diff = new Date(iso).getTime() - Date.now();
@@ -1138,8 +1280,214 @@ function tick(){
     card.querySelector('.s').textContent = parts[3];
   });
 }
+function icsEscape(text){
+  return String(text || '').replace(/\\/g,'\\\\').replace(/\n/g,'\\n').replace(/,/g,'\\,').replace(/;/g,'\\;');
+}
+function toIcsUtc(iso){
+  const d = new Date(iso);
+  if (!Number.isFinite(d.getTime())) return null;
+  return d.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');
+}
+function downloadCardIcs(card){
+  if (!card || card.dataset.net === '1') return;
+  const iso = card.dataset.iso;
+  const start = toIcsUtc(iso);
+  if (!start) return;
+  const end = new Date(new Date(iso).getTime() + 60*60*1000).toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');
+  const name = card.dataset.name || (card.querySelector('h3') && card.querySelector('h3').textContent) || 'Lancio SpaceX';
+  const site = card.dataset.site || '';
+  const rocket = card.dataset.rocket || '';
+  const slug = card.dataset.slug || 'lancio';
+  const stamp = new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');
+  const desc = [rocket, site, 'Fonte: Rivoluzione Spaziale / The Space Devs'].filter(Boolean).join('\\n');
+  const body = [
+    'BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Rivoluzione Spaziale//Agenda Lanci//IT','CALSCALE:GREGORIAN','METHOD:PUBLISH',
+    'BEGIN:VEVENT',
+    'UID:' + slug + '-' + start + '@rivoluzione-spaziale',
+    'DTSTAMP:' + stamp,'DTSTART:' + start,'DTEND:' + end,
+    'SUMMARY:' + icsEscape('SpaceX: ' + name),
+    'LOCATION:' + icsEscape(site),
+    'DESCRIPTION:' + icsEscape(desc),
+    'END:VEVENT','END:VCALENDAR'
+  ].join('\r\n');
+  const blob = new Blob([body], {type:'text/calendar;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'spacex-' + slug + '.ics';
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1500);
+}
+document.querySelectorAll('button.ics-btn').forEach(btn => {
+  btn.addEventListener('click', (ev) => {
+    ev.preventDefault();
+    downloadCardIcs(btn.closest('article.launch'));
+  });
+});
 tick();
 setInterval(tick, 1000);
+</script>"""
+
+
+def agenda_script():
+    """Countdown + filtri multi-dimensione + export .ics per l'agenda SpaceX."""
+    return r"""<script>
+function pad(n){return String(n).padStart(2,'0')}
+function countdown(iso){
+  const diff = new Date(iso).getTime() - Date.now();
+  if (!Number.isFinite(diff) || diff <= 0) return ['0','00','00','00'];
+  const total = Math.floor(diff / 1000);
+  return [Math.floor(total / 86400), pad(Math.floor(total % 86400 / 3600)), pad(Math.floor(total % 3600 / 60)), pad(total % 60)];
+}
+function tick(){
+  document.querySelectorAll('.launch[data-iso]').forEach(card => {
+    if (card.hidden || !card.querySelector('.d')) return;
+    const parts = countdown(card.dataset.iso);
+    card.querySelector('.d').textContent = parts[0];
+    card.querySelector('.h').textContent = parts[1];
+    card.querySelector('.m').textContent = parts[2];
+    card.querySelector('.s').textContent = parts[3];
+  });
+}
+function icsEscape(text){
+  return String(text || '').replace(/\\/g,'\\\\').replace(/\n/g,'\\n').replace(/,/g,'\\,').replace(/;/g,'\\;');
+}
+function toIcsUtc(iso){
+  const d = new Date(iso);
+  if (!Number.isFinite(d.getTime())) return null;
+  return d.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');
+}
+function cardToEvent(card){
+  const iso = card.dataset.iso;
+  const start = toIcsUtc(iso);
+  if (!start) return null;
+  const endDate = new Date(new Date(iso).getTime() + 60*60*1000);
+  const end = endDate.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');
+  const name = card.dataset.name || (card.querySelector('h3') && card.querySelector('h3').textContent) || 'Lancio SpaceX';
+  const site = card.dataset.site || '';
+  const rocket = card.dataset.rocket || '';
+  const slug = card.dataset.slug || 'lancio';
+  const stamp = new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');
+  const desc = [rocket, site, 'Fonte: Rivoluzione Spaziale / The Space Devs'].filter(Boolean).join('\\n');
+  return [
+    'BEGIN:VEVENT',
+    'UID:' + slug + '-' + start + '@rivoluzione-spaziale',
+    'DTSTAMP:' + stamp,
+    'DTSTART:' + start,
+    'DTEND:' + end,
+    'SUMMARY:' + icsEscape('SpaceX: ' + name),
+    'LOCATION:' + icsEscape(site),
+    'DESCRIPTION:' + icsEscape(desc),
+    'END:VEVENT'
+  ].join('\r\n');
+}
+function downloadIcs(events, filename){
+  if (!events.length) return;
+  const body = [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//Rivoluzione Spaziale//Agenda Lanci//IT',
+    'CALSCALE:GREGORIAN',
+    'METHOD:PUBLISH',
+    events.join('\r\n'),
+    'END:VCALENDAR'
+  ].join('\r\n');
+  const blob = new Blob([body], {type:'text/calendar;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename || 'lanci-spacex.ics';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1500);
+}
+function activeFilter(group){
+  const btn = document.querySelector('.agenda-filter[data-group="'+group+'"].active');
+  return btn ? btn.dataset.filter : 'all';
+}
+function applyAgendaFilters(){
+  const timing = activeFilter('timing');
+  const payload = activeFilter('payload');
+  const rocket = activeFilter('rocket');
+  const site = activeFilter('site');
+  let visible = 0;
+  document.querySelectorAll('article.launch').forEach(card => {
+    const tags = (card.dataset.tags || '').split(/\s+/).filter(Boolean);
+    let show = true;
+    if (timing !== 'all' && !tags.includes(timing)) show = false;
+    if (payload !== 'all' && !tags.includes(payload)) show = false;
+    if (rocket !== 'all' && !tags.includes(rocket)) show = false;
+    if (site !== 'all' && !tags.includes(site)) show = false;
+    card.hidden = !show;
+    if (show) visible += 1;
+  });
+  document.querySelectorAll('section.agenda-results').forEach(sec => {
+    const cards = sec.querySelectorAll('article.launch');
+    if (!cards.length) return;
+    const any = Array.prototype.some.call(cards, c => !c.hidden);
+    sec.hidden = !any;
+  });
+  const empty = document.getElementById('agenda-empty');
+  if (empty) empty.hidden = visible > 0;
+  const count = document.getElementById('agenda-filter-count');
+  if (count) count.textContent = visible === 1 ? '1 missione visibile' : visible + ' missioni visibili';
+  const exportBtn = document.getElementById('agenda-export-ics');
+  if (exportBtn){
+    const exactVisible = document.querySelectorAll('article.launch[data-net="0"]:not([hidden])').length;
+    exportBtn.disabled = exactVisible === 0;
+    exportBtn.textContent = exactVisible
+      ? 'Calendario .ics (' + exactVisible + ' T-0)'
+      : 'Calendario .ics';
+  }
+}
+function bindAgendaUi(){
+  document.querySelectorAll('.agenda-filter').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const group = btn.dataset.group;
+      document.querySelectorAll('.agenda-filter[data-group="'+group+'"]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      applyAgendaFilters();
+    });
+  });
+  document.querySelectorAll('button.ics-btn').forEach(btn => {
+    btn.addEventListener('click', (ev) => {
+      ev.preventDefault();
+      const card = btn.closest('article.launch');
+      if (!card || card.dataset.net === '1') return;
+      const event = cardToEvent(card);
+      if (!event) return;
+      const slug = card.dataset.slug || 'lancio';
+      downloadIcs([event], 'spacex-' + slug + '.ics');
+    });
+  });
+  const exportBtn = document.getElementById('agenda-export-ics');
+  if (exportBtn){
+    exportBtn.addEventListener('click', () => {
+      const events = [];
+      document.querySelectorAll('article.launch[data-net="0"]:not([hidden])').forEach(card => {
+        const event = cardToEvent(card);
+        if (event) events.push(event);
+      });
+      downloadIcs(events, 'spacex-lanci-imminenti.ics');
+    });
+  }
+  const resetBtn = document.getElementById('agenda-reset-filters');
+  if (resetBtn){
+    resetBtn.addEventListener('click', () => {
+      document.querySelectorAll('.agenda-filter-group').forEach(group => {
+        group.querySelectorAll('.agenda-filter').forEach(b => b.classList.remove('active'));
+        const all = group.querySelector('.agenda-filter[data-filter="all"]');
+        if (all) all.classList.add('active');
+      });
+      applyAgendaFilters();
+    });
+  }
+  applyAgendaFilters();
+}
+tick();
+setInterval(tick, 1000);
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bindAgendaUi);
+else bindAgendaUi();
 </script>"""
 
 
@@ -1895,18 +2243,94 @@ def render_spacex_history_page(data):
     return shell("Storia SpaceX", "spacex", True, body)
 
 
+def agenda_toolbar_html():
+    def group(label, group_id, options):
+        buttons = []
+        for value, text in options:
+            active = " active" if value == "all" else ""
+            buttons.append(
+                f'<button type="button" class="agenda-filter{active}" data-group="{group_id}" data-filter="{value}">{escape(text)}</button>'
+            )
+        return (
+            f'<div class="agenda-filter-group" role="group" aria-label="{escape(label)}">'
+            f'<span class="agenda-filter-label">{escape(label)}</span>'
+            f'{"".join(buttons)}</div>'
+        )
+
+    groups = "".join(
+        [
+            group(
+                "Orario",
+                "timing",
+                [("all", "Tutti"), ("exact", "T-0"), ("net", "NET")],
+            ),
+            group(
+                "Payload",
+                "payload",
+                [("all", "Tutti"), ("starlink", "Starlink"), ("non-starlink", "Altri")],
+            ),
+            group(
+                "Razzo",
+                "rocket",
+                [
+                    ("all", "Tutti"),
+                    ("falcon9", "Falcon 9"),
+                    ("heavy", "Heavy"),
+                    ("starship", "Starship"),
+                ],
+            ),
+            group(
+                "Sito",
+                "site",
+                [
+                    ("all", "Tutti"),
+                    ("florida", "Florida"),
+                    ("vandenberg", "Vandenberg"),
+                    ("altro-sito", "Altri siti"),
+                ],
+            ),
+        ]
+    )
+    return f"""
+    <div class="agenda-toolbar" id="agenda-toolbar">
+      <div class="agenda-toolbar-head">
+        <div>
+          <p class="badge">Strumenti agenda</p>
+          <p class="agenda-toolbar-copy">Filtra le missioni e scarica i T-0 in calendario (.ics). Gli orari mostrano UTC e ora Italia (CET/CEST).</p>
+        </div>
+        <div class="agenda-toolbar-actions">
+          <span class="agenda-filter-count" id="agenda-filter-count">—</span>
+          <button type="button" class="button secondary" id="agenda-reset-filters">Azzera filtri</button>
+          <button type="button" class="button" id="agenda-export-ics">Calendario .ics</button>
+        </div>
+      </div>
+      <div class="agenda-filter-rows">{groups}</div>
+      <p class="agenda-empty muted" id="agenda-empty" hidden>Nessuna missione corrisponde ai filtri selezionati.</p>
+    </div>"""
+
+
 def render_launches_page(data):
     launches = data["upcoming"]
-    exact = [item for item in launches if "net" not in (item.get("cat") or [])]
-    net = [item for item in launches if "net" in (item.get("cat") or [])]
+    exact = [item for item in launches if "net" not in launch_filter_tags(item)]
+    net = [item for item in launches if "net" in launch_filter_tags(item)]
     next_item = exact[0] if exact else (launches[0] if launches else None)
     if next_item:
+        next_local = format_local_it(
+            next_item.get("iso"),
+            exact="net" not in launch_filter_tags(next_item),
+        )
+        next_local_html = (
+            f'<p class="next-launch-local">{escape(next_local)} · ora Italia</p>'
+            if next_local
+            else ""
+        )
         next_block = f"""
     <article class="next-launch">
       <div>
         <p class="badge">Prossimo in agenda</p>
         <h3>{escape(str(next_item.get('name') or 'Missione'))}</h3>
         <p>{escape(str(next_item.get('dateLabel') or 'Data da confermare'))}</p>
+        {next_local_html}
       </div>
       <div>
         <p><strong>{escape(str(next_item.get('rocket') or ''))}</strong></p>
@@ -1915,16 +2339,18 @@ def render_launches_page(data):
       </div>
     </article>"""
         next_label = str(next_item.get("dateLabel") or "Da confermare")
+        if next_local:
+            next_label = f"{next_label} · {next_local}"
     else:
         next_block = ""
         next_label = "Da confermare"
     exact_section = (
         f"""
-<section>
+<section class="agenda-results" data-agenda-section="exact">
   <div class="inner">
     <div class="section-head">
       <h2>T-0 confermati</h2>
-      <p>Missioni con orario puntuale gia indicato dalle fonti operative. Sono le card da ricontrollare piu spesso, perche finestre e meteo possono cambiare in poche ore.</p>
+      <p>Missioni con orario puntuale gia indicato dalle fonti operative. Sono le card da ricontrollare piu spesso, perche finestre e meteo possono cambiare in poche ore. Su ogni card: ora Italia e bottone Calendario.</p>
     </div>
     {render_launch_cards(exact)}
   </div>
@@ -1934,11 +2360,11 @@ def render_launches_page(data):
     )
     net_section = (
         f"""
-<section>
+<section class="agenda-results" data-agenda-section="net">
   <div class="inner">
     <div class="section-head">
       <h2>Finestre NET</h2>
-      <p>Voli senza T-0 stabile: restano utili per orientarsi, ma non vanno letti come appuntamenti puntuali.</p>
+      <p>Voli senza T-0 stabile: restano utili per orientarsi, ma non vanno letti come appuntamenti puntuali. Non esportabili in calendario finche non c'e un orario fermo.</p>
     </div>
     {render_launch_cards(net, compact=True)}
   </div>
@@ -1947,7 +2373,7 @@ def render_launches_page(data):
         else ""
     )
     body = f"""
-{page_hero("Lanci imminenti", "Agenda SpaceX", "Agenda ripulita dai voli gia avvenuti: T-0 puntuali separati dalle finestre NET, con countdown solo dove ha senso.")}
+{page_hero("Lanci imminenti", "Agenda SpaceX", "Agenda operativa: T-0 e NET, ora Italia accanto all'UTC, filtri rapidi e export calendario .ics.")}
 <section>
   <div class="inner">
     <div class="section-head">
@@ -1957,9 +2383,10 @@ def render_launches_page(data):
     <div class="agenda-strip">
       <div class="agenda-note"><b>{len(exact)}</b><span>lanci con T-0 puntuale ancora in agenda</span></div>
       <div class="agenda-note"><b>{len(net)}</b><span>finestre NET o missioni senza data stabile</span></div>
-      <div class="agenda-note"><b>{escape(next_label)}</b><span>prossimo appuntamento mostrato</span></div>
+      <div class="agenda-note"><b>{escape(next_label)}</b><span>prossimo appuntamento (UTC + Italia se T-0)</span></div>
     </div>
     {next_block}
+    {agenda_toolbar_html()}
   </div>
 </section>
 {exact_section}
@@ -1971,7 +2398,7 @@ def render_launches_page(data):
         "lanci-imminenti",
         True,
         body,
-        countdown_script(),
+        agenda_script(),
         f'<meta name="space-data-version" content="{version}">',
     )
 
