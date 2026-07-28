@@ -386,3 +386,13 @@ Sessione 19/06/2026 - riordino generale directory e memoria operativa
 - Fonti primarie/croniche: Spaceflight Now, NASA COTS SAA, User's Guide F9 2009, Wikipedia missioni; contesto forum NSF (Post F9 Flight 1 topic 21904, COTS Demo 1 Updates topic 22041) e articolo live NSF 8/12/2010 (Wayback).
 - Asset in documenti per sito\assets_fondazione\falcon9-2010 (CC0 SpaceX, NASA PD KSC-2010-5796, CC BY 2.0 Simantov, pad locale).
 - Aggiornati sezioni\storia-spacex.html, genera_sito_rivoluzione.py, README.md, README.txt, inventario_file.txt.
+
+28/07/2026 - Revisione stile e pubblicazione quarta parte Storia
+- Riscritto falcon9_salto_scala_cots1.html con prosa meno formulaica (tolte antitessi tipo collaudo/favola).
+- Copertina card e hero: dragon-cots1-recovery.jpg.
+- Commit cc9cef2 push su main e gh-pages.
+
+28/07/2026 - Quinta parte Storia SpaceX (C2+ / attracco ISS)
+- Creato documenti per sito\dragon_c2plus_attracco_iss.html: dalla Dragon in mare all'attracco alla ISS (2011-mag 2012).
+- Asset in documenti per sito\assets_fondazione\cots2-2012\ (NASA public domain); copertina card: dragon-grappled.jpg (Canadarm2 afferra Dragon).
+- Aggiornati sezioni\storia-spacex.html, genera_sito_rivoluzione.py, README.md, README.txt, inventario_file.txt.

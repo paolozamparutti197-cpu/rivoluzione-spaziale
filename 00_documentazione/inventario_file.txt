@@ -52,7 +52,7 @@ Root
 sezioni
 -------
 - spacex.html: pagina porta della sezione SpaceX; contiene i link a storia-spacex.html, lanci-imminenti.html, storico-lanci.html, starship.html, pad-di-lancio.html, localita-spacex.html e guida-lancio-slc40.html.
-- storia-spacex.html: sottosezione narrativa SpaceX. Funziona da indice di parti storiche selezionabili; contiene la prima parte "Dalla fondazione fino al primo lancio", la seconda "Dal primo fallimento al quarto lancio", la terza "Dal primo successo orbitale al contratto CRS" e la quarta "Dal salto di scala al primo Falcon 9 e a COTS-1".
+- storia-spacex.html: sottosezione narrativa SpaceX. Funziona da indice di parti storiche selezionabili; contiene la prima parte "Dalla fondazione fino al primo lancio", la seconda "Dal primo fallimento al quarto lancio", la terza "Dal primo successo orbitale al contratto CRS", la quarta "Dal salto di scala al primo Falcon 9 e a COTS-1" e la quinta "Dalla Dragon in mare all'attracco alla ISS".
 - lanci-imminenti.html: sottosezione operativa SpaceX, non voce di nav globale.
 - storico-lanci.html: sottosezione operativa SpaceX, non voce di nav globale.
 - starship.html: sottosezione operativa SpaceX, non voce di nav globale.
@@ -74,6 +74,7 @@ documenti per sito
 ------------------
 - fondazione_spacex_fino_primo_falcon1.html: prima parte pubblicata della storia SpaceX, raggiungibile da sezioni\storia-spacex.html.
 - falcon9_salto_scala_cots1.html: quarta parte (2009-2010), Falcon 9 debut e COTS-1; asset in assets_fondazione\falcon9-2010.
+- dragon_c2plus_attracco_iss.html: quinta parte (2011-2012), fusione C2+, berthing ISS e certificazione CRS; asset in assets_fondazione\cots2-2012 (copertina dragon-grappled.jpg).
 - falcon1_dal_primo_fallimento_al_quarto_lancio.html: seconda parte pubblicata della storia SpaceX, dal Flight 1 fallito al successo orbitale di Flight 4.
 - falcon1_successo_orbitale_contratto_crs.html: terza parte pubblicata della storia SpaceX, dal primo successo orbitale Falcon 1 al contratto CRS e a RazakSAT.
 - assets_fondazione\: immagini usate dai dossier storici Falcon 1, incluse Falcon 1, Omelek Island e Kwajalein.

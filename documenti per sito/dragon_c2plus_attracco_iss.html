@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SpaceX, da COTS-1 all'attracco di Dragon C2+ alla ISS</title>
+<style>
+:root{
+  --bg:#050607;
+  --ink:#f4f6f8;
+  --muted:#a9b0b7;
+  --line:rgba(255,255,255,.16);
+  --soft:rgba(255,255,255,.075);
+  --cyan:#67c7ff;
+  --amber:#f5b941;
+  --red:#e95f45;
+  --green:#79d18b;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;letter-spacing:0}
+a{color:var(--cyan);text-decoration:none}
+a:hover{text-decoration:underline}
+.topbar{position:fixed;inset:0 0 auto 0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:18px clamp(18px,4vw,56px);background:linear-gradient(180deg,rgba(0,0,0,.92),rgba(0,0,0,.54),rgba(0,0,0,0))}
+.brand{font-weight:900;letter-spacing:.16em;text-transform:uppercase;font-size:15px;color:#fff}
+.brand span{color:var(--cyan)}
+.nav{display:flex;gap:18px;flex-wrap:wrap;justify-content:flex-end;font-size:12px;text-transform:uppercase;letter-spacing:.1em;font-weight:800}
+.nav a{color:#fff}
+.hero{min-height:86vh;display:grid;align-items:end;padding:110px clamp(18px,4vw,56px) 50px;background:linear-gradient(90deg,rgba(0,0,0,.88),rgba(0,0,0,.48) 44%,rgba(0,0,0,.12)),linear-gradient(180deg,rgba(0,0,0,.16),rgba(5,6,7,.96) 92%),url("assets_fondazione/cots2-2012/dragon-c2-approach.jpg") center/cover no-repeat}
+.hero-inner,.section-inner{max-width:1180px;margin:0 auto}
+.eyebrow{margin:0 0 14px;color:var(--amber);text-transform:uppercase;letter-spacing:.14em;font-size:13px;font-weight:900}
+h1{margin:0;max-width:1040px;font-size:clamp(36px,7.2vw,86px);line-height:.92;text-transform:uppercase;font-weight:950}
+h2{margin:0 0 24px;font-size:clamp(28px,4vw,48px);line-height:1;text-transform:uppercase}
+h3{margin:30px 0 12px;font-size:22px;line-height:1.15}
+p{color:#d9dde1;font-size:17px;line-height:1.72;margin:0 0 18px}
+.lead{max-width:900px;margin:24px 0 0;color:#e6ebef;font-size:clamp(17px,2vw,22px);line-height:1.48;font-weight:500}
+section{padding:76px clamp(18px,4vw,56px);border-top:1px solid var(--line)}
+.split{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(280px,.72fr);gap:42px;align-items:start}
+.panel{border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.045));border-radius:8px;padding:22px}
+.panel h3:first-child{margin-top:0}
+.panel p,.panel li{font-size:15px;color:#d6dbe0;line-height:1.62}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:34px}
+.fact{border:1px solid var(--line);background:var(--soft);border-radius:8px;padding:18px;min-height:118px}
+.fact b{display:block;font-size:25px;line-height:1;margin-bottom:10px}
+.fact span{display:block;color:var(--muted);line-height:1.42;font-size:14px}
+.timeline{display:grid;gap:14px;margin-top:24px}
+.event{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;border-top:1px solid var(--line);padding-top:18px}
+.date{color:var(--amber);font-weight:900;text-transform:uppercase;letter-spacing:.08em;font-size:13px}
+.event h3{margin:0 0 6px}
+.event p{margin:0;color:#cfd5da}
+table{width:100%;border-collapse:collapse;margin-top:22px;font-size:15px}
+th,td{border-top:1px solid var(--line);padding:13px 10px;text-align:left;vertical-align:top;line-height:1.45}
+th{color:#fff;text-transform:uppercase;letter-spacing:.08em;font-size:12px}
+td{color:#d8dde2}
+.callout{border-left:4px solid var(--red);padding:16px 18px;background:rgba(233,95,69,.095);margin:26px 0}
+.callout.green{border-left-color:var(--green);background:rgba(121,209,139,.08)}
+.callout p{margin:0}
+.media-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;margin-top:26px;align-items:stretch}
+figure{margin:0;border:1px solid var(--line);background:#0c0f12;border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
+figure img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.media-grid figure:first-child{grid-column:span 4;grid-row:span 2}
+.media-grid figure:first-child img{min-height:430px;flex:1}
+.media-grid figure:nth-child(2),.media-grid figure:nth-child(3){grid-column:span 2}
+.media-grid figure:nth-child(n+4){grid-column:span 3}
+figcaption{padding:12px 14px;color:#b7c0c8;font-size:13px;line-height:1.45;border-top:1px solid var(--line)}
+.sources{columns:2 360px;column-gap:42px;padding-left:18px}
+.sources li{break-inside:avoid;color:#d9dde1;margin:0 0 12px;line-height:1.5;font-size:15px}
+.button{display:inline-flex;border:1px solid var(--line);padding:12px 16px;border-radius:4px;text-transform:uppercase;font-size:12px;letter-spacing:.09em;font-weight:900;background:rgba(0,0,0,.22);color:#fff;margin-top:8px}
+@media(max-width:850px){.topbar{position:absolute;align-items:flex-start}.nav{display:none}.hero{min-height:82vh}.split,.media-grid{grid-template-columns:1fr}.media-grid figure,.media-grid figure:first-child,.media-grid figure:nth-child(n){grid-column:auto;grid-row:auto}.media-grid figure:first-child img{min-height:0;flex:none}.facts{grid-template-columns:repeat(2,minmax(0,1fr))}.event{grid-template-columns:1fr;gap:6px}}
+@media(max-width:520px){.facts{grid-template-columns:1fr}section{padding:54px 18px}.hero{padding:96px 18px 42px}h1{font-size:40px}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../sezioni/storia-spacex.html">Space<span>X</span> history</a>
+  <nav class="nav" aria-label="Sezioni">
+    <a href="../sezioni/storia-spacex.html">Indice storia</a>
+    <a href="#fusione">C2+</a>
+    <a href="#campagna">Campagna</a>
+    <a href="#lancio">Lancio</a>
+    <a href="#berthing">Berthing</a>
+    <a href="#forum">Forum NSF</a>
+    <a href="#fonti">Fonti</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" aria-label="Introduzione">
+    <div class="hero-inner">
+      <p class="eyebrow">2011-2012</p>
+      <h1>Dalla Dragon in mare all'attracco alla ISS</h1>
+      <p class="lead">Dopo COTS-1 SpaceX aveva dimostrato decollo, orbita e rientro. Mancava la Stazione. Tra il 2011 e il maggio 2012 NASA unisce le demo rimaste, SpaceX sistema software e rampa, e la Dragon C102 arriva a Harmony: prima capsula commerciale a fare berthing all'ISS.</p>
+      <a class="button" href="../sezioni/storia-spacex.html">Torna a Storia SpaceX</a>
+    </div>
+  </section>
+
+  <section id="tesi">
+    <div class="section-inner">
+      <div class="split">
+        <article>
+          <h2>Di cosa parla questa parte</h2>
+          <p>Nella quarta puntata la storia si chiudeva sull'8 dicembre 2010: una Dragon vera tornava in mare dopo quasi due orbite. Non c'era ancora rendezvous, non c'era berthing, non c'era cargo scaricato da un equipaggio a bordo della Stazione. C'era pero una prova di sistema abbastanza solida da far chiedere a SpaceX di accelerare. Qui si racconta come quella richiesta e diventata una missione unica, chiamata Dragon C2+, e come quella missione ha chiuso il programma dimostrativo COTS per SpaceX.</p>
+          <p>Il contesto politico e operativo e diverso dal 2010. Lo Space Shuttle ha volato l'ultima volta nel luglio 2011. La logistica americana verso l'ISS non e piu una questione di roadmap: e una questione di mesi e di tonnellate. La Russia tiene in piedi il rifornimento e il trasporto equipaggio; gli Stati Uniti, sul cargo, puntano sul modello commerciale. SpaceX e Orbital Sciences sono i due nomi del contratto CRS. SpaceX ha gia un vettore medio con due successi e una capsula recuperata. Quello che non ha ancora e la prova che sa avvicinarsi a un complesso abitato, farsi afferrare da un braccio robotico e restare attraccata abbastanza a lungo da essere utile.</p>
+          <p>Il piano originale prevedeva due passi. COTS-2 doveva essere un fly-by e un set di prove di proximity, senza agganciarsi. COTS-3 doveva essere il berthing vero. Dopo il successo di COTS-1, SpaceX chiede di unire le due cose. Nel luglio 2011 NASA da un via libera tentativo; nel dicembre 2011 lo rende formale. Nasce cosi la C2+: non una terza demo "di cortesia", ma la compressione deliberata di due obiettivi in un solo volo, a condizione che i traguardi della fase 2 siano chiusi in orbita prima di tentare la fase 3.</p>
+          <p>Il 22 maggio 2012, dopo un abort a meta maggio e mesi di rinvii sul software, un Falcon 9 lascia SLC-40 di notte. Il 25 maggio Don Pettit, dal Cupola, afferra la Dragon con il Canadarm2. Poche ore dopo la capsula e su Harmony. Il 31 maggio rientra nel Pacifico. Ad agosto NASA certifica il sistema per le missioni operative CRS. Questa pagina resta sul passaggio da "dimostrazione di rientro" a "dimostrazione di servizio". Non e ancora la cronaca delle CRS di routine e non e ancora la storia del riuso. E la storia del giorno in cui un veicolo privato e diventato un visitatore della Stazione.</p>
+          <p>Si potrebbe raccontare il 2012 come l'anno in cui "il commerciale ha sostituito lo Shuttle". E una scorciatoia. Piu onesto e dire che un pezzo della logistica Shuttle e stato sostituito da un pezzo di logistica commerciale, dopo anni di collaudi, rinvii e una missione costruita per non bruciare la fiducia se qualcosa andava storto a meta strada. Sul forum NASASpaceflight, tra fine 2011 e maggio 2012, si legge lo stesso mix di pedanteria e scetticismo visto sul Falcon 1 e su COTS-1: NET che scivolano, software che "non e ancora pronto", e poi, a un certo punto, un grapple riuscito e una frase secca di Pettit sul fatto che la simulazione e andata bene.</p>
+        </article>
+        <aside class="panel">
+          <h3>In sintesi</h3>
+          <p><strong>Prima:</strong> Falcon 9 e Dragon dimostrati separatamente; nessuna visita commerciale all'ISS.</p>
+          <p><strong>Dopo la fusione C2+:</strong> un solo volo deve chiudere fly-by, proximity e berthing.</p>
+          <p><strong>Dopo il 25-31 maggio 2012:</strong> una capsula privata e stata attraccata, scaricata, ricaricata e recuperata. Il percorso CRS operativo e aperto.</p>
+        </aside>
+      </div>
+      <div class="facts">
+        <div class="fact"><b>09.12.2011</b><span>NASA approva in forma ufficiale la fusione di COTS-2 e COTS-3 in C2+.</span></div>
+        <div class="fact"><b>22.05.2012</b><span>Lancio notturno da SLC-40: terzo Falcon 9, Dragon C102.</span></div>
+        <div class="fact"><b>25.05.2012</b><span>Grapple 13:56 UTC; berthing a Harmony nadir 16:02 UTC.</span></div>
+        <div class="fact"><b>31.05.2012</b><span>Splashdown nel Pacifico; missione di circa nove giorni chiusa.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="immagini">
+    <div class="section-inner">
+      <h2>Foto del periodo</h2>
+      <p>Nel 2010 le immagini piu forti erano un decollo da un pad ricostruito e una capsula bagnata nel Pacifico. Nel 2012 la scala visiva cambia di nuovo. Compare la Stazione Spaziale Internazionale come sfondo e come partner operativo. Non e piu solo "il razzo di SpaceX" o "la capsula di SpaceX": e un veicolo che entra nel perimetro di un laboratorio abitato, con un braccio canadese, un equipaggio internazionale e procedure scritte da chi da anni gestisce Soyuz, Progress e Shuttle.</p>
+      <p>Le foto sotto tengono sotto gli occhi quella soglia: integrazione a terra, decollo notturno, avvicinamento, grapple, berthing e recupero. Non sono decorazione. Sono documenti di un passaggio industriale: dalla dimostrazione isolata al servizio verso un cliente istituzionale che non puo permettersi sorprese romantiche.</p>
+      <div class="media-grid">
+        <figure>
+          <img src="assets_fondazione/cots2-2012/dragon-c2-approach.jpg" alt="Dragon C2+ in avvicinamento alla Stazione Spaziale Internazionale" loading="lazy">
+          <figcaption>Dragon C2+ si avvicina all'ISS il 25 maggio 2012, prima del grapple con Canadarm2. NASA / Expedition 31, public domain.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets_fondazione/cots2-2012/falcon9-cots2-liftoff.jpg" alt="Falcon 9 e Dragon al decollo notturno da SLC-40, 22 maggio 2012" loading="lazy">
+          <figcaption>Primo lancio notturno del Falcon 9, 22 maggio 2012, SLC-40. NASA/KSC, public domain.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets_fondazione/cots2-2012/dragon-processing.jpg" alt="Dragon C2+ in lavorazione a terra prima del lancio" loading="lazy">
+          <figcaption>Dragon C2+ in lavorazione e integrazione a terra, mesi di collaudi prima del volo. NASA/KSC, public domain.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets_fondazione/cots2-2012/dragon-grappled.jpg" alt="Dragon C2+ afferrata dal Canadarm2" loading="lazy">
+          <figcaption>Canadarm2 afferra Dragon: Don Pettit dalla Cupola chiude la fase di cattura. NASA / Expedition 31, public domain.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets_fondazione/cots2-2012/dragon-berthed.jpg" alt="Dragon C2+ attraccata al modulo Harmony" loading="lazy">
+          <figcaption>Dragon berthata su Harmony nadir: prima capsula commerciale all'ISS. NASA / Expedition 31, public domain.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets_fondazione/cots2-2012/dragon-recovery.jpg" alt="Recupero della Dragon C2+ dopo lo splashdown" loading="lazy">
+          <figcaption>Recupero in mare dopo lo splashdown del 31 maggio 2012. NASA, public domain.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="fusione">
+    <div class="section-inner split">
+      <article>
+        <h2>Perche una sola missione: da COTS-2 e 3 a C2+</h2>
+        <p>Il COTS del 2006 non era un contratto di rifornimento. Era un accordo di sviluppo e dimostrazione: costruire capacita, mostrarle in volo, e solo dopo passare al servizio operativo del CRS. Per SpaceX le demo cargo erano state pensate in tre blocchi. La prima, chiusa nel 2010, riguardava lancio, orbita e rientro sicuro. La seconda doveva dimostrare che Dragon sapeva avvicinarsi alla Stazione, parlare con i suoi sistemi, manovrare e abortire se necessario, restando a distanza di sicurezza. La terza doveva fare il passo che contava per la logistica: cattura, berthing, trasferimento cargo, partenza e rientro.</p>
+        <p>Dopo COTS-1 la tentazione di comprimere e naturale. Due Falcon 9 su due avevano funzionato. Una Dragon era tornata. I collaudi a terra potevano continuare, ma ogni volo aggiuntivo costa tempo, denaro e rischio di calendario. SpaceX chiede a NASA di unire gli obiettivi della seconda e della terza demo. Non e una richiesta di "saltare le prove". E una richiesta di farle in sequenza sullo stesso veicolo: prima chiudi le prove di proximity, poi, se tutto e verde, vai al berthing. Se qualcosa non torna nella prima meta, non sei obbligato a spingere la capsula contro Harmony per salvare una data.</p>
+        <p>Il 15 luglio 2011, in una riunione tra le parti, NASA da un'approvazione tentativa. Non e ancora un timbro definitivo, ma e un segnale politico e tecnico: l'agenzia e disposta a discutere l'accelerazione. Il contesto aiuta a capire perche. A luglio 2011 lo Shuttle ha appena chiuso. La Stazione resta in orbita e continua a consumare cibo, pezzi di ricambio, esperimenti e acqua. L'idea di tenere due demo separate "per purezza di piano" pesa meno dell'idea di arrivare prima a un servizio ripetibile. Il 9 dicembre 2011 l'approvazione diventa formale. La missione prende il nome che racconta la fusione: C2+, oppure COTS Demo Flight 2 con obiettivi della 3 incorporati.</p>
+        <p>Questa scelta ha un prezzo. Aumenta la densita di rischio del singolo volo. Un solo Falcon 9, una sola Dragon, una sola campagna di rampa devono reggere un elenco di prove che prima stava su due lanci. Aumenta anche la densita di software: rendezvous, relative GPS, DragonEye basato su LIDAR e termica, comandi equipaggio dal Crew Command Panel, logica di hold e retreat, gestione della keep-out sphere. Non e piu il profilo di COTS-1, dove bastava dimostrare che una capsula privata sapeva tornare. Qui la capsula deve dimostrare di saper convivere con un complesso abitato.</p>
+        <p>Vale la pena fissare anche cosa C2+ non e. Non e la prima missione CRS. Non e un volo "operativo" nel senso contrattuale pieno, anche se porta cargo vero. E ancora una dimostrazione, con criteri di successo scritti nel perimetro COTS. Ma e una dimostrazione costruita in modo che, se funziona, rende superflua una terza demo separata e apre la porta alla certificazione per il servizio. In questo senso e il ponte tra le due nature di SpaceX nel 2010-2012: azienda che dimostra e azienda che deve consegnare.</p>
+        <div class="callout">
+          <p><strong>Nota sulle fonti.</strong> Le date di fusione (luglio tentativa, dicembre formale) e la struttura a obiettivi concatenati emergono da comunicati e cronache coeve NASA/Spaceflight Now e dal press kit di missione. Dove il forum NSF discute NET e ritardi, lo usiamo come clima, non come certificazione di calendario ufficiale.</p>
+        </div>
+      </article>
+      <aside class="panel">
+        <h3>Due piani, un veicolo</h3>
+        <table>
+          <thead><tr><th>Piano</th><th>Obiettivo</th></tr></thead>
+          <tbody>
+            <tr><td>COTS-2 originario</td><td>Fly-by, proximity, comunicazioni, abort; niente berthing.</td></tr>
+            <tr><td>COTS-3 originario</td><td>Approccio finale, grapple, berthing, cargo, rientro.</td></tr>
+            <tr><td>C2+ (fuso)</td><td>Prima chiude la 2 in volo; se GO, esegue la 3 sullo stesso veicolo.</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:16px">La logica non e "tutto o niente al decollo". E "tutto o niente solo dopo aver dimostrato di saper stare vicino senza rompere nulla".</p>
+      </aside>
+    </div>
+  </section>
+
+  <section id="campagna">
+    <div class="section-inner">
+      <h2>La campagna 2011-2012: rampa, software, rinvii</h2>
+      <div class="split">
+        <article>
+          <p>Tra l'approvazione di dicembre e il decollo di maggio passano cinque mesi pieni di cose poco fotogeniche e decisive. Il Falcon 9 destinato al volo arriva nelle strutture SpaceX di Cape gia nel luglio 2011. La capsula Dragon della missione arriva a ottobre. Si lavora su integrazione, trunk, sensori, collaudi di sistema. A terra la macchina sembra pronta prima di esserlo davvero in senso di volo: e un pattern gia visto sul primo Falcon 9 e su COTS-1. Hardware in rampa non significa software firmato, e software firmato non significa range e weather allineati.</p>
+          <p>Il primo marzo 2012 SpaceX completa un wet dress rehearsal: caricamento propellenti e countdown di prova. A meta aprile il Flight Readiness Review con NASA indica che un lancio a fine aprile e plausibile. Poi i rinvii. SpaceX ha bisogno di altro tempo sui test di flight software. Il 30 aprile arriva lo static fire del Falcon 9. L'11 maggio NASA approva il software di volo di Dragon: un nodo che, nelle cronache, viene indicato come causa di piu di un posticipo. Il 17 maggio la missione supera la review finale di lancio e il veicolo viene eretto sulla rampa. Solo a quel punto il calendario smette di essere un esercizio teorico e diventa una finestra operativa.</p>
+          <p>Il 19 maggio 2012, al primo tentativo di decollo, il countdown si interrompe a circa mezzo secondo da T-0. Il problema e una lettura di pressione su un motore del primo stadio. Non e un'esplosione e non e un fallimento di missione: e un abort di rampa, il tipo di decisione che un sistema automatico e un team di launch devono saper prendere senza esitare. La finestra di lancio e quasi istantanea. Non e un vezzo estetico: e fisica e propellente. Per raggiungere la Stazione e svolgere le manovre di prova prima del berthing serve margine. Se bruci troppo tempo o troppo propellente a terra o in salita, i test di proximity diventano un lusso che non puoi pagare. Per questo un abort a T-0 non e solo "un giorno perso". E un ricalcolo di opportunita.</p>
+          <p>Tre giorni dopo, il 22 maggio, la sequenza tiene. Alle 07:44 UTC (03:44 EDT) il Falcon 9 lascia SLC-40. E il primo lancio notturno del vettore. E il terzo volo complessivo del Falcon 9. In cima c'e la Dragon C102, non un boilerplate e non una capsula da sola dimostrazione di rientro. C'e un veicolo pensato per parlare con l'ISS, farsi vedere dai sensori relativi, aprire un portellone con grapple fixture e reggere giorni di operazioni in prossimita di un avamposto abitato.</p>
+          <p>Guardando indietro, la campagna pre-lancio racconta lo stesso metodo della serie Falcon 1 e del 2010: non riscrivere tutto a ogni intoppo, isolare il pezzo che blocca, collaudarlo, riprovare. Qui il pezzo che blocca non e un B-nut corroso o un ugello di niobio. E soprattutto software, sequenze di rampa e integrazione con un cliente che ha standard di sicurezza da stazione. Il risultato e un calendario che sembra eterno se lo guardi da un forum a febbraio, e improvvisamente corto se lo guardi da una rampa a maggio.</p>
+          <p>C'e anche un pezzo industriale meno discusso nei comunicati e utile per capire la scala. SpaceX non sta piu solo "facendo un test". Sta allineando tre geografie operative: Hawthorne per veicolo e controllo, McGregor per eredita di collaudi propulsivi, Cape per rampa e range. L'equipaggio a bordo dell'ISS e un quarto attore, che non lavora per SpaceX e non puo essere trattato come un'estensione del team di Hawthorne. Ogni hold, ogni comando dal Crew Command Panel, ogni decisione di Houston entra in questa rete. La campagna 2011-2012 e il momento in cui SpaceX impara, in pubblico, a non essere sola con il proprio razzo.</p>
+        </article>
+        <aside class="panel">
+          <h3>Date utili</h3>
+          <div class="timeline">
+            <div class="event">
+              <div class="date">15.07.2011</div>
+              <div><h3>Fusione tentativa</h3><p>NASA apre alla combinazione di COTS-2 e 3.</p></div>
+            </div>
+            <div class="event">
+              <div class="date">09.12.2011</div>
+              <div><h3>Fusione formale</h3><p>Nasce C2+ come piano di missione unico.</p></div>
+            </div>
+            <div class="event">
+              <div class="date">01.03.2012</div>
+              <div><h3>Wet dress</h3><p>Countdown e propellenti di prova a SLC-40.</p></div>
+            </div>
+            <div class="event">
+              <div class="date">30.04.2012</div>
+              <div><h3>Static fire</h3><p>Nove Merlin a terra sul veicolo di volo.</p></div>
+            </div>
+            <div class="event">
+              <div class="date">19.05.2012</div>
+              <div><h3>Abort T-0</h3><p>Pressione motore; finestra persa.</p></div>
+            </div>
+            <div class="event">
+              <div class="date">22.05.2012</div>
+              <div><h3>Liftoff</h3><p>Decollo notturno, missione in corso.</p></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="lancio">
+    <div class="section-inner">
+      <h2>22-24 maggio: dalla rampa al fly-under</h2>
+      <p>Il decollo del 22 maggio e pulito nel senso che conta: il veicolo va in orbita e Dragon si separa. A circa tre minuti i motori del primo stadio si spengono e avviene la separazione. Il secondo stadio spinge. Il nose cone di Dragon viene sganciato. Intorno ai nove minuti lo spegnimento del secondo stadio e la separazione della capsula chiudono la parte "razzo". Pochi minuti dopo si aprono i pannelli solari. Da qui in poi la storia e di Dragon, non di Falcon.</p>
+      <p>Subito iniziano le prove che appartengono ancora al perimetro COTS-2. Dragon verifica l'Absolute GPS, apre il portellone del bay dove stanno grapple fixture e sensori di navigazione relativa, controlla imager termico e sistema DragonEye basato su LIDAR. Poi dimostra di saper abortire un approccio: prima con una spinta continua dei thruster Draco, poi con una sequenza a impulsi. C'e anche una free drift demo, in cui il veicolo e lasciato senza correzioni continue di assetto e traiettoria per mostrare che il comportamento e compreso. Non e spettacolo per il pubblico. E la costruzione, pezzo per pezzo, della fiducia necessaria a farsi avvicinare a un laboratorio pieno di persone.</p>
+      <p>Il 23 maggio arrivano le manovre di phasing. Una serie di height adjustment burn e co-elliptical burn modifica l'orbita. L'obiettivo non e ancora "arrivare e attraccare". E mettersi nella geometria giusta rispetto alla Stazione: quota, piano, tempi. Il linguaggio e quello classico del rendezvous: alzare, circolarizzare, preparare il giorno dopo. Chi ha seguito le missioni Shuttle o le Progress riconosce la grammatica. La novita e che a eseguirla e una capsula privata americana con un controllo missione a Hawthorne e un'interfaccia operativa verso Houston e l'equipaggio.</p>
+      <p>Il 24 maggio e il giorno del fly-under. Dragon esegue nuove manovre fino a entrare nella zona di comunicazione, a distanze dell'ordine di pochi chilometri e poi intorno ai 2,5 chilometri sotto la Stazione. Stabilisce contatto con l'unita CUCU, il link UHF pensato per le operazioni COTS. Prova il Relative GPS. L'equipaggio della Expedition 31, dal Cupola, monitora e interagisce: poco prima delle 11:00 UTC invia un comando per accendere lo strobo di Dragon. E un dettaglio quasi banale e invece densissimo. Significa che la catena comando equipaggio-veicolo funziona in condizioni reali, non solo a simulatore.</p>
+      <p>Dopo il massimo avvicinamento della giornata, Dragon esegue una traiettoria a "racetrack": passa davanti, sopra e dietro la Stazione a distanze di sicurezza dell'ordine di diversi chilometri, poi si allontana con un burn finale che la prepara al re-rendezvous del giorno dopo. A quel punto NASA da il GO al berthing. In termini di programma, significa che gli obiettivi originari di COTS-2 sono considerati chiusi. La missione puo tentare la parte che un tempo stava su un volo separato. Non e un premio simbolico. E un cancello operativo: senza quel GO, non c'e C2+ completo, c'e solo una buona dimostrazione di proximity.</p>
+      <div class="callout green">
+        <p><strong>Perche questa sequenza conta.</strong> Unire due demo non voleva dire arrivare e agganciarsi al primo passaggio. Voleva dire costruire, in orbita, le prove che la capsula capisce dove e, capisce dove e la Stazione, sa fermarsi, sa indietreggiare e sa farsi comandare. Solo dopo si apre la keep-out sphere.</p>
+      </div>
+      <p>A fine giornata del 24 maggio SpaceX non e ancora "arriva alla ISS". Ma non e piu neanche l'azienda di dicembre 2010. Ha una Dragon che ha lavorato per giorni vicino a un complesso abitato senza incidenti pubblici di proximity. Il giorno dopo servira una dose diversa di coraggio operativo: entrare nella sfera di esclusione, tenere le distanze metriche, gestire un LIDAR che vede riflessi dove non dovrebbe e restare abbastanza calmi da non trasformare un hold in un abort di missione.</p>
+    </div>
+  </section>
+
+  <section id="berthing">
+    <div class="section-inner split">
+      <article>
+        <h2>25 maggio: grapple, berthing, Harmony</h2>
+        <p>Il 25 maggio Dragon torna sotto la Stazione con nuove manovre HA e CE. Houston da una serie di GO a tappe: prima a circa 1,4 km, poi a 250 metri. Qui inizia in senso stretto la fase che il piano originale chiamava COTS-3. DragonEye confronta LIDAR e immagini termiche per confermare posizione e velocita. Il team di SpaceX comanda un avvicinamento dal hold, poi l'equipaggio prova il retreat: la capsula indietreggia al punto di attesa. E una prova di range e di frenata, non una coreografia.</p>
+        <p>Poi arriva il permesso di entrare nella keep-out sphere, la sfera virtuale di circa 200 metri intorno alla Stazione pensata per ridurre il rischio di collisione. Non e una linea magica. E una disciplina di missione: oltre quella distanza ogni metro si paga in attenzione, telemetria e possibilita di abort. Dragon prosegue a hold intermedi. Due hold non previsti compaiono a circa 150 e 70 metri. Il motivo e tecnico e molto concreto: riflessi spuri dal modulo giapponese Kibo, in particolare dalla struttura esterna, disturbano il LIDAR. SpaceX restringe il campo di vista del sensore e va avanti. E il tipo di problema che non si risolve con una frase motivazionale. Si risolve stringendo un parametro, verificando e ripartendo.</p>
+        <p>Dragon si ferma a circa 30 metri, poi a circa 9 metri, il capture point. Houston dice all'equipaggio che e GO per la cattura. Dal Cupola, Don Pettit usa il Canadarm2 e afferra la capsula alle 13:56 UTC, sopra l'Australia occidentale. La battuta che resta negli annali e da operatore, non da comunicato: dice che hanno preso una Dragon per la coda, che la sim e andata bene e che sono pronti a farla sul serio. Andre Kuipers lo affianca. Alle 16:02 UTC Dragon e berthata sul Common Berthing Mechanism nadir di Harmony. Prima volta di un veicolo commerciale in berthing con un altro veicolo. Prima visita americana alla Stazione dopo la fine dello Shuttle.</p>
+        <p>Il giorno dopo, 26 maggio, si apre il portellone. Si valuta la qualita dell'aria. Pettit e il comandante Oleg Kononenko entrano con protezioni e verificano l'atmosfera. Pettit nota che dentro odora di auto nuova. E un'immagine banale e perfetta: dopo anni di slide, contratti e forum, c'e un odore fisico di veicolo nuovo in un modulo che gli astronauti possono attraversare. A bordo ci sono circa 525 chilogrammi di cargo pressurizzato: cibo, abbigliamento, hardware, esperimenti studentesci NanoRacks e materiale vario. Non e un carico da primato di massa. E un carico da primato di categoria: roba portata da una capsula privata e presa in mano da un equipaggio ISS.</p>
+        <p>Dragon resta attraccata circa sei giorni. L'equipaggio scarica, poi ricarica con cargo destinato a Terra. Il 27 maggio Dextre viene usato per ispezionare il trunk. Il 31 maggio Canadarm2 stacca la capsula da Harmony e la rilascia. Dragon si allontana, chiude il bay, esegue il deorbit burn, separa il trunk, rientra, apre droghe e main chute e ammarra nel Pacifico intorno alle 15:42 UTC, a centinaia di chilometri dalla Baja California. Le navi di recupero chiudono il cerchio. La missione dura poco piu di nove giorni. Gli obiettivi di C2+ risultano soddisfatti.</p>
+        <p>Nelle settimane successive la capsula torna a terra operativa: porto di Los Angeles, McGregor per la gestione del propellente tossico di manovra, consegna cargo a NASA, analisi post-volo. Il 23 agosto 2012 NASA annuncia la certificazione del sistema Falcon 9-Dragon per iniziare il contratto cargo. La prima CRS operativa partira a ottobre. In mezzo non c'e un vuoto narrativo: c'e il passaggio burocratico e tecnico da "demo riuscita" a "fornitore autorizzato a ripetere".</p>
+        <p>Un dettaglio di payload reso pubblico dopo il lancio racconta il clima culturale di SpaceX senza doverci costruire sopra una mitologia: sul secondo stadio, in un piccolo canister, c'erano ceneri commemorative, tra cui quelle di Gordon Cooper e di James Doohan. Non e il cuore della missione. E un margine umano intorno a un volo che, per il resto, e fatto di hold, LIDAR e checklist. Come il formaggio di COTS-1, va tenuto al suo posto: dopo l'ingegneria, non al posto dell'ingegneria.</p>
+      </article>
+      <aside class="panel">
+        <h3>C2+ in numeri</h3>
+        <p><strong>Decollo:</strong> 22 mag 2012, 07:44 UTC, SLC-40.</p>
+        <p><strong>Veicolo:</strong> Falcon 9 v1.0 (terzo volo), Dragon C102.</p>
+        <p><strong>Grapple:</strong> 25 mag, 13:56 UTC, Canadarm2.</p>
+        <p><strong>Berthing:</strong> 25 mag, 16:02 UTC, Harmony nadir.</p>
+        <p><strong>Hatch open:</strong> 26 mag, 09:53 UTC.</p>
+        <p><strong>Partenza ISS:</strong> 31 mag, unberth al mattino UTC.</p>
+        <p><strong>Splashdown:</strong> 31 mag, 15:42 UTC, Pacifico.</p>
+        <p><strong>Cargo verso ISS:</strong> circa 525 kg pressurizzati.</p>
+        <p><strong>Durata:</strong> circa 9 giorni e 8 ore.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section id="forum">
+    <div class="section-inner">
+      <h2>Come lo leggevano su NASASpaceflight</h2>
+      <p>I thread NSF del 2011-2012 non sono verbali NASA. Sono il rumore tecnico di chi seguiva NET, L2, voci di software e foto di rampa mentre il calendario scivolava da febbraio verso maggio. Come nelle puntate sul Falcon 1 e su COTS-1, qui li usiamo come contesto: per capire di cosa si discuteva, non per certificare ogni cifra o ogni previsione.</p>
+      <div class="split">
+        <article>
+          <h3>Prima del lancio (thread COTS Demo 2 / 2-3 Updates)</h3>
+          <p>Il tono e familiare a chi ha letto i thread del 2010. Si discute di quando una Dragon "completa" arrivera al Cape, di quanti test software mancano, di quanto pesi la distinzione tra date pubbliche e date da insider. La fusione 2/3 e letta in due modi opposti: da un lato come accelerazione intelligente, dall'altro come densita di rischio eccessiva. Qualcuno immagina scenari ibridi: chiudi gli obiettivi 2, poi un problema in fase 3 ti lascia a meta del ponte. Altri osservano che proprio la struttura a GO intermedi esiste per evitare di fingere che tutto sia deciso al liftoff.</p>
+          <p>Tra inverno e primavera 2012 tornano le battute sul moltiplicatore dei ritardi SpaceX, ma con un sottotesto diverso rispetto all'era Falcon 1. Non e piu "riusciranno mai a fare orbita?". E "riusciranno a far combaciare software di rendezvous, range e una finestra quasi istantanea?". Il fallimento temuto non e solo una palla di fuoco in rampa. E un veicolo sano che non puo tentare il berthing perche ha bruciato margine o non ha chiuso una prova.</p>
+          <h3>Durante e dopo (live e thread di missione)</h3>
+          <p>Quando il 19 maggio scatta l'abort, il forum fa quello che sa fare: spezza il fatto in pezzi. Non "fallito il lancio", ma "abort a T-0 per pressione, riciclo, prossima opportunita". Quando il 22 maggio il veicolo parte di notte, la conversazione si sposta su ascent, solar arrays, aperture bay e prime prove. Nei giorni del fly-under e del grapple il livello di dettaglio sale: distanze, hold, LIDAR, comandi equipaggio. E lo stesso istinto pedante visto sui roll del primo Falcon 9, applicato a un dominio nuovo: la proximity operations.</p>
+          <p>Dopo il berthing il tono cambia. Non sparisce lo scetticismo di lungo periodo sul riuso o sulla cadenza futura, ma il fatto immediato e difficile da relativizzare: una capsula privata e su Harmony. Le discussioni successive, sul cargo, sull'apertura portellone, sul rientro, sono gia conversazioni da missione riuscita che si chiede cosa viene dopo. La risposta istituzionale arrivera ad agosto con la certificazione e a ottobre con CRS-1. Sul forum, a fine maggio, quella risposta e ancora una proiezione.</p>
+        </article>
+        <aside class="panel">
+          <h3>Come li usiamo</h3>
+          <p>Il 2012 non e solo press kit e foto NASA. C'e una conversazione pubblica su software, NET, abort e distanze di hold.</p>
+          <p>Regola di queste pagine: il forum e <strong>contesto</strong>. Date di volo, orari di grapple e berthing, masse cargo e annunci di certificazione restano ancorati a NASA, Spaceflight Now e documentazione di missione.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="eredita">
+    <div class="section-inner">
+      <h2>Cosa resta di C2+</h2>
+      <p>A missione finita SpaceX non e piu solo l'azienda che ha messo in orbita un nove motori e riportato una capsula. E l'azienda che ha visitato la Stazione Spaziale Internazionale con un veicolo proprio, lo ha lasciato in mano a un equipaggio, lo ha ripreso e lo ha riportato a casa. Nel linguaggio del programma COTS, ha chiuso le dimostrazioni. Nel linguaggio industriale, ha reso credibile l'avvio del CRS. Nel linguaggio politico americano del dopo-Shuttle, ha mostrato che "commerciale" non era solo un aggettivo di bilancio: era un veicolo fisico agganciato a Harmony.</p>
+      <p>Restano i limiti del momento, e conviene non lisciarli. Un successo non fa una flotta. Una certificazione non fa una cadenza. Il riuso del primo stadio non e ancora un vantaggio dimostrato: sul Falcon 9 del 2012 il recupero propulsivo non e la storia centrale. La Dragon che conta qui e ancora una capsula da cargo e da rientro, non un veicolo equipaggio. Orbital Sciences deve ancora dimostrare la sua parte di CRS. La dipendenza da partner internazionali per equipaggio resta. Chi nel 2012 proclamava la fine di ogni problema logistico esagerava. Chi liquidava C2+ come trucco mediatico sbagliava in direzione opposta.</p>
+      <p>Per la serie storica di queste pagine, C2+ chiude il capitolo della dimostrazione e apre quello del servizio. Prima c'erano Omelek, i fallimenti Falcon 1, il contratto CRS sulla carta, il salto di scala del 2010 e una capsula recuperata dal mare. Dopo ci sono un berthing, un cargo scaricato in orbita e una certificazione che trasforma la prossima missione in lavoro, non in esame. La prossima tappa naturale non e Starlink e non e Starship. E CRS-1, l'inizio del rifornimento operativo, con tutto quello che verra in termini di ritmi, anomalie e apprendimento da fornitore regolare.</p>
+      <p>Se si dovesse scegliere una sola immagine del passaggio, non sarebbe solo il decollo notturno del 22 maggio. Sarebbe la Dragon ferma a pochi metri, il braccio che si estende, e poi lo stesso veicolo gia agganciato a Harmony con la Terra sotto. Il decollo dimostra un razzo. Il grapple dimostra un sistema capace di entrare nella vita quotidiana della Stazione. E da quella vita quotidiana, non dalle slide, che nasce il senso del commerciale cargo.</p>
+      <p>Questa parte si ferma qui. Non anticipa le anomalie delle prime CRS, non anticipa il primo landing, non anticipa Crew Dragon. Tiene fisso un fatto: tra il 22 e il 31 maggio 2012 un'azienda privata ha portato una capsula alla ISS, l'ha fatta lavorare come veicolo di logistica e l'ha riportata indietro. Il resto della storia SpaceX cresce sopra questo scalino, non al posto di questo scalino.</p>
+      <div class="timeline">
+        <div class="event">
+          <div class="date">08.12.2010</div>
+          <div><h3>COTS-1</h3><p>Dragon torna in mare; manca ancora la Stazione.</p></div>
+        </div>
+        <div class="event">
+          <div class="date">09.12.2011</div>
+          <div><h3>C2+ formale</h3><p>NASA unisce gli obiettivi delle demo 2 e 3.</p></div>
+        </div>
+        <div class="event">
+          <div class="date">19.05.2012</div>
+          <div><h3>Abort di rampa</h3><p>T-0 interrotto; riciclo verso il 22.</p></div>
+        </div>
+        <div class="event">
+          <div class="date">25.05.2012</div>
+          <div><h3>Berthing</h3><p>Prima capsula commerciale su Harmony.</p></div>
+        </div>
+        <div class="event">
+          <div class="date">31.05.2012</div>
+          <div><h3>Splashdown</h3><p>Missione dimostrativa chiusa con recupero.</p></div>
+        </div>
+        <div class="event">
+          <div class="date">23.08.2012</div>
+          <div><h3>Certificazione CRS</h3><p>NASA abilita il servizio cargo operativo.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fonti">
+    <div class="section-inner">
+      <h2>Fonti</h2>
+      <p>Pagina costruita da cronache e documenti del periodo COTS-2/C2+, con thread NSF usati solo come contesto. Dove qualcosa resta una lettura di priorita o di clima (ritardi software, tono da forum), e scritto come tale.</p>
+      <ol class="sources">
+        <li>NASA, COTS 2 Mission Press Kit (maggio 2012). Obiettivi ufficiali, sequenza di missione, perimetro dimostrativo.</li>
+        <li>Spaceflight Now, Mission Status Center e pezzi correlati su WDR, static fire, abort, grapple, berthing e splashdown (maggio 2012).</li>
+        <li>Spaceflight Now / cronache su approvazione fusione COTS 2 e 3 (dicembre 2011) e collaudi pre-lancio 2012.</li>
+        <li>NASA, annuncio di certificazione Falcon 9-Dragon per CRS (23 agosto 2012).</li>
+        <li>NASASpaceflight.com e forum NSF: thread "SpaceX COTS Demo 2 Updates", "COTS Demo 2/3 Updates", live C2+ docked ops. Contesto su NET, software, hold e letture coeve.</li>
+        <li>Wikipedia, "SpaceX COTS Demo Flight 2", usata come indice di date e citazioni da riancorare alle fonti primarie.</li>
+        <li>SpaceNews / Aviation Week (2011) su approvazione tentativa della combinazione demo e accelerazione verso la fase operativa.</li>
+        <li>Report e note locali di ricerca pre-scrittura (sessione luglio 2026) su timeline, payload e foto NASA.</li>
+      </ol>
+
+      <h3>Fonti immagini</h3>
+      <ol class="sources">
+        <li><code>dragon-c2-approach.jpg</code> — NASA / Expedition 31, public domain.</li>
+        <li><code>falcon9-cots2-liftoff.jpg</code> — NASA/KSC, public domain.</li>
+        <li><code>dragon-processing.jpg</code> — NASA/KSC, public domain.</li>
+        <li><code>dragon-grappled.jpg</code> — NASA / Expedition 31, public domain.</li>
+        <li><code>dragon-berthed.jpg</code> — NASA / Expedition 31, public domain.</li>
+        <li><code>dragon-recovery.jpg</code> — NASA, public domain.</li>
+      </ol>
+      <p style="margin-top:28px"><a class="button" href="../sezioni/storia-spacex.html">Torna a Storia SpaceX</a></p>
+    </div>
+  </section>
+</main>
+</body>
+</html>

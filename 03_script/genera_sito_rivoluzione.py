@@ -2265,6 +2265,15 @@ def render_spacex_history_page(data):
           <span class="button secondary">Apri approfondimento</span>
         </div>
       </a>
+      <a class="story-card" href="../documenti%20per%20sito/dragon_c2plus_attracco_iss.html">
+        <img src="../documenti%20per%20sito/assets_fondazione/cots2-2012/dragon-grappled.jpg" alt="Canadarm2 afferra Dragon C2+ durante la cattura del 25 maggio 2012" loading="lazy">
+        <div>
+          <small>Quinta parte</small>
+          <h3>Dalla Dragon in mare all'attracco alla ISS</h3>
+          <p>Dopo COTS-1 NASA unisce le demo 2 e 3 in C2+: abort di rampa, lancio notturno del 22 maggio 2012, grapple Canadarm2 e berthing su Harmony il 25 maggio, poi splashdown e certificazione CRS.</p>
+          <span class="button secondary">Apri approfondimento</span>
+        </div>
+      </a>
     </div>
   </div>
 </section>
