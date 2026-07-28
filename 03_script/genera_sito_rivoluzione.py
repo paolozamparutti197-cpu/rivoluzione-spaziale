@@ -2256,6 +2256,15 @@ def render_spacex_history_page(data):
           <span class="button secondary">Apri approfondimento</span>
         </div>
       </a>
+      <a class="story-card" href="../documenti%20per%20sito/falcon9_salto_scala_cots1.html">
+        <img src="../documenti%20per%20sito/assets_fondazione/falcon9-2010/dragon-cots1-recovery.jpg" alt="Dragon C101 recuperata dopo COTS-1" loading="lazy">
+        <div>
+          <small>Quarta parte</small>
+          <h3>Dal salto di scala al primo Falcon 9 e a COTS-1</h3>
+          <p>Dopo RazakSAT SpaceX concentra tutto su Falcon 9 e Dragon: collaudi a McGregor e SLC-40, debutto orbitale del 4 giugno 2010 e rientro di Dragon l'8 dicembre, con la lettura coeva dei forum NASASpaceflight.</p>
+          <span class="button secondary">Apri approfondimento</span>
+        </div>
+      </a>
     </div>
   </div>
 </section>

@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SpaceX, dal salto di scala al primo Falcon 9 e a COTS-1</title>
+<style>
+:root{
+  --bg:#050607;
+  --ink:#f4f6f8;
+  --muted:#a9b0b7;
+  --line:rgba(255,255,255,.16);
+  --soft:rgba(255,255,255,.075);
+  --cyan:#67c7ff;
+  --amber:#f5b941;
+  --red:#e95f45;
+  --green:#79d18b;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;letter-spacing:0}
+a{color:var(--cyan);text-decoration:none}
+a:hover{text-decoration:underline}
+.topbar{position:fixed;inset:0 0 auto 0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:18px clamp(18px,4vw,56px);background:linear-gradient(180deg,rgba(0,0,0,.92),rgba(0,0,0,.54),rgba(0,0,0,0))}
+.brand{font-weight:900;letter-spacing:.16em;text-transform:uppercase;font-size:15px;color:#fff}
+.brand span{color:var(--cyan)}
+.nav{display:flex;gap:18px;flex-wrap:wrap;justify-content:flex-end;font-size:12px;text-transform:uppercase;letter-spacing:.1em;font-weight:800}
+.nav a{color:#fff}
+.hero{min-height:86vh;display:grid;align-items:end;padding:110px clamp(18px,4vw,56px) 50px;background:linear-gradient(90deg,rgba(0,0,0,.88),rgba(0,0,0,.48) 44%,rgba(0,0,0,.12)),linear-gradient(180deg,rgba(0,0,0,.16),rgba(5,6,7,.96) 92%),url("assets_fondazione/falcon9-2010/dragon-cots1-recovery.jpg") center/cover no-repeat}
+.hero-inner,.section-inner{max-width:1180px;margin:0 auto}
+.eyebrow{margin:0 0 14px;color:var(--amber);text-transform:uppercase;letter-spacing:.14em;font-size:13px;font-weight:900}
+h1{margin:0;max-width:1040px;font-size:clamp(36px,7.2vw,86px);line-height:.92;text-transform:uppercase;font-weight:950}
+h2{margin:0 0 24px;font-size:clamp(28px,4vw,48px);line-height:1;text-transform:uppercase}
+h3{margin:30px 0 12px;font-size:22px;line-height:1.15}
+p{color:#d9dde1;font-size:17px;line-height:1.72;margin:0 0 18px}
+.lead{max-width:860px;margin:24px 0 0;color:#e6ebef;font-size:clamp(17px,2vw,22px);line-height:1.48;font-weight:500}
+section{padding:76px clamp(18px,4vw,56px);border-top:1px solid var(--line)}
+.split{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(280px,.72fr);gap:42px;align-items:start}
+.panel{border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.045));border-radius:8px;padding:22px}
+.panel h3:first-child{margin-top:0}
+.panel p,.panel li{font-size:15px;color:#d6dbe0;line-height:1.62}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:34px}
+.fact{border:1px solid var(--line);background:var(--soft);border-radius:8px;padding:18px;min-height:118px}
+.fact b{display:block;font-size:25px;line-height:1;margin-bottom:10px}
+.fact span{display:block;color:var(--muted);line-height:1.42;font-size:14px}
+.timeline{display:grid;gap:14px;margin-top:24px}
+.event{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;border-top:1px solid var(--line);padding-top:18px}
+.date{color:var(--amber);font-weight:900;text-transform:uppercase;letter-spacing:.08em;font-size:13px}
+.event h3{margin:0 0 6px}
+.event p{margin:0;color:#cfd5da}
+table{width:100%;border-collapse:collapse;margin-top:22px;font-size:15px}
+th,td{border-top:1px solid var(--line);padding:13px 10px;text-align:left;vertical-align:top;line-height:1.45}
+th{color:#fff;text-transform:uppercase;letter-spacing:.08em;font-size:12px}
+td{color:#d8dde2}
+.callout{border-left:4px solid var(--red);padding:16px 18px;background:rgba(233,95,69,.095);margin:26px 0}
+.callout.green{border-left-color:var(--green);background:rgba(121,209,139,.08)}
+.callout p{margin:0}
+.media-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;margin-top:26px;align-items:stretch}
+figure{margin:0;border:1px solid var(--line);background:#0c0f12;border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
+figure img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.media-grid figure:first-child{grid-column:span 4;grid-row:span 2}
+.media-grid figure:first-child img{min-height:430px;flex:1}
+.media-grid figure:nth-child(2),.media-grid figure:nth-child(3){grid-column:span 2}
+.media-grid figure:nth-child(n+4){grid-column:span 3}
+figcaption{padding:12px 14px;color:#b7c0c8;font-size:13px;line-height:1.45;border-top:1px solid var(--line)}
+.sources{columns:2 360px;column-gap:42px;padding-left:18px}
+.sources li{break-inside:avoid;color:#d9dde1;margin:0 0 12px;line-height:1.5;font-size:15px}
+.button{display:inline-flex;border:1px solid var(--line);padding:12px 16px;border-radius:4px;text-transform:uppercase;font-size:12px;letter-spacing:.09em;font-weight:900;background:rgba(0,0,0,.22);color:#fff;margin-top:8px}
+@media(max-width:850px){.topbar{position:absolute;align-items:flex-start}.nav{display:none}.hero{min-height:82vh}.split,.media-grid{grid-template-columns:1fr}.media-grid figure,.media-grid figure:first-child,.media-grid figure:nth-child(n){grid-column:auto;grid-row:auto}.media-grid figure:first-child img{min-height:0;flex:none}.facts{grid-template-columns:repeat(2,minmax(0,1fr))}.event{grid-template-columns:1fr;gap:6px}}
+@media(max-width:520px){.facts{grid-template-columns:1fr}section{padding:54px 18px}.hero{padding:96px 18px 42px}h1{font-size:40px}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../sezioni/storia-spacex.html">Space<span>X</span> history</a>
+  <nav class="nav" aria-label="Sezioni">
+    <a href="../sezioni/storia-spacex.html">Indice storia</a>
+    <a href="#salto">Salto</a>
+    <a href="#collaudi">Collaudi</a>
+    <a href="#f9">F9 Flight 1</a>
+    <a href="#cots1">COTS-1</a>
+    <a href="#forum">Forum NSF</a>
+    <a href="#fonti">Fonti</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" aria-label="Introduzione">
+    <div class="hero-inner">
+      <p class="eyebrow">2009-2010</p>
+      <h1>Dal salto di scala al primo Falcon 9 e a COTS-1</h1>
+      <p class="lead">Dopo RazakSAT e il contratto CRS, a SpaceX non bastava piu aver dimostrato l'orbita con un razzo piccolo. Servivano un vettore medio, una capsula e un pad in Florida. Il 4 giugno 2010 il Falcon 9 va in orbita; l'8 dicembre Dragon torna in mare. In mezzo ci sono mesi di prove a terra, rinvii e riparazioni last-minute.</p>
+      <a class="button" href="../sezioni/storia-spacex.html">Torna a Storia SpaceX</a>
+    </div>
+  </section>
+
+  <section id="tesi">
+    <div class="section-inner">
+      <div class="split">
+        <article>
+          <h2>Di cosa parla questa parte</h2>
+          <p>Nella terza puntata la storia si chiudeva su un punto abbastanza chiaro: Falcon 1 aveva fatto il suo, e il lavoro serio sarebbe passato a Falcon 9 e Dragon. Qui si racconta come quel piano e diventato hardware volato.</p>
+          <p>Il 4 giugno 2010 il Falcon 9 v1.0 mette in orbita un boilerplate di Dragon, ancora fissato al secondo stadio. L'inserimento e quasi perfetto. Sei mesi dopo, dallo stesso SLC-40, parte una Dragon vera: fa quasi due giri, rientra e ammarra nel Pacifico. Non e ancora l'ISS. Ma e la prima volta che un'azienda privata riporta a terra una capsula mandata in orbita.</p>
+          <p>Si potrebbe dire che il 2010 e l'anno in cui SpaceX "ce l'ha fatta". Piu onesto e dire che ha chiuso due voli pesanti in un periodo pieno di static fire falliti, cricche sull'ugello di niobio, un roll strano del secondo stadio e un riuso che per ora resta soprattutto un obiettivo di progetto. Sul forum NASASpaceflight, nei giorni caldi, si legge tutto insieme: entusiasmo, pedanteria sui dettagli e un bel po' di scetticismo.</p>
+        </article>
+        <aside class="panel">
+          <h3>In sintesi</h3>
+          <p><strong>Prima:</strong> un lanciatore piccolo gia dimostrato e un contratto NASA da onorare con macchine che non avevano ancora volato.</p>
+          <p><strong>Dopo F9 Flight 1:</strong> un vettore a nove motori ha raggiunto l'orbita al primo tentativo.</p>
+          <p><strong>Dopo COTS-1:</strong> c'e una capsula commerciale recuperata dall'orbita, e NASA ha materiale concreto per discutere di accelerare il percorso verso la Stazione.</p>
+        </aside>
+      </div>
+      <div class="facts">
+        <div class="fact"><b>04.06.2010</b><span>Primo Falcon 9 in orbita da SLC-40 con Dragon Qualification Unit.</span></div>
+        <div class="fact"><b>08.12.2010</b><span>COTS Demo Flight 1: Dragon C101 orbita, rientra e ammarra.</span></div>
+        <div class="fact"><b>~250 km</b><span>Orbita del debutto F9; SpaceX la definisce "bullseye".</span></div>
+        <div class="fact"><b>3h 19m</b><span>Durata della demo Dragon, dal decollo allo splashdown.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="immagini">
+    <div class="section-inner">
+      <h2>Foto del periodo</h2>
+      <p>Qui non si e piu a Omelek. Si e a Cape Canaveral, su un pad che era stato dei Titan, con un razzo alto una cinquantina di metri e una capsula pensata per la logistica ISS. Le immagini sotto servono a tenere sotto gli occhi la scala del lavoro: decollo, scia, pad, e poi Dragon in mare.</p>
+      <div class="media-grid">
+        <figure>
+          <img src="assets_fondazione/falcon9-2010/dragon-cots1-recovery.jpg" alt="Dragon C101 recuperata dopo lo splashdown del 8 dicembre 2010" loading="lazy">
+          <figcaption>Dragon C101 dopo il rientro dell'8 dicembre 2010: prima capsula commerciale recuperata da un volo orbitale. Foto SpaceX (Mike Altenhofen), CC0.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets_fondazione/falcon9-2010/falcon9-flight1-liftoff.jpg" alt="Falcon 9 Flight 1 al decollo da SLC-40, 4 giugno 2010" loading="lazy">
+          <figcaption>Falcon 9 Flight 1, 4 giugno 2010, SLC-40. Debutto con Dragon Spacecraft Qualification Unit. Foto SpaceX (Chris Thompson), CC0.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets_fondazione/falcon9-2010/falcon9-flight1-contrail.jpg" alt="Scia del Falcon 9 Flight 1 sopra Cape Canaveral" loading="lazy">
+          <figcaption>La scia del debutto vista da terra, dopo mesi di collaudi. Foto Matthew Simantov, CC BY 2.0.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets_fondazione/falcon9-2010/falcon9-cots1-liftoff.jpg" alt="Falcon 9 e Dragon al decollo per COTS-1, 8 dicembre 2010" loading="lazy">
+          <figcaption>COTS Demo Flight 1, 8 dicembre 2010, ore 10:43 EST. NASA/Tony Gray e Kevin O'Connell, KSC-2010-5796, public domain.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets_fondazione/falcon9-2010/slc40-pad.jpg" alt="Pad SLC-40 a Cape Canaveral" loading="lazy">
+          <figcaption>SLC-40, ex pad Titan IV ricostruito da SpaceX. Qui passano wet dress, static fire e i due voli del 2010. Archivio locale del sito.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="salto">
+    <div class="section-inner split">
+      <article>
+        <h2>Perche Falcon 9 e non Falcon 5</h2>
+        <p>All'inizio la scala dei Falcon sembrava ordinata: Falcon 1, poi un intermedio a cinque motori, poi il nove. Il Falcon 5 doveva essere un vettore medio con un po' di ridondanza engine-out. Poi e arrivato il COTS del 2006 e, soprattutto, il problema concreto di rifornire la ISS dopo lo Shuttle. Le priorita si sono spostate in fretta.</p>
+        <p>Falcon 1 non poteva portare le tonnellate di cargo pressurizzato e non pressurizzato richieste dalla Stazione. Falcon 5, nelle FAQ e nelle pagine storiche SpaceX, condivideva struttura e stadi con Falcon 9: di fatto era un nove "alleggerito", con meno motori e propellente parziale. Quando clienti e requisiti NASA hanno chiesto un veicolo piu capace, mettere tutto sul nove motori e diventato meno azzardo e piu risparmio di risorse. Tenere due linee quasi uguali avrebbe significato certificare due volte cose simili.</p>
+        <p>Il Falcon 9 Block 1 / v1.0 del 2009-2010 e un LOX/RP-1 a due stadi: nove Merlin 1C sotto, un Merlin Vacuum sopra, serbatoi in alluminio-litio, interstage composito, separazione pneumatica. L'avionica e gia impostata per tollerare un singolo guasto. L'User's Guide del 2009 parla di Block 1 per i primi voli e di Block 2 (piu spinta, meno massa a secco) per dopo: il primo Falcon 9 nasce come base di lavoro, non come prodotto chiuso.</p>
+        <div class="callout">
+          <p><strong>Nota sulle fonti.</strong> Le brochure di allora pubblicano prezzi e payload di catalogo, non sempre dati di volo. Falcon 5 esce dalla priorita senza un comunicato seccamente datato "abbandonato". Falcon 1, dopo RazakSAT, smette di essere il futuro commerciale senza una cerimonia di chiusura. Qui si ricostruisce lo spostamento delle risorse, non un funerale ufficiale riga per riga.</p>
+        </div>
+      </article>
+      <aside class="panel">
+        <h3>Tre veicoli, una fabbrica</h3>
+        <table>
+          <thead><tr><th>Veicolo</th><th>Nel 2009-2010</th></tr></thead>
+          <tbody>
+            <tr><td>Falcon 1</td><td>Ultimo volo 14.07.2009 (RazakSAT); resta come scuola tecnica.</td></tr>
+            <tr><td>Falcon 5</td><td>Intermedio di carta; lo sviluppo scivola sul 9.</td></tr>
+            <tr><td>Falcon 9</td><td>Macchina del CRS e del COTS; nove Merlin, engine-out.</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:16px">La comunanza di stadi e processi conta piu del catalogo. A Hawthorne si stava costruendo una produzione verticale, non una vetrina di modelli.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section id="collaudi">
+    <div class="section-inner">
+      <h2>Collaudi 2009-2010</h2>
+      <div class="split">
+        <article>
+          <p>Il calendario COTS del 2006 immaginava demo gia nel 2008-2009. Non e andata cosi. A McGregor, in Texas, SpaceX spinge test multi-motore e un full-duration del secondo stadio (inizio gennaio 2010: intorno ai 329-345 secondi, quanto un burn di inserimento). A Cape Canaveral, sul pad 40, arrivano wet dress rehearsal e static fire.</p>
+          <p>Il 9 marzo 2010 il primo static fire a SLC-40 si interrompe a circa T-2 secondi. Spaceflight Now parla di un problema allo spin-start / valvola di elio ad alta pressione: i nove Merlin non entrano in combustione. La fiammata arancione e burn-off di LOX e kerosene scaricati, non un motore in fiamme. Il 13 marzo il test di 3,5 secondi con tutti i motori va a buon fine e chiude la prova di rampa, sequenza e software di pad.</p>
+          <p>Poi arrivano i guai meno spettacolari. L'isolamento in sughero del primo stadio si stacca con i cicli termici del LOX (un segnale brutto se si sognava gia il riuso). Il Flight Termination System va certificato con l'Air Force. I rinvii di COTS-1 passano da simulazioni hardware-software e, a pochi giorni dal lancio di dicembre, da due piccole cricche nella nozzle extension di niobio del Merlin Vacuum. SpaceX taglia la porzione terminale che non serviva a quella missione e va avanti.</p>
+          <p>E lo stesso modo di lavorare visto sul Falcon 1: isolare il pezzo che ha fallito, sistemarlo, riprovare. Solo che adesso il veicolo e molto piu grande e il cliente che guarda e NASA.</p>
+        </article>
+        <aside class="panel">
+          <h3>Date utili</h3>
+          <div class="timeline">
+            <div class="event">
+              <div class="date">Ott 2009</div>
+              <div><h3>9 Merlin flight-ready</h3><p>Test a McGregor sullo stadio destinato al volo.</p></div>
+            </div>
+            <div class="event">
+              <div class="date">Gen 2010</div>
+              <div><h3>Full-duration S2</h3><p>Secondo stadio brucia per la durata orbitale.</p></div>
+            </div>
+            <div class="event">
+              <div class="date">26.02.2010</div>
+              <div><h3>Wet dress SLC-40</h3><p>Caricamento propellenti e countdown di prova.</p></div>
+            </div>
+            <div class="event">
+              <div class="date">09-13.03</div>
+              <div><h3>Static fire</h3><p>Abort elio, poi 3,5 s a nove motori.</p></div>
+            </div>
+            <div class="event">
+              <div class="date">04-08.12</div>
+              <div><h3>Pre-COTS-1</h3><p>Static fire, cricche nozzle, trimming e GO.</p></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="f9">
+    <div class="section-inner">
+      <h2>4 giugno 2010: il primo Falcon 9</h2>
+      <p>La finestra di lancio e di quattro ore. Problemi di telemetria con il centro di controllo Air Force spostano il tentativo. Poi un abort all'ultimo secondo per una lettura di pressione anomala su un motore del primo stadio. Il team decide che non e grave, ricicla, e alle 18:45 UTC (14:45 EDT) il Falcon 9 lascia SLC-40.</p>
+      <p>Il primo stadio brucia circa tre minuti. Il secondo, con ugello di niobio, spinge verso un'orbita di circa 250 km a 34,5 gradi. SpaceX parla di "bullseye": 99,8% sul perigeo, 101% sull'apogeo. In cima c'e la Dragon Spacecraft Qualification Unit, un boilerplate che resta attaccato al secondo stadio. Le batterie di bordo non sono fatte per restare a lungo in vita: il pezzo decade e rientra verso fine giugno.</p>
+      <div class="callout green">
+        <p><strong>I due roll.</strong> Al decollo si vede un roll evidente (sul forum discutono se 45, 70 o 90 gradi) prima che il veicolo si stabilizzi. In fine burn del secondo stadio ne compare un altro, non corretto: sulle rockecam fa effetto, ma non fa fallire la missione. Nei thread NSF si separano i due casi: il roll di liftoff sembra legato a sequenza e azimuth; quello di S2 e un problema di controllo in volo. Musk, a Miles O'Brien, lo liquida come "easy to fix".</p>
+      </div>
+      <p>Il primo stadio, pensato per un recupero con paracadute, si disintegra al rientro. Nel 2010 il riuso e gia nel discorso pubblico di SpaceX, ma non e ancora un risultato economico. Quello che resta e una lezione secca: i paracadute non reggono quel rientro. Il landing propulsivo di anni dopo nasce anche da quel fallimento.</p>
+      <p>Politicamente il volo e un segnale. Charles Bolden lo saluta come passo verso il cargo post-Shuttle. In Congresso restano toni freddi: "modest commercial cargo", "belated", non ancora un sostituto delle capacita governative. SpaceX, dal canto suo, risponde a tono. Nel comunicato post-volo compare la frase, commentata con un sorriso sul forum NSF, sul costo di sviluppo inferiore a quello della mobile service tower di Ares I.</p>
+    </div>
+  </section>
+
+  <section id="cots1">
+    <div class="section-inner split">
+      <article>
+        <h2>8 dicembre 2010: Dragon in mare</h2>
+        <p>COTS Demo Flight 1 e il secondo Falcon 9 e la prima Dragon operativa (C101). Gli obiettivi sono launch, separation e safe reentry. Non c'e rendezvous con l'ISS: si deve solo dimostrare che una capsula privata sa orbitare, manovrare, rientrare e farsi recuperare.</p>
+        <p>Il countdown del 8 dicembre si interrompe a T-2:48 per un falso allarme sull'Ordnance Interrupter del Flight Termination System (feedback a terra). La seconda finestra, 15:43 UTC, va liscia. Ascent nominale, separazione Dragon, contatto TDRS. Secondo le fonti live NSF un thruster Draco risulta fallito, ma entro le tolleranze. Dopo quasi due orbite: deorbit burn manuale, droghe, tre main chute. Splashdown alle 19:02 UTC, circa 800 km a ovest della Baja California, a meno di 800 metri dal punto mirato.</p>
+        <p>Prima del volo Musk aveva parlato di circa il 60% di probabilita di chiudere tutti gli obiettivi. Non significava "60% di non esplodere al decollo": era una misura della prudenza interna. Dopo, Alan Lindenmoyer dell'ufficio COTS NASA parla di confidence aumentata e di un pagamento milestone aggiuntivo. Musk e ottimista sul fatto che il volo successivo possa puntare alla Stazione, se NASA accetta di unire gli obiettivi delle demo rimaste. Quella compressione arrivera con Dragon C2+ nel 2012.</p>
+        <p>Un dettaglio da SpaceX: a bordo, come ballast, c'era una ruota di formaggio Le Brouere, citazione del Cheese Shop sketch dei Monty Python. Musk non lo racconta subito in conferenza, per non far passare in secondo piano l'ingegneria.</p>
+      </article>
+      <aside class="panel">
+        <h3>COTS-1 in numeri</h3>
+        <p><strong>Decollo:</strong> 8 dic 2010, 15:43 UTC, SLC-40.</p>
+        <p><strong>Orbita:</strong> circa 288 x 301 km, inclinazione 34,53° (target circa 300 km a 34,5°).</p>
+        <p><strong>Splashdown:</strong> 19:02 UTC; durata 3 h 19 m.</p>
+        <p><strong>Secondo stadio:</strong> re-light dopo la separazione; con nozzle accorciato arriva a circa 11.000 km di apogeo.</p>
+        <p><strong>Licenza FAA:</strong> 22 nov 2010, prima licenza commerciale di rientro per una capsula privata.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section id="forum">
+    <div class="section-inner">
+      <h2>Come lo leggevano su NASASpaceflight</h2>
+      <p>I thread del forum NSF non sono verbali ufficiali. Sono quello che tecnici, appassionati e qualche insider scrivevano mentre le cose succedevano. Servono a capire di cosa si discuteva, non a certificare ogni cifra. Nelle parti sul Falcon 1 abbiamo gia usato i thread live allo stesso modo: qui tocca ai post sul F9 e a COTS Demo 1.</p>
+      <div class="split">
+        <article>
+          <h3>Dopo il 4 giugno (thread Post F9 Flight 1)</h3>
+          <p>Si parla subito del roll di liftoff e di quello del secondo stadio. Circola l'intervista di Musk a Miles O'Brien ("easy to fix"). Qualcuno chiede come sta SLC-40 dopo la "fireball" al decollo e quanto tempo ci vorra per girare il pad. Jim e altri leggono il roll iniziale come una sequenza di roll verso l'azimuth di volo partita troppo presto. Si passano le stime di spesa di Musk: 350-400 milioni su Falcon 1 e 9, 100-150 su Dragon e infrastrutture, intorno al mezzo miliardo totale tra NASA, privati e depositi clienti. SpaceNews, ripresa nel thread, spezza i 350 milioni NASA in 248 COTS e 101 CRS progress.</p>
+          <h3>Verso COTS-1 (thread Demo 1 Updates)</h3>
+          <p>Da giugno a dicembre il tono e quello tipico NSF: diffidenza sui NET, battute sul "SpaceX multiplier" dei ritardi, distinzione tra date NASA e date L2. Robotbeat osserva che COTS-1, in un certo senso, e piu difficile del debutto F9: non basta un razzo ingrandito, serve una capsula che torni. Jim, laconico da Cape, scrive "November" quando altri sperano ancora in settembre. L'articolo live NSF dell'8 dicembre fissa l'abort OI/FTS, l'ascent nominale, il Draco fallito entro tolleranza e lo splashdown intorno alle 19:00 UTC.</p>
+        </article>
+        <aside class="panel">
+          <h3>Come li usiamo</h3>
+          <p>Il 2010 non e solo comunicati NASA e SpaceX. C'e anche una conversazione tecnica pubblica su roll, costi, pad e date, mentre i fatti si svolgono.</p>
+          <p>Regola di queste pagine: il forum e <strong>contesto</strong>. Le date di volo e le cifre contrattuali restano ancorate a NASA, Spaceflight Now, press kit e User's Guide.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="eredita">
+    <div class="section-inner">
+      <h2>Cosa resta del 2010</h2>
+      <p>A fine anno SpaceX non e piu solo "quelli del Falcon 1 riuscito". Ha un vettore medio con due successi iniziali, una capsula recuperata dall'orbita, un pad operativo in Florida, contratti commerciali in arrivo (Iridium e altri) e un cliente NASA che vede il modello COTS funzionare sul serio. Il riuso non e ancora il vantaggio competitivo dimostrato. Contano di piu la produzione verticale, l'engine-out, i costi di sviluppo contenuti e l'abitudine a iterare in fretta.</p>
+      <p>La prossima tappa non e Starlink e non e Starship. E l'attracco alla ISS: demo combinate, CRS operative dal 2012, e l'evoluzione del Falcon 9 fino al Block 5. Quella e un'altra storia. Qui ci si ferma al giorno in cui un'azienda privata ha rimesso in mare una capsula che era andata in orbita.</p>
+      <div class="timeline">
+        <div class="event">
+          <div class="date">14.07.2009</div>
+          <div><h3>RazakSAT</h3><p>Ultimo Falcon 1; chiude la linea smallsat operativa.</p></div>
+        </div>
+        <div class="event">
+          <div class="date">09-13.03.2010</div>
+          <div><h3>Static fire SLC-40</h3><p>Abort elio, poi 3,5 secondi a nove Merlin.</p></div>
+        </div>
+        <div class="event">
+          <div class="date">04.06.2010</div>
+          <div><h3>Falcon 9 Flight 1</h3><p>Primo successo orbitale del nuovo vettore.</p></div>
+        </div>
+        <div class="event">
+          <div class="date">22.11.2010</div>
+          <div><h3>Licenza FAA di rientro</h3><p>Prima licenza commerciale per una capsula privata.</p></div>
+        </div>
+        <div class="event">
+          <div class="date">08.12.2010</div>
+          <div><h3>COTS Demo Flight 1</h3><p>Dragon orbita, rientra, ammarra.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fonti">
+    <div class="section-inner">
+      <h2>Fonti</h2>
+      <p>Pagina costruita dai report in <code>storia/</code>, dalle cronache dell'epoca e dai thread NSF del periodo, controllati dove possibile su fonti primarie. Dove qualcosa resta un'inferenza (abbandono Falcon 5, priorita di mercato), e scritto come tale.</p>
+      <ol class="sources">
+        <li><a href="https://spaceflightnow.com/falcon9/001/100309hotfire/" target="_blank" rel="noopener">Spaceflight Now, static fire abortito 9 marzo 2010</a>. Spin-start / valvola elio, fiammata di purge.</li>
+        <li><a href="https://spaceflightnow.com/falcon9/001/100313staticfire/" target="_blank" rel="noopener">Spaceflight Now, static fire riuscito 13 marzo 2010</a>. 3,5 secondi, nove Merlin.</li>
+        <li><a href="https://spaceflightnow.com/falcon9/001/100604launch/" target="_blank" rel="noopener">Spaceflight Now, "Falcon 9 booster rockets into orbit"</a>. Countdown, abort, bullseye, roll S2, reazioni NASA e Congresso.</li>
+        <li><a href="https://spaceflightnow.com/falcon9/002/101209reaction/" target="_blank" rel="noopener">Spaceflight Now, reazione post COTS-1</a>. 60% pre-volo, obiettivi chiusi, Lindenmoyer, richiesta di unire le demo successive.</li>
+        <li><a href="https://www.nasaspaceflight.com/2010/12/live-spacex-launch-falcon-9-dragon-cots-demo/" target="_blank" rel="noopener">NASASpaceflight.com, live COTS Demo 1 (William Graham)</a>. Abort OI/FTS, ascent, Draco, splashdown; testo coevo via Wayback.</li>
+        <li><a href="https://forum.nasaspaceflight.com/index.php?topic=21904.0" target="_blank" rel="noopener">NSF Forum, "Post F9 Flight 1 and status updates" (Thread 3)</a>. Roll liftoff/S2, costi Musk, pad, Ares I tower. Contesto.</li>
+        <li><a href="https://forum.nasaspaceflight.com/index.php?topic=22041.0" target="_blank" rel="noopener">NSF Forum, "SpaceX COTS Demo 1 Updates"</a>. NET, ritardi, difficolta della demo capsula. Contesto.</li>
+        <li><a href="https://spaceflightnow.com/falcon9/001/f9guide.pdf" target="_blank" rel="noopener">Falcon 9 User's Guide rev. 1 (2009)</a> via archivi Spaceflight Now. Block 1/2, avionica, engine-out.</li>
+        <li><a href="https://www.nasa.gov/centers/johnson/pdf/189228main_setc_nnj06ta26a.pdf" target="_blank" rel="noopener">NASA, Space Act Agreement COTS con SpaceX (2006)</a>. Calendario demo originario e perimetro Falcon 9-Dragon.</li>
+        <li><a href="https://en.wikipedia.org/wiki/Dragon_Spacecraft_Qualification_Unit" target="_blank" rel="noopener">Wikipedia, Dragon Spacecraft Qualification Unit / Falcon 9 Flight 1</a>. Date, orbita, decay.</li>
+        <li><a href="https://en.wikipedia.org/wiki/SpaceX_COTS_Demo_Flight_1" target="_blank" rel="noopener">Wikipedia, SpaceX COTS Demo Flight 1</a>. Timeline, abort, orbita, splashdown, re-light S2.</li>
+        <li>Report locali: <code>storia/SpaceX tra 2009 e 2010.pdf</code>, <code>storia/grok_report (5).pdf</code>.</li>
+      </ol>
+
+      <h3>Fonti immagini</h3>
+      <ol class="sources">
+        <li><code>dragon-cots1-recovery.jpg</code> — SpaceX / Mike Altenhofen, Wikimedia Commons, CC0.</li>
+        <li><code>falcon9-flight1-liftoff.jpg</code> — SpaceX / Chris Thompson, Wikimedia Commons, CC0.</li>
+        <li><code>falcon9-flight1-contrail.jpg</code> — Matthew Simantov, Flickr via Wikimedia Commons, CC BY 2.0.</li>
+        <li><code>falcon9-cots1-liftoff.jpg</code> — NASA/Tony Gray e Kevin O'Connell, KSC-2010-5796, public domain.</li>
+        <li><code>slc40-pad.jpg</code> — archivio locale <code>pad_di_lancio/assets/slc40.jpg</code>.</li>
+      </ol>
+      <p style="margin-top:28px"><a class="button" href="../sezioni/storia-spacex.html">Torna a Storia SpaceX</a></p>
+    </div>
+  </section>
+</main>
+</body>
+</html>

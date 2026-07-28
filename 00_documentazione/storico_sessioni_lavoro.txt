@@ -370,3 +370,19 @@ Sessione 19/06/2026 - riordino generale directory e memoria operativa
 - Agenda The Space Devs rinfrescata: Flight 13 rimosso; prossimo T-0 Starlink Group 17-51 (25/07).
 - File generati: sezioni\starship.html, sezioni\spacex.html, sezioni\lanci-imminenti.html e CSS.
 - Pubblicazione prevista su main e gh-pages.
+
+25/07/2026 - Aggiornamento elenco lanci Falcon (Starlink Group 17-51)
+- Fonti: SpaceX (sl-17-51 / webcast), Spaceflight Now live, NSF, Next Spaceflight, post X (liftoff e landing B1100 su OCISLY).
+- Nota data: l'utente ha indicato 24/07; il volo Falcon Starlink e' del 25/07/2026 15:51 UTC (08:51 PDT) da Vandenberg. Il 24/07 era invece Starship Flight 13 con Starlink V3 (workbook starship, non Falcon).
+- Aggiunto nel foglio elenco il lancio principale nr 687: Starlink Group 17-51, 25/07/2026, Falcon 9 bl 5, B1100 volo 8, SLC-4E, OCISLY, LEO, Vandenberg, esito successo.
+- Payload: 24 satelliti Starlink V2 Mini; 8° volo di B1100 (precedenti: NROL-105 e sei Starlink); turnaround ~24 giorni; landing su droneship Of Course I Still Love You.
+- Dashboard ricalcolato: 687 lanci principali, 681 successi, 662 tentativi di recupero, 638 recuperi riusciti e 586 riutilizzi booster.
+- Verificati fogli elenco/dashboard e formule progressive via Excel COM dopo scrittura openpyxl.
+- Backup pre-modifica: 02_backup\lanci_spacex_falcon_backup_20260725_pre_starlink17-51.xlsx.
+- Nessuna pubblicazione del sito eseguita in questa sessione.
+
+28/07/2026 - Quarta parte Storia SpaceX (2009-2010)
+- Creato documenti per sito\falcon9_salto_scala_cots1.html: dal salto di scala al primo Falcon 9 e a COTS-1.
+- Fonti primarie/croniche: Spaceflight Now, NASA COTS SAA, User's Guide F9 2009, Wikipedia missioni; contesto forum NSF (Post F9 Flight 1 topic 21904, COTS Demo 1 Updates topic 22041) e articolo live NSF 8/12/2010 (Wayback).
+- Asset in documenti per sito\assets_fondazione\falcon9-2010 (CC0 SpaceX, NASA PD KSC-2010-5796, CC BY 2.0 Simantov, pad locale).
+- Aggiornati sezioni\storia-spacex.html, genera_sito_rivoluzione.py, README.md, README.txt, inventario_file.txt.
