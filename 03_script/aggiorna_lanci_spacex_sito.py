@@ -39,10 +39,53 @@ MONTHS_IT = {
 }
 
 STATUS_LABELS = {
-    "Go for Launch": "Go for launch",
-    "To Be Confirmed": "Date/time may change",
+    "Go for Launch": "Pronto al lancio",
+    "To Be Confirmed": "Data/orario possono cambiare",
     "To Be Determined": "NET / da definire",
 }
+
+# Descrizioni di stato LL2 (campo status.description / news) → italiano.
+STATUS_NEWS_IT = {
+    "Current T-0 confirmed by official or reliable sources.": (
+        "T-0 attuale confermato da fonti ufficiali o affidabili."
+    ),
+    "Current date is a placeholder or rough estimation based on unreliable or interpreted sources.": (
+        "La data attuale e indicativa o approssimativa, basata su fonti non stabili o interpretate."
+    ),
+    "Date is uncertain and subject to change.": "Data incerta e soggetta a variazioni.",
+    "Launch time is uncertain and subject to change.": "Orario di lancio incerto e soggetto a variazioni.",
+}
+
+# Traduzioni letterali di summary note dalla API (match esatto, dopo compact_text).
+SUMMARY_IT_EXACT = {
+    "Classified payload for the US National Reconnaissance Office.": (
+        "Carico classificato per il National Reconnaissance Office degli Stati Uniti."
+    ),
+    "A batch of 24 satellites for the Starlink mega-constellation - SpaceX's project for space-based Internet communication system.": (
+        "Gruppo di 24 satelliti per la mega-costellazione Starlink, il progetto SpaceX di Internet via satellite."
+    ),
+    "A batch of 29 satellites for the Starlink mega-constellation - SpaceX's project for space-based Internet communication system.": (
+        "Gruppo di 29 satelliti per la mega-costellazione Starlink, il progetto SpaceX di Internet via satellite."
+    ),
+    "The Nancy Grace Roman Space Telescope is a NASA infrared space telescope with a 2.4 m (7.9 ft) wide field of view primary mirror and two scientific instruments. The Wide-Field Instrument (WFI) is a 300.8-megapixel multi-band visible and near-infrared camera, providing a sharpness of images comparable to that achieved by the Hubble Space Telescope over a 0.28 square degree field of view, 100 times larger than imaging cameras...": (
+        "Il telescopio spaziale Nancy Grace Roman della NASA e un osservatorio infrarosso con specchio primario da 2,4 m a grande campo di vista e due strumenti scientifici. Lo strumento Wide-Field (WFI) e una camera multi-banda da 300,8 megapixel nel visibile e vicino infrarosso, con nitidezza paragonabile a Hubble su un campo di circa 0,28 gradi quadrati: circa 100 volte piu ampio delle camere di imaging tipiche..."
+    ),
+    "AST SpaceMobile’s Block 2 BlueBird satellites are designed to deliver up to 10 times the bandwidth capacity of the BlueBird Block 1 satellites, required to achieve 24/7 continuous cellular broadband service coverage in the United States, with beams designed to support a capacity of up to 40 MHz, enabling peak data transmission speeds up to 120 Mbps, supporting voice, full data and video applications. The Block 2 BlueBirds,...": (
+        "I satelliti BlueBird Block 2 di AST SpaceMobile sono progettati per offrire fino a 10 volte la capacita di banda dei BlueBird Block 1, necessaria a una copertura cellulare a banda larga continua 24/7 negli Stati Uniti, con fasci fino a 40 MHz e velocita di picco fino a 120 Mbps per voce, dati e video..."
+    ),
+    "AST SpaceMobile's Block 2 BlueBird satellites are designed to deliver up to 10 times the bandwidth capacity of the BlueBird Block 1 satellites, required to achieve 24/7 continuous cellular broadband service coverage in the United States, with beams designed to support a capacity of up to 40 MHz, enabling peak data transmission speeds up to 120 Mbps, supporting voice, full data and video applications. The Block 2 BlueBirds,...": (
+        "I satelliti BlueBird Block 2 di AST SpaceMobile sono progettati per offrire fino a 10 volte la capacita di banda dei BlueBird Block 1, necessaria a una copertura cellulare a banda larga continua 24/7 negli Stati Uniti, con fasci fino a 40 MHz e velocita di picco fino a 120 Mbps per voce, dati e video..."
+    ),
+    "The Globalstar global mobile communications network offers global, digital real time voice, data and fax services via its Low Earth Orbit satellite constellation. The constellation operates in a 1410 km orbit inclined at 52 degrees. In early 2022, Globalstar contracted with MDA for the construction of 17 new 2nd generation refresh satellites to replenish the existing constellation. Rocket Lab is sub-contracted to build the...": (
+        "La rete Globalstar offre servizi digitali globali in tempo reale di voce, dati e fax tramite una costellazione in orbita bassa. Opera a circa 1410 km con inclinazione di 52 gradi. All'inizio del 2022 Globalstar ha affidato a MDA la costruzione di 17 satelliti di seconda generazione refresh per rifornire la costellazione. Rocket Lab e subappaltatore per la costruzione..."
+    ),
+}
+
+STARLINK_BATCH_RE = re.compile(
+    r"^A batch of (\d+) satellites for the Starlink mega-constellation\s*[-–—]\s*"
+    r"SpaceX's project for space-based Internet communication system\.?$",
+    re.IGNORECASE,
+)
 
 SPECIAL_NAMES = {
     "Project Starfall Demonstration Mission": "Starfall Demo",
@@ -397,6 +440,66 @@ def categories_for(launch, name, rocket, exact):
     return categories
 
 
+def translate_status_news(text):
+    """Traduce le note di stato LL2 usate nel campo news."""
+    raw = (text or "").strip()
+    if not raw:
+        return raw
+    if raw in STATUS_NEWS_IT:
+        return STATUS_NEWS_IT[raw]
+    # Match senza punto finale o con spazi multipli.
+    normalized = re.sub(r"\s+", " ", raw).strip()
+    for eng, ita in STATUS_NEWS_IT.items():
+        if re.sub(r"\s+", " ", eng).strip().rstrip(".") == normalized.rstrip("."):
+            return ita
+    return raw
+
+
+def translate_mission_summary(text):
+    """Traduce le descrizioni missione più comuni provenienti da LL2."""
+    raw = compact_text(text or "")
+    if not raw:
+        return raw
+    if raw in SUMMARY_IT_EXACT:
+        return SUMMARY_IT_EXACT[raw]
+    # Variante con apostrofo tipografico.
+    raw_norm = raw.replace("\u2019", "'").replace("\u2018", "'")
+    if raw_norm in SUMMARY_IT_EXACT:
+        return SUMMARY_IT_EXACT[raw_norm]
+    for eng, ita in SUMMARY_IT_EXACT.items():
+        if eng.replace("\u2019", "'") == raw_norm:
+            return ita
+    match = STARLINK_BATCH_RE.match(raw_norm)
+    if match:
+        count = match.group(1)
+        return (
+            f"Gruppo di {count} satelliti per la mega-costellazione Starlink, "
+            "il progetto SpaceX di Internet via satellite."
+        )
+    # NROL generico.
+    if re.search(r"Classified payload for the US National Reconnaissance Office", raw, re.I):
+        return "Carico classificato per il National Reconnaissance Office degli Stati Uniti."
+    return raw
+
+
+def italianize_launch_texts(item):
+    """Applica traduzioni IT a summary/news/status di un item manifesto già convertito."""
+    out = dict(item)
+    if out.get("summary"):
+        out["summary"] = translate_mission_summary(out["summary"])
+    if out.get("news"):
+        out["news"] = translate_status_news(out["news"])
+    status = out.get("status") or ""
+    # Se lo status e ancora la forma inglese grezza della API, riallinea.
+    for eng, ita in STATUS_LABELS.items():
+        if status == eng or status.lower() == eng.lower() or status == "Go for launch":
+            out["status"] = ita
+            break
+    if status == "Go for launch":
+        out["status"] = "Pronto al lancio"
+    return out
+
+
 def convert_launch(launch):
     dt = parse_iso(launch.get("net"))
     exact = is_exact_launch(launch)
@@ -407,6 +510,15 @@ def convert_launch(launch):
     status_name = safe_get(launch, "status", "name")
     status_description = safe_get(launch, "status", "description")
     payload = name if not mission_type else f"{name} ({mission_type})"
+    summary = translate_mission_summary(description)
+    news_src = status_description or first_sentence(description) or "Dati aggiornati da The Space Devs."
+    news = translate_status_news(news_src)
+    # Se news era solo la prima frase inglese della description, usa la summary già tradotta.
+    if news == news_src and news_src and news_src != summary:
+        # prova a tradurre anche se e una summary troncata
+        maybe = translate_mission_summary(news_src)
+        if maybe != news_src:
+            news = maybe
     return {
         "id": str(launch.get("slug") or re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")),
         "cat": categories_for(launch, name, rocket, exact),
@@ -420,8 +532,8 @@ def convert_launch(launch):
         "landing": landing_text(launch),
         "orbit": orbit_name(launch),
         "payload": payload,
-        "summary": compact_text(description),
-        "news": status_description or first_sentence(description) or "Dati aggiornati da The Space Devs.",
+        "summary": summary,
+        "news": news,
         "sources": source_links(launch),
     }
 
