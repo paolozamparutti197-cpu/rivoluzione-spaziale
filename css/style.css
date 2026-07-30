@@ -77,6 +77,21 @@ a.metric-link-f14:hover,a.metric-link-f14:focus-visible{
 }
 a.metric-link-f14 b{color:#fff0e0}
 a.metric-link-f14 span{color:#ffd29a;font-weight:800}
+a.metric-link-f14 .metric-f14-cd{
+  display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;
+  font-size:12px;font-weight:850;letter-spacing:.04em;
+  color:#ffe8cc;
+}
+a.metric-link-f14 .metric-f14-cd-unit{
+  display:inline-flex;align-items:baseline;gap:3px;
+  padding:4px 8px;border-radius:6px;
+  border:1px solid rgba(240,163,90,.4);
+  background:rgba(0,0,0,.28);
+  color:#ffd29a;font-weight:800;
+}
+a.metric-link-f14 .metric-f14-cd-unit strong{
+  font-size:16px;font-weight:950;color:#fff6ea;font-variant-numeric:tabular-nums;
+}
 .story-list{display:grid;gap:16px}
 .story-card{display:grid;grid-template-columns:minmax(220px,320px) minmax(0,1fr);gap:20px;align-items:stretch;border:1px solid var(--line);background:linear-gradient(180deg,var(--panel2),var(--panel));border-radius:8px;padding:14px;transition:transform .18s ease,border-color .18s ease}
 .story-card:hover{transform:translateY(-3px);border-color:rgba(105,200,255,.55)}
