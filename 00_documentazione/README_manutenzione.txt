@@ -39,6 +39,8 @@ Lo script 03_script\genera_sito_rivoluzione.py genera il sito statico multipagin
 - Luna, Marte, Infrastrutture orbitali e Cronologia sono pagine provvisorie non visibili nella nav globale finche' non vengono ridefinite come macro-sezioni;
 - per modifiche al sito aggiornare il generatore e rigenerare, non modificare soltanto gli HTML finali.
 - il sito pubblico e' servito da gh-pages; dopo modifiche pubbliche spingere main e poi main:gh-pages, quindi verificare la URL pubblica.
+- se live e' vecchio ma main e' aggiornato, leggere 00_documentazione\NOTE_GITHUB_PAGES_MAIN_VS_GHPAGES.txt (push mancante su gh-pages).
+- stile schede (corpo descrittivo, fonti in fondo): 00_documentazione\STILE_EDITORIALE_SCHEDE.txt
 
 Lo script 03_script\genera_workbook_starship.py genera un workbook Starship partendo da due documenti Word. Cerca i sorgenti in 05_fonti_originali:
 - programma_starship_spacex.docx

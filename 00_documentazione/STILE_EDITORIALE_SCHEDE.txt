@@ -1,0 +1,57 @@
+STILE EDITORIALE — schede lanci / dossier (regola permanente)
+=============================================================
+Data: 1 agosto 2026
+Destinatari: chi aggiorna sezioni\*.html (umani e assistenti AI)
+
+Regola centrale
+---------------
+Nel CORPO della pagina si DESCRIVE cosa e' successo e cosa si sa.
+Le FONTI si citano in modo esplicito soprattutto in fondo, nella sezione
+"Fonti pubbliche e tracce" (o equivalente), non a ogni frase.
+
+Evitare (nel corpo)
+-------------------
+- "secondo NASASpaceflight...", "secondo NSF...", "reporting community..."
+- "forum NSF dice che...", "su X @Nome ha scritto..."
+- "Next Spaceflight elenca...", "Wikipedia indica..." come soggetto di ogni periodo
+- Ripetere "community / NSF / X" come etichetta di confidenza in ogni bullet
+
+Preferire (nel corpo)
+---------------------
+- Frasi di stato: "Ship 41 e candidata a hotfire a inizio agosto."
+- Fatti datati senza catena di attribuzione: "Il 27/07 il terzo RVac e entrato in Mega Bay 2."
+- Distinzione chiara tra:
+  - pezzi dichiarati (es. Elon / SpaceX) — qui la citazione leggera e' ok
+  - ipotesi di redazione — etichettate come tali
+- Un link o rinvio generico se serve: "le tracce sono in Fonti pubbliche e tracce"
+
+Cosa va in "Fonti pubbliche e tracce"
+-------------------------------------
+- Link X, NSF, SpaceX, Next Spaceflight, Wikipedia, ecc.
+- Nota breve: "nel corpo non si ripete secondo X a ogni frase"
+- Eventuali fonti private (es. NSF L2): NON nominare L2; se serve, ricondurre
+  a "NASASpaceflight" in modo generico, senza quote riservate
+
+Eccezioni ammesse nel corpo
+---------------------------
+- Citazioni dirette di Elon Musk / SpaceX (con data), perche' sono dichiarazioni primarie
+- "ipotesi di redazione", "non ufficiale", "data indicativa" (disclaimer editoriali)
+- Nomi di veicoli, pad, date, numeri: sono contenuto, non attribuzione di fonte
+
+Pagine tipiche
+--------------
+- sezioni\lancio14.html, sezioni\lancio13.html e schede missione future
+- stesssa logica per dossier Starship se si raccontano eventi recenti
+
+Workflow
+--------
+1. Scrivere/aggiornare la narrativa in stile descrittivo.
+2. Aggiornare la sezione Fonti con i link e le tracce usate.
+3. Aggiornare data "ultimo aggiornamento" su pagina pubblicata.
+4. Pubblicare: git push origin main && git push origin main:gh-pages
+   (vedi NOTE_GITHUB_PAGES_MAIN_VS_GHPAGES.txt)
+
+Motivo
+------
+Ripetere "secondo NSF / community / X" rende la pagina pesante e ridondante.
+Il lettore vuole lo stato del veicolo e della missione; le tracce stanno in fondo.

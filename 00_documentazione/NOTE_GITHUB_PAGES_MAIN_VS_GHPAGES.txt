@@ -1,0 +1,91 @@
+NOTE OPERATIVA — GitHub Pages: main vs gh-pages
+================================================
+Data nota: 1 agosto 2026
+Destinatari: chi lavora su questo repo (umani e assistenti AI)
+
+Problema riscontrato
+--------------------
+Il sito pubblico
+  https://paolozamparutti197-cpu.github.io/rivoluzione-spaziale/
+NON e' servito dal branch `main`.
+
+GitHub Pages e' configurato sul branch `gh-pages`.
+
+Sintomo tipico (caso reale 1/08/2026, scheda Flight 14):
+- `git push origin main` riuscito
+- file aggiornato su raw.githubusercontent.com/.../main/...
+- URL pubblica ancora vecchia (footer "30 luglio", niente banner hotfire)
+- Actions "pages build and deployment" fermo sull'ultimo commit di `gh-pages`, non sul tip di `main`
+
+Conclusione: push SOLO su main = lavoro salvato ma NON online.
+
+Cosa fare SEMPRE dopo modifiche al sito pubblico
+-----------------------------------------------
+1. Commit e push su main:
+     git add <file>
+     git commit -m "..."
+     git push origin main
+
+2. Allineare gh-pages al tip di main (comando consigliato, fast-forward):
+     git push origin main:gh-pages
+
+   Equivalente se serve lavorare sul branch locale:
+     git fetch origin
+     git branch -f gh-pages main
+     git push origin gh-pages
+   (force-with-lease solo se le storie sono divergenti e si sa cosa si fa)
+
+3. NON bastano "checkout gh-pages + merge" se ci sono modifiche locali non committate
+   che bloccano lo switch di branch (es. 00_documentazione\storico_sessioni_lavoro.txt).
+   In quel caso preferire `git push origin main:gh-pages` senza checkout.
+
+4. Verificare che i due branch puntino allo stesso SHA:
+     git fetch origin
+     git rev-parse origin/main origin/gh-pages
+   Devono essere uguali.
+
+5. Attendere il build Pages (Actions: "pages build and deployment", ~30–90 s).
+   Poi controllare la URL pubblica CON cache-buster:
+     https://paolozamparutti197-cpu.github.io/rivoluzione-spaziale/sezioni/....html?v=TIMESTAMP
+   Oppure:
+     curl -sI sulla URL e marker di testo nel body (es. "Ultimo aggiornamento pagina").
+
+Checklist rapida "e' davvero online?"
+-------------------------------------
+[ ] origin/main e origin/gh-pages stesso commit
+[ ] ultima run Pages su quel SHA = completed / success
+[ ] pagina live contiene un marker presente solo nel commit nuovo
+[ ] hard refresh / query string random (CDN ha max-age ~600 s)
+
+Marker utili da cercare
+-----------------------
+- Raw (sempre allineato a main se il push main e' ok):
+    https://raw.githubusercontent.com/paolozamparutti197-cpu/rivoluzione-spaziale/main/sezioni/lancio14.html
+- Live (allineato solo dopo push su gh-pages + build):
+    https://paolozamparutti197-cpu.github.io/rivoluzione-spaziale/sezioni/lancio14.html
+
+Se raw e' nuovo e live e' vecchio → manca allineamento gh-pages (o build ancora in corso).
+Se entrambi vecchi → manca push su main (o branch sbagliato).
+
+Pagine manuali vs generatore
+----------------------------
+- Molte pagine nascono da 03_script\genera_sito_rivoluzione.py (poi commit/push).
+- Alcune schede (es. sezioni\lancio14.html, sezioni\lancio13.html) si aggiornano
+  A MANO sul file HTML. Anche in quel caso: main + main:gh-pages, non solo main.
+
+Fonti private (NSF L2) in pagina pubblica
+-----------------------------------------
+Le notizie possono restare; non citare "L2" ne' quote/thread privati.
+Attribuzione generica: "NASASpaceflight" / "NSF e community".
+(Richiesta esplicita del titolare del sito, 1/08/2026.)
+
+Riferimenti correlati in questa cartella
+----------------------------------------
+- procedure_aggiornamento.txt  (passi 6–7: push main e main:gh-pages)
+- README_manutenzione.txt      (nota: sito servito da gh-pages)
+
+Storico breve
+-------------
+- 1 agosto 2026: aggiornamento Flight 14 pushato solo su main; live non aggiornato.
+  Risolto con: git push origin main:gh-pages (56b815b → 2b54a1c).
+  Scritta questa nota per evitare la ripetizione.

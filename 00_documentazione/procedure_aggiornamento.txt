@@ -20,7 +20,13 @@ Aggiornare il sito statico Rivoluzione Spaziale
 6. Dopo la verifica locale, pubblicare con commit e push su main e gh-pages:
    git push origin main
    git push origin main:gh-pages
+   IMPORTANTE: GitHub Pages pubblica SOLO da gh-pages. Push solo su main = file su GitHub
+   ma sito pubblico ancora vecchio. Dettaglio e checklist in:
+   00_documentazione\NOTE_GITHUB_PAGES_MAIN_VS_GHPAGES.txt
 7. Verificare la URL pubblica con cache-buster, perche' la verifica locale non garantisce che GitHub Pages sia aggiornato.
+   Controllare anche che origin/main e origin/gh-pages abbiano lo stesso SHA.
+8. Stile editoriale delle schede: nel corpo descrivere lo stato; citare le fonti in "Fonti pubbliche e tracce".
+   Non ripetere "secondo NSF / community / X" a ogni frase. Dettaglio: 00_documentazione\STILE_EDITORIALE_SCHEDE.txt.
 
 Aggiornare il workbook lanci SpaceX/Falcon
 ------------------------------------------
