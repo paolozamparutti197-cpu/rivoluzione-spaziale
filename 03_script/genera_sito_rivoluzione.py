@@ -16,7 +16,7 @@ SECTIONS_DIR = ROOT / "sezioni"
 CSS_DIR = ROOT / "css"
 
 HERO_IMAGE = "https://upload.wikimedia.org/wikipedia/commons/5/5d/Falcon_1_Flight_4_launch.jpg"
-CSS_VERSION = "20260725-flight14-card"
+CSS_VERSION = "20260803-louisiana-breaking"
 ROME_TZ = ZoneInfo("Europe/Rome")
 MONTHS_IT = {
     1: "gennaio",
@@ -891,12 +891,17 @@ a.metric-link-f14:hover,a.metric-link-f14:focus-visible{{
 a.metric-link-f14 b{{color:#fff0e0}}
 a.metric-link-f14 span{{color:#ffd29a;font-weight:800}}
 .story-list{{display:grid;gap:16px}}
-.story-card{{display:grid;grid-template-columns:minmax(220px,320px) minmax(0,1fr);gap:20px;align-items:stretch;border:1px solid var(--line);background:linear-gradient(180deg,var(--panel2),var(--panel));border-radius:8px;padding:14px;transition:transform .18s ease,border-color .18s ease}}
-.story-card:hover{{transform:translateY(-3px);border-color:rgba(105,200,255,.55)}}
+.story-card{{display:grid;grid-template-columns:minmax(220px,320px) minmax(0,1fr);gap:20px;align-items:stretch;border:1px solid var(--line);background:linear-gradient(180deg,var(--panel2),var(--panel));border-radius:8px;padding:14px;transition:transform .18s ease,border-color .18s ease;color:inherit;text-decoration:none}}
+.story-card:hover,a.story-card:hover{{transform:translateY(-3px);border-color:rgba(105,200,255,.55);text-decoration:none}}
 .story-card img{{display:block;width:100%;height:100%;min-height:230px;object-fit:cover;border-radius:6px;border:1px solid rgba(255,255,255,.16);background:#090d11}}
 .story-card small{{display:block;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;font-size:11px;font-weight:900;margin-bottom:10px}}
+.story-card h3{{margin:0;font-size:clamp(22px,3vw,32px);line-height:1.1;color:#fff}}
 .story-card p{{max-width:760px;margin:10px 0 0;color:#cbd2d8}}
 .story-card .button{{display:inline-flex;margin-top:18px}}
+.breaking-news-section{{padding-top:28px}}
+.breaking-card{{border-color:rgba(233,95,69,.45);background:linear-gradient(135deg,rgba(233,95,69,.12),rgba(255,255,255,.05) 42%,var(--panel))}}
+.breaking-card:hover{{border-color:rgba(233,95,69,.75)}}
+.breaking-card small{{color:#ff9b8a}}
 .agenda-strip{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:22px}}
 .agenda-note{{border:1px solid var(--line);background:rgba(255,255,255,.055);border-radius:8px;padding:16px;min-height:96px}}
 .agenda-note b{{display:block;font-size:24px;margin-bottom:6px}}
@@ -2057,8 +2062,28 @@ def render_spacex(data):
             ),
         ]
     )
+    breaking_news = """
+<section class="breaking-news-section">
+  <div class="inner">
+    <div class="section-head">
+      <h2>Breaking news</h2>
+      <p>Dossier aperti sulle notizie SpaceX in corso. Aggiornati quando cambiano i fatti pubblici, non come comunicati ufficiali.</p>
+    </div>
+    <a class="story-card breaking-card" href="../documenti%20per%20sito/spacex_louisiana_pecan_island.html">
+      <img src="../documenti%20per%20sito/assets_louisiana/pecan_island_location_2003.jpg" alt="Landsat di Pecan Island, Vermilion Parish, Louisiana" loading="lazy" width="640" height="360">
+      <div>
+        <small>3 agosto 2026 · Louisiana · ~530-550 km²</small>
+        <h3>SpaceX e Pecan Island: deal costiero in fasi finali</h3>
+        <p>Accordo tra Stato, settlement Exxon e possibile spaceport Starship su palude costiera nel Vermilion Parish. Premesse, cronologia, mappa e ultimi aggiornamenti.</p>
+        <span class="button">Apri il dossier</span>
+      </div>
+    </a>
+  </div>
+</section>
+"""
     body = f"""
 {page_hero("SpaceX", "Sezione attiva", "L'area SpaceX raccoglie la parte viva del sito: agenda dei lanci, storico Falcon, riuso dei booster e sviluppo Starship.")}
+{breaking_news}
 <section>
   <div class="inner split">
     <article class="panel">

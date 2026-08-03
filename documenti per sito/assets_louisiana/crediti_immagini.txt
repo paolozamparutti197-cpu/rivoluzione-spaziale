@@ -1,0 +1,21 @@
+Crediti immagini — dossier SpaceX Louisiana / Pecan Island
+==========================================================
+
+Fonte principale: NASA Scientific Visualization Studio, item 11042
+"Vermilion Parish, LA" (pubblicato 23 luglio 2012; Landsat NASA/USGS).
+https://svs.gsfc.nasa.gov/11042/
+
+Credito richiesto da NASA SVS:
+  NASA/Goddard Space Flight Center
+  Landsat e' un programma congiunto NASA e USGS.
+
+File locali (tutti public domain / uso governativo USA):
+- pecan_island_location_2003.jpg  — localizzazione ridge Pecan Island, Landsat 2003
+- pecan_island_2011.jpg           — composite Landsat 2011, vegetazione/acqua
+- pecan_island_2003.jpg           — composite Landsat 2003
+- pecan_island_rita_2005.jpg      — post Hurricane Rita, ottobre 2005
+- pecan_island_compare_1973_2011.jpg — confronto 1973 vs 2011
+
+Scaricate localmente l'3 agosto 2026 per il dossier Rivoluzione Spaziale.
+La mappa interattiva usa tile OpenStreetMap / Esri World Imagery via Leaflet
+(© OpenStreetMap contributors; Esri per layer satellite).

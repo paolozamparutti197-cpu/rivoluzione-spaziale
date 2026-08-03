@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SpaceX in Louisiana: l'accordo su Pecan Island e i 130.000 acri costieri</title>
+<style>
+:root{
+  --bg:#050607;
+  --ink:#f4f6f8;
+  --muted:#a9b0b7;
+  --line:rgba(255,255,255,.16);
+  --soft:rgba(255,255,255,.075);
+  --cyan:#67c7ff;
+  --amber:#f5b941;
+  --red:#e95f45;
+  --green:#79d18b;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;letter-spacing:0}
+a{color:var(--cyan);text-decoration:none}
+a:hover{text-decoration:underline}
+.topbar{position:fixed;inset:0 0 auto 0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:18px clamp(18px,4vw,56px);background:linear-gradient(180deg,rgba(0,0,0,.92),rgba(0,0,0,.54),rgba(0,0,0,0))}
+.brand{font-weight:900;letter-spacing:.16em;text-transform:uppercase;font-size:15px;color:#fff}
+.brand span{color:var(--cyan)}
+.nav{display:flex;gap:18px;flex-wrap:wrap;justify-content:flex-end;font-size:12px;text-transform:uppercase;letter-spacing:.1em;font-weight:800}
+.nav a{color:#fff}
+.hero{min-height:86vh;display:grid;align-items:end;padding:110px clamp(18px,4vw,56px) 50px;background:
+  linear-gradient(90deg,rgba(0,0,0,.88),rgba(0,0,0,.52) 48%,rgba(0,0,0,.28)),
+  linear-gradient(180deg,rgba(0,0,0,.12),rgba(5,6,7,.96) 92%),
+  url("assets_louisiana/pecan_island_location_2003.jpg") center 45%/cover no-repeat}
+.hero-inner,.section-inner{max-width:1180px;margin:0 auto}
+.eyebrow{margin:0 0 14px;color:var(--amber);text-transform:uppercase;letter-spacing:.14em;font-size:13px;font-weight:900}
+h1{margin:0;max-width:1040px;font-size:clamp(36px,7.2vw,78px);line-height:.92;text-transform:uppercase;font-weight:950}
+h2{margin:0 0 24px;font-size:clamp(28px,4vw,48px);line-height:1;text-transform:uppercase}
+h3{margin:30px 0 12px;font-size:22px;line-height:1.15}
+p{color:#d9dde1;font-size:17px;line-height:1.72;margin:0 0 18px}
+.lead{max-width:920px;margin:24px 0 0;color:#e6ebef;font-size:clamp(17px,2vw,22px);line-height:1.48;font-weight:500}
+.meta{margin:18px 0 0;color:var(--muted);font-size:14px;letter-spacing:.04em}
+section{padding:76px clamp(18px,4vw,56px);border-top:1px solid var(--line)}
+.split{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(280px,.72fr);gap:42px;align-items:start}
+.panel{border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.045));border-radius:8px;padding:22px}
+.panel h3:first-child{margin-top:0}
+.panel p,.panel li{font-size:15px;color:#d6dbe0;line-height:1.62}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:34px}
+.fact{border:1px solid var(--line);background:var(--soft);border-radius:8px;padding:18px;min-height:118px}
+.fact b{display:block;font-size:22px;line-height:1.05;margin-bottom:10px}
+.fact span{display:block;color:var(--muted);line-height:1.42;font-size:14px}
+.timeline{display:grid;gap:14px;margin-top:24px}
+.event{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;border-top:1px solid var(--line);padding-top:18px}
+.date{color:var(--amber);font-weight:900;text-transform:uppercase;letter-spacing:.08em;font-size:13px}
+.event h3{margin:0 0 6px}
+.event p{margin:0;color:#cfd5da}
+table{width:100%;border-collapse:collapse;margin-top:22px;font-size:15px}
+th,td{border-top:1px solid var(--line);padding:13px 10px;text-align:left;vertical-align:top;line-height:1.45}
+th{color:#fff;text-transform:uppercase;letter-spacing:.08em;font-size:12px}
+td{color:#d8dde2}
+.callout{border-left:4px solid var(--red);padding:16px 18px;background:rgba(233,95,69,.095);margin:26px 0}
+.callout.green{border-left-color:var(--green);background:rgba(121,209,139,.08)}
+.callout.amber{border-left-color:var(--amber);background:rgba(245,185,65,.09)}
+.callout p{margin:0}
+.sources{columns:2 360px;column-gap:42px;padding-left:18px}
+.sources li{break-inside:avoid;color:#d9dde1;margin:0 0 12px;line-height:1.5;font-size:15px}
+.button{display:inline-flex;border:1px solid var(--line);padding:12px 16px;border-radius:4px;text-transform:uppercase;font-size:12px;letter-spacing:.09em;font-weight:900;background:rgba(0,0,0,.22);color:#fff;margin-top:8px}
+.draft-banner{position:sticky;top:0;z-index:20;background:rgba(245,185,65,.14);border-bottom:1px solid rgba(245,185,65,.35);color:#f5e6c0;padding:10px clamp(18px,4vw,56px);font-size:13px;font-weight:700;letter-spacing:.04em}
+@media(max-width:850px){.topbar{position:absolute;align-items:flex-start}.nav{display:none}.hero{min-height:82vh}.split{grid-template-columns:1fr}.facts{grid-template-columns:repeat(2,minmax(0,1fr))}.event{grid-template-columns:1fr;gap:6px}}
+
+#la-map{height:520px;width:100%;border-radius:8px;border:1px solid var(--line);background:#0c1116;z-index:1}
+.map-shell{margin-top:26px}
+.map-note{margin-top:12px;color:var(--muted);font-size:14px;line-height:1.5}
+.leaflet-container{font:inherit;background:#0c1116}
+.leaflet-popup-content-wrapper{background:#121820;color:#e8eef2;border-radius:8px}
+.leaflet-popup-tip{background:#121820}
+.leaflet-popup-content p{margin:0 0 6px;font-size:13px;line-height:1.45;color:#d5dde3}
+.leaflet-popup-content strong{color:#fff}
+@media(max-width:520px){.facts{grid-template-columns:1fr}section{padding:54px 18px}.hero{padding:96px 18px 42px}h1{font-size:40px}#la-map{height:380px}}
+</style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+</head>
+<body>
+<div class="draft-banner">Breaking news · aggiornato 3 agosto 2026 · trattativa in fasi finali (fonti locali). Non e' un comunicato ufficiale SpaceX.</div>
+<header class="topbar">
+  <a class="brand" href="../sezioni/spacex.html">Space<span>X</span></a>
+  <nav class="nav" aria-label="Sezioni">
+    <a href="#premesse">Premesse</a>
+    <a href="#cosa">In cosa consiste</a>
+    <a href="#storico">Storico</a>
+    <a href="#oggi">Ultimi aggiornamenti</a>
+    <a href="#mappa">Mappa</a>
+    <a href="#territorio">Territorio</a>
+    <a href="#leggi">Quadro normativo</a>
+    <a href="#dibattito">Dibattito</a>
+    <a href="#fonti">Fonti</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" aria-label="Introduzione">
+    <div class="hero-inner">
+      <p class="eyebrow">Louisiana · 2026 · dossier in corso</p>
+      <h1>SpaceX e la Louisiana: i 130.000 acri di Pecan Island</h1>
+      <p class="lead">Tra maggio e agosto 2026 un'enorme striscia di palude costiera nel Vermilion Parish e' passata da voce da realtor e da forum a trattativa di Stato: ExxonMobil, settlement costieri, un pacchetto di leggi aerospaziali e un possibile spaceport Starship a mezza via tra Starbase e la Florida. Ecco premesse, struttura del deal, cronologia e cosa si sa oggi.</p>
+      <p class="meta">Dossier · non ufficiale · collegato da SpaceX → Breaking news · 3 agosto 2026</p>
+    </div>
+  </section>
+
+  <section id="tesi">
+    <div class="section-inner">
+      <div class="split">
+        <article>
+          <h2>Di cosa parla questo dossier</h2>
+          <p>Questa pagina non e' la cronaca di un pad gia' operativo e non e' un comunicato di SpaceX. E' il racconto, aggiornato ai primi giorni di agosto 2026, di un accordo in fase finale tra la Louisiana e l'industria aerospaziale privata per mettere sotto controllo una superficie costiera dell'ordine di 130.000-136.000 acri (circa 530-550 km²) nella zona di Pecan Island e Freshwater City, Parish di Vermilion, a sud-ovest di Lafayette.</p>
+          <p>Il pezzo centrale non e' un singolo atto di compravendita su un rogito pubblico. E' un crocevia: cause costiere contro ExxonMobil, un settlement in cui lo Stato riceve terreni di proprieta' della major petrolifera dal 1950, e un passaggio successivo — vendita, lease di lungo periodo o altra forma di controllo — che porterebbe SpaceX a gestire il sito per operazioni di lancio e infrastruttura legata a Starship. Le cronache locali della Times-Picayune / NOLA.com e di emittenti come KPEL, a inizio agosto, descrivono la Louisiana nelle "fasi finali" del deal e un annuncio atteso entro il mese dal governatore Jeff Landry.</p>
+          <p>Per chi segue SpaceX da anni, il dossier va letto insieme a tre vincoli industriali. Primo: Starbase a Boca Chica e' un sito denso, con limiti di licenza e un perimetro sociale e ambientale stretto. Secondo: la cadenza dichiarata per Starship non e' "qualche decina di voli l'anno", ma migliaia, e quella cadenza non sta in un solo corridoio di lancio. Terzo: i booster e le navi Starship non viaggiano comodamente su strada; l'acqua (baie, Intracoastal Waterway, Golfo) e' un corridoio logistico. La Louisiana, tra Texas e Florida, con gas naturale a portata di mano e pochissimi residenti permanenti sulla costa, e' diventata un candidato naturale nel momento in cui le voci locali e le trattative di Stato si sono allineate.</p>
+          <p>Qui si tengono distinte tre cose che spesso si confondono online. (1) I fatti documentati: interruzione di lease di caccia e pesca, dichiarazioni del senatore statale Bob Hensgens, pacchetto legislativo aerospaziale, settlement costiero di giugno, proposte FAA di fine luglio, reporting NOLA di inizio agosto. (2) Le dichiarazioni primarie di SpaceX: esplorazione di siti multipli per migliaia di voli Starship all'anno, senza conferma nominale del sito Louisiana. (3) Le letture di community e redazione: buffer acustico, multi-pad, possibile hub di produzione o test, nessi con costellazioni LEO ad alta densita'. Dove qualcosa e' ipotesi, e' scritto come tale.</p>
+          <p>Il tono non e' da comunicato di sviluppo economico e non e' da pamphlet ambientalista. E' da dossier operativo: cosa e' il terreno, chi lo controlla, come si e' mossa la notizia da maggio a oggi, quali pezzi di legge e di settlement tengono insieme l'affare, e cosa resta ancora sigillato da ordine del tribunale o da silenzio istituzionale.</p>
+        </article>
+        <aside class="panel">
+          <h3>In sintesi</h3>
+          <p><strong>Dove:</strong> Pecan Island / Freshwater City, Vermilion Parish, Louisiana; palude a sud della LA 82 verso il Golfo.</p>
+          <p><strong>Quanto:</strong> circa 530-550 km² (~130.000-136.000 acri nelle stime locali).</p>
+          <p><strong>Come:</strong> settlement costiero Exxon → Stato → controllo SpaceX (forma ancora non pubblica).</p>
+          <p><strong>Quando (stato al 3 agosto 2026):</strong> fasi finali; annuncio atteso ad agosto da Landry.</p>
+          <p><strong>A che serve:</strong> spaceport / espansione Starship; solo una frazione per pad, il resto come buffer.</p>
+        </aside>
+      </div>
+      <div class="facts">
+        <div class="fact"><b>~530-550 km²</b><span>Superficie in discussione (~130-136k acri; stime NOLA e realtor).</span></div>
+        <div class="fact"><b>~100</b><span>Residenti permanenti stimati a Pecan Island: il sito e' scelto anche per spargita e buffer.</span></div>
+        <div class="fact"><b>23.06.2026</b><span>Settlement costiero Exxon-Stato: pezzo giuridico che sblocca il passaggio dei terreni.</span></div>
+        <div class="fact"><b>08.2026</b><span>Fasi finali del deal SpaceX; annuncio governatoriale atteso nel mese (reporting locale).</span></div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="immagini">
+    <div class="section-inner">
+      <h2>Il territorio visto dallo spazio</h2>
+      <p>Le immagini sotto sono composite Landsat NASA/USGS centrate su Pecan Island e sulla Chenier Plain di Vermilion Parish. Non mostrano un spaceport (non esiste ancora): mostrano la geografia che rende il sito interessante e fragile allo stesso tempo — ridge di terreno piu' alto, palude, canali, e la lenta sostituzione della vegetazione con acqua aperta. Il rosso nelle scene "false color" indica vegetazione sana; le tonalita' blu e scure indicano acqua.</p>
+      <div class="media-grid">
+        <figure>
+          <img src="assets_louisiana/pecan_island_location_2003.jpg" alt="Landsat 2003: Pecan Island sulla ridge costiera a sud di White Lake" loading="lazy">
+          <figcaption>Pecan Island a sud di White Lake, 2003. Si vede la linea grigia della strada sulla ridge. NASA/USGS Landsat via NASA SVS, public domain.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets_louisiana/pecan_island_2011.jpg" alt="Landsat 2011 intorno a Pecan Island" loading="lazy">
+          <figcaption>Composite 2011: palude, laghi e corridoi d'acqua. NASA/USGS Landsat via NASA SVS.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets_louisiana/pecan_island_2003.jpg" alt="Landsat 2003 della zona Pecan Island" loading="lazy">
+          <figcaption>Scene 2003 della stessa area: confronto utile con le immagini successive. NASA/USGS Landsat via NASA SVS.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets_louisiana/pecan_island_rita_2005.jpg" alt="Pecan Island quasi circondata dall'acqua dopo l'uragano Rita, 2005" loading="lazy">
+          <figcaption>Ottobre 2005, dopo l'uragano Rita: Pecan Island quasi circondata dalle acque di full. NASA/USGS Landsat via NASA SVS.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets_louisiana/pecan_island_compare_1973_2011.jpg" alt="Confronto Landsat 1973 e 2011 intorno a Pecan Island" loading="lazy">
+          <figcaption>Confronto 1973-2011: aumento di acqua aperta e perdita di marsh/campi a sud della ridge. NASA/USGS Landsat via NASA SVS.</figcaption>
+        </figure>
+      </div>
+      <div class="callout amber">
+        <p><strong>Perche' queste foto contano nel dossier.</strong> Un perimetro da ~530-550 km² in questa zona non e' "deserto vuoto": e' un sistema costiero che ha gia' perso terra. Qualsiasi spaceport qui dovra' fare i conti con surge, erosione e restauro, non solo con il cemento dei pad.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="mappa">
+    <div class="section-inner">
+      <h2>Mappa interattiva (OpenStreetMap)</h2>
+      <p>Mappa elaborata su base OpenStreetMap, con layer satellite opzionale. Il rettangolo arancione e' un <strong>perimetro indicativo</strong> a sud della LA 82 tra Pecan Island e Freshwater City / Freshwater Bayou: non e' un confine catastale ufficiale (i termini del settlement non sono pubblici). Serve a dare la scala di un blocco nell'ordine di 500+ km² di palude costiera verso il Golfo.</p>
+      <div class="map-shell">
+        <div id="la-map" role="img" aria-label="Mappa di Pecan Island e area indicativa del deal"></div>
+        <p class="map-note">Marker: Pecan Island, Freshwater City / accesso canale, White Lake (nord). Layer: © OpenStreetMap contributors; Esri World Imagery per la vista satellite. Perimetro: elaborazione redazionale su descrizioni pubbliche (sud LA 82, verso Golfo, Vermilion Parish) — da sostituire con mappa ufficiale quando disponibile.</p>
+      </div>
+      <div class="callout">
+        <p><strong>Scala.</strong> ~530-550 km² equivalgono a un quadrato di circa 23 km di lato, o a una fascia costiera di ~29 km per ~18-19 km di profondita'. Solo una frazione servirebbe ai pad; il resto e' buffer e palude.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="premesse">
+    <div class="section-inner">
+      <div class="split">
+        <article>
+          <h2>Premesse: perche' un altro sito, e perche' la Louisiana</h2>
+          <p>La premessa industriale e' semplice e scomoda per chi immagina un solo "Starbase del mondo". Starship e' pensato per un ritmo di volo che le infrastrutture attuali non reggono. Boca Chica ha un footprint operativo ridotto rispetto all'ambizione di migliaia di missioni all'anno; la Florida ha history, range e rampa, ma anche competizione di slot, densita' di traffico e un contesto politico-ambientale differente. La California (Vandenberg) e' orientata a profili polari e ha un'eredita' militare e residenziale che non e' un foglio bianco. Serve geografia nuova, non solo un pad in piu' sullo stesso pezzo di costa.</p>
+          <p>La Louisiana entra in questo quadro per geografia e per politica economica, non per nostalgia del programma Apollo (anche se lo Stato ha memoria industriale aerospaziale: Michoud a New Orleans ha costruito stadi Saturn e serbatoi Shuttle). Il Golfo del Messico offre un corridoio di lancio verso est e sud-est su acqua, con meno densita' umana della costa del Texas meridionale o di molte porzioni della Space Coast. L'Intracoastal Waterway e i canali che sfociano sul Golfo permettono, in teoria, di muovere pezzi enormi su chiatta: Super Heavy e Starship non sono carichi da autostrada. A ovest, a distanza utile, ci sono hub di gas naturale e LNG (Cheniere, Golden Pass e il sistema energetico del confine Texas-Louisiana): propellente e energia industriale non sono un dettaglio secondario per un impianto che deve produrre, raffreddare e lanciare metano e ossigeno liquidi su scala da flotta.</p>
+          <p>La seconda premessa e' politica. L'amministrazione del governatore Jeff Landry ha spinto, nella sessione legislativa 2026, un pacchetto esplicito di incentivi e scudi di responsabilita' per "aerospace flight entities": sgravi fiscali, esenzioni su certi documenti pubblici, limitazioni alle cause per rumore, luce, fumo, vibrazioni e disturbi tipici delle operazioni di lancio. Non e' un dettaglio cosmetico. E' il tentativo di rendere lo Stato competitivo rispetto a Texas e Florida, dove SpaceX ha gia' pagato il prezzo di litigi, permessi e community opposition. Il messaggio di Louisiana Economic Development e' stato, in sostanza: vogliamo i posti di lavoro dell'aerospazio e siamo disposti a scrivere le regole perche' i progetti non muoiano in tribunale.</p>
+          <p>La terza premessa e' giuridico-ambientale e riguarda ExxonMobil, non SpaceX. Per oltre un decennio le cause costiere della Louisiana hanno puntato il dito contro le major petrolifere per erosione, canali e perdita di terra umida. Nel 2026 una parte di quel contenzioso con Exxon si chiude con un settlement: i termini restano in gran parte non pubblici, ma la struttura emersa dalle cronache e' che Exxon cede allo Stato terreni di Vermilion Parish posseduti dagli anni Cinquanta e a lungo concessi in affitto per caccia e pesca ricreativa. E' su quel passaggio di titolo — o di controllo — che si innesta l'ingresso di un operatore aerospaziale. Senza il settlement, la trattativa per ~530 km² resterebbe un affare tra privati e un labirinto di diritti di superficie. Con il settlement, diventa un progetto di sviluppo economico di Stato.</p>
+          <p>C'e' infine una premessa di cadenza. A maggio 2026, rispondendo alle voci sulla Louisiana, SpaceX ha scritto su X che intende lanciare Starship "a lot", con obiettivo di migliaia di voli all'anno, e che quella cadenza richiedera' la capacita' di lanciare da molte localita' diverse, domestiche e internazionali. Non e' una conferma di Pecan Island. E' pero' la cornice entro cui ogni sito candidate va letto: non come "un pad di riserva", ma come pezzo di una rete di capacita'. La community su Reddit e sul forum NASASpaceflight ha subito collegato quel linguaggio a multi-pad, buffer e possibili profili SSO / costellazioni ad alta densita'. Sono letture di sistema, non rogiti.</p>
+          <div class="callout amber">
+            <p><strong>Nota di metodo.</strong> Nel corpo si descrive lo stato dei fatti e le date. Le tracce (X, Reddit, NSF, NOLA, KADN/KLFY, blog locali) stanno in fondo. Dove manca un documento pubblico firmato SpaceX-Louisiana, non si inventa il contratto: si dice "fasi finali", "atteso", "secondo fonti locali".</p>
+          </div>
+        </article>
+        <aside class="panel">
+          <h3>Perche' il Golfo, in tre punti</h3>
+          <p><strong>1. Buffer.</strong> Un footprint da centinaia di migliaia di acri non serve tutto al cemento: serve a tenere lontano case, barche e litigi acustici.</p>
+          <p><strong>2. Acqua.</strong> Chiatte e canali contano piu' delle autostrade quando i pezzi sono da 9 metri di diametro.</p>
+          <p><strong>3. Posizione.</strong> A meta' strada tra Starbase e Cape/KSC, con rete energetica e industria del Golfo gia' abituata a impianti pesanti.</p>
+          <h3 style="margin-top:22px">Cosa non e' (ancora)</h3>
+          <p>Non e' un pad FAA-licenziato. Non e' un calendario di volo. Non e' un annuncio congiunto SpaceX-Landry al momento della scrittura di questa bozza.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="cosa">
+    <div class="section-inner">
+      <h2>In cosa consiste l'accordo (quello che si sa)</h2>
+      <div class="split">
+        <article>
+          <p>La struttura del deal, ricostruita dalle cronache di maggio-agosto 2026, ha tre strati. Il primo e' il terreno: un blocco di palude e ridge costieri a sud della Louisiana Highway 82, tra l'area di Pecan Island e Freshwater City, esteso verso il Golfo e, nelle descrizioni del senatore Hensgens, potenzialmente fino a confini che toccano zone verso il Rockefeller Wildlife Refuge in Cameron Parish. Le superfici citate oscillano tra "oltre 130.000 acri" (NOLA, inizio agosto) e "136.000 acri / ~550 km²" (Jim Keaty e le riprese successive su X e TV locali a maggio). Non e' una contraddizione grave: e' la differenza tra stime arrotondate e un perimetro catastale ancora non pubblicato in dettaglio.</p>
+          <p>Il secondo strato e' la catena di titolo. ExxonMobil e' proprietaria storica. La Vermilion Corporation gestisce da tempo diritti di superficie e lease ricreativi (caccia, pesca, campi). All'inizio del 2026 quei lease per le stagioni 2026-2027 risultano interrotti o non rinnovati: e' stato uno dei primi segnali "dal basso" captati da cacciatori, realtor e da thread su r/Acadiana e r/Louisiana. Il settlement costiero di giugno prevede che Exxon consegni allo Stato (o metta a disposizione dello Stato) quel patrimonio fondiario. SpaceX entrerebbe poi come soggetto che riceve il controllo operativo del sito: vendita, long-term lease o "altro tipo di arrangement", secondo una fonte con conoscenza diretta citata da NOLA senza potersi svelare. I termini economici restano non pubblici, come e' tipico dei settlement costieri della Louisiana.</p>
+          <p>Il terzo strato e' l'uso. Le descrizioni coerenti tra reporter locali, esperti citati e discussion community parlano di un spaceport per lanci orbitali, con focus Starship, non di un semplice magazzino. Solo una frazione del perimetro servirebbe a pad, tank farm, hangar e banchine; il resto funzionerebbe da barriera acustica e di sicurezza, sul modello concettuale (non geometrico) di un Kennedy Space Center immerso nella palude invece che nella scrub della Florida. Fonti vicine ai piani aziendali, riportate a inizio agosto, parlano di migliaia di posti di lavoro complessivi legati al progetto: un ordine di grandezza che, se realistico, non e' "un cantiere di sei mesi" ma un hub multi-anno con produzione, logistica e operazioni.</p>
+          <p>Cosa c'e' dentro il perimetro fisico che interessa gli ingegneri. A sud-est del blocco, vicino al boat launch di Freshwater City, esiste un'area gia' pensabile come nodo portuale: accesso verso canali, lock del Corpo del Genio dell'Esercito (Freshwater Lock) e, a valle, lo sbarco sul Golfo. S.E. Robinson Jr., che ha visitato il sito a meta' maggio con drone e video, ha descritto un dock della Vermilion Corporation su Freshwater Bayou, terreno che "appare stabile" nella zona del porto, e un'estensione della proprieta' che copre praticamente tutto lo sguardo a est del punto di ripresa. Non e' un survey geologico certificato: e' un reportage di campo che ha alimentato, su X, la conversazione tecnica su chiatte Super Heavy e collegamento con Starbase via acqua.</p>
+          <p>Cosa non c'e', o non e' ancora pubblico. Non c'e' (al 3 agosto 2026) un masterplan SpaceX depositato, un numero ufficiale di pad, un EIS completo stile Boca Chica, ne' un comunicato Landry-SpaceX con cifre di investimento. Non e' chiaro se il sito nascera' solo come launch/landing, o anche come nodo di produzione e test (l'ipotesi "Michoud del Golfo" circola su blog e thread, ma resta lettura). Non e' chiaro quanto del settlement costiero sia condizionato a restauri ambientali e a quali scadenze. NOLA riporta che il deal dovrebbe includere previsioni di coastal restoration and protection: e' un punto politico centrale per un'amministrazione che vende posti di lavoro e, allo stesso tempo, deve rispondere a chi ha visto sparire miglia di costa.</p>
+          <h3>Scala: quanto e' "enorme"</h3>
+          <p>Per dare un ordine di grandezza: Starbase, nel perimetro operativo spesso citato in discussioni pubbliche, si misura in centinaia o poche migliaia di acri a seconda di cosa si include nelle espansioni; i pad autorizzati e i limiti di cadenza FAA restano un collo di bottiglia. Un blocco da ~530-550 km² e' due ordini di grandezza sopra. Non significa "centinaia di km² di cemento". Significa che lo Stato e l'operatore possono disegnare zone di esclusione, corridoi di overflight, aree umide lasciate tali, e comunque avere spazio per piu' di un pad e per infrastruttura di supporto senza vivere a ridosso di un villaggio. E' la logica del buffer portata all'estremo, resa possibile dal fatto che gran parte del terreno e' gia' palude gestita come lease ricreativo, non un tessuto urbano da espropriare pezzo per pezzo.</p>
+          <div class="callout green">
+            <p><strong>Stato al 3 agosto 2026.</strong> "Fasi finali" e' il linguaggio delle cronache locali, non un verbale di chiusura. Fino all'annuncio governatoriale e ai documenti di trasferimento, il deal resta trattativa avanzata, non fatto compiuto sul registro catastale pubblico.</p>
+          </div>
+        </article>
+        <aside class="panel">
+          <h3>Schema del deal</h3>
+          <table>
+            <thead><tr><th>Strato</th><th>Contenuto</th></tr></thead>
+            <tbody>
+              <tr><td>Terreno</td><td>Palude costiera Vermilion Parish, ~530-550 km² (~130-136k acri), sud LA 82</td></tr>
+              <tr><td>Titolo storico</td><td>ExxonMobil (dagli anni '50); superficie / lease: Vermilion Corp.</td></tr>
+              <tr><td>Chiave giuridica</td><td>Settlement cause costiere (giugno 2026), termini in gran parte sigillati</td></tr>
+              <tr><td>Passaggio</td><td>Exxon → Stato → controllo SpaceX (sale / lease / altro)</td></tr>
+              <tr><td>Uso previsto</td><td>Spaceport / operazioni Starship; frazione pad + buffer</td></tr>
+              <tr><td>Occupazione</td><td>Migliaia di posti (stima da fonti vicine al progetto, non da bilanci pubblici)</td></tr>
+            </tbody>
+          </table>
+          <h3 style="margin-top:20px">Numeri utili</h3>
+          <p>~29 km di costa / fascia paludosa citate nelle cronache NOLA come stretch operativo.</p>
+          <p>~72 km a sud-ovest di Lafayette: distanza d'ordine per inquadrare la remoteness.</p>
+          <p>Popolazione permanente di Pecan Island: circa un centinaio di persone.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="storico">
+    <div class="section-inner">
+      <h2>Storico delle notizie: da rumor a trattativa di Stato</h2>
+      <p>La cronologia non e' lineare come un comunicato stampa. E' una sovrapposizione di segnali dal territorio, pezzi legislativi, un post aziendale su X, reportage sul campo e, solo alla fine, un quadro da "deal in closing" sui giornali di New Orleans. Qui sotto i passaggi principali, con la consapevolezza che alcune date di "prima notizia" dipendono da chi ha pubblicato per primo e da chi ha solo ripreso un thread NSF o un post Reddit.</p>
+
+      <div class="timeline">
+        <div class="event">
+          <div class="date">Inizio 2026</div>
+          <div>
+            <h3>Lease interrotti, rumor locali</h3>
+            <p>In Vermilion Parish circola la notizia che i lease di caccia e pesca gestiti dalla Vermilion Corporation per il 2026-2027 non vengono rinnovati o vengono chiusi in anticipo. Su r/Acadiana e r/Louisiana compaiono voci di acquisto di decine di migliaia di acri da parte di un soggetto aerospaziale. All'inizio le stime oscillano (anche 30.000 acri in alcuni post): il numero non e' ancora stabilizzato.</p>
+          </div>
+        </div>
+        <div class="event">
+          <div class="date">02-04.05.2026</div>
+          <div>
+            <h3>Keaty e l'innesco mediatico</h3>
+            <p>Jim Keaty (Keaty Real Estate) pubblica e rilancia la tesi di un'acquisizione SpaceX su circa 136.000 acri a sud della Highway 82, tra Pecan Island e Freshwater City. Il pezzo e i summary su X (in particolare da S.E. Robinson Jr.) portano la storia fuori dalla sola Acadiana. Su r/SpaceXLounge si apre il thread che molti ancora citano come "il post che ha fatto partire tutto", con commenti di persone che dicono di avere contatti con affittuari locali.</p>
+          </div>
+        </div>
+        <div class="event">
+          <div class="date">07.05.2026</div>
+          <div>
+            <h3>Hensgens conferma le trattative</h3>
+            <p>Il senatore statale Bob Hensgens (R-Abbeville), che rappresenta il Parish, conferma che una "space exploration company" e' in trattativa con ExxonMobil su un blocco enorme a sud delle highway costiere. Non nomina SpaceX in modo ufficiale; dice di non aver firmato NDA per poterne parlare in pubblico. The Advocate e i media di Acadiana fissano il perimetro politico: non e' piu' solo un blog di realtor.</p>
+          </div>
+        </div>
+        <div class="event">
+          <div class="date">12.05.2026</div>
+          <div>
+            <h3>SpaceX risponde (senza nominare la Louisiana)</h3>
+            <p>SpaceX pubblica su X: migliaia di voli Starship all'anno richiederanno molti siti; l'azienda esplora continuamente localita' domestiche e internazionali. Il post quota/risponde al ciclo di voci Louisiana. E' la dichiarazione primaria piu' citata da allora: utile, ma non e' un "si', Pecan Island e' nostro".</p>
+          </div>
+        </div>
+        <div class="event">
+          <div class="date">13-14.05.2026</div>
+          <div>
+            <h3>Reportage sul campo e TV locali</h3>
+            <p>S.E. Robinson Jr. visita Pecan Island, vola un drone, pubblica foto e un video lungo su dock, Freshwater Bayou, lock e palude. NEWS 15 / KADN e altri outlet locali riprendono la tesi del spaceport potenziale. Il forum NASASpaceflight (topic sulla facility in Vermilion Parish) e i mirror su Tesla Motors Club / HAIF tengono insieme mappe, ownership Exxon e confronti con buffer tipo KSC.</p>
+          </div>
+        </div>
+        <div class="event">
+          <div class="date">Primavera 2026</div>
+          <div>
+            <h3>Pacchetto legislativo aerospaziale</h3>
+            <p>La Legislature della Louisiana fa passare una serie di bill (incentivi fiscali, ITEP, scudi di liability, early dismissal di certe cause, designazione di critical infrastructure, esenzioni su public records). Landry firma a ondate tra maggio e fine giugno. Il pacchetto non nomina SpaceX, ma il timing e il contenuto (rumore, vibrazioni, fumo, interdizione di injunction facili) sono letti da tutti — Illuminator, NOLA, 1012 Industry Report — come un tappeto rosso per un operatore di lancio.</p>
+          </div>
+        </div>
+        <div class="event">
+          <div class="date">23.06.2026</div>
+          <div>
+            <h3>Settlement Exxon-Stato</h3>
+            <p>L'ufficio del governatore annuncia la chiusura del settlement sulle cause costiere con ExxonMobil. Notice depositata presso la U.S. District Court for the Western District of Louisiana. I termini restano sigillati; il pezzo pubblico rilevante per questo dossier e' il passaggio dei terreni di Vermilion Parish verso lo Stato, con lease ricreativi destinati a chiudersi. The Current e altri outlet locali scrivono che l'ultimo grande ostacolo politico-giuridico "e' fatto".</p>
+          </div>
+        </div>
+        <div class="event">
+          <div class="date">Luglio 2026</div>
+          <div>
+            <h3>Incontri con i residenti, silenzio istituzionale selettivo</h3>
+            <p>Hensgens torna in Parish, parla a Rotary e a stakeholder locali (oltre 200 persone in un incontro citato dalla stampa). Spinge a prepararsi all'impatto economico senza poter (o voler) dare dettagli negoziali. Landry conferma il settlement costiero ma non commenta il dossier SpaceX; Louisiana Economic Development (Susan Bourgeois) resta sul "no comment" specifico. Su Reddit e X la discussione si sposta da "e' vero?" a "quando lo annunciano e che succede alla caccia / alla palude?".</p>
+          </div>
+        </div>
+        <div class="event">
+          <div class="date">Fine luglio 2026</div>
+          <div>
+            <h3>Proposta FAA su waiver ambientali</h3>
+            <p>Il Dipartimento dei Trasporti / FAA propone un pacchetto di modifiche che, se adottato, permetterebbe di waivare per licenze di lancio e rientro una lunga lista di statute federali (NEPA, Endangered Species Act, Clean Water Act, Clean Air Act, marine mammal e coastal protections, e altro — l'ordine di grandezza citato e' "oltre una dozzina"). Il comment period pubblico e' indicato fino al 31 agosto. NOLA e analisti del settore legano esplicitamente il timing al deal Louisiana: meno review ambientali classiche, piu' velocita' di licensing. I gruppi ambientalisti reagiscono duramente.</p>
+          </div>
+        </div>
+        <div class="event">
+          <div class="date">02-03.08.2026</div>
+          <div>
+            <h3>"Fasi finali" e annuncio atteso nel mese</h3>
+            <p>NOLA.com / Times-Picayune pubblica il pezzo di riferimento: Louisiana nelle fasi finali del deal per portare SpaceX sulla costa di Vermilion; ~130.000 acri; stretch di circa 29 km; migliaia di posti di lavoro; annuncio atteso ad agosto da Landry. KPEL e altri riprendono. Su X il riassunto di S.E. Robinson Jr. supera rapidamente le centinaia di migliaia di view. Su r/spacex e r/SpaceXLounge tornano i thread di scala (confronto acri vs Starbase) e le ipotesi su SSO / costellazioni. Questa bozza e' scritta dentro questa finestra.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="oggi">
+    <div class="section-inner">
+      <div class="split">
+        <article>
+          <h2>Ultimi aggiornamenti (primi di agosto 2026)</h2>
+          <p>Al 3 agosto 2026 il quadro consolidato dalle fonti locali di punta e' questo: l'accordo non e' piu' un rumor di primavera, e' una trattativa di Stato in chiusura. Il sito e' Pecan Island e l'intorno paludoso verso Freshwater City e il Golfo. Il veicolo giuridico e' il settlement costiero con Exxon, non un'asta immobiliare classica. SpaceX non ha emesso un comunicato del tipo "costruiremo un pad a Pecan Island", ma ha lasciato in piedi da maggio la cornice delle migliaia di voli e dei siti multipli. Il governatore e' indicato come annunciatore politico del deal "questo mese". LED e lo staff di Landry evitano il commento nominale sul dossier SpaceX pur avendo spinto le leggi che lo rendono possibile.</p>
+          <p>Cosa e' cambiato rispetto a maggio. A maggio c'era un realtor, un senatore cauto, un post SpaceX generico e un video con drone. Ad agosto c'e' un settlement firmato a giugno, un intero pacchetto di legge aerospaziale in vigore, una proposta FAA che ridurrebbe i tempi ambientali federali, e un reporting di NOLA che cita una fonte con conoscenza diretta dell'accordo e parla di "final stages". La qualita' della prova e' salita di uno o due gradini: non e' ancora un rogito pubblico, ma non e' piu' solo "ho sentito al bar di Abbeville".</p>
+          <p>Cosa resta da verificare nei giorni e settimane successive alla scrittura di questa pagina. (1) L'annuncio formale di Landry: data, cifre di investimento, numero di posti, forma giuridica del controllo fondiario. (2) Eventuale statement SpaceX che nomini la Louisiana o il sito. (3) Documenti di corte che, anche se in parte sigillati, possano far emergere mappe o impegni di restauro. (4) Iter della proposta FAA (commenti fino a fine agosto, poi decisione). (5) Reazioni locali strutturate: parish government, gruppi di cacciatori/pescatori, associazioni ambientali del Golfo, eventuale contenzioso. (6) Segnali "a terra" pre-annuncio: survey, carotaggi, uffici temporanei, assunzioni con keyword Louisiana/Vermilion, ulteriori atti catastali minori (come il piccolo acquisto di maggio a nome di un dipendente SpaceX segnalato da The Current, non collegato in modo confermato al blocco principale).</p>
+          <p>Sul piano della community, i primi di agosto hanno prodotto un'ondata di sintesi su X che ripetono gli stessi bullet (130k acri, Exxon, Landry, migliaia di job). E' un segnale di saturazione mediatica, non di nuovi leak. I thread utili restano quelli che discutono engineering e range: quanti pad ha senso mettere in palude; se conviene lanciare da terra o studiare soluzioni offshore; come si integra un sito Louisiana con chiatte da Starbase; quanto il profilo di inclinazione e il traffico aereo del Golfo condizionano i manifesto. Su r/spacex alcuni utenti legano esplicitamente il sito a costellazioni LEO di densita' estrema e a lanci SSO multipli al giorno: e' una proiezione di architettura di rete, non un piano depositato.</p>
+          <div class="callout">
+            <p><strong>Attenzione alla data.</strong> Questa bozza e' aggiornata al 3 agosto 2026. Un annuncio governatoriale o un deny formale possono rendere obsolete le frasi "fasi finali" e "atteso questo mese" nel giro di ore. Prima di qualsiasi pubblicazione sul sito, ricontrollare NOLA, l'ufficio di Landry e gli account ufficiali SpaceX.</p>
+          </div>
+        </article>
+        <aside class="panel">
+          <h3>Checklist "cosa manca"</h3>
+          <p>☐ Annuncio Landry con cifre</p>
+          <p>☐ Conferma nominale SpaceX sul sito</p>
+          <p>☐ Mappa ufficiale del perimetro</p>
+          <p>☐ Forma legale (sale vs lease)</p>
+          <p>☐ Impegni di coastal restoration dettagliati</p>
+          <p>☐ Licenze FAA / timeline EIS o waiver</p>
+          <p>☐ Stima job e fasi di cantiere</p>
+          <h3 style="margin-top:20px">Segnali deboli gia' visti</h3>
+          <p>Interruzione lease; piccolo atto di vendita a un dipendente SpaceX in zona (maggio); summit stato / USACE su permitting aerospaziale (riportato in analisi di settore); silenzio selettivo di LED.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="territorio">
+    <div class="section-inner">
+      <h2>Il territorio: palude, ridge, canali, uragani</h2>
+      <p>Pecan Island non e' un'isola oceanica da cartolina. E' una ridge di terreno relativamente piu' alto immersa in un mare di marsh, a circa 16 km dal Golfo aperto a seconda dei punti, con campi di caccia, canali, e una comunita' residenziale minima lungo la Highway 82. Freshwater City e l'area del boat launch segnano il contatto con la logistica d'acqua: da li' si ragiona su dock, chiatte e collegamento all'Intracoastal. Il Rockefeller Wildlife Refuge e le aree protette vicine ricordano che non si sta disegnando un sito su un deserto industriale: si sta disegnando un sito dentro un ecosistema di costa che da decenni perde terra.</p>
+      <p>La scelta del sito ha senso proprio perche' e' scomoda per chi vuole vivere accanto e comoda per chi vuole lanciare. Bassa densita' umana, orizzonte di palude che assorbe (o almeno diluisce) il problema del "vicino di casa con le finestre crepate", accesso acqua per carichi outsize, distanza intermedia tra le due grandi basi SpaceX del Golfo e dell'Atlantico sud-orientale. A questo si aggiunge l'abbondanza di gas naturale nella regione: non e' la condizione sufficiente per un spaceport, ma e' un vantaggio di costo e di infrastruttura per chi deve produrre e stoccare propellenti criogenici e alimentare impianti pesanti.</p>
+      <p>I rischi fisici non spariscono perche' il terreno e' "grande". Uragani, surge, erosione, saltwater intrusion, fondazioni su suoli compressibili: chi ha costruito LNG e piattaforme nel Golfo conosce il catalogo. Hensgens ha menzionato pubblicamente l'idea di opere di protezione costiera / levees come parte del ragionamento locale. Le cronache di agosto includono esplicitamente previsioni di restauro e protezione costiera nel perimetro del deal. Quanto di questo sara' ingegneria seria e quanto sara' linguaggio da cerimonia di annuncio si vedra' dai documenti di progetto, non dai titoli.</p>
+      <p>Dal punto di vista del range di lancio, il Golfo offre azimuth verso est e sud-est su acqua, con traffico marittimo e aereo da gestire ma senza la densita' di una megalopoli costiera. Le discussioni su NSF e Reddit hanno toccato limiti di inclinazione, possibili profili SSO, e il fatto che un sito aggiuntivo non sostituisce Vandenberg o la Florida per ogni missione, ma puo' scaricare una parte enorme della cadenza Starship "di volume" (deploy massivo, test, cargo di flotta) lontano dai colli di bottiglia gia' saturi. E' un argomento di architettura di rete di lancio, non di geografia romantica.</p>
+      <h3>Confronto di scala (ordine di grandezza)</h3>
+      <table>
+        <thead><tr><th>Sito / riferimento</th><th>Scala fondiaria (ordine)</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr><td>Pecan Island (deal in discussione)</td><td>~530-550 km² (~130-136k acri)</td><td>Palude + ridge; frazione per pad, resto buffer</td></tr>
+          <tr><td>Starbase (Boca Chica) perimetro operativo tipico</td><td>Pochi / alcune decine di km² a seconda dei confini</td><td>Licenza e densita' urbana/ambientale come vincolo</td></tr>
+          <tr><td>Kennedy / CCSFS (riferimento storico buffer)</td><td>Centinaia di km² di complesso federale</td><td>Modello mentale spesso citato in forum per "perche' serve tanto terreno"</td></tr>
+          <tr><td>Popolazione Pecan Island</td><td>~100 residenti permanenti</td><td>Non misura l'impatto stagionale (caccia, pesca, campi)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="leggi">
+    <div class="section-inner">
+      <div class="split">
+        <article>
+          <h2>Quadro normativo: scudi, tasse, FAA</h2>
+          <p>Il pezzo legislativo della Louisiana nel 2026 e' stato insolitamente rapido e monolitico. Una serie di bill — tra cui misure su rebate di sales/use tax per facility aerospaziali, estensione ITEP a manufacturing aerospaziale, limitazione di liability per rumore/luce/odore/fumo/vibrazione, meccanismi di early dismissal delle cause, designazione di critical infrastructure, e scudi su public records — e' passata con voti larghi e firmata da Landry tra maggio e fine giugno. L'Illuminator e altri outlet hanno sottolineato che alcune di queste protezioni coprono esattamente le categorie di danno che residenti in Texas hanno cercato di contestare a SpaceX (shock acustici, crepe, disturbo).</p>
+          <p>Dal punto di vista di un operatore, il messaggio e' chiaro: meno esposizione civile per le esternalita' tipiche del volo, meno trasparenza forzata su certi filing di facility, piu' prevedibilita' fiscale su capex. Dal punto di vista di un residente o di un gruppo ambientale, il messaggio e' simmetrico e opposto: meno leve per fermare o ritarare un progetto una volta partito. Questa tensione non e' un sottoprodotto: e' il cuore politico del pacchetto. Hensgens e LED parlano di competitivita' con Texas, Florida, Alabama, Mississippi. I critici parlano di regalo normativo a soggetti gia' potentissimi.</p>
+          <p>Sul piano federale, la proposta FAA di fine luglio 2026 sposta l'asticella ancora di piu'. Waivare in blocco statute ambientali per le licenze di lancio e rientro, dopo consultazione con le agenzie competenti, significherebbe che un spaceport in palude costiera potrebbe non dover affrontare lo stesso tipo di Environmental Impact Statement e consultazioni (specie, zone umide, marine mammals) che hanno definito il decennio di Boca Chica. I sostenitori parlano di burocrazia e di Space Race. I detrattori parlano di precedente pericoloso e di danno a ecosistemi gia' fragili. Il comment period fino al 31 agosto 2026 e' la prossima scadenza concreta da tenere d'occhio, indipendentemente dalla data dell'annuncio Landry.</p>
+          <p>Va tenuto distinto il piano statale dal piano federale. La Louisiana puo' offrire terra, tasse e scudi di civil liability. Non puo' da sola licenziare i lanci orbitali. La FAA (e, a seconda dei payload e dei range, altri attori federali) resta il cancello operativo. Per questo il dossier Louisiana e' davvero "maturo" solo quando si tengono insieme settlement fondiario, leggi statali e clima regolatorio federale. A inizio agosto 2026 i tre pezzi puntano nella stessa direzione: aprire, non chiudere.</p>
+        </article>
+        <aside class="panel">
+          <h3>Tre livelli di regole</h3>
+          <p><strong>Fondiario / civile statale:</strong> settlement Exxon, titolo, lease, liability shields Louisiana.</p>
+          <p><strong>Fiscale statale:</strong> rebate, ITEP, incentivi performance-based su job.</p>
+          <p><strong>Licensing federale:</strong> FAA launch/reentry; eventuale waiver di statute ambientali; altre agenzie se coinvolte.</p>
+          <h3 style="margin-top:20px">Perche' conta il silenzio</h3>
+          <p>Landry e LED non commentano il nome SpaceX ma hanno costruito il binario. SpaceX non nomina Pecan Island ma ha detto "molti siti". Il silenzio e' parte della negoziazione, non prova di inesistenza.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="dibattito">
+    <div class="section-inner">
+      <h2>Dibattito: job, palude, community</h2>
+      <p>Il fronte economico e' il piu' rumoroso in Parish. Migliaia di posti di lavoro in un'area che ha perso giovani e industria tradizionale e' un argomento che Hensgens porta nei Rotary e che l'amministrazione Landry allinea ad altri mega-progetti (data center AI, LNG, acciaio). Per una regione abituata a cicli oil &amp; gas, un hub aerospaziale appare come diversificazione ad alto salario. Su r/Louisiana e r/Acadiana le reazioni sono miste: c'e' chi vede un'ancora di salvezza, chi teme che i job specializzati arrivino da fuori, chi chiede che fine faranno caccia, pesca e campi che per generazioni hanno definito l'uso di quella palude.</p>
+      <p>Il fronte ambientale e' il piu' difficile da liquidare con uno slogan. La costa della Louisiana e' un caso da manuale di land loss. Mettere un spaceport in marsh non e' banale: dragaggi, strade, tank, flame trenches, traffico, possibili scarichi, disturbo a uccelli migratori e a specie protette. Analisti citati da NOLA hanno usato parole dure sul rischio di far sparire review che oggi metterebbero, ad esempio, la whooping crane "contro" un progetto di lancio. I sostenitori rispondono che il deal puo' finanziare restauro costiero e che un grande proprietario industriale con buffer e' meglio di un mosaico di usi non gestiti. Entrambe le tesi andranno misurate su impegni scritti, non su interviste.</p>
+      <p>Il fronte community online (X, Reddit, NSF) ha tre registri. Il registro "hype" celebra la scala (100× Starbase) e la possibilita' di cadenza multi-pad. Il registro "engineering" chiede suoli, uragani, propellenti, azimuth, barge route da Starbase, eventuale produzione locale di Raptor o di tank. Il registro "scettico" ricorda che voci di nuovi siti SpaceX esistono da anni e che fino a betoniere e MELs restano slide. Il forum NASASpaceflight ha avuto il merito, fin da maggio, di tenere insieme ownership Exxon, mappe e confronti storici con buffer federali, riducendo un po' il rumore da screenshot senza fonte.</p>
+      <p>C'e' anche un fronte di governance e trasparenza. Esenzioni su public records e settlement sigillati rendono difficile, per un cittadino o per un giornalista, ricostruire cifre, impegni ambientali e favore fiscali. E' un trade-off esplicito della strategia Louisiana 2026: attrarre capitali riducendo l'attrito legale e mediatico. Per un dossier come questo, significa lavorare a lungo su fonti secondarie affidabili e su dichiarazioni parziali, accettando buchi che solo l'annuncio formale (o un leak documentale) potra' chiudere.</p>
+      <div class="callout amber">
+        <p><strong>Ipotesi di redazione (non fatti).</strong> Se il deal si chiude come descritto dalle cronache di agosto, Pecan Island diventa il terzo grande polo operativo SpaceX sul territorio USA per volume potenziale di Starship, non necessariamente per prestigio o per voli crew. La forma piu' plausibile nel medio periodo e' multi-pad a bassa densita' edilizia, logistica su chiatta, forte integrazione energetica locale, e un uso del buffer come risposta strutturale ai litigi da rumore visti in Texas. Produzione di veicoli e test statici restano possibili ma non dimostrati dai documenti pubblici attuali.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="perche">
+    <div class="section-inner">
+      <h2>Perche' conta per Starship (e per il resto del sistema)</h2>
+      <p>Senza un sito come questo — o un equivalente altrove — la retorica delle "migliaia di voli all'anno" resta schiacciata contro i limiti di un numero piccolo di pad e di community. Con un sito di questa scala, anche usando una frazione del terreno, SpaceX puo' pensare in termini di flotta: pad multipli, manutenzione parallela, riserva operativa se un corridoio e' down per meteo o per anomalia, e una geografia di rientro/lancio che non dipende da un solo sheriff e da un solo set di vicini. E' la stessa logica che ha spinto storicamente gli Stati Uniti a non mettere tutto il range in un solo Stato, applicata a un operatore privato che oggi muove piu' massa in orbita di chiunque altro.</p>
+      <p>Per la Louisiana, il dossier e' una scommessa di identita' economica: da Stato del petrolio e del LNG a Stato che ospita anche la catena del lancio commerciale. Non e' automatico. Serve formazione, filiera di fornitori, gestione del rischio uragano, e un rapporto non distruttivo con la costa. Per Exxon, il settlement trasforma un contenzioso ambientale in un'uscita fondiaria con valenza politica. Per SpaceX, se il closing arriva, e' un pezzo di capacita' fisica e di copertura regolatoria in un momento in cui la domanda di orbita (Starlink e oltre) e i programmi lunari spingono verso cadenza, non verso singole missioni eroiche.</p>
+      <p>Questa pagina si ferma prima dell'annuncio. Non inventa la data del primo hotfire a Pecan Island e non assegna numeri di pad. Tiene fermo quello che, a inizio agosto 2026, e' abbastanza solido da raccontare: un'enorme allocazione di terra costiera, un meccanismo di settlement, un pacchetto di leggi, un operatore che cerca siti per migliaia di voli, e una trattativa di Stato descritta come in fasi finali. Il resto e' lavoro per l'aggiornamento successivo — quello che si scrivera' il giorno in cui Landry salira' sul podio, o il giorno in cui qualcuno pubblichera' il no.</p>
+    </div>
+  </section>
+
+  <section id="timeline-breve">
+    <div class="section-inner">
+      <h2>Timeline rapida</h2>
+      <div class="timeline">
+        <div class="event">
+          <div class="date">Inizio 2026</div>
+          <div><h3>Segnali dal territorio</h3><p>Lease di caccia/pesca interrotti; rumor su r/Acadiana e r/Louisiana.</p></div>
+        </div>
+        <div class="event">
+          <div class="date">02-07.05.2026</div>
+          <div><h3>Da Keaty a Hensgens</h3><p>136k acri in pubblico; senatore conferma trattative con Exxon.</p></div>
+        </div>
+        <div class="event">
+          <div class="date">12.05.2026</div>
+          <div><h3>Post SpaceX</h3><p>Migliaia di voli, siti multipli, esplorazione continua — senza nominare la Louisiana.</p></div>
+        </div>
+        <div class="event">
+          <div class="date">05-06.2026</div>
+          <div><h3>Leggi + settlement</h3><p>Pacchetto aerospaziale firmato; 23 giugno settlement Exxon-Stato.</p></div>
+        </div>
+        <div class="event">
+          <div class="date">07.2026</div>
+          <div><h3>Parish e FAA</h3><p>Incontri locali; proposta federale di waiver ambientali per licenze di lancio.</p></div>
+        </div>
+        <div class="event">
+          <div class="date">02-03.08.2026</div>
+          <div><h3>Fasi finali</h3><p>NOLA/KPEL: deal in chiusura, annuncio Landry atteso ad agosto.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fonti">
+    <div class="section-inner">
+      <h2>Fonti pubbliche e tracce</h2>
+      <p>Pagina costruita da reporting locale, dichiarazioni primarie, thread community e sintesi su X. Nel corpo non si ripete "secondo X / secondo Reddit" a ogni frase: le tracce stanno qui. Dove il deal non e' ancora pubblico in forma documentale, lo stato e' descritto come trattativa avanzata / fasi finali.</p>
+
+      <h3>Stampa e outlet locali / nazionali</h3>
+      <ol class="sources">
+        <li>NOLA.com / Times-Picayune — Stephanie Riegel et al., "SpaceX is planning a rocket-launching spaceport in coastal Louisiana. Here are the plans." (2-3 agosto 2026 circa). Pezzo di riferimento su fasi finali, ~130k acri, settlement Exxon, job, FAA waiver.</li>
+        <li>KPEL 96.5 — "SpaceX Nears Deal for Vermilion Parish Rocket Launch Site" (3 agosto 2026). Sintesi radio/web allineata a NOLA.</li>
+        <li>The Advocate (Acadiana) — "Could SpaceX be buying land in southern Vermilion Parish" (7 maggio 2026). Conferma Hensgens sulle trattative.</li>
+        <li>KADN / NEWS 15 — pezzi di maggio 2026 su acquisizione marshland vicino a Pecan Island e dichiarazioni del realtor Jim Keaty.</li>
+        <li>KLFY e altri TV locali — "rumors swirl" su land deal a Pecan Island (maggio 2026).</li>
+        <li>Louisiana Illuminator — copertura dello scudo di liability aerospaziale e del contesto SpaceX/Blue Origin (fine maggio 2026).</li>
+        <li>1012 Industry Report / Technical.ly / WAFB / FOX8 — pacchetto bill aerospaziali, tax break, public records, critical infrastructure (aprile-giugno 2026).</li>
+        <li>The Current (LA) — "Could Louisiana 'Cajunize' the space industry?" (luglio 2026): settlement 23 giugno, sette bill firmati, nota su piccolo atto di vendita a dipendente SpaceX.</li>
+        <li>Behind The Black (Robert Zimmerman) — sintesi su meeting locali e possibilita' spaceport (23 luglio 2026).</li>
+        <li>NextBigFuture — analisi di scala ~136k acri e ruolo potenziale del sito (luglio 2026); usata come lettura di contesto, non come fonte primaria di corte.</li>
+      </ol>
+
+      <h3>Dichiarazioni e X (Twitter)</h3>
+      <ol class="sources">
+        <li>SpaceX (@SpaceX), 12 maggio 2026 — post su migliaia di voli Starship/anno e esplorazione continua di siti domestici e internazionali (risposta al ciclo voci Louisiana; status id 2054295243122717105).</li>
+        <li>S.E. Robinson Jr. (@SERobinsonJr) — thread e reportage: 4 maggio (Keaty/136k), 8 maggio (Hensgens), 13-14 maggio (visita Pecan Island, drone, video), 2 agosto (sintesi "final stages" + Landry). Principale ponte community tra terreno e X.</li>
+        <li>Sintesi virali 2-3 agosto 2026 — es. @joehansen, @DimaZeniuk e account di news aggregation: bullet su 130k acri, Exxon, job, annuncio agosto (riprendono NOLA, non sostituiscono NOLA).</li>
+      </ol>
+
+      <h3>Reddit e forum</h3>
+      <ol class="sources">
+        <li>r/SpaceXLounge — thread maggio 2026 sull'acquisizione fino a ~136k acri; commenti di affittuari/contatti locali; thread inizio agosto sul pezzo NOLA.</li>
+        <li>r/spacex — discussioni su spaceport costiero, confronti di scala con Starbase, ipotesi multi-pad e SSO / costellazioni (agosto 2026).</li>
+        <li>r/Louisiana e r/Acadiana — reazioni locali su Pecan Island, Vermilion Corp, caccia/pesca, scetticismo e supporto (maggio-agosto 2026).</li>
+        <li>NASASpaceflight Forum — topic "SpaceX facility in Vermilion Parish, Louisiana" (topic 64900 e messaggi correlati, da inizio maggio). Contesto ownership, mappe, confronti buffer; usato come clima tecnico, non come verbale ufficiale.</li>
+        <li>Mirror / discussioni collegate: Tesla Motors Club, Houston Architecture Forum (HAIF), Secret Projects — riprese del thread NSF e delle fonti Keaty/Hensgens.</li>
+      </ol>
+
+      <h3>Documenti e contesto regolatorio</h3>
+      <ol class="sources">
+        <li>Legislature della Louisiana, Regular Session 2026 — bill aerospaziali (tra cui misure note in stampa come HB1098 liability, HB1250 early dismissal, HB1033 critical infrastructure, Act su sales/use tax rebate e ITEP; verificare i numeri finali Act sul sito legis.la.gov in fase di update).</li>
+        <li>U.S. District Court, Western District of Louisiana — notice di settlement costiero Exxon (giugno 2026); termini in gran parte non pubblici.</li>
+        <li>FAA / U.S. DOT — proposta di rulemaking su waiver di statute per licenze di lancio/reentry (fine luglio 2026); docket di commento pubblico indicato fino al 31 agosto 2026 (verificare regulations.gov in aggiornamento).</li>
+        <li>Keaty Real Estate blog — "Is SpaceX Coming to Acadiana?" / pezzo Pecan Island: innesco mediatico di maggio sulle 136k acri.</li>
+      </ol>
+
+      
+      <h3>Fonti immagini e mappa</h3>
+      <ol class="sources">
+        <li>NASA SVS 11042 — Vermilion Parish / Pecan Island Landsat sequence (NASA/GSFC, USGS Landsat). File locali in <code>assets_louisiana/</code>.</li>
+        <li><code>pecan_island_location_2003.jpg</code>, <code>pecan_island_2011.jpg</code>, <code>pecan_island_2003.jpg</code>, <code>pecan_island_rita_2005.jpg</code>, <code>pecan_island_compare_1973_2011.jpg</code> — public domain / uso governativo USA.</li>
+        <li>Mappa: Leaflet 1.9 + tile OpenStreetMap; layer satellite Esri World Imagery. Perimetro arancione: elaborazione redazionale indicativa, non atto catastale.</li>
+      </ol>
+
+      <h3>Limiti di questa pagina</h3>
+      <p>Non sostituisce atti notarili, EIS, o un comunicato congiunto. Non usa fonti private non citabili. Le stime di job e la forma esatta del controllo fondiario dipendono da fonti non intitolate a parlare in pubblico (NOLA) e andranno riallineate all'annuncio. Prima di pubblicare sul sito "Rivoluzione Spaziale": (1) rilettura umana, (2) check notizie del giorno, (3) decisione se collegare da sezioni/localita-spacex.html o da un indice news, (4) solo allora eventuale push GitHub/gh-pages.</p>
+      <p style="margin-top:28px"><a class="button" href="../sezioni/spacex.html">Torna a SpaceX</a></p>
+    </div>
+  </section>
+</main>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+(function(){
+  const el = document.getElementById('la-map');
+  if (!el || typeof L === 'undefined') return;
+
+  const map = L.map('la-map', { scrollWheelZoom: false }).setView([29.58, -92.35], 10);
+
+  const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  });
+  const sat = L.tileLayer(
+    'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+    {
+      maxZoom: 18,
+      attribution: 'Tiles &copy; Esri'
+    }
+  );
+  osm.addTo(map);
+  L.control.layers({ 'Mappa': osm, 'Satellite': sat }, null, { position: 'topright', collapsed: false }).addTo(map);
+
+  // Perimetro INDICATIVO (~530-550 km2) a sud della LA 82, tra area Pecan Island e Freshwater Bayou verso il Golfo.
+  // Non e' un confine ufficiale: elaborazione redazionale per scala.
+  const approx = L.polygon([
+    [29.655, -92.55],
+    [29.655, -92.18],
+    [29.48, -92.12],
+    [29.42, -92.28],
+    [29.45, -92.58]
+  ], {
+    color: '#f5b941',
+    weight: 2,
+    fillColor: '#f5b941',
+    fillOpacity: 0.18
+  }).addTo(map);
+  approx.bindPopup('<strong>Perimetro indicativo</strong><p>Ordine di 530-550 km² di palude costiera (stime ~130-136k acri). Non e\' un confine catastale ufficiale.</p>');
+
+  const places = [
+    {
+      lat: 29.641, lon: -92.436, label: 'Pecan Island',
+      html: '<strong>Pecan Island</strong><p>Ridge / chenier abitato (~100 residenti permanenti nelle cronache 2026). LA 82 corre sulla ridge.</p>'
+    },
+    {
+      lat: 29.555, lon: -92.305, label: 'Freshwater City / Bayou',
+      html: '<strong>Freshwater City / Freshwater Bayou</strong><p>Zona citata per accesso canale, dock e collegamento verso Golfo e Intracoastal. Nodo logistico potenziale per chiatte.</p>'
+    },
+    {
+      lat: 29.75, lon: -92.50, label: 'White Lake',
+      html: '<strong>White Lake</strong><p>Grande corpo d\'acqua a nord della ridge di Pecan Island. Utile per orientarsi sulle immagini Landsat.</p>'
+    },
+    {
+      lat: 29.62, lon: -92.70, label: 'Verso Rockefeller WR',
+      html: '<strong>Verso ovest / Cameron</strong><p>Nelle descrizioni primaverili il blocco e\' discusso anche in relazione all\'estensione verso aree vicine al Rockefeller Wildlife Refuge (non confini ufficiali).</p>'
+    }
+  ];
+
+  places.forEach(function(p){
+    L.circleMarker([p.lat, p.lon], {
+      radius: 7,
+      color: '#fff',
+      weight: 2,
+      fillColor: '#67c7ff',
+      fillOpacity: 0.95
+    }).addTo(map).bindPopup(p.html);
+  });
+
+  map.fitBounds(approx.getBounds().pad(0.18));
+})();
+</script>
+
+</body>
+</html>
