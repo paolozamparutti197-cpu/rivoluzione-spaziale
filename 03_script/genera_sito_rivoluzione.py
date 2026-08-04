@@ -2187,6 +2187,7 @@ def render_spacex(data):
         <a class="button secondary" href="starship.html">Starship</a>
         <a class="button secondary" href="pad-di-lancio.html">Pad di lancio</a>
         <a class="button secondary" href="localita-spacex.html">Localita SpaceX</a>
+        <a class="button secondary" href="notizie.html">Notizie</a>
         <a class="button history-link" href="guida-lancio-slc40.html">Vedere un lancio da SLC-40</a>
       </div>
     </article>
