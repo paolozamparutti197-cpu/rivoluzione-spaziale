@@ -16,7 +16,7 @@ SECTIONS_DIR = ROOT / "sezioni"
 CSS_DIR = ROOT / "css"
 
 HERO_IMAGE = "https://upload.wikimedia.org/wikipedia/commons/5/5d/Falcon_1_Flight_4_launch.jpg"
-CSS_VERSION = "20260805-home-no-news"
+CSS_VERSION = "20260805-earnings-breaking"
 ROME_TZ = ZoneInfo("Europe/Rome")
 MONTHS_IT = {
     1: "gennaio",
@@ -154,7 +154,25 @@ NAV_UTILITY_SECTIONS = [
 ]
 
 # Archivio notizie del sito (ordine: piu recenti prima). date ISO per ordinamento.
+# breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
+    {
+        "date": "2026-08-04",
+        "date_label": "4 agosto 2026",
+        "tag": "SpaceX · Earnings",
+        "title": "Prima earnings call pubblica: Starlink paga, l'AI brucia Capex",
+        "summary": (
+            "Q2 2026 da societa quotata: ricavi 7,81 mld (+92%), Starlink a 12M abbonati, "
+            "Capex AI 15,8 mld, path verso 100 mld di ARR e proiezione 1T revenue anticipata. "
+            "Numeri, citazioni call e lettura nerd."
+        ),
+        "href": "../documenti%20per%20sito/spacex_q2_2026_earnings.html",
+        "image": "../documenti%20per%20sito/assets_earnings/falcon9_liftoff.jpg",
+        "image_alt": "Falcon 9 al decollo, archivio fotografico del sito",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
     {
         "date": "2026-08-03",
         "date_label": "3 agosto 2026",
@@ -941,7 +959,11 @@ a.metric-link-f14 span{{color:#ffd29a;font-weight:800}}
 .news-card h3{{margin:0;font-size:clamp(22px,3vw,32px);line-height:1.1;color:#fff}}
 .news-card p{{max-width:760px;margin:10px 0 0;color:#cbd2d8}}
 .news-card .button{{display:inline-flex;margin-top:18px}}
-.home-news-section{{padding-top:56px;padding-bottom:56px}}
+.breaking-news-section{{padding-top:28px}}
+.breaking-card{{border-color:rgba(233,95,69,.45);background:linear-gradient(135deg,rgba(233,95,69,.12),rgba(255,255,255,.05) 42%,var(--panel))}}
+.breaking-card:hover{{border-color:rgba(233,95,69,.75)}}
+.breaking-card small,.breaking-card time{{color:#ff9b8a!important}}
+.breaking-card .news-badge{{border-color:rgba(233,95,69,.55);color:#ffd0c6}}
 .agenda-strip{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:22px}}
 .agenda-note{{border:1px solid var(--line);background:rgba(255,255,255,.055);border-radius:8px;padding:16px;min-height:96px}}
 .agenda-note b{{display:block;font-size:24px;margin-bottom:6px}}
@@ -1126,17 +1148,17 @@ td{{color:#d8dee3}}
 """
 
 
-def news_card_html(item, from_section=True):
+def news_card_html(item, from_section=True, extra_class=""):
     """Scheda notizia con data esplicita. href/image sono path relativi da sezioni/."""
     href = item["href"]
     image = item["image"]
     if not from_section:
-        # Homepage: path da root
         href = href.replace("../", "", 1) if href.startswith("../") else href
         image = image.replace("../", "", 1) if image.startswith("../") else image
     badge = item.get("badge") or ""
     badge_html = f'<span class="news-badge">{escape(badge)}</span>' if badge else ""
-    return f"""<a class="news-card" href="{href}">
+    classes = " ".join(c for c in ["news-card", extra_class] if c)
+    return f"""<a class="{classes}" href="{href}">
   <img src="{image}" alt="{escape(item.get('image_alt') or item['title'])}" loading="lazy" width="640" height="360">
   <div>
     <div class="news-card-meta">
@@ -1149,6 +1171,35 @@ def news_card_html(item, from_section=True):
     <span class="button">Leggi</span>
   </div>
 </a>"""
+
+
+def company_breaking_items(company_slug):
+    """Breaking attive per una compagnia (non home)."""
+    return [
+        item
+        for item in SITE_NEWS
+        if item.get("breaking") and item.get("company") == company_slug
+    ]
+
+
+def render_company_breaking(company_slug):
+    items = company_breaking_items(company_slug)
+    if not items:
+        return ""
+    cards = "\n".join(news_card_html(item, from_section=True, extra_class="breaking-card") for item in items)
+    return f"""
+<section class="breaking-news-section">
+  <div class="inner">
+    <div class="section-head">
+      <h2>Breaking news</h2>
+      <p>Dossier aperti sulle notizie in corso per questa compagnia. L&#x27;archivio completo resta in Notizie.</p>
+    </div>
+    <div class="news-list">
+{cards}
+    </div>
+  </div>
+</section>
+"""
 
 
 def render_home():
@@ -2157,6 +2208,7 @@ def render_spacex(data):
     )
     body = f"""
 {page_hero("SpaceX", "Sezione attiva", "L'area SpaceX raccoglie la parte viva del sito: agenda dei lanci, storico Falcon, riuso dei booster e sviluppo Starship.")}
+{render_company_breaking("spacex")}
 <section>
   <div class="inner split">
     <article class="panel">

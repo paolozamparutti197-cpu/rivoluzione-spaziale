@@ -1,0 +1,9 @@
+Crediti immagini (dossier earnings Q2 2026)
+==========================================
+- falcon9_liftoff.jpg: SpaceX / NASA-era COTS-1 liftoff (asset locale fondazione, uso editoriale sito).
+- slc40_pad.jpg: pad SLC-40 (asset locale fondazione).
+- starship_ignition.jpg, superheavy_approach.jpg: asset sezioni sviluppo-starship (sito).
+- starship_pad.jpg: asset sezioni lancio13 (sito).
+- dragon_approach.jpg: NASA PD COTS-2 (asset locale fondazione).
+
+I grafici/numeri ripresi dai thread pubblici SpaceX e Sawyer Merritt su X non sono riprodotti come screenshot proprietari: i dati sono citati in tabelle e testo con link alle fonti.

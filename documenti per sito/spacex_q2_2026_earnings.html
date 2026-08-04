@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SpaceX Q2 2026 earnings: la prima call pubblica e la macchina a tre motori</title>
+<style>
+:root{
+  --bg:#050607;
+  --ink:#f4f6f8;
+  --muted:#a9b0b7;
+  --line:rgba(255,255,255,.16);
+  --soft:rgba(255,255,255,.075);
+  --cyan:#67c7ff;
+  --amber:#f5b941;
+  --red:#e95f45;
+  --green:#79d18b;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;letter-spacing:0}
+a{color:var(--cyan);text-decoration:none}
+a:hover{text-decoration:underline}
+.topbar{position:fixed;inset:0 0 auto 0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:18px clamp(18px,4vw,56px);background:linear-gradient(180deg,rgba(0,0,0,.92),rgba(0,0,0,.54),rgba(0,0,0,0))}
+.brand{font-weight:900;letter-spacing:.16em;text-transform:uppercase;font-size:15px;color:#fff}
+.brand span{color:var(--cyan)}
+.nav{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end;font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:800}
+.nav a{color:#fff}
+.hero{min-height:88vh;display:grid;align-items:end;padding:110px clamp(18px,4vw,56px) 50px;background:
+  linear-gradient(90deg,rgba(0,0,0,.9),rgba(0,0,0,.55) 48%,rgba(0,0,0,.3)),
+  linear-gradient(180deg,rgba(0,0,0,.1),rgba(5,6,7,.97) 92%),
+  url("assets_earnings/falcon9_liftoff.jpg") center 40%/cover no-repeat}
+.hero-inner,.section-inner{max-width:1180px;margin:0 auto}
+.eyebrow{margin:0 0 14px;color:var(--amber);text-transform:uppercase;letter-spacing:.14em;font-size:13px;font-weight:900}
+h1{margin:0;max-width:1040px;font-size:clamp(34px,6.6vw,72px);line-height:.92;text-transform:uppercase;font-weight:950}
+h2{margin:0 0 24px;font-size:clamp(28px,4vw,48px);line-height:1;text-transform:uppercase}
+h3{margin:30px 0 12px;font-size:22px;line-height:1.15}
+p{color:#d9dde1;font-size:17px;line-height:1.72;margin:0 0 18px}
+.lead{max-width:940px;margin:24px 0 0;color:#e6ebef;font-size:clamp(17px,2vw,22px);line-height:1.48;font-weight:500}
+.meta{margin:18px 0 0;color:var(--muted);font-size:14px;letter-spacing:.04em}
+section{padding:76px clamp(18px,4vw,56px);border-top:1px solid var(--line)}
+.split{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(280px,.72fr);gap:42px;align-items:start}
+.panel{border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.045));border-radius:8px;padding:22px}
+.panel h3:first-child{margin-top:0}
+.panel p,.panel li{font-size:15px;color:#d6dbe0;line-height:1.62}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:34px}
+.fact{border:1px solid var(--line);background:var(--soft);border-radius:8px;padding:18px;min-height:118px}
+.fact b{display:block;font-size:clamp(18px,2vw,24px);line-height:1.05;margin-bottom:10px}
+.fact span{display:block;color:var(--muted);line-height:1.42;font-size:14px}
+.figure{margin:28px 0;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#0a0f14}
+.figure img{display:block;width:100%;max-height:480px;object-fit:cover}
+.figure figcaption{padding:12px 14px;color:var(--muted);font-size:13px;line-height:1.45}
+table{width:100%;border-collapse:collapse;margin:22px 0;font-size:15px}
+th,td{border-top:1px solid var(--line);padding:13px 10px;text-align:left;vertical-align:top;line-height:1.45}
+th{color:#fff;text-transform:uppercase;letter-spacing:.08em;font-size:12px}
+td{color:#d8dde2}
+.callout{border-left:4px solid var(--red);padding:16px 18px;background:rgba(233,95,69,.095);margin:26px 0}
+.callout.green{border-left-color:var(--green);background:rgba(121,209,139,.08)}
+.callout.amber{border-left-color:var(--amber);background:rgba(245,185,65,.09)}
+.callout.cyan{border-left-color:var(--cyan);background:rgba(103,199,255,.08)}
+.callout p{margin:0}
+.quote{border:1px solid rgba(105,200,255,.35);border-radius:8px;padding:18px 20px;background:linear-gradient(135deg,rgba(105,200,255,.12),rgba(255,255,255,.04));margin:22px 0}
+.quote p{margin:0;color:#e8f4fb;font-size:16px;line-height:1.55}
+.quote cite{display:block;margin-top:10px;color:var(--muted);font-size:13px;font-style:normal}
+.timeline{display:grid;gap:14px;margin-top:24px}
+.event{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;border-top:1px solid var(--line);padding-top:18px}
+.date{color:var(--amber);font-weight:900;text-transform:uppercase;letter-spacing:.08em;font-size:13px}
+.event h3{margin:0 0 6px}
+.event p{margin:0;color:#cfd5da}
+.sources{columns:2 360px;column-gap:42px;padding-left:18px}
+.sources li{break-inside:avoid;color:#d9dde1;margin:0 0 12px;line-height:1.5;font-size:15px}
+.button{display:inline-flex;border:1px solid var(--line);padding:12px 16px;border-radius:4px;text-transform:uppercase;font-size:12px;letter-spacing:.09em;font-weight:900;background:rgba(0,0,0,.22);color:#fff;margin:8px 8px 0 0}
+.draft-banner{position:sticky;top:0;z-index:20;background:rgba(233,95,69,.16);border-bottom:1px solid rgba(233,95,69,.4);color:#ffd0c6;padding:10px clamp(18px,4vw,56px);font-size:13px;font-weight:700;letter-spacing:.04em}
+.toc{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.toc a{color:#dff4ff;font-weight:700;font-size:14px}
+.seg-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:24px 0}
+.seg{border:1px solid var(--line);border-radius:8px;padding:16px;background:rgba(255,255,255,.05)}
+.seg b{display:block;color:var(--amber);font-size:12px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
+.seg strong{display:block;font-size:22px;margin-bottom:6px}
+.seg span{color:var(--muted);font-size:13px;line-height:1.4}
+.footer-note{padding:34px clamp(18px,4vw,56px);border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+@media(max-width:900px){.topbar{position:absolute}.nav{display:none}.split,.seg-grid,.facts{grid-template-columns:1fr}.event{grid-template-columns:1fr;gap:6px}}
+@media(max-width:520px){section{padding:54px 18px}.hero{padding:96px 18px 42px;min-height:78vh}h1{font-size:36px}}
+</style>
+</head>
+<body>
+<div class="draft-banner">Breaking news · 4 agosto 2026 · prima earnings call pubblica SpaceX (Q2). Non e consulenza finanziaria; numeri da report IR e fonti pubbliche.</div>
+<header class="topbar">
+  <a class="brand" href="../sezioni/spacex.html">Rivoluzione <span>Spaziale</span></a>
+  <nav class="nav" aria-label="Sezioni">
+    <a href="#perche">Perche conta</a>
+    <a href="#numeri">Numeri</a>
+    <a href="#connectivity">Starlink</a>
+    <a href="#space">Space</a>
+    <a href="#ai">AI</a>
+    <a href="#call">Call</a>
+    <a href="#bilancio">Bilancio</a>
+    <a href="#nerd">Lettura nerd</a>
+    <a href="#fonti">Fonti</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" aria-label="Introduzione">
+    <div class="hero-inner">
+      <p class="eyebrow">Breaking · earnings · 4 agosto 2026</p>
+      <h1>La prima earnings call pubblica di SpaceX: tre motori, un Capex da guerra e Starlink che paga il conto</h1>
+      <p class="lead">Il 4 agosto 2026 SpaceX ha pubblicato i risultati del secondo trimestre e ha tenuto la prima webcast audio da societa quotata. Non e una call da azienda aerospaziale classica: e il report di un conglomerato che vende internet satellitare, lancia razzi e compra GPU come se fossero propellente. Qui i numeri, le citazioni e una lettura per chi vuole capire davvero dove va il cash.</p>
+      <p class="meta">Breaking · SpaceX · collegato da SpaceX e Notizie · 4 agosto 2026 · fonti: SpaceX, Sawyer Merritt, Elon Musk, Teslarati, Reuters</p>
+    </div>
+  </section>
+
+  <section id="perche">
+    <div class="section-inner">
+      <div class="split">
+        <article>
+          <h2>Perche questa call e un evento di sistema</h2>
+          <p>Per chi ha seguito SpaceX da privato, i bilanci erano un affare da leaker, da tabelle di Sawyer Merritt, da slide di investor day, da voci di valuation nei round secondari. Il passaggio a societa pubblica (ticker SPCX, debutto Nasdaq a giugno 2026) ha cambiato il contratto informativo: ora c e un PDF ufficiale, un segment report, un Capex spezzato per business line e una call in cui Elon Musk e il CFO Bret Johnsen devono rispondere a Wall Street senza potersi nascondere dietro il muro del private market.</p>
+          <p>Il post ufficiale SpaceX del 4 agosto non usa il linguaggio soft dei comunicati aerospaziali da NASA-contractor. Dice esplicitamente tre cose che definiscono la tesi: (1) crescita del revenue del 92% YoY grazie a integrazione verticale estrema tra Space, Connectivity e AI; (2) due voli Starship V3 riusciti negli ultimi 90 giorni verso riuso pieno e rapido; (3) Cloud Services Agreements da 14,1 miliardi di dollari di vendite contrattualizzate, accordo per acquisire Cursor a 60 miliardi, Grok 4.5 in luglio, e oltre 6 miliardi di contratti multi-anno Starshield con il governo USA.</p>
+          <p>Per il nerd operativo la domanda non e «SpaceX ha fatto un buon quarter?». La domanda e: la macchina a tre motori (Connectivity profittevole, Space ancora in investimento pesante, AI in rampa di Capex) e coerente, o e un Frankenstein contabile in cui Starlink finanzia un sogno di data center finche la liquidita regge? I numeri del Q2 dicono entrambe le cose: Starlink e un motore da EBITDA, l AI ha gia Adjusted EBITDA positivo a livello di segmento ma brucia Capex a livelli da hyperscaler, e lo Space business resta il laboratorio costoso che un giorno dovrebbe diventare la fabbrica di massa orbitale.</p>
+          <p>Teslarati, prima e dopo la call, ha inquadrato il tema correttamente: e la prima earnings da public company, e gli investitori guardano Starlink growth, AI costs, Starship roadmap e — non dimenticatelo — la lockup expiration di agosto che puo liberare centinaia di milioni di azioni insider. Reuters, il giorno prima, aveva messo il focus esatto: se i profitti di Starlink reggono la spesa AI e i venturi space. La call ha risposto con un beat di revenue e un messaggio di Capex ancora piu aggressivo. Motley Fool e IBD avevano preparato il terreno con consensus intorno ai 6,7–6,9 miliardi di fatturato: SpaceX ha stampato quasi 8.</p>
+          <p>C e un secondo livello, piu da community NSF che da sell-side. Per chi tiene un foglio dei lanci Falcon, questa call e il momento in cui le 38 missioni del quarter, le 485 tonnellate in orbita e i 28 voli internal smettono di essere solo «cadenza» e diventano riga di revenue, di deprezzamento satellitare e di Capex. Per chi segue Starship Flight 13 e recovery oceanica, e il momento in cui engineering live e IR deck condividono la stessa timeline pubblica. Per chi guarda xAI e Grok, e il momento in cui il compute smette di essere una appendice e diventa un terzo P&amp;L con 15,8 miliardi di Capex in tre mesi.</p>
+        </article>
+        <aside class="panel">
+          <h3>Indice rapido</h3>
+          <ul class="toc">
+            <li><a href="#numeri">Headline numbers Q2</a></li>
+            <li><a href="#connectivity">Connectivity / Starlink</a></li>
+            <li><a href="#space">Segmento Space e Starship</a></li>
+            <li><a href="#ai">AI, Cursor, Nvidia, Grok</a></li>
+            <li><a href="#call">Citazioni dalla call</a></li>
+            <li><a href="#bilancio">Cassa, debito, backlog</a></li>
+            <li><a href="#nerd">Cosa guardare da nerd</a></li>
+            <li><a href="#fonti">Fonti e tracce</a></li>
+          </ul>
+          <p style="margin-top:18px"><strong>Status bozza.</strong> Controlla fatti e tono prima di pubblicare o linkare da Notizie / SpaceX. Non e consulenza finanziaria.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="numeri">
+    <div class="section-inner">
+      <h2>I numeri del quarter (e perche il 92% non e cosmesi)</h2>
+      <p>Secondo il riepilogo ufficiale SpaceX e la ricostruzione dettagliata pubblicata da Sawyer Merritt a ridosso della call, i risultati del Q2 2026 (trimestre chiuso il 30 giugno) sono questi, in sintesi. Sono i numeri che la timeline ha ritwittato a raffica, e sono anche i numeri che un analista serio mettera nel modello prima di discutere di valuation.</p>
+      <div class="facts">
+        <div class="fact"><b>7,81 mld $</b><span>Ricavi totali (+92% YoY da 4,07; +66% QoQ da 4,69)</span></div>
+        <div class="fact"><b>3,53 mld $</b><span>Adjusted EBITDA (+191% YoY; triplo vs Q1)</span></div>
+        <div class="fact"><b>-541 mln $</b><span>Net loss (migliora di 467 mln vs -1,008 mld YoY)</span></div>
+        <div class="fact"><b>18,3 mld $</b><span>Capex totale (da 10,1 in Q1 e 2,8 un anno fa)</span></div>
+      </div>
+      <p>Il beat sul consensus e macroscopico se si prende la forchetta pre-call (circa 6,7–6,9 miliardi di revenue attesi da varie case, con net loss attesa molto piu larga). SpaceX ha stampato quasi 8 miliardi di fatturato trimestrale e ha ridotto la perdita operativa a 143 milioni (da 970 YoY e da 1,94 miliardi in Q1). In italiano da nerd: la top line sta scalando come un software company con hardware da guerra, mentre la bottom line e ancora rossa perche qualcuno sta costruendo fabbriche di calcolo e razzi allo stesso tempo.</p>
+      <p>Adjusted EBITDA a 3,53 miliardi (+191% YoY, piu del triplo rispetto a 1,127 miliardi del Q1) e il numero che i bull useranno per dire «la macchina genera cassa operativa». Capex a 18,3 miliardi e il numero che i bear useranno per dire «free cash flow e un miraggio». Entrambe le letture sono incomplete da sole. EBITDA non paga le GPU; Capex non e automaticamente spreco se dietro ci sono contratti cloud da 14,1 miliardi e un path dichiarato verso 100 miliardi di ARR. Il punto e la coerenza temporale: quando il Capex si traduce in GW energizzati e in revenue riconosciuta, e con quale concentrazione di clienti.</p>
+      <table>
+        <thead>
+          <tr><th>Metrica</th><th>Q2 2026</th><th>Confronto</th><th>Lettura nerd</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Ricavi</td><td>7,81 mld $</td><td>+92% YoY / +66% QoQ</td><td>Scalabilita multi-segmento, non un one-off di launch</td></tr>
+          <tr><td>Loss from operations</td><td>143 mln $</td><td>da 970 YoY / 1,94 mld Q1</td><td>Compressione forte del rosso operativo</td></tr>
+          <tr><td>Adj. EBITDA</td><td>3,53 mld $</td><td>+191% YoY</td><td>Cash generation operativa al lordo del Capex AI</td></tr>
+          <tr><td>Capex</td><td>18,3 mld $</td><td>da 2,8 un anno fa</td><td>Il vero headline per chi valuta free cash flow</td></tr>
+          <tr><td>Backlog</td><td>47,5 mld $</td><td>fine Q2</td><td>Visibilita multi-anno su contratti</td></tr>
+          <tr><td>Cash + marketable</td><td>~100 mld $</td><td>93,5 cash + 6,48 mkt</td><td>Bilancio da superpower, non da startup</td></tr>
+        </tbody>
+      </table>
+      <div class="callout amber">
+        <p><strong>Attenzione metodologica.</strong> I numeri di segmento sotto riportati seguono la ricostruzione pubblica di Sawyer Merritt allineata al report SpaceX. Dove c e arrotondamento (7,8 vs 7,81; 1,65 vs 1,66) e tipico del passaggio tra slide, post e PDF. Per citazioni contabili definitive va sempre il documento IR ufficiale: <em>SpaceX Reports Second Quarter 2026 Results</em>.</p>
+      </div>
+      <div class="seg-grid">
+        <div class="seg"><b>Connectivity</b><strong>4,29 mld $</strong><span>Ricavi · op. income 1,65 mld · Adj. EBITDA 2,60 mld</span></div>
+        <div class="seg"><b>AI</b><strong>2,56 mld $</strong><span>Ricavi · op. loss 1,26 mld · Adj. EBITDA +1,14 mld</span></div>
+        <div class="seg"><b>Space</b><strong>962 mln $</strong><span>Ricavi · op. loss 542 mln · Adj. EBITDA -205 mln</span></div>
+      </div>
+      <p>Se sommi i tre pezzi vedi la struttura: Connectivity e quasi il 55% del fatturato e porta quasi tutto il margine operativo positivo; AI e gia un terzo del fatturato ma con perdita operativa e Capex mostruoso; Space e circa il 12% del fatturato e resta in perdita perche lanci, sviluppo e Starship non sono ancora un business da margini da software. Chi compra SPCX per «i razzi» sta comprando, finanziariamente, soprattutto un operatore di rete satellitare che usa i razzi come asset produttivo e sta costruendo un terzo pilastro di compute. Chi compra SPCX per «l AI» sta comprando un hyperscaler con una fabbrica di accesso all orbita in casa. Chi compra SPCX per «Marte» sta comprando un optionality narrative che il P&amp;L di questo quarter non puo ancora validare ne falsificare: puo solo dire se c e abbastanza cassa e margine Connectivity per continuare a scommettere.</p>
+    </div>
+  </section>
+
+  <section id="connectivity">
+    <div class="section-inner">
+      <h2>Connectivity: Starlink come earnings engine</h2>
+      <figure class="figure">
+        <img src="assets_earnings/slc40_pad.jpg" alt="Pad di lancio SLC-40, infrastruttura tipica dei voli Falcon dedicati a costellazioni">
+        <figcaption>SLC-40 e il ritmo industriale Falcon: la costellazione Starlink non e un side project, e la linea di produzione che riempie i payload e paga il conto. Foto da archivio locale del sito.</figcaption>
+      </figure>
+      <p>Connectivity ha fatto 4,29 miliardi di ricavi (+66% YoY, +32% QoQ). Dentro: consumer 2,48 miliardi (+44% YoY) e enterprise &amp; government 1,8 miliardi (+108% YoY). L operating income del segmento e 1,65 miliardi (+79% YoY); l Adjusted EBITDA 2,597 miliardi (+64% YoY). Capex Connectivity: 1,36 miliardi (+21% YoY). Traduzione: la rete scala in abbonati e in mix enterprise, e ancora investe, ma il profilo e da business maturo che genera cassa, non da progetto in fase seed. E esattamente il pezzo che Reuters e Morningstar avevano indicato come «earnings engine» pre-call: senza questo pezzo, il Capex AI e un suicidio; con questo pezzo, e una scommessa finanziabile.</p>
+      <p>I 12 milioni di abbonati Starlink a fine giugno sono il numero che girera di piu sui social. Sono il doppio YoY (da 6 milioni) e +1,7 milioni nel solo Q2. ARPU dichiarato rimasto a 66 dollari/mese: importante, perche in Q1 si era discusso di compressione ARPU; qui la lettura pubblica e stabilizzazione. Cento sessantasette paesi di copertura al 30 giugno. Costellazione a circa 10.200 satelliti in orbita. Aviation: accordo major con American Airlines e attivazioni su Southwest, Virgin Atlantic, Iberia, Aer Lingus. Mobile: partnership internazionali con SoftBank, NTT Docomo e Spark NZ. Spectrum: via libera FCC al trasferimento licenze EchoStar (65 MHz di spettro USA e certe licenze MSS globali). Ognuno di questi bullet e un KPI diverso: net adds, footprint geografico, mix mobility, accesso a spectrum. Insieme raccontano una rete che non e piu solo «kit da tetto per rural broadband».</p>
+      <div class="quote">
+        <p>«It is not out of the question that Starlink will deliver a majority of the world's Internet.»</p>
+        <cite>Elon Musk, Q2 earnings call 2026 — riportato da Sawyer Merritt</cite>
+      </div>
+      <p>Questa frase e pure marketing, ma non e vuota se la leggi insieme all ARPU, al mix enterprise e allo spectrum. «Majority of the world's Internet» non significa «maggioranza del traffico IP globale domani»: significa ambizione di diventare il default di accesso in aree dove fibra e cellulare non arrivano, piu una fetta non banale di mobility (aerei, navi, auto, direct-to-cell). Il nerd di rete guarda tre KPI: (1) net adds trimestrali, (2) ARPU e churn, (3) mix enterprise/gov che ha margini e stickiness diversi dal consumer. Nel Q2 i net adds sono da growth company; l enterprise a +108% YoY e il pezzo che cambia la tesi da «Starlink come consumer ISP» a «Starlink come infrastruttura critica».</p>
+      <p>Starshield: oltre 6 miliardi di contratti multi-anno USA, in particolare due major Space Force. Qui non c e il dettaglio operativo (classifiche, payload, orbite) che un forum NSF vorrebbe, ma c e il segnale di bilancio: lo Stato americano sta comprando capacita SpaceX non solo come launch provider ma come layer di rete e payload governativo. Per chi tiene il workbook dei lanci Falcon, Starshield e la coda istituzionale della stessa macchina che manda su V2 mini ogni pochi giorni da Vandenberg e Florida. Per chi ragiona in termini di rischio politico, e anche un ancoraggio: quando hai Space Force nel backlog, non sei solo una storia da retail trader su X.</p>
+      <p>Vale la pena fissare un punto contabile che i thread spesso saltano. Connectivity Capex a 1,36 miliardi e «solo» +21% YoY: non e il pezzo che sta esplodendo. Il pezzo che esplode e AI. Questo significa che, al margine, la crescita abbonati e coverage sta avvenendo su una base di Capex rete relativamente disciplinata rispetto al firehose del compute. Se nei prossimi quarter Connectivity Capex restasse ordinato mentre AI Capex restasse da guerra, il messaggio management e chiaro: stiamo spremendo la rete e stiamo scommettendo il bilancio sul terzo motore.</p>
+      <div class="callout green">
+        <p><strong>Punto nerd.</strong> Se spegni mentalmente AI e Starship per un secondo, resta un operatore LEO che fa 4+ miliardi al quarter di connectivity con op. income a 1,65. E un business che da solo giustifica una valuation enorme. Tutto il resto e opzione reale ad alto Capex: o diventa multi-trillion narrative, o e diluizione di free cash flow. La call dice che management crede alla seconda strada solo se e anche la prima.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="space">
+    <div class="section-inner">
+      <h2>Segmento Space: 38 lanci nel quarter e Starship V3 in rampa</h2>
+      <figure class="figure">
+        <img src="assets_earnings/starship_ignition.jpg" alt="Accensione Raptor su veicolo Starship durante test">
+        <figcaption>Starship non e ancora il cash cow del bilancio: e la scommessa di massa a basso costo in orbita che lega Starlink V3, payload pesanti e — in prospettiva — compute orbitale. Asset locale sviluppo-starship.</figcaption>
+      </figure>
+      <p>Il segmento Space ha fatto 962 milioni di ricavi (+29% YoY, +55% QoQ): 648 milioni da launch services e 314 da launch &amp; development. Operating loss 542 milioni; Adjusted EBITDA loss 205 milioni; Capex Space 1,174 miliardi. Non e un segmento «cattivo»: e un segmento che investe in una rampa industriale mentre vende ancora lanci su Falcon a prezzi e mix che non bastano a coprire sviluppo Starship e infrastruttura di pad, navi, torri e flotte di booster.</p>
+      <p>Operativamente il Q2 e da record di cadenza: 38 lanci completati (10 customer, 28 internal), 78 YTD al 30 giugno, 485 tonnellate metriche in orbita nel quarter e 1.041 YTD. Se tieni un foglio <code>lanci_spacex_falcon</code>, questi numeri sono la conferma di sistema: la macchina Falcon non e piu un «lancio alla volta», e una linea. I 28 voli internal sono soprattutto Starlink: il cliente principale di SpaceX e SpaceX stessa, e questo e il trucco industriale da quindici anni. Non e un trucco contabile: e vertical integration. Costruisci il satellite, il razzo, il pad, il recovery ship e la rete a terra. Poi ti lanci da solo i tuoi payload a costo marginale interno e vendi il servizio all utente finale.</p>
+      <p>Sul fronte Starship, il comunicato ufficiale cita due flight test V3 riusciti negli ultimi 90 giorni verso full and rapid reusability. In call, secondo Sawyer Merritt, Elon ha annunciato che il prossimo test flight portera satelliti Starlink V3 di nuova generazione in orbita operativa per la prima volta, e che tenteranno la catch della ship. Se lo fai davvero, non e solo PR: e il momento in cui la costellazione smette di dipendere solo da Falcon per il mass-to-orbit di V3 e inizia a usare il veicolo per cui e stata disegnata. Per chi ha seguito Flight 13 (softest splashdown ship, hard landing booster, recovery oceanica in corso verso l Australia), e la continuita della stessa curva di apprendimento: non «fallimento o successo binario», ma KPI di recovery, heatshield, engine-out e logistica post-volo.</p>
+      <div class="quote">
+        <p>«We encourage our competitors to copy us, but it is quite difficult to copy something like Starship. We do not use patents as a landmine exercise... We actively encourage it.»</p>
+        <cite>Elon Musk in call — thread Sawyer Merritt</cite>
+      </div>
+      <p>La frase sui brevetti e classica Musk, ma il punto tecnico e serio: Starship e un sistema di produzione, propellente, torre di cattura, heatshield, flotta di navi, regolatorio FAA e rampa multi-pad. Copiarlo non e copiare un PDF di ugello. E per questo che il segmento Space puo restare in perdita contabile per anni e restare strategicamente centrale: e la fabbrica del costo marginale di accesso all orbita. Senza quella fabbrica, Starlink V3 e l eventuale orbital compute restano slides. Con quella fabbrica, il Capex AI a terra e il Capex costellazione in orbita parlano la stessa lingua: watt, tonnellate, latenza, reuse rate.</p>
+      <figure class="figure">
+        <img src="assets_earnings/superheavy_approach.jpg" alt="Super Heavy in avvicinamento durante un volo di prova">
+        <figcaption>Catch, soft splashdown, hard landing: il linguaggio del recovery e diventato KPI di engineering, non solo di show. Asset locale IFT-era.</figcaption>
+      </figure>
+      <p>Un dettaglio da nerd di lanci: 10 customer e 28 internal nel quarter raccontano un mix che Wall Street deve imparare a leggere. I customer flights (NRO, rideshare, commercial GEO/MEO, crew/cargo quando ci sono) sono il pezzo «tradizionale» del launch market. Gli internal flights sono la linea di produzione Starlink. Se misuri SpaceX come se fosse ULA o Arianespace, sbagli unita di analisi. Se la misuri come Amazon che usa i propri cargo jet per Amazon Logistics, sei piu vicino. La differenza e che qui i «cargo jet» atterrano su navi drone e tornano a volare in poche settimane, e il «magazzino» e una costellazione a 10.200 nodi.</p>
+    </div>
+  </section>
+
+  <section id="ai">
+    <div class="section-inner">
+      <h2>AI: il terzo motore che mangia Capex e ruba la scena</h2>
+      <p>Qui la call smette di assomigliare a un earnings aerospaziale e inizia ad assomigliare a un earnings di hyperscaler. Ricavi AI 2,56 miliardi (+247% YoY, +213% QoQ): di cui 2,19 miliardi da AI solutions &amp; infrastructure e 367 milioni da advertising. Operating loss AI 1,257 miliardi (migliora 49% QoQ da 2,46). Adjusted EBITDA AI positivo a 1,14 miliardi (da -609 mln in Q1 e -276 un anno fa). Capex AI: 15,8 miliardi nel solo quarter (da 7,7 in Q1 e 749 milioni un anno fa).</p>
+      <p>Rileggi quel Capex. Quindici virgola otto miliardi di dollari in tre mesi sul pezzo AI. E piu di due volte i ricavi AI del quarter. E quasi l intero Capex aziendale (18,3). E il motivo per cui free cash flow e la metrica che Wall Street torturera, e il motivo per cui alcuni headline post-call hanno parlato di stock under pressure nonostante il beat: il mercato odia le storie in cui cresci al 90% ma spendi come se stessi costruendo tre data center da deserto in parallelo. Il post SpaceX lo dice senza pudore: total costs and expenses del segmento AI su di 1,6 miliardi YoY per R&amp;D e infrastructure spend accelerato.</p>
+      <p>Cloud Services Agreements: multipli accordi per 14,1 miliardi di contracted sales, con 1,6 miliardi di revenue incrementale AI infrastructure nel Q2. Bret Johnsen (CFO), secondo Sawyer Merritt, ha detto che SpaceX e su traiettoria verso 100 miliardi di ARR entro fine anno grazie ai deal di AI compute, e che nelle prime settimane del Q3 ha gia contrattato altri 6,7 miliardi di cloud services revenue su un periodo di 6 mesi che rampa da ottobre. Se i numeri tengono, non stai guardando un side project xAI appiccicato: stai guardando un go-to-market di compute venduto come cloud, con brand SpaceX/X/Grok dietro. ARR a 100 miliardi e un claim da verificare quarter per quarter; ma la granularita del «6,7 miliardi gia firmatti early Q3» e il tipo di dettaglio che fa alzare il sopracciglio agli scettici e scendere quello agli analisti che cercano backlog conversion.</p>
+      <div class="quote">
+        <p>«We expect to end this year with over 2 GW of compute. Cumulative by end of next year will be several times higher. Closer to 10 GW of compute than 5 GW... We have decided to build exclusively on Nvidia. We think Vera Rubin is the best architecture.»</p>
+        <cite>Elon Musk in call — Sawyer Merritt</cite>
+      </div>
+      <p>Nameplate compute capacity portata a 1,4 GW (da 1,0 in Q1 e 0,4 un anno prima). Target di fine anno oltre 2 GW; fine anno prossimo piu vicino a 10 che a 5. Stack Nvidia-only. Per un nerd di hardware questo e un annuncio da supply chain: non e multi-vendor, e una scommessa su una architettura e su un vendor che ha gia power e networking come colli di bottiglia globali. Cursor: accordo di acquisizione a 60 miliardi per accelerare l enterprise AI opportunity. Grok 4.5 rilasciato a luglio; in call Elon ha parlato di Grok 4.6 la settimana successiva, 4.7 a 3–4 settimane, Grok 5 a fine anno con intero corpus di dati SpaceX incorporato. La frase sul corpus SpaceX e la parte che interessa chi lavora su razzi: telemetria, manufacturing, flight software, anomaly detection — se davvero entra nel training loop, e un vantaggio di dati che non compri su un dump pubblico di internet.</p>
+      <p>Advertising a 367 milioni dentro AI e un pezzo che molti thread saltano. Non e il cuore della tesi GW, ma e un reminder che X e Grok non sono solo infra: sono anche superfici di moneta. In un modello completo, advertising e subscriptions (Grok, X) sono high-margin attach su un business che pero e guidato dai cloud agreements. Il rischio e di confondere il margine di un pezzo software/media con la struttura di capitale di un pezzo data center. La call li mette nello stesso segmento: utile per IR, pericoloso per analisi naive di «AI margin».</p>
+      <div class="callout cyan">
+        <p><strong>Come tenere i conti in testa.</strong> AI puo avere Adj. EBITDA positivo e Free Cash Flow profondamente negativo nello stesso trimestre. Non e contraddizione: EBITDA non paga le GPU. Chi valuta SpaceX come «azienda di razzi» e chi la valuta come «AI infra con razzi allegati» useranno multipli diversi sugli stessi numeri. La call spinge esplicitamente la seconda cornice, senza abbandonare la prima.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="call">
+    <div class="section-inner">
+      <h2>Dentro la call: il tono Musk e la proiezione da mille miliardi</h2>
+      <p>SpaceX ha aperto la webcast audio dal proprio account X e Elon ha twittato «SpaceX earnings call on now» quotando il post ufficiale. Sawyer Merritt ha fatto da stenografo pubblico per mezza timeline, con thread che oggi sono di fatto l API umana degli highlight. Non sostituiscono il transcript ufficiale, ma sono la traccia che la community usera per settimane — come i thread pre-IPO e pre-Q1 avevano gia insegnato a chi segue SPCX e Tesla.</p>
+      <div class="timeline">
+        <div class="event">
+          <div class="date">Pre-call</div>
+          <div>
+            <h3>Aspettative e lockup</h3>
+            <p>Teslarati e Motley Fool avevano preparato il terreno: prima call da public, focus su Starlink/AI/Starship, lockup expiration 6 agosto. Consensus revenue ~6,8–6,9 mld, loss attesa piu ampia di quanto poi riportato. Reuters aveva messo il microscopio sul Capex AI.</p>
+          </div>
+        </div>
+        <div class="event">
+          <div class="date">PDF + post X</div>
+          <div>
+            <h3>SpaceX pubblica i risultati</h3>
+            <p>PDF IR + thread con highlight: 7,8 mld ricavi, -541 mln net loss, 3,5 mld Adj. EBITDA, CSA 14,1 mld, Cursor 60 mld, Starshield 6+ mld, due Starship V3 in 90 giorni.</p>
+          </div>
+        </div>
+        <div class="event">
+          <div class="date">In call</div>
+          <div>
+            <h3>ARR, GW, V3, trillion path</h3>
+            <p>Johnsen su traiettoria 100 mld ARR; Elon su 2 GW entro anno, ~10 GW fine anno prossimo, Nvidia-only; Starlink V3 su prossimo Starship test con catch ship; proiezione interna 1T revenue anticipata al 2030 (nonzero chance 2029).</p>
+          </div>
+        </div>
+      </div>
+      <div class="quote">
+        <p>«Our internal projection for reaching $1 trillion in revenue have moved up from 2031 to 2030; There is a nonzero chance of that being in 2029.»</p>
+        <cite>Elon Musk — post Sawyer Merritt sulla call</cite>
+      </div>
+      <p>Un trillion di revenue non e un KPI da mettere nel modello DCF senza ridere: e una stella polare. Ma il fatto che management sposti la stella polare in avanti di un anno, in diretta su una call pubblica, e informazione su come ragionano internamente: non stanno ottimizzando il quarter per EPS, stanno ottimizzando una curva di scala che passa da Starlink + cloud + mass-to-orbit. Chi investe guardando il P/E 2026 si auto-seleziona fuori dalla tesi; chi investe guardando opzioni reali su GW e tonnellate in orbita e il pubblico target di quella frase.</p>
+      <p>La community X (account di analisi, sintesi trading, thread di highlight) ha enfatizzato il beat e la narrativa bull, con alcuni che hanno notato la reazione after-hours legata alla spesa AI. E il classico pattern Tesla-era: numeri operativi forti, Capex che spaventa, narrative war tra «growth at all costs» e «show me FCF». SpaceX ha appena ereditato quel pattern da quotata. Non e un bug della comunicazione: e il prezzo di essere diventati leggibili da Bloomberg Terminal e da r/wallstreetbets nello stesso pomeriggio.</p>
+      <p>Due citazioni collaterali meritano un box mentale. La prima e su Grok: cadenza 4.6 / 4.7 / 5 e corpus SpaceX. La seconda e su Starship V3 operativi al prossimo test con catch della ship. Se le prendi insieme, stai leggendo una azienda che vuole chiudere il loop tra software di volo, software di modello e hardware di lancio. E ambizioso fino al ridicolo — e per questo va tracciato con metriche, non con applausi: data del primo V3 operativo, GW installati, net adds Starlink, conversion dei CSA in revenue, e se l Adj. EBITDA AI resta positivo mentre il Capex continua a salire.</p>
+    </div>
+  </section>
+
+  <section id="bilancio">
+    <div class="section-inner">
+      <h2>Bilancio: cento miliardi di liquidita e un debito da adulti</h2>
+      <p>Cash, cash equivalents e marketable securities a circa 100 miliardi a fine quarter (93,5 cash + 6,48 marketable). Total assets 192,7 miliardi (da 92 a fine 2025). Debito e finance leases circa 39,3 miliardi (2,52 current + 36,8 long-term). Backlog 47,5 miliardi. Questi non sono numeri da azienda che «spera di arrivare al prossimo round»: sono numeri da stato industriale con accesso ai mercati dei capitali e a un free float che ora include retail e fondi.</p>
+      <p>Il salto di total assets da 92 a 192,7 in pochi mesi e coerente con IPO proceeds, rivalutazioni e build-out AI. Il nerd di bilancio chiede: quanto del Capex AI e maintenance vs growth? Quanto del backlog e take-or-pay vero vs intenzioni? Quanto del debito e a tasso e scadenze che reggono uno scenario di compressione multipli? La call non e un 10-K completo: e un primo stress test di trasparenza. I prossimi quarter diranno se 18 miliardi di Capex a trimestre sono un picco di build o il nuovo regime.</p>
+      <p>Un modo grezzo ma utile di inquadrare il leverage operativo: prendi Adj. EBITDA 3,53 e Capex 18,3. Il rapporto e brutale. Non e sostenibile in eterno senza o (a) collasso del Capex dopo il picco di build, o (b) esplosione della revenue AI che renda quel Capex un investimento con payback corto, o (c) continua emissione/accesso a capitale a costi accettabili. SpaceX ha (c) oggi, racconta (b) in call, e spera di arrivare a (a) quando i GW sono in produzione. Il lavoro dell osservatore e verificare se (b) arriva prima che (c) si inasprisca.</p>
+      <figure class="figure">
+        <img src="assets_earnings/dragon_approach.jpg" alt="Dragon in avvicinamento alla Stazione Spaziale Internazionale">
+        <figcaption>Il brand SpaceX e ancora fatto di missioni crewed e cargo nella testa del pubblico. Il bilancio 2026 dice che il peso economico si e spostato su Connectivity e AI. Immagine NASA/PD da archivio locale COTS-2.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="nerd">
+    <div class="section-inner">
+      <h2>Lettura nerd: argomenti da tenere in watchlist</h2>
+      <h3>1. Unit economics di Starlink, non solo headcount abbonati</h3>
+      <p>12 milioni e un bel numero da screenshot. Quello che conta nel modello e la coppia (ARPU, costo di acquisizione, churn, costo per bit). Enterprise a +108% YoY e spectrum EchoStar sono leve per alzare o difendere ARPU. Se nei prossimi quarter gli adds restano alti ma ARPU scende, la narrativa consumer-first si indebolisce. Se enterprise e gov continuano a raddoppiare, Connectivity diventa ancora di piu un business da infrastruttura critica. Aggiungi aviation e maritime: sono attach ad alto valore e basso romanticismo, esattamente il tipo di revenue che un fondo pensioni capisce.</p>
+      <h3>2. Mass to orbit come metrica finanziaria</h3>
+      <p>485 t nel Q2 e 1.041 YTD non sono solo vanity metric di engineering. Sono il legame tra Capex Space e capacity Starlink/Starshield. Quando Starship mettera V3 operativi, il costo per kg e il ritmo di refresh della costellazione cambiano la curva di Capex Connectivity. E il motivo per cui il workbook lanci e il bilancio devono parlarsi: ogni Group 17-x e una riga di revenue e di deprezzamento satellitare. Se sei il tipo che aggiorna <code>lanci_spacex_falcon.xlsx</code> la sera dei liftoff, ora hai un motivo in piu: quei voli sono il motore fisico del P&amp;L Connectivity.</p>
+      <h3>3. Capex AI vs contracted cloud sales</h3>
+      <p>14,1 miliardi di CSA e +6,7 miliardi gia nel early Q3 sono la risposta management alla domanda «chi paga le GPU?». La domanda successiva e timing di revenue recognition e concentrazione clienti. Un nerd chiede: quanti counterparties? Quale durata? Quale esposizione se un grande acquirente di compute ritarda? Finche non hai quella grana, stai leggendo un numero grosso senza duration. Il path a 100 miliardi di ARR e una tesi; i 6,7 miliardi early Q3 sono un data point. Serve una serie di data point.</p>
+      <h3>4. Starship catch + V3 operativi = cambio di regime</h3>
+      <p>Se il prossimo volo mette V3 in orbita e cattura la ship, il racconto engineering e il racconto finanziario si saldano. Fallimenti o scrub non uccidono la tesi (la storia Starship e fatta di iterazioni), ma spostano di quarter la convergenza tra mass-to-orbit barato e Capex AI/Starlink. Chi fa model scenario deve avere un toggle «V3 operational 2026 H2 / 2027». Chi fa solo vibes su X non ha bisogno del toggle, ma non sta facendo analisi.</p>
+      <h3>5. Governance da call pubblica e controlled company</h3>
+      <p>SpaceX da public e ancora, in pratica, una controlled company: Elon e il centro di gravita della narrativa e delle decisioni di Capex. La call pubblica non elimina quel fatto: lo rende osservabile. Per l investitore nerd questo e un feature e un risk. Feature: allineamento a una tesi di scala estrema. Risk: Capex che non si ferma quando lo chiede un analista di banca. La lockup expiration di agosto, segnalata da Teslarati pre-call, e un altro pezzo di microstruttura: non cambia il business, puo cambiare il flottante e la volatilita del ticker.</p>
+      <h3>6. Tre bilanci in uno (e come non confonderli)</h3>
+      <p>Bilancio 1: operatore LEO profittevole. Bilancio 2: launch provider in investimento Starship. Bilancio 3: hyperscaler in build-out. La call li presenta come un unico sistema verticalmente integrato. E una scelta strategica, non solo contabile. Il rischio analitico e di mediare tre multipli diversi in un unico «SpaceX multiple» e ottenere una media senza significato. Il modo nerd e costruire tre mini-modelli e una correlazione (Starship sblocca V3, V3 sblocca Capex rete, rete e cloud sbloccano FCF). Se la correlazione rompe, la media mente.</p>
+      <div class="callout">
+        <p><strong>Sintesi da laboratorio.</strong> Q2 2026 non e la storia di un razzo che ha fatto utili. E la storia di un operatore LEO profittevole che sta finanziando (insieme a bilanci enormi di cassa e mercati pubblici) un build-out di AI da hyperscaler e un programma di accesso all orbita che vuole diventare commodity. Se ti interessa solo Falcon, guarda Space revenue e la cadenza. Se ti interessa SpaceX come sistema, guarda Connectivity margin, AI Capex per GW, e la data del primo V3 operativo.</p>
+      </div>
+      <h3>Cosa non e in questo pezzo (e perche)</h3>
+      <p>Non c e un target di prezzo su SPCX. Non c e un consiglio di investimento. Non c e la pretesa di aver letto ogni footnote del PDF. Non c e la ricostruzione completa del deal Cursor (60 miliardi e un numero che merita un dossier a parte su diluizione, earnout e prodotto). Non c e la mappa dei data center a terra ne il confronto MW per MW con Microsoft, Google o Amazon. Non c e una due diligence su EchoStar spectrum oltre al bullet FCC. Quei pezzi vanno fatti con fonti primarie successive e, se vuoi, con follow-up dedicati nel canale Notizie dopo che questa bozza e stata rivista.</p>
+      <figure class="figure">
+        <img src="assets_earnings/starship_pad.jpg" alt="Starship al pad durante la campagna Flight 13">
+        <figcaption>Dal pad di Starbase al PDF IR: nel 2026 la distanza tra engineering live e earnings call e collassata in un unica timeline pubblica. Asset locale Flight 13.</figcaption>
+      </figure>
+      <p>Ultima nota di metodo, da nerd che ha perso ore su thread e PDF. La fonte primaria resta SpaceX IR. Sawyer Merritt e il miglior aggregatore pubblico di highlight in tempo reale, ma e un aggregatore: va confrontato con il PDF. Teslarati e utile per cornice pre/post call e per il pubblico Tesla/SpaceX overlap. Reuters e sell-side consensus servono a misurare il gap tra attese e print. Elon su X serve a fissare le frasi che diventeranno meme e, a volte, guidance soft. Nessuna di queste fonti da sola basta; insieme, per un quarter come questo, bastano a scrivere un dossier che un lettore serio possa usare come punto di partenza — non come oracolo.</p>
+    </div>
+  </section>
+
+  <section id="fonti">
+    <div class="section-inner">
+      <h2>Fonti pubbliche e tracce</h2>
+      <p>Fonti usate per numeri, citazioni e contesto. Preferire sempre il PDF IR e il webcast ufficiali in caso di discrepanza con thread o articoli secondari.</p>
+      <ul class="sources">
+        <li>SpaceX su X — post risultati Q2 2026 con link al PDF IR e highlight ufficiali (4 ago 2026): revenue 7,8 mld, net loss -541 mln, Adj. EBITDA 3,5 mld, CSA 14,1 mld, Cursor 60 mld, Starshield 6+ mld, Starship V3, Connectivity +66%.</li>
+        <li>SpaceX su X — annuncio webcast audio earnings call (broadcast su X, 4 ago 2026).</li>
+        <li>SpaceX — <em>Reports Second Quarter 2026 Results</em> (PDF IR su CDN q4cdn, path 2026/q2).</li>
+        <li>Elon Musk su X — «SpaceX earnings call on now» quotando SpaceX (4 ago 2026).</li>
+        <li>Sawyer Merritt su X — thread highlight completi Q2: revenue, segmenti, Capex, sub 12M, ARPU 66, backlog 47,5, cash ~100B, 38 lanci, 485 t, Starshield, spectrum EchoStar, compute 1,4 GW.</li>
+        <li>Sawyer Merritt su X — citazioni call: ARR 100B path (Bret Johnsen + 6,7B early Q3), 2 GW / ~10 GW, Nvidia Vera Rubin, Starlink majority Internet, Starlink V3 su prossimo Starship + catch, Grok 4.6/4.7/5 + corpus SpaceX, proiezione 1T revenue al 2030, frase su copy Starship/brevetti.</li>
+        <li>Teslarati — preview pre-call «first-ever earnings» e pezzo risultati Q2 (beat revenue/EBITDA, contesto lockup agosto).</li>
+        <li>Reuters — preview 3 ago 2026 su AI spending sotto microscopio e attese Starlink/AI Capex.</li>
+        <li>Motley Fool / AOL — contesto prima call post-IPO e attese consensus.</li>
+        <li>Investor's Business Daily — temi pre-call: Starlink growth, AI costs, Starship roadmap.</li>
+        <li>Morningstar — focus su Starlink come earnings engine e Capex AI.</li>
+        <li>Community X — sintesi e reazioni post-call su beat, Capex, narrative after-hours (non primarie; solo contesto di ricezione).</li>
+      </ul>
+      <p>Immagini: vedi <code>assets_earnings/crediti_immagini.txt</code>. Nessuna immagine e presentata come screenshot ufficiale del PDF earnings.</p>
+      <p>
+        <a class="button" href="../sezioni/spacex.html">Torna a SpaceX</a>
+        <a class="button" href="../sezioni/notizie.html">Archivio Notizie</a>
+        <a class="button" href="https://s21.q4cdn.com/184289198/files/doc_financials/2026/q2/SpaceX-Reports-Second-Quarter-2026-Results.pdf" target="_blank" rel="noopener">PDF IR Q2 (ufficiale)</a>
+      </p>
+    </div>
+  </section>
+</main>
+<footer class="footer-note">
+  Rivoluzione Spaziale · dossier earnings Q2 2026. Non e consulenza finanziaria. Verificare i numeri sul documento IR e sul webcast ufficiali.
+</footer>
+</body>
+</html>
