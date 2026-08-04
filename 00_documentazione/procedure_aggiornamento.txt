@@ -9,7 +9,8 @@ Aggiornare il sito statico Rivoluzione Spaziale
 3. Controllare index.html, css\style.css e le pagine in sezioni.
 4. Gerarchia da rispettare:
    - nav globale: primo livello, cioe' Home, Notizie, SpaceX, Blue Origin, ULA, Electron Lab, Arianespace, Cina;
-   - homepage: teaser ultime notizie + griglia compagnie (senza Notizie in griglia);
+   - homepage: SOLO griglia compagnie; niente teaser breaking/notizie in home;
+   - breaking e dossier: compaiono in sezioni\notizie.html (archivio SITE_NEWS) e, se attive e rilevanti, solo sulla pagina della compagnia (SpaceX, ULA, ...);
    - sezioni\notizie.html: archivio datato; elenco in SITE_NEWS del generatore;
    - sottosezioni SpaceX: Lanci imminenti, Storico lanci, Starship, Pad di lancio, Localita SpaceX, Vedere un lancio da SLC-40, Storia; questi link stanno dentro sezioni\spacex.html;
    - la guida SLC-40 e' editoriale e autonoma: il generatore deve conservarne il collegamento nel portale, ma il contenuto di sezioni\guida-lancio-slc40.html si aggiorna direttamente controllando fonti, accessi, prezzi e orari;

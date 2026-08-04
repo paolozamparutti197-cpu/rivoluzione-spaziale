@@ -2,11 +2,11 @@
 
 Sito statico multipagina del progetto "Rivoluzione Spaziale".
 
-La home presenta il tema generale della rivoluzione spaziale in atto, un teaser delle ultime notizie e le sezioni principali di primo livello. La sezione SpaceX e gia attiva; le altre pagine di compagnia sono predisposte come sezioni autonome in costruzione.
+La home presenta il tema generale della rivoluzione spaziale in atto e le sezioni principali di primo livello (solo compagnie). Nessun teaser di breaking news in homepage.
 
 Regola di architettura: la navigazione globale e la homepage non devono elencare sottosezioni SpaceX. Lanci imminenti, storico lanci, Starship, Pad di lancio, Localita SpaceX e Storia sono pagine interne alla sezione SpaceX. In futuro potranno esistere sottosezioni equivalenti per altre compagnie, ma non vanno messe nella nav principale.
 
-La sezione di primo livello `Notizie` (`sezioni/notizie.html`) e l'archivio datato di dossier e aggiornamenti editoriali. Non e una compagnia: compare in nav globale dopo Home e non nella griglia compagnie. Per aggiungere o archiviare una notizia modificare `SITE_NEWS` in `03_script/genera_sito_rivoluzione.py` e rigenerare.
+La sezione di primo livello `Notizie` (`sezioni/notizie.html`) e l'archivio datato di dossier e aggiornamenti. Breaking e notizie attive stanno li e, se pertinenti, solo nella pagina della compagnia (es. SpaceX), mai in home. Per aggiungere o archiviare una notizia modificare `SITE_NEWS` in `03_script/genera_sito_rivoluzione.py` e rigenerare.
 
 Tra i dossier SpaceX attivi sono disponibili l'agenda lanci, lo storico Falcon, Starship, la pagina "Pad di lancio", la mappa "Localita SpaceX", la guida pratica "Vedere un lancio da SLC-40" e la sottosezione narrativa "Storia". Questi link devono restare dentro `sezioni/spacex.html`.
 

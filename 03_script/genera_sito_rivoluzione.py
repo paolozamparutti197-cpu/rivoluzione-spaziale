@@ -16,7 +16,7 @@ SECTIONS_DIR = ROOT / "sezioni"
 CSS_DIR = ROOT / "css"
 
 HERO_IMAGE = "https://upload.wikimedia.org/wikipedia/commons/5/5d/Falcon_1_Flight_4_launch.jpg"
-CSS_VERSION = "20260805-notizie"
+CSS_VERSION = "20260805-home-no-news"
 ROME_TZ = ZoneInfo("Europe/Rome")
 MONTHS_IT = {
     1: "gennaio",
@@ -1152,6 +1152,8 @@ def news_card_html(item, from_section=True):
 
 
 def render_home():
+    """Home: solo primo livello (compagnie). Niente teaser breaking/notizie.
+    Breaking e dossier: sezioni/notizie.html e, se attive, pagina compagnia (SpaceX, ULA, ...)."""
     cards = "\n".join(
         f"""<a class="card {'construction' if not item.get('active') else ''}" href="sezioni/{item['slug']}.html">
   <small>{escape(item['status'])}</small>
@@ -1159,24 +1161,6 @@ def render_home():
 </a>"""
         for item in MAIN_SECTIONS
     )
-    latest_news = SITE_NEWS[:1]
-    news_teaser = ""
-    if latest_news:
-        cards_news = "\n".join(news_card_html(item, from_section=False) for item in latest_news)
-        news_teaser = f"""
-<section class="home-news-section" id="ultime-notizie">
-  <div class="inner">
-    <div class="section-head">
-      <h2>Ultime notizie</h2>
-      <p>Aggiornamenti e dossier con data. L&#x27;archivio completo e&#x27; nella sezione Notizie; qui solo l&#x27;ultimo pezzo in evidenza.</p>
-    </div>
-    <div class="news-list">{cards_news}</div>
-    <div class="actions">
-      <a class="button secondary" href="sezioni/notizie.html">Apri archivio notizie</a>
-    </div>
-  </div>
-</section>
-"""
     body = f"""
 <section class="hero">
   <div class="hero-inner">
@@ -1185,17 +1169,15 @@ def render_home():
     <p class="subtitle">I nuovi signori dello spazio. Una mappa editoriale per seguire chi sta ridisegnando accesso all'orbita, cadenza industriale e competizione tra compagnie di lancio.</p>
     <div class="actions">
       <a class="button" href="sezioni/spacex.html">Apri SpaceX</a>
-      <a class="button secondary" href="#ultime-notizie">Ultime notizie</a>
       <a class="button secondary" href="#sezioni-principali">Sezioni principali</a>
     </div>
   </div>
 </section>
-{news_teaser}
 <section id="sezioni-principali">
   <div class="inner">
     <div class="section-head">
       <h2>Sezioni principali</h2>
-      <p>La pagina principale mostra il primo livello del sito: compagnie e aree industriali. Le pagine operative, come lanci, Starship e pad di lancio, vivono dentro la sezione della compagnia a cui appartengono. Le notizie stanno nella sezione dedicata in navigazione.</p>
+      <p>La pagina principale mostra solo il primo livello del sito: compagnie e aree industriali. Le pagine operative vivono dentro la sezione della compagnia. Notizie e breaking non compaiono in home: stanno in Notizie e, se rilevanti, nella pagina della compagnia.</p>
     </div>
     <div class="grid">{cards}</div>
   </div>
