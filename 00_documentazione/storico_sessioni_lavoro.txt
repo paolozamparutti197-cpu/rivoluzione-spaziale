@@ -396,3 +396,40 @@ Sessione 19/06/2026 - riordino generale directory e memoria operativa
 - Creato documenti per sito\dragon_c2plus_attracco_iss.html: dalla Dragon in mare all'attracco alla ISS (2011-mag 2012).
 - Asset in documenti per sito\assets_fondazione\cots2-2012\ (NASA public domain); copertina card: dragon-grappled.jpg (Canadarm2 afferra Dragon).
 - Aggiornati sezioni\storia-spacex.html, genera_sito_rivoluzione.py, README.md, README.txt, inventario_file.txt.
+
+01/08/2026 - Aggiornamento elenco lanci Falcon (Starlink Group 17-52)
+- Fonti: Spaceflight Now (liftoff 8:08 p.m. PDT / 03:08 UTC, 24 satelliti V2 mini, landing OCISLY, 214° su OCISLY / 643° booster landing SpaceX), Next Spaceflight (Launch Success, 03:08:43 GMT 1 Aug 2026, B1081 flight 26), NASASpaceflight (B1081-26, OCISLY), Wikipedia (Group 17-52, SLC-4E, SSO 97°, 24 sat), pagina SpaceX sl-17-52.
+- Nota data UTC: decollo 31/07 sera PDT = 01/08/2026 03:08 UTC; data usata nel workbook: 01/08/2026.
+- Aggiunto nel foglio elenco riga 714, lancio principale nr 689: Starlink Group 17-52, 01/08/2026, Falcon 9 bl 5, B1081 volo 26, SLC-4E, OCISLY, SSO, Vandenberg, esito successo; video_url https://www.spacex.com/launches/sl-17-52.
+- Dashboard ricalcolato: 689 lanci principali, 683 successi, ultimo lancio 01/08/2026, 664 tentativi recupero, 640 recuperi riusciti, 588 booster riutilizzati.
+- Scrittura e verifica via Excel COM (read-only). Backup: 02_backup\lanci_spacex_falcon_backup_20260801_082510_pre_starlink17-52.xlsx.
+- Nessuna pubblicazione del sito eseguita in questa sessione.
+01/08/2026 - Aggiornamento sviluppo_starship.xlsx (recovery Ship 40 post-Flight 13)
+- Fonti: Elon X 28-29/07 (nave recovery + still floating); tracking community @Blobifie 31/07 e 01/08 (Normand Ranger/Skimmer Tide, poi Ranger sul posto); @SERobinsonJr (Dampier, distanze); NSF Flame Trench "Bring Ship 40 Home"; analisi traino @mercoglianos; pagina SpaceX Flight 13.
+- Fatti consolidati: S40 ancora afloat a ~170 h, drift >410 km; Normand Ranger arrivata e in ops con Go Australis per intercetto/cattura; Skimmer Tide in arrivo; traino verso porto AU e arrivo a terra NON ancora registrati come fatti.
+- Timeline: +4 eventi (R111-R114): FAA no mishap 27/07; Elon recovery 28/07; navi in rotta 31/07; Ranger sul posto 01/08 (esito "In corso"). Totale eventi 110.
+- Dashboard aggiornata all'01/08/2026; stato recovery oceanica in corso.
+- Voli integrati Flight 13: milestone e colonna Ship/Lezione estese al tentativo recovery fisica (senza dichiarare traino riuscito).
+- Temi e sintesi: maturita booster/ship e Starlink V3 allineati al recovery post-volo.
+- Discrepanze: nuovo nodo recovery fisica (confidenza media su AIS navi; alta su annuncio Elon; bassa su esito traino finche non ufficiale).
+- Fonti: riga aggiornamento 01/08/2026 - recovery Ship 40.
+- Backup: 02_backup\sviluppo_starship_backup_20260801_083820_ship40_recovery.xlsx
+- Script: 99_temporanei\update_starship_ship40_recovery.py (Excel COM + fix date come testo DD/MM).
+- Sito sezioni\lancio13.html e starship.html gia aggiornati e pushati in sessione precedente; workbook e locale (.gitignore).
+
+05/08/2026 - Aggiornamento elenco lanci Falcon (Starlink Group 17-53)
+- Fonti: SpaceX sl-17-53 (past tense landing OCISLY, 34° volo booster, 24 Starlink), Next Spaceflight (Launch Success 17:05:03 GMT 4 Aug 2026, B1063 flight 34, OCISLY, SLC-4E, SSO), Launch Library 2 (Launch Successful, B1063-34, ASDS OCISLY success), NSF/Instagram (B1063-34, 24 v2 mini, OCISLY).
+- Nota data UTC: decollo 04/08/2026 17:05 UTC da Vandenberg; data workbook 04/08/2026. (UTC sessione ancora 04/08 sera; locale IT 05/08). BlueBird 11-13 ancora Go for Launch NET 05/08 07:42 UTC (B1077-30, ASOG, SLC-40): non registrato finche non vola.
+- Aggiunto nel foglio elenco riga 715, lancio principale nr 690: Starlink Group 17-53, 04/08/2026, Falcon 9 bl 5, B1063 volo 34, SLC-4E, OCISLY, SSO, Vandenberg, esito successo; video_url https://www.spacex.com/launches/sl-17-53.
+- Dashboard ricalcolato: 690 lanci principali, 684 successi, ultimo lancio 04/08/2026, 665 tentativi recupero, 641 recuperi riusciti, 589 booster riutilizzati.
+- Scrittura e verifica via Excel COM (read-only). Backup: 02_backup\lanci_spacex_falcon_backup_20260805_000346_pre_starlink17-53.xlsx.
+- Nessuna pubblicazione del sito eseguita in questa sessione.
+
+05/08/2026 - Sezione Notizie + archivio breaking Louisiana
+- Controllato sito GitHub Pages: breaking news Louisiana era su sezioni/spacex.html (non in home).
+- Aggiunta sezione di primo livello Notizie (nav dopo Home; non in griglia compagnie).
+- Archivio sezioni/notizie.html con data esplicita; SITE_NEWS in genera_sito_rivoluzione.py.
+- Breaking news rimossa da SpaceX; dossier Pecan Island archiviato come notizia del 3 agosto 2026.
+- Home: teaser Ultime notizie + link archivio; CSS v=20260805-notizie.
+- Aggiornati banner/meta del dossier Louisiana, README.md, procedure_aggiornamento.txt.
+- Rigenerato sito (anche cruscotto Falcon a 690 lanci / 17-53).

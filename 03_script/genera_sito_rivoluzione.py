@@ -16,7 +16,7 @@ SECTIONS_DIR = ROOT / "sezioni"
 CSS_DIR = ROOT / "css"
 
 HERO_IMAGE = "https://upload.wikimedia.org/wikipedia/commons/5/5d/Falcon_1_Flight_4_launch.jpg"
-CSS_VERSION = "20260803-louisiana-breaking"
+CSS_VERSION = "20260805-notizie"
 ROME_TZ = ZoneInfo("Europe/Rome")
 MONTHS_IT = {
     1: "gennaio",
@@ -141,6 +141,35 @@ UTILITY_SECTIONS = [
 ]
 
 PLACEHOLDER_SECTIONS = MAIN_SECTIONS + THEME_SECTIONS
+
+# Sezioni di primo livello fuori dalle compagnie (nav globale, non griglia home compagnie).
+NAV_UTILITY_SECTIONS = [
+    {
+        "title": "Notizie",
+        "slug": "notizie",
+        "status": "Attiva",
+        "copy": "Archivio delle notizie del sito: dossier e aggiornamenti con data.",
+        "active": True,
+    },
+]
+
+# Archivio notizie del sito (ordine: piu recenti prima). date ISO per ordinamento.
+SITE_NEWS = [
+    {
+        "date": "2026-08-03",
+        "date_label": "3 agosto 2026",
+        "tag": "SpaceX · Louisiana",
+        "title": "SpaceX e Pecan Island: deal costiero in fasi finali",
+        "summary": (
+            "Accordo tra Stato, settlement Exxon e possibile spaceport Starship su palude "
+            "costiera nel Vermilion Parish. Premesse, cronologia, mappa e ultimi aggiornamenti."
+        ),
+        "href": "../documenti%20per%20sito/spacex_louisiana_pecan_island.html",
+        "image": "../documenti%20per%20sito/assets_louisiana/pecan_island_location_2003.jpg",
+        "image_alt": "Landsat di Pecan Island, Vermilion Parish, Louisiana",
+        "badge": "Dossier archiviato",
+    },
+]
 
 
 def clean(value):
@@ -739,6 +768,9 @@ def section_href(slug, from_section):
 def nav_html(current, from_section):
     home_href = "../index.html" if from_section else "index.html"
     links = [("Home", home_href)]
+    links.extend(
+        (item["title"], section_href(item["slug"], from_section)) for item in NAV_UTILITY_SECTIONS
+    )
     links.extend((item["title"], section_href(item["slug"], from_section)) for item in MAIN_SECTIONS)
     return "\n".join(
         f'<a class="{ "active" if key == current else "" }" href="{href}">{escape(label)}</a>'
@@ -898,10 +930,18 @@ a.metric-link-f14 span{{color:#ffd29a;font-weight:800}}
 .story-card h3{{margin:0;font-size:clamp(22px,3vw,32px);line-height:1.1;color:#fff}}
 .story-card p{{max-width:760px;margin:10px 0 0;color:#cbd2d8}}
 .story-card .button{{display:inline-flex;margin-top:18px}}
-.breaking-news-section{{padding-top:28px}}
-.breaking-card{{border-color:rgba(233,95,69,.45);background:linear-gradient(135deg,rgba(233,95,69,.12),rgba(255,255,255,.05) 42%,var(--panel))}}
-.breaking-card:hover{{border-color:rgba(233,95,69,.75)}}
-.breaking-card small{{color:#ff9b8a}}
+.news-list{{display:grid;gap:16px}}
+.news-card{{display:grid;grid-template-columns:minmax(220px,320px) minmax(0,1fr);gap:20px;align-items:stretch;border:1px solid var(--line);background:linear-gradient(180deg,var(--panel2),var(--panel));border-radius:8px;padding:14px;transition:transform .18s ease,border-color .18s ease;color:inherit;text-decoration:none}}
+.news-card:hover,a.news-card:hover{{transform:translateY(-3px);border-color:rgba(105,200,255,.55);text-decoration:none}}
+.news-card img{{display:block;width:100%;height:100%;min-height:200px;object-fit:cover;border-radius:6px;border:1px solid rgba(255,255,255,.16);background:#090d11}}
+.news-card-meta{{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;margin-bottom:10px}}
+.news-card time{{display:inline-flex;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;font-size:11px;font-weight:900}}
+.news-card .news-tag{{display:inline-flex;color:#c8d2d9;text-transform:uppercase;letter-spacing:.08em;font-size:11px;font-weight:850}}
+.news-card .news-badge{{display:inline-flex;border:1px solid rgba(105,200,255,.4);color:#dff4ff;border-radius:999px;padding:4px 8px;font-size:10px;text-transform:uppercase;letter-spacing:.08em;font-weight:900}}
+.news-card h3{{margin:0;font-size:clamp(22px,3vw,32px);line-height:1.1;color:#fff}}
+.news-card p{{max-width:760px;margin:10px 0 0;color:#cbd2d8}}
+.news-card .button{{display:inline-flex;margin-top:18px}}
+.home-news-section{{padding-top:56px;padding-bottom:56px}}
 .agenda-strip{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:22px}}
 .agenda-note{{border:1px solid var(--line);background:rgba(255,255,255,.055);border-radius:8px;padding:16px;min-height:96px}}
 .agenda-note b{{display:block;font-size:24px;margin-bottom:6px}}
@@ -1081,9 +1121,34 @@ td{{color:#d8dee3}}
 .muted{{color:var(--muted)}}
 .footer{{padding:34px clamp(18px,4vw,56px);border-top:1px solid var(--line);color:var(--muted);font-size:13px;line-height:1.5}}
 @media(max-width:1120px){{.grid,.launch-grid,.launch-grid.compact,.agenda-strip,.pad-list{{grid-template-columns:repeat(2,minmax(0,1fr))}}.split,.dash-grid,.cols,.next-launch,.pad-map-wrap,.starship-lead-grid{{grid-template-columns:1fr}}.starship-status-grid{{grid-template-columns:repeat(3,minmax(0,1fr))}}.pad-map-side{{border-right:0;border-bottom:1px solid var(--line)}}.pad-side-list{{max-height:none;grid-template-columns:repeat(2,minmax(0,1fr))}}}}
-@media(max-width:900px){{.pad-list{{grid-template-columns:1fr}}.pad-card{{grid-template-columns:160px 1fr}}.story-card{{grid-template-columns:1fr}}.story-card img{{height:auto;max-height:420px}}}}
+@media(max-width:900px){{.pad-list{{grid-template-columns:1fr}}.pad-card{{grid-template-columns:160px 1fr}}.story-card,.news-card{{grid-template-columns:1fr}}.story-card img,.news-card img{{height:auto;max-height:420px;min-height:0}}}}
 @media(max-width:760px){{.topbar{{align-items:flex-start;flex-direction:column}}.nav{{justify-content:flex-start}}.grid,.launch-grid,.launch-grid.compact,.agenda-strip,.launch-meta,.metrics,.split .panel .metrics,.pad-side-list,.spacex-actions,.starship-photo-grid,.starship-phase-grid,.starship-flight-grid,.starship-status-grid{{grid-template-columns:1fr}}section{{padding:56px 18px}}.starship-dossier>section{{padding-top:38px;padding-bottom:38px}}.hero,.starship-dossier-hero{{padding:78px 18px 30px}}.starship-dossier-hero{{min-height:44vh}}.starship-photo img{{height:190px}}h1{{font-size:43px}}.section-head{{display:block}}.bar-row{{grid-template-columns:58px 1fr 44px}}.starship-flight-meta{{grid-template-columns:1fr}}#pad-map,#location-map{{min-height:460px}}.pad-map-wrap{{min-height:460px}}.pad-card{{grid-template-columns:1fr}}.pad-card img{{max-height:420px}}.pad-mini-event{{grid-template-columns:1fr;gap:2px}}.agenda-filter-label{{min-width:100%;margin-bottom:2px}}.agenda-toolbar-actions{{width:100%}}.agenda-toolbar-actions .button{{flex:1 1 auto;text-align:center}}}}
 """
+
+
+def news_card_html(item, from_section=True):
+    """Scheda notizia con data esplicita. href/image sono path relativi da sezioni/."""
+    href = item["href"]
+    image = item["image"]
+    if not from_section:
+        # Homepage: path da root
+        href = href.replace("../", "", 1) if href.startswith("../") else href
+        image = image.replace("../", "", 1) if image.startswith("../") else image
+    badge = item.get("badge") or ""
+    badge_html = f'<span class="news-badge">{escape(badge)}</span>' if badge else ""
+    return f"""<a class="news-card" href="{href}">
+  <img src="{image}" alt="{escape(item.get('image_alt') or item['title'])}" loading="lazy" width="640" height="360">
+  <div>
+    <div class="news-card-meta">
+      <time datetime="{escape(item['date'])}">{escape(item['date_label'])}</time>
+      <span class="news-tag">{escape(item.get('tag') or '')}</span>
+      {badge_html}
+    </div>
+    <h3>{escape(item['title'])}</h3>
+    <p>{escape(item['summary'])}</p>
+    <span class="button">Leggi</span>
+  </div>
+</a>"""
 
 
 def render_home():
@@ -1094,6 +1159,24 @@ def render_home():
 </a>"""
         for item in MAIN_SECTIONS
     )
+    latest_news = SITE_NEWS[:1]
+    news_teaser = ""
+    if latest_news:
+        cards_news = "\n".join(news_card_html(item, from_section=False) for item in latest_news)
+        news_teaser = f"""
+<section class="home-news-section" id="ultime-notizie">
+  <div class="inner">
+    <div class="section-head">
+      <h2>Ultime notizie</h2>
+      <p>Aggiornamenti e dossier con data. L&#x27;archivio completo e&#x27; nella sezione Notizie; qui solo l&#x27;ultimo pezzo in evidenza.</p>
+    </div>
+    <div class="news-list">{cards_news}</div>
+    <div class="actions">
+      <a class="button secondary" href="sezioni/notizie.html">Apri archivio notizie</a>
+    </div>
+  </div>
+</section>
+"""
     body = f"""
 <section class="hero">
   <div class="hero-inner">
@@ -1102,21 +1185,49 @@ def render_home():
     <p class="subtitle">I nuovi signori dello spazio. Una mappa editoriale per seguire chi sta ridisegnando accesso all'orbita, cadenza industriale e competizione tra compagnie di lancio.</p>
     <div class="actions">
       <a class="button" href="sezioni/spacex.html">Apri SpaceX</a>
+      <a class="button secondary" href="#ultime-notizie">Ultime notizie</a>
       <a class="button secondary" href="#sezioni-principali">Sezioni principali</a>
     </div>
   </div>
 </section>
+{news_teaser}
 <section id="sezioni-principali">
   <div class="inner">
     <div class="section-head">
       <h2>Sezioni principali</h2>
-      <p>La pagina principale mostra solo il primo livello del sito: compagnie e aree industriali. Le pagine operative, come lanci, Starship e pad di lancio, vivono dentro la sezione della compagnia a cui appartengono.</p>
+      <p>La pagina principale mostra il primo livello del sito: compagnie e aree industriali. Le pagine operative, come lanci, Starship e pad di lancio, vivono dentro la sezione della compagnia a cui appartengono. Le notizie stanno nella sezione dedicata in navigazione.</p>
     </div>
     <div class="grid">{cards}</div>
   </div>
 </section>
 """
     return shell("Home", "home", False, body)
+
+
+def render_notizie():
+    items = sorted(SITE_NEWS, key=lambda x: x.get("date") or "", reverse=True)
+    cards = "\n".join(news_card_html(item, from_section=True) for item in items) if items else (
+        '<div class="panel"><p class="muted">Nessuna notizia in archivio al momento.</p></div>'
+    )
+    body = f"""
+{page_hero(
+    "Notizie",
+    "Archivio",
+    "Notizie e dossier del sito, ordinati per data. Qui restano le storie che non vivono piu in evidenza sulle pagine delle compagnie, senza sparire dal contesto editoriale.",
+)}
+<section>
+  <div class="inner">
+    <div class="section-head">
+      <h2>Archivio</h2>
+      <p>Ogni scheda porta la data della notizia. I pezzi non sono comunicati ufficiali: sono letture basate su fonti pubbliche, aggiornate quando cambiano i fatti.</p>
+    </div>
+    <div class="news-list">
+{cards}
+    </div>
+  </div>
+</section>
+"""
+    return shell("Notizie", "notizie", True, body)
 
 
 def parse_launch_iso(iso):
@@ -2062,28 +2173,8 @@ def render_spacex(data):
             ),
         ]
     )
-    breaking_news = """
-<section class="breaking-news-section">
-  <div class="inner">
-    <div class="section-head">
-      <h2>Breaking news</h2>
-      <p>Dossier aperti sulle notizie SpaceX in corso. Aggiornati quando cambiano i fatti pubblici, non come comunicati ufficiali.</p>
-    </div>
-    <a class="story-card breaking-card" href="../documenti%20per%20sito/spacex_louisiana_pecan_island.html">
-      <img src="../documenti%20per%20sito/assets_louisiana/pecan_island_location_2003.jpg" alt="Landsat di Pecan Island, Vermilion Parish, Louisiana" loading="lazy" width="640" height="360">
-      <div>
-        <small>3 agosto 2026 · Louisiana · ~530-550 km²</small>
-        <h3>SpaceX e Pecan Island: deal costiero in fasi finali</h3>
-        <p>Accordo tra Stato, settlement Exxon e possibile spaceport Starship su palude costiera nel Vermilion Parish. Premesse, cronologia, mappa e ultimi aggiornamenti.</p>
-        <span class="button">Apri il dossier</span>
-      </div>
-    </a>
-  </div>
-</section>
-"""
     body = f"""
 {page_hero("SpaceX", "Sezione attiva", "L'area SpaceX raccoglie la parte viva del sito: agenda dei lanci, storico Falcon, riuso dei booster e sviluppo Starship.")}
-{breaking_news}
 <section>
   <div class="inner split">
     <article class="panel">
@@ -2709,6 +2800,7 @@ def render():
     outputs = [
         (CSS_DIR / "style.css", render_css()),
         (ROOT / "index.html", render_home()),
+        (SECTIONS_DIR / "notizie.html", render_notizie()),
         (SECTIONS_DIR / "spacex.html", render_spacex(data)),
         (SECTIONS_DIR / "electron-lab.html", render_electron_lab(data)),
         (SECTIONS_DIR / "lanci-imminenti-electron.html", render_electron_launches_page(data)),
