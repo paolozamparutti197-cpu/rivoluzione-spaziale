@@ -16,7 +16,7 @@ SECTIONS_DIR = ROOT / "sezioni"
 CSS_DIR = ROOT / "css"
 
 HERO_IMAGE = "https://upload.wikimedia.org/wikipedia/commons/5/5d/Falcon_1_Flight_4_launch.jpg"
-CSS_VERSION = "20260805-earnings-breaking"
+CSS_VERSION = "20260805-breaking-story"
 ROME_TZ = ZoneInfo("Europe/Rome")
 MONTHS_IT = {
     1: "gennaio",
@@ -959,10 +959,12 @@ a.metric-link-f14 span{{color:#ffd29a;font-weight:800}}
 .news-card h3{{margin:0;font-size:clamp(22px,3vw,32px);line-height:1.1;color:#fff}}
 .news-card p{{max-width:760px;margin:10px 0 0;color:#cbd2d8}}
 .news-card .button{{display:inline-flex;margin-top:18px}}
-.breaking-news-section{{padding-top:28px}}
-.breaking-card{{border-color:rgba(233,95,69,.45);background:linear-gradient(135deg,rgba(233,95,69,.12),rgba(255,255,255,.05) 42%,var(--panel))}}
-.breaking-card:hover{{border-color:rgba(233,95,69,.75)}}
-.breaking-card small,.breaking-card time{{color:#ff9b8a!important}}
+.breaking-news-section{{padding-top:36px;padding-bottom:36px;background:linear-gradient(180deg,rgba(233,95,69,.06),transparent 70%)}}
+.breaking-news-section .section-head h2{{color:#ffb4a6}}
+.story-list{{display:grid;gap:16px}}
+.breaking-card{{border-color:rgba(233,95,69,.55)!important;background:linear-gradient(135deg,rgba(233,95,69,.16),rgba(255,255,255,.05) 42%,var(--panel))!important;box-shadow:0 0 0 1px rgba(233,95,69,.2) inset}}
+.breaking-card:hover{{border-color:rgba(233,95,69,.9)!important;transform:translateY(-3px)}}
+.breaking-card small{{color:#ff9b8a!important}}
 .breaking-card .news-badge{{border-color:rgba(233,95,69,.55);color:#ffd0c6}}
 .agenda-strip{{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:22px}}
 .agenda-note{{border:1px solid var(--line);background:rgba(255,255,255,.055);border-radius:8px;padding:16px;min-height:96px}}
@@ -1182,19 +1184,36 @@ def company_breaking_items(company_slug):
     ]
 
 
+def story_breaking_card_html(item):
+    """Gancio breaking stile Louisiana: story-card grande, subito sotto l'hero compagnia."""
+    href = item["href"]
+    image = item["image"]
+    meta = f"{item['date_label']} · {item.get('tag') or ''}"
+    return f"""<a class="story-card breaking-card" href="{href}">
+  <img src="{image}" alt="{escape(item.get('image_alt') or item['title'])}" loading="lazy" width="640" height="360">
+  <div>
+    <small>{escape(meta)}</small>
+    <h3>{escape(item['title'])}</h3>
+    <p>{escape(item['summary'])}</p>
+    <span class="button">Apri il dossier</span>
+  </div>
+</a>"""
+
+
 def render_company_breaking(company_slug):
+    """Breaking attive: stesso layout-lancio di Louisiana (story-card sotto l'hero)."""
     items = company_breaking_items(company_slug)
     if not items:
         return ""
-    cards = "\n".join(news_card_html(item, from_section=True, extra_class="breaking-card") for item in items)
+    cards = "\n".join(story_breaking_card_html(item) for item in items)
     return f"""
-<section class="breaking-news-section">
+<section class="breaking-news-section" id="breaking-news">
   <div class="inner">
     <div class="section-head">
       <h2>Breaking news</h2>
-      <p>Dossier aperti sulle notizie in corso per questa compagnia. L&#x27;archivio completo resta in Notizie.</p>
+      <p>Dossier aperti sulle notizie in corso per questa compagnia. Aggiornati quando cambiano i fatti pubblici, non come comunicati ufficiali. L&#x27;archivio completo resta in Notizie.</p>
     </div>
-    <div class="news-list">
+    <div class="story-list">
 {cards}
     </div>
   </div>
