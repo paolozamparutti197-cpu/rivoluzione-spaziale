@@ -81,7 +81,7 @@ footer{max-width:1260px;margin:0 auto 35px;padding:0 18px;color:#b2c3d1;font-siz
   </div>
 </header>
 <main>
-  <div class="notice">Nota secca: il manifesto SpaceX è mobile per definizione. I lanci Starlink e le missioni dimostrative possono comparire o cambiare a pochi giorni dal volo, quindi questo file è una fotografia ragionata del quadro disponibile al 5 agosto 2026.</div>
+  <div class="notice">Nota secca: il manifesto SpaceX è mobile per definizione. I lanci Starlink e le missioni dimostrative possono comparire o cambiare a pochi giorni dal volo, quindi questo file è una fotografia ragionata del quadro disponibile al 6 agosto 2026.</div>
   <section class="grid" id="cards"></section>
 </main>
 <div class="modal" id="modal" aria-hidden="true">
@@ -97,44 +97,9 @@ footer{max-width:1260px;margin:0 auto 35px;padding:0 18px;color:#b2c3d1;font-siz
   Fonte principale: The Space Devs, Launch Library 2. I dati vanno ricontrollati prima di usarli per pianificare una visione dal vivo o una diretta.
 </footer>
 <script>
-const launchesUpdatedAt = "2026-08-05 00:22";
-const launchesDataVersion = "ae8f24741329c57a";
+const launchesUpdatedAt = "2026-08-06 07:50";
+const launchesDataVersion = "13cb6a3d4f0932de";
 const launches = [
-  {
-    "id": "falcon-9-block-5-bluebird-11-13-block-2-6-8",
-    "cat": [
-      "exact",
-      "non-starlink",
-      "falcon9",
-      "florida"
-    ],
-    "name": "BlueBird 11-13 (Block 2 #6-8)",
-    "status": "Pronto al lancio",
-    "rocket": "Falcon 9 Block 5",
-    "dateLabel": "5 agosto 2026, 07:42 UTC",
-    "iso": "2026-08-05T07:42:00Z",
-    "window": "07:42-09:18 UTC",
-    "site": "Space Launch Complex 40, Cape Canaveral SFS, FL, USA",
-    "landing": "ASOG, booster B1077, volo 30",
-    "orbit": "LEO",
-    "payload": "BlueBird 11-13 (Block 2 #6-8) (Communications)",
-    "summary": "I satelliti BlueBird Block 2 di AST SpaceMobile sono progettati per offrire fino a 10 volte la capacita di banda dei BlueBird Block 1, necessaria a una copertura cellulare a banda larga continua 24/7 negli Stati Uniti, con fasci fino a 40 MHz e velocita di picco fino a 120 Mbps per voce, dati e video...",
-    "news": "T-0 attuale confermato da fonti ufficiali o affidabili.",
-    "sources": [
-      [
-        "The Space Devs",
-        "https://ll.thespacedevs.com/2.3.0/launches/56a85c82-ea71-449b-828c-b583f6f4a18b/?format=json"
-      ],
-      [
-        "spacex.com",
-        "https://www.spacex.com/launches/bluebird11-13"
-      ],
-      [
-        "Webcast",
-        "https://www.youtube.com/watch?v=xlb3ukMQ-Ec"
-      ]
-    ]
-  },
   {
     "id": "falcon-9-block-5-starlink-group-17-38",
     "cat": [
@@ -330,7 +295,7 @@ const launches = [
     ]
   },
   {
-    "id": "falcon-9-block-5-sda-tranche-1-transport-layer-a",
+    "id": "falcon-9-block-5-sda-tranche-1-transport-layer-d",
     "cat": [
       "net",
       "non-starlink",
@@ -338,7 +303,7 @@ const launches = [
       "falcon9",
       "vandenberg"
     ],
-    "name": "SDA Tranche 1 Transport Layer A",
+    "name": "SDA Tranche 1 Transport Layer D",
     "status": "NET / da definire",
     "rocket": "Falcon 9 Block 5",
     "dateLabel": "NET settembre 2026",
@@ -347,13 +312,40 @@ const launches = [
     "site": "Space Launch Complex 4E, Vandenberg SFB, CA, USA",
     "landing": "Recupero booster non indicato da The Space Devs",
     "orbit": "PO",
-    "payload": "SDA Tranche 1 Transport Layer A (Government/Top Secret)",
-    "summary": "Tranche 1 Transport Layer A is one of six missions by the United States Space Force Space Development Agency (SDA) for the Proliferated Warfighter Space Architecture (PWSA) Tranche 1 Transport Layer constellation, which will provide assured, resilient, low-latency military data and connectivity worldwide to the full range of warfighter platforms from Low Earth Orbit satellites. The constellation will be interconnected with...",
+    "payload": "SDA Tranche 1 Transport Layer D (Government/Top Secret)",
+    "summary": "Tranche 1 Transport Layer D is one of six missions by the United States Space Force Space Development Agency (SDA) for the Proliferated Warfighter Space Architecture (PWSA) Tranche 1 Transport Layer constellation, which will provide assured, resilient, low-latency military data and connectivity worldwide to the full range of warfighter platforms from Low Earth Orbit satellites. The constellation will be interconnected with...",
     "news": "La data attuale e indicativa o approssimativa, basata su fonti non stabili o interpretate.",
     "sources": [
       [
         "The Space Devs",
-        "https://ll.thespacedevs.com/2.3.0/launches/da43dc2c-00af-4cc1-8ef1-90a60b2eb9e5/?format=json"
+        "https://ll.thespacedevs.com/2.3.0/launches/4541ce85-0e38-42ac-a9a0-20474bb5f2cd/?format=json"
+      ]
+    ]
+  },
+  {
+    "id": "falcon-9-block-5-o3b-mpower-11-13",
+    "cat": [
+      "net",
+      "non-starlink",
+      "falcon9",
+      "florida"
+    ],
+    "name": "O3b mPower 11-13",
+    "status": "NET / da definire",
+    "rocket": "Falcon 9 Block 5",
+    "dateLabel": "NET settembre 2026",
+    "iso": "2026-09-30T00:00:00Z",
+    "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
+    "site": "Unknown Pad, Cape Canaveral SFS, FL, USA",
+    "landing": "Recupero booster non indicato da The Space Devs",
+    "orbit": "MEO",
+    "payload": "O3b mPower 11-13 (Communications)",
+    "summary": "3 high-throughput communications satellites in Medium Earth Orbit (MEO) built by Boeing and operated by SES.",
+    "news": "La data attuale e indicativa o approssimativa, basata su fonti non stabili o interpretate.",
+    "sources": [
+      [
+        "The Space Devs",
+        "https://ll.thespacedevs.com/2.3.0/launches/ad358a4d-c541-409b-9366-9c2f2da4aeb9/?format=json"
       ]
     ]
   },
@@ -381,90 +373,6 @@ const launches = [
       [
         "The Space Devs",
         "https://ll.thespacedevs.com/2.3.0/launches/7d1afb26-6f9c-429b-9ccf-29012fd1e519/?format=json"
-      ]
-    ]
-  },
-  {
-    "id": "falcon-9-block-5-sda-tranche-1-tracking-layer-e",
-    "cat": [
-      "net",
-      "non-starlink",
-      "sda",
-      "falcon9",
-      "vandenberg"
-    ],
-    "name": "SDA Tranche 1 Tracking Layer E",
-    "status": "NET / da definire",
-    "rocket": "Falcon 9 Block 5",
-    "dateLabel": "NET settembre 2026",
-    "iso": "2026-09-30T00:00:00Z",
-    "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
-    "site": "Space Launch Complex 4E, Vandenberg SFB, CA, USA",
-    "landing": "Recupero booster non indicato da The Space Devs",
-    "orbit": "PO",
-    "payload": "SDA Tranche 1 Tracking Layer E (Government/Top Secret)",
-    "summary": "Tranche 1 Tracking Layer E is one of five missions by the United States Space Force Space Development Agency (SDA) for the Proliferated Warfighter Space Architecture (PWSA) Tranche 1 Tracking Layer constellation, which will provide global indications, warning, tracking, and targeting of advanced missile threats, including hypersonic missile systems.",
-    "news": "La data attuale e indicativa o approssimativa, basata su fonti non stabili o interpretate.",
-    "sources": [
-      [
-        "The Space Devs",
-        "https://ll.thespacedevs.com/2.3.0/launches/fcbc4550-e69e-4458-a9e6-4a5b6b6b15a5/?format=json"
-      ]
-    ]
-  },
-  {
-    "id": "falcon-9-block-5-sda-tranche-1-tracking-layer-c",
-    "cat": [
-      "net",
-      "non-starlink",
-      "sda",
-      "falcon9",
-      "vandenberg"
-    ],
-    "name": "SDA Tranche 1 Tracking Layer C",
-    "status": "NET / da definire",
-    "rocket": "Falcon 9 Block 5",
-    "dateLabel": "NET settembre 2026",
-    "iso": "2026-09-30T00:00:00Z",
-    "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
-    "site": "Space Launch Complex 4E, Vandenberg SFB, CA, USA",
-    "landing": "Recupero booster non indicato da The Space Devs",
-    "orbit": "PO",
-    "payload": "SDA Tranche 1 Tracking Layer C (Government/Top Secret)",
-    "summary": "Tranche 1 Tracking Layer C is one of five missions by the United States Space Force Space Development Agency (SDA) for the Proliferated Warfighter Space Architecture (PWSA) Tranche 1 Tracking Layer constellation, which will provide global indications, warning, tracking, and targeting of advanced missile threats, including hypersonic missile systems.",
-    "news": "La data attuale e indicativa o approssimativa, basata su fonti non stabili o interpretate.",
-    "sources": [
-      [
-        "The Space Devs",
-        "https://ll.thespacedevs.com/2.3.0/launches/dca8749f-1552-485a-8061-f1ad79055b8d/?format=json"
-      ]
-    ]
-  },
-  {
-    "id": "falcon-9-block-5-sda-tranche-1-transport-layer-d",
-    "cat": [
-      "net",
-      "non-starlink",
-      "sda",
-      "falcon9",
-      "vandenberg"
-    ],
-    "name": "SDA Tranche 1 Transport Layer D",
-    "status": "NET / da definire",
-    "rocket": "Falcon 9 Block 5",
-    "dateLabel": "NET settembre 2026",
-    "iso": "2026-09-30T00:00:00Z",
-    "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
-    "site": "Space Launch Complex 4E, Vandenberg SFB, CA, USA",
-    "landing": "Recupero booster non indicato da The Space Devs",
-    "orbit": "PO",
-    "payload": "SDA Tranche 1 Transport Layer D (Government/Top Secret)",
-    "summary": "Tranche 1 Transport Layer D is one of six missions by the United States Space Force Space Development Agency (SDA) for the Proliferated Warfighter Space Architecture (PWSA) Tranche 1 Transport Layer constellation, which will provide assured, resilient, low-latency military data and connectivity worldwide to the full range of warfighter platforms from Low Earth Orbit satellites. The constellation will be interconnected with...",
-    "news": "La data attuale e indicativa o approssimativa, basata su fonti non stabili o interpretate.",
-    "sources": [
-      [
-        "The Space Devs",
-        "https://ll.thespacedevs.com/2.3.0/launches/4541ce85-0e38-42ac-a9a0-20474bb5f2cd/?format=json"
       ]
     ]
   },
@@ -497,6 +405,34 @@ const launches = [
     ]
   },
   {
+    "id": "falcon-9-block-5-sda-tranche-1-tracking-layer-c",
+    "cat": [
+      "net",
+      "non-starlink",
+      "sda",
+      "falcon9",
+      "vandenberg"
+    ],
+    "name": "SDA Tranche 1 Tracking Layer C",
+    "status": "NET / da definire",
+    "rocket": "Falcon 9 Block 5",
+    "dateLabel": "NET settembre 2026",
+    "iso": "2026-09-30T00:00:00Z",
+    "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
+    "site": "Space Launch Complex 4E, Vandenberg SFB, CA, USA",
+    "landing": "Recupero booster non indicato da The Space Devs",
+    "orbit": "PO",
+    "payload": "SDA Tranche 1 Tracking Layer C (Government/Top Secret)",
+    "summary": "Tranche 1 Tracking Layer C is one of five missions by the United States Space Force Space Development Agency (SDA) for the Proliferated Warfighter Space Architecture (PWSA) Tranche 1 Tracking Layer constellation, which will provide global indications, warning, tracking, and targeting of advanced missile threats, including hypersonic missile systems.",
+    "news": "La data attuale e indicativa o approssimativa, basata su fonti non stabili o interpretate.",
+    "sources": [
+      [
+        "The Space Devs",
+        "https://ll.thespacedevs.com/2.3.0/launches/dca8749f-1552-485a-8061-f1ad79055b8d/?format=json"
+      ]
+    ]
+  },
+  {
     "id": "falcon-9-block-5-sda-tranche-1-transport-layer-f",
     "cat": [
       "net",
@@ -525,29 +461,58 @@ const launches = [
     ]
   },
   {
-    "id": "falcon-9-block-5-o3b-mpower-11-13",
+    "id": "falcon-9-block-5-sda-tranche-1-tracking-layer-e",
     "cat": [
       "net",
       "non-starlink",
+      "sda",
       "falcon9",
-      "florida"
+      "vandenberg"
     ],
-    "name": "O3b mPower 11-13",
+    "name": "SDA Tranche 1 Tracking Layer E",
     "status": "NET / da definire",
     "rocket": "Falcon 9 Block 5",
     "dateLabel": "NET settembre 2026",
     "iso": "2026-09-30T00:00:00Z",
     "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
-    "site": "Unknown Pad, Cape Canaveral SFS, FL, USA",
+    "site": "Space Launch Complex 4E, Vandenberg SFB, CA, USA",
     "landing": "Recupero booster non indicato da The Space Devs",
-    "orbit": "MEO",
-    "payload": "O3b mPower 11-13 (Communications)",
-    "summary": "3 high-throughput communications satellites in Medium Earth Orbit (MEO) built by Boeing and operated by SES.",
+    "orbit": "PO",
+    "payload": "SDA Tranche 1 Tracking Layer E (Government/Top Secret)",
+    "summary": "Tranche 1 Tracking Layer E is one of five missions by the United States Space Force Space Development Agency (SDA) for the Proliferated Warfighter Space Architecture (PWSA) Tranche 1 Tracking Layer constellation, which will provide global indications, warning, tracking, and targeting of advanced missile threats, including hypersonic missile systems.",
     "news": "La data attuale e indicativa o approssimativa, basata su fonti non stabili o interpretate.",
     "sources": [
       [
         "The Space Devs",
-        "https://ll.thespacedevs.com/2.3.0/launches/ad358a4d-c541-409b-9366-9c2f2da4aeb9/?format=json"
+        "https://ll.thespacedevs.com/2.3.0/launches/fcbc4550-e69e-4458-a9e6-4a5b6b6b15a5/?format=json"
+      ]
+    ]
+  },
+  {
+    "id": "falcon-9-block-5-sda-tranche-1-transport-layer-a",
+    "cat": [
+      "net",
+      "non-starlink",
+      "sda",
+      "falcon9",
+      "vandenberg"
+    ],
+    "name": "SDA Tranche 1 Transport Layer A",
+    "status": "NET / da definire",
+    "rocket": "Falcon 9 Block 5",
+    "dateLabel": "NET settembre 2026",
+    "iso": "2026-09-30T00:00:00Z",
+    "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
+    "site": "Space Launch Complex 4E, Vandenberg SFB, CA, USA",
+    "landing": "Recupero booster non indicato da The Space Devs",
+    "orbit": "PO",
+    "payload": "SDA Tranche 1 Transport Layer A (Government/Top Secret)",
+    "summary": "Tranche 1 Transport Layer A is one of six missions by the United States Space Force Space Development Agency (SDA) for the Proliferated Warfighter Space Architecture (PWSA) Tranche 1 Transport Layer constellation, which will provide assured, resilient, low-latency military data and connectivity worldwide to the full range of warfighter platforms from Low Earth Orbit satellites. The constellation will be interconnected with...",
+    "news": "La data attuale e indicativa o approssimativa, basata su fonti non stabili o interpretate.",
+    "sources": [
+      [
+        "The Space Devs",
+        "https://ll.thespacedevs.com/2.3.0/launches/da43dc2c-00af-4cc1-8ef1-90a60b2eb9e5/?format=json"
       ]
     ]
   }
