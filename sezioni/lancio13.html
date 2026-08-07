@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Starship Flight 13 | Rivoluzione Spaziale</title>
-<meta name="description" content="Scheda Flight 13 Starship: softest splashdown Ship 40, hard landing B20. Post-volo: traino attivo di S40 verso Dampier (Normand Ranger + Skimmer Tide); GO Australis in rientro (aggiornato 3 agosto 2026).">
-<link rel="stylesheet" href="../css/style.css?v=20260803-flight13-tow">
+<meta name="description" content="Scheda Flight 13 Starship: softest splashdown Ship 40, hard landing B20. Post-volo: SpaceX recovery team ancora al lavoro nell'Oceano Indiano — mare grosso, scafo 52 m verso porto (aggiornato 7 agosto 2026).">
+<link rel="stylesheet" href="../css/style.css?v=20260807-s40-recovery">
 <style>
 .f13-hero{
   min-height:58vh;display:grid;align-items:end;
@@ -96,9 +96,16 @@ a.f13-stream:hover,a.f13-stream:focus-visible{
 .f13-news h3{margin:0 0 8px;font-size:16px;line-height:1.25}
 .f13-news p{margin:0;color:#c8d2d9;font-size:13px;line-height:1.5}
 .f13-news .f13-news-when{display:block;margin-bottom:6px;font-size:11px;font-weight:850;letter-spacing:.06em;text-transform:uppercase;color:var(--gold)}
+.f13-media-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:18px}
+.f13-media{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#0a0f14}
+.f13-media img,.f13-media video{display:block;width:100%;max-height:420px;object-fit:cover;background:#000}
+.f13-media video{max-height:none;aspect-ratio:16/9;object-fit:contain}
+.f13-media figcaption{padding:12px 14px;color:var(--muted);font-size:13px;line-height:1.45}
+.f13-media.wide{grid-column:1/-1}
 @media(max-width:900px){
-  .f13-meta-grid,.f13-objectives,.f13-timeline-cols,.f13-stream-grid,.f13-news-grid{grid-template-columns:1fr}
+  .f13-meta-grid,.f13-objectives,.f13-timeline-cols,.f13-stream-grid,.f13-news-grid,.f13-media-grid{grid-template-columns:1fr}
   .f13-hero{min-height:46vh;padding:78px 18px 30px}
+  .f13-media.wide{grid-column:auto}
 }
 @media(min-width:901px) and (max-width:1120px){
   .f13-stream-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -125,8 +132,8 @@ a.f13-stream:hover,a.f13-stream:focus-visible{
   <div class="hero-inner">
     <p class="eyebrow">Dossier SpaceX · Starship</p>
     <h1>Flight 13</h1>
-    <p class="subtitle">Tredicesimo volo di prova del sistema Starship/Super Heavy V3: Booster 20 e Ship 40 da Orbital Launch Pad 2 a Starbase, Texas. Softest splashdown della Ship, hard landing del Super Heavy. Post-volo: Ship 40 ancora integra, sotto traino lento verso l&rsquo;Australia Occidentale.</p>
-    <span class="update-stamp">Liftoff: 25 luglio 2026, 00:51 CEST · 24 luglio 22:51 UTC · aggiornato al 3 agosto 2026</span>
+    <p class="subtitle">Tredicesimo volo di prova del sistema Starship/Super Heavy V3: Booster 20 e Ship 40 da Orbital Launch Pad 2 a Starbase, Texas. Softest splashdown della Ship, hard landing del Super Heavy. Post-volo: team recovery SpaceX ancora al lavoro nell&rsquo;Oceano Indiano per portare a porto lo scafo da 52&nbsp;m, con mare sempre piu grosso.</p>
+    <span class="update-stamp">Liftoff: 25 luglio 2026, 00:51 CEST · 24 luglio 22:51 UTC · aggiornato al 7 agosto 2026</span>
     <div class="actions">
       <a class="button" href="https://www.spacex.com/launches/starship-flight-13" target="_blank" rel="noopener">Pagina ufficiale SpaceX</a>
       <a class="button secondary" href="#esito">Esito del volo</a>
@@ -150,17 +157,17 @@ a.f13-stream:hover,a.f13-stream:focus-visible{
         <span class="date">25 luglio 2026 · 00:51 CEST<br>24 luglio 2026 · 22:51 UTC</span>
       </div>
       <h3 style="margin:10px 0 0;font-size:clamp(24px,3vw,34px)">Lucky number 13</h3>
-      <p class="muted" style="margin:8px 0 0">Profilo suborbitale di poco oltre un&rsquo;ora. Dan Huot (SpaceX): &ldquo;softest splashdown&rdquo; e &ldquo;hell of a great day for Starship&rdquo;. Oltre nove giorni dopo l&rsquo;ammaraggio Ship 40 e ancora integra e in traino verso Dampier.</p>
+      <p class="muted" style="margin:8px 0 0">Profilo suborbitale di poco oltre un&rsquo;ora. Dan Huot (SpaceX): &ldquo;softest splashdown&rdquo; e &ldquo;hell of a great day for Starship&rdquo;. A ~14 giorni dallo splashdown, SpaceX conferma che il recovery team e ancora sul campo: condizioni difficili e mare in peggioramento, scafo da 52&nbsp;m da guidare a porto.</p>
       <div class="f13-live-bar">
-        <p><strong>Sintesi:</strong> 20/20 Starlink V3 · relight Raptor OK · Ship soft splashdown integro · traino attivo (Ranger + Skimmer Tide) · GO Australis in rientro · booster hard splashdown.</p>
+        <p><strong>Sintesi:</strong> 20/20 Starlink V3 · relight Raptor OK · Ship soft splashdown integro · recovery SpaceX ancora in corso (7/08) · mare grosso · booster hard splashdown.</p>
         <a class="button" href="#novita">Recupero in oceano</a>
       </div>
     </div>
     <div class="f13-meta-grid">
       <div class="agenda-note"><b>Booster 20</b><span>Hot-staging e boostback OK · hard splashdown Golfo</span></div>
-      <div class="agenda-note"><b>Ship 40</b><span>Softest splashdown · scafo integro · afloat a ~9+ giorni</span></div>
-      <div class="agenda-note"><b>Recupero</b><span>Traino attivo · ~1 kn · corso verso WA (3/08)</span></div>
-      <div class="agenda-note"><b>Destinazione</b><span>Dampier / Pilbara · ETA mid-August (stima)</span></div>
+      <div class="agenda-note"><b>Ship 40</b><span>Softest splashdown · scafo 52 m · ancora in mare</span></div>
+      <div class="agenda-note"><b>Recupero</b><span>Team SpaceX · mare grosso · ops in corso (7/08)</span></div>
+      <div class="agenda-note"><b>Obiettivo</b><span>Guidare la Ship a porto · Oceano Indiano</span></div>
     </div>
   </div>
 </section>
@@ -169,19 +176,43 @@ a.f13-stream:hover,a.f13-stream:focus-visible{
   <div class="inner">
     <div class="section-head">
       <h2>Recupero della Ship in oceano</h2>
-      <p>La novita post-volo piu concreta: Ship 40 non e &ldquo;persa in mare&rdquo;. Dopo soft splashdown integro e giorni di galleggiamento, il recupero e passato alla fase di <strong>traino verso l&rsquo;Australia Occidentale</strong>: al 3 agosto la Ship e ancora a galla e sotto traino lento, con destinazione attesa nell&rsquo;area Dampier / Pilbara.</p>
+      <p>La novita post-volo piu concreta: Ship 40 non e &ldquo;persa in mare&rdquo;. Dopo soft splashdown integro, giorni di galleggiamento e traino multi-nave, al <strong>7 agosto 2026</strong> SpaceX pubblica un aggiornamento ufficiale: il recovery team e <strong>ancora al lavoro</strong> nell&rsquo;Oceano Indiano, con condizioni difficili e mare sempre piu grosso, per guidare a porto lo scafo da <strong>52&nbsp;m</strong>.</p>
     </div>
 
+    <blockquote class="f13-quote">
+      &ldquo;The SpaceX Recovery team is still working to recover Flight 13&rsquo;s Starship from the Indian Ocean. They&rsquo;ve been overcoming challenging conditions and increasingly rough seas as they attempt to guide the 52m long spacecraft to port.&rdquo;
+      <cite>SpaceX · X · 7 agosto 2026 · foto e video del traino in oceano aperto</cite>
+    </blockquote>
     <blockquote class="f13-quote">
       &ldquo;We&rsquo;re sending a ship out to recover Starship.&rdquo;
       <cite>Elon Musk · X · 28 luglio 2026 · citando SpaceX: imagery della Ship ancora a galla nell&rsquo;Oceano Indiano</cite>
     </blockquote>
-    <blockquote class="f13-quote">
-      &ldquo;Starship still floating in the ocean&rdquo;
-      <cite>Elon Musk · X · 29 luglio 2026 · video della Ship 40 giorni dopo l&rsquo;ammaraggio</cite>
-    </blockquote>
+
+    <div class="f13-media-grid" aria-label="Materiali recovery SpaceX 7 agosto 2026">
+      <figure class="f13-media">
+        <img src="assets/lancio13/s40-recovery-deck-1.jpg" alt="Ship 40 e navi di recovery nell'Oceano Indiano, vista dal ponte" loading="lazy">
+        <figcaption>Ship 40 a galla con navi di supporto · Oceano Indiano. Foto SpaceX, 7 agosto 2026 (post recovery).</figcaption>
+      </figure>
+      <figure class="f13-media">
+        <img src="assets/lancio13/s40-recovery-deck-2.jpg" alt="Starship Ship 40 vista dal ponte della nave di recovery" loading="lazy">
+        <figcaption>Scafo da 52 m in mare aperto · vista dal ponte recovery. Foto SpaceX, 7 agosto 2026.</figcaption>
+      </figure>
+      <figure class="f13-media wide">
+        <video controls playsinline preload="metadata" poster="assets/lancio13/s40-recovery-deck-1.jpg">
+          <source src="assets/lancio13/s40-recovery-tow.mp4" type="video/mp4">
+          Il tuo browser non riproduce video HTML5. <a href="assets/lancio13/s40-recovery-tow.mp4">Scarica il video</a>
+          oppure <a href="https://x.com/SpaceX/status/2085786988225925349" target="_blank" rel="noopener">guardalo sul post SpaceX</a>.
+        </video>
+        <figcaption>Video ufficiale SpaceX (~45 s): recovery team, condizioni di mare e scafo Flight 13 in traino verso porto. Fonte: <a href="https://x.com/SpaceX/status/2085786988225925349" target="_blank" rel="noopener">@SpaceX, 7 agosto 2026</a>.</figcaption>
+      </figure>
+    </div>
 
     <div class="f13-news-grid">
+      <article class="f13-news">
+        <span class="f13-news-when">7 agosto · SpaceX ufficiale</span>
+        <h3>Recovery ancora in corso · mare grosso</h3>
+        <p>Post SpaceX con foto e video: il team recovery lavora ancora per recuperare la Starship di Flight 13. Condizioni impegnative e <strong>mare sempre piu mosso</strong> mentre tentano di guidare a porto lo scafo da <strong>52&nbsp;m</strong>. Non e un &ldquo;arrivati a destinazione&rdquo;: e un aggiornamento operativo a ~14 giorni dallo splashdown.</p>
+      </article>
       <article class="f13-news">
         <span class="f13-news-when">24–25 luglio · splashdown</span>
         <h3>Softest splashdown, scafo integro</h3>
@@ -210,24 +241,31 @@ a.f13-stream:hover,a.f13-stream:focus-visible{
       <article class="f13-news">
         <span class="f13-news-when">2–3 agosto · traino consolidato</span>
         <h3>Ranger + Skimmer Tide; GO Australis rientra</h3>
-        <p>Il legame di traino si consolida: <strong>Normand Ranger</strong> risulta la unita principale (AIS in restricted maneuverability, coerente con traino), con <strong>Skimmer Tide</strong> in supporto. Possibile assistenza tipo sled gonfiabile sul setup di attacco. <strong>GO Australis</strong>, dopo oltre tre settimane in mare e il lavoro di documentazione sul posto, lascia la scena e fa rotta verso Dampier per rifornimento (partenza intorno alle 16:30 AWST del 3/08). Il traino di S40 prosegue a <strong>~1 nodo o meno</strong> (corso orientativo ~53&deg; NE), con progressi a tratti ostacolati da correnti; stime community di arrivo in WA tra <strong>meta agosto</strong> e circa <strong>11–12 agosto</strong>. A ~229 ore (~9,5 giorni) dallo splashdown la Ship resta integra e a galla.</p>
+        <p>Il legame di traino si consolida: <strong>Normand Ranger</strong> risulta la unita principale (AIS in restricted maneuverability, coerente con traino), con <strong>Skimmer Tide</strong> in supporto. Possibile assistenza tipo sled gonfiabile sul setup di attacco. <strong>GO Australis</strong>, dopo oltre tre settimane in mare e il lavoro di documentazione sul posto, lascia la scena e fa rotta verso Dampier per rifornimento (partenza intorno alle 16:30 AWST del 3/08). Il traino di S40 prosegue a <strong>~1 nodo o meno</strong> (corso orientativo ~53&deg; NE), con progressi a tratti ostacolati da correnti; stime community di arrivo in WA tra <strong>meta agosto</strong> e circa <strong>11–12 agosto</strong>.</p>
+      </article>
+      <article class="f13-news">
+        <span class="f13-news-when">3–7 agosto · open ocean</span>
+        <h3>Dal tracking al bollettino ufficiale</h3>
+        <p>Dopo i giorni di traino lento e le stime community di ETA, SpaceX chiude il cerchio con materiali dal ponte: non solo AIS, ma immagini e video del veicolo in mare e del lavoro del recovery team. Il messaggio del 7/08 conferma che l&rsquo;arrivo a porto <strong>non e ancora chiuso</strong> e che il mare e diventato un fattore dominante.</p>
       </article>
     </div>
 
     <div class="cols" style="margin-top:18px">
       <article class="panel">
         <h3>Perche conta</h3>
-        <p>Recuperare fisicamente una Starship dopo un soft splashdown e raro e utile: ispezione di scafo, scudo termico, serbatoi e sistemi a terra. Completa i dati di volo con pezzi &ldquo;toccabili&rdquo; e rafforza la fiducia sul profilo di ammaraggio controllato. Il passaggio da linee collegate a <strong>traino multi-giorno open-ocean</strong> (con una nave di supporto che rientra e due che tengono il carico) e la prova che l&rsquo;ops non e solo un annuncio: e logistica pesante su uno scafo non progettato per navigare.</p>
+        <p>Recuperare fisicamente una Starship dopo un soft splashdown e raro e utile: ispezione di scafo, scudo termico, serbatoi e sistemi a terra. Completa i dati di volo con pezzi &ldquo;toccabili&rdquo; e rafforza la fiducia sul profilo di ammaraggio controllato. Il post SpaceX del 7 agosto aggiunge un pezzo industriale: non basta collegare le linee — serve reggere <strong>settimane di open-ocean tow</strong> su uno scafo di 52&nbsp;m non progettato per navigare, con meteo in peggioramento.</p>
         <p class="muted" style="margin-bottom:0;font-size:13px">Nota a margine (non e il pezzo di questa scheda): Elon ha anche detto che al <em>prossimo</em> volo, se la data review e pulita, tenteranno il catch con la tower. Qui il focus e il recupero in oceano di S40, non il catch di Flight 14. Vedi <a href="lancio14.html" style="color:#dff4ff">bozza Flight 14</a>.</p>
       </article>
       <article class="panel">
-        <h3>Stato sintetico al 3 agosto</h3>
+        <h3>Stato sintetico al 7 agosto</h3>
         <ul style="margin:0;padding-left:18px;color:#d0d8de;font-size:14px;line-height:1.55">
-          <li><strong>Ship 40:</strong> ancora integra e galleggiante a ~229 h (~9,5 giorni) dallo soft splashdown.</li>
-          <li><strong>Traino:</strong> attivo — Normand Ranger + Skimmer Tide; ~1 kn o meno; destinazione Dampier / Pilbara (ETA mid-August, stime tracking).</li>
-          <li><strong>GO Australis:</strong> in rientro a Dampier dopo ~3 settimane in mare (documentazione / support).</li>
+          <li><strong>Ship 40:</strong> ancora in mare (~14 giorni post soft splashdown); scafo descritto da SpaceX come veicolo da <strong>52&nbsp;m</strong> da guidare a porto.</li>
+          <li><strong>Recovery team SpaceX:</strong> ancora al lavoro nell&rsquo;Oceano Indiano (post ufficiale 7/08).</li>
+          <li><strong>Condizioni:</strong> challenging + <strong>increasingly rough seas</strong> — meteo/mare come vincolo principale.</li>
+          <li><strong>Flotta (fase precedente):</strong> Normand Ranger + Skimmer Tide in traino; GO Australis rientrata a Dampier (3/08, tracking community).</li>
+          <li><strong>Arrivo a porto:</strong> non ancora dichiarato; ETA mid-August restano stime, non conferma SpaceX.</li>
           <li><strong>Booster 20:</strong> hard splashdown nel Golfo; non e oggetto di questo recupero.</li>
-          <li><strong>FAA:</strong> al momento no mishap investigation formale su Flight 13.</li>
+          <li><strong>FAA:</strong> no mishap investigation formale su Flight 13 (conferma NSF post-volo).</li>
         </ul>
       </article>
     </div>
@@ -331,7 +369,7 @@ a.f13-stream:hover,a.f13-stream:focus-visible{
       <article class="panel">
         <h3>Cosa e&rsquo; stato Flight 13</h3>
         <p>E&rsquo; il <strong>secondo volo</strong> della generazione Starship/Super Heavy V3 e il tredicesimo test integrato del programma. Dopo l&rsquo;abort automatico del 16 luglio e lo scrub meteo del 23, il decollo e avvenuto il <strong>24 luglio 2026 alle 22:51 UTC</strong>.</p>
-        <p>La traiettoria della Ship e rimasta <strong>suborbitale controllata</strong>: i 20 Starlink V3 hanno testato pannelli, antenne e link, poi sono rientrati per design. Sei satelliti hanno ripreso lo scudo termico di Ship 40. La Ship ha chiuso con soft splashdown integro e, a oltre nove giorni, e ancora galleggiante e <strong>in traino</strong> verso l&rsquo;Australia Occidentale (Normand Ranger e Skimmer Tide; GO Australis in rientro a Dampier). Il booster ha chiuso con hard splashdown nel Golfo.</p>
+        <p>La traiettoria della Ship e rimasta <strong>suborbitale controllata</strong>: i 20 Starlink V3 hanno testato pannelli, antenne e link, poi sono rientrati per design. Sei satelliti hanno ripreso lo scudo termico di Ship 40. La Ship ha chiuso con soft splashdown integro e, a ~14 giorni, e ancora in mare sotto recovery SpaceX (post 7/08: mare grosso, scafo 52&nbsp;m da guidare a porto). Il booster ha chiuso con hard splashdown nel Golfo.</p>
       </article>
       <article class="panel">
         <h3>Scheda rapida</h3>
@@ -385,9 +423,17 @@ a.f13-stream:hover,a.f13-stream:focus-visible{
   <div class="inner">
     <div class="section-head">
       <h2>Immagini</h2>
-      <p>Solo materiali con licenza libera esplicita (CC BY 2.0), pubblicabili con attribuzione.</p>
+      <p>Materiali recovery del 7 agosto (SpaceX, sezione <a href="#novita">Recupero in oceano</a>) e foto di rampa con licenza libera esplicita (CC BY 2.0).</p>
     </div>
     <div class="starship-photo-grid" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+      <figure class="starship-photo">
+        <img src="assets/lancio13/s40-recovery-deck-1.jpg" alt="Ship 40 recovery Oceano Indiano" loading="lazy">
+        <figcaption>Recovery S40 · Oceano Indiano. Foto SpaceX, 7 agosto 2026 · <a href="https://x.com/SpaceX/status/2085786988225925349" target="_blank" rel="noopener">post ufficiale</a>.</figcaption>
+      </figure>
+      <figure class="starship-photo">
+        <img src="assets/lancio13/s40-recovery-deck-2.jpg" alt="Ship 40 vista dal ponte recovery" loading="lazy">
+        <figcaption>Scafo 52 m dal ponte recovery. Foto SpaceX, 7 agosto 2026 · <a href="https://x.com/SpaceX/status/2085786988225925349" target="_blank" rel="noopener">post ufficiale</a>.</figcaption>
+      </figure>
       <figure class="starship-photo">
         <img src="assets/lancio13/starship-flight13-pad.jpg" alt="Starship su Pad 2 prima del Flight 13" loading="lazy">
         <figcaption>Starship su rampa prima del Flight 13, 23 luglio 2026. Foto SpaceX via <a href="https://commons.wikimedia.org/wiki/File:Starship_-_Flight_13_(Sunset).jpg" target="_blank" rel="noopener">Wikimedia Commons</a>, CC BY 2.0.</figcaption>
@@ -484,6 +530,11 @@ a.f13-stream:hover,a.f13-stream:focus-visible{
             <h3>Traino consolidato · GO Australis rientra</h3>
             <p>Normand Ranger + Skimmer Tide tengono S40 in traino lento (~1 kn o meno, corso ~NE). AIS: Ranger in restricted maneuverability. GO Australis parte verso Dampier (~16:30 AWST del 3/08) dopo ~3 settimane in mare. ETA porto WA: mid-August / ~11–12 agosto (stime tracking).</p>
           </article>
+          <article class="starship-event f13-event news">
+            <small>7 agosto 2026</small>
+            <h3>SpaceX: recovery ancora in corso, mare grosso</h3>
+            <p>Post ufficiale @SpaceX con foto e video dal ponte: recovery team ancora al lavoro nell&rsquo;Oceano Indiano; condizioni difficili e mare in peggioramento; obiettivo guidare a porto lo scafo da 52&nbsp;m. <a href="https://x.com/SpaceX/status/2085786988225925349" target="_blank" rel="noopener">X post</a>.</p>
+          </article>
         </div>
       </article>
 
@@ -533,6 +584,7 @@ a.f13-stream:hover,a.f13-stream:focus-visible{
       <h3>Fonti principali</h3>
       <ul class="source-list">
         <li><a href="https://www.spacex.com/launches/starship-flight-13" target="_blank" rel="noopener">SpaceX — Starship&rsquo;s Thirteenth Flight Test</a></li>
+        <li><a href="https://x.com/SpaceX/status/2085786988225925349" target="_blank" rel="noopener">SpaceX — recovery S40 ancora in corso, foto e video (7/08/2026)</a></li>
         <li><a href="https://www.space.com/space-exploration/launches-spacecraft/spacexs-starship-megarocket-makes-the-softest-splashdown-ever-after-launching-next-gen-starlink-satellites-in-flight-13-test-video" target="_blank" rel="noopener">Space.com — softest splashdown Flight 13</a></li>
         <li><a href="https://spaceflightnow.com/2026/07/25/super-heavy-starship-rocket-chalks-up-mostly-successful-test-flight/" target="_blank" rel="noopener">Spaceflight Now — mostly successful test flight</a></li>
         <li><a href="https://www.youtube.com/watch?v=lC3RDO7tdLc" target="_blank" rel="noopener">NASASpaceflight — launch stream Flight 13</a></li>
@@ -560,7 +612,7 @@ a.f13-stream:hover,a.f13-stream:focus-visible{
     </article>
     <article class="panel">
       <h3>Navigazione</h3>
-      <p class="muted">Scheda del volo completato. Recupero S40 aggiornato al <strong>3 agosto 2026</strong>: traino attivo verso Dampier (Ranger + Skimmer Tide); GO Australis in rientro. Per la campagna successiva: bozza Flight 14.</p>
+      <p class="muted">Scheda del volo completato. Recupero S40 aggiornato al <strong>7 agosto 2026</strong>: post ufficiale SpaceX — team ancora al lavoro in Oceano Indiano, mare grosso, scafo 52&nbsp;m verso porto. Per la campagna successiva: bozza Flight 14.</p>
       <div class="actions" style="margin-top:14px">
         <a class="button" href="lancio14.html">Flight 14 (bozza)</a>
         <a class="button secondary" href="spacex.html">Portale SpaceX</a>
@@ -573,7 +625,7 @@ a.f13-stream:hover,a.f13-stream:focus-visible{
 </main>
 
 <footer class="footer">
-  Rivoluzione Spaziale. Scheda Flight 13 · <strong>ultimo aggiornamento: 3 agosto 2026</strong> · recupero S40: traino attivo verso Dampier · immagini CC BY 2.0 con attribuzione · GitHub Pages.
+  Rivoluzione Spaziale. Scheda Flight 13 · <strong>ultimo aggiornamento: 7 agosto 2026</strong> · recupero S40: post SpaceX recovery ancora in corso · foto/video SpaceX + immagini CC BY 2.0 · GitHub Pages.
 </footer>
 
 <script>

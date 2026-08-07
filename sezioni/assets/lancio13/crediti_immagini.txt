@@ -18,3 +18,26 @@ Immagini della pagina "Starship Flight 13" (lancio13.html)
    Autore: Steve Jurvetson
    Fonte: https://commons.wikimedia.org/wiki/File:SpaceX_Starship_booster_landing_approach_IFT-5.jpg
    Licenza: CC BY 2.0
+
+4. s40-recovery-deck-1.jpg
+   Autore: SpaceX
+   Data: 7 agosto 2026
+   Fonte: https://x.com/SpaceX/status/2085786988225925349
+   Media: https://pbs.twimg.com/media/HPIyfYdXoAADb3t.jpg
+   Nota: foto recovery Ship 40 / Flight 13, Oceano Indiano. Materiale pubblicato da @SpaceX su X.
+   Uso sul sito: documentazione editoriale non commerciale del recupero, con attribuzione e link alla fonte.
+
+5. s40-recovery-deck-2.jpg
+   Autore: SpaceX
+   Data: 7 agosto 2026
+   Fonte: https://x.com/SpaceX/status/2085786988225925349
+   Media: https://pbs.twimg.com/media/HPIygstWEAE6cXU.jpg
+   Nota: come sopra, seconda foto del post recovery.
+
+6. s40-recovery-tow.mp4
+   Autore: SpaceX
+   Data: 7 agosto 2026
+   Fonte: https://x.com/SpaceX/status/2085786988225925349
+   Media: amplify_video 2085785145210966016 (1920x1080)
+   Durata: ~45 s
+   Nota: video recovery team / traino scafo 52 m. Embed locale + link al post.
