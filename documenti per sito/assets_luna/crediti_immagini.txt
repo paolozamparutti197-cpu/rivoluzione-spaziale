@@ -1,0 +1,7 @@
+assets_luna — crediti immagini
+==============================
+
+falcon9_liftoff.jpg
+  Copia di assets_earnings/falcon9_liftoff.jpg (archivio fotografico locale del sito).
+  Usata come hero/card del dossier impatto lunare: NON e una foto dell'impatto sulla Luna.
+  Sostituire se diventano disponibili immagini pubbliche Danuri/LRO con licenza compatibile.

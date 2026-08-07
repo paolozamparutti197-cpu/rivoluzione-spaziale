@@ -157,6 +157,22 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-08-05",
+        "date_label": "5 agosto 2026",
+        "tag": "SpaceX · Luna",
+        "title": "Falcon 9 sulla Luna: upper stage colpisce vicino a Einstein",
+        "summary": (
+            "Il 5 agosto 2026 il secondo stadio 2025-010D ha impattato la Luna a ~8.700 km/h. "
+            "Predizione pubblica, spettro VLT, foto prima/dopo di Danuri. Cosa e successo e perche conta."
+        ),
+        "href": "../documenti%20per%20sito/spacex_falcon9_impatto_luna.html",
+        "image": "../documenti%20per%20sito/assets_luna/falcon9_liftoff.jpg",
+        "image_alt": "Falcon 9 al decollo, archivio fotografico del sito",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-08-04",
         "date_label": "4 agosto 2026",
         "tag": "SpaceX · Earnings",

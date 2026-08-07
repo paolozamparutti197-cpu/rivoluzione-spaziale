@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Il 5 agosto 2026 un secondo stadio Falcon 9 speso ha colpito la Luna vicino al cratere Einstein. Predizione, impatto, spettroscopia VLT e foto Danuri.">
+<title>Falcon 9 sulla Luna: il secondo stadio colpisce Einstein | Rivoluzione Spaziale</title>
+<style>
+:root{
+  --bg:#050607;
+  --ink:#f4f6f8;
+  --muted:#a9b0b7;
+  --line:rgba(255,255,255,.16);
+  --soft:rgba(255,255,255,.075);
+  --cyan:#67c7ff;
+  --amber:#f5b941;
+  --red:#e95f45;
+  --green:#79d18b;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;letter-spacing:0}
+a{color:var(--cyan);text-decoration:none}
+a:hover{text-decoration:underline}
+.topbar{position:fixed;inset:0 0 auto 0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:18px clamp(18px,4vw,56px);background:linear-gradient(180deg,rgba(0,0,0,.92),rgba(0,0,0,.54),rgba(0,0,0,0))}
+.brand{font-weight:900;letter-spacing:.16em;text-transform:uppercase;font-size:15px;color:#fff}
+.brand span{color:var(--cyan)}
+.nav{display:flex;gap:14px;flex-wrap:wrap;justify-content:flex-end;font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:800}
+.nav a{color:#fff}
+.hero{min-height:82vh;display:grid;align-items:end;padding:110px clamp(18px,4vw,56px) 50px;background:
+  linear-gradient(90deg,rgba(0,0,0,.9),rgba(0,0,0,.55) 48%,rgba(0,0,0,.28)),
+  linear-gradient(180deg,rgba(0,0,0,.1),rgba(5,6,7,.97) 92%),
+  url("assets_luna/falcon9_liftoff.jpg") center 38%/cover no-repeat}
+.hero-inner,.section-inner{max-width:1180px;margin:0 auto}
+.eyebrow{margin:0 0 14px;color:var(--amber);text-transform:uppercase;letter-spacing:.14em;font-size:13px;font-weight:900}
+h1{margin:0;max-width:1040px;font-size:clamp(34px,6.8vw,74px);line-height:.92;text-transform:uppercase;font-weight:950}
+h2{margin:0 0 24px;font-size:clamp(28px,4vw,48px);line-height:1;text-transform:uppercase}
+h3{margin:30px 0 12px;font-size:22px;line-height:1.15}
+p{color:#d9dde1;font-size:17px;line-height:1.72;margin:0 0 18px}
+.lead{max-width:940px;margin:24px 0 0;color:#e6ebef;font-size:clamp(17px,2vw,22px);line-height:1.48;font-weight:500}
+.meta{margin:18px 0 0;color:var(--muted);font-size:14px;letter-spacing:.04em}
+section{padding:76px clamp(18px,4vw,56px);border-top:1px solid var(--line)}
+.split{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(280px,.72fr);gap:42px;align-items:start}
+.panel{border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.045));border-radius:8px;padding:22px}
+.panel h3:first-child{margin-top:0}
+.panel p,.panel li{font-size:15px;color:#d6dbe0;line-height:1.62}
+.panel ul{margin:0;padding-left:18px}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:34px}
+.fact{border:1px solid var(--line);background:var(--soft);border-radius:8px;padding:18px;min-height:118px}
+.fact b{display:block;font-size:clamp(18px,2vw,24px);line-height:1.05;margin-bottom:10px}
+.fact span{display:block;color:var(--muted);line-height:1.42;font-size:14px}
+.callout{border-left:4px solid var(--red);padding:16px 18px;background:rgba(233,95,69,.095);margin:26px 0}
+.callout.green{border-left-color:var(--green);background:rgba(121,209,139,.08)}
+.callout.amber{border-left-color:var(--amber);background:rgba(245,185,65,.09)}
+.callout.cyan{border-left-color:var(--cyan);background:rgba(103,199,255,.08)}
+.callout p{margin:0}
+.timeline{display:grid;gap:14px;margin-top:24px}
+.event{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;border-top:1px solid var(--line);padding-top:18px}
+.date{color:var(--amber);font-weight:900;text-transform:uppercase;letter-spacing:.08em;font-size:13px}
+.event h3{margin:0 0 6px}
+.event p{margin:0;color:#cfd5da}
+table{width:100%;border-collapse:collapse;margin:22px 0;font-size:15px}
+th,td{border-top:1px solid var(--line);padding:13px 10px;text-align:left;vertical-align:top;line-height:1.45}
+th{color:#fff;text-transform:uppercase;letter-spacing:.08em;font-size:12px}
+td{color:#d8dde2}
+.sources{columns:2 360px;column-gap:42px;padding-left:18px}
+.sources li{break-inside:avoid;color:#d9dde1;margin:0 0 12px;line-height:1.5;font-size:15px}
+.button{display:inline-flex;border:1px solid var(--line);padding:12px 16px;border-radius:4px;text-transform:uppercase;font-size:12px;letter-spacing:.09em;font-weight:900;background:rgba(0,0,0,.22);color:#fff;margin:8px 8px 0 0}
+.draft-banner{position:sticky;top:0;z-index:20;background:rgba(233,95,69,.16);border-bottom:1px solid rgba(233,95,69,.4);color:#ffd0c6;padding:10px clamp(18px,4vw,56px);font-size:13px;font-weight:700;letter-spacing:.04em}
+.footer-note{padding:34px clamp(18px,4vw,56px);border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+@media(max-width:900px){.topbar{position:absolute}.nav{display:none}.split,.facts{grid-template-columns:1fr}.event{grid-template-columns:1fr;gap:6px}}
+@media(max-width:520px){section{padding:54px 18px}.hero{padding:96px 18px 42px;min-height:74vh}h1{font-size:36px}}
+</style>
+</head>
+<body>
+<div class="draft-banner">Breaking news · impatto lunare del 5 agosto 2026 · foto Danuri e conferma spettroscopica. Non e un comunicato SpaceX; lettura su fonti pubbliche.</div>
+<header class="topbar">
+  <a class="brand" href="../sezioni/spacex.html">Rivoluzione <span>Spaziale</span></a>
+  <nav class="nav" aria-label="Sezioni">
+    <a href="#tesi">Tesi</a>
+    <a href="#cosa">Cosa e successo</a>
+    <a href="#numeri">Numeri</a>
+    <a href="#osservazioni">Osservazioni</a>
+    <a href="#perche">Perche conta</a>
+    <a href="#cronologia">Cronologia</a>
+    <a href="#fonti">Fonti</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" aria-label="Introduzione">
+    <div class="hero-inner">
+      <p class="eyebrow">SpaceX · Luna · 5–7 agosto 2026</p>
+      <h1>Un Falcon 9 speso ha colpito la Luna</h1>
+      <p class="lead">Il 5 agosto 2026, intorno alle 06:35 UTC, il secondo stadio Falcon 9 designato 2025-010D ha impattato vicino al cratere Einstein. Non era un deorbit lunare pianificato: era un residuo di una missione CLPS del 2025. Previsione centimetrica, spettro al VLT, foto prima/dopo di Danuri.</p>
+      <p class="meta">Dossier · non ufficiale · aggiornato al 7 agosto 2026</p>
+    </div>
+  </section>
+
+  <section id="tesi">
+    <div class="section-inner">
+      <div class="split">
+        <article>
+          <h2>Di cosa parla questo pezzo</h2>
+          <p>Non e il primo oggetto artificiale a lasciare un cratere sulla Luna, e non e un fallimento di missione Falcon 9 “in volo”. E il resto di un upper stage che, dopo aver immesso in traiettoria lunare i payload commerciali del gennaio 2025 (Blue Ghost 1 di Firefly e, nello stesso stack di ride-share lunare, elementi legati a Hakuto-R Mission 2), e rimasto in un’orbita cislunare instabile finche gravita e perturbazioni solari non l’hanno spinto a collisione.</p>
+          <p>Il pezzo merita spazio non per “SpaceX ha bombardato la Luna”, ma per tre fatti nerd. Primo: la traiettoria e stata predetta da mesi con dati aperti (Project Pluto / tracking amatoriale e professionale), poi confermata dal Center for Near Earth Object Studies della NASA con probabilita d’impatto al 100%. Secondo: l’impatto non e stato visto a occhio nudo, ma e stato “sentito” in spettroscopia (linee di sodio e litio al VLT) e poi fotografato da Danuri. Terzo: riapre il dibattito soft su disposal di stadi in ambiente cislunare, mentre la cadenza commerciale verso la Luna sale con CLPS e Artemis.</p>
+          <div class="callout amber">
+            <p><strong>Chiarezza:</strong> il primo stadio Falcon 9 e tornato a Terra come di consueto. A impattare e stato il <em>secondo</em> stadio (circa 4 tonnellate a secco), non un booster RTLS. Nessun rischio per la Terra.</p>
+          </div>
+        </article>
+        <aside class="panel">
+          <h3>In sintesi</h3>
+          <ul>
+            <li><strong>Quando:</strong> 5 agosto 2026, ~06:35 UTC</li>
+            <li><strong>Cosa:</strong> upper stage F9 2025-010D</li>
+            <li><strong>Dove:</strong> vicino a Einstein (limb ovest)</li>
+            <li><strong>Velocita:</strong> ~8.700 km/h (~5.400 mph)</li>
+            <li><strong>Cratere atteso NASA:</strong> ~18 m × ~4 m</li>
+            <li><strong>Conferme:</strong> VLT (spettro), Danuri (foto)</li>
+            <li><strong>LRO:</strong> immagini ancora attese / in corso</li>
+          </ul>
+          <p style="margin-top:16px"><a class="button" href="../sezioni/spacex.html">Torna a SpaceX</a><a class="button" href="../sezioni/notizie.html">Notizie</a></p>
+        </aside>
+      </div>
+      <div class="facts">
+        <div class="fact"><b>~4 t</b><span>massa stimata dello stadio speso</span></div>
+        <div class="fact"><b>~3 t TNT</b><span>energia d’impatto (stima pubblica)</span></div>
+        <div class="fact"><b>100%</b><span>probabilita impatto CNEOS/NASA pre-evento</span></div>
+        <div class="fact"><b>2°</b><span>impatto lunare involontario noto (dopo Chang’e 5-T1)</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cosa">
+    <div class="section-inner">
+      <h2>Cosa e successo</h2>
+      <div class="split">
+        <article>
+          <p>Il 15 gennaio 2025 un Falcon 9 ha lanciato, tra gli altri payload lunari commerciali, il lander <strong>Blue Ghost 1</strong> di Firefly Aerospace sotto il programma NASA CLPS. Dopo il deployment, l’upper stage non ha eseguito (o non ha potuto eseguire in modo completo) uno scenario di disposal che lo tenesse lontano da un ritorno lunare: e rimasto catalogato come oggetto 2025-010D in un’orbita cislunare caotica.</p>
+          <p>Astronomi indipendenti e tracker pubblici hanno seguito l’oggetto per mesi. A fine luglio 2026 la stampa generalista ha raccolto la predizione: collisione il 5 agosto vicino al cratere Einstein, sul limb occidentale della faccia visibile, zona scomoda da Terra ma raggiungibile da orbiter lunari. NASA e SpaceX restavano in contatto sulla traiettoria; CNEOS ha trattato il caso come esercizio di tracking di oggetti artificiali, non come pericolo per la Terra.</p>
+          <p>All’ora prevista, nessuno ha pubblicato un flash ottico chiaro da telescopi amatoriali. La conferma “fisica” e arrivata a strati: assenza del target dalle predizioni successive, segnale spettrale al Very Large Telescope (Paranal) per circa dieci minuti dopo T0, e infine la sequenza fotografica di <strong>Danuri</strong> (orbiter sudcoreano) con immagini pre e post impatto e ejecta evidenti. Jonathan McDowell e altri catalogatori pubblici si sono allineati sulla certezza dell’impatto.</p>
+        </article>
+        <aside class="panel">
+          <h3>Cosa non e</h3>
+          <ul>
+            <li>Non e un test deliberate di impattore NASA/SpaceX.</li>
+            <li>Non e un booster Super Heavy o una Ship Starship.</li>
+            <li>Non e un “cratere da guerra”: e un evento di scala meteoritica ordinaria per la Luna (NASA: energia simile a un meteoroid ogni ~6 giorni).</li>
+            <li>Non chiude il tema debris: riapre la domanda su end-of-life in cislunare ad alta cadenza.</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="numeri">
+    <div class="section-inner">
+      <h2>Numeri pubblici</h2>
+      <table>
+        <thead>
+          <tr><th>Grandezza</th><th>Valore (fonti pubbliche)</th><th>Nota</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Designazione</td><td>2025-010D</td><td>Upper stage Falcon 9 post-lancio 15/01/2025</td></tr>
+          <tr><td>Ora d’impatto</td><td>~06:35 UTC, 5 ago 2026</td><td>Predizione Project Pluto / community ± pochi secondi–minuti</td></tr>
+          <tr><td>Velocita</td><td>~8.700 km/h (~5.400 mph)</td><td>Stima pre-impatto stampa/NASA-adjacent</td></tr>
+          <tr><td>Cratere atteso</td><td>~18 m larghezza, ~4 m profondita</td><td>Stima NASA (~60 ft × ~12 ft)</td></tr>
+          <tr><td>Energia</td><td>~3 tonnellate TNT equivalente</td><td>Ordine di grandezza mediatico/scientifico</td></tr>
+          <tr><td>Sito</td><td>Vicino Einstein Crater</td><td>Limb ovest; osservazione da Terra difficile</td></tr>
+        </tbody>
+      </table>
+      <div class="callout cyan">
+        <p>Le misure del cratere “vero” arriveranno con le immagini ad alta risoluzione di Danuri (analisi completa ancora in corso nelle fonti del 6–7 agosto) e, a seguire, di LRO. Fino ad allora i numeri NASA restano la baseline predittiva, non la topografia definitiva.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="osservazioni">
+    <div class="section-inner">
+      <h2>Come e stato “visto”</h2>
+      <div class="split">
+        <article>
+          <h3>1. Predizione</h3>
+          <p>Il lavoro di catalogazione pubblica (in primis le pagine di tracking di Bill Gray / Project Pluto) ha reso l’evento un appuntamento, non una sorpresa. A settembre 2025 era gia emersa la collisione d’agosto 2026; a fine luglio l’orario era stabile a minuti.</p>
+          <h3>2. Spettroscopia (VLT)</h3>
+          <p>Il Very Large Telescope in Cile ha registrato linee di emissione di <strong>sodio</strong> e <strong>litio</strong> per circa dieci minuti dopo l’ora preditta. Lettura community: il sodio e coerente con regolite lunare sollevata; il litio e piu plausibile come contributo del veicolo (batterie / leghe). Carl Schmidt (Boston University) e altri hanno espresso alta confidenza che il segnale sia l’impatto.</p>
+          <h3>3. Fotografia orbitale (Danuri)</h3>
+          <p>L’orbiter sudcoreano ha ripreso la zona a partire da ~33 minuti prima dell’impatto e in una sequenza nelle 16 ore successive, da circa 350 km di quota. La Korea AeroSpace Administration ha pubblicato il 6 agosto confronti prima/dopo con spruzzi di ejecta. E al momento la prova visiva piu chiara disponibile al pubblico.</p>
+          <h3>4. LRO e telescopi a Terra</h3>
+          <p>NASA aveva annunciato tentativi con telescopi ground-based del Meteoroid Environments Office e passaggi di LRO/ShadowCam. Le condizioni di illuminazione e timing rendono le immagini LRO un follow-up a giorni, non a ore.</p>
+        </article>
+        <aside class="panel">
+          <h3>Perche da Terra non si e “visto il flash”</h3>
+          <p>Sito sul limb, flash sub-secondo, meteo e geometria scomoda: le aspettative di un “fuoco d’artificio lunare” amatoriale erano basse. L’evento e scientifico da orbita e spettro, non da balcone.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="perche">
+    <div class="section-inner">
+      <h2>Perche conta (e per chi)</h2>
+      <div class="split">
+        <article>
+          <p><strong>Per la macchina SpaceX</strong> non cambia la cadenza Falcon, il recovery RTLS o Starship. E un pezzo di logistica cislunare: quando lanci spesso verso la Luna, gli upper stage devono avere un end-of-life leggibile. NASA nota che un impact lunare controllato e, in certi profili, un’opzione accettata; qui l’impatto e stato <em>involontario</em> ma comunque “chiuso” in un sito noto e tracciato.</p>
+          <p><strong>Per la scienza</strong> e un calibratore gratis: ejecta, spettri, dimensioni cratere, modelli di impatto su regolite secca. La stessa energia arriva quasi ogni settimana da meteoroidi; la differenza e sapere <em>quando</em> e <em>cosa</em> stava arrivando.</p>
+          <p><strong>Per il dibattito pubblico</strong> e un gancio facile al “space junk”. La lettura seria non e panico lunare: e che con CLPS, lander commerciali e Artemis la zona Terra–Luna smette di essere un deserto logistico. Catalogazione e disposal diventano parte del prodotto, non un’appendice.</p>
+          <div class="callout green">
+            <p><strong>Cosa aggiornare quando arriva:</strong> misure cratere da Danuri/LRO, eventuali paper arXiv di caratterizzazione fisica di 2025-010D, e se SpaceX o NASA pubblicano una nota post-evento dedicata (al 7 agosto le fonti primarie restano tracking + KASA + NASA pre-impatto).</p>
+          </div>
+        </article>
+        <aside class="panel">
+          <h3>Collegamenti sul sito</h3>
+          <ul>
+            <li><a href="../sezioni/spacex.html">Portale SpaceX</a></li>
+            <li><a href="../sezioni/storico-lanci.html">Storico lanci Falcon</a></li>
+            <li><a href="../sezioni/luna.html">Sezione Luna</a> (se attiva nel menu)</li>
+            <li><a href="../sezioni/notizie.html">Archivio Notizie</a></li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="cronologia">
+    <div class="section-inner">
+      <h2>Cronologia sintetica</h2>
+      <div class="timeline">
+        <div class="event">
+          <div class="date">15 gen 2025</div>
+          <div>
+            <h3>Lancio Falcon 9 CLPS / lunare</h3>
+            <p>Deployment di Blue Ghost 1 e payload lunari correlati. Upper stage catalogato 2025-010D.</p>
+          </div>
+        </div>
+        <div class="event">
+          <div class="date">2025–2026</div>
+          <div>
+            <h3>Tracking pubblico</h3>
+            <p>Migliaia di osservazioni; predizione collisione lunare d’agosto 2026 stabilizzata mesi prima.</p>
+          </div>
+        </div>
+        <div class="event">
+          <div class="date">4 ago 2026</div>
+          <div>
+            <h3>Nota NASA pre-impatto</h3>
+            <p>NASA annuncia tentativo di osservazione; stima cratere ~60×12 ft; nessun pericolo per la Terra.</p>
+          </div>
+        </div>
+        <div class="event">
+          <div class="date">5 ago 2026</div>
+          <div>
+            <h3>Impatto ~06:35 UTC</h3>
+            <p>Vicino Einstein. Spettro VLT post-T0; nessuna conferma flash amatoriale di rilievo.</p>
+          </div>
+        </div>
+        <div class="event">
+          <div class="date">6–7 ago 2026</div>
+          <div>
+            <h3>Foto Danuri e copertura stampa</h3>
+            <p>KASA pubblica confronti prima/dopo; media globali chiudono il cerchio “certo e successa”.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fonti">
+    <div class="section-inner">
+      <h2>Fonti e lettura ulteriore</h2>
+      <p>Pezzo basato su fonti pubbliche al 7 agosto 2026. Non sostituisce i bollettini NASA/KASA o i paper di caratterizzazione.</p>
+      <ol class="sources">
+        <li><a href="https://www.nasa.gov/humans-in-space/commercial-space/nasa-will-attempt-to-observe-rocket-parts-lunar-impact/" target="_blank" rel="noopener">NASA — Will Attempt to Observe Rocket Part’s Lunar Impact</a> (4 ago 2026)</li>
+        <li><a href="https://www.projectpluto.com/25010d.htm" target="_blank" rel="noopener">Project Pluto — Upper stage impacting the moon on 2026 August 5</a></li>
+        <li><a href="https://apnews.com/article/spacex-rocket-moon-crash-elon-musk-d64a98138fd19241700461c87b49e201" target="_blank" rel="noopener">AP — Scientists certain SpaceX rocket slammed into the moon</a></li>
+        <li><a href="https://www.space.com/astronomy/moon/spacex-rockets-impact-crater-on-the-moon-spied-by-korean-lunar-orbiter-photos" target="_blank" rel="noopener">Space.com — Cratere spied by Korean lunar orbiter</a></li>
+        <li><a href="https://earthsky.org/space/falcon-rocket-will-hit-the-moon-august-5/" target="_blank" rel="noopener">EarthSky — Before and after / KASA captions</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/2026_SpaceX_lunar_impact" target="_blank" rel="noopener">Wikipedia — 2026 SpaceX lunar impact</a> (sintesi, da verificare sempre sulle primarie)</li>
+      </ol>
+      <p style="margin-top:28px">
+        <a class="button" href="../sezioni/spacex.html">SpaceX</a>
+        <a class="button" href="../sezioni/notizie.html">Notizie</a>
+        <a class="button" href="../sezioni/storico-lanci.html">Storico lanci</a>
+      </p>
+    </div>
+  </section>
+</main>
+
+<div class="footer-note">
+  Rivoluzione Spaziale · dossier indipendente. Credito hero: archivio fotografico locale Falcon 9 (non e l’impatto lunare). Aggiornare quando escono misure cratere LRO/Danuri definitive.
+</div>
+</body>
+</html>
