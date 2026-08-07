@@ -169,8 +169,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_q2_2026_earnings.html",
         "image": "../documenti%20per%20sito/assets_earnings/falcon9_liftoff.jpg",
         "image_alt": "Falcon 9 al decollo, archivio fotografico del sito",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
