@@ -157,6 +157,23 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-08-11",
+        "date_label": "11 agosto 2026",
+        "tag": "SpaceX · All-hands",
+        "title": "All-hands SpaceX: Musk scommette l'azienda sull'AI per finanziare Luna e Marte",
+        "summary": (
+            "Video di 29 minuti agli dipendenti: i ricavi AI superano razzi e Starlink a settembre, "
+            "10 GW entro fine 2027, 99% del valore in 4-5 anni. Grok sul corpus SpaceX. Promessa: "
+            "chi lavora qui potra andare sulla Luna o su Marte."
+        ),
+        "href": "../documenti%20per%20sito/spacex_allhands_agosto_2026.html",
+        "image": "../documenti%20per%20sito/assets_earnings/starship_ignition.jpg",
+        "image_alt": "Starship all'accensione, archivio fotografico del sito",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-08-05",
         "date_label": "5 agosto 2026",
         "tag": "SpaceX · Luna",

@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="All-hands SpaceX dell'11 agosto 2026: Musk dice che i ricavi AI superano razzi e Starlink a settembre, punta a 10 GW e 300-500 miliardi, e promette Luna e Marte ai dipendenti.">
+<title>All-hands SpaceX: Musk scommette l'azienda sull'AI per finanziare la vita multiplanetaria | Rivoluzione Spaziale</title>
+<style>
+:root{
+  --bg:#050607;
+  --ink:#f4f6f8;
+  --muted:#a9b0b7;
+  --line:rgba(255,255,255,.16);
+  --soft:rgba(255,255,255,.075);
+  --cyan:#67c7ff;
+  --amber:#f5b941;
+  --red:#e95f45;
+  --green:#79d18b;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;letter-spacing:0}
+a{color:var(--cyan);text-decoration:none}
+a:hover{text-decoration:underline}
+.topbar{position:fixed;inset:0 0 auto 0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:18px clamp(18px,4vw,56px);background:linear-gradient(180deg,rgba(0,0,0,.92),rgba(0,0,0,.54),rgba(0,0,0,0))}
+.brand{font-weight:900;letter-spacing:.16em;text-transform:uppercase;font-size:15px;color:#fff}
+.brand span{color:var(--cyan)}
+.nav{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end;font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:800}
+.nav a{color:#fff}
+.hero{min-height:84vh;display:grid;align-items:end;padding:110px clamp(18px,4vw,56px) 50px;background:
+  linear-gradient(90deg,rgba(0,0,0,.9),rgba(0,0,0,.55) 48%,rgba(0,0,0,.28)),
+  linear-gradient(180deg,rgba(0,0,0,.1),rgba(5,6,7,.97) 92%),
+  url("assets_earnings/starship_ignition.jpg") center 42%/cover no-repeat}
+.hero-inner,.section-inner{max-width:1180px;margin:0 auto}
+.eyebrow{margin:0 0 14px;color:var(--amber);text-transform:uppercase;letter-spacing:.14em;font-size:13px;font-weight:900}
+h1{margin:0;max-width:1040px;font-size:clamp(34px,6.4vw,70px);line-height:.92;text-transform:uppercase;font-weight:950}
+h2{margin:0 0 24px;font-size:clamp(28px,4vw,48px);line-height:1;text-transform:uppercase}
+h3{margin:30px 0 12px;font-size:22px;line-height:1.15}
+p{color:#d9dde1;font-size:17px;line-height:1.72;margin:0 0 18px}
+.lead{max-width:940px;margin:24px 0 0;color:#e6ebef;font-size:clamp(17px,2vw,22px);line-height:1.48;font-weight:500}
+.meta{margin:18px 0 0;color:var(--muted);font-size:14px;letter-spacing:.04em}
+section{padding:76px clamp(18px,4vw,56px);border-top:1px solid var(--line)}
+.split{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(280px,.72fr);gap:42px;align-items:start}
+.panel{border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.045));border-radius:8px;padding:22px}
+.panel h3:first-child{margin-top:0}
+.panel p,.panel li{font-size:15px;color:#d6dbe0;line-height:1.62}
+.panel ul{margin:0;padding-left:18px}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:34px}
+.fact{border:1px solid var(--line);background:var(--soft);border-radius:8px;padding:18px;min-height:118px}
+.fact b{display:block;font-size:clamp(18px,2vw,24px);line-height:1.05;margin-bottom:10px}
+.fact span{display:block;color:var(--muted);line-height:1.42;font-size:14px}
+.figure{margin:28px 0;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#0a0f14}
+.figure img{display:block;width:100%;max-height:480px;object-fit:cover}
+.figure figcaption{padding:12px 14px;color:var(--muted);font-size:13px;line-height:1.45}
+table{width:100%;border-collapse:collapse;margin:22px 0;font-size:15px}
+th,td{border-top:1px solid var(--line);padding:13px 10px;text-align:left;vertical-align:top;line-height:1.45}
+th{color:#fff;text-transform:uppercase;letter-spacing:.08em;font-size:12px}
+td{color:#d8dde2}
+.callout{border-left:4px solid var(--red);padding:16px 18px;background:rgba(233,95,69,.095);margin:26px 0}
+.callout.green{border-left-color:var(--green);background:rgba(121,209,139,.08)}
+.callout.amber{border-left-color:var(--amber);background:rgba(245,185,65,.09)}
+.callout.cyan{border-left-color:var(--cyan);background:rgba(103,199,255,.08)}
+.callout p{margin:0}
+.quote{border:1px solid rgba(105,200,255,.35);border-radius:8px;padding:18px 20px;background:linear-gradient(135deg,rgba(105,200,255,.12),rgba(255,255,255,.04));margin:22px 0}
+.quote p{margin:0;color:#e8f4fb;font-size:16px;line-height:1.55}
+.quote cite{display:block;margin-top:10px;color:var(--muted);font-size:13px;font-style:normal}
+.timeline{display:grid;gap:14px;margin-top:24px}
+.event{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;border-top:1px solid var(--line);padding-top:18px}
+.date{color:var(--amber);font-weight:900;text-transform:uppercase;letter-spacing:.08em;font-size:13px}
+.event h3{margin:0 0 6px}
+.event p{margin:0;color:#cfd5da}
+.sources{columns:2 360px;column-gap:42px;padding-left:18px}
+.sources li{break-inside:avoid;color:#d9dde1;margin:0 0 12px;line-height:1.5;font-size:15px}
+.button{display:inline-flex;border:1px solid var(--line);padding:12px 16px;border-radius:4px;text-transform:uppercase;font-size:12px;letter-spacing:.09em;font-weight:900;background:rgba(0,0,0,.22);color:#fff;margin:8px 8px 0 0}
+.draft-banner{position:sticky;top:0;z-index:20;background:rgba(233,95,69,.16);border-bottom:1px solid rgba(233,95,69,.4);color:#ffd0c6;padding:10px clamp(18px,4vw,56px);font-size:13px;font-weight:700;letter-spacing:.04em}
+.toc{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.toc a{color:#dff4ff;font-weight:700;font-size:14px}
+.footer-note{padding:34px clamp(18px,4vw,56px);border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+@media(max-width:900px){.topbar{position:absolute}.nav{display:none}.split,.facts{grid-template-columns:1fr}.event{grid-template-columns:1fr;gap:6px}}
+@media(max-width:520px){section{padding:54px 18px}.hero{padding:96px 18px 42px;min-height:74vh}h1{font-size:36px}}
+</style>
+</head>
+<body>
+<div class="draft-banner">Breaking news · 11 agosto 2026 · all-hands SpaceX pubblicato su X. Non e un comunicato IR; lettura su video ufficiale e fonti pubbliche. Non e consulenza finanziaria.</div>
+<header class="topbar">
+  <a class="brand" href="../sezioni/spacex.html">Rivoluzione <span>Spaziale</span></a>
+  <nav class="nav" aria-label="Sezioni">
+    <a href="#tesi">Tesi</a>
+    <a href="#detto">Cosa ha detto</a>
+    <a href="#gw">10 GW</a>
+    <a href="#valore">99% del valore</a>
+    <a href="#grok">Grok</a>
+    <a href="#starlink">Starlink</a>
+    <a href="#starship">Starship</a>
+    <a href="#promessa">Luna e Marte</a>
+    <a href="#lettura">Lettura</a>
+    <a href="#fonti">Fonti</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" aria-label="Introduzione">
+    <div class="hero-inner">
+      <p class="eyebrow">Breaking · all-hands · 11 agosto 2026</p>
+      <h1>Musk agli dipendenti: l'AI supera i razzi. Poi paga Luna e Marte</h1>
+      <p class="lead">L'11 agosto SpaceX pubblica su X un company update di circa 29 minuti. Elon Musk non annuncia un nuovo razzo. Dice che i ricavi AI supereranno tutto il resto dell'azienda a settembre, che in quattro o cinque anni l'intelligenza artificiale sara il 99% del valore di SpaceX, e che chi lavora li potra andare sulla Luna o su Marte. La frase di copertina e il quadro: razzi riusabili e internet in orbita sono il passato recente. Il prossimo problema e diventare multiplanetari e capire l'universo.</p>
+      <p class="meta">Dossier · non ufficiale · aggiornato al 12 agosto 2026 · fonti: video SpaceX su X, Teslarati, Business Insider, Q2 IR</p>
+    </div>
+  </section>
+
+  <section id="tesi">
+    <div class="section-inner">
+      <div class="split">
+        <article>
+          <h2>Perche questo video conta piu di un tweet</h2>
+          <p>Il 11 agosto 2026, alle 21:04 UTC, l'account ufficiale SpaceX pubblica un video. Il testo e corto e volutamente solenne: «We made rockets reusable and are rebuilding the internet in space. The next challenge: making life multiplanetary and understanding the true nature of the universe». Sotto, l'invito a guardare Elon Musk mentre parla ai dipendenti. Non e una earnings call. Non e un thread di highlight. E un all-hands interno reso pubblico, circa ventinove minuti, lo stesso giorno in cui SpaceX continua a lanciare Starlink e a sette giorni dalla prima trimestrale da societa quotata.</p>
+          <p>La differenza di genere editoriale non e un dettaglio. Una call IR parla a Wall Street con PDF, segment report e disclaimer. Un all-hands parla a chi costruisce i veicoli, i satelliti, i data center e il software. Musk usa quel registro per fare tre cose insieme: fissare una gerarchia di priorita, dare numeri di scala che nella call del 4 agosto erano ancora piu sfumati, e chiudere con una promessa personale che in un'azienda aerospaziale ha il peso di un contratto culturale. La gerarchia e brutale. Prima si vincono hardware e software di AI. Poi, con quei soldi e con quella capacita, si finanzia la massa in orbita che rende credibile una civilta su piu pianeti.</p>
+          <p>Chi ha seguito SpaceX per anni riconosce il movimento. Falcon ha reso il primo stadio una macchina industriale. Starlink ha trasformato il cliente principale dell'azienda in se stessa e ha costruito un motore di cassa. Starship e ancora il laboratorio del costo marginale di accesso all'orbita. L'AI, dopo l'assorbimento di xAI e dopo il trimestre da 15,8 miliardi di Capex sul solo pezzo compute, non e piu un'appendice. Nell'all-hands Musk la mette al centro del P&amp;L e, cosa piu importante, al centro della missione. Non «usiamo l'AI per volare meglio». Usa il volo e la rete per far crescere un'intelligenza che, nelle sue parole, sara troppa da controllare e dovra ereditare i valori di chi lavora in SpaceX.</p>
+          <p>Questo dossier estrae dal video i concetti che pesano, li mette in ordine di priorita e li incrocia con i numeri gia pubblici del Q2. Non e una trascrizione integrale. Non e un comunicato. Dove Musk dichiara, lo citiamo. Dove la redazione interpreta, lo dice. Dove manca un dato di bilancio a supporto di una proiezione, lo segnaliamo. Il lettore deve uscire con una mappa, non con un coro.</p>
+          <div class="callout amber">
+            <p><strong>Chiarezza:</strong> le proiezioni su settembre, sui 10 GW e sui 300-500 miliardi di ricavi annui sono dichiarazioni di Musk, non consuntivi. Il Q2 2026 ha gia messo in bilancio 1,4 GW di capacita e un Capex AI da hyperscaler. Il salto da qui a «l'AI e il 99% del valore» resta una tesi da verificare quarter per quarter.</p>
+          </div>
+        </article>
+        <aside class="panel">
+          <h3>Indice rapido</h3>
+          <ul class="toc">
+            <li><a href="#detto">Le frasi che contano</a></li>
+            <li><a href="#gw">1,4 GW oggi, 10 GW nel 2027</a></li>
+            <li><a href="#valore">Perche parla di 99%</a></li>
+            <li><a href="#grok">Grok addestrato su SpaceX</a></li>
+            <li><a href="#starlink">Rete, V3, traffico AI</a></li>
+            <li><a href="#starship">Dalle 2.500 t al milione</a></li>
+            <li><a href="#promessa">«You have my word»</a></li>
+            <li><a href="#lettura">Cosa tenere d'occhio</a></li>
+            <li><a href="#fonti">Fonti e tracce</a></li>
+          </ul>
+          <p style="margin-top:18px"><strong>Fonte primaria.</strong> Video ufficiale SpaceX del 11 agosto 2026, ripubblicato da Musk il 12. Circa 29 minuti. Citazioni incrociate con Teslarati e Business Insider.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="detto">
+    <div class="section-inner">
+      <h2>Cosa ha detto, in ordine di peso</h2>
+      <p>Se si ascolta l'all-hands come un documento di strategia e non come un discorso motivazionale, emergono sei affermazioni. Le prime tre cambiano il modo in cui si deve leggere SpaceX da qui a fine anno. Le altre tre spiegano a cosa serve il resto della macchina: rete, razzi, persone.</p>
+      <p>Prima: i ricavi AI supereranno tutti gli altri ricavi SpaceX «probably in September, like next month», e li supereranno in modo netto nel quarto trimestre. Musk si corregge da solo, dal «probably» al «definitely», poi torna a un settembre ancora condizionale sul mese esatto. La sostanza non cambia. Sta dicendo al proprio organico che razzi, Starlink e Dragon, presi insieme, stanno per diventare il pezzo minoritario del fatturato. Seconda: «We must win at AI, because the future will be overwhelmingly about AI and robotics». Non e una slide di marketing. E l'ordine di battaglia. Terza: se SpaceX porta online 10 gigawatt di compute entro la fine del 2027, a 30-50 dollari per watt, i ricavi annui di quel pezzo stanno tra 300 e 500 miliardi di dollari. «Big numbers», dice. Lo sono.</p>
+      <div class="quote">
+        <p>«Probably our AI revenue — not probably, definitely — our AI revenue will exceed all other SpaceX revenue probably in September, like next month. And will significantly exceed all other SpaceX revenue in the fourth quarter.»</p>
+        <cite>Elon Musk — all-hands SpaceX, 11 agosto 2026</cite>
+      </div>
+      <p>Quarta: nel medio periodo, «probably four to five years», l'AI rappresentera il 99% del valore di SpaceX, e quel valore sara «astronomical». Quinta: il training resta a Terra; l'inference quotidiana va in orbita. Sesta: chiunque in SpaceX voglia andare sulla Luna o su Marte potra farlo. «You have my word.» Intorno a queste sei frasi ruotano i dettagli su Grok, su Starlink V3, su Starship e su Starmind. Senza le sei, i dettagli sono folklore. Con le sei, i dettagli diventano vincoli di esecuzione.</p>
+      <div class="facts">
+        <div class="fact"><b>Settembre</b><span>mese in cui, secondo Musk, i ricavi AI superano tutto il resto di SpaceX</span></div>
+        <div class="fact"><b>1,4 GW</b><span>capacita nameplate attuale, cluster Memphis / Southaven</span></div>
+        <div class="fact"><b>10 GW</b><span>obiettivo di fine 2027, legato a 300-500 mld $ di ricavi annui</span></div>
+        <div class="fact"><b>99%</b><span>quota del valore aziendale che Musk attribuisce all'AI tra 4 e 5 anni</span></div>
+      </div>
+      <p>La cornice storica, nella prima parte del video, non e nostalgia. Serve a dire ai dipendenti che l'azienda ha gia chiuso due capitoli che il resto del settore considerava impossibili o lontani: il riuso industriale del primo stadio e la ricostruzione di una rete internet dallo spazio. Falcon si avvicina al settecentesimo volo. Dragon ha portato equipaggi. Starlink e in 167 Paesi. Quei capitoli, nella lettura di Musk, sono il capitale morale e industriale su cui si puo chiedere un terzo salto. Il terzo salto non e «un razzo piu grande». E una civilta che calcola nello spazio e vive su piu pianeti.</p>
+    </div>
+  </section>
+
+  <section id="gw">
+    <div class="section-inner">
+      <h2>La scommessa da dieci gigawatt</h2>
+      <p>Il numero che tiene insieme il discorso e la potenza, non il ticker. SpaceX ha gia detto, nella trimestrale del 4 agosto, di essere a 1,4 GW di capacita nameplate, da 1,0 nel primo trimestre e da 0,4 un anno prima. Nell'all-hands Musk ripete il dato e lo ancora a Memphis / Southaven, presentandolo come uno dei cluster di training piu potenti al mondo. Poi alza l'asticella che in call era ancora una forchetta: non «piu vicino a 10 che a 5» entro fine 2027, ma 10 GW come obiettivo esplicito. La formula economica e lineare fino all'eccesso: 10 miliardi di watt moltiplicati per 30-50 dollari di valore per watt fanno 300-500 miliardi di ricavi annui.</p>
+      <div class="quote">
+        <p>«If we bring 10GW of AI online by the end of next year, it will be $300 billion to $500 billion a year in revenue. Big numbers.»</p>
+        <cite>Elon Musk — all-hands SpaceX, 11 agosto 2026</cite>
+      </div>
+      <p>Quei 30-50 dollari per watt non sono un multiplo di Borsa. Sono una stima di quanto il mercato e disposto a pagare un watt di compute AI in regime di scarsita. Se il prezzo crolla perche l'offerta globale esplode, il numeratore si sgonfia anche se i GW arrivano. Se i GW non arrivano, il numeratore non esiste. La tesi ha quindi due colli di bottiglia distinti: energia e silicio da una parte, domanda e prezzo dall'altra. Il Q2 ha gia mostrato il costo della prima gamba: 15,8 miliardi di Capex AI in un solo trimestre, stack dichiarato Nvidia-only, Cloud Services Agreements da 14,1 miliardi e altri 6,7 miliardi firmati all'inizio del terzo trimestre. L'all-hands non aggiunge un nuovo bilancio. Aggiunge una data e un moltiplicatore.</p>
+      <p>Musk divide il lavoro fisico in due regimi. Il training — i grandi run che costruiscono i modelli — resta a Terra, dove si possono ancora concentrare energia, raffreddamento, manutenzione e persone. L'inference — l'uso quotidiano, le query, gli agenti, il traffico che Cloudflare prevede destinato a superare di ordini di grandezza quello umano — deve spostarsi in orbita. La logica e da ingegnere di sistema, non da slogan: a Terra i limiti sono rete elettrica, permessi, acqua e vicini. In orbita i limiti sono massa, termica, radiazione e costo di lancio. Starship esiste, in questa lettura, anche per cambiare quei limiti. Starmind, il programma di satelliti di calcolo gia citato in call come non «far future», e il pezzo di hardware che dovrebbe rendere l'inference orbitale una linea e non un concept art.</p>
+      <figure class="figure">
+        <img src="assets_earnings/starship_pad.jpg" alt="Starship al pad durante una campagna di volo">
+        <figcaption>Senza un veicolo che moltiplica le tonnellate in orbita, l'inference spaziale resta una slide. Con Starship, diventa un problema di cadenza e di termica. Asset locale del sito.</figcaption>
+      </figure>
+      <p>C'e un punto che l'all-hands rende piu chiaro della call. L'AI di cui parla Musk non e solo Grok venduto come chatbot. E capacita affittata, rete Starlink usata come strato di trasporto per i carichi di calcolo, e un'integrazione verticale in cui SpaceX vuole possedere il razzo, il satellite, il watt e il modello. Teslarati, nel resoconto del video, sottolinea che gran parte dei ricavi AI non arriva da SpaceX che addestra un modello per se: arriva da Starlink come network layer e dal noleggio di compute. E coerente con i CSA del Q2. E anche il motivo per cui «AI revenue supera Starlink» puo succedere senza che Starlink smetta di crescere: si sta misurando un secondo rubinetto, non lo spegnimento del primo.</p>
+      <div class="callout cyan">
+        <p><strong>Ipotesi di redazione.</strong> Se settembre e davvero il mese del sorpasso, i prossimi 10-K e le prossime call dovranno mostrare un riconoscimento di ricavi AI che non sia solo un rimescolamento di etichette tra segmenti. Il test non e la frase. E la serie storica.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="valore">
+    <div class="section-inner">
+      <h2>Il 99% e una tesi di civilta, non un multiplo</h2>
+      <p>La frase sul 99% e quella che i mercati ripeteranno di piu, e anche quella che va maneggiata con piu cura. Musk dice che nel lungo termine, in un futuro «not-too-distant», probabilmente quattro o cinque anni, l'AI rappresentera il 99% del valore di SpaceX. Poi alza ancora: in cinque anni, «certainly», sara cosi, e quel valore sara astronomico. Non sta dicendo che Falcon o Starship spariscono. Sta dicendo che, se la curva di compute tiene, il contributo relativo di lanci e connettivita al valore dell'azienda diventa residuale. E lo stesso schema mentale con cui, un decennio fa, si poteva gia leggere Tesla come un'azienda di software su un telaio di auto. Qui il telaio e un sistema Terra-orbita.</p>
+      <div class="quote">
+        <p>«In the long term, in the not-too-distant future, probably four to five years, AI will represent 99% of SpaceX's value. I dare say that in five years, certainly, AI will be 99% of SpaceX's value. And SpaceX's value will be astronomical.»</p>
+        <cite>Elon Musk — all-hands SpaceX, 11 agosto 2026</cite>
+      </div>
+      <p>Per un giornalista del settore la domanda utile non e «ha ragione?». La domanda utile e: cosa deve essere vero perche quella frase non sia solo retorica da all-hands. Deve essere vero che i 10 GW si accendono. Deve essere vero che il prezzo per watt non collassa. Deve essere vero che Starship rende l'inference orbitale piu barata dell'alternativa terrestre su scala. Deve essere vero che Grok e il resto dello stack software restano competitivi mentre OpenAI, Anthropic, Google e chiunque altro non stanno fermi. Deve essere vero, soprattutto, che i regolatori e i clienti enterprise accettano un'azienda che e al tempo stesso lanciatore nazionale, operatore LEO e hyperscaler. Ognuno di questi «deve» e un dossier a parte. L'all-hands li tiene insieme con una sola priorita: vincere sull'AI.</p>
+      <p>Musk allarga il discorso fino alla scala di Kardashev e a un'idea di Starmind che raccoglie energia solare e calcola lontano dalla Terra. Lo chiama il passo successivo nell'evoluzione della civilta. In un articolo professionale quella frase non va ne derisa ne canonizzata. Va trattata come orizzonte di progetto: serve a spiegare perche un'azienda che gia lancia ogni pochi giorni e che ha appena chiuso un trimestre da 7,81 miliardi di ricavi continua a parlare come se il vero prodotto non fosse ancora in produzione. Il prodotto, in questa lettura, e una civilta che non muore con un solo pianeta e che usa macchine per capire l'universo meglio di quanto possa fare una specie biologica da sola. I razzi sono il mezzo di trasporto. L'AI e il mezzo di cognizione. Starlink e il sistema nervoso.</p>
+      <p>La call del 4 agosto aveva gia spostato in avanti di un anno la stella polare del trillion di ricavi, dal 2031 al 2030, con una «nonzero chance» sul 2029. L'all-hands e piu rude. Non parla di trillion di fatturato come KPI da IR. Parla di un'azienda il cui valore, se la scommessa tiene, diventa quasi interamente un'opzione su intelligenza artificiale e robotica, con Marte come destinazione dei cash flow. E il motivo per cui questo video va letto insieme al PDF, non al posto del PDF.</p>
+    </div>
+  </section>
+
+  <section id="grok">
+    <div class="section-inner">
+      <h2>Grok come DNA, non come chatbot</h2>
+      <p>Il pezzo su Grok e il piu delicato, e Musk lo affronta con il linguaggio della filiazione, non con quello del product launch. Dice che SpaceX addestrera Grok sulla somma totale delle informazioni aziendali. «So in a way, it will be trained on you.» I dipendenti, in questa metafora, diventano i genitori dell'AI: ereditera pensieri, idee e convinzioni. Lo presenta come una cosa buona. Il motivo dichiarato e da allineamento, non da productivity: non potremo controllare un'intelligenza troppo superiore, come non si controlla un figlio super-geniale, ma si possono ancora trasmettere valori. SpaceX, nella sua descrizione, e «a collection of some of the very best humans on Earth». Addestrare il modello su quel corpus e, per lui, un modo per far si che l'AI abbia a cuore l'umanita e il futuro multiplanetario.</p>
+      <div class="quote">
+        <p>«We're going to be training Grok on the sum total of all SpaceX information. You will effectively be the parents of the AI. It will inherit your thoughts and ideas and beliefs, and I think that's a good thing.»</p>
+        <cite>Elon Musk — all-hands SpaceX, 11 agosto 2026</cite>
+      </div>
+      <p>Business Insider ha gia notato il punto scomodo: non e chiaro quali dati dei dipendenti entreranno nel training, ne come. L'azienda non ha risposto alla loro richiesta di commento. Per chi lavora su razzi e satelliti il tema non e solo privacy. E vantaggio competitivo. Un modello che vede telemetria, anomalie, sequenze di volo, process sheet di produzione, ticket di qualità e corrispondenza tecnica ha un corpus che non si compra su internet. Era gia emerso in call, con Grok 5 a fine anno e l'intero corpus SpaceX incorporato. L'all-hands lo rende un patto culturale: usate gli strumenti interni, migliorateli, accettate di far parte del dataset. Lo stesso giorno SpaceX ha presentato Grok Bot, un agente capace di entrare in applicazioni, scrivere, programmare e portare a termine compiti. Musk chiede a tutti di usarlo e di renderlo migliore.</p>
+      <p>Sulle versioni, il video e concreto. Grok 4.5 e fuori da luglio. La 4.6 e questione di circa una settimana. La 4.7 sara «really pretty special» o, in altre ricostruzioni, «quite special». Non e guidance finanziaria. E cadenza di prodotto, lo stesso tipo di cadenza che SpaceX applica ai voli: iterare in pubblico, accettare che il pezzo successivo debba arrivare prima che il precedente sia mitizzato. Per un osservatore del settore la domanda non e se 4.7 sara speciale. E se la serie di modelli resta abbastanza vicina al frontier da giustificare i GW, l'acquisizione di Cursor da 60 miliardi e lo spostamento di «best engineers» su SpaceXAI che Musk chiede esplicitamente per colpire il bersaglio dei 10 GW.</p>
+      <div class="callout">
+        <p><strong>Priorita interna.</strong> Musk dice che i migliori ingegneri devono concentrarsi su SpaceXAI per arrivare a 10 GW. In un'azienda che sta ancora chiudendo il riuso pieno di Starship, questa e una riallocazione di talento, non una nota a piè di pagina. Va tenuta d'occhio quanto la data del prossimo catch.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="starlink">
+    <div class="section-inner">
+      <h2>Starlink non esce di scena. Cambia mestiere</h2>
+      <p>Chi temeva che l'all-hands fosse un addio alla rete puo stare tranquillo. Musk aggiorna i numeri e alza l'ambizione. Starlink e attivo in 167 Paesi. Dichiara circa 13 milioni di utenti ad alta banda e 22 milioni di utenti mobile mensili. I satelliti in orbita sono vicini a 11.000, piu del doppio di tutti gli altri operatori sommati. Con V3 e le versioni successive il bersaglio di costellazione sale verso 100.000. Nel Q2, chiuso il 30 giugno, i numeri pubblici erano 12 milioni di abbonati, ARPU a 66 dollari, circa 10.200 satelliti. L'all-hands, undici giorni dopo la call, parla di una rete che continua a gonfiarsi e che Musk spezza in due famiglie di utenti: banda larga e mobilita.</p>
+      <p>Il pezzo nuovo non e il headcount. E il traffico. Citando le previsioni Cloudflare, Musk dice che il traffico generato dalle AI potrebbe arrivare, in cinque anni, a mille volte il traffico internet umano. Su quella curva, sostiene, Starlink puo arrivare a trasportare la gran parte del traffico globale — in alcune ricostruzioni oltre il 90%, in continuita con la frase della call secondo cui «non e da escludere» una maggioranza dell'internet mondiale. La rete smette di essere solo un ISP rurale con kit da tetto. Diventa il tubo che deve reggere agenti, auto, robot e data center. E il motivo per cui Tesla sta gia mettendo terminali Starlink V5 su Cybercab e Musk ripete che tutte le auto, un giorno, avranno un collegamento satellitare: non per la guida autonoma di sicurezza, che resta a bordo, ma per il volume di dati che una flotta di macchine pensanti produce.</p>
+      <figure class="figure">
+        <img src="assets_earnings/falcon9_liftoff.jpg" alt="Falcon 9 al decollo">
+        <figcaption>Falcon resta la linea che riempie l'orbita bassa oggi. I satelliti V3, se Starship tiene, cambiano quanta capacita entra per ogni volo. Asset locale del sito.</figcaption>
+      </figure>
+      <p>Sui V3, l'all-hands e allineato alla call e alla cronaca di volo. I primi due voli Starship V3 sono stati completati. I primi satelliti di nuova generazione sono stati messi in orbita. La capacita per lancio, rispetto alla generazione precedente su Falcon, e descritta come circa venti volte superiore. Non e un dettaglio da brochure. E il punto in cui la rete e il razzo diventano la stessa industria: se non moltiplichi i bit per volo, non tieni il passo di una domanda che Musk descrive come non umana. Se li moltiplichi, Starlink resta il sistema nervoso anche quando l'AI diventa il cervello contabile dell'azienda.</p>
+    </div>
+  </section>
+
+  <section id="starship">
+    <div class="section-inner">
+      <h2>Starship: dalle 2.500 tonnellate al milione</h2>
+      <p>Musk non usa l'all-hands per dare una nuova data di Flight 14. Usa Starship come condizione di possibilita. Oggi SpaceX mette in orbita, nelle sue parole, circa 2.500 tonnellate l'anno. Starship deve portare quel numero oltre il milione, e lui pensa che si possa arrivare anche a dieci milioni. Senza quella scala, dice, non si mandano su Luna e Marte le forniture che rendono una presenza sostenibile. Non e poesia. E aritmetica di civilta: una base permanente non si costruisce con payload da decine di tonnellate. Si costruisce con un ponte aereo che assomiglia a una linea di cargo, non a una missione nazionale ogni due anni.</p>
+      <div class="quote">
+        <p>«Starship will increase our ability to put mass into orbit from about 2,500 tons per year to over 1 million tons per year, and I think it could even reach 10 million tons per year.»</p>
+        <cite>Elon Musk — all-hands SpaceX, 11 agosto 2026</cite>
+      </div>
+      <p>Il Q2 aveva gia messo in pagina 485 tonnellate nel solo trimestre e 1.041 da inizio anno, con 38 lanci Falcon e due flight test V3 negli ultimi novanta giorni. L'all-hands alza lo sguardo dal trimestre alla capacita di regime. La distanza tra 2.500 t/anno e 1.000.000 t/anno e un fattore quattrocento. Si arriva li solo se il riuso diventa rapido e noioso: booster e ship che volano, atterrano o vengono presi dalla torre, si riforniscono e ripartono. E esattamente il problema su cui SpaceX sta ancora imparando in pubblico, con splashdown, recovery in mare grosso e la catch della ship ancora da dimostrare sul prossimo test. Il video non nasconde quel lavoro. Lo mette al servizio di un altro lavoro, quello dei GW e di Marte.</p>
+      <p>La sequenza, se la si scrive senza enfasi, e questa. Falcon tiene accesa la cadenza e riempie Starlink. Starship deve sbloccare V3 operativi e, piu avanti, il cargo verso la Luna e Marte. L'AI deve generare i ricavi che rendono sostenibile un programma di quel peso mentre il segmento Space resta, in bilancio, un laboratorio costoso. Chi guarda solo i lanci vede un'azienda di accesso all'orbita. Chi guarda solo i GW vede un hyperscaler con un passatempo missilistico. L'all-hands insiste che le due letture sono la stessa azienda. La missione dichiarata in apertura — vita multiplanetaria e natura dell'universo — e il criterio con cui Musk chiede ai dipendenti di accettare quella tensione.</p>
+    </div>
+  </section>
+
+  <section id="promessa">
+    <div class="section-inner">
+      <h2>La frase che chiude: «You have my word»</h2>
+      <p>Musk termina con una promessa che in un'altra azienda suonerebbe come un eccesso. In SpaceX suona come politica del personale. «Anyone at SpaceX who wants to go to the Moon or Mars will be able to go in the future. You have my word.» Non e un volo premio per i vice president. E una dichiarazione rivolta all'intero organico. Teslarati la legge come leva di recruiting e retention. Business Insider la inquadra, piu seccamente, come «holidays on the moon» accanto ai profitti e a un'«eta dell'oro». Entrambe le letture sono parziali. La lettura da settore e un'altra: se credi davvero che Starship diventera una linea e che le basi lunari e marziane avranno bisogno di persone, allora il modo piu coerente di tenere dentro gli ingegneri che stanno costruendo quella linea e dirgli che potranno salirci.</p>
+      <div class="quote">
+        <p>«Anyone at SpaceX who wants to go to the Moon or Mars will be able to go in the future. You have my word.»</p>
+        <cite>Elon Musk — all-hands SpaceX, 11 agosto 2026</cite>
+      </div>
+      <p>Va detto, da giornalisti e non da ufficio stampa, che una parola data in un video di ventinove minuti non assegna sedili, non pubblica criteri medici e non fissa un anno. Resta pero un vincolo reputazionale interno fortissimo. SpaceX ha gia dimostrato, con Dragon, di saper portare persone in orbita e di riportarle. La Luna e Marte sono un altro ordine di difficolta: durata, radiazione, abort, superficie, ritorno. La promessa ha senso solo se il resto del discorso — GW, cassa, riuso, massa — tiene. Se non tiene, diventa la frase che i dipendenti ricorderanno quando valuteranno se restare. Per questo, in un all-hands, pesa piu di una guidance su un trimestre.</p>
+      <p>C'e anche un secondo livello, meno sentimentale. Un'azienda che addestra un modello sul proprio corpus e che chiede ai dipendenti di esserne i «genitori» sta chiedendo un'adesione identitaria. La controparte di quell'adesione, nel video, e un biglietto per un altro mondo. E un patto ottocentesco in un'azienda del 2026: dateci i vostri dati, il vostro talento e i vostri orari; in cambio, se vinciamo, non vi paghiamo solo in stock. Vi mandiamo nello spazio. Si puo trovarlo visionario o inquietante. Non si puo dire che non sia coerente con vent'anni di retorica SpaceX.</p>
+    </div>
+  </section>
+
+  <section id="lettura">
+    <div class="section-inner">
+      <h2>Come leggere il video senza farsi ipnotizzare</h2>
+      <p>Un all-hands pubblico di Musk ha sempre due pubblici. Il primo sono i dipendenti. Il secondo e chiunque abbia un ticker, un foglio lanci o una tesi su Marte. Il rischio, per il secondo pubblico, e di trattare ogni frase come se fosse gia accaduta. Il metodo corretto e spezzare il discorso in fatti, proiezioni e orizzonti.</p>
+      <table>
+        <thead>
+          <tr><th>Piano</th><th>Cosa ha detto</th><th>Come verificarlo</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Fatto presente</td><td>1,4 GW; video ufficiale; due voli V3; primi satelliti next-gen; Grok 4.5 fuori</td><td>Q2 IR, agenda lanci, release di prodotto</td></tr>
+          <tr><td>Proiezione vicina</td><td>Sorpasso ricavi AI a settembre / Q4; Grok 4.6 e 4.7; 2 GW entro fine 2026</td><td>Prossima trimestrale, segment report, date di rilascio</td></tr>
+          <tr><td>Proiezione media</td><td>10 GW a fine 2027; 300-500 mld $ di ricavi AI; 99% del valore in 4-5 anni</td><td>GW energizzati, prezzo per watt, mix di revenue</td></tr>
+          <tr><td>Orizzonte</td><td>Inference in orbita, Starmind, 1-10 mln t/anno, Luna e Marte per i dipendenti</td><td>Primi satelliti di calcolo, catch e cadenza Starship, voli crew oltre LEO</td></tr>
+        </tbody>
+      </table>
+      <h3>Cinque controlli da qui a fine anno</h3>
+      <p>Primo: il segmento AI nella prossima call. Se settembre e il mese del sorpasso, i numeri di Q3 e soprattutto di Q4 devono mostrarlo senza acrobazie di riclassificazione. Secondo: i GW reali, non nameplate da slide. Terzo: il primo volo Starship che mette V3 in orbita operativa e tenta la catch della ship. Quarto: se i «best engineers» si spostano visibilmente su SpaceXAI, o se Starbase e i pad Falcon restano il centro di gravita del talento. Quinto: cosa significa, in pratica, addestrare Grok sul corpus interno. Policy, perimetro dei dati, eventuale opt-out. Senza quel perimetro, la metafora dei genitori resta letteratura.</p>
+      <p>Va tenuto anche il filo con il trimestre appena chiuso. I 7,81 miliardi di ricavi, i 3,53 di Adjusted EBITDA, i 18,3 di Capex e i circa 100 miliardi di liquidita dicono che SpaceX puo permettersi di parlare cosi. Non dicono che il piano e gia riuscito. Un hyperscaler che costruisce 10 GW in diciassette mesi e un'impresa da rete elettrica e da supply chain, non da discorso. Un lanciatore che passa da 2.500 a un milione di tonnellate l'anno e un'impresa da riuso, regolatorio e termica. Un'AI che eredita i valori di un'azienda e un'impresa da dati e da governance. L'all-hands le tiene tutte e tre nella stessa mezz'ora. Il lavoro di chi osserva e non lasciarle fondere in un'unica nebbia entusiasta.</p>
+      <div class="callout green">
+        <p><strong>Sintesi.</strong> Musk ha detto ai suoi che i razzi riusabili e internet in orbita sono il capitolo chiuso, che l'AI sta per diventare il motore economico, e che quel motore esiste per finanziare una specie multiplanetaria e una macchina capace di capire l'universo. La frase piu importante non e il 99%. E «we must win at AI». Tutto il resto — 10 GW, Starlink V3, Starship, Luna, Marte — e conseguenza o condizione di quella vittoria.</p>
+      </div>
+      <p>Ultima nota di metodo. Questo pezzo si basa sul video pubblicato da SpaceX, sulle citazioni riportate in modo convergente da Teslarati e Business Insider, e sui numeri gia in pagina nel dossier Q2. Non sostituisce il video. Non sostituisce il PDF IR. Non e un consiglio di investimento e non assegna probabilita alla promessa lunare. Serve a chi, sulla pagina SpaceX, vuole capire che cosa ha detto davvero Musk quando ha chiesto ai suoi di alzare lo sguardo dai booster e di trattare il compute come il prossimo razzo.</p>
+    </div>
+  </section>
+
+  <section id="fonti">
+    <div class="section-inner">
+      <h2>Fonti pubbliche e tracce</h2>
+      <p>Nel corpo si descrive lo stato e si citano le dichiarazioni primarie. Qui stanno i link e le tracce usate per ricostruire il video e incrociare i numeri.</p>
+      <ul class="sources">
+        <li>SpaceX su X — post e video dell'all-hands, 11 agosto 2026, status 2087283977866379361. Testo ufficiale: razzi riusabili, internet in spazio, vita multiplanetaria, natura dell'universo.</li>
+        <li>Elon Musk su X — quote del video, 12 agosto 2026, status 2087409075009274035, titolo «SpaceX company update».</li>
+        <li>Teslarati — resoconto dell'all-hands: sorpasso ricavi AI a settembre, 1,4 GW, 10 GW a fine 2027, 300-500 mld $, 99% del valore, «we must win on AI», promessa Luna/Marte.</li>
+        <li>Business Insider — citazioni dirette sul sorpasso di settembre/Q4; training di Grok sul corpus SpaceX; «trained on you»; genitori dell'AI; Grok Bot; «You have my word».</li>
+        <li>Business Insider Africa — stesso filone, con dettaglio su Grok Bot e sulla richiesta di usare gli strumenti interni.</li>
+        <li>SpaceX IR / dossier Q2 2026 del sito — 7,81 mld ricavi, 1,4 GW, Capex AI 15,8 mld, CSA 14,1 mld, Cursor 60 mld, Starlink 12M a fine giugno, due voli V3 in 90 giorni.</li>
+        <li>Note convergenti pubbliche sull'all-hands (metriche Starlink 13M / 22M mobile, 167 Paesi, ~11.000 satelliti, target 100.000; 2.500 t vs 1 mln t; training a Terra e inference in orbita).</li>
+      </ul>
+      <p><a class="button" href="../sezioni/spacex.html">Torna a SpaceX</a> <a class="button" href="../sezioni/notizie.html">Archivio notizie</a> <a class="button" href="spacex_q2_2026_earnings.html">Dossier earnings Q2</a></p>
+    </div>
+  </section>
+</main>
+<footer class="footer-note">
+  Rivoluzione Spaziale. Lettura editoriale su fonti pubbliche. Non e un comunicato SpaceX e non e consulenza finanziaria.
+</footer>
+</body>
+</html>
