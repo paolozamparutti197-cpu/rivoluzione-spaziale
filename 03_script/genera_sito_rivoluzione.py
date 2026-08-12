@@ -16,7 +16,7 @@ SECTIONS_DIR = ROOT / "sezioni"
 CSS_DIR = ROOT / "css"
 
 HERO_IMAGE = "https://upload.wikimedia.org/wikipedia/commons/5/5d/Falcon_1_Flight_4_launch.jpg"
-CSS_VERSION = "20260805-breaking-story"
+CSS_VERSION = "20260812-spacex-hub"
 ROME_TZ = ZoneInfo("Europe/Rome")
 MONTHS_IT = {
     1: "gennaio",
@@ -930,6 +930,15 @@ p{{color:#d9dee3;line-height:1.64}}
 .spacex-actions{{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));max-width:430px}}
 .spacex-actions .button{{display:flex;align-items:center;justify-content:center;text-align:center;min-height:44px;padding:12px 14px}}
 .spacex-actions .button.history-link{{grid-column:1/-1}}
+.spacex-doors{{display:grid;gap:20px;margin-top:22px}}
+.door-group h3{{margin:0 0 4px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}}
+.door-group p{{margin:0 0 10px;color:var(--muted);font-size:13px;line-height:1.45}}
+.door-group .actions{{margin-top:0;gap:8px}}
+.door-group .button{{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:10px 14px}}
+.dash-label{{margin:18px 0 10px;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;font-size:11px;font-weight:900}}
+.split .panel .metrics.metrics-kpis{{grid-template-columns:repeat(3,minmax(0,1fr));margin-top:12px}}
+.status-stack{{display:grid;gap:10px}}
+.status-stack .metric{{min-height:0;padding:16px}}
 section{{padding:72px clamp(18px,4vw,56px);border-top:1px solid var(--line)}}
 .section-head{{display:flex;justify-content:space-between;gap:28px;align-items:end;margin-bottom:28px}}
 .section-head p{{max-width:660px;color:var(--muted);line-height:1.58;margin:0}}
@@ -1179,7 +1188,7 @@ td{{color:#d8dee3}}
 .footer{{padding:34px clamp(18px,4vw,56px);border-top:1px solid var(--line);color:var(--muted);font-size:13px;line-height:1.5}}
 @media(max-width:1120px){{.grid,.launch-grid,.launch-grid.compact,.agenda-strip,.pad-list{{grid-template-columns:repeat(2,minmax(0,1fr))}}.split,.dash-grid,.cols,.next-launch,.pad-map-wrap,.starship-lead-grid{{grid-template-columns:1fr}}.starship-status-grid{{grid-template-columns:repeat(3,minmax(0,1fr))}}.pad-map-side{{border-right:0;border-bottom:1px solid var(--line)}}.pad-side-list{{max-height:none;grid-template-columns:repeat(2,minmax(0,1fr))}}}}
 @media(max-width:900px){{.pad-list{{grid-template-columns:1fr}}.pad-card{{grid-template-columns:160px 1fr}}.story-card,.news-card{{grid-template-columns:1fr}}.story-card img,.news-card img{{height:auto;max-height:420px;min-height:0}}}}
-@media(max-width:760px){{.topbar{{align-items:flex-start;flex-direction:column}}.nav{{justify-content:flex-start}}.grid,.launch-grid,.launch-grid.compact,.agenda-strip,.launch-meta,.metrics,.split .panel .metrics,.pad-side-list,.spacex-actions,.starship-photo-grid,.starship-phase-grid,.starship-flight-grid,.starship-status-grid{{grid-template-columns:1fr}}section{{padding:56px 18px}}.starship-dossier>section{{padding-top:38px;padding-bottom:38px}}.hero,.starship-dossier-hero{{padding:78px 18px 30px}}.starship-dossier-hero{{min-height:44vh}}.starship-photo img{{height:190px}}h1{{font-size:43px}}.section-head{{display:block}}.bar-row{{grid-template-columns:58px 1fr 44px}}.starship-flight-meta{{grid-template-columns:1fr}}#pad-map,#location-map{{min-height:460px}}.pad-map-wrap{{min-height:460px}}.pad-card{{grid-template-columns:1fr}}.pad-card img{{max-height:420px}}.pad-mini-event{{grid-template-columns:1fr;gap:2px}}.agenda-filter-label{{min-width:100%;margin-bottom:2px}}.agenda-toolbar-actions{{width:100%}}.agenda-toolbar-actions .button{{flex:1 1 auto;text-align:center}}}}
+@media(max-width:760px){{.topbar{{align-items:flex-start;flex-direction:column}}.nav{{justify-content:flex-start}}.grid,.launch-grid,.launch-grid.compact,.agenda-strip,.launch-meta,.metrics,.split .panel .metrics,.split .panel .metrics.metrics-kpis,.pad-side-list,.spacex-actions,.starship-photo-grid,.starship-phase-grid,.starship-flight-grid,.starship-status-grid{{grid-template-columns:1fr}}section{{padding:56px 18px}}.starship-dossier>section{{padding-top:38px;padding-bottom:38px}}.hero,.starship-dossier-hero{{padding:78px 18px 30px}}.starship-dossier-hero{{min-height:44vh}}.starship-photo img{{height:190px}}h1{{font-size:43px}}.section-head{{display:block}}.bar-row{{grid-template-columns:58px 1fr 44px}}.starship-flight-meta{{grid-template-columns:1fr}}#pad-map,#location-map{{min-height:460px}}.pad-map-wrap{{min-height:460px}}.pad-card{{grid-template-columns:1fr}}.pad-card img{{max-height:420px}}.pad-mini-event{{grid-template-columns:1fr;gap:2px}}.agenda-filter-label{{min-width:100%;margin-bottom:2px}}.agenda-toolbar-actions{{width:100%}}.agenda-toolbar-actions .button{{flex:1 1 auto;text-align:center}}}}
 """
 
 
@@ -2230,6 +2239,8 @@ def page_hero(title, eyebrow, copy, construction=False):
 
 
 def render_spacex(data):
+    # Porte raggruppate e cruscotto a due piani: restano qui, non in nav globale.
+    # Non appiattire di nuovo in un unico mucchio di bottoni o metriche-romanzo.
     f = data["falcon"]["metrics"]
     upcoming_exact = [item for item in data["upcoming"] if "net" not in (item.get("cat") or [])][:3]
     upcoming_block = (
@@ -2238,20 +2249,24 @@ def render_spacex(data):
         else '<div class="panel"><p class="muted">Nessun T-0 puntuale disponibile al momento.</p></div>'
     )
     starship_stato = data["starship"]["metrics"]["stato"]
-    top_metrics = "".join(
+    kpi_metrics = "".join(
         [
             metric(f"{f['lanci']:,}".replace(",", "."), "lanci Falcon principali"),
             metric(percent(f["tasso"]), "success rate storico"),
             metric(f["recuperiRiusciti"], "recuperi booster riusciti"),
+        ]
+    )
+    starship_status = "".join(
+        [
             metric(
                 starship_stato,
-                "stato Starship · clicca per la scheda →",
+                "stato Starship · scheda Flight 13",
                 href="lancio13.html",
                 title="Apri la scheda illustrativa Flight 13",
             ),
             metric(
                 "Flight 14 in preparazione: possibile Starship 1 (orbitale)",
-                "prossimo Starship · bozza · clicca per la scheda →",
+                "prossimo Starship · bozza",
                 href="lancio14.html",
                 title="Apri la bozza Flight 14 / ipotesi Starship 1",
                 variant="f14",
@@ -2266,18 +2281,41 @@ def render_spacex(data):
     <article class="panel">
       <h2>Macchina operativa</h2>
       <p>SpaceX non viene trattata come una semplice azienda di lanci. Qui e il primo laboratorio della nuova industria spaziale: cadenza, costi, recupero, riuso, infrastrutture e sviluppo rapido nello stesso sistema.</p>
-      <div class="actions spacex-actions">
-        <a class="button history-link" href="storia-spacex.html">Storia</a>
-        <a class="button" href="lanci-imminenti.html">Lanci imminenti</a>
-        <a class="button secondary" href="storico-lanci.html">Storico lanci</a>
-        <a class="button secondary" href="starship.html">Starship</a>
-        <a class="button secondary" href="pad-di-lancio.html">Pad di lancio</a>
-        <a class="button secondary" href="localita-spacex.html">Localita SpaceX</a>
-        <a class="button secondary" href="notizie.html">Notizie</a>
-        <a class="button history-link" href="guida-lancio-slc40.html">Vedere un lancio da SLC-40</a>
+      <div class="spacex-doors">
+        <div class="door-group">
+          <h3>Vivo ora</h3>
+          <p>Agenda, Starship e notizie in corso.</p>
+          <div class="actions">
+            <a class="button" href="lanci-imminenti.html">Lanci imminenti</a>
+            <a class="button secondary" href="starship.html">Starship</a>
+            <a class="button secondary" href="notizie.html">Notizie</a>
+          </div>
+        </div>
+        <div class="door-group">
+          <h3>Macchina</h3>
+          <p>Storico Falcon, pad e mappa dei siti.</p>
+          <div class="actions">
+            <a class="button secondary" href="storico-lanci.html">Storico lanci</a>
+            <a class="button secondary" href="pad-di-lancio.html">Pad di lancio</a>
+            <a class="button secondary" href="localita-spacex.html">Localita SpaceX</a>
+          </div>
+        </div>
+        <div class="door-group">
+          <h3>Lettura</h3>
+          <p>Storia narrata e guida per vedere un lancio.</p>
+          <div class="actions">
+            <a class="button secondary" href="storia-spacex.html">Storia</a>
+            <a class="button secondary" href="guida-lancio-slc40.html">Vedere un lancio da SLC-40</a>
+          </div>
+        </div>
       </div>
     </article>
-    <aside class="panel"><h3>Cruscotto rapido</h3><div class="metrics">{top_metrics}</div></aside>
+    <aside class="panel">
+      <h3>Cruscotto rapido</h3>
+      <div class="metrics metrics-kpis">{kpi_metrics}</div>
+      <p class="dash-label">Stato Starship</p>
+      <div class="status-stack">{starship_status}</div>
+    </aside>
   </div>
 </section>
 <section>
