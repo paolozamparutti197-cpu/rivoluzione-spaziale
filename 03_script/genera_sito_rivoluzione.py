@@ -168,8 +168,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_falcon9_impatto_luna.html",
         "image": "../documenti%20per%20sito/assets_luna/falcon9_liftoff.jpg",
         "image_alt": "Falcon 9 al decollo, archivio fotografico del sito",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
