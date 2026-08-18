@@ -157,6 +157,23 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-08-18",
+        "date_label": "18 agosto 2026",
+        "tag": "SpaceX · Starship",
+        "title": "Ship 40 a Christmas Island: dopo 24 giorni SpaceX guida Flight 13 in acque calme",
+        "summary": (
+            "Il recovery team ha portato lo scafo da 52 m al largo di Christmas Island. "
+            "Ingegneri in arrivo per ispezionare in acque piu calme prima del tentativo "
+            "di rientro a Starbase. Undici giorni fa Musk diceva che il recupero non sembrava andare."
+        ),
+        "href": "../documenti%20per%20sito/spacex_s40_christmas_island.html",
+        "image": "../documenti%20per%20sito/assets_s40/s40-christmas-1.jpg",
+        "image_alt": "Ship 40 al largo di Christmas Island, foto ufficiale SpaceX del 18 agosto 2026",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-08-11",
         "date_label": "11 agosto 2026",
         "tag": "SpaceX · All-hands",
@@ -2750,7 +2767,7 @@ def render_starship_development_page(data):
     <p class="eyebrow">Dossier SpaceX</p>
     <h1>Sviluppo Starship</h1>
     <p class="subtitle">Dal concetto interplanetario ai voli integrati V3: evoluzione del veicolo, prove, fallimenti, recupero, motori Raptor, infrastrutture e obiettivi ancora aperti.</p>
-    <span class="update-stamp">Aggiornato al 25 luglio 2026</span>
+    <span class="update-stamp">Aggiornato al 18 agosto 2026</span>
   </div>
 </section>
 
@@ -2812,22 +2829,22 @@ def render_starship_development_page(data):
 
 <section id="flight-13">
   <div class="inner">
-    <div class="section-head"><h2>Flight 13 al 31 luglio 2026</h2><p>Volo completato il 24 luglio: softest splashdown della Ship, hard landing del Super Heavy. Post-volo: Ship 40 ancora galleggiante; Normand Ranger e Skimmer Tide in rotta per il recupero. <a href="lancio13.html" style="color:#dff4ff;text-decoration:underline;text-underline-offset:3px;font-weight:800">Apri la scheda dedicata Flight 13 →</a></p></div>
+    <div class="section-head"><h2>Flight 13 al 18 agosto 2026</h2><p>Volo completato il 24 luglio: softest splashdown della Ship, hard landing del Super Heavy. Post-volo: dopo ~24 giorni in mare Ship 40 e al largo di Christmas Island; ingegneri in arrivo, poi tentativo di rientro a Starbase. <a href="lancio13.html" style="color:#dff4ff;text-decoration:underline;text-underline-offset:3px;font-weight:800">Apri la scheda dedicata Flight 13 →</a></p></div>
     <article class="panel">
-      <h3>Secondo volo V3: successo ship-side, recovery booster ancora aperta</h3>
-      <p>Flight 13 ha impiegato <strong>Booster 20</strong> e <strong>Ship 40</strong> da Pad 2, con decollo alle <strong>22:51 UTC del 24 luglio 2026</strong> (25 luglio 00:51 CEST). Dopo l'abort a T-0 del 16 luglio e lo scrub meteo del 23, il profilo suborbitale e andato in porto con esito integrato <strong>successo/parziale</strong>: 20 Starlink V3 dispiegati, relight Raptor in spazio, Ship integra galleggiante nell'oceano Indiano; booster con landing burn incompleto e hard splashdown nel Golfo. Al <strong>31 luglio</strong>, a circa sei giorni dallo splashdown, tracking community indica Ship 40 ancora afloat (drift &gt;170 km) e due navi di recupero — <strong>Normand Ranger</strong> e <strong>Skimmer Tide</strong> — in rotta verso Go Australis e S40.</p>
+      <h3>Secondo volo V3: successo ship-side, recovery S40 allo scalo di Christmas Island</h3>
+      <p>Flight 13 ha impiegato <strong>Booster 20</strong> e <strong>Ship 40</strong> da Pad 2, con decollo alle <strong>22:51 UTC del 24 luglio 2026</strong> (25 luglio 00:51 CEST). Dopo l'abort a T-0 del 16 luglio e lo scrub meteo del 23, il profilo suborbitale e andato in porto con esito integrato <strong>successo/parziale</strong>: 20 Starlink V3 dispiegati, relight Raptor in spazio, Ship integra dopo soft splashdown; booster con landing burn incompleto e hard splashdown nel Golfo. Al <strong>18 agosto</strong> SpaceX conferma che il recovery team ha guidato lo scafo da 52&nbsp;m al largo di <strong>Christmas Island</strong> dopo circa 24 giorni in mare. Ingegneri in viaggio per analisi in acque piu calme, poi tentativo di riportare il veicolo a Starbase.</p>
       <div class="starship-status-grid">
         <div class="starship-status"><b>16 luglio · abort T-0</b><span>Alcuni Raptor non si avviano; sostituzione di almeno due motori su B20.</span></div>
         <div class="starship-status"><b>23 luglio · scrub meteo</b><span>Rinvio per visibilita e condizioni non adatte all'imagery heatshield.</span></div>
         <div class="starship-status"><b>24 luglio 22:51 UTC</b><span>Liftoff da Pad 2: 33/33 al decollo, hot-staging e boostback corretti.</span></div>
         <div class="starship-status"><b>Deploy 20/20 V3</b><span>Primi Starlink V3 funzionali; sei satelliti con telecamere sullo scudo termico.</span></div>
         <div class="starship-status"><b>Softest splashdown Ship</b><span>Ship 40 integra, galleggiante e in telemetria nell'oceano Indiano; Dan Huot: softest splashdown.</span></div>
-        <div class="starship-status"><b>31 luglio · recovery ships</b><span>Normand Ranger e Skimmer Tide in rotta; Ship ancora afloat a ~6 giorni (dettaglio in scheda Flight 13).</span></div>
+        <div class="starship-status"><b>18 agosto · Christmas Island</b><span>S40 al largo dell'isola dopo 24 giorni; ispezione in arrivo, poi tentativo Starbase (scheda Flight 13).</span></div>
         <div class="starship-status pending"><b>Hard splashdown B20</b><span>Landing burn incompleto (circa 5/13 motori): Super Heavy colpisce il Golfo a velocita elevata.</span></div>
       </div>
     </article>
     <div class="cols" style="margin-top:18px">
-      <article class="panel"><h3>Cosa ha chiuso Flight 13</h3><p>Rispetto a Flight 12, il booster ha eseguito flip e boostback con orientamento corretto dopo hot-staging. La Ship ha completato deployment di payload reale, relight in-space e un rientro che ha lasciato il veicolo integro in acqua: un salto qualitativo per i dati TPS e per la fiducia sul profilo end-to-end suborbitale. Il galleggiamento prolungato ha aperto un tentativo di recupero fisico in oceano (Elon 28/07; navi in rotta al 31/07).</p></article>
+      <article class="panel"><h3>Cosa ha chiuso Flight 13</h3><p>Rispetto a Flight 12, il booster ha eseguito flip e boostback con orientamento corretto dopo hot-staging. La Ship ha completato deployment di payload reale, relight in-space e un rientro che ha lasciato il veicolo integro in acqua. Il galleggiamento prolungato ha aperto il primo recovery fisico: il 18 agosto SpaceX conferma S40 al largo di Christmas Island, dopo 24 giorni di traino.</p></article>
       <article class="panel"><h3>Cosa resta da dimostrare</h3><p>Il landing burn multi-engine del Super Heavy V3 non e ancora un soft splashdown affidabile. Prima di catch, orbita e refill restano aperti affidabilita recovery booster, primo profilo orbitale, rifornimento criogenico e cadenza verso Starlink V3 operativo e HLS Artemis.</p></article>
     </div>
   </div>
@@ -2863,6 +2880,8 @@ def render_starship_development_page(data):
       <h2>Fonti e metodo</h2>
       <p>La struttura narrativa e i dati storici derivano da <strong>01_workbook/sviluppo_starship.xlsx</strong>. Le voci piu recenti sono state controllate con pagine missione SpaceX, reporting Space.com e Spaceflight Now. Le previsioni restano indicate come target o NET; i voli entrano in tabella solo dopo il liftoff.</p>
       <ul class="source-list">
+        <li><a href="https://x.com/SpaceX/status/2089685256085344560" target="_blank" rel="noopener">SpaceX, S40 al largo di Christmas Island (18/08/2026)</a></li>
+        <li><a href="https://www.nasaspaceflight.com/2026/08/ship-40-christmas-island-plans-return-starbase/" target="_blank" rel="noopener">NASASpaceflight, Ship 40 arrives at Christmas Island</a></li>
         <li><a href="https://www.spacex.com/launches/starship-flight-13" target="_blank" rel="noopener">SpaceX, pagina missione Flight 13</a></li>
         <li><a href="https://www.space.com/space-exploration/launches-spacecraft/spacexs-starship-megarocket-makes-the-softest-splashdown-ever-after-launching-next-gen-starlink-satellites-in-flight-13-test-video" target="_blank" rel="noopener">Space.com, softest splashdown Flight 13</a></li>
         <li><a href="https://spaceflightnow.com/2026/07/25/super-heavy-starship-rocket-chalks-up-mostly-successful-test-flight/" target="_blank" rel="noopener">Spaceflight Now, mostly successful test flight</a></li>

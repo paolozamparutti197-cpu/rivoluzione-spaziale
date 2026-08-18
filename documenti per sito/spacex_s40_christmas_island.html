@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="18 agosto 2026: SpaceX conferma che Ship 40 di Flight 13 e al largo di Christmas Island dopo circa 24 giorni in mare. Ingegneri in arrivo, poi tentativo di rientro a Starbase.">
+<title>Ship 40 a Christmas Island: dopo 24 giorni in mare SpaceX porta Flight 13 in acque calme | Rivoluzione Spaziale</title>
+<style>
+:root{
+  --bg:#050607;
+  --ink:#f4f6f8;
+  --muted:#a9b0b7;
+  --line:rgba(255,255,255,.16);
+  --soft:rgba(255,255,255,.075);
+  --cyan:#67c7ff;
+  --amber:#f5b941;
+  --red:#e95f45;
+  --green:#79d18b;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;letter-spacing:0}
+a{color:var(--cyan);text-decoration:none}
+a:hover{text-decoration:underline}
+.topbar{position:fixed;inset:0 0 auto 0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:18px clamp(18px,4vw,56px);background:linear-gradient(180deg,rgba(0,0,0,.92),rgba(0,0,0,.54),rgba(0,0,0,0))}
+.brand{font-weight:900;letter-spacing:.16em;text-transform:uppercase;font-size:15px;color:#fff}
+.brand span{color:var(--cyan)}
+.nav{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end;font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:800}
+.nav a{color:#fff}
+.hero{min-height:84vh;display:grid;align-items:end;padding:110px clamp(18px,4vw,56px) 50px;background:
+  linear-gradient(90deg,rgba(0,0,0,.9),rgba(0,0,0,.52) 48%,rgba(0,0,0,.22)),
+  linear-gradient(180deg,rgba(0,0,0,.08),rgba(5,6,7,.97) 92%),
+  url("assets_s40/s40-christmas-1.jpg") center 48%/cover no-repeat}
+.hero-inner,.section-inner{max-width:1180px;margin:0 auto}
+.eyebrow{margin:0 0 14px;color:var(--amber);text-transform:uppercase;letter-spacing:.14em;font-size:13px;font-weight:900}
+h1{margin:0;max-width:1040px;font-size:clamp(34px,6.4vw,70px);line-height:.92;text-transform:uppercase;font-weight:950}
+h2{margin:0 0 24px;font-size:clamp(28px,4vw,48px);line-height:1;text-transform:uppercase}
+h3{margin:30px 0 12px;font-size:22px;line-height:1.15}
+p{color:#d9dde1;font-size:17px;line-height:1.72;margin:0 0 18px}
+.lead{max-width:940px;margin:24px 0 0;color:#e6ebef;font-size:clamp(17px,2vw,22px);line-height:1.48;font-weight:500}
+.meta{margin:18px 0 0;color:var(--muted);font-size:14px;letter-spacing:.04em}
+section{padding:76px clamp(18px,4vw,56px);border-top:1px solid var(--line)}
+.split{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(280px,.72fr);gap:42px;align-items:start}
+.panel{border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.045));border-radius:8px;padding:22px}
+.panel h3:first-child{margin-top:0}
+.panel p,.panel li{font-size:15px;color:#d6dbe0;line-height:1.62}
+.panel ul{margin:0;padding-left:18px}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:34px}
+.fact{border:1px solid var(--line);background:var(--soft);border-radius:8px;padding:18px;min-height:118px}
+.fact b{display:block;font-size:clamp(18px,2vw,24px);line-height:1.05;margin-bottom:10px}
+.fact span{display:block;color:var(--muted);line-height:1.42;font-size:14px}
+.figure{margin:28px 0;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#0a0f14}
+.figure img,.figure video{display:block;width:100%;max-height:520px;object-fit:cover;background:#000}
+.figure video{max-height:none;aspect-ratio:16/9;object-fit:contain}
+.figure figcaption{padding:12px 14px;color:var(--muted);font-size:13px;line-height:1.45}
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:28px 0}
+.gallery .figure{margin:0}
+.callout{border-left:4px solid var(--red);padding:16px 18px;background:rgba(233,95,69,.095);margin:26px 0}
+.callout.green{border-left-color:var(--green);background:rgba(121,209,139,.08)}
+.callout.amber{border-left-color:var(--amber);background:rgba(245,185,65,.09)}
+.callout.cyan{border-left-color:var(--cyan);background:rgba(103,199,255,.08)}
+.callout p{margin:0}
+.quote{border:1px solid rgba(105,200,255,.35);border-radius:8px;padding:18px 20px;background:linear-gradient(135deg,rgba(105,200,255,.12),rgba(255,255,255,.04));margin:22px 0}
+.quote p{margin:0;color:#e8f4fb;font-size:16px;line-height:1.55}
+.quote cite{display:block;margin-top:10px;color:var(--muted);font-size:13px;font-style:normal}
+.timeline{display:grid;gap:14px;margin-top:24px}
+.event{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;border-top:1px solid var(--line);padding-top:18px}
+.date{color:var(--amber);font-weight:900;text-transform:uppercase;letter-spacing:.08em;font-size:13px}
+.event h3{margin:0 0 6px}
+.event p{margin:0;color:#cfd5da}
+.sources{columns:2 360px;column-gap:42px;padding-left:18px}
+.sources li{break-inside:avoid;color:#d9dde1;margin:0 0 12px;line-height:1.5;font-size:15px}
+.button{display:inline-flex;border:1px solid var(--line);padding:12px 16px;border-radius:4px;text-transform:uppercase;font-size:12px;letter-spacing:.09em;font-weight:900;background:rgba(0,0,0,.22);color:#fff;margin:8px 8px 0 0}
+.draft-banner{position:sticky;top:0;z-index:20;background:rgba(233,95,69,.16);border-bottom:1px solid rgba(233,95,69,.4);color:#ffd0c6;padding:10px clamp(18px,4vw,56px);font-size:13px;font-weight:700;letter-spacing:.04em}
+.footer-note{padding:34px clamp(18px,4vw,56px);border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+@media(max-width:900px){.topbar{position:absolute}.nav{display:none}.split,.facts,.gallery{grid-template-columns:1fr}.event{grid-template-columns:1fr;gap:6px}}
+@media(max-width:520px){section{padding:54px 18px}.hero{padding:96px 18px 42px;min-height:74vh}h1{font-size:36px}}
+</style>
+</head>
+<body>
+<div class="draft-banner">Breaking news · 18 agosto 2026 · post ufficiale SpaceX su X. Ship 40 e al largo di Christmas Island, non ancora a Starbase. Lettura su fonti pubbliche, non comunicato IR.</div>
+<header class="topbar">
+  <a class="brand" href="../sezioni/spacex.html">Rivoluzione <span>Spaziale</span></a>
+  <nav class="nav" aria-label="Sezioni">
+    <a href="#oggi">Oggi</a>
+    <a href="#cosa">Cosa e successo</a>
+    <a href="#musk">Musk e SpaceX</a>
+    <a href="#nsf">NSF</a>
+    <a href="#perche">Perche conta</a>
+    <a href="#prossimi">Prossimi passi</a>
+    <a href="#fonti">Fonti</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" aria-label="Introduzione">
+    <div class="hero-inner">
+      <p class="eyebrow">Breaking · Starship · 18 agosto 2026</p>
+      <h1>Ship 40 e arrivata. Christmas Island, non ancora Starbase</h1>
+      <p class="lead">Dopo circa 24 giorni in mare il recovery team SpaceX ha guidato lo scafo da 52 metri di Flight 13 al largo di Christmas Island. Ingegneri in arrivo per ispezionare in acque piu calme. Poi, se lo scafo regge, il tentativo di riportarlo in Texas.</p>
+      <p class="meta">Dossier · non ufficiale · aggiornato al 18 agosto 2026 · fonti: SpaceX su X, Elon Musk, NASASpaceflight, tracking community</p>
+    </div>
+  </section>
+
+  <section id="oggi">
+    <div class="section-inner">
+      <div class="split">
+        <article>
+          <h2>Il bollettino di oggi</h2>
+          <p>Il 18 agosto 2026, alle 12:06 UTC, l'account ufficiale SpaceX chiude un capitolo che da undici giorni sembrava in bilico. Il testo e corto e preciso: dopo circa 24 giorni in mare il recovery team ha guidato Starship &ldquo;to a location just off the coast of Christmas Island&rdquo;. Un team di ingegneri e in viaggio per analisi aggiuntive in acque piu calme, &ldquo;before attempting to return it to Starbase&rdquo;.</p>
+          <p>Non e un ormeggio da porto commerciale della terraferma australiana. Non e un veicolo gia in Texas. E il primo scalo dichiarato da SpaceX dopo il softest splashdown del 24 luglio: acque territoriali australiane, costa di Christmas Island, esclusione intorno a scafo e navi di supporto, foto e video dal ponte. Per un veicolo di 52 metri non progettato per navigare, arrivare fin qui dopo tre settimane e mezza di oceano aperto e gia un risultato industriale.</p>
+          <p>Undici giorni prima lo stesso recovery era descritto da Musk come un tentativo che &ldquo;non sembrava andare bene&rdquo;. Il post di oggi non smentisce quanto fosse difficile. Lo chiude, per ora, con un fatto: lo scafo e ancora intero e non e piu in oceano aperto.</p>
+        </article>
+        <aside class="panel">
+          <h3>In sintesi</h3>
+          <ul>
+            <li><strong>Dove:</strong> al largo di Christmas Island (territorio australiano, Oceano Indiano).</li>
+            <li><strong>Quando:</strong> 18 agosto 2026, ~24 giorni dopo lo splashdown.</li>
+            <li><strong>Cosa:</strong> traino riuscito fino ad acque piu calme; ispezione in arrivo.</li>
+            <li><strong>Non ancora:</strong> rientro a Starbase. SpaceX lo chiama tentativo, non fatto.</li>
+            <li><strong>Musk oggi:</strong> nessun commento sul post di arrivo, al taglio di questa pagina.</li>
+          </ul>
+          <a class="button" href="../sezioni/lancio13.html">Apri la scheda Flight 13</a>
+        </aside>
+      </div>
+      <div class="facts">
+        <div class="fact"><b>~24 giorni</b><span>in mare dal soft splashdown del 24 luglio</span></div>
+        <div class="fact"><b>52 m</b><span>scafo Ship 40 trainato, non costruito per navigare</span></div>
+        <div class="fact"><b>Christmas Island</b><span>acque calme al largo della costa, non Dampier</span></div>
+        <div class="fact"><b>Starbase</b><span>prossimo obiettivo dichiarato, non ancora raggiunto</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cosa">
+    <div class="section-inner">
+      <h2>Cosa e successo, in ordine</h2>
+      <p>Flight 13 decolla da Pad 2 il 24 luglio 2026 alle 22:51 UTC. Ship 40 dispiega 20 Starlink V3, riaccende un Raptor in spazio e chiude con lo splashdown piu morbido del programma. A differenza dei voli precedenti, lo scafo non si spezza e non affonda. Resta a galla. Da li in poi il volo diventa un'operazione navale.</p>
+      <p>Il 28 luglio Musk scrive che manderanno una nave a recuperare Starship. Nei giorni successivi Go Australis tiene la stazione, poi arrivano Normand Ranger e Skimmer Tide da Dampier. Il traino e lento, spesso intorno a uno o due nodi, con linee su uno scafo inossidabile che non ha chiglia da rimorchio. Il 7 agosto SpaceX pubblica foto e video dal ponte: condizioni difficili, mare in peggioramento, obiettivo ancora &ldquo;guidare a porto&rdquo; lo scafo da 52 metri. Lo stesso giorno Musk e piu secco: il recupero non sembra andare bene. Restano, dice, foto ravvicinate di scudo termico e motori per gli upgrade futuri.</p>
+      <p>Nella settimana successiva il meteo pesa. Parte della flotta fa scalo a Christmas Island. Il 17 agosto NASASpaceflight, nello Starship Update, descrive un recovery in difficolta e un convoglio che punta all'isola invece che alla costa di Dampier. Il 18 agosto, di prima mattina, NSF riprende immagini del traino in avvicinamento. Poi arriva il bollettino SpaceX. Chris Bergin, nello stesso giorno, fissa il quadro: acque riparate, zona di esclusione, ingegneri in arrivo, poi tentativo di riportare il veicolo a Starbase per una teardown completa.</p>
+      <div class="timeline">
+        <div class="event">
+          <div class="date">24–25 lug</div>
+          <div>
+            <h3>Softest splashdown</h3>
+            <p>Ship 40 ammarra morbida, resta integra e galleggia. Il recovery fisico diventa possibile.</p>
+          </div>
+        </div>
+        <div class="event">
+          <div class="date">28–29 lug</div>
+          <div>
+            <h3>Musk: recuperiamola</h3>
+            <p>&ldquo;We&rsquo;re sending a ship out to recover Starship.&rdquo; Il giorno dopo: &ldquo;Starship still floating in the ocean.&rdquo;</p>
+          </div>
+        </div>
+        <div class="event">
+          <div class="date">1–7 ago</div>
+          <div>
+            <h3>Traino in oceano aperto</h3>
+            <p>Ranger e Skimmer Tide sul posto. Il 7/08 SpaceX conferma: ancora al lavoro, mare grosso. Musk: &ldquo;not looking good.&rdquo;</p>
+          </div>
+        </div>
+        <div class="event">
+          <div class="date">17–18 ago</div>
+          <div>
+            <h3>Christmas Island</h3>
+            <p>NSF: convoglio verso l'isola. SpaceX: arrivo al largo della costa, ingegneri in viaggio, poi tentativo Starbase.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="foto">
+    <div class="section-inner">
+      <h2>Le immagini di oggi</h2>
+      <p>SpaceX pubblica un video di circa 57 secondi e tre fotografie: scafo a galla vicino alla costa, navi di supporto, luce bassa. Non sono foto da banchina. Sono foto da recovery in acque costiere: lo stesso veicolo che il 7 agosto era ancora in oceano aperto.</p>
+      <div class="gallery">
+        <figure class="figure">
+          <img src="assets_s40/s40-christmas-1.jpg" alt="Ship 40 al largo di Christmas Island, 18 agosto 2026">
+          <figcaption>Ship 40 al largo di Christmas Island. Foto SpaceX, 18 agosto 2026.</figcaption>
+        </figure>
+        <figure class="figure">
+          <img src="assets_s40/s40-christmas-2.jpg" alt="Scafo Ship 40 e navi di recovery vicino alla costa">
+          <figcaption>Scafo e flotta di supporto in acque costiere. Foto SpaceX, 18 agosto 2026.</figcaption>
+        </figure>
+        <figure class="figure">
+          <img src="assets_s40/s40-christmas-3.jpg" alt="Starship Ship 40 vista dal recovery team a Christmas Island">
+          <figcaption>Vista dal team recovery. Foto SpaceX, 18 agosto 2026.</figcaption>
+        </figure>
+      </div>
+      <p class="meta">Video ufficiale sul post <a href="https://x.com/SpaceX/status/2089685256085344560" target="_blank" rel="noopener">@SpaceX, 18 agosto 2026</a>. Copia locale anche nella <a href="../sezioni/lancio13.html#novita">scheda Flight 13</a>.</p>
+    </div>
+  </section>
+
+  <section id="musk">
+    <div class="section-inner">
+      <div class="split">
+        <article>
+          <h2>Cosa hanno detto SpaceX e Musk</h2>
+          <p>Il documento primario di oggi e il post SpaceX. Non parla di &ldquo;porto&rdquo; come banchina e non parla di riuso del veicolo. Parla di guida a una posizione al largo, di analisi in acque piu calme, di tentativo di ritorno a Starbase. E il linguaggio di un recovery ancora aperto sulla seconda gamba: dall'isola al Texas.</p>
+          <div class="quote">
+            <p>&ldquo;After approx. 24 days at sea, the SpaceX Recovery team successfully guided Starship to a location just off the coast of Christmas Island. A team of SpaceX engineers is on their way to conduct additional analysis on the vehicle in calmer waters before attempting to return it to Starbase.&rdquo;</p>
+            <cite>SpaceX · X · 18 agosto 2026</cite>
+          </div>
+          <p>Musk, al taglio di questa pagina, non ha commentato l'arrivo. I suoi post utili restano quelli della campagna recovery. Il 28 luglio autorizza pubblicamente il tentativo. Il 29 luglio conferma che lo scafo galleggia ancora. Il 7 agosto, mentre SpaceX mostra il mare grosso, abbassa le aspettative e salva il valore delle foto ravvicinate su heat shield e motori.</p>
+          <div class="quote">
+            <p>&ldquo;Unfortunately, ship recovery is not looking good right now. Nonetheless, we were able to obtain close-up photos of critical regions of the heat shield and engines for future upgrades.&rdquo;</p>
+            <cite>Elon Musk · X · 7 agosto 2026</cite>
+          </div>
+          <p>La sequenza va letta cosi. Musk non ha dichiarato un fallimento formale il 7 agosto: ha detto che in quel momento il recupero non sembrava andare. Undici giorni dopo SpaceX pubblica l'arrivo. I due testi convivono. Il primo descrive il rischio. Il secondo descrive l'esito della prima tratta.</p>
+        </article>
+        <aside class="panel">
+          <h3>Cosa non e</h3>
+          <ul>
+            <li>Non e un catch a Starbase.</li>
+            <li>Non e un veicolo pronto a volare di nuovo.</li>
+            <li>Non e un attracco dichiarato a Flying Fish Cove: SpaceX dice &ldquo;just off the coast&rdquo;.</li>
+            <li>Non e ancora il rientro in Texas. Quello resta un tentativo.</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="nsf">
+    <div class="section-inner">
+      <h2>NASASpaceflight, oggi e ieri</h2>
+      <p>Il 17 agosto, nello Starship Update, NSF mette in pagina il dubbio che ha tenuto il recovery per due settimane: mare grosso, flotta in difficolta, parte delle navi dirottata verso Christmas Island, domanda aperta se Ship 40 sarebbe arrivata in un pezzo solo. Il giorno dopo lo stesso filo si chiude con un articolo di Chris Bergin: SpaceX ha guidato S40 al largo dell'isola, gli ingegneri vanno sul posto, poi si tenta Starbase.</p>
+      <p>Sull'account NSF, nella notte tra il 17 e il 18, passa un fotogramma del traino in avvicinamento: &ldquo;Ship 40, under tow, approaching Christmas Island.&rdquo; In parallelo il tracking pubblico (AIS, foto da terra e da elicottero, scatti locali da Flying Fish Cove) descrive Ranger e Go Australis in acque riparate sul lato nord dell'isola, dove il mare si calma. E il quadro community che il forum NSF segue da settimane: non Dampier come primo scalo, ma l'isola come riparo.</p>
+      <div class="callout cyan">
+        <p>Il forum NSF, oggi, non aggiunge un fatto nuovo rispetto al bollettino SpaceX: conferma il clima operativo. Il convoglio ha scelto le acque dell'isola dopo il meteo di meta agosto. L'arrivo e reale. Il rientro a Starbase no, non ancora.</p>
+      </div>
+      <p>Bergin sottolinea il punto che rende questa notizia piu di una cronaca navale. Recuperare integro un upper stage orbitale-class dopo un ammaraggio morbido da il primo accesso fisico, a terra o quasi, a scafo, TPS e motori dopo un profilo di volo completo. I dati in volo e i droni post-splashdown restano. Lo scafo aggiunge quello che la telemetria non tocca: sale, bordi, tenuta, danni da settimane di acqua salata.</p>
+    </div>
+  </section>
+
+  <section id="perche">
+    <div class="section-inner">
+      <h2>Perche questa tappa conta</h2>
+      <p>SpaceX non recupera Ship 40 per farla volare di nuovo. La recupera per leggerla. Un soft splashdown integro e gia un dato. Un soft splashdown integro seguito da tre settimane e mezza di traino e un altro dato: lo scafo ha tenuto l'acqua, le linee, il rollio, il sale. Se gli ingegneri riescono a salire a bordo o a ispezionarlo da vicino a Christmas Island, Flight 13 diventa il primo caso in cui il programma vede con gli occhi, e non solo con le telecamere, cosa ha fatto il rientro allo scudo e ai Raptor.</p>
+      <p>Il 7 agosto Musk aveva gia salvato un pezzo di valore: foto ravvicinate di zone critiche di heat shield e motori. L'arrivo di oggi non cancella quelle foto. Le rende il primo strato di un'ispezione piu lunga. NSF nota che imagery in volo e post-splashdown mostrava uno scudo in gran parte integro, con perdita di tile e danni al bordo aft gia visti in volo: aree su cui SpaceX continua a lavorare. L'ispezione in acque calme serve a misurare, non a festeggiare.</p>
+      <div class="callout amber">
+        <p>Ipotesi di redazione, non dichiarazione SpaceX: Christmas Island e uno scalo di sopravvivenza, non la destinazione finale. Dampier e la terraferma WA restano sullo sfondo. Starbase e l'obiettivo dichiarato. Tra i due c'e ancora un oceano, un mezzo di trasporto da scegliere e uno scafo che ha gia fatto 24 giorni in mare.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="prossimi">
+    <div class="section-inner">
+      <h2>Cosa manca ancora</h2>
+      <p>Tre cose, in ordine. Primo: l'ispezione in acque calme. SpaceX dice che gli ingegneri sono in viaggio. Fino a quando non arrivano, lo scafo e al sicuro relativo, non analizzato. Secondo: la decisione su come (e se) riportarlo a Starbase. Heavy-lift, ulteriore traino, smontaggio parziale: nulla e dichiarato. Terzo: Flight 14. Il recovery di S40 e un dossier a parte dalla campagna successiva. Non cambia da solo la data del prossimo volo e non e un catch.</p>
+      <p>La scheda dedicata Flight 13 resta il posto in cui questo stato si aggiorna. Questa breaking news fissa il passaggio del 18 agosto: da &ldquo;ancora in oceano, mare grosso&rdquo; a &ldquo;al largo di Christmas Island, ispezione in arrivo&rdquo;.</p>
+      <a class="button" href="../sezioni/lancio13.html">Scheda Flight 13</a>
+      <a class="button" href="../sezioni/lancio14.html">Bozza Flight 14</a>
+      <a class="button" href="../sezioni/spacex.html">Portale SpaceX</a>
+    </div>
+  </section>
+
+  <section id="fonti">
+    <div class="section-inner">
+      <h2>Fonti pubbliche e tracce</h2>
+      <p>Nel corpo si descrive lo stato. Qui stanno i link. Il forum NSF e usato come clima operativo, senza quote riservate.</p>
+      <ul class="sources">
+        <li><a href="https://x.com/SpaceX/status/2089685256085344560" target="_blank" rel="noopener">SpaceX — arrivo al largo di Christmas Island, foto e video (18/08/2026)</a></li>
+        <li><a href="https://x.com/elonmusk/status/2082244164197183805" target="_blank" rel="noopener">Elon Musk — &ldquo;We&rsquo;re sending a ship out to recover Starship&rdquo; (28/07)</a></li>
+        <li><a href="https://x.com/elonmusk/status/2082340308680135085" target="_blank" rel="noopener">Elon Musk — &ldquo;Starship still floating in the ocean&rdquo; (29/07)</a></li>
+        <li><a href="https://x.com/elonmusk/status/2085797764194087277" target="_blank" rel="noopener">Elon Musk — &ldquo;ship recovery is not looking good right now&rdquo; (7/08)</a></li>
+        <li><a href="https://x.com/SpaceX/status/2085786988225925349" target="_blank" rel="noopener">SpaceX — recovery ancora in corso, mare grosso (7/08)</a></li>
+        <li><a href="https://www.nasaspaceflight.com/2026/08/ship-40-christmas-island-plans-return-starbase/" target="_blank" rel="noopener">NASASpaceflight / Chris Bergin — Ship 40 arrives at Christmas Island (18/08)</a></li>
+        <li><a href="https://x.com/NASASpaceflight/status/2089539407120310557" target="_blank" rel="noopener">NSF — Ship 40 under tow, approaching Christmas Island (18/08)</a></li>
+        <li><a href="https://www.youtube.com/watch?v=rGIeEIVpEc8" target="_blank" rel="noopener">NSF Starship Update — 17 agosto 2026 (Max Evans)</a></li>
+        <li><a href="https://www.spacex.com/launches/starship-flight-13" target="_blank" rel="noopener">SpaceX — pagina missione Flight 13</a></li>
+        <li>Forum NSF / tracking community agosto 2026: convoglio verso Christmas Island, scalo a Flying Fish Cove, foto locali e AIS di Normand Ranger e Go Australis.</li>
+        <li><a href="../sezioni/lancio13.html">Scheda locale Flight 13</a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<p class="footer-note">Rivoluzione Spaziale. Breaking news · 18 agosto 2026 · foto e video SpaceX dal post ufficiale. Non e un comunicato SpaceX riedito: lettura editoriale su fonti pubbliche. Lo stato puo cambiare quando gli ingegneri arrivano sull'isola o quando parte il rientro a Starbase.</p>
+</body>
+</html>

@@ -41,3 +41,29 @@ Immagini della pagina "Starship Flight 13" (lancio13.html)
    Media: amplify_video 2085785145210966016 (1920x1080)
    Durata: ~45 s
    Nota: video recovery team / traino scafo 52 m. Embed locale + link al post.
+
+7. s40-christmas-1.jpg
+   Autore: SpaceX
+   Data: 18 agosto 2026
+   Fonte: https://x.com/SpaceX/status/2089685256085344560
+   Media: https://pbs.twimg.com/media/HQANb0CXoAA9D54.jpg
+   Nota: Ship 40 al largo di Christmas Island.
+
+8. s40-christmas-2.jpg
+   Autore: SpaceX
+   Data: 18 agosto 2026
+   Fonte: https://x.com/SpaceX/status/2089685256085344560
+   Media: https://pbs.twimg.com/media/HQANdejXcAELpWX.jpg
+
+9. s40-christmas-3.jpg
+   Autore: SpaceX
+   Data: 18 agosto 2026
+   Fonte: https://x.com/SpaceX/status/2089685256085344560
+   Media: https://pbs.twimg.com/media/HQANfRpWoAEVbL-.jpg
+
+10. s40-christmas-arrive.mp4
+    Autore: SpaceX
+    Data: 18 agosto 2026
+    Fonte: https://x.com/SpaceX/status/2089685256085344560
+    Media: amplify_video 2089684968368721920 (1280x720)
+    Durata: ~57 s

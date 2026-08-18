@@ -1,0 +1,29 @@
+Immagini dossier Ship 40 / Christmas Island
+===========================================
+
+1. s40-christmas-1.jpg
+   Autore: SpaceX
+   Data: 18 agosto 2026
+   Fonte: https://x.com/SpaceX/status/2089685256085344560
+   Media: https://pbs.twimg.com/media/HQANb0CXoAA9D54.jpg
+   Nota: foto recovery Ship 40 al largo di Christmas Island. Materiale pubblicato da @SpaceX su X.
+   Uso: documentazione editoriale non commerciale, con attribuzione e link alla fonte.
+
+2. s40-christmas-2.jpg
+   Autore: SpaceX
+   Data: 18 agosto 2026
+   Fonte: https://x.com/SpaceX/status/2089685256085344560
+   Media: https://pbs.twimg.com/media/HQANdejXcAELpWX.jpg
+
+3. s40-christmas-3.jpg
+   Autore: SpaceX
+   Data: 18 agosto 2026
+   Fonte: https://x.com/SpaceX/status/2089685256085344560
+   Media: https://pbs.twimg.com/media/HQANfRpWoAEVbL-.jpg
+
+4. s40-christmas-arrive.mp4 (in sezioni/assets/lancio13)
+   Autore: SpaceX
+   Data: 18 agosto 2026
+   Fonte: https://x.com/SpaceX/status/2089685256085344560
+   Media: amplify_video 2089684968368721920 (1280x720)
+   Durata: ~57 s
