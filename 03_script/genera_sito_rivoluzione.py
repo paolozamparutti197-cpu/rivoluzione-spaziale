@@ -169,8 +169,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_allhands_agosto_2026.html",
         "image": "../documenti%20per%20sito/assets_earnings/starship_ignition.jpg",
         "image_alt": "Starship all'accensione, archivio fotografico del sito",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
