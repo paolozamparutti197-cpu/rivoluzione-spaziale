@@ -1,0 +1,42 @@
+Crediti immagini e video — breaking news Starbase Louisiana
+===========================================================
+
+Video (account ufficiale SpaceX su X, 25 agosto 2026)
+------------------------------------------------------
+1. starbase-la-intro.mp4
+   Autore: SpaceX
+   Data: 25 agosto 2026
+   Fonte: https://x.com/SpaceX/status/2092284173730144732
+   Media: amplify_video 2092279198882914304 (1280x720)
+   Durata: 5:48
+   Nota: filmato ufficiale di presentazione del sito (Pecan Island / Vermilion Parish).
+   Uso sul sito: documentazione editoriale non commerciale, con attribuzione e link alla fonte.
+
+2. starbase-la-cadence.mp4
+   Autore: SpaceX
+   Data: 25 agosto 2026
+   Fonte: https://x.com/SpaceX/status/2092294188494938547
+   Media: amplify_video 2092294010656460800 (2560x1440)
+   Durata: 0:49
+   Nota: rendering del spaceport a regime (complessi, torri, lancio sul Golfo).
+   Uso sul sito: come sopra.
+
+Fotogrammi estratti dai video SpaceX (25 agosto 2026)
+-----------------------------------------------------
+- render-costa.jpg          da starbase-la-cadence.mp4, t~14s
+- render-torri.jpg          da starbase-la-cadence.mp4, t~20s
+- render-lancio-golfo.jpg   da starbase-la-cadence.mp4, t~44s
+- costa-tramonto.jpg        da starbase-la-intro.mp4, t~40s
+- palude-orizzonte.jpg      da starbase-la-intro.mp4, t~58s
+- palude-dettaglio.jpg      da starbase-la-intro.mp4, t~75s
+- musk-elicottero.jpg       da starbase-la-intro.mp4, t~140s
+- peden-sito.jpg            da starbase-la-intro.mp4, t~190s
+- musk-campo.jpg            da starbase-la-intro.mp4, t~240s
+
+Immagini Landsat (riuso dal dossier Pecan Island del 3 agosto)
+--------------------------------------------------------------
+Fonte: NASA Scientific Visualization Studio, item 11042
+"Vermilion Parish, LA" (23 luglio 2012; Landsat NASA/USGS).
+https://svs.gsfc.nasa.gov/11042/
+Credito: NASA/Goddard Space Flight Center. Landsat e' un programma congiunto NASA e USGS.
+File in ../assets_louisiana/ (public domain / uso governativo USA).

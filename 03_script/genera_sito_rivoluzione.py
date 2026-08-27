@@ -16,7 +16,7 @@ SECTIONS_DIR = ROOT / "sezioni"
 CSS_DIR = ROOT / "css"
 
 HERO_IMAGE = "https://upload.wikimedia.org/wikipedia/commons/5/5d/Falcon_1_Flight_4_launch.jpg"
-CSS_VERSION = "20260812-spacex-hub"
+CSS_VERSION = "20260827-starbase-la"
 ROME_TZ = ZoneInfo("Europe/Rome")
 MONTHS_IT = {
     1: "gennaio",
@@ -130,7 +130,7 @@ UTILITY_SECTIONS = [
         "title": "Localita SpaceX",
         "slug": "localita-spacex",
         "status": "Attiva",
-        "copy": "Mappa delle principali localita SpaceX negli Stati Uniti, inclusa la proposta Louisiana.",
+        "copy": "Mappa delle principali localita SpaceX negli Stati Uniti, inclusa Starbase Louisiana annunciata e non ancora operativa.",
     },
     {
         "title": "Vedere un lancio da SLC-40",
@@ -157,6 +157,23 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-08-25",
+        "date_label": "25 agosto 2026",
+        "tag": "SpaceX · Louisiana",
+        "title": "Starbase Louisiana: SpaceX annuncia il spaceport da 100 miliardi",
+        "summary": (
+            "Vermilion Parish, 125.000 acri, cinque complessi e dieci pad Starship. "
+            "Costruzione 2027, primo lancio 2029. Musk su X: oltre una dozzina di torri, "
+            "piu di 30 voli al giorno. Aggiornato al 27 agosto."
+        ),
+        "href": "../documenti%20per%20sito/spacex_starbase_louisiana.html",
+        "image": "../documenti%20per%20sito/assets_starbase_la/render-costa.jpg",
+        "image_alt": "Rendering ufficiale SpaceX di Starbase Louisiana lungo la costa del Golfo",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-08-18",
         "date_label": "18 agosto 2026",
         "tag": "SpaceX · Starship",
@@ -169,8 +186,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_s40_christmas_island.html",
         "image": "../documenti%20per%20sito/assets_s40/s40-christmas-1.jpg",
         "image_alt": "Ship 40 al largo di Christmas Island, foto ufficiale SpaceX del 18 agosto 2026",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
@@ -793,23 +810,23 @@ def spacex_locations_data():
         },
         {
             "id": "loc-louisiana",
-            "name": "SpaceX Louisiana",
+            "name": "Starbase Louisiana",
             "short": "Pecan Island / Freshwater City, Louisiana",
             "region": "Louisiana",
-            "status": "Proposta / ipotesi",
-            "role": "Possibile futuro mega-sito Starship",
+            "status": "Annunciata, non operativa",
+            "role": "Secondo Starbase / mega-sito Starship",
             "lat": 29.580,
             "lng": -92.450,
             "address": "Zona costiera a sud della LA-82, Vermilion Parish",
             "coords": "29.580 N, 92.450 W, punto rappresentativo",
-            "summary": "Ipotesi di acquisizione, non struttura SpaceX attiva.",
+            "summary": "Annunciata il 25 agosto 2026: ~125.000 acri, costruzione 2027, primo lancio 2029.",
             "details": [
-                "Area indicativa di circa 136.000 acri di marshland costiera.",
-                "Le note locali parlano di negoziati o interesse per espansione Starship, senza sito operativo avviato.",
-                "Nessuna costruzione, licenza FAA o pad operativo e indicato nel file sorgente.",
-                "La mappa mostra anche un poligono approssimativo per ricordare che il punto non e una localita puntuale.",
+                "SpaceX e lo Stato della Louisiana hanno annunciato Starbase Louisiana il 25 agosto 2026.",
+                "Circa 125.000 acri di palude costiera; cinque complessi da due pad, spaceport autosufficiente.",
+                "Cantiere dichiarato nel 2027, primo Starship nel 2029. Nessun pad operativo oggi.",
+                "La mappa mostra un poligono approssimativo: il punto non e una localita puntuale.",
             ],
-            "source_note": "Ipotesi riportata nel file locale con fonti giornalistiche e dichiarazioni locali citate.",
+            "source_note": "Annuncio SpaceX / LED del 25 agosto 2026; perimetro ancora indicativo.",
             "proposed": True,
             "polygon": [
                 [29.632, -92.525],
@@ -2110,7 +2127,7 @@ function renderLocationSideList() {
   if (!list) return;
   list.innerHTML = '';
   spacexLocations
-    .filter((item) => activeLocationFilter === 'Tutti' || item.region === activeLocationFilter || (activeLocationFilter === 'Proposta' && item.proposed))
+    .filter((item) => activeLocationFilter === 'Tutti' || item.region === activeLocationFilter || (activeLocationFilter === 'Annunciata' && item.proposed))
     .forEach((item) => {
       const button = document.createElement('button');
       button.type = 'button';
@@ -2144,12 +2161,12 @@ function filterLocations(region) {
   spacexLocations.forEach((item) => {
     const marker = locationMarkers[item.id];
     if (!marker) return;
-    const visible = region === 'Tutti' || item.region === region || (region === 'Proposta' && item.proposed);
+    const visible = region === 'Tutti' || item.region === region || (region === 'Annunciata' && item.proposed);
     if (visible && !locationMap.hasLayer(marker)) marker.addTo(locationMap);
     if (!visible && locationMap.hasLayer(marker)) marker.remove();
   });
   if (locationPolygon) {
-    const showPolygon = region === 'Tutti' || region === 'Louisiana' || region === 'Proposta';
+    const showPolygon = region === 'Tutti' || region === 'Louisiana' || region === 'Annunciata';
     if (showPolygon && !locationMap.hasLayer(locationPolygon)) locationPolygon.addTo(locationMap);
     if (!showPolygon && locationMap.hasLayer(locationPolygon)) locationPolygon.remove();
   }
@@ -2198,12 +2215,12 @@ window.addEventListener('load', initLocationMap);
 </script>"""
     )
     body = f"""
-{page_hero("Localita SpaceX", "Mappa operativa", "Le principali localita SpaceX negli Stati Uniti: sedi, produzione, test, pad di lancio e l'ipotesi Louisiana non ancora attiva.")}
+{page_hero("Localita SpaceX", "Mappa operativa", "Le principali localita SpaceX negli Stati Uniti: sedi, produzione, test, pad di lancio e Starbase Louisiana, annunciata il 25 agosto 2026 e non ancora operativa.")}
 <section id="mappa-localita-spacex">
   <div class="inner">
     <div class="section-head">
       <h2>Mappa localita</h2>
-      <p>La logica e la navigazione riprendono la mappa dei pad: clicca un marker o una voce dell'elenco per aprire un dettaglio leggibile. La Louisiana e segnata come proposta, non come struttura operativa.</p>
+      <p>La logica e la navigazione riprendono la mappa dei pad: clicca un marker o una voce dell'elenco per aprire un dettaglio leggibile. Starbase Louisiana e segnata come annunciata, non come struttura operativa.</p>
     </div>
     <div class="pad-map-wrap">
       <aside class="pad-map-side">
@@ -2217,7 +2234,7 @@ window.addEventListener('load', initLocationMap);
           <button class="pad-filter" type="button" data-region="California">California</button>
           <button class="pad-filter" type="button" data-region="Texas">Texas</button>
           <button class="pad-filter" type="button" data-region="Florida">Florida</button>
-          <button class="pad-filter" type="button" data-region="Proposta">Proposta</button>
+          <button class="pad-filter" type="button" data-region="Annunciata">Annunciata</button>
         </div>
         <div id="location-side-list" class="pad-side-list"></div>
       </aside>
@@ -2229,10 +2246,10 @@ window.addEventListener('load', initLocationMap);
   <div class="inner">
     <div class="section-head">
       <h2>Note dati</h2>
-      <p>Le coordinate sono pubbliche o rappresentative per aree estese. La localita Louisiana e deliberatamente trattata come scenario futuro/ipotetico.</p>
+      <p>Le coordinate sono pubbliche o rappresentative per aree estese. Starbase Louisiana e trattata come sito annunciato, non come pad operativo.</p>
     </div>
     <div class="source-panel">
-      <p>Dataset derivato dal file locale <strong>00_documentazione/fonti_html/mappa_spacex_xai_usa.html</strong>, filtrando le sole localita SpaceX e mantenendo la proposta Louisiana.</p>
+      <p>Dataset derivato dal file locale <strong>00_documentazione/fonti_html/mappa_spacex_xai_usa.html</strong>, filtrando le sole localita SpaceX e aggiornando Starbase Louisiana all'annuncio del 25 agosto 2026.</p>
       <ul>{source_rows}</ul>
     </div>
   </div>

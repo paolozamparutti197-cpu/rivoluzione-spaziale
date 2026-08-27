@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Localita SpaceX | Rivoluzione Spaziale</title>
-<link rel="stylesheet" href="../css/style.css?v=20260812-spacex-hub">
+<link rel="stylesheet" href="../css/style.css?v=20260827-starbase-la">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 </head>
 
@@ -29,7 +29,7 @@
   <div class="inner">
     <p class="eyebrow">Mappa operativa</p>
     <h1>Localita SpaceX</h1>
-    <p class="subtitle">Le principali localita SpaceX negli Stati Uniti: sedi, produzione, test, pad di lancio e l&#x27;ipotesi Louisiana non ancora attiva.</p>
+    <p class="subtitle">Le principali localita SpaceX negli Stati Uniti: sedi, produzione, test, pad di lancio e Starbase Louisiana, annunciata il 25 agosto 2026 e non ancora operativa.</p>
 
   </div>
 </section>
@@ -38,7 +38,7 @@
   <div class="inner">
     <div class="section-head">
       <h2>Mappa localita</h2>
-      <p>La logica e la navigazione riprendono la mappa dei pad: clicca un marker o una voce dell'elenco per aprire un dettaglio leggibile. La Louisiana e segnata come proposta, non come struttura operativa.</p>
+      <p>La logica e la navigazione riprendono la mappa dei pad: clicca un marker o una voce dell'elenco per aprire un dettaglio leggibile. Starbase Louisiana e segnata come annunciata, non come struttura operativa.</p>
     </div>
     <div class="pad-map-wrap">
       <aside class="pad-map-side">
@@ -52,7 +52,7 @@
           <button class="pad-filter" type="button" data-region="California">California</button>
           <button class="pad-filter" type="button" data-region="Texas">Texas</button>
           <button class="pad-filter" type="button" data-region="Florida">Florida</button>
-          <button class="pad-filter" type="button" data-region="Proposta">Proposta</button>
+          <button class="pad-filter" type="button" data-region="Annunciata">Annunciata</button>
         </div>
         <div id="location-side-list" class="pad-side-list"></div>
       </aside>
@@ -64,10 +64,10 @@
   <div class="inner">
     <div class="section-head">
       <h2>Note dati</h2>
-      <p>Le coordinate sono pubbliche o rappresentative per aree estese. La localita Louisiana e deliberatamente trattata come scenario futuro/ipotetico.</p>
+      <p>Le coordinate sono pubbliche o rappresentative per aree estese. Starbase Louisiana e trattata come sito annunciato, non come pad operativo.</p>
     </div>
     <div class="source-panel">
-      <p>Dataset derivato dal file locale <strong>00_documentazione/fonti_html/mappa_spacex_xai_usa.html</strong>, filtrando le sole localita SpaceX e mantenendo la proposta Louisiana.</p>
+      <p>Dataset derivato dal file locale <strong>00_documentazione/fonti_html/mappa_spacex_xai_usa.html</strong>, filtrando le sole localita SpaceX e aggiornando Starbase Louisiana all'annuncio del 25 agosto 2026.</p>
       <ul><li>SpaceX Hawthorne: Punto e descrizione ripresi dal file mappa locale originario.</li>
 <li>SpaceX Starlink Redmond: Punto rappresentativo e note dal file mappa locale originario.</li>
 <li>SpaceX Vandenberg SLC-4E: Coordinate e descrizione dalla mappa locale, coerenti con la pagina pad.</li>
@@ -75,7 +75,7 @@
 <li>SpaceX Starbase: Punto rappresentativo dal file mappa locale originario.</li>
 <li>SpaceX LC-39A: Coordinate e testo sintetico dal file mappa locale originario.</li>
 <li>SpaceX SLC-40: Coordinate e sintesi dal file mappa locale originario.</li>
-<li>SpaceX Louisiana: Ipotesi riportata nel file locale con fonti giornalistiche e dichiarazioni locali citate.</li></ul>
+<li>Starbase Louisiana: Annuncio SpaceX / LED del 25 agosto 2026; perimetro ancora indicativo.</li></ul>
     </div>
   </div>
 </section>
@@ -86,7 +86,7 @@
 </footer>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-const spacexLocations = [{"id":"loc-hawthorne","name":"SpaceX Hawthorne","short":"Hawthorne, California","region":"California","status":"Operativa","role":"Sede storica e produzione","lat":33.9199,"lng":-118.3275,"address":"1 Rocket Road, Hawthorne, CA 90250","coords":"33.9199 N, 118.3275 W","summary":"Sede storica e principale stabilimento ingegneristico-produttivo di SpaceX.","details":["Qui sono stati progettati e costruiti Falcon 9, Falcon Heavy e Dragon.","Resta un nodo tecnico e produttivo centrale anche dopo gli annunci di trasferimento operativo in Texas.","Il marker rappresenta il complesso di Rocket Road."],"source_note":"Punto e descrizione ripresi dal file mappa locale originario."},{"id":"loc-redmond","name":"SpaceX Starlink Redmond","short":"Redmond, Washington","region":"Washington","status":"Operativa","role":"Produzione satelliti Starlink","lat":47.6939,"lng":-122.0336,"address":"Redmond, Washington, area Seattle","coords":"47.6939 N, 122.0336 W","summary":"Stabilimento dedicato alla produzione in serie dei satelliti Starlink.","details":["La struttura sostiene il rapido dispiegamento della costellazione Starlink.","Il punto e rappresentativo dell'area industriale Redmond usata per Starlink.","La mappa locale indicava una media 2026 di circa 70 satelliti prodotti a settimana."],"source_note":"Punto rappresentativo e note dal file mappa locale originario."},{"id":"loc-vandenberg","name":"SpaceX Vandenberg SLC-4E","short":"Vandenberg SFB, California","region":"California","status":"Operativa","role":"Lanci costa ovest","lat":34.632,"lng":-120.6106,"address":"Space Launch Complex 4 East, Vandenberg Space Force Base, CA","coords":"34.6320 N, 120.6106 W","summary":"Pad Falcon 9 per orbite polari, SSO e missioni dalla costa ovest.","details":["Usato per missioni Starlink ad alta inclinazione e payload governativi.","Lavora con LZ-4 per i ritorni a terra quando il profilo missione lo consente.","E il riferimento operativo SpaceX principale sulla West Coast."],"source_note":"Coordinate e descrizione dalla mappa locale, coerenti con la pagina pad."},{"id":"loc-mcgregor","name":"SpaceX McGregor Test Facility","short":"McGregor, Texas","region":"Texas","status":"Operativa","role":"Test motori e stadi","lat":31.3916,"lng":-97.4574,"address":"McGregor Rocket Development and Test Facility, McGregor, TX","coords":"31.3916 N, 97.4574 W","summary":"Complesso di prova per motori, propulsori e stadi prima del volo.","details":["Qui vengono collaudati motori Merlin e Raptor.","La struttura ospita prove statiche e test di qualifica di componenti critici.","Il punto indica l'area rappresentativa del grande sito di test."],"source_note":"Punto e sintesi derivati dal file mappa locale originario."},{"id":"loc-starbase","name":"SpaceX Starbase","short":"Starbase, Texas","region":"Texas","status":"Operativa / in espansione","role":"Sviluppo, produzione e lancio Starship","lat":25.997,"lng":-97.157,"address":"Boca Chica Blvd, Starbase, Brownsville, TX 78521","coords":"25.9970 N, 97.1570 W","summary":"Sito integrato di sviluppo, produzione e lancio orbitale Starship.","details":["Comprende fabbriche, pad orbitali, aree di test e infrastrutture di controllo.","E il centro piu visibile della transizione SpaceX verso Starship.","Il marker e un punto rappresentativo dell'area Starbase/Boca Chica."],"source_note":"Punto rappresentativo dal file mappa locale originario."},{"id":"loc-lc39a","name":"SpaceX LC-39A","short":"Kennedy Space Center, Florida","region":"Florida","status":"Operativa","role":"Crew Dragon, Falcon Heavy, missioni speciali","lat":28.6084,"lng":-80.6043,"address":"Launch Complex 39A, Kennedy Space Center, Merritt Island, FL","coords":"28.6084 N, 80.6043 W","summary":"Pad storico Apollo/Shuttle gestito da SpaceX per missioni ad alta complessita.","details":["Usato per Crew Dragon, Falcon Heavy e missioni commerciali o scientifiche speciali.","Resta uno dei pad piu iconici e strategici della Space Coast.","La pagina pad contiene la cronologia infrastrutturale completa."],"source_note":"Coordinate e testo sintetico dal file mappa locale originario."},{"id":"loc-slc40","name":"SpaceX SLC-40","short":"Cape Canaveral SFS, Florida","region":"Florida","status":"Operativa","role":"Workhorse Falcon 9","lat":28.5619,"lng":-80.5772,"address":"Space Launch Complex 40, Cape Canaveral Space Force Station, FL","coords":"28.5619 N, 80.5772 W","summary":"Pad Falcon 9 ad altissima cadenza sulla costa est.","details":["Supporta gran parte dei lanci Starlink, CRS e payload commerciali.","La torre Dragon ha aumentato la ridondanza rispetto a LC-39A.","E il sito operativo piu regolare nella macchina Falcon 9."],"source_note":"Coordinate e sintesi dal file mappa locale originario."},{"id":"loc-louisiana","name":"SpaceX Louisiana","short":"Pecan Island / Freshwater City, Louisiana","region":"Louisiana","status":"Proposta / ipotesi","role":"Possibile futuro mega-sito Starship","lat":29.58,"lng":-92.45,"address":"Zona costiera a sud della LA-82, Vermilion Parish","coords":"29.580 N, 92.450 W, punto rappresentativo","summary":"Ipotesi di acquisizione, non struttura SpaceX attiva.","details":["Area indicativa di circa 136.000 acri di marshland costiera.","Le note locali parlano di negoziati o interesse per espansione Starship, senza sito operativo avviato.","Nessuna costruzione, licenza FAA o pad operativo e indicato nel file sorgente.","La mappa mostra anche un poligono approssimativo per ricordare che il punto non e una localita puntuale."],"source_note":"Ipotesi riportata nel file locale con fonti giornalistiche e dichiarazioni locali citate.","proposed":true,"polygon":[[29.632,-92.525],[29.632,-92.365],[29.385,-92.365],[29.385,-92.525]]}];
+const spacexLocations = [{"id":"loc-hawthorne","name":"SpaceX Hawthorne","short":"Hawthorne, California","region":"California","status":"Operativa","role":"Sede storica e produzione","lat":33.9199,"lng":-118.3275,"address":"1 Rocket Road, Hawthorne, CA 90250","coords":"33.9199 N, 118.3275 W","summary":"Sede storica e principale stabilimento ingegneristico-produttivo di SpaceX.","details":["Qui sono stati progettati e costruiti Falcon 9, Falcon Heavy e Dragon.","Resta un nodo tecnico e produttivo centrale anche dopo gli annunci di trasferimento operativo in Texas.","Il marker rappresenta il complesso di Rocket Road."],"source_note":"Punto e descrizione ripresi dal file mappa locale originario."},{"id":"loc-redmond","name":"SpaceX Starlink Redmond","short":"Redmond, Washington","region":"Washington","status":"Operativa","role":"Produzione satelliti Starlink","lat":47.6939,"lng":-122.0336,"address":"Redmond, Washington, area Seattle","coords":"47.6939 N, 122.0336 W","summary":"Stabilimento dedicato alla produzione in serie dei satelliti Starlink.","details":["La struttura sostiene il rapido dispiegamento della costellazione Starlink.","Il punto e rappresentativo dell'area industriale Redmond usata per Starlink.","La mappa locale indicava una media 2026 di circa 70 satelliti prodotti a settimana."],"source_note":"Punto rappresentativo e note dal file mappa locale originario."},{"id":"loc-vandenberg","name":"SpaceX Vandenberg SLC-4E","short":"Vandenberg SFB, California","region":"California","status":"Operativa","role":"Lanci costa ovest","lat":34.632,"lng":-120.6106,"address":"Space Launch Complex 4 East, Vandenberg Space Force Base, CA","coords":"34.6320 N, 120.6106 W","summary":"Pad Falcon 9 per orbite polari, SSO e missioni dalla costa ovest.","details":["Usato per missioni Starlink ad alta inclinazione e payload governativi.","Lavora con LZ-4 per i ritorni a terra quando il profilo missione lo consente.","E il riferimento operativo SpaceX principale sulla West Coast."],"source_note":"Coordinate e descrizione dalla mappa locale, coerenti con la pagina pad."},{"id":"loc-mcgregor","name":"SpaceX McGregor Test Facility","short":"McGregor, Texas","region":"Texas","status":"Operativa","role":"Test motori e stadi","lat":31.3916,"lng":-97.4574,"address":"McGregor Rocket Development and Test Facility, McGregor, TX","coords":"31.3916 N, 97.4574 W","summary":"Complesso di prova per motori, propulsori e stadi prima del volo.","details":["Qui vengono collaudati motori Merlin e Raptor.","La struttura ospita prove statiche e test di qualifica di componenti critici.","Il punto indica l'area rappresentativa del grande sito di test."],"source_note":"Punto e sintesi derivati dal file mappa locale originario."},{"id":"loc-starbase","name":"SpaceX Starbase","short":"Starbase, Texas","region":"Texas","status":"Operativa / in espansione","role":"Sviluppo, produzione e lancio Starship","lat":25.997,"lng":-97.157,"address":"Boca Chica Blvd, Starbase, Brownsville, TX 78521","coords":"25.9970 N, 97.1570 W","summary":"Sito integrato di sviluppo, produzione e lancio orbitale Starship.","details":["Comprende fabbriche, pad orbitali, aree di test e infrastrutture di controllo.","E il centro piu visibile della transizione SpaceX verso Starship.","Il marker e un punto rappresentativo dell'area Starbase/Boca Chica."],"source_note":"Punto rappresentativo dal file mappa locale originario."},{"id":"loc-lc39a","name":"SpaceX LC-39A","short":"Kennedy Space Center, Florida","region":"Florida","status":"Operativa","role":"Crew Dragon, Falcon Heavy, missioni speciali","lat":28.6084,"lng":-80.6043,"address":"Launch Complex 39A, Kennedy Space Center, Merritt Island, FL","coords":"28.6084 N, 80.6043 W","summary":"Pad storico Apollo/Shuttle gestito da SpaceX per missioni ad alta complessita.","details":["Usato per Crew Dragon, Falcon Heavy e missioni commerciali o scientifiche speciali.","Resta uno dei pad piu iconici e strategici della Space Coast.","La pagina pad contiene la cronologia infrastrutturale completa."],"source_note":"Coordinate e testo sintetico dal file mappa locale originario."},{"id":"loc-slc40","name":"SpaceX SLC-40","short":"Cape Canaveral SFS, Florida","region":"Florida","status":"Operativa","role":"Workhorse Falcon 9","lat":28.5619,"lng":-80.5772,"address":"Space Launch Complex 40, Cape Canaveral Space Force Station, FL","coords":"28.5619 N, 80.5772 W","summary":"Pad Falcon 9 ad altissima cadenza sulla costa est.","details":["Supporta gran parte dei lanci Starlink, CRS e payload commerciali.","La torre Dragon ha aumentato la ridondanza rispetto a LC-39A.","E il sito operativo piu regolare nella macchina Falcon 9."],"source_note":"Coordinate e sintesi dal file mappa locale originario."},{"id":"loc-louisiana","name":"Starbase Louisiana","short":"Pecan Island / Freshwater City, Louisiana","region":"Louisiana","status":"Annunciata, non operativa","role":"Secondo Starbase / mega-sito Starship","lat":29.58,"lng":-92.45,"address":"Zona costiera a sud della LA-82, Vermilion Parish","coords":"29.580 N, 92.450 W, punto rappresentativo","summary":"Annunciata il 25 agosto 2026: ~125.000 acri, costruzione 2027, primo lancio 2029.","details":["SpaceX e lo Stato della Louisiana hanno annunciato Starbase Louisiana il 25 agosto 2026.","Circa 125.000 acri di palude costiera; cinque complessi da due pad, spaceport autosufficiente.","Cantiere dichiarato nel 2027, primo Starship nel 2029. Nessun pad operativo oggi.","La mappa mostra un poligono approssimativo: il punto non e una localita puntuale."],"source_note":"Annuncio SpaceX / LED del 25 agosto 2026; perimetro ancora indicativo.","proposed":true,"polygon":[[29.632,-92.525],[29.632,-92.365],[29.385,-92.365],[29.385,-92.525]]}];
 let locationMap;
 let locationMarkers = {};
 let locationPolygon;
@@ -154,7 +154,7 @@ function renderLocationSideList() {
   if (!list) return;
   list.innerHTML = '';
   spacexLocations
-    .filter((item) => activeLocationFilter === 'Tutti' || item.region === activeLocationFilter || (activeLocationFilter === 'Proposta' && item.proposed))
+    .filter((item) => activeLocationFilter === 'Tutti' || item.region === activeLocationFilter || (activeLocationFilter === 'Annunciata' && item.proposed))
     .forEach((item) => {
       const button = document.createElement('button');
       button.type = 'button';
@@ -188,12 +188,12 @@ function filterLocations(region) {
   spacexLocations.forEach((item) => {
     const marker = locationMarkers[item.id];
     if (!marker) return;
-    const visible = region === 'Tutti' || item.region === region || (region === 'Proposta' && item.proposed);
+    const visible = region === 'Tutti' || item.region === region || (region === 'Annunciata' && item.proposed);
     if (visible && !locationMap.hasLayer(marker)) marker.addTo(locationMap);
     if (!visible && locationMap.hasLayer(marker)) marker.remove();
   });
   if (locationPolygon) {
-    const showPolygon = region === 'Tutti' || region === 'Louisiana' || region === 'Proposta';
+    const showPolygon = region === 'Tutti' || region === 'Louisiana' || region === 'Annunciata';
     if (showPolygon && !locationMap.hasLayer(locationPolygon)) locationPolygon.addTo(locationMap);
     if (!showPolygon && locationMap.hasLayer(locationPolygon)) locationPolygon.remove();
   }

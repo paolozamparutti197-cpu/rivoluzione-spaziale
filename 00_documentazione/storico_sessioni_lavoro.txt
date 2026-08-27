@@ -433,3 +433,13 @@ Sessione 19/06/2026 - riordino generale directory e memoria operativa
 - Home: teaser Ultime notizie + link archivio; CSS v=20260805-notizie.
 - Aggiornati banner/meta del dossier Louisiana, README.md, procedure_aggiornamento.txt.
 - Rigenerato sito (anche cruscotto Falcon a 690 lanci / 17-53).
+
+27/08/2026 - Breaking news Starbase Louisiana (annuncio 25/08)
+- Controllato GitHub Pages: breaking su sezioni/spacex.html era Ship 40 a Christmas Island (18/08), gia presente in Notizie.
+- Ship 40 archiviata (breaking=False, badge Dossier archiviato). Resta in sezioni/notizie.html.
+- Nuovo dossier documenti per sito/spacex_starbase_louisiana.html: annuncio ufficiale 25 agosto, aggiornato al 27.
+- Fonti: SpaceX su X (status 2092284173730144732 video 5:48; 2092294188494938547 video 0:49), Musk (2092292773915537580), spacex.com/sites/starbase-la, LED, Reuters, Ars, SpaceNews, NOLA, Axios.
+- Media locali: due video X + fotogrammi rendering/palude/Musk in documenti per sito/assets_starbase_la/.
+- SITE_NEWS: nuova voce 25/08 breaking=True company=spacex. Dossier Pecan Island 3/08 resta archiviato.
+- Localita SpaceX: da "proposta/ipotesi" a "annunciata, non operativa".
+- CSS v=20260827-starbase-la. Generatore: python 03_script/genera_sito_rivoluzione.py.

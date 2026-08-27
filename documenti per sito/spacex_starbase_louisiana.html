@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="25 agosto 2026: SpaceX e la Louisiana annunciano Starbase Louisiana a Pecan Island. 100 miliardi, cinque complessi Starship, costruzione 2027, primo lancio 2029. Dossier aggiornato al 27 agosto.">
+<title>Starbase Louisiana: SpaceX annuncia il spaceport da 100 miliardi | Rivoluzione Spaziale</title>
+<style>
+:root{
+  --bg:#050607;
+  --ink:#f4f6f8;
+  --muted:#a9b0b7;
+  --line:rgba(255,255,255,.16);
+  --soft:rgba(255,255,255,.075);
+  --cyan:#67c7ff;
+  --amber:#f5b941;
+  --red:#e95f45;
+  --green:#79d18b;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;letter-spacing:0}
+a{color:var(--cyan);text-decoration:none}
+a:hover{text-decoration:underline}
+.topbar{position:fixed;inset:0 0 auto 0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:18px clamp(18px,4vw,56px);background:linear-gradient(180deg,rgba(0,0,0,.92),rgba(0,0,0,.54),rgba(0,0,0,0))}
+.brand{font-weight:900;letter-spacing:.16em;text-transform:uppercase;font-size:15px;color:#fff}
+.brand span{color:var(--cyan)}
+.nav{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end;font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:800}
+.nav a{color:#fff}
+.hero{min-height:86vh;display:grid;align-items:end;padding:110px clamp(18px,4vw,56px) 50px;background:
+  linear-gradient(90deg,rgba(0,0,0,.9),rgba(0,0,0,.5) 48%,rgba(0,0,0,.2)),
+  linear-gradient(180deg,rgba(0,0,0,.08),rgba(5,6,7,.97) 92%),
+  url("assets_starbase_la/render-costa.jpg") center 42%/cover no-repeat}
+.hero-inner,.section-inner{max-width:1180px;margin:0 auto}
+.eyebrow{margin:0 0 14px;color:var(--amber);text-transform:uppercase;letter-spacing:.14em;font-size:13px;font-weight:900}
+h1{margin:0;max-width:1080px;font-size:clamp(34px,6.6vw,72px);line-height:.92;text-transform:uppercase;font-weight:950}
+h2{margin:0 0 24px;font-size:clamp(28px,4vw,48px);line-height:1;text-transform:uppercase}
+h3{margin:30px 0 12px;font-size:22px;line-height:1.15}
+p{color:#d9dde1;font-size:17px;line-height:1.72;margin:0 0 18px}
+.lead{max-width:960px;margin:24px 0 0;color:#e6ebef;font-size:clamp(17px,2vw,22px);line-height:1.48;font-weight:500}
+.meta{margin:18px 0 0;color:var(--muted);font-size:14px;letter-spacing:.04em}
+section{padding:76px clamp(18px,4vw,56px);border-top:1px solid var(--line)}
+.split{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(280px,.72fr);gap:42px;align-items:start}
+.panel{border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.045));border-radius:8px;padding:22px}
+.panel h3:first-child{margin-top:0}
+.panel p,.panel li{font-size:15px;color:#d6dbe0;line-height:1.62}
+.panel ul{margin:0;padding-left:18px}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:34px}
+.fact{border:1px solid var(--line);background:var(--soft);border-radius:8px;padding:18px;min-height:118px}
+.fact b{display:block;font-size:clamp(18px,2vw,24px);line-height:1.05;margin-bottom:10px}
+.fact span{display:block;color:var(--muted);line-height:1.42;font-size:14px}
+.figure{margin:28px 0;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#0a0f14}
+.figure img,.figure video{display:block;width:100%;max-height:560px;object-fit:cover;background:#000}
+.figure video{max-height:none;aspect-ratio:16/9;object-fit:contain}
+.figure figcaption{padding:12px 14px;color:var(--muted);font-size:13px;line-height:1.45}
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:28px 0}
+.gallery .figure{margin:0}
+.gallery-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:28px 0}
+.gallery-2 .figure{margin:0}
+.callout{border-left:4px solid var(--red);padding:16px 18px;background:rgba(233,95,69,.095);margin:26px 0}
+.callout.green{border-left-color:var(--green);background:rgba(121,209,139,.08)}
+.callout.amber{border-left-color:var(--amber);background:rgba(245,185,65,.09)}
+.callout.cyan{border-left-color:var(--cyan);background:rgba(103,199,255,.08)}
+.callout p{margin:0}
+.quote{border:1px solid rgba(105,200,255,.35);border-radius:8px;padding:18px 20px;background:linear-gradient(135deg,rgba(105,200,255,.12),rgba(255,255,255,.04));margin:22px 0}
+.quote p{margin:0;color:#e8f4fb;font-size:16px;line-height:1.55}
+.quote cite{display:block;margin-top:10px;color:var(--muted);font-size:13px;font-style:normal}
+.timeline{display:grid;gap:14px;margin-top:24px}
+.event{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;border-top:1px solid var(--line);padding-top:18px}
+.date{color:var(--amber);font-weight:900;text-transform:uppercase;letter-spacing:.08em;font-size:13px}
+.event h3{margin:0 0 6px}
+.event p{margin:0;color:#cfd5da}
+table{width:100%;border-collapse:collapse;margin:22px 0;font-size:15px}
+th,td{border-top:1px solid var(--line);padding:13px 10px;text-align:left;vertical-align:top;line-height:1.45}
+th{color:#fff;text-transform:uppercase;letter-spacing:.08em;font-size:12px}
+td{color:#d8dde2}
+.sources{columns:2 360px;column-gap:42px;padding-left:18px}
+.sources li{break-inside:avoid;color:#d9dde1;margin:0 0 12px;line-height:1.5;font-size:15px}
+.button{display:inline-flex;border:1px solid var(--line);padding:12px 16px;border-radius:4px;text-transform:uppercase;font-size:12px;letter-spacing:.09em;font-weight:900;background:rgba(0,0,0,.22);color:#fff;margin:8px 8px 0 0}
+.draft-banner{position:sticky;top:0;z-index:20;background:rgba(233,95,69,.16);border-bottom:1px solid rgba(233,95,69,.4);color:#ffd0c6;padding:10px clamp(18px,4vw,56px);font-size:13px;font-weight:700;letter-spacing:.04em}
+.footer-note{padding:34px clamp(18px,4vw,56px);border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+#la-map{height:520px;width:100%;border-radius:8px;border:1px solid var(--line);background:#0c1116;z-index:1}
+.map-shell{margin-top:26px}
+.map-note{margin-top:12px;color:var(--muted);font-size:14px;line-height:1.5}
+.leaflet-container{font:inherit;background:#0c1116}
+.leaflet-popup-content-wrapper{background:#121820;color:#e8eef2;border-radius:8px}
+.leaflet-popup-tip{background:#121820}
+.leaflet-popup-content p{margin:0 0 6px;font-size:13px;line-height:1.45;color:#d5dde3}
+.leaflet-popup-content strong{color:#fff}
+@media(max-width:900px){.topbar{position:absolute}.nav{display:none}.split,.facts,.gallery,.gallery-2{grid-template-columns:1fr}.event{grid-template-columns:1fr;gap:6px}}
+@media(max-width:520px){section{padding:54px 18px}.hero{padding:96px 18px 42px;min-height:74vh}h1{font-size:36px}#la-map{height:380px}}
+</style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+</head>
+<body>
+<div class="draft-banner">Breaking news · 25 agosto 2026 · aggiornato 27 agosto · annuncio ufficiale SpaceX e Stato della Louisiana. Lettura su fonti pubbliche, non comunicato IR.</div>
+<header class="topbar">
+  <a class="brand" href="../sezioni/spacex.html">Rivoluzione <span>Spaziale</span></a>
+  <nav class="nav" aria-label="Sezioni">
+    <a href="#oggi">Oggi</a>
+    <a href="#video">Video</a>
+    <a href="#sito">Il sito</a>
+    <a href="#perche">Perche qui</a>
+    <a href="#rete">Texas e Florida</a>
+    <a href="#soldi">Soldi e lavori</a>
+    <a href="#costa">Costa</a>
+    <a href="#cronologia">Cronologia</a>
+    <a href="#mappa">Mappa</a>
+    <a href="#fonti">Fonti</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" aria-label="Introduzione">
+    <div class="hero-inner">
+      <p class="eyebrow">Breaking · Louisiana · 25 agosto 2026</p>
+      <h1>Starbase Louisiana: il spaceport da cento miliardi</h1>
+      <p class="lead">Il 25 agosto SpaceX e il governatore Jeff Landry chiudono mesi di voci su Pecan Island. Cinque complessi, dieci pad Starship, un campus autosufficiente su palude costiera. Costruzione dal 2027, primo lancio nel 2029. Musk, su X, alza l'asticella: oltre una dozzina di torri e piu di trenta voli al giorno.</p>
+      <p class="meta">Dossier · non ufficiale · aggiornato al 27 agosto 2026 · fonti: SpaceX su X, pagina spacex.com/sites/starbase-la, LED, conferenza di Abbeville, cronache 25-26 agosto</p>
+    </div>
+  </section>
+
+  <section id="oggi">
+    <div class="section-inner">
+      <div class="split">
+        <article>
+          <h2>Il bollettino di queste ore</h2>
+          <p>Il 25 agosto 2026, nel primo pomeriggio UTC, l'account ufficiale SpaceX pubblica un filmato di cinque minuti e quarantotto secondi e una riga secca: &ldquo;Introducing Starbase, Louisiana&rdquo;. Non e' un rumor da realtor, non e' una trattativa &ldquo;in fasi finali&rdquo; da giornale locale. E' l'annuncio congiunto con lo Stato. Gwynne Shotwell e in sala ad Abbeville, capoluogo del Vermilion Parish, con il governatore Jeff Landry. Elon Musk non e' sul palco: parla da un video registrato sul sito, poi commenta su X il post aziendale.</p>
+          <p>Nelle quarantott'ore successive il quadro si e' riempito, non ribaltato. Louisiana Economic Development mette in pagina l'investimento da 100 miliardi di dollari, 3.000 posti diretti in dieci anni, 8.100 indiretti, salario medio 92.600 dollari. SpaceX pubblica la pagina <em>Starbase, LA</em>: spaceport autosufficiente, produzione di propellente, generazione elettrica, shipping in acque profonde, processing dei veicoli, &ldquo;probably an airport&rdquo;. Reuters, Ars Technica, SpaceNews, CNN, Axios New Orleans e la Times-Picayune chiudono il cerchio su cifre, perimetro e timeline. Il 26 e il 27 agosto non arriva un secondo annuncio: arriva il lavoro di spiegazione. Quello che era un deal costiero da dossier di inizio agosto e' adesso un progetto nominato, datato e firmato in pubblico.</p>
+          <p>Il sito e' lo stesso di cui questo portale scriveva il 3 agosto, quando l'accordo era ancora &ldquo;in fasi finali&rdquo;: palude a sud della LA 82, Pecan Island / Freshwater City, Vermilion Parish, terreno uscito dal settlement costiero con ExxonMobil. Allora mancavano il nome, i pad, i soldi e la data di primo lancio. Oggi ci sono. Manca ancora, e va detto subito, il cantiere. Non c'e' una torre in palude. Non c'e' una licenza FAA di lancio. Non c'e' un Starship pronto a decollare dalla Louisiana nel 2026. C'e' un impegno industriale e politico, e una geografia che da mesi era l'unica candidata credibile per un secondo Starbase.</p>
+          <p>Questa pagina fissa il passaggio. Da trattativa a progetto dichiarato. Da &ldquo;Pecan Island&rdquo; a &ldquo;Starbase, Louisiana&rdquo;. I numeri che seguono sono quelli messi in pagina da SpaceX, dallo Stato e da Musk tra il 25 e il 27 agosto. Dove divergono, lo si vede. Dove restano ipotesi di cadenza o di impatto ambientale, e' scritto come tale.</p>
+        </article>
+        <aside class="panel">
+          <h3>In sintesi</h3>
+          <ul>
+            <li><strong>Dove:</strong> palude costiera a sud di Pecan Island, Vermilion Parish. Circa 125.000 acri (~506 km²).</li>
+            <li><strong>Cosa:</strong> secondo campus Starbase, quarto sito di lancio USA, il piu grande.</li>
+            <li><strong>Pad:</strong> cinque complessi, due pad ciascuno, farm di propellente per complesso.</li>
+            <li><strong>Musk su X:</strong> oltre una dozzina di torri, piu di 30 voli Starship al giorno a regime.</li>
+            <li><strong>Soldi:</strong> almeno 100 miliardi di investimento dichiarato.</li>
+            <li><strong>Tempi:</strong> cantiere 2027; primo lancio SpaceX 2029; LED parla di operazioni iniziali verso il 2030.</li>
+            <li><strong>Non ancora:</strong> cantiere aperto, EIS federale chiuso, veicolo in volo da qui.</li>
+          </ul>
+          <a class="button" href="spacex_louisiana_pecan_island.html">Dossier 3 agosto (trattativa)</a>
+          <a class="button" href="../sezioni/localita-spacex.html">Mappa localita</a>
+        </aside>
+      </div>
+      <div class="facts">
+        <div class="fact"><b>125k acri</b><span>~506 km² di palude costiera. Non e' tutto cemento: SpaceX dice che gran parte resta habitat.</span></div>
+        <div class="fact"><b>10 pad</b><span>cinque complessi da due rampe. Musk alza a &ldquo;over a dozen&rdquo; torri a regime.</span></div>
+        <div class="fact"><b>$100 mld</b><span>impegno di capitale dichiarato da SpaceX e LED. Non e' il prezzo del terreno.</span></div>
+        <div class="fact"><b>2027 → 2029</b><span>cantiere il prossimo anno; primo Starship dalla Louisiana nel 2029, se la macchina tiene.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="video">
+    <div class="section-inner">
+      <h2>I due video di martedi, da X</h2>
+      <p>Il documento primario non e' un PDF. Sono due post SpaceX, a mezz'ora di distanza, entrambi con video. Il primo e' il filmato di presentazione: costa, palude, elicottero giallo, Musk sul sito, Bobby Peden (VP Starbase Test and Launch), Sheila McCorkle (VP Starship Legal &amp; Regulatory). Il secondo e' un rendering di 49 secondi: la stessa costa, ma gia piena di torri, pad, fumo e un peschereccio in silhouette mentre uno Starship sale. Qui sotto stanno le copie locali. I post originali restano la fonte.</p>
+
+      <figure class="figure">
+        <video controls playsinline preload="metadata" poster="assets_starbase_la/costa-tramonto.jpg">
+          <source src="assets_starbase_la/starbase-la-intro.mp4" type="video/mp4">
+          Il tuo browser non riproduce video HTML5. <a href="assets_starbase_la/starbase-la-intro.mp4">Scarica il video</a>
+        </video>
+        <figcaption>Filmato ufficiale SpaceX, 5 minuti e 48 secondi. Post <a href="https://x.com/SpaceX/status/2092284173730144732" target="_blank" rel="noopener">@SpaceX, 25 agosto 2026, 16:13 UTC</a>.</figcaption>
+      </figure>
+
+      <div class="quote">
+        <p>&ldquo;Introducing Starbase, Louisiana – a high-cadence launch site that will enable Starship to open a pathway to the stars for humanity. Thank you to @LAGovJeffLandry and the great people of Louisiana for all of their support as we work together on this audacious project.&rdquo;</p>
+        <cite>SpaceX · X · 25 agosto 2026</cite>
+      </div>
+
+      <figure class="figure">
+        <video controls playsinline preload="metadata" poster="assets_starbase_la/render-costa.jpg">
+          <source src="assets_starbase_la/starbase-la-cadence.mp4" type="video/mp4">
+          Il tuo browser non riproduce video HTML5. <a href="assets_starbase_la/starbase-la-cadence.mp4">Scarica il video</a>
+        </video>
+        <figcaption>Rendering a regime, 49 secondi. Post <a href="https://x.com/SpaceX/status/2092294188494938547" target="_blank" rel="noopener">@SpaceX, 25 agosto 2026, 16:53 UTC</a>.</figcaption>
+      </figure>
+
+      <p>Musk quota il primo post e scrive la frase che ha fatto il giro delle cronache. Non e' nel comunicato LED. Non e' nella pagina SpaceX, che resta sul linguaggio &ldquo;thousands of Starship flights a year&rdquo;. E' lui, in pubblico, a fissare la scala massima.</p>
+      <div class="quote">
+        <p>&ldquo;Starbase Louisiana will ultimately have over a dozen launch towers, enabling more than 30 Starship flights per day and making it the biggest launch site on Earth! SpaceX makes sci-fi real.&rdquo;</p>
+        <cite>Elon Musk · X · 25 agosto 2026, 16:47 UTC</cite>
+      </div>
+      <p>Trenta voli al giorno, se si prende alla lettera, sono oltre diecimila l'anno. E' lo stesso ordine di grandezza che Musk ha usato in altre sedi per il 2030. E' anche un numero che oggi non ha un veicolo, un ciclo di rifornimento e una licenza in grado di sostenerlo. Nel corpo di questa pagina resta cio' che e' stato detto. In fondo, tra le fonti, sta il distinguo: dichiarazione di regime, non calendario 2029.</p>
+
+      <div class="gallery-2">
+        <figure class="figure">
+          <img src="assets_starbase_la/musk-elicottero.jpg" alt="Elon Musk e il team SpaceX atterrati in elicottero sul sito di Pecan Island" loading="lazy">
+          <figcaption>Musk sul sito, elicottero giallo alle spalle. Fotogramma dal filmato SpaceX del 25 agosto.</figcaption>
+        </figure>
+        <figure class="figure">
+          <img src="assets_starbase_la/musk-campo.jpg" alt="Elon Musk parla in mezzo alla palude del Vermilion Parish" loading="lazy">
+          <figcaption>Stessa visita: palude, cielo basso, niente torre. Fotogramma dal filmato SpaceX.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="sito">
+    <div class="section-inner">
+      <h2>Cosa vogliono costruire</h2>
+      <p>LED e SpaceX descrivono lo stesso oggetto con parole diverse. Lo Stato parla di &ldquo;largest launch facility&rdquo; e di campus da 100 miliardi. L'azienda parla di spaceport autosufficiente disegnato da foglio bianco per la cadenza, non di un pad innestato su una base gia' piena. Shotwell, ad Abbeville, lo dice cosi: un solo pad attivo per Starship in Texas, un secondo in costruzione, tre pad in vari stadi in Florida. Non basta. &ldquo;Put all of this together, and these tasks will require thousands of launches. Starbase Louisiana is being designed from day one to support this dramatic increase in launch cadence.&rdquo;</p>
+      <p>A regime il masterplan dichiarato e' questo. Cinque complessi di lancio. Due pad per complesso, ciascuno con la propria farm di propellente. Produzione di metano in sito, perche' Starship brucia gas naturale liquefatto e la Louisiana e' un corridoio di gas. Centrale elettrica propria. Processing dei veicoli. Housing per dipendenti e famiglie. Shipping in acque profonde per muovere Starship e Super Heavy dal Texas, dove resta la Starfactory. E, dice Shotwell, &ldquo;probably an airport&rdquo;. Il filmato ufficiale aggiunge Bobby Peden in campo: il lavoro di test e lancio, a Starbase Texas, ha insegnato cosa serve per tenere in piedi una macchina del genere. Qui si riparte da zero, con lo spazio che in Texas non c'e'.</p>
+
+      <figure class="figure">
+        <img src="assets_starbase_la/render-costa.jpg" alt="Rendering aereo di Starbase Louisiana: cinque coppie di pad lungo la costa del Golfo">
+        <figcaption>Il rendering ufficiale: pad a coppie sulla riva, processing nell'entroterra, palude lasciata visibile. Fotogramma dal video SpaceX del 25 agosto.</figcaption>
+      </figure>
+
+      <p>Il secondo video e' piu' esplicito del testo. Si vedono torri tipo Mecazilla in fila, Starship in stack, un'altra torre che sta lanciando, fumo basso, e in fondo una linea di produzione lunga chilometri. Un overlay community uscito il 26 agosto (non e' un documento SpaceX) misura circa 1,5 miglia tra una coppia di pad e l'altra, e una fabbrica oltre i due chilometri. E' una lettura di scala sul rendering, non un rilievo. Serve a dire una cosa sola: questo non e' Boca Chica con due torri e una spiaggia. E' un disegno da flotta.</p>
+
+      <div class="gallery-2">
+        <figure class="figure">
+          <img src="assets_starbase_la/render-torri.jpg" alt="Rendering: Starship in stack su una torre, altre torri in fila verso il Golfo">
+          <figcaption>Torri in linea, stack in acciaio, catch tower a fianco. Fotogramma dal video cadenza SpaceX.</figcaption>
+        </figure>
+        <figure class="figure">
+          <img src="assets_starbase_la/render-lancio-golfo.jpg" alt="Rendering: peschereccio in silhouette e Starship in salita sulla costa della Louisiana">
+          <figcaption>Il fotogramma che SpaceX ha scelto per chiudere il video: Golfo, barca, razzo. 25 agosto 2026.</figcaption>
+        </figure>
+      </div>
+
+      <p>McCorkle, nel filmato, elenca i vincoli che hanno tenuto la ricerca aperta per sette anni. Costa. Pochi residenti vicino ai pad. Gas a portata di mano. Traiettorie giuste. &ldquo;There are few places on Earth where we can do what we need to do to launch Starship fully reusable at rate, meaning thousands of launches a year. Louisiana happens to be a perfect candidate.&rdquo; Non e' poesia da conferenza. E' la lista della spesa di chi ha gia' visto Boca Chica saturarsi e la Florida riempirsi di slot altrui.</p>
+      <div class="callout amber">
+        <p>Dieci pad nel comunicato, &ldquo;over a dozen launch towers&rdquo; nel post di Musk. Non e' necessariamente una contraddizione: torre di lancio e torre di catch possono non coincidere uno a uno con il pad, e &ldquo;ultimately&rdquo; e' un orizzonte di buildout, non il day-one del 2029. Resta un delta da tenere in pagina. Il 2029, se arriva, sara' un primo volo, non trenta al giorno.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="perche">
+    <div class="section-inner">
+      <div class="split">
+        <article>
+          <h2>Perche' la Louisiana, e perche' adesso</h2>
+          <p>La premessa industriale non e' cambiata da maggio. Starship e' pensato per un ritmo che un solo corridoio non regge. Boca Chica e' un sito denso: una strada, una spiaggia da tenere aperta, un perimetro sociale e ambientale stretto, due pad di cui uno in ricostruzione. La Florida ha history, range e rampe, ma anche concorrenza di slot e un traffico che non e' un foglio bianco. Vandenberg resta il corridoio polare della costa ovest, con eredita' militare e residenziale. Per lanciare &ldquo;a lot&rdquo; — la parola usata da SpaceX gia' a maggio, quando le voci sulla Louisiana giravano e l'azienda non nominava il sito — serve geografia nuova.</p>
+          <p>Il Golfo, a sud di Pecan Island, offre quattro cose insieme. Acqua sotto i razzi, non citta'. Un buffer da centinaia di chilometri quadrati, non da qualche centinaio di acri. Canali e lock (Freshwater Bayou, Intracoastal) su cui far viaggiare pezzi da nove metri di diametro che l'autostrada non vuole. Gas naturale a pochi chilometri dal Henry Hub, il nodo da cui si misura il prezzo del metano americano: per un razzo a metano che deve volare ogni ora, il tubo conta quanto la torre. Ars Technica, il 25, sottolinea anche il profilo polare: da qui uno Starship puo' puntare orbite quasi polari con un transito breve sul Messico, utile per i data-center orbitali di cui SpaceX parla da mesi. Non e' il solo azimut. E' un azimut che Boca Chica copre male e che Vandenberg copre gia', ma senza lo spazio per dieci pad.</p>
+          <p>La premessa politica e' altrettanto concreta. La sessione legislativa 2026 ha scritto un pacchetto aerospaziale (tra cui l'Act 190, Aerospace Facilities and Activities Rebate) fatto di sgravi, scudi di responsabilita' su rumore e disturbo, e un linguaggio esplicito da &ldquo;flight entity&rdquo;. LED ha messo in campo Louisiana Lightning Speed, l'ordine esecutivo di Landry che siede i dipartimenti attorno a un tavolo unico. Il PILOT con le autorita' fiscali del Parish — 20 milioni subito, 25 milioni l'anno per 25 anni con escalator, valore stimato oltre 820 milioni — e' il pezzo locale. I 25 milioni alla Community Foundation of Acadiana sono il pezzo filantropico. FastStart e High Impact Jobs sono il pezzo di recruiting. Non e' un favore. E' il prezzo che uno Stato del Golfo paga per entrare in una geografia che finora apparteneva a Texas e Florida.</p>
+          <p>La premessa giuridica e' il settlement Exxon. Per oltre settant'anni quel blocco e' stato proprieta' petrolifera, poi oggetto di cause costiere per erosione e perdita di palude. Nel 2026 una parte del contenzioso si chiude: i terreni passano allo Stato, lo Stato li vende a SpaceX. LED lo scrive senza giri di parole: &ldquo;through the state’s sale of the former Exxon property to the company.&rdquo; I termini economici della vendita restano, in gran parte, non in pagina. Il passaggio di titolo, no: e' il fatto che rende possibile il resto. Senza settlement, Starbase Louisiana sarebbe un affare tra privati e un labirinto di diritti di superficie. Con il settlement, e' un progetto di Stato.</p>
+        </article>
+        <aside class="panel">
+          <h3>I quattro vincoli di McCorkle</h3>
+          <p>Nel filmato ufficiale la VP Starship Legal &amp; Regulatory elenca cio' che sette anni di ricerca hanno lasciato in piedi.</p>
+          <ul>
+            <li>Costa, con overflight sull'acqua.</li>
+            <li>Pochi residenti vicino ai pad.</li>
+            <li>Gas a portata per metano e potenza.</li>
+            <li>Traiettorie che coprono orbita terrestre, polare, Luna, Marte.</li>
+          </ul>
+          <p>Pecan Island ha circa un centinaio di residenti permanenti nelle cronache 2026. Abbeville, a nord, ha circa 12.000 abitanti ed e' la sala in cui Shotwell ha parlato.</p>
+          <h3 style="margin-top:22px">Cosa non e'</h3>
+          <ul>
+            <li>Non e' un pad gia' FAA-licenziato.</li>
+            <li>Non e' un calendario di volo 2026-2027.</li>
+            <li>Non e' Boca Chica 2 in miniatura: e' un ordine di grandezza sopra.</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="rete">
+    <div class="section-inner">
+      <h2>Texas resta la fabbrica. La Florida resta piena. Qui si scala</h2>
+      <p>Shotwell, in conferenza, mette i tre siti in fila senza sentimentalismo. Starbase Texas ha un pad Starship attivo e un secondo in build. In Florida SpaceX sta alzando tre pad Starship: uno a LC-39A, due a SLC-37. Sono i pezzi della macchina che deve far volare il veicolo mentre e' ancora in sviluppo. La Louisiana non sostituisce quella macchina. La moltiplica, se e quando Starship diventa noioso da far volare.</p>
+      <p>Il nesso logistico e' l'acqua. Reuters riporta Shotwell sul punto: shipping in acque profonde per portare i veicoli dal Texas. La Starfactory resta a Starbase. I booster e le ship, a nove metri, non viaggiano bene su gomma. Il Golfo e' il nastro trasportatore. Ipotesi di redazione, non dichiarazione: un campus che produce metano, elettricita' e processing in Louisiana, e riceve scafi dal Texas, e' un hub di cadenza, non un secondo Hawthorne. Se un giorno la produzione si sposta, lo si vedra' dai capannoni, non dai comunicati.</p>
+      <p>Il nesso di missione e' la massa. Shotwell parla di &ldquo;serious tonnage&rdquo; in orbita: Starlink di nuova generazione, data-center orbitali, Luna, Marte. L'all-hands dell'11 agosto, su questo stesso sito, aveva gia' messo l'AI e i gigawatt al centro del bilancio SpaceX. Reuters, il 25, collega esplicitamente Starbase Louisiana a quelle ambizioni satellitari. Non e' un pad per turisti. E' un rubinetto di massa verso LEO, dimensionato per quando Falcon non bastera' piu'. SpaceNews, il 26, lo scrive in apertura: l'annuncio arriva mentre l'azienda inizia a parlare di avvolgere Falcon. Anche questa e' una lettura, non un necrologio del Block 5. Il Block 5 vola ancora, e volera' per anni. Il punto e' un altro: la capacita' extra non si costruisce a Cape, si costruisce su palude nuova.</p>
+      <div class="callout cyan">
+        <p>Ipotesi di redazione. Il 2029 come primo lancio dalla Louisiana ha senso solo se nel 2027-2028 Starship ha chiuso il ciclo catch-refly su almeno un sito. Oggi Flight 13 ha lasciato Ship 40 al largo di Christmas Island e Flight 14 e' ancora una preparazione. Starbase Louisiana non e' un piano B per i test. E' un piano A per quando i test saranno finiti.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="soldi">
+    <div class="section-inner">
+      <h2>Cento miliardi, tremila posti, diecimila se si ascolta Texas</h2>
+      <p>Il numero che ha fatto titolo e' 100 miliardi. SpaceX, in pagina, scrive &ldquo;at least $100 billion&rdquo;. LED lo mette nel titolo del comunicato. Non e' un budget annuale. E' un impegno di capitale su un orizzonte decennale, che copre pad, torri, propellente, potenza, porti, case, e — dice Shotwell — il pezzo di costa da tenere in piedi. Non e' verificabile da un bilancio pubblico pezzo per pezzo: SpaceX da societa' quotata ha appena iniziato a mostrare i numeri, e questo impegno sta nel futuro. Resta la cifra che l'azienda e lo Stato hanno scelto di mettere in pagina insieme.</p>
+      <p>Sui posti di lavoro le due voci non coincidono, e lo dicono in sala. LED: 3.000 diretti in dieci anni, salario medio 92.600 dollari (il 192% della media del Vermilion Parish), 8.100 indiretti, oltre 11.100 opportunita' complessive in Acadiana. Musk, nel video: &ldquo;probably 10,000 really exciting jobs&rdquo;. Shotwell, dal palco: &ldquo;As part of our commitment to the state, we expect to create at least 3,000 permanent jobs. Elon said 10. Based on our experience in Starbase, Texas, it’s probably closer to 10 than 3.&rdquo; Aggiunge che tra il 60 e l'80% delle nuove assunzioni nei siti texani sono residenti locali, e che ripeteranno lo schema. E' un impegno di recruiting, non una tabella INPS. Resta il delta: 3.000 e' il numero da contratto di incentivi; 10.000 e' il numero da esperienza Texas, detto in pubblico da presidente e fondatore.</p>
+      <table>
+        <thead><tr><th>Voce</th><th>Cosa e' in pagina</th><th>Chi lo dice</th></tr></thead>
+        <tbody>
+          <tr><td>Investimento</td><td>Almeno 100 miliardi di dollari</td><td>SpaceX, LED</td></tr>
+          <tr><td>Posti diretti</td><td>3.000 in 10 anni, media 92.600 $/anno</td><td>LED (condizione incentivi)</td></tr>
+          <tr><td>Posti, stima alta</td><td>Vicino a 10.000</td><td>Musk, Shotwell</td></tr>
+          <tr><td>Indiretti</td><td>8.100, totale opportunita' ~11.100</td><td>LED</td></tr>
+          <tr><td>PILOT Parish</td><td>20 mln subito + 25 mln/anno × 25 anni, escalator, &gt;820 mln</td><td>LED, NOLA</td></tr>
+          <tr><td>Fondazione Acadiana</td><td>25 milioni una tantum</td><td>LED</td></tr>
+          <tr><td>Starlink locale</td><td>50% di sconto piani ammessi, hardware gratis ai nuovi</td><td>LED / SpaceX</td></tr>
+        </tbody>
+      </table>
+      <p>Il PILOT merita una riga in piu'. Non e' imposta patrimoniale ordinaria. E' un pagamento sostitutivo: SpaceX versa al Parish una cifra fissa (e crescente) invece della property tax piena su un campus da cento miliardi. Per un Parish rurale e' un flusso che cambia il bilancio. Per l'azienda e' prevedibilita'. NOLA, il 25, aggiunge l'esenzione sulle sales tax statali da legge di primavera, &ldquo;worth untold billions over the life of the project&rdquo;: e' il pezzo meno quantificato, e il piu' politico. Landry in sala parla di America First e Louisiana First, e di uno Stato che ha superato i 250 miliardi di investimenti attratti. E' il tono da comizio. I numeri da tenere sono quelli in tabella.</p>
+      <figure class="figure">
+        <img src="assets_starbase_la/peden-sito.jpg" alt="Bobby Peden, VP Starbase Test and Launch, parla sul sito in Louisiana">
+        <figcaption>Bobby Peden, VP Starbase Test and Launch, nel filmato ufficiale. Il know-how operativo resta, per ora, texano. Fotogramma SpaceX, 25 agosto.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="costa">
+    <div class="section-inner">
+      <h2>La palude non e' un dettaglio. E' il sito</h2>
+      <p>Chi guarda solo le torri nel rendering perde il punto. Starbase Louisiana sorge su una delle coste che spariscono piu' in fretta del continente. SpaceX, in pagina, scrive i numeri: in Vermilion Parish la riva perde tra 3,3 e 23 piedi l'anno. Shotwell, in sala, dice che i primi lavori visibili non saranno una torre, saranno l'accesso al terreno e il restauro. Breakwater sul Golfo, creazione di palude con materiale di dragaggio, partnership con Coastal Protection and Restoration Authority, Wildlife and Fisheries, gruppi di conservazione. &ldquo;The work includes thousands of acres of marsh creation to reconnect fragmented wetlands and help restore the natural storm buffer that this coast has lost.&rdquo; Landry lo vende come la prima volta in cui un grande progetto di sviluppo economico e un progetto di difesa costiera coincidono.</p>
+
+      <div class="gallery">
+        <figure class="figure">
+          <img src="assets_starbase_la/costa-tramonto.jpg" alt="Tramonto sulla costa paludosa di Vermilion Parish, dal filmato SpaceX">
+          <figcaption>La costa nel filmato ufficiale. Non c'e' ancora una rampa. C'e' la riva che SpaceX dice di voler tenere.</figcaption>
+        </figure>
+        <figure class="figure">
+          <img src="assets_starbase_la/palude-orizzonte.jpg" alt="Palude e specchi d'acqua verso il Golfo, Vermilion Parish">
+          <figcaption>Orizzonte di marsh verso il Golfo. Fotogramma dal filmato SpaceX del 25 agosto.</figcaption>
+        </figure>
+        <figure class="figure">
+          <img src="assets_starbase_la/palude-dettaglio.jpg" alt="Dettaglio aereo della palude frammentata a Pecan Island">
+          <figcaption>La palude vista dall'alto: vegetazione e acqua aperta, il paesaggio che il restauro dovrebbe ricucire.</figcaption>
+        </figure>
+      </div>
+
+      <p>Le immagini Landsat NASA/USGS che questo sito usa dal 3 agosto restano il documento geografico, non il rendering. Mostrano una ridge di chenier, campi che diventano acqua, Pecan Island quasi circondata dopo Rita nel 2005, il confronto 1973-2011. Un perimetro da 500 km² qui non e' deserto: e' un sistema che ha gia' perso terra. SpaceX dice che non sviluppera' l'intero footprint, che porzioni molto ampie restano umide, che pesca, caccia e barca devono convivere. Il rendering stesso lascia verde visibile tra i pad. E' un impegno. Non e' ancora un piano operativo depositato, con ettari, scadenze e metriche di recupero.</p>
+
+      <div class="gallery-2">
+        <figure class="figure">
+          <img src="assets_louisiana/pecan_island_location_2003.jpg" alt="Landsat 2003: Pecan Island sulla ridge a sud di White Lake">
+          <figcaption>Pecan Island, 2003. NASA/USGS Landsat via NASA SVS, public domain.</figcaption>
+        </figure>
+        <figure class="figure">
+          <img src="assets_louisiana/pecan_island_compare_1973_2011.jpg" alt="Confronto Landsat 1973 e 2011 intorno a Pecan Island">
+          <figcaption>1973 contro 2011: piu' acqua aperta, meno marsh. NASA/USGS Landsat via NASA SVS.</figcaption>
+        </figure>
+      </div>
+
+      <p>Il 26 agosto le associazioni ambientaliste, gia' in lettera alla FAA il giorno prima dell'annuncio, chiedono i dettagli. Louisiana Wildlife Federation tiene il punto: bene sentire restauro e habitat, si vogliono vedere i numeri. Gizmodo raccoglie l'argomento opposto: un spaceport da dieci pad in una delle paludi piu' produttive del continente, tra due wildlife refuge, con anatre, gru e vivai di pesca, non si tiene in piedi con un video al tramonto. E' il dibattito che Boca Chica ha gia' fatto, su una scala due ordini di grandezza piu' piccola. Qui il vincolo non e' solo il rumore. E' l'uragano, il surge, il sale, e una costa che si mangia da sola tre-sette metri l'anno. Chi costruisce torri da catch su questa riva sta scommettendo di saperla tenere ferma. E' una scommessa da ingegneria costiera, non solo da razzo.</p>
+      <div class="callout">
+        <p>Il primo lavoro dichiarato sul sito e' accesso e restauro, non la torre. Se nei prossimi mesi si vedono solo elicoterri e comunicati, il progetto e' ancora carta. Se si vedono breakwater e draghe, e' partito dal pezzo che Landry ha messo in vetrina: la costa, non il pad.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="cronologia">
+    <div class="section-inner">
+      <h2>Da rumor di maggio all'annuncio di martedi</h2>
+      <p>Questa redazione ha gia' raccontato, il 3 agosto, la trattativa. Qui sotto sta solo il filo che chiude, e le ore dopo l'annuncio. Il dossier precedente resta in archivio: premesse, settlement, mappa, dibattito di inizio agosto. Non va riletto come se nulla fosse successo. Va riletto come la fase in cui il deal non aveva ancora un nome.</p>
+      <div class="timeline">
+        <div class="event">
+          <div class="date">mag 2026</div>
+          <div>
+            <h3>Lease chiusi, Keaty, drone sul bayou</h3>
+            <p>I lease di caccia e pesca non si rinnovano. Jim Keaty parla di ~136.000 acri a sud della 82. S.E. Robinson Jr. vola un drone su Freshwater City. SpaceX, su X, dice solo che servono tanti siti per migliaia di voli, senza nominare la Louisiana.</p>
+          </div>
+        </div>
+        <div class="event">
+          <div class="date">23 giu</div>
+          <div>
+            <h3>Settlement Exxon-Stato</h3>
+            <p>Si chiude il pezzo giuridico che sblocca i terreni. I termini restano in gran parte sigillati. Lo Stato diventa il perno del passaggio di titolo.</p>
+          </div>
+        </div>
+        <div class="event">
+          <div class="date">3 ago</div>
+          <div>
+            <h3>NOLA: fasi finali</h3>
+            <p>La Times-Picayune descrive l'accordo in chiusura e un annuncio atteso nel mese. Questo sito pubblica il dossier Pecan Island. Ars Technica riprende la trattativa.</p>
+          </div>
+        </div>
+        <div class="event">
+          <div class="date">25 ago</div>
+          <div>
+            <h3>Abbeville, due video, un nome</h3>
+            <p>Shotwell e Landry in sala. SpaceX pubblica il filmato e il rendering. Musk: oltre una dozzina di torri, 30 voli al giorno. LED: 100 miliardi, 3.000 posti, cantiere 2027, lancio 2029. Pagina spacex.com/sites/starbase-la online.</p>
+          </div>
+        </div>
+        <div class="event">
+          <div class="date">26–27 ago</div>
+          <div>
+            <h3>Il giorno dopo, senza smentite</h3>
+            <p>Reuters, SpaceNews, Ars, CNN, Axios, NOLA, Payload, E&amp;E News allineano i numeri. Nessun retrattazione su sede, pad, timeline. Il dibattito si sposta su habitat, PILOT, FAA e sulla distanza tra 3.000 e 10.000 posti. Community overlay sul rendering per dare la scala. Fine della fase rumor.</p>
+          </div>
+        </div>
+      </div>
+      <a class="button" href="spacex_louisiana_pecan_island.html">Apri il dossier del 3 agosto</a>
+    </div>
+  </section>
+
+  <section id="mappa">
+    <div class="section-inner">
+      <h2>Dove sta, sulla carta</h2>
+      <p>Il rettangolo arancione e' un perimetro indicativo a sud della LA 82, tra Pecan Island e Freshwater Bayou verso il Golfo. Non e' un confine catastale. LED e SpaceX parlano di circa 125.000 acri; le stime di primavera oscillavano tra 130 e 136 mila. NOLA, il 25, distingue un footprint piu' stretto da circa 40.000 acri per le rampe, a ovest di Freshwater Bayou Canal, dentro il blocco piu' grande. Finche' non esce una mappa ufficiale, questa serve a dare la scala: un quadrato da circa 22-23 km di lato, o una fascia costiera di decine di chilometri. I pad, se il rendering e' onesto, stanno sulla riva. Il resto e' buffer, palude, canali.</p>
+      <div class="map-shell">
+        <div id="la-map" role="img" aria-label="Mappa indicativa di Starbase Louisiana a Pecan Island"></div>
+        <p class="map-note">Marker: Pecan Island, Freshwater City, White Lake. Layer: © OpenStreetMap contributors; Esri World Imagery. Perimetro: elaborazione redazionale su descrizioni pubbliche — da sostituire quando SpaceX o lo Stato pubblicheranno il confine.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="manca">
+    <div class="section-inner">
+      <h2>Cosa manca ancora, e cosa puo' rompersi</h2>
+      <p>Tre cose, in ordine. Primo: il federale. Un spaceport di questa scala passa da revisione ambientale FAA e da un corridoio di lancio sul Golfo che oggi non esiste. SpaceQ nota che le date 2027 e 2029 restano condizionate a una review che l'azienda non ha chiuso. Le lettere delle associazioni alla FAA, arrivate il 24 agosto, sono il primo atto di un contenzioso che puo' durare anni, o chiudersi in un accordo. Non si sa da questa pagina.</p>
+      <p>Secondo: il veicolo. Starbase Louisiana e' un disegno da flotta riusabile. Flight 13 ha dimostrato uno splashdown morbido e un recovery da tre settimane. Non ha dimostrato catch della ship, ne' un ciclo di volo-volo in giorni. Il 2029 come primo T-0 dalla Louisiana e' un obiettivo aziendale, non una finestra NET su un manifesto. LED, piu' prudente, parla di operazioni iniziali verso il 2030. I due orologi possono convivere: uno e' SpaceX, l'altro e' lo Stato che deve spiegare i soldi pubblici.</p>
+      <p>Terzo: l'uragano e la riva. Chi ha visto Katrina da questa costa lo ha detto in chiaro sotto il video della conferenza. Surge, vento, sale, palude che si apre. SpaceX scommette di saper costruire su un terreno che si muove, e di saperlo muovere nella direzione opposta con draghe e breakwater. E' il pezzo meno &ldquo;sci-fi&rdquo; del progetto, e il piu' decisivo. Se la riva continua a perdere 23 piedi l'anno, le torri del rendering restano un fotogramma.</p>
+      <p>Questa breaking news fissa il 25 agosto: da trattativa a nome, da Pecan Island a Starbase Louisiana, da &ldquo;fasi finali&rdquo; a 100 miliardi e dieci pad. Il cantiere, quando partira', sara' un'altra pagina.</p>
+      <a class="button" href="../sezioni/spacex.html">Portale SpaceX</a>
+      <a class="button" href="../sezioni/notizie.html">Archivio notizie</a>
+      <a class="button" href="../sezioni/starship.html">Sezione Starship</a>
+    </div>
+  </section>
+
+  <section id="fonti">
+    <div class="section-inner">
+      <h2>Fonti pubbliche e tracce</h2>
+      <p>Nel corpo si descrive lo stato e si citano le dichiarazioni primarie. Qui stanno i link. Il dossier del 3 agosto resta la cronaca della trattativa, non l'annuncio.</p>
+      <ul class="sources">
+        <li><a href="https://x.com/SpaceX/status/2092284173730144732" target="_blank" rel="noopener">SpaceX — Introducing Starbase, Louisiana (video 5:48, 25/08/2026)</a></li>
+        <li><a href="https://x.com/SpaceX/status/2092294188494938547" target="_blank" rel="noopener">SpaceX — thousands of Starship flights a year (video 0:49, 25/08)</a></li>
+        <li><a href="https://x.com/elonmusk/status/2092292773915537580" target="_blank" rel="noopener">Elon Musk — over a dozen towers, 30 flights per day (25/08)</a></li>
+        <li><a href="https://www.spacex.com/sites/starbase-la" target="_blank" rel="noopener">SpaceX — pagina ufficiale Starbase, LA</a></li>
+        <li><a href="https://www.opportunitylouisiana.gov/news/spacex-launches-new-era-of-commercial-spaceflight-with-100-billion-louisiana-campus" target="_blank" rel="noopener">LED — comunicato 100 miliardi, jobs, PILOT, timeline (25/08)</a></li>
+        <li><a href="https://www.youtube.com/watch?v=LfbRUT2kakk" target="_blank" rel="noopener">Filmato ufficiale di presentazione (mirror YouTube, 5:48)</a></li>
+        <li><a href="https://www.youtube.com/watch?v=WtDAY3NVlcU" target="_blank" rel="noopener">Conferenza Landry / Shotwell ad Abbeville (WVUE FOX 8)</a></li>
+        <li><a href="https://www.reuters.com/business/media-telecom/spacex-build-starship-spaceport-louisiana-2026-08-25/" target="_blank" rel="noopener">Reuters — 125.000 acri, 2027-2029, spaceport autosufficiente</a></li>
+        <li><a href="https://arstechnica.com/space/2026/08/spacex-intends-to-invest-up-to-100-billion-in-massive-louisiana-spaceport/" target="_blank" rel="noopener">Ars Technica / Eric Berger — vincoli Texas vs Louisiana, polar, Henry Hub</a></li>
+        <li><a href="https://spacenews.com/spacex-to-develop-starship-launch-site-in-louisiana/" target="_blank" rel="noopener">SpaceNews — 10 pad, clean-sheet, McCorkle, sette anni di ricerca</a></li>
+        <li><a href="https://www.nola.com/news/business/spacex-louisiana-elon-musk/article_2be92f8e-f989-46b7-9514-5212d8f20260.html" target="_blank" rel="noopener">NOLA / Times-Picayune — 40.000 acri rampe, PILOT, incentivi</a></li>
+        <li><a href="https://www.axios.com/local/new-orleans/2026/08/25/spacex-starbase-louisiana-jeff-landry" target="_blank" rel="noopener">Axios New Orleans — Shotwell su 10.000 posti e hires locali</a></li>
+        <li><a href="https://payloadspace.com/spacex-announces-new-starbase-louisiana-spaceport/" target="_blank" rel="noopener">Payload — cinque complessi, settlement Exxon</a></li>
+        <li><a href="https://www.eenews.net/articles/spacex-unveils-plans-for-massive-louisiana-launch-site/" target="_blank" rel="noopener">E&amp;E News — restauro, Wildlife Federation, Coastal Master Plan</a></li>
+        <li><a href="https://spaceq.ca/starbase-louisiana-law-came-first/" target="_blank" rel="noopener">SpaceQ — pacchetto legislativo 2026 e review FAA ancora aperta</a></li>
+        <li><a href="https://www.space.com/space-exploration/private-spaceflight/spacex-announces-enormous-usd100-billion-starbase-louisiana-starship-launch-site" target="_blank" rel="noopener">Space.com — 10 pad, citazioni Shotwell</a></li>
+        <li><a href="spacex_louisiana_pecan_island.html">Dossier locale 3 agosto 2026 — trattativa Pecan Island</a></li>
+        <li>NASA SVS 11042 — Landsat Vermilion Parish, public domain.</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<p class="footer-note">Rivoluzione Spaziale. Breaking news · 25 agosto 2026 · aggiornato 27 agosto. Video e fotogrammi dal post ufficiale SpaceX su X. Non e' un comunicato SpaceX riedito: lettura editoriale su fonti pubbliche. Lo stato cambia quando partono cantiere, review FAA o un primo T-0 dalla Louisiana.</p>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+(function(){
+  const map = L.map('la-map', { scrollWheelZoom: false });
+  const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+    attribution: '&copy; OpenStreetMap'
+  });
+  const sat = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    maxZoom: 18,
+    attribution: 'Esri'
+  });
+  osm.addTo(map);
+  L.control.layers({ 'Mappa': osm, 'Satellite': sat }, null, { position: 'topright', collapsed: false }).addTo(map);
+
+  const approx = L.polygon([
+    [29.655, -92.55],
+    [29.655, -92.18],
+    [29.48, -92.12],
+    [29.42, -92.28],
+    [29.45, -92.58]
+  ], {
+    color: '#f5b941',
+    weight: 2,
+    fillColor: '#f5b941',
+    fillOpacity: 0.18
+  }).addTo(map);
+  approx.bindPopup('<strong>Perimetro indicativo</strong><p>Ordine di 125.000 acri (~506 km²) dichiarati il 25 agosto 2026. Non e\' un confine catastale ufficiale.</p>');
+
+  const places = [
+    {
+      lat: 29.641, lon: -92.436, label: 'Pecan Island',
+      html: '<strong>Pecan Island</strong><p>Ridge / chenier. Starbase Louisiana e\' annunciata a sud di qui, verso il Golfo.</p>'
+    },
+    {
+      lat: 29.555, lon: -92.305, label: 'Freshwater City / Bayou',
+      html: '<strong>Freshwater City / Freshwater Bayou</strong><p>Accesso canale, dock, lock verso Golfo e Intracoastal. Nodo logistico per chiatte.</p>'
+    },
+    {
+      lat: 29.75, lon: -92.50, label: 'White Lake',
+      html: '<strong>White Lake</strong><p>A nord della ridge. Utile per orientarsi sulle immagini Landsat.</p>'
+    }
+  ];
+  places.forEach(function(p){
+    L.circleMarker([p.lat, p.lon], {
+      radius: 7, color: '#fff', weight: 2, fillColor: '#67c7ff', fillOpacity: 0.95
+    }).addTo(map).bindPopup(p.html);
+  });
+  map.fitBounds(approx.getBounds().pad(0.18));
+})();
+</script>
+</body>
+</html>
