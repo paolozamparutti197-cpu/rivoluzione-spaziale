@@ -67,3 +67,15 @@ Immagini della pagina "Starship Flight 13" (lancio13.html)
     Fonte: https://x.com/SpaceX/status/2089685256085344560
     Media: amplify_video 2089684968368721920 (1280x720)
     Durata: ~57 s
+
+11. s40-inspect-1.jpg / s40-inspect-2.jpg
+    Autore: SpaceX
+    Data: 27 agosto 2026
+    Fonte: https://x.com/SpaceX/status/2092988521376059899
+    Nota: ispezione Ship 40 al largo di Christmas Island, campioni heat shield.
+
+12. s40-semisub-1.jpg / s40-semisub-2.jpg
+    Autore: SpaceX
+    Data: 27 agosto 2026
+    Fonte: https://x.com/SpaceX/status/2092988782622519728
+    Nota: Ship 40 caricata su semi-sommergibile verso Starbase.

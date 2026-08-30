@@ -452,3 +452,18 @@ Sessione 19/06/2026 - riordino generale directory e memoria operativa
 - SITE_NEWS: voce 30/08 breaking=True company=spacex. Louisiana 25/08 breaking=False.
 - CSS v=20260830-roman-fh. Generatore: python 03_script/genera_sito_rivoluzione.py.
 - Workbook Falcon gia' allineato: ultimo lancio Nancy Grace Roman Space Telescope, nr 702.
+
+30/08/2026 - Aggiornamento sviluppo_starship.xlsx (recovery S40 + static fire Flight 14)
+- Fonti: SpaceX su X (07/08 recovery mare grosso; 18/08 Christmas Island; 20/08 S41 deorbit burn; 21/08 S41 60s 6 motori; 27/08 ispezione + semi-sub; 28/08 B21 33-engine); NSF X/forum (thread 65442 Flight 13, 64409 Flight 14), articoli NSF 18/08 e 21/08, dirette Massey's e Pad 2.
+- Timeline: +9 eventi (R115-R123). Totale 119. Recovery S40 da "in corso" (01/08) a Christmas Island e carico su semi-sommergibile. Flight 14: static fire S41 (singolo + 6 motori) e B21 (scrub 26/08, full duration 28/08, rollback MB1 29/08).
+- Voli integrati: Flight 13 aggiornato, NON aggiunto Flight 14 (non volato).
+- Dashboard al 30/08; Prototipazione/Ground Test 38, Altro 10.
+- Discrepanze: recovery ora fatto ufficiale; nodo F14 deorbit/NET; durata visuale vs full duration B21.
+- Backup: 02_backup\sviluppo_starship_backup_20260830_f13_recovery_f14_sf.xlsx
+- Script: 99_temporanei\update_starship_f13_f14_20260830.py (Excel COM + verifica read-only).
+
+30/08/2026 - Schede sito Flight 13 e Flight 14
+- lancio13.html: recovery al 27/08 (ispezione Christmas Island + semi-sommergibile verso Starbase). Foto SpaceX 27/08.
+- lancio14.html: static fire S41 (deorbit burn + 60 s / 6 motori) e B21 (33-engine 28/08) chiusi; NET redazione 15/09; 28/08 non piu data centrale.
+- Cruscotto SpaceX: I5 workbook su S40 semi-sub; F14 hardcoded "static fire chiusi; NET community meta settembre".
+- starship.html rigenerato dal workbook (taglio 30/08). CSS v=20260830-f13-f14.
