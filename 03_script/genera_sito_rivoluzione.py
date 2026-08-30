@@ -16,7 +16,7 @@ SECTIONS_DIR = ROOT / "sezioni"
 CSS_DIR = ROOT / "css"
 
 HERO_IMAGE = "https://upload.wikimedia.org/wikipedia/commons/5/5d/Falcon_1_Flight_4_launch.jpg"
-CSS_VERSION = "20260827-starbase-la"
+CSS_VERSION = "20260830-roman-fh"
 ROME_TZ = ZoneInfo("Europe/Rome")
 MONTHS_IT = {
     1: "gennaio",
@@ -157,6 +157,23 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-08-30",
+        "date_label": "30 agosto 2026",
+        "tag": "SpaceX · Falcon Heavy",
+        "title": "Falcon Heavy porta Roman verso L2: lancio riuscito da 39A",
+        "summary": (
+            "Decollo alle 13:26 italiane da LC-39A, due booster a LZ-2 e LZ-40, "
+            "telescopio sganciato alle 7:57 EDT. Il tredicesimo Falcon Heavy consegna "
+            "il flagship NASA da 4,3 miliardi. Centro speso, laterali recuperati."
+        ),
+        "href": "../documenti%20per%20sito/spacex_falcon_heavy_roman.html",
+        "image": "../documenti%20per%20sito/assets_roman/fh-liftoff-still.jpg",
+        "image_alt": "Falcon Heavy al decollo da LC-39A con il telescopio Roman, 30 agosto 2026",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-08-25",
         "date_label": "25 agosto 2026",
         "tag": "SpaceX · Louisiana",
@@ -169,8 +186,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_starbase_louisiana.html",
         "image": "../documenti%20per%20sito/assets_starbase_la/render-costa.jpg",
         "image_alt": "Rendering ufficiale SpaceX di Starbase Louisiana lungo la costa del Golfo",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {

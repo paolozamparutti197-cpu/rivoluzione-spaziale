@@ -443,3 +443,12 @@ Sessione 19/06/2026 - riordino generale directory e memoria operativa
 - SITE_NEWS: nuova voce 25/08 breaking=True company=spacex. Dossier Pecan Island 3/08 resta archiviato.
 - Localita SpaceX: da "proposta/ipotesi" a "annunciata, non operativa".
 - CSS v=20260827-starbase-la. Generatore: python 03_script/genera_sito_rivoluzione.py.
+
+30/08/2026 - Breaking news Falcon Heavy / telescopio Roman
+- Lancio riuscito 30 agosto 2026, 7:26 EDT da LC-39A: 13° Falcon Heavy, Nancy Grace Roman Space Telescope verso L2.
+- Starbase Louisiana tolta dalla breaking su sezioni/spacex.html e archiviata in Notizie (badge Dossier archiviato).
+- Nuovo dossier documenti per sito/spacex_falcon_heavy_roman.html (~4600 parole): lanciatore, WFI/CGI, dark energy, microlensing, Hubble/Webb.
+- Media: 4 video 4K SpaceX su X + foto pad/hangar/atterraggi + foto NASA Rohde + infografiche SVS 13583 e 15070 in documenti per sito/assets_roman/.
+- SITE_NEWS: voce 30/08 breaking=True company=spacex. Louisiana 25/08 breaking=False.
+- CSS v=20260830-roman-fh. Generatore: python 03_script/genera_sito_rivoluzione.py.
+- Workbook Falcon gia' allineato: ultimo lancio Nancy Grace Roman Space Telescope, nr 702.

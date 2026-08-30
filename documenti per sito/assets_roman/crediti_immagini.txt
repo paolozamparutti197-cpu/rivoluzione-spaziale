@@ -1,0 +1,93 @@
+Crediti immagini e video — breaking news Falcon Heavy / Roman
+=============================================================
+
+Video (account ufficiale SpaceX su X, 29-30 agosto 2026)
+-------------------------------------------------------
+1. fh-roman-vertical.mp4
+   Autore: SpaceX
+   Data: 29 agosto 2026
+   Fonte: https://x.com/SpaceX/status/2093791531505184932
+   Media: amplify_video 2093791341809434624 (3840x2160)
+   Durata: 0:10
+   Nota: Falcon Heavy verticale su LC-39A la vigilia del lancio.
+
+2. fh-roman-pad-tminus.mp4
+   Autore: SpaceX
+   Data: 30 agosto 2026
+   Fonte: https://x.com/SpaceX/status/2093995944559685802
+   Media: amplify_video 2093995183821987840 (3838x2160)
+   Durata: 0:16
+   Nota: T-minus, pad 39A, meno di due ore al decollo.
+
+3. fh-roman-liftoff.mp4
+   Autore: SpaceX
+   Data: 30 agosto 2026
+   Fonte: https://x.com/SpaceX/status/2094024852881469477
+   Media: amplify_video 2094024729791209472 (3840x2160)
+   Durata: 0:25
+   Nota: decollo del 13° Falcon Heavy da LC-39A.
+
+4. fh-roman-deploy.mp4
+   Autore: SpaceX
+   Data: 30 agosto 2026
+   Fonte: https://x.com/SpaceX/status/2094032495024951364
+   Media: amplify_video 2094032331317129216 (3840x2160)
+   Durata: 0:18
+   Nota: "Deployment of Roman confirmed".
+
+Fotogrammi estratti dai video SpaceX
+------------------------------------
+- fh-liftoff-still.jpg, fh-liftoff-pad.jpg  da fh-roman-liftoff.mp4
+- roman-deploy-still.jpg                    da fh-roman-deploy.mp4
+- fh-vertical-still.jpg                     da fh-roman-vertical.mp4
+
+Foto SpaceX su X
+----------------
+- fh-pad-vertical-1.jpg, fh-pad-vertical-2.jpg, fh-pad-vertical-3.jpg
+  Post 29 agosto 2026: https://x.com/SpaceX/status/2093791531505184932
+- fh-prelaunch.jpg
+  Post 30 agosto 2026: https://x.com/SpaceX/status/2093995944559685802
+- fh-hangar-1.jpg
+  Post 30 agosto 2026: https://x.com/SpaceX/status/2094009705156739365
+- fh-hangar-2.jpg
+  Post 26 agosto 2026: https://x.com/SpaceX/status/209264... hangar 39A
+- fh-boosters-lz.jpg, fh-boosters-landing.jpg
+  Post 30 agosto 2026: https://x.com/SpaceX/status/2094030749485646043
+  "Falcon Heavy’s side boosters landed on LZ-2 and LZ-40"
+
+Foto NASA (public domain / NASA media)
+--------------------------------------
+- roman-hangar-night.jpg
+  NASA/Sydney Rohde (Rocz), 25 agosto 2026
+  https://www.nasa.gov/image-detail/afs-8-101-1305/
+  Fairing verso l'hangar SpaceX di LC-39A.
+
+- roman-encapsulated.jpg
+  NASA, 21 agosto 2026 circa
+  https://www.nasa.gov/wp-content/uploads/2026/08/ksc-20260821-ph-ser01-0003large.jpg
+  Osservatorio in fairing al Payload Hazardous Servicing Facility.
+
+- roman-illustration.jpg
+  NASA Goddard / Conceptual Image Lab
+  https://assets.science.nasa.gov/.../Roman_Space_Telescope_Animation1_Still2.jpg
+
+- roman-visualization.jpg
+  NASA, visualizzazione dell'osservatorio
+  https://www.nasa.gov/wp-content/uploads/2023/02/nancy-grace-roman-space-telescope-visualization.jpeg
+
+Infografiche NASA SVS (public domain)
+-------------------------------------
+- roman-infographic-wfi.jpg
+  NASA GSFC, SVS 13583 — WFI / Roman only
+  https://svs.gsfc.nasa.gov/13583/
+
+- hubble-roman-webb.jpg
+  NASA GSFC, SVS 13583 — confronto Hubble / Roman / Webb
+  https://svs.gsfc.nasa.gov/13583/
+
+- roman-andromeda-fov.jpg
+  NASA GSFC, SVS 15070 — campo di vista Roman vs Hubble su Andromeda
+  https://svs.gsfc.nasa.gov/15070/
+  Background: Digitized Sky Survey and R. Gendler; Moon: NASA GSFC / ASU.
+
+Uso sul sito: documentazione editoriale non commerciale, con attribuzione e link alle fonti.
