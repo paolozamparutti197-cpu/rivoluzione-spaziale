@@ -369,7 +369,7 @@ def launch_manifest_metadata():
 
 
 def falcon_data():
-    path = ROOT / "01_workbook" / "lanci_spacex_falcon.xlsx"
+    path = ROOT / "01_workbook" / "lanci_spacex.xlsx"
     workbook = openpyxl.load_workbook(path, read_only=True, data_only=True)
     dashboard = workbook["dashboard"]
     elenco = workbook["elenco"]
