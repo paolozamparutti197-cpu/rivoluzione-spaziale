@@ -157,6 +157,23 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-09-22",
+        "date_label": "22 settembre 2026",
+        "tag": "SpaceX · Starship Flight 14",
+        "title": "Starship Flight 14: orbita e 26 Starlink V3 nel piano del 28 settembre",
+        "summary": (
+            "Da Starbase Pad 2, SpaceX punta alla prima missione orbitale della Ship: "
+            "Booster 21 e Ship 41 dovrebbero portare 26 Starlink V3 in orbita. "
+            "Lancio non prima del 28 settembre; piano e orario possono cambiare."
+        ),
+        "href": "../documenti%20per%20sito/spacex_starship_flight14.html",
+        "image": "../documenti%20per%20sito/assets_earnings/starship_pad.jpg",
+        "image_alt": "Starship al pad in una precedente campagna di volo: foto d'archivio",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-08-30",
         "date_label": "30 agosto 2026",
         "tag": "SpaceX · Falcon Heavy",
@@ -169,8 +186,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_falcon_heavy_roman.html",
         "image": "../documenti%20per%20sito/assets_roman/fh-liftoff-still.jpg",
         "image_alt": "Falcon Heavy al decollo da LC-39A con il telescopio Roman, 30 agosto 2026",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
