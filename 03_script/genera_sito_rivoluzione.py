@@ -428,14 +428,18 @@ def falcon_data():
     ][:8]
     headers = [clean(cell.value) for cell in elenco[1]]
     latest = {}
+    falcon_rows = []
     for values in elenco.iter_rows(min_row=2, values_only=True):
         row = {
             header: clean(values[index]) if index < len(values) else None
             for index, header in enumerate(headers)
             if header
         }
+        if row.get('tipo_record') == 'Lancio principale' and str(row.get('lanciatore') or '').startswith('Falcon'):
+            falcon_rows.append(row)
         if (
             row.get("tipo_record") == "Lancio principale"
+            and str(row.get('lanciatore') or '').startswith('Falcon')
             and row.get("data")
             and row.get("lanciatore")
             and row.get("cliente")
@@ -452,7 +456,50 @@ def falcon_data():
                 "voli": row.get("voli"),
                 "pad": row.get("dove"),
             }
+    # Il registro può contenere Starship e simulazioni: questo cruscotto è Falcon.
+    metrics['lanci'] = len(falcon_rows)
+    metrics['successi'] = sum(r.get('stato') == 'successo' for r in falcon_rows)
+    decided = sum(r.get('stato') in ('successo', 'parziale', 'fallito') for r in falcon_rows)
+    metrics['tasso'] = metrics['successi'] / decided if decided else None
+    metrics['falconHeavy'] = sum(r.get('famiglia_lanciatore') == 'Falcon Heavy' for r in falcon_rows)
+    metrics['padAttivi'] = len({r.get('dove') for r in falcon_rows if r.get('dove')})
+    metrics['ultimo'] = latest.get('data')
+    metrics['recuperiRiusciti'] = sum(r.get('recupero_riuscito') or 0 for r in falcon_rows)
+    metrics['boosterRiutilizzati'] = sum(r.get('booster_riutilizzato') or 0 for r in falcon_rows)
+    by_year = {}
+    for r in falcon_rows:
+        year = int(r.get('year') or 0)
+        by_year.setdefault(year, []).append(r)
+    annual = [{'anno': year, 'lanci': len(rows),
+               'successi': sum(r.get('stato') == 'successo' for r in rows),
+               'falliti': sum(r.get('stato') in ('fallito', 'parziale') for r in rows),
+               'tasso': sum(r.get('stato') == 'successo' for r in rows) / max(1, sum(r.get('stato') in ('successo','fallito','parziale') for r in rows))}
+              for year, rows in sorted(by_year.items()) if year <= current_year]
+    launchers = [r for r in launchers if str(r.get('lanciatore') or '').startswith('Falcon')]
+    pads = [r for r in pads if r['pad'] in {x.get('dove') for x in falcon_rows}]
+    for p in pads:
+        p['lanci'] = sum(x.get('dove') == p['pad'] for x in falcon_rows)
+        p['quota'] = p['lanci'] / len(falcon_rows) if falcon_rows else 0
     return {"metrics": metrics, "annual": annual, "launchers": launchers, "pads": pads, "landing": landing, "latest": latest}
+
+
+def operational_starship_data():
+    """Voli avvenuti nel registro principale; esclude esplicitamente le prove."""
+    path = ROOT / '01_workbook' / 'lanci_spacex.xlsx'
+    workbook = openpyxl.load_workbook(path, read_only=True, data_only=True)
+    sheet = workbook['elenco']
+    headers = [cell.value for cell in sheet[1]]
+    out = []
+    if 'id_lancio' not in headers:
+        return out
+    for values in sheet.iter_rows(min_row=2, values_only=True):
+        row = dict(zip(headers, values))
+        if row.get('tipo_record') != 'Lancio principale' or not str(row.get('lanciatore') or '').startswith('Starship'):
+            continue
+        if str(row.get('id_lancio') or '').startswith('SIM-'):
+            continue
+        out.append(row)
+    return out
 
 
 def electron_data():
@@ -2299,7 +2346,8 @@ def render_spacex(data):
         if upcoming_exact
         else '<div class="panel"><p class="muted">Nessun T-0 puntuale disponibile al momento.</p></div>'
     )
-    starship_stato = data["starship"]["metrics"]["stato"]
+    starship_stato = f"{data['starship']['metrics']['voli']} voli integrati nel dossier di sviluppo"
+    flight14_done = any(item.get('volo_programma') == 14 for item in data['starshipOperational'])
     kpi_metrics = "".join(
         [
             metric(f"{f['lanci']:,}".replace(",", "."), "lanci Falcon principali"),
@@ -2316,8 +2364,8 @@ def render_spacex(data):
                 title="Apri la scheda illustrativa Flight 13",
             ),
             metric(
-                "Flight 14: static fire S41 e B21 chiusi; NET community meta settembre",
-                "prossimo Starship · bozza",
+                "Flight 14 registrato nello storico Starship" if flight14_done else "Flight 14: NET 28 settembre; prima orbita e 26 Starlink V3 previsti",
+                "Starship · volo orbitale" if flight14_done else "prossimo Starship · piano di volo",
                 href="lancio14.html",
                 title="Apri la bozza Flight 14 / ipotesi Starship 1",
                 variant="f14",
@@ -2749,6 +2797,22 @@ def render_starship_page(data):
 
 def render_starship_development_page(data):
     starship = data["starship"]
+    flight14_done = any(item.get('volo_programma') == 14 for item in data['starshipOperational'])
+    flight14_note = ("Flight 14 e registrato nella tabella dei voli con payload orbitale qui sotto."
+                     if flight14_done else "Flight 14 (S41+B21) ha chiuso gli static fire a terra; il volo e previsto NET 28 settembre.")
+    operational_rows = "\n".join(
+        f"<tr><td>{escape(display_date(item.get('data')))}</td><td>{escape(str(item.get('cliente') or 'n.d.'))}</td>"
+        f"<td>{escape(str(item.get('dove') or 'n.d.'))}</td><td>{escape(str(item.get('booster') or 'n.d.'))}</td>"
+        f"<td>{escape(str(item.get('ship') or 'n.d.'))}</td><td>{escape(str(item.get('orbita') or 'n.d.'))}</td>"
+        f"<td>{escape(str(item.get('esito_orbita') or 'da confermare'))}</td>"
+        f"<td>{escape(str(item.get('esito_payload') or 'da confermare'))}"
+        f"{(' (' + escape(str(item.get('numero_payload'))) + ')') if item.get('numero_payload') is not None else ''}</td>"
+        f"<td>{escape(str(item.get('stato') or 'n.d.'))}</td></tr>"
+        for item in data['starshipOperational']
+    )
+    operational_section = f"""<section><div class="inner"><div class="section-head"><h2>Voli Starship con payload orbitale</h2></div>
+<div class="panel"><table><thead><tr><th>Data</th><th>Missione</th><th>Pad</th><th>Super Heavy</th><th>Ship</th><th>Orbita</th><th>Inserzione</th><th>Payload</th><th>Esito</th></tr></thead>
+<tbody>{operational_rows or '<tr><td colspan="9">Nessun volo registrato finora.</td></tr>'}</tbody></table></div></div></section>"""
     flight_cards = "\n".join(
         f"""<article class="starship-flight">
   <div class="starship-flight-head">
@@ -2810,7 +2874,7 @@ def render_starship_development_page(data):
     <div class="starship-lead-grid">
       <article>
         <p class="starship-lead">Starship non e un singolo razzo arrivato improvvisamente sulla rampa. E il risultato di oltre un decennio di cambi di scala, materiali, motori, metodo produttivo e infrastrutture. Il programma nasce come architettura per Marte, passa attraverso MCT, ITS e BFR, abbandona fibra di carbonio e ali tradizionali, adotta acciaio inossidabile, rientro controllato sulle flaps e una famiglia di motori Raptor a metano. Ogni prototipo ha trasformato un problema teorico in un test fisico, spesso distruttivo ma immediatamente riutilizzato nel progetto successivo.</p>
-        <p>Questa pagina deriva dal workbook locale <strong>sviluppo_starship.xlsx</strong>. La data di taglio e il <strong>30 agosto 2026</strong>: Flight 13 e stato completato il 24 luglio alle 22:51 UTC (25 luglio 00:51 CEST). E il tredicesimo volo integrato e il secondo della generazione V3. Post-volo, Ship 40 e la prima upper stage recuperata dopo un rientro: ispezione a Christmas Island e carico su semi-sommergibile verso Starbase (27/08). Flight 14 (S41+B21) ha chiuso gli static fire a terra; il volo non e ancora avvenuto.</p>
+        <p>Questa pagina deriva dal workbook locale <strong>sviluppo_starship.xlsx</strong>. La data di taglio e il <strong>30 agosto 2026</strong>: Flight 13 e stato completato il 24 luglio alle 22:51 UTC (25 luglio 00:51 CEST). E il tredicesimo volo integrato e il secondo della generazione V3. Post-volo, Ship 40 e la prima upper stage recuperata dopo un rientro: ispezione a Christmas Island e carico su semi-sommergibile verso Starbase (27/08). {flight14_note}</p>
       </article>
       <aside class="panel">
         <h3>Indice del dossier</h3>
@@ -2934,6 +2998,7 @@ def render_starship_development_page(data):
   </div>
 </section>
 </div>
+{operational_section}
 """
     return shell("Sviluppo Starship", "spacex", True, body, css_version="20260725-flight13")
 
@@ -2973,6 +3038,7 @@ def render():
         "electron": electron_data(),
         "electronUpcoming": electron_upcoming_data(),
         "starship": starship_data(),
+        "starshipOperational": operational_starship_data(),
         "pads": pad_launch_data(),
         "locations": spacex_locations_data(),
         "generatedAt": launch_metadata["updatedAt"],

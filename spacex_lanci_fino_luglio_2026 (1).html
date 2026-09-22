@@ -81,7 +81,7 @@ footer{max-width:1260px;margin:0 auto 35px;padding:0 18px;color:#b2c3d1;font-siz
   </div>
 </header>
 <main>
-  <div class="notice">Nota secca: il manifesto SpaceX è mobile per definizione. I lanci Starlink e le missioni dimostrative possono comparire o cambiare a pochi giorni dal volo, quindi questo file è una fotografia ragionata del quadro disponibile al 17 settembre 2026.</div>
+  <div class="notice">Nota secca: il manifesto SpaceX è mobile per definizione. I lanci Starlink e le missioni dimostrative possono comparire o cambiare a pochi giorni dal volo, quindi questo file è una fotografia ragionata del quadro disponibile al 22 settembre 2026.</div>
   <section class="grid" id="cards"></section>
 </main>
 <div class="modal" id="modal" aria-hidden="true">
@@ -97,79 +97,9 @@ footer{max-width:1260px;margin:0 auto 35px;padding:0 18px;color:#b2c3d1;font-siz
   Fonte principale: The Space Devs, Launch Library 2. I dati vanno ricontrollati prima di usarli per pianificare una visione dal vivo o una diretta.
 </footer>
 <script>
-const launchesUpdatedAt = "2026-09-17 08:35";
-const launchesDataVersion = "fb7d46eb84335b64";
+const launchesUpdatedAt = "2026-09-22 10:33";
+const launchesDataVersion = "79425224cd21a12a";
 const launches = [
-  {
-    "id": "falcon-9-block-5-starlink-group-15-27",
-    "cat": [
-      "exact",
-      "starlink",
-      "falcon9",
-      "vandenberg"
-    ],
-    "name": "Starlink Group 15-27",
-    "status": "Pronto al lancio",
-    "rocket": "Falcon 9 Block 5",
-    "dateLabel": "20 settembre 2026, 01:47 UTC",
-    "iso": "2026-09-20T01:47:00Z",
-    "window": "01:47-05:47 UTC",
-    "site": "Space Launch Complex 4E, Vandenberg SFB, CA, USA",
-    "landing": "OCISLY, booster B1093, volo 17",
-    "orbit": "LEO",
-    "payload": "Starlink Group 15-27 (Communications)",
-    "summary": "Gruppo di 27 satelliti per la mega-costellazione Starlink, il progetto SpaceX di Internet via satellite.",
-    "news": "T-0 attuale confermato da fonti ufficiali o affidabili.",
-    "sources": [
-      [
-        "The Space Devs",
-        "https://ll.thespacedevs.com/2.3.0/launches/d1471f9d-e9d0-4146-8e97-90863e48bfc8/?format=json"
-      ],
-      [
-        "spacex.com",
-        "https://www.spacex.com/launches/sl-15-27"
-      ],
-      [
-        "Webcast",
-        "https://x.com/i/broadcasts/1nxnRBXEladxO"
-      ]
-    ]
-  },
-  {
-    "id": "starship-starlink-group-31-1-starship-flight-14",
-    "cat": [
-      "exact",
-      "starlink",
-      "starship",
-      "altro-sito"
-    ],
-    "name": "Starlink Group 31-1 (Starship Flight 14)",
-    "status": "Pronto al lancio",
-    "rocket": "Starship V3",
-    "dateLabel": "22 settembre 2026, 12:15 UTC",
-    "iso": "2026-09-22T12:15:00Z",
-    "window": "12:15-13:30 UTC",
-    "site": "Orbital Launch Pad 2, SpaceX Starbase, TX, USA",
-    "landing": "GOM, booster Booster 21, volo 1",
-    "orbit": "LEO",
-    "payload": "Starlink Group 31-1 (Starship Flight 14) (Communications)",
-    "summary": "14th test flight of the two-stage Starship launch vehicle. 3rd flight of Starship V3 and the first Starship flight to deploy satellites (a group of Starlink satellites known as Starlink Group 31-1) into stable Low Earth Orbit. The ship is expected to fly at an altitude approximately 275 km above Earth and complete approximately 6 orbits around the planet for nearly 10 hours, with splashdown targeted in the Pacific Ocean west...",
-    "news": "T-0 attuale confermato da fonti ufficiali o affidabili.",
-    "sources": [
-      [
-        "The Space Devs",
-        "https://ll.thespacedevs.com/2.3.0/launches/7d1afb26-6f9c-429b-9ccf-29012fd1e519/?format=json"
-      ],
-      [
-        "spacex.com",
-        "https://www.spacex.com/launches/starship-flight-14"
-      ],
-      [
-        "Webcast",
-        "https://www.youtube.com/watch?v=SqSGeLDIG-0"
-      ]
-    ]
-  },
   {
     "id": "falcon-9-block-5-ussf-385",
     "cat": [
@@ -206,80 +136,87 @@ const launches = [
     ]
   },
   {
-    "id": "falcon-9-block-5-sda-tranche-1-transport-layer-a",
+    "id": "starship-starlink-group-31-1-starship-flight-14",
     "cat": [
-      "net",
-      "non-starlink",
-      "sda",
-      "falcon9",
-      "vandenberg"
+      "exact",
+      "starlink",
+      "starship",
+      "altro-sito"
     ],
-    "name": "SDA Tranche 1 Transport Layer A",
-    "status": "NET / da definire",
-    "rocket": "Falcon 9 Block 5",
-    "dateLabel": "NET settembre 2026",
-    "iso": "2026-09-30T00:00:00Z",
-    "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
-    "site": "Space Launch Complex 4E, Vandenberg SFB, CA, USA",
-    "landing": "Recupero booster non indicato da The Space Devs",
-    "orbit": "PO",
-    "payload": "SDA Tranche 1 Transport Layer A (Government/Top Secret)",
-    "summary": "Tranche 1 Transport Layer A is one of six missions by the United States Space Force Space Development Agency (SDA) for the Proliferated Warfighter Space Architecture (PWSA) Tranche 1 Transport Layer constellation, which will provide assured, resilient, low-latency military data and connectivity worldwide to the full range of warfighter platforms from Low Earth Orbit satellites. The constellation will be interconnected with...",
-    "news": "La data attuale e indicativa o approssimativa, basata su fonti non stabili o interpretate.",
+    "name": "Starlink Group 31-1 (Starship Flight 14)",
+    "status": "Data/orario possono cambiare",
+    "rocket": "Starship V3",
+    "dateLabel": "NET 28 settembre 2026, 12:15 UTC",
+    "iso": "2026-09-28T12:15:00Z",
+    "window": "12:15-13:30 UTC; data e orario da ricontrollare",
+    "site": "Orbital Launch Pad 2, SpaceX Starbase, TX, USA",
+    "landing": "GOM, booster Booster 21, volo 1",
+    "orbit": "LEO",
+    "payload": "Starlink Group 31-1 (Starship Flight 14) (Communications)",
+    "summary": "14th test flight of the two-stage Starship launch vehicle. 3rd flight of Starship V3 and the first Starship flight to deploy satellites (a group of Starlink satellites known as Starlink Group 31-1) into stable Low Earth Orbit. The ship is expected to fly at an altitude approximately 275 km above Earth and complete approximately 6 orbits around the planet for nearly 10 hours, with splashdown targeted in the Pacific Ocean west...",
+    "news": "Awaiting official confirmation - current date is known with some certainty.",
     "sources": [
       [
         "The Space Devs",
-        "https://ll.thespacedevs.com/2.3.0/launches/da43dc2c-00af-4cc1-8ef1-90a60b2eb9e5/?format=json"
+        "https://ll.thespacedevs.com/2.3.0/launches/7d1afb26-6f9c-429b-9ccf-29012fd1e519/?format=json"
+      ],
+      [
+        "spacex.com",
+        "https://www.spacex.com/launches/starship-flight-14"
+      ],
+      [
+        "Webcast",
+        "https://www.youtube.com/watch?v=SqSGeLDIG-0"
       ]
     ]
   },
   {
-    "id": "falcon-9-block-5-dragon-crs-2-spx-35",
+    "id": "falcon-9-block-5-crew-13",
     "cat": [
-      "net",
+      "exact",
       "non-starlink",
       "falcon9",
       "florida"
     ],
-    "name": "Dragon CRS-2 SpX-35",
-    "status": "NET / da definire",
+    "name": "Crew-13",
+    "status": "Data/orario possono cambiare",
     "rocket": "Falcon 9 Block 5",
-    "dateLabel": "NET ottobre 2026",
-    "iso": "2026-10-31T00:00:00Z",
-    "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
+    "dateLabel": "NET 1 ottobre 2026, 15:10 UTC",
+    "iso": "2026-10-01T15:10:06Z",
+    "window": "15:10-15:10 UTC; data e orario da ricontrollare",
     "site": "Space Launch Complex 40, Cape Canaveral SFS, FL, USA",
-    "landing": "LZ-40, booster non identificato",
+    "landing": "LZ-40, booster B1101, volo 3",
     "orbit": "LEO",
-    "payload": "Dragon CRS-2 SpX-35 (Resupply)",
-    "summary": "35th commercial resupply services mission to the International Space Station operated by SpaceX. The flight will be conducted under the second Commercial Resupply Services contract with NASA. Cargo Dragon 2 brings supplies and payloads, including critical materials to directly support science and research investigations that occur onboard the orbiting laboratory.",
-    "news": "La data attuale e indicativa o approssimativa, basata su fonti non stabili o interpretate.",
+    "payload": "Crew-13 (Human Exploration)",
+    "summary": "SpaceX Crew-13 is the thirteenth crewed operational flight of a Crew Dragon spacecraft to the International Space Station as part of NASA's Commercial Crew Program.",
+    "news": "Awaiting official confirmation - current date is known with some certainty.",
     "sources": [
       [
         "The Space Devs",
-        "https://ll.thespacedevs.com/2.3.0/launches/bf2c3027-a314-403e-a416-2bfd5d165ad1/?format=json"
+        "https://ll.thespacedevs.com/2.3.0/launches/18441371-8b2e-457c-afb5-1ec1b11ab630/?format=json"
       ]
     ]
   },
   {
     "id": "falcon-9-block-5-transporter-18-dedicated-sso-ride",
     "cat": [
-      "net",
+      "exact",
       "non-starlink",
       "falcon9",
       "vandenberg"
     ],
     "name": "Transporter 18 (Dedicated SSO Rideshare)",
-    "status": "NET / da definire",
+    "status": "Data/orario possono cambiare",
     "rocket": "Falcon 9 Block 5",
-    "dateLabel": "NET ottobre 2026",
-    "iso": "2026-10-31T00:00:00Z",
-    "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
+    "dateLabel": "NET 1 ottobre 2026, 18:08 UTC",
+    "iso": "2026-10-01T18:08:00Z",
+    "window": "18:08-20:09 UTC; data e orario da ricontrollare",
     "site": "Space Launch Complex 4E, Vandenberg SFB, CA, USA",
     "landing": "Recupero booster non indicato da The Space Devs",
     "orbit": "SSO",
     "payload": "Transporter 18 (Dedicated SSO Rideshare) (Dedicated Rideshare)",
     "summary": "Dedicated rideshare flight to a sun-synchronous orbit with dozens of small microsatellites and nanosatellites for commercial and government customers.",
-    "news": "La data attuale e indicativa o approssimativa, basata su fonti non stabili o interpretate.",
+    "news": "Awaiting official confirmation - current date is known with some certainty.",
     "sources": [
       [
         "The Space Devs",
@@ -288,29 +225,37 @@ const launches = [
     ]
   },
   {
-    "id": "falcon-heavy-nrol-97",
+    "id": "falcon-9-block-5-starlink-group-15-25",
     "cat": [
-      "net",
-      "non-starlink",
-      "heavy",
-      "florida"
+      "exact",
+      "starlink",
+      "falcon9",
+      "vandenberg"
     ],
-    "name": "NROL-97",
-    "status": "NET / da definire",
-    "rocket": "Falcon Heavy",
-    "dateLabel": "NET ottobre 2026",
-    "iso": "2026-10-31T00:00:00Z",
-    "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
-    "site": "Launch Complex 39A, Kennedy Space Center, FL, USA",
-    "landing": "Recupero booster non indicato da The Space Devs",
-    "orbit": "N/A",
-    "payload": "NROL-97 (Government/Top Secret)",
-    "summary": "Carico classificato per il National Reconnaissance Office degli Stati Uniti.",
-    "news": "La data attuale e indicativa o approssimativa, basata su fonti non stabili o interpretate.",
+    "name": "Starlink Group 15-25",
+    "status": "Pronto al lancio",
+    "rocket": "Falcon 9 Block 5",
+    "dateLabel": "10 ottobre 2026, 16:00 UTC",
+    "iso": "2026-10-10T16:00:00Z",
+    "window": "16:00-20:00 UTC",
+    "site": "Space Launch Complex 4E, Vandenberg SFB, CA, USA",
+    "landing": "OCISLY, booster B1082, volo 25",
+    "orbit": "LEO",
+    "payload": "Starlink Group 15-25 (Communications)",
+    "summary": "Gruppo di 27 satelliti per la mega-costellazione Starlink, il progetto SpaceX di Internet via satellite.",
+    "news": "T-0 attuale confermato da fonti ufficiali o affidabili.",
     "sources": [
       [
         "The Space Devs",
-        "https://ll.thespacedevs.com/2.3.0/launches/4651fd8a-43de-4166-bf8f-c168b3bd1d2c/?format=json"
+        "https://ll.thespacedevs.com/2.3.0/launches/97c6f5e1-299e-4652-b72d-9618ac047076/?format=json"
+      ],
+      [
+        "spacex.com",
+        "https://www.spacex.com/launches/sl-15-25"
+      ],
+      [
+        "Webcast",
+        "https://x.com/i/broadcasts/1yKAPwdemygxb"
       ]
     ]
   },
@@ -342,29 +287,84 @@ const launches = [
     ]
   },
   {
-    "id": "falcon-9-block-5-crew-13",
+    "id": "falcon-9-block-5-dragon-crs-2-spx-35",
     "cat": [
       "net",
       "non-starlink",
       "falcon9",
       "florida"
     ],
-    "name": "Crew-13",
+    "name": "Dragon CRS-2 SpX-35",
     "status": "NET / da definire",
     "rocket": "Falcon 9 Block 5",
     "dateLabel": "NET ottobre 2026",
     "iso": "2026-10-31T00:00:00Z",
     "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
     "site": "Space Launch Complex 40, Cape Canaveral SFS, FL, USA",
-    "landing": "LZ-40, booster B1101, volo 3",
+    "landing": "LZ-40, booster non identificato",
     "orbit": "LEO",
-    "payload": "Crew-13 (Human Exploration)",
-    "summary": "SpaceX Crew-13 is the thirteenth crewed operational flight of a Crew Dragon spacecraft to the International Space Station as part of NASA's Commercial Crew Program.",
+    "payload": "Dragon CRS-2 SpX-35 (Resupply)",
+    "summary": "35th commercial resupply services mission to the International Space Station operated by SpaceX. The flight will be conducted under the second Commercial Resupply Services contract with NASA. Cargo Dragon 2 brings supplies and payloads, including critical materials to directly support science and research investigations that occur onboard the orbiting laboratory.",
     "news": "La data attuale e indicativa o approssimativa, basata su fonti non stabili o interpretate.",
     "sources": [
       [
         "The Space Devs",
-        "https://ll.thespacedevs.com/2.3.0/launches/18441371-8b2e-457c-afb5-1ec1b11ab630/?format=json"
+        "https://ll.thespacedevs.com/2.3.0/launches/bf2c3027-a314-403e-a416-2bfd5d165ad1/?format=json"
+      ]
+    ]
+  },
+  {
+    "id": "falcon-9-block-5-sda-tranche-1-transport-layer-a",
+    "cat": [
+      "net",
+      "non-starlink",
+      "sda",
+      "falcon9",
+      "vandenberg"
+    ],
+    "name": "SDA Tranche 1 Transport Layer A",
+    "status": "NET / da definire",
+    "rocket": "Falcon 9 Block 5",
+    "dateLabel": "NET ottobre 2026",
+    "iso": "2026-10-31T00:00:00Z",
+    "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
+    "site": "Space Launch Complex 4E, Vandenberg SFB, CA, USA",
+    "landing": "Recupero booster non indicato da The Space Devs",
+    "orbit": "PO",
+    "payload": "SDA Tranche 1 Transport Layer A (Government/Top Secret)",
+    "summary": "Tranche 1 Transport Layer A is one of six missions by the United States Space Force Space Development Agency (SDA) for the Proliferated Warfighter Space Architecture (PWSA) Tranche 1 Transport Layer constellation, which will provide assured, resilient, low-latency military data and connectivity worldwide to the full range of warfighter platforms from Low Earth Orbit satellites. The constellation will be interconnected with...",
+    "news": "La data attuale e indicativa o approssimativa, basata su fonti non stabili o interpretate.",
+    "sources": [
+      [
+        "The Space Devs",
+        "https://ll.thespacedevs.com/2.3.0/launches/da43dc2c-00af-4cc1-8ef1-90a60b2eb9e5/?format=json"
+      ]
+    ]
+  },
+  {
+    "id": "falcon-heavy-nrol-97",
+    "cat": [
+      "net",
+      "non-starlink",
+      "heavy",
+      "florida"
+    ],
+    "name": "NROL-97",
+    "status": "NET / da definire",
+    "rocket": "Falcon Heavy",
+    "dateLabel": "NET ottobre 2026",
+    "iso": "2026-10-31T00:00:00Z",
+    "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
+    "site": "Launch Complex 39A, Kennedy Space Center, FL, USA",
+    "landing": "Recupero booster non indicato da The Space Devs",
+    "orbit": "N/A",
+    "payload": "NROL-97 (Government/Top Secret)",
+    "summary": "Carico classificato per il National Reconnaissance Office degli Stati Uniti.",
+    "news": "La data attuale e indicativa o approssimativa, basata su fonti non stabili o interpretate.",
+    "sources": [
+      [
+        "The Space Devs",
+        "https://ll.thespacedevs.com/2.3.0/launches/4651fd8a-43de-4166-bf8f-c168b3bd1d2c/?format=json"
       ]
     ]
   }
