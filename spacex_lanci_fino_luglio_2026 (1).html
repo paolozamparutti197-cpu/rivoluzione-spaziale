@@ -81,7 +81,7 @@ footer{max-width:1260px;margin:0 auto 35px;padding:0 18px;color:#b2c3d1;font-siz
   </div>
 </header>
 <main>
-  <div class="notice">Nota secca: il manifesto SpaceX è mobile per definizione. I lanci Starlink e le missioni dimostrative possono comparire o cambiare a pochi giorni dal volo, quindi questo file è una fotografia ragionata del quadro disponibile al 25 settembre 2026.</div>
+  <div class="notice">Nota secca: il manifesto SpaceX è mobile per definizione. I lanci Starlink e le missioni dimostrative possono comparire o cambiare a pochi giorni dal volo, quindi questo file è una fotografia ragionata del quadro disponibile al 26 settembre 2026.</div>
   <section class="grid" id="cards"></section>
 </main>
 <div class="modal" id="modal" aria-hidden="true">
@@ -97,44 +97,9 @@ footer{max-width:1260px;margin:0 auto 35px;padding:0 18px;color:#b2c3d1;font-siz
   Fonte principale: The Space Devs, Launch Library 2. I dati vanno ricontrollati prima di usarli per pianificare una visione dal vivo o una diretta.
 </footer>
 <script>
-const launchesUpdatedAt = "2026-09-25 09:45";
-const launchesDataVersion = "a2fc8e59800e51be";
+const launchesUpdatedAt = "2026-09-26 20:15";
+const launchesDataVersion = "77f9dcb474993377";
 const launches = [
-  {
-    "id": "falcon-9-block-5-ussf-385",
-    "cat": [
-      "exact",
-      "non-starlink",
-      "falcon9",
-      "vandenberg"
-    ],
-    "name": "USSF-385",
-    "status": "Pronto al lancio",
-    "rocket": "Falcon 9 Block 5",
-    "dateLabel": "26 settembre 2026, 11:56 UTC",
-    "iso": "2026-09-26T11:56:00Z",
-    "window": "11:56-14:56 UTC",
-    "site": "Space Launch Complex 4E, Vandenberg SFB, CA, USA",
-    "landing": "OCISLY, booster B1100, volo 10",
-    "orbit": "LEO",
-    "payload": "USSF-385 (Government/Top Secret)",
-    "summary": "A classified mission for the United States Space Force. It is possibly a batch of classified LEO satellites based on SpaceX’s Starshield satellite bus, based on locations of rocket stage drop zones being exact fits with previous Starlink Group 15 launches.",
-    "news": "T-0 attuale confermato da fonti ufficiali o affidabili.",
-    "sources": [
-      [
-        "The Space Devs",
-        "https://ll.thespacedevs.com/2.3.0/launches/7330d83b-c478-426c-8859-f9e3a335876d/?format=json"
-      ],
-      [
-        "spacex.com",
-        "https://www.spacex.com/launches/ussf385"
-      ],
-      [
-        "Webcast",
-        "https://x.com/i/broadcasts/1mxPaZqBEDjKN"
-      ]
-    ]
-  },
   {
     "id": "starship-starlink-group-31-1-starship-flight-14",
     "cat": [
@@ -255,7 +220,7 @@ const launches = [
     "iso": "2026-10-02T03:53:00Z",
     "window": "03:53-04:42 UTC",
     "site": "Launch Complex 39A, Kennedy Space Center, FL, USA",
-    "landing": "LZ-1, booster B1104, volo 2; LZ-2, booster B1072, volo 4; ATL, booster B1106, volo 1",
+    "landing": "LZ-1, booster B1104, volo 2; ATL, booster B1106, volo 1; LZ-2, booster B1072, volo 4",
     "orbit": "N/A",
     "payload": "NROL-97 (Government/Top Secret)",
     "summary": "Carico classificato per il National Reconnaissance Office degli Stati Uniti.",
@@ -272,6 +237,34 @@ const launches = [
       [
         "Webcast",
         "https://x.com/i/broadcasts/1oJMvNkPPXlxQ"
+      ]
+    ]
+  },
+  {
+    "id": "falcon-9-block-5-sda-tranche-1-transport-layer-a",
+    "cat": [
+      "exact",
+      "non-starlink",
+      "sda",
+      "falcon9",
+      "vandenberg"
+    ],
+    "name": "SDA Tranche 1 Transport Layer A",
+    "status": "Data/orario possono cambiare",
+    "rocket": "Falcon 9 Block 5",
+    "dateLabel": "NET 5 ottobre 2026, 08:06 UTC",
+    "iso": "2026-10-05T08:06:00Z",
+    "window": "08:06-09:11 UTC; data e orario da ricontrollare",
+    "site": "Space Launch Complex 4E, Vandenberg SFB, CA, USA",
+    "landing": "LZ-4, booster non identificato",
+    "orbit": "PO",
+    "payload": "SDA Tranche 1 Transport Layer A (Government/Top Secret)",
+    "summary": "Tranche 1 Transport Layer A is one of six missions by the United States Space Force Space Development Agency (SDA) for the Proliferated Warfighter Space Architecture (PWSA) Tranche 1 Transport Layer constellation, which will provide assured, resilient, low-latency military data and connectivity worldwide to the full range of warfighter platforms from Low Earth Orbit satellites. The constellation will be interconnected with...",
+    "news": "Awaiting official confirmation - current date is known with some certainty.",
+    "sources": [
+      [
+        "The Space Devs",
+        "https://ll.thespacedevs.com/2.3.0/launches/da43dc2c-00af-4cc1-8ef1-90a60b2eb9e5/?format=json"
       ]
     ]
   },
@@ -361,34 +354,6 @@ const launches = [
       [
         "The Space Devs",
         "https://ll.thespacedevs.com/2.3.0/launches/bf2c3027-a314-403e-a416-2bfd5d165ad1/?format=json"
-      ]
-    ]
-  },
-  {
-    "id": "falcon-9-block-5-sda-tranche-1-transport-layer-a",
-    "cat": [
-      "net",
-      "non-starlink",
-      "sda",
-      "falcon9",
-      "vandenberg"
-    ],
-    "name": "SDA Tranche 1 Transport Layer A",
-    "status": "NET / da definire",
-    "rocket": "Falcon 9 Block 5",
-    "dateLabel": "NET ottobre 2026",
-    "iso": "2026-10-31T00:00:00Z",
-    "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
-    "site": "Space Launch Complex 4E, Vandenberg SFB, CA, USA",
-    "landing": "Recupero booster non indicato da The Space Devs",
-    "orbit": "PO",
-    "payload": "SDA Tranche 1 Transport Layer A (Government/Top Secret)",
-    "summary": "Tranche 1 Transport Layer A is one of six missions by the United States Space Force Space Development Agency (SDA) for the Proliferated Warfighter Space Architecture (PWSA) Tranche 1 Transport Layer constellation, which will provide assured, resilient, low-latency military data and connectivity worldwide to the full range of warfighter platforms from Low Earth Orbit satellites. The constellation will be interconnected with...",
-    "news": "La data attuale e indicativa o approssimativa, basata su fonti non stabili o interpretate.",
-    "sources": [
-      [
-        "The Space Devs",
-        "https://ll.thespacedevs.com/2.3.0/launches/da43dc2c-00af-4cc1-8ef1-90a60b2eb9e5/?format=json"
       ]
     ]
   }
