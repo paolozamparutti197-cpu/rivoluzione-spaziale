@@ -107,6 +107,8 @@ PUBLISH_FILES = [
     "sezioni/starship.html",
     "sezioni/lancio13.html",
     "sezioni/lancio14.html",
+    "documenti per sito/spacex_starship_flight14.html",
+    "documenti per sito/spacex_starship_flight14_resoconto.html",
     "sezioni/assets/sviluppo-starship",
     "sezioni/assets/lancio13",
     "sezioni/pad-di-lancio.html",

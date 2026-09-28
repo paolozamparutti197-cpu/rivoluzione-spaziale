@@ -157,6 +157,22 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-09-28",
+        "date_label": "28 settembre 2026",
+        "tag": "SpaceX · Starship Flight 14",
+        "title": "Starship in orbita: 26 Starlink V3 rilasciati, rientro anticipato nel Pacifico",
+        "summary": (
+            "La Ship ha raggiunto l'orbita nonostante lo spegnimento di un motore e ha rilasciato "
+            "tutti i 26 satelliti. Booster ammarato nel Golfo; Ship rientrata dopo circa due orbite."
+        ),
+        "href": "../documenti%20per%20sito/spacex_starship_flight14_resoconto.html",
+        "image": "assets/sviluppo-starship/starship-ift5-ignition.jpg",
+        "image_alt": "Starship in volo durante il Flight 5 del 2024, fotografia d'archivio di Steve Jurvetson",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-09-22",
         "date_label": "22 settembre 2026",
         "tag": "SpaceX · Starship Flight 14",
@@ -169,8 +185,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_starship_flight14.html",
         "image": "../documenti%20per%20sito/assets_earnings/starship_pad.jpg",
         "image_alt": "Starship al pad in una precedente campagna di volo: foto d'archivio",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
@@ -2387,8 +2403,8 @@ def render_spacex(data):
             metric(
                 "Flight 14 registrato nello storico Starship" if flight14_done else "Flight 14: NET 28 settembre; prima orbita e 26 Starlink V3 previsti",
                 "Starship · volo orbitale" if flight14_done else "prossimo Starship · piano di volo",
-                href="lancio14.html",
-                title="Apri la bozza Flight 14 / ipotesi Starship 1",
+                href="../documenti%20per%20sito/spacex_starship_flight14_resoconto.html" if flight14_done else "lancio14.html",
+                title="Leggi il resoconto del Flight 14" if flight14_done else "Apri il piano del Flight 14",
                 variant="f14",
             ),
         ]
