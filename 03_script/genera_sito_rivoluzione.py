@@ -416,16 +416,6 @@ def falcon_data():
         for row in rows_from_sheet(path, "serie_annuale", 3)
         if row.get("anno") is not None and int(row.get("anno")) <= current_year
     ]
-    launchers = [
-        {
-            "lanciatore": row.get("lanciatore"),
-            "lanci": row.get("lanci principali"),
-            "successi": row.get("successi"),
-            "tasso": row.get("tasso successo"),
-        }
-        for row in rows_from_sheet(path, "per_lanciatore", 3)
-        if row.get("lanciatore")
-    ][:7]
     pad_sheet = workbook["per_pad_orbita"]
     pads = [
         {"pad": clean(row[0]), "lanci": clean(row[1]), "quota": row[2]}
@@ -445,19 +435,20 @@ def falcon_data():
     ][:8]
     headers = [clean(cell.value) for cell in elenco[1]]
     latest = {}
-    falcon_rows = []
+    launch_rows = []
     for values in elenco.iter_rows(min_row=2, values_only=True):
         row = {
             header: clean(values[index]) if index < len(values) else None
             for index, header in enumerate(headers)
             if header
         }
-        if row.get('tipo_record') == 'Lancio principale' and str(row.get('lanciatore') or '').startswith('Falcon'):
-            falcon_rows.append(row)
+        if row.get('tipo_record') != 'Lancio principale' or str(row.get('id_lancio') or '').startswith('SIM-'):
+            continue
+        if not row.get('lanciatore'):
+            continue
+        launch_rows.append(row)
         if (
-            row.get("tipo_record") == "Lancio principale"
-            and str(row.get('lanciatore') or '').startswith('Falcon')
-            and row.get("data")
+            row.get("data")
             and row.get("lanciatore")
             and row.get("cliente")
         ):
@@ -473,30 +464,43 @@ def falcon_data():
                 "voli": row.get("voli"),
                 "pad": row.get("dove"),
             }
-    # Il registro può contenere Starship e simulazioni: questo cruscotto è Falcon.
-    metrics['lanci'] = len(falcon_rows)
-    metrics['successi'] = sum(r.get('stato') == 'successo' for r in falcon_rows)
-    decided = sum(r.get('stato') in ('successo', 'parziale', 'fallito') for r in falcon_rows)
+    # Le metriche generali seguono tutti i lanci principali effettivi dell'Excel.
+    metrics['lanci'] = len(launch_rows)
+    metrics['successi'] = sum(r.get('stato') == 'successo' for r in launch_rows)
+    decided = sum(r.get('stato') in ('successo', 'parziale', 'fallito') for r in launch_rows)
     metrics['tasso'] = metrics['successi'] / decided if decided else None
-    metrics['falconHeavy'] = sum(r.get('famiglia_lanciatore') == 'Falcon Heavy' for r in falcon_rows)
-    metrics['padAttivi'] = len({r.get('dove') for r in falcon_rows if r.get('dove')})
+    metrics['falconHeavy'] = sum(r.get('famiglia_lanciatore') == 'Falcon Heavy' for r in launch_rows)
+    # Il dashboard Excel conta i pad per ID: il campo descrittivo "dove"
+    # ha grafie storiche diverse e gonfierebbe il totale.
     metrics['ultimo'] = latest.get('data')
-    metrics['recuperiRiusciti'] = sum(r.get('recupero_riuscito') or 0 for r in falcon_rows)
-    metrics['boosterRiutilizzati'] = sum(r.get('booster_riutilizzato') or 0 for r in falcon_rows)
+    # Il riepilogo Excel include anche le righe tecniche dei booster nel recupero.
+    # Conserviamo questi due totali dal dashboard, senza limitarli ai lanci principali.
     by_year = {}
-    for r in falcon_rows:
+    by_launcher = {}
+    for r in launch_rows:
         year = int(r.get('year') or 0)
         by_year.setdefault(year, []).append(r)
+        by_launcher.setdefault(r['lanciatore'], []).append(r)
     annual = [{'anno': year, 'lanci': len(rows),
                'successi': sum(r.get('stato') == 'successo' for r in rows),
                'falliti': sum(r.get('stato') in ('fallito', 'parziale') for r in rows),
                'tasso': sum(r.get('stato') == 'successo' for r in rows) / max(1, sum(r.get('stato') in ('successo','fallito','parziale') for r in rows))}
               for year, rows in sorted(by_year.items()) if year <= current_year]
-    launchers = [r for r in launchers if str(r.get('lanciatore') or '').startswith('Falcon')]
-    pads = [r for r in pads if r['pad'] in {x.get('dove') for x in falcon_rows}]
+    launchers = [
+        {'lanciatore': name, 'lanci': len(group),
+         'successi': sum(r.get('stato') == 'successo' for r in group),
+         'tasso': sum(r.get('stato') == 'successo' for r in group) /
+                  max(1, sum(r.get('stato') in ('successo', 'parziale', 'fallito') for r in group))}
+        for name, group in by_launcher.items()
+    ]
+    pads = [r for r in pads if r['pad'] in {x.get('dove') for x in launch_rows}]
     for p in pads:
-        p['lanci'] = sum(x.get('dove') == p['pad'] for x in falcon_rows)
-        p['quota'] = p['lanci'] / len(falcon_rows) if falcon_rows else 0
+        p['lanci'] = sum(x.get('dove') == p['pad'] for x in launch_rows)
+        p['quota'] = p['lanci'] / len(launch_rows) if launch_rows else 0
+    if any(r.get('landing') == 'Splashdown' for r in launch_rows):
+        landing.append({'codice': 'Splashdown',
+                        'record': sum(r.get('landing') == 'Splashdown' for r in launch_rows),
+                        'tentativi': 0, 'recuperi': 0})
     return {"metrics": metrics, "annual": annual, "launchers": launchers, "pads": pads, "landing": landing, "latest": latest}
 
 
@@ -1846,7 +1850,7 @@ def render_falcon_dashboard(falcon):
   <div>
     <p class="badge">Ultimo lancio registrato</p>
     <h3>{escape(str(latest.get('cliente') or 'n.d.'))}</h3>
-    <p>{escape(display_date(latest.get('data')))} · volo Falcon #{escape(str(latest.get('nr') or 'n.d.'))}</p>
+    <p>{escape(display_date(latest.get('data')))} · lancio SpaceX #{escape(str(latest.get('nr') or 'n.d.'))}</p>
   </div>
   <div>
     <p><strong>{escape(str(latest.get('lanciatore') or 'n.d.'))}</strong></p>
@@ -1891,7 +1895,7 @@ def render_falcon_dashboard(falcon):
 </div>
 <div class="dash-grid" style="margin-top:18px">
   <div class="panel"><h3>Lanci per anno</h3><div class="bars">{bars}</div></div>
-  <div class="panel"><h3>Famiglie Falcon</h3><table><thead><tr><th>Lanciatore</th><th>Lanci</th><th>Successo</th></tr></thead><tbody>{launcher_rows}</tbody></table></div>
+  <div class="panel"><h3>Lanciatori SpaceX</h3><table><thead><tr><th>Lanciatore</th><th>Lanci</th><th>Successo</th></tr></thead><tbody>{launcher_rows}</tbody></table></div>
 </div>
 <div class="cols" style="margin-top:18px">
   <div class="panel"><h3>Pad e aree</h3><table><thead><tr><th>Pad</th><th>Lanci</th><th>Quota</th></tr></thead><tbody>{pad_rows}</tbody></table></div>
@@ -2367,7 +2371,7 @@ def render_spacex(data):
     flight14_done = any(item.get('volo_programma') == 14 for item in data['starshipOperational'])
     kpi_metrics = "".join(
         [
-            metric(f"{f['lanci']:,}".replace(",", "."), "lanci Falcon principali"),
+            metric(f"{f['lanci']:,}".replace(",", "."), "lanci SpaceX principali"),
             metric(percent(f["tasso"]), "success rate storico"),
             metric(f["recuperiRiusciti"], "recuperi booster riusciti"),
         ]
@@ -2409,7 +2413,7 @@ def render_spacex(data):
         </div>
         <div class="door-group">
           <h3>Macchina</h3>
-          <p>Storico Falcon, pad e mappa dei siti.</p>
+          <p>Storico dei lanci SpaceX, pad e mappa dei siti.</p>
           <div class="actions">
             <a class="button secondary" href="storico-lanci.html">Storico lanci</a>
             <a class="button secondary" href="pad-di-lancio.html">Pad di lancio</a>
@@ -2800,7 +2804,7 @@ def render_launches_page(data):
 
 def render_history_page(data):
     body = f"""
-{page_hero("Storico lanci", "Dashboard Falcon", "Riepilogo operativo dello storico Falcon: cadenza, successi, pad, famiglie di lanciatore e recupero booster.")}
+{page_hero("Storico lanci", "Dashboard SpaceX", "Riepilogo dei lanci operativi SpaceX: cadenza, successi, pad, lanciatori e recupero booster.")}
 <section>
   <div class="inner">{render_falcon_dashboard(data['falcon'])}</div>
 </section>
@@ -3097,7 +3101,7 @@ def main():
     latest = falcon.get("latest") or {}
     print("Aggiornamento sito da Excel completato.")
     print(
-        "Storico Falcon: "
+        "Storico SpaceX: "
         f"{metrics.get('lanci')} lanci principali, "
         f"{metrics.get('successi')} successi, "
         f"{metrics.get('recuperiRiusciti')} recuperi booster."
@@ -3105,7 +3109,7 @@ def main():
     if latest:
         print(
             "Ultimo lancio registrato: "
-            f"{latest.get('cliente')} - {latest.get('data')} - Falcon #{latest.get('nr')}."
+            f"{latest.get('cliente')} - {latest.get('data')} - lancio SpaceX #{latest.get('nr')}."
         )
     if changed:
         print("File modificati:")
