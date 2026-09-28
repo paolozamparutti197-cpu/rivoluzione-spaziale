@@ -81,7 +81,7 @@ footer{max-width:1260px;margin:0 auto 35px;padding:0 18px;color:#b2c3d1;font-siz
   </div>
 </header>
 <main>
-  <div class="notice">Nota secca: il manifesto SpaceX è mobile per definizione. I lanci Starlink e le missioni dimostrative possono comparire o cambiare a pochi giorni dal volo, quindi questo file è una fotografia ragionata del quadro disponibile al 26 settembre 2026.</div>
+  <div class="notice">Nota secca: il manifesto SpaceX è mobile per definizione. I lanci Starlink e le missioni dimostrative possono comparire o cambiare a pochi giorni dal volo, quindi questo file è una fotografia ragionata del quadro disponibile al 28 settembre 2026.</div>
   <section class="grid" id="cards"></section>
 </main>
 <div class="modal" id="modal" aria-hidden="true">
@@ -97,8 +97,8 @@ footer{max-width:1260px;margin:0 auto 35px;padding:0 18px;color:#b2c3d1;font-siz
   Fonte principale: The Space Devs, Launch Library 2. I dati vanno ricontrollati prima di usarli per pianificare una visione dal vivo o una diretta.
 </footer>
 <script>
-const launchesUpdatedAt = "2026-09-26 20:15";
-const launchesDataVersion = "77f9dcb474993377";
+const launchesUpdatedAt = "2026-09-28 08:10";
+const launchesDataVersion = "ed900a634831c180";
 const launches = [
   {
     "id": "starship-starlink-group-31-1-starship-flight-14",
@@ -109,17 +109,17 @@ const launches = [
       "altro-sito"
     ],
     "name": "Starlink Group 31-1 (Starship Flight 14)",
-    "status": "Data/orario possono cambiare",
+    "status": "Pronto al lancio",
     "rocket": "Starship V3",
-    "dateLabel": "NET 28 settembre 2026, 12:15 UTC",
+    "dateLabel": "28 settembre 2026, 12:15 UTC",
     "iso": "2026-09-28T12:15:00Z",
-    "window": "12:15-13:30 UTC; data e orario da ricontrollare",
+    "window": "12:15-13:30 UTC",
     "site": "Orbital Launch Pad 2, SpaceX Starbase, TX, USA",
     "landing": "GOM, booster Booster 21, volo 1",
     "orbit": "LEO",
     "payload": "Starlink Group 31-1 (Starship Flight 14) (Communications)",
     "summary": "14th test flight of the two-stage Starship launch vehicle. 3rd flight of Starship V3 and the first Starship flight to deploy satellites (a group of Starlink satellites known as Starlink Group 31-1) into stable Low Earth Orbit. The ship is expected to fly at an altitude approximately 275 km above Earth and complete approximately 6 orbits around the planet for nearly 10 hours, with splashdown targeted in the Pacific Ocean west...",
-    "news": "Awaiting official confirmation - current date is known with some certainty.",
+    "news": "T-0 attuale confermato da fonti ufficiali o affidabili.",
     "sources": [
       [
         "The Space Devs",
@@ -220,7 +220,7 @@ const launches = [
     "iso": "2026-10-02T03:53:00Z",
     "window": "03:53-04:42 UTC",
     "site": "Launch Complex 39A, Kennedy Space Center, FL, USA",
-    "landing": "LZ-1, booster B1104, volo 2; ATL, booster B1106, volo 1; LZ-2, booster B1072, volo 4",
+    "landing": "LZ-2, booster B1072, volo 4; ATL, booster B1106, volo 1; LZ-1, booster B1104, volo 2",
     "orbit": "N/A",
     "payload": "NROL-97 (Government/Top Secret)",
     "summary": "Carico classificato per il National Reconnaissance Office degli Stati Uniti.",
@@ -304,33 +304,6 @@ const launches = [
     ]
   },
   {
-    "id": "falcon-9-block-5-bandwagon-5-dedicated-mid-inclina",
-    "cat": [
-      "net",
-      "non-starlink",
-      "falcon9",
-      "florida"
-    ],
-    "name": "Bandwagon 5 (Dedicated Mid-Inclination Rideshare)",
-    "status": "NET / da definire",
-    "rocket": "Falcon 9 Block 5",
-    "dateLabel": "NET ottobre 2026",
-    "iso": "2026-10-31T00:00:00Z",
-    "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
-    "site": "Space Launch Complex 40, Cape Canaveral SFS, FL, USA",
-    "landing": "LZ-40, booster non identificato",
-    "orbit": "LEO",
-    "payload": "Bandwagon 5 (Dedicated Mid-Inclination Rideshare) (Dedicated Rideshare)",
-    "summary": "Dedicated rideshare flight to a mid-inclination orbit with dozens of small microsatellites and nanosatellites for commercial and government customers.",
-    "news": "La data attuale e indicativa o approssimativa, basata su fonti non stabili o interpretate.",
-    "sources": [
-      [
-        "The Space Devs",
-        "https://ll.thespacedevs.com/2.3.0/launches/3b430f81-0ff1-4d85-8a1a-cef0de326198/?format=json"
-      ]
-    ]
-  },
-  {
     "id": "falcon-9-block-5-dragon-crs-2-spx-35",
     "cat": [
       "net",
@@ -354,6 +327,33 @@ const launches = [
       [
         "The Space Devs",
         "https://ll.thespacedevs.com/2.3.0/launches/bf2c3027-a314-403e-a416-2bfd5d165ad1/?format=json"
+      ]
+    ]
+  },
+  {
+    "id": "falcon-9-block-5-bandwagon-5-dedicated-mid-inclina",
+    "cat": [
+      "net",
+      "non-starlink",
+      "falcon9",
+      "florida"
+    ],
+    "name": "Bandwagon 5 (Dedicated Mid-Inclination Rideshare)",
+    "status": "NET / da definire",
+    "rocket": "Falcon 9 Block 5",
+    "dateLabel": "NET ottobre 2026",
+    "iso": "2026-10-31T00:00:00Z",
+    "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
+    "site": "Space Launch Complex 40, Cape Canaveral SFS, FL, USA",
+    "landing": "LZ-40, booster non identificato",
+    "orbit": "LEO",
+    "payload": "Bandwagon 5 (Dedicated Mid-Inclination Rideshare) (Dedicated Rideshare)",
+    "summary": "Dedicated rideshare flight to a mid-inclination orbit with dozens of small microsatellites and nanosatellites for commercial and government customers.",
+    "news": "La data attuale e indicativa o approssimativa, basata su fonti non stabili o interpretate.",
+    "sources": [
+      [
+        "The Space Devs",
+        "https://ll.thespacedevs.com/2.3.0/launches/3b430f81-0ff1-4d85-8a1a-cef0de326198/?format=json"
       ]
     ]
   }
