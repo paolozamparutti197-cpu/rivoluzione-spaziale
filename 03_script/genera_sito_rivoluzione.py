@@ -157,6 +157,23 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-10-01",
+        "date_label": "1 ottobre 2026",
+        "tag": "SpaceX · NASA Crew-13",
+        "title": "Crew-13: quattro astronauti verso la ISS, con countdown e dirette",
+        "summary": (
+            "Jessica Watkins, Luke Delaney, Joshua Kutryk e Sergey Teteryatnikov partono "
+            "da SLC-40 alle 17:10 italiane. Finestra istantanea, Dragon Grace, docking rapido "
+            "e collegamenti alle live SpaceX, NASA e NASASpaceflight."
+        ),
+        "href": "../documenti%20per%20sito/spacex_crew13.html",
+        "image": "../documenti%20per%20sito/assets_crew13/crew13-portrait.jpg",
+        "image_alt": "Ritratto ufficiale dei quattro membri della missione SpaceX Crew-13",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-09-28",
         "date_label": "28 settembre 2026",
         "tag": "SpaceX · Starship Flight 14",
@@ -168,8 +185,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_starship_flight14_resoconto.html",
         "image": "assets/sviluppo-starship/starship-ift5-ignition.jpg",
         "image_alt": "Starship in volo durante il Flight 5 del 2024, fotografia d'archivio di Steve Jurvetson",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
