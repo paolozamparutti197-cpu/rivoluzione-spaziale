@@ -2668,6 +2668,15 @@ def render_spacex_history_page(data):
           <span class="button secondary">Apri approfondimento</span>
         </div>
       </a>
+      <a class="story-card" href="../documenti%20per%20sito/prime_missioni_crs1_crs2.html">
+        <img src="../documenti%20per%20sito/assets_fondazione/crs-2012-2013/crs2-dragon-iss.jpg" alt="Dragon CRS-2 presso la ISS il 3 marzo 2013, fotografia NASA" loading="lazy">
+        <div>
+          <small>Sesta parte</small>
+          <h3>Dalla dimostrazione al servizio: le prime missioni CRS</h3>
+          <p>CRS-1 e CRS-2, ottobre 2012–marzo 2013: il guasto al motore del Falcon 9, la perdita del prototipo Orbcomm, il recupero della propulsione di Dragon e il ritorno del carico scientifico.</p>
+          <span class="button secondary">Apri approfondimento</span>
+        </div>
+      </a>
     </div>
   </div>
 </section>

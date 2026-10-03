@@ -1,0 +1,34 @@
+{
+  "chapter": "prime_missioni_crs1_crs2.html",
+  "narrative_words": 2000,
+  "photos": [
+    {
+      "file": "crs1-lancio.jpg",
+      "caption": "Falcon 9 e Dragon al decollo di CRS-1 da SLC-40, la sera del 7 ottobre 2012 in Florida.",
+      "credit": "NASA/Ken Allen",
+      "identifier": "KSC-2012-5739",
+      "source": "https://images.nasa.gov/details/KSC-2012-5739"
+    },
+    {
+      "file": "crs1-integrazione.jpg",
+      "caption": "Preparazione di Dragon per l’integrazione con Falcon 9 durante la campagna CRS-1, 2012.",
+      "credit": "NASA/Ben Smegelsky",
+      "identifier": "KSC-2012-5638",
+      "source": "https://images.nasa.gov/details/KSC-2012-5638"
+    },
+    {
+      "file": "crs2-lancio.jpg",
+      "caption": "Lancio di Falcon 9 e Dragon per CRS-2 da SLC-40, 1° marzo 2013, ore 10:10 EST.",
+      "credit": "NASA",
+      "identifier": "731265main_space_x2_launch",
+      "source": "https://www.nasa.gov/image-article/spacex-crs-2-mission-launch/"
+    },
+    {
+      "file": "crs2-dragon-iss.jpg",
+      "caption": "Dragon CRS-2 durante le operazioni di arrivo alla Stazione Spaziale Internazionale, 3 marzo 2013.",
+      "credit": "NASA/Expedition 34",
+      "identifier": "ISS034-E-060718",
+      "source": "https://www.nasa.gov/image-article/spacex-dragon-docked-space-station/"
+    }
+  ]
+}
