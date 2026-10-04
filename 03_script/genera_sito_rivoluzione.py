@@ -553,6 +553,26 @@ def operational_starship_data():
         if str(row.get('id_lancio') or '').startswith('SIM-'):
             continue
         out.append(row)
+    # Rientri di Super Heavy e Ship dal foglio recuperi_veicoli (nomi dei siti dal foglio siti).
+    sites = {}
+    recoveries = {}
+    if 'siti' in workbook.sheetnames:
+        sites_sheet = workbook['siti']
+        site_headers = [cell.value for cell in sites_sheet[1]]
+        for values in sites_sheet.iter_rows(min_row=2, values_only=True):
+            site = dict(zip(site_headers, values))
+            if site.get('id_sito'):
+                sites[site['id_sito']] = site.get('nome')
+    if 'recuperi_veicoli' in workbook.sheetnames:
+        rec_sheet = workbook['recuperi_veicoli']
+        rec_headers = [cell.value for cell in rec_sheet[1]]
+        for values in rec_sheet.iter_rows(min_row=2, values_only=True):
+            rec = dict(zip(rec_headers, values))
+            if rec.get('id_lancio'):
+                rec['sito_effettivo'] = sites.get(rec.get('sito_effettivo_id'))
+                recoveries.setdefault(rec['id_lancio'], []).append(rec)
+    for row in out:
+        row['recuperi'] = recoveries.get(row.get('id_lancio'), [])
     return out
 
 
@@ -2413,12 +2433,12 @@ def render_spacex(data):
         [
             metric(
                 starship_stato,
-                "stato Starship · scheda Flight 13",
-                href="lancio13.html",
-                title="Apri la scheda illustrativa Flight 13",
+                "stato Starship · dossier di sviluppo" if flight14_done else "stato Starship · scheda Flight 13",
+                href="starship.html#flight-14" if flight14_done else "lancio13.html",
+                title="Apri il dossier Sviluppo Starship" if flight14_done else "Apri la scheda illustrativa Flight 13",
             ),
             metric(
-                "Flight 14 registrato nello storico Starship" if flight14_done else "Flight 14: NET 28 settembre; prima orbita e 26 Starlink V3 previsti",
+                "Flight 14 (28 settembre): successo, 26 Starlink V3 in orbita" if flight14_done else "Flight 14: NET 28 settembre; prima orbita e 26 Starlink V3 previsti",
                 "Starship · volo orbitale" if flight14_done else "prossimo Starship · piano di volo",
                 href="../documenti%20per%20sito/spacex_starship_flight14_resoconto.html" if flight14_done else "lancio14.html",
                 title="Leggi il resoconto del Flight 14" if flight14_done else "Apri il piano del Flight 14",
@@ -2861,10 +2881,10 @@ def render_starship_page(data):
 def render_starship_development_page(data):
     starship = data["starship"]
     flight14_done = any(item.get('volo_programma') == 14 for item in data['starshipOperational'])
-    flight14_note = ("Flight 14 e registrato nella tabella dei voli con payload orbitale qui sotto."
+    flight14_note = ("Flight 14 (B21 + S41, Pad 2) è stato lanciato il 28 settembre 2026 ed è il primo volo orbitale operativo di Starship: 26 Starlink V3 rilasciati in orbita, Booster 21 ammarato nel Golfo del Messico, Ship 41 rientrata dopo 2 orbite e ammarata al largo delle Hawaii. Il dettaglio è nella sezione Flight 14 e nella tabella dei voli con payload orbitale in fondo alla pagina."
                      if flight14_done else "Flight 14 (S41+B21) ha chiuso gli static fire a terra; il volo e previsto NET 28 settembre.")
     operational_rows = "\n".join(
-        f"<tr><td>{escape(display_date(item.get('data')))}</td><td>{escape(str(item.get('cliente') or 'n.d.'))}</td>"
+        f"<tr><td>{escape(display_date(item.get('data')))}</td><td>{('Flight ' + escape(str(item.get('volo_programma'))) + ' · ') if item.get('volo_programma') else ''}{escape(str(item.get('cliente') or 'n.d.'))}</td>"
         f"<td>{escape(str(item.get('dove') or 'n.d.'))}</td><td>{escape(str(item.get('booster') or 'n.d.'))}</td>"
         f"<td>{escape(str(item.get('ship') or 'n.d.'))}</td><td>{escape(str(item.get('orbita') or 'n.d.'))}</td>"
         f"<td>{escape(str(item.get('esito_orbita') or 'da confermare'))}</td>"
@@ -2873,9 +2893,49 @@ def render_starship_development_page(data):
         f"<td>{escape(str(item.get('stato') or 'n.d.'))}</td></tr>"
         for item in data['starshipOperational']
     )
+    def _recovery_line(rec):
+        parts = [f"<strong>{escape(str(rec.get('ruolo') or 'Veicolo'))} {escape(str(rec.get('veicolo') or ''))}</strong>: "
+                 f"{escape(str(rec.get('modalita_effettiva') or 'n.d.'))}"
+                 f"{(' · ' + escape(str(rec.get('sito_effettivo')))) if rec.get('sito_effettivo') else ''}, "
+                 f"esito del rientro {escape(str(rec.get('esito_rientro') or 'da confermare'))}, "
+                 f"recupero fisico: {escape(str(rec.get('recupero_fisico') or 'n.d.'))}."]
+        if rec.get('note'):
+            parts.append(escape(str(rec.get('note'))))
+        return '<li>' + ' '.join(parts) + '</li>'
+    operational_notes = "\n".join(
+        f"""<div class="panel" style="margin-top:14px"><h3>{('Flight ' + escape(str(item.get('volo_programma'))) + ' · ') if item.get('volo_programma') else ''}{escape(str(item.get('cliente') or 'Volo Starship'))} · {escape(display_date(item.get('data')))}</h3>
+<p>{escape(str(item.get('note_missione') or ''))}</p>
+<ul>{''.join(_recovery_line(rec) for rec in item.get('recuperi', []))}</ul>
+<p class="muted">Veicolo: {escape(str(item.get('lanciatore') or 'n.d.'))}{(' (' + escape(str(item.get('versione_veicolo'))) + ')') if item.get('versione_veicolo') else ''} · dati dal registro lanci_spacex.xlsx ({escape(str(item.get('id_lancio') or ''))}).</p></div>"""
+        for item in data['starshipOperational'] if item.get('note_missione') or item.get('recuperi')
+    )
+    flight14_section = """<section id="flight-14">
+  <div class="inner">
+    <div class="section-head"><h2>Flight 14 al 4 ottobre 2026</h2><p>Volo del 28 settembre 2026: primo volo orbitale operativo di Starship, 26 Starlink V3 rilasciati in orbita. <a href="lancio14.html" style="color:#dff4ff;text-decoration:underline;text-underline-offset:3px;font-weight:800">Piano pre-volo archiviato →</a></p></div>
+    <article class="panel">
+      <h3>Terzo volo V3: payload consegnato in orbita, rientro abbreviato della Ship</h3>
+      <p>Flight 14 ha impiegato <strong>Booster 21</strong> e <strong>Ship 41</strong> (Starship-Super Heavy V3, Block 3) da Starbase Pad 2. Il lancio è del <strong>28 settembre 2026</strong> (12:48:59 UTC secondo Launch Library 2; il registro lanci riporta la data). Missione <strong>Starlink Group 31-01</strong>: la Ship ha rilasciato <strong>26 Starlink V3</strong> in orbita. Un motore del booster si è spento in ascesa e un motore della Ship durante il volo; entrambi gli spegnimenti sono stati compensati. Esito: <strong>successo</strong>, cioè payload messo regolarmente in orbita. Booster 21 è ammarato correttamente nel Golfo del Messico, senza catch né recupero fisico. Ship 41 è rientrata in via prudenziale dopo 2 orbite ed è ammarata al largo delle Hawaii, senza recupero fisico.</p>
+      <div class="starship-status-grid">
+        <div class="starship-status"><b>28 settembre · lancio</b><span>Decollo da Pad 2; B21 + S41 nella configurazione V3.</span></div>
+        <div class="starship-status"><b>26 Starlink V3</b><span>Rilasciati in orbita: primo carico operativo consegnato da Starship.</span></div>
+        <div class="starship-status"><b>Booster 21</b><span>Un motore spento in ascesa, compensato; ammaraggio corretto nel Golfo del Messico.</span></div>
+        <div class="starship-status"><b>Ship 41</b><span>Un motore spento durante il volo, compensato; rientro dopo 2 orbite e ammaraggio alle Hawaii.</span></div>
+        <div class="starship-status pending"><b>Profilo annunciato</b><span>Il piano del 15 settembre prevedeva circa sei orbite e un ammaraggio a ovest del Cile; la Ship ha seguito un profilo più breve.</span></div>
+      </div>
+    </article>
+    <div class="cols" style="margin-top:18px">
+      <article class="panel"><h3>Cosa ha chiuso Flight 14</h3><p>Rispetto a Flight 13, la Ship non si è limitata a una traiettoria suborbitale: ha consegnato i satelliti in orbita e ha completato deorbit e ammaraggio. Il booster è ammarato nel Golfo come previsto dal piano, senza cattura alla torre.</p></article>
+      <article class="panel"><h3>Cosa resta da dimostrare</h3><p>Restano da esaminare gli spegnimenti dei motori e i dati del rientro. Permanenza orbitale prolungata, recupero fisico di booster e Ship, catch e Flight 15 sono ancora futuri. Il funzionamento dei satelliti nella rete richiede controlli successivi al rilascio.</p></article>
+    </div>
+  </div>
+</section>
+"""
+    if not flight14_done:
+        flight14_section = ""
     operational_section = f"""<section><div class="inner"><div class="section-head"><h2>Voli Starship con payload orbitale</h2></div>
 <div class="panel"><table><thead><tr><th>Data</th><th>Missione</th><th>Pad</th><th>Super Heavy</th><th>Ship</th><th>Orbita</th><th>Inserzione</th><th>Payload</th><th>Esito</th></tr></thead>
-<tbody>{operational_rows or '<tr><td colspan="9">Nessun volo registrato finora.</td></tr>'}</tbody></table></div></div></section>"""
+<tbody>{operational_rows or '<tr><td colspan="9">Nessun volo registrato finora.</td></tr>'}</tbody></table></div>
+{operational_notes}</div></section>"""
     flight_cards = "\n".join(
         f"""<article class="starship-flight">
   <div class="starship-flight-head">
@@ -2928,7 +2988,7 @@ def render_starship_development_page(data):
     <p class="eyebrow">Dossier SpaceX</p>
     <h1>Sviluppo Starship</h1>
     <p class="subtitle">Dal concetto interplanetario ai voli integrati V3: evoluzione del veicolo, prove, fallimenti, recupero, motori Raptor, infrastrutture e obiettivi ancora aperti.</p>
-    <span class="update-stamp">Aggiornato al 18 agosto 2026</span>
+    <span class="update-stamp">Aggiornato al 4 ottobre 2026</span>
   </div>
 </section>
 
@@ -2937,12 +2997,13 @@ def render_starship_development_page(data):
     <div class="starship-lead-grid">
       <article>
         <p class="starship-lead">Starship non e un singolo razzo arrivato improvvisamente sulla rampa. E il risultato di oltre un decennio di cambi di scala, materiali, motori, metodo produttivo e infrastrutture. Il programma nasce come architettura per Marte, passa attraverso MCT, ITS e BFR, abbandona fibra di carbonio e ali tradizionali, adotta acciaio inossidabile, rientro controllato sulle flaps e una famiglia di motori Raptor a metano. Ogni prototipo ha trasformato un problema teorico in un test fisico, spesso distruttivo ma immediatamente riutilizzato nel progetto successivo.</p>
-        <p>Questa pagina deriva dal workbook locale <strong>sviluppo_starship.xlsx</strong>. La data di taglio e il <strong>30 agosto 2026</strong>: Flight 13 e stato completato il 24 luglio alle 22:51 UTC (25 luglio 00:51 CEST). E il tredicesimo volo integrato e il secondo della generazione V3. Post-volo, Ship 40 e la prima upper stage recuperata dopo un rientro: ispezione a Christmas Island e carico su semi-sommergibile verso Starbase (27/08). {flight14_note}</p>
+        <p>Questa pagina deriva dal workbook locale <strong>sviluppo_starship.xlsx</strong>. La data di taglio è il <strong>4 ottobre 2026</strong>: Flight 14 è stato completato il 28 settembre. È il quattordicesimo volo integrato e il terzo della generazione V3; Flight 13 (24 luglio 2026, 22:51 UTC) era stato il secondo. Post-volo di Flight 13, Ship 40 è la prima upper stage recuperata dopo un rientro: ispezione a Christmas Island e carico su semi-sommergibile verso Starbase (27/08, dato al 30 agosto). {flight14_note}</p>
       </article>
       <aside class="panel">
         <h3>Indice del dossier</h3>
         <nav class="starship-index" aria-label="Indice Sviluppo Starship">
           <a href="#fasi">Le grandi fasi</a>
+          <a href="#flight-14">Esito Flight 14</a>
           <a href="#flight-13">Esito Flight 13</a>
           <a href="lancio13.html">Scheda dedicata Flight 13</a>
           <a href="#voli">Tutti i voli integrati</a>
@@ -2982,12 +3043,13 @@ def render_starship_development_page(data):
       <article class="starship-phase"><span class="phase-date">2022-2023</span><h3>Dalla Ship al sistema completo</h3><p>Il lavoro si sposta sull'integrazione con Super Heavy, sui 33 motori, sul pad e sull'hot staging. Booster 7 e Ship 24 portano a IFT-1: il volo del 20 aprile 2023 distrugge il piano originale del pad e rende indispensabili deluge, flame deflector, affidabilita multi-engine e AFTS piu rapido. IFT-2 riesce invece a separare gli stadi con hot staging.</p></article>
       <article class="starship-phase"><span class="phase-date">2024</span><h3>Dal sopravvivere al recuperare</h3><p>IFT-3 porta operazioni in-space e rientro profondo; IFT-4 completa per la prima volta splashdown controllato di entrambi gli stadi. IFT-5 realizza la prima cattura di Super Heavy con i bracci della torre. IFT-6 conferma funzioni in-space, incluso il primo relight Raptor, ma rinuncia alla cattura e chiude con splashdown.</p></article>
       <article class="starship-phase"><span class="phase-date">2025</span><h3>Block 2: crisi, reflight e recupero</h3><p>Flight 7 e Flight 8 mostrano una maturita booster superiore a quella della Ship: catture riuscite, ma perdita delle upper stage. Flight 9 porta il primo reflight di Super Heavy senza chiudere bene il profilo. Flight 10 e Flight 11 recuperano il programma con deployment, relight e rientri controllati.</p></article>
-      <article class="starship-phase"><span class="phase-date">2026</span><h3>V3, Raptor 3 e Pad 2</h3><p>La terza generazione integra serbatoi piu grandi, avionica alleggerita, Raptor 3 e infrastruttura di rifornimento piu matura. Flight 12 debutta con Booster 19 e Ship 39 da Pad 2: deployment e rientro della Ship funzionano, ma boostback e relight restano incompleti. Flight 13 (24 luglio) chiude boostback e relight, dispiega i primi 20 Starlink V3 e ottiene lo splashdown ship piu morbido di sempre, con scafo integro; il Super Heavy chiude ancora con hard splashdown.</p></article>
+      <article class="starship-phase"><span class="phase-date">2026</span><h3>V3, Raptor 3 e Pad 2</h3><p>La terza generazione integra serbatoi piu grandi, avionica alleggerita, Raptor 3 e infrastruttura di rifornimento piu matura. Flight 12 debutta con Booster 19 e Ship 39 da Pad 2: deployment e rientro della Ship funzionano, ma boostback e relight restano incompleti. Flight 13 (24 luglio) chiude boostback e relight, dispiega i primi 20 Starlink V3 e ottiene lo splashdown ship piu morbido di sempre, con scafo integro; il Super Heavy chiude ancora con hard splashdown. Flight 14 (28 settembre) è il primo volo orbitale operativo: 26 Starlink V3 rilasciati in orbita.</p></article>
       <article class="starship-phase"><span class="phase-date">Obiettivo industriale</span><h3>Riuso completo e alta cadenza</h3><p>Il vero salto non e un singolo volo spettacolare. E il ciclo lancio, recupero, ispezione, rifornimento e rilancio di entrambi gli stadi. Per questo torri, Starfactory, Mega Bay, Pad 2, Florida e produzione Raptor sono parte integrante della stessa architettura.</p></article>
     </div>
   </div>
 </section>
 
+{flight14_section}
 <section id="flight-13">
   <div class="inner">
     <div class="section-head"><h2>Flight 13 al 30 agosto 2026</h2><p>Volo completato il 24 luglio: softest splashdown della Ship, hard landing del Super Heavy. Post-volo: S40 ispezionata a Christmas Island e caricata su semi-sommergibile verso Starbase (viaggio di mesi). <a href="lancio13.html" style="color:#dff4ff;text-decoration:underline;text-underline-offset:3px;font-weight:800">Apri la scheda dedicata Flight 13 →</a></p></div>
@@ -3007,14 +3069,14 @@ def render_starship_development_page(data):
     </article>
     <div class="cols" style="margin-top:18px">
       <article class="panel"><h3>Cosa ha chiuso Flight 13</h3><p>Rispetto a Flight 12, il booster ha eseguito flip e boostback con orientamento corretto dopo hot-staging. La Ship ha completato deployment di payload reale, relight in-space e un rientro che ha lasciato il veicolo integro in acqua. Il galleggiamento ha aperto il primo recovery fisico: il 27 agosto S40 e sul semi-sommergibile verso Texas, dopo ispezione a Christmas Island.</p></article>
-      <article class="panel"><h3>Cosa resta da dimostrare</h3><p>Il landing burn multi-engine del Super Heavy V3 non e ancora un soft splashdown affidabile. Prima di catch, orbita e refill restano aperti affidabilita recovery booster, primo profilo orbitale, rifornimento criogenico e cadenza verso Starlink V3 operativo e HLS Artemis.</p></article>
+      <article class="panel"><h3>Cosa resta da dimostrare</h3><p>Al 30 agosto il landing burn multi-engine del Super Heavy V3 non era ancora un soft splashdown affidabile. Prima di catch, orbita e refill restavano aperti affidabilita recovery booster, primo profilo orbitale (affrontato poi con Flight 14), rifornimento criogenico e cadenza verso Starlink V3 operativo e HLS Artemis.</p></article>
     </div>
   </div>
 </section>
 
 <section id="voli">
   <div class="inner">
-    <div class="section-head"><h2>I tredici voli integrati</h2><p>Ogni scheda riporta veicolo, risultato e la lezione trasferita al volo successivo. Flight 13 e incluso dopo il liftoff del 24 luglio 2026.</p></div>
+    <div class="section-head"><h2>I quattordici voli integrati</h2><p>Ogni scheda riporta veicolo, risultato e la lezione trasferita al volo successivo. Flight 14 è incluso dopo il liftoff del 28 settembre 2026.</p></div>
     <div class="starship-flight-grid">{flight_cards}</div>
   </div>
 </section>
@@ -3028,7 +3090,7 @@ def render_starship_development_page(data):
 
 <section id="cronologia">
   <div class="inner">
-    <div class="section-head"><h2>Cronologia completa</h2><p>Tutti i {escape(str(starship['metrics']['eventi']))} eventi presenti nel workbook, dalle origini concettuali al recovery S40 e agli static fire di Flight 14 (taglio 30/08/2026).</p></div>
+    <div class="section-head"><h2>Cronologia completa</h2><p>Tutti i {escape(str(starship['metrics']['eventi']))} eventi presenti nel workbook, dalle origini concettuali al recovery S40, alla campagna di Flight 14 e al volo del 28/09/2026 (taglio 04/10/2026).</p></div>
     <details class="starship-archive">
       <summary>Apri la cronologia integrale del workbook</summary>
       <div class="starship-timeline">{timeline_events}</div>
@@ -3040,8 +3102,12 @@ def render_starship_development_page(data):
   <div class="inner split">
     <article class="panel">
       <h2>Fonti e metodo</h2>
-      <p>La struttura narrativa e i dati storici derivano da <strong>01_workbook/sviluppo_starship.xlsx</strong>. Le voci piu recenti sono state controllate con pagine missione SpaceX, reporting Space.com e Spaceflight Now. Le previsioni restano indicate come target o NET; i voli entrano in tabella solo dopo il liftoff.</p>
+      <p>La struttura narrativa e i dati storici derivano da <strong>01_workbook/sviluppo_starship.xlsx</strong>. Le voci piu recenti sono state controllate con pagine missione SpaceX, Launch Library 2, reporting Space.com e Spaceflight Now; i dati di Flight 14 vengono anche dal registro lanci_spacex.xlsx. Le previsioni restano indicate come target o NET; i voli entrano in tabella solo dopo il liftoff.</p>
       <ul class="source-list">
+        <li><a href="https://www.spacex.com/launches/starship-flight-14" target="_blank" rel="noopener">SpaceX, pagina missione Flight 14</a></li>
+        <li><a href="https://ll.thespacedevs.com/2.3.0/launches/7d1afb26-6f9c-429b-9ccf-29012fd1e519/" target="_blank" rel="noopener">Launch Library 2, Starlink Group 31-1 (Starship Flight 14)</a></li>
+        <li><a href="https://www.youtube.com/watch?v=9gDxG-pm1Zo" target="_blank" rel="noopener">NASASpaceflight, diretta Flight 14</a></li>
+        <li><a href="lancio14.html">Piano pre-volo Flight 14 (archivio)</a> · <a href="../documenti%20per%20sito/spacex_starship_flight14_resoconto.html">Resoconto redazionale del volo</a></li>
         <li><a href="https://x.com/SpaceX/status/2092988521376059899" target="_blank" rel="noopener">SpaceX, ispezione S40 a Christmas Island (27/08/2026)</a></li>
         <li><a href="https://x.com/SpaceX/status/2092988782622519728" target="_blank" rel="noopener">SpaceX, S40 su semi-sommergibile verso Starbase (27/08/2026)</a></li>
         <li><a href="https://x.com/SpaceX/status/2089685256085344560" target="_blank" rel="noopener">SpaceX, S40 al largo di Christmas Island (18/08/2026)</a></li>
