@@ -13,6 +13,7 @@
 <body>
 <header class="top"><a class="brand" href="../sezioni/spacex.html">Rivoluzione Spaziale</a><nav><a href="../sezioni/spacex.html">SpaceX</a><a href="../sezioni/lanci-imminenti.html">Lanci</a><a href="../sezioni/notizie.html">Notizie</a></nav></header>
 <main>
+<aside class="wrap status" style="padding:1rem;border-left:4px solid #ff9b8a;background:#11171b;margin:1.5rem auto"><b>Dossier archiviato il 7 ottobre 2026.</b> Questa pagina conserva l’anteprima del lancio del 1º ottobre. Crew-13 ha raggiunto la ISS lo stesso giorno. La notizia in primo piano è ora <a href="spacex_crew12_ritorno.html">il ritorno di Crew-12</a>. <a href="https://www.nasa.gov/blogs/spacestation/2026/10/05/expedition-75-welcomes-crew-13-and-preps-for-crew-12-departure/">Conferma NASA</a>.</aside>
 <div class="hero"><div class="hero-inner"><div class="eyebrow">Breaking news · SpaceX · 1 ottobre 2026</div><h1>Crew‑13: quattro astronauti verso la Stazione Spaziale</h1><p>Falcon 9 e la Dragon Grace sono pronti a partire da SLC‑40. La finestra è istantanea: un solo secondo utile per iniziare una missione di circa sei mesi.</p><small>Ritratto ufficiale Crew‑13. Da sinistra: Sergey Teteryatnikov, Luke Delaney, Jessica Watkins e Joshua Kutryk. Foto NASA/Bill Stafford.</small></div></div>
 
 <div class="countdown-wrap"><section class="countdown" aria-labelledby="countdown-title">
@@ -71,23 +72,9 @@
 <footer class="footer">Rivoluzione Spaziale · Dossier redazionale basato su fonti ufficiali · Orari soggetti a variazione</footer>
 <script>
 (() => {
-  const target = new Date('2026-10-01T15:10:06Z').getTime();
-  const ids = ['cd-days','cd-hours','cd-minutes','cd-seconds'];
-  const pad = n => String(n).padStart(2,'0');
-  function update(){
-    const diff = target - Date.now();
-    if(diff <= 0){
-      document.getElementById('countdown-title').textContent = 'T‑0 raggiunto: segui la diretta';
-      ids.forEach(id => document.getElementById(id).textContent = '00');
-      document.getElementById('countdown-note').innerHTML = 'Il T‑0 pianificato è stato raggiunto. Stato effettivo e possibili rinvii sono comunicati nelle dirette <a href="https://www.spacex.com/launches/crew13/">SpaceX</a> e <a href="https://www.youtube.com/watch?v=7ZiUbT1-djA">NASA</a>.';
-      return;
-    }
-    const total = Math.floor(diff/1000);
-    const values = [Math.floor(total/86400),Math.floor(total%86400/3600),Math.floor(total%3600/60),total%60];
-    ids.forEach((id,i) => document.getElementById(id).textContent = pad(values[i]));
-    setTimeout(update,250);
-  }
-  update();
+  document.querySelector('.eyebrow').textContent = 'Dossier archiviato · SpaceX · anteprima del 1 ottobre 2026';
+  document.getElementById('countdown-title').textContent = 'Programma originario del lancio';
+  document.getElementById('countdown-note').textContent = 'Countdown disattivato: questa pagina è archiviata. Crew-13 è stata lanciata e ha raggiunto la ISS il 1 ottobre 2026.';
 })();
 </script>
 </body>

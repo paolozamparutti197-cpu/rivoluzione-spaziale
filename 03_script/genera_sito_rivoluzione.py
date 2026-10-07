@@ -157,6 +157,23 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-10-07",
+        "date_label": "7 ottobre 2026",
+        "tag": "SpaceX · Crew-12 rientro",
+        "title": "Crew-12 torna a casa: distacco il 7 ottobre, ammaraggio l’8 alle 17:34",
+        "summary": (
+            "Meir, Hathaway, Adenot e Fedyaev lasciano la ISS con Dragon Freedom. "
+            "Undocking previsto alle 14:05 italiane del 7 ottobre; arrivo nel Pacifico "
+            "l’8 ottobre alle 17:34. Countdown, programma e dirette ufficiali; orari soggetti a variazione."
+        ),
+        "href": "../documenti%20per%20sito/spacex_crew12_ritorno.html",
+        "image": "../documenti%20per%20sito/assets_crew12_ritorno/crew12-return-suits.jpg",
+        "image_alt": "I quattro membri di Crew-12 nelle tute per il rientro, fotografia NASA/Anil Menon sulla ISS",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-10-01",
         "date_label": "1 ottobre 2026",
         "tag": "SpaceX · NASA Crew-13",
@@ -169,8 +186,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_crew13.html",
         "image": "../documenti%20per%20sito/assets_crew13/crew13-portrait.jpg",
         "image_alt": "Ritratto ufficiale dei quattro membri della missione SpaceX Crew-13",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
