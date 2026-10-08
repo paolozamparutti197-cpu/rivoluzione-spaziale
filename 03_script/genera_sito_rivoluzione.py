@@ -2736,6 +2736,15 @@ def render_spacex_history_page(data):
           <span class="button secondary">Apri approfondimento</span>
         </div>
       </a>
+      <a class="story-card" href="../documenti%20per%20sito/falcon9_rientro_servizio_2014.html">
+        <img src="../documenti%20per%20sito/assets_fondazione/falcon9-2014/crs3-pad-gambe.jpg" alt="Falcon 9 con Dragon CRS-3 e le gambe ripiegate sulla rampa il 17 aprile 2014, fotografia SpaceX CC0" loading="lazy">
+        <div>
+          <small>Ottava parte</small>
+          <h3>2014: imparare a rientrare, diventare un servizio</h3>
+          <p>CRS-3 e le gambe del Falcon 9, il dimostratore F9R, sei lanci tra ISS e clienti satellitari, la rampa 39A e la selezione Commercial Crew. Il recupero resta un programma sperimentale.</p>
+          <span class="button secondary">Apri approfondimento</span>
+        </div>
+      </a>
     </div>
   </div>
 </section>
