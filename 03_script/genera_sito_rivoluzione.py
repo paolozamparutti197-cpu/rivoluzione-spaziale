@@ -157,6 +157,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-10-08",
+        "date_label": "8 ottobre 2026",
+        "tag": "SpaceX · Starship Ship 40",
+        "title": "Ship 40 è tornata a casa: la prima Starship recuperata arriva in Texas dopo 75 giorni in mare",
+        "summary": "La Ship del Flight 13, rimasta a galla dopo l’ammaraggio nell’Oceano Indiano, è arrivata il 7 ottobre al porto di Brownsville sulla nave semisommergibile Forte. Il viaggio da Christmas Island, che cosa cercheranno gli ingegneri a Starbase e perché conta per il riuso di Starship.",
+        "href": "../documenti%20per%20sito/spacex_ship40_ritorno_starbase.html",
+        "image": "../documenti%20per%20sito/assets_ship40_ritorno/s40r-starbase-2023.jpg",
+        "image_alt": "L’insegna Starbase con High Bay, Mega Bay e prototipi Starship sullo sfondo, foto Jenny Hautmann CC BY-SA 4.0",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-10-07",
         "date_label": "7 ottobre 2026",
         "tag": "SpaceX · Crew-12 rientro",
@@ -169,8 +182,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_crew12_ritorno.html",
         "image": "../documenti%20per%20sito/assets_crew12_ritorno/crew12-return-suits.jpg",
         "image_alt": "I quattro membri di Crew-12 nelle tute per il rientro, fotografia NASA/Anil Menon sulla ISS",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
