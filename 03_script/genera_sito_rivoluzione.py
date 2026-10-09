@@ -956,19 +956,65 @@ def spacex_locations_data():
             "name": "SpaceX LC-39A",
             "short": "Kennedy Space Center, Florida",
             "region": "Florida",
-            "status": "Operativa",
-            "role": "Crew Dragon, Falcon Heavy, missioni speciali",
+            "status": "Falcon operativo / Starship in costruzione",
+            "construction": True,
+            "role": "Lanci Falcon e nuovo pad Starship",
             "lat": 28.6084,
             "lng": -80.6043,
             "address": "Launch Complex 39A, Kennedy Space Center, Merritt Island, FL",
             "coords": "28.6084 N, 80.6043 W",
-            "summary": "Pad storico Apollo/Shuttle gestito da SpaceX per missioni ad alta complessita.",
+            "summary": "Complesso operativo per Falcon; il nuovo pad Starship è in costruzione e non viene indicato come operativo.",
             "details": [
-                "Usato per Crew Dragon, Falcon Heavy e missioni commerciali o scientifiche speciali.",
-                "Resta uno dei pad piu iconici e strategici della Space Coast.",
-                "La pagina pad contiene la cronologia infrastrutturale completa.",
+                "L'infrastruttura Falcon esistente e il nuovo pad Starship hanno stati diversi.",
+                "Il progetto Starship comprende torre, sistemi di lancio e recupero, propellenti e impianti di supporto.",
+                "Completamento del pad previsto da SpaceX entro fine 2026: obiettivo, non data di lancio confermata.",
+                "Il processo ambientale FAA è concluso con EIS e ROD; non sostituisce la licenza per le operazioni.",
             ],
-            "source_note": "Coordinate e testo sintetico dal file mappa locale originario.",
+            "source_note": "SpaceX, prospetto del 5 giugno 2026, p. 109; FAA, EIS/ROD LC-39A. Stato rivisto il 9 ottobre 2026.",
+        },
+        {
+            "id": "loc-slc37",
+            "name": "SpaceX SLC-37 · due pad Starship",
+            "short": "Cape Canaveral SFS, Florida",
+            "region": "Florida",
+            "status": "In costruzione / non operativo per Starship",
+            "construction": True,
+            "role": "Due nuove piattaforme Starship / Super Heavy",
+            "lat": 28.5319,
+            "lng": -80.5648,
+            "address": "Space Launch Complex 37, Cape Canaveral Space Force Station, FL",
+            "coords": "28.5319 N, 80.5648 W · riferimento del complesso storico, non delle singole nuove torri",
+            "summary": "Riqualificazione in corso dell'ex complesso Delta IV per due piattaforme orbitali Starship.",
+            "details": [
+                "Prima e seconda piattaforma: previste nello stesso progetto; nessuna è indicata come operativa.",
+                "La FAA conferma l'avvio dello sviluppo delle infrastrutture dopo il ROD DAF del novembre 2025.",
+                "Nuova analisi ambientale supplementare FAA avviata il 29 settembre 2026; commenti fino al 14 ottobre.",
+                "Servono la modifica della licenza e le decisioni sullo spazio aereo prima delle operazioni commerciali.",
+                "Il limite studiato di 76 lanci annui riguarda tutto SLC-37, non ciascuna piattaforma.",
+            ],
+            "source_note": "FAA, pagina SLC-37 aggiornata il 5 ottobre 2026; DAF EIS/ROD; SpaceX, prospetto del 5 giugno 2026. Coordinate rappresentative.",
+        },
+        {
+            "id": "loc-slc6",
+            "name": "SpaceX Vandenberg SLC-6",
+            "short": "Vandenberg SFB, California",
+            "region": "California",
+            "status": "In riconversione / lavori in corso",
+            "construction": True,
+            "role": "Futuro pad Falcon 9 e Falcon Heavy",
+            "lat": 34.5811,
+            "lng": -120.6266,
+            "address": "Space Launch Complex 6, Vandenberg Space Force Base, CA",
+            "coords": "34.5811 N, 120.6266 W · punto rappresentativo del complesso",
+            "summary": "Conversione dell'ex sito Delta IV per Falcon, con due nuove piazzole di atterraggio previste.",
+            "details": [
+                "Demolizione delle vecchie strutture documentata dalla Space Force il 16 giugno 2026.",
+                "Progetto per Falcon 9 e Falcon Heavy: non un pad Starship.",
+                "Previste due nuove landing zone e modifiche all'edificio di integrazione e ai collegamenti con la rampa.",
+                "Fino a 100 lanci Falcon annui complessivi fra SLC-4 e SLC-6, inclusi fino a 5 Falcon Heavy da SLC-6.",
+                "Le capacità analizzate non sono il numero di missioni già effettuate né un calendario di debutto.",
+            ],
+            "source_note": "Space Launch Delta 30, comunicato del 16 giugno 2026; DAF Final EIS e FAA ROD dell'ottobre 2025. Verifica: 9 ottobre 2026.",
         },
         {
             "id": "loc-slc40",
@@ -2292,7 +2338,7 @@ function locationPopup(item) {
 }
 
 function locationIcon(item) {
-  const label = item.proposed ? 'LA' : 'SX';
+  const label = item.proposed ? 'LA' : item.construction ? 'C' : 'SX';
   const cls = item.proposed ? 'location-dot proposed' : 'location-dot';
   return L.divIcon({
     className: 'pad-marker',
@@ -2303,21 +2349,26 @@ function locationIcon(item) {
   });
 }
 
+function locationMatchesFilter(item, region) {
+  return region === 'Tutti' || item.region === region || (region === 'Annunciata' && item.proposed) || (region === 'In costruzione' && item.construction);
+}
+
 function renderLocationSideList() {
   const list = document.getElementById('location-side-list');
   if (!list) return;
   list.innerHTML = '';
   spacexLocations
-    .filter((item) => activeLocationFilter === 'Tutti' || item.region === activeLocationFilter || (activeLocationFilter === 'Annunciata' && item.proposed))
+    .filter((item) => locationMatchesFilter(item, activeLocationFilter))
     .forEach((item) => {
       const button = document.createElement('button');
       button.type = 'button';
       button.className = `location-list-item ${item.proposed ? 'proposed' : ''}`;
       button.dataset.location = item.id;
-      button.innerHTML = `<strong>${htmlEscape(item.name)}</strong><span>${htmlEscape(item.role)} · ${htmlEscape(item.short)}</span>`;
+      button.innerHTML = `<strong>${htmlEscape(item.name)}</strong><span>${htmlEscape(item.status)}</span><span>${htmlEscape(item.role)} · ${htmlEscape(item.short)}</span>`;
       button.addEventListener('click', () => openLocation(item.id));
       list.appendChild(button);
     });
+  if (locationMap) locationMap.invalidateSize({ pan: false });
 }
 
 function setLocationActive(id) {
@@ -2332,8 +2383,10 @@ function openLocation(id) {
   if (!item || !marker) return;
   setLocationActive(id);
   const zoom = item.proposed ? 9 : 10;
-  locationMap.flyTo([item.lat, item.lng], zoom, { duration: 0.9 });
-  window.setTimeout(() => marker.openPopup(), 650);
+  locationMap.stop();
+  locationMap.invalidateSize({ pan: false });
+  locationMap.setView([item.lat, item.lng], zoom, { animate: false });
+  marker.openPopup();
 }
 
 function filterLocations(region) {
@@ -2342,7 +2395,7 @@ function filterLocations(region) {
   spacexLocations.forEach((item) => {
     const marker = locationMarkers[item.id];
     if (!marker) return;
-    const visible = region === 'Tutti' || item.region === region || (region === 'Annunciata' && item.proposed);
+    const visible = locationMatchesFilter(item, region);
     if (visible && !locationMap.hasLayer(marker)) marker.addTo(locationMap);
     if (!visible && locationMap.hasLayer(marker)) marker.remove();
   });
@@ -2368,7 +2421,7 @@ function initLocationMap() {
 
   spacexLocations.forEach((item) => {
     const marker = L.marker([item.lat, item.lng], { icon: locationIcon(item), title: item.name })
-      .bindPopup(locationPopup(item), { maxWidth: 440, minWidth: 300, className: 'custom-popup' });
+      .bindPopup(locationPopup(item), { maxWidth: 440, minWidth: 280, maxHeight: Math.min(380, Math.round(window.innerHeight * 0.42)), autoPanPadding: [16, 16], className: 'custom-popup' });
     marker.on('click', () => setLocationActive(item.id));
     marker.addTo(locationMap);
     locationMarkers[item.id] = marker;
@@ -2396,12 +2449,24 @@ window.addEventListener('load', initLocationMap);
 </script>"""
     )
     body = f"""
-{page_hero("Localita SpaceX", "Mappa operativa", "Le principali localita SpaceX negli Stati Uniti: sedi, produzione, test, pad di lancio e Starbase Louisiana, annunciata il 25 agosto 2026 e non ancora operativa.")}
+{page_hero("Localita SpaceX", "Siti operativi e cantieri", "Sedi, produzione, test e lanci: i nuovi pad Starship in Florida e la riconversione Falcon di SLC-6 sono distinti dalle strutture già operative e dai siti soltanto annunciati.")}
+<section id="cantieri-spacex">
+  <div class="inner">
+    <div class="section-head"><h2>Nuovi pad e lavori in corso</h2><p>Stato verificato il 9 ottobre 2026. Un cantiere, una decisione ambientale e un'autorizzazione al lancio sono passaggi diversi.</p></div>
+    <div class="split">
+      <article class="panel"><p class="badge">Starship · In costruzione</p><h3>LC-39A · Kennedy Space Center</h3><p>Nuova piattaforma Starship / Super Heavy all'interno del complesso 39A, con torre e impianti dedicati. Non va confusa con l'infrastruttura Falcon già operativa.</p><p>SpaceX indica il completamento del pad entro fine 2026. È un obiettivo di costruzione, non una data confermata per il primo lancio. EIS e decisione ambientale FAA sono disponibili; la licenza operativa resta un requisito distinto.</p></article>
+      <article class="panel"><p class="badge">Starship · In costruzione nel progetto SLC-37</p><h3>SLC-37 · prima piattaforma</h3><p>Una delle due nuove piattaforme orbitali previste nella riconversione dell'ex complesso Delta IV. I lavori del complesso sono avviati; non è un pad operativo.</p><p>La documentazione consultata non permette di assegnare a questa singola piattaforma una percentuale di completamento o una data certa di debutto.</p></article>
+      <article class="panel"><p class="badge">Starship · In costruzione nel progetto SLC-37</p><h3>SLC-37 · seconda piattaforma</h3><p>La seconda piattaforma appartiene allo stesso progetto, che prevede infrastrutture di lancio, recupero e supporto. Non viene conteggiata fra i pad operativi.</p><p>Il progetto prevede due piattaforme; lo stato dei lavori è confermato per il complesso nel suo insieme, non con avanzamenti separati per ciascun pad.</p></article>
+      <article class="panel"><p class="badge">Falcon · In riconversione, lavori in corso</p><h3>SLC-6 · Vandenberg</h3><p>Conversione per Falcon 9 e Falcon Heavy. La Space Force documenta la demolizione delle vecchie strutture il 16 giugno 2026: i lavori non sono soltanto annunciati.</p><p>Il progetto comprende due nuove piazzole di atterraggio. Il quadro ambientale considera fino a 100 lanci Falcon all'anno fra SLC-4 e SLC-6, inclusi fino a 5 Falcon Heavy da SLC-6. Non sono 100 lanci per ciascun pad.</p></article>
+    </div>
+    <div class="source-panel"><p><strong>Tre nuove piattaforme Starship in Florida:</strong> una a LC-39A e due a SLC-37. Le due di SLC-37 sono qui identificate senza attribuire automaticamente i nomi storici 37A/37B alle nuove strutture. La mappa usa un solo punto rappresentativo del complesso, non coordinate inventate per le singole torri.</p><p>A Vandenberg SLC-4E resta il sito Falcon 9 esistente e SLC-4W l'area di atterraggio. La riconversione verificata di SLC-6 riguarda Falcon, non Starship. Starbase Louisiana resta invece un sito annunciato e non è incluso in questi cantieri.</p></div>
+  </div>
+</section>
 <section id="mappa-localita-spacex">
   <div class="inner">
     <div class="section-head">
       <h2>Mappa localita</h2>
-      <p>La logica e la navigazione riprendono la mappa dei pad: clicca un marker o una voce dell'elenco per aprire un dettaglio leggibile. Starbase Louisiana e segnata come annunciata, non come struttura operativa.</p>
+      <p>Clicca un punto o una voce dell'elenco per leggere i dettagli. Il filtro «In costruzione» raccoglie LC-39A, SLC-37 e SLC-6; i punti con la lettera C segnalano lavori in corso. Starbase Louisiana resta distinta come sito annunciato.</p>
     </div>
     <div class="pad-map-wrap">
       <aside class="pad-map-side">
@@ -2415,6 +2480,7 @@ window.addEventListener('load', initLocationMap);
           <button class="pad-filter" type="button" data-region="California">California</button>
           <button class="pad-filter" type="button" data-region="Texas">Texas</button>
           <button class="pad-filter" type="button" data-region="Florida">Florida</button>
+          <button class="pad-filter" type="button" data-region="In costruzione">In costruzione</button>
           <button class="pad-filter" type="button" data-region="Annunciata">Annunciata</button>
         </div>
         <div id="location-side-list" class="pad-side-list"></div>
@@ -2426,11 +2492,21 @@ window.addEventListener('load', initLocationMap);
 <section>
   <div class="inner">
     <div class="section-head">
-      <h2>Note dati</h2>
-      <p>Le coordinate sono pubbliche o rappresentative per aree estese. Starbase Louisiana e trattata come sito annunciato, non come pad operativo.</p>
+      <h2>Fonti pubbliche e note sui dati</h2>
+      <p>Aggiornamento cantieri: 9 ottobre 2026. Le coordinate rappresentano i complessi, non certificano la posizione di ogni nuova piattaforma. Le altre località conservano le note della mappa originaria.</p>
     </div>
     <div class="source-panel">
-      <p>Dataset derivato dal file locale <strong>00_documentazione/fonti_html/mappa_spacex_xai_usa.html</strong>, filtrando le sole localita SpaceX e aggiornando Starbase Louisiana all'annuncio del 25 agosto 2026.</p>
+      <p>La mappa originaria è integrata con la verifica dei cantieri Florida e California. <a href="../00_documentazione/ricerca_pad_spacex_20261009.md">Ricerca dettagliata e limiti della verifica</a>.</p>
+      <ul>
+        <li><a href="https://www.faa.gov/space/stakeholder_engagement/spacex_starship_ksc">FAA · Starship a LC-39A: EIS, decisione ambientale e requisiti di licenza</a>.</li>
+        <li><a href="https://content.spacex.com/cms-assets/FINAL_Documents%20and%20Updates/SpaceX%20-%20EU%20Prospectus%20%28Approved%20by%20Bafin%29%20-%20June%205%2C%202026.pdf#page=122">SpaceX · prospetto del 5 giugno 2026, pagina stampata 109: pad Florida e obiettivi di costruzione</a>.</li>
+        <li><a href="https://www.faa.gov/space/stakeholder_engagement/spacex_starship_ccsfs">FAA · SLC-37: lavori avviati e analisi supplementare del settembre 2026</a>.</li>
+        <li><a href="https://spaceforcestarshipeis.com/">DAF / Space Force · progetto SLC-37, Final EIS e Record of Decision</a>.</li>
+        <li><a href="https://www.vandenberg.spaceforce.mil/News/Article-Display/Article/4519296/vandenberg-space-force-base-modernizes-historic-space-launch-complex-6-for-next/">Space Launch Delta 30 · demolizione e modernizzazione di SLC-6, 16 giugno 2026</a>.</li>
+        <li><a href="https://www.faa.gov/space/stakeholder_engagement/SpaceX_Falcon_Program">FAA · programma Falcon a Vandenberg, SLC-4 e SLC-6</a>.</li>
+        <li><a href="https://www.vsfbfalconlauncheis.com/Portals/falconprogrameis/PublicDocuments/FEIS%20Documents/VSFBFalcon100LaunchFinalEIS20251014.pdf">DAF · Final EIS Falcon, ottobre 2025: fino a 100 lanci complessivi e 5 Falcon Heavy</a>.</li>
+        <li><a href="https://www.faa.gov/files/space/environmental/nepa_docs/VSFB-Falcon-Launch-EIS-ROD-Oct2025.pdf">FAA · Record of Decision Falcon, ottobre 2025: due nuove landing zone a SLC-6</a>.</li>
+      </ul>
       <ul>{source_rows}</ul>
     </div>
   </div>
