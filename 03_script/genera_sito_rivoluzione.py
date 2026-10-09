@@ -157,6 +157,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-10-09",
+        "date_label": "9 ottobre 2026",
+        "tag": "SpaceX · Starlink Mobile",
+        "title": "Starlink Mobile: SpaceX compra lo spettro a 800 MHz e punta ai grandi operatori USA",
+        "summary": "L’8 ottobre SpaceX annuncia l’accordo per acquisire il portafoglio nazionale a 800 MHz di Grain Management. Con satelliti Gen2 e rete terrestre, Starlink Mobile vuole diventare un operatore mobile a pieno titolo negli Stati Uniti. L’intesa resta subordinata all’approvazione FCC.",
+        "href": "../documenti%20per%20sito/spacex_starlink_mobile_spettro.html",
+        "image": "../documenti%20per%20sito/assets_starlink_mobile_spettro/slm-spacex-annuncio-spettro.jpg",
+        "image_alt": "Grafica ufficiale SpaceX sull’annuncio dello spettro low-band per Starlink Mobile, 8 ottobre 2026",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-10-08",
         "date_label": "8 ottobre 2026",
         "tag": "SpaceX · Starship Ship 40",
@@ -165,8 +178,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_ship40_ritorno_starbase.html",
         "image": "../documenti%20per%20sito/assets_ship40_ritorno/s40r-starbase-2023.jpg",
         "image_alt": "L’insegna Starbase con High Bay, Mega Bay e prototipi Starship sullo sfondo, foto Jenny Hautmann CC BY-SA 4.0",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
