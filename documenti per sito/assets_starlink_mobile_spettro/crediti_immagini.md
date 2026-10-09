@@ -14,7 +14,7 @@ Verifica editoriale: 9 ottobre 2026. Quattro fotografie. La copertina è l’imm
 
 - Soggetto: stack di satelliti Starlink di prova in cima a un Falcon 9, vicino all’orbita; missione Starlink del 24 maggio 2019.
 - Autore: Official SpaceX Photos (Flickr).
-- Licenza: CC0 1.0 (dominio pubblico) — https://creativecommons.org/publicdomain/zero/1.0/
+- Licenza: CC0 1.0 (dominio pubblico): https://creativecommons.org/publicdomain/zero/1.0/
 - Pagina: https://commons.wikimedia.org/wiki/File:Starlink_Mission_(47926144123).jpg
 - Uso: figura nel corpo (960×540).
 
@@ -22,7 +22,7 @@ Verifica editoriale: 9 ottobre 2026. Quattro fotografie. La copertina è l’imm
 
 - Soggetto: antenna Starlink sul marciapiede di un’abitazione; 29 gennaio 2024.
 - Autore: Wikideas1.
-- Licenza: CC0 1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+- Licenza: CC0 1.0: https://creativecommons.org/publicdomain/zero/1.0/
 - Pagina: https://commons.wikimedia.org/wiki/File:Starlink_dish_01.webp
 - Uso: figura nel corpo (ridimensionata).
 
@@ -30,6 +30,6 @@ Verifica editoriale: 9 ottobre 2026. Quattro fotografie. La copertina è l’imm
 
 - Soggetto: visualizzazione della costellazione Starlink Generation 2 pianificata (circa 2022); sotto-costellazioni in colori diversi.
 - Autore: ESO (European Southern Observatory).
-- Licenza: CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/
+- Licenza: CC BY 4.0: https://creativecommons.org/licenses/by/4.0/
 - Pagina: https://commons.wikimedia.org/wiki/File:Starlink_Generation_2_constellation_(starlinkgen2_earth).jpg
 - Uso: figura nel corpo (ridimensionata). Immagine illustrativa, non è una foto satellitare reale del 2026.
