@@ -1,0 +1,12 @@
+# Immagini del capitolo 10: il primo atterraggio
+
+Verifica del 9 ottobre 2026. Fotografie storiche autentiche, senza ricostruzioni o modifiche. Sono state scaricate le versioni da 1024 pixel pubblicate su Flickr da SpaceX. Le schede Wikimedia Commons documentano la dedica CC0 di questi specifici file, anche quando i metadati incorporati conservano una precedente indicazione di copyright. La dedica CC0 non dipende dalla licenza attualmente selezionata nell'interfaccia Flickr.
+
+Licenza: [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/). Credito mantenuto: SpaceX. Non si implica approvazione di SpaceX del sito o del testo.
+
+- `orbcomm-lancio.jpg`: veicolo in preparazione nell'hangar, 10 dicembre 2015, prima del lancio. Non è una foto di decollo. [Scheda e licenza](https://commons.wikimedia.org/wiki/File:ORBCOMM-2_(23660653516).jpg), [fonte SpaceX](https://www.flickr.com/photos/spacex/23660653516/), [file pubblicato](https://live.staticflickr.com/623/23660653516_5b6cb301d1_b.jpg). 1023 × 580 pixel.
+- `orbcomm-traiettorie.jpg`: partenza e ritorno in una fotografia a lunga esposizione, 21 dicembre in Florida, 22 dicembre UTC. [Scheda e licenza](https://commons.wikimedia.org/wiki/File:ORBCOMM-2_First-Stage_Landing_(23604164970).jpg), [fonte SpaceX](https://www.flickr.com/photos/spacex/23604164970/), [file pubblicato](https://live.staticflickr.com/571/23604164970_a52b12d06f_b.jpg). 1024 × 683 pixel.
+- `orbcomm-atterraggio.jpg`: discesa finale sulla piazzola LZ-1, motore ancora acceso, 21 dicembre in Florida, 22 dicembre UTC. Non è un'immagine del booster già fermo. [Scheda e licenza](https://commons.wikimedia.org/wiki/File:ORBCOMM-2_First-Stage_Landing_(23271687254).jpg), [fonte SpaceX](https://www.flickr.com/photos/spacex/23271687254/), [file pubblicato](https://live.staticflickr.com/5773/23271687254_22c902b321_b.jpg). 1024 × 683 pixel.
+- `b1019-hangar.jpg`: primo stadio recuperato nell'hangar, fotografia del 29 dicembre 2015. [Scheda e licenza](https://commons.wikimedia.org/wiki/File:Falcon_9_first_stage_in_hangar_(24175842475).jpg), [fonte SpaceX](https://www.flickr.com/photos/spacex/24175842475/), [file pubblicato](https://live.staticflickr.com/1476/24175842475_d99a4230fe_b.jpg). 1023 × 614 pixel.
+
+La copertina riutilizza la fotografia della discesa finale. Il video ufficiale è incorporato da YouTube e non viene scaricato o ripubblicato nel repository.
