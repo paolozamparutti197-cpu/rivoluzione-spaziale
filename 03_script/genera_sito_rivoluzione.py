@@ -2861,6 +2861,15 @@ def render_spacex_history_page(data):
           <span class="button secondary">Apri approfondimento</span>
         </div>
       </a>
+      <a class="story-card" href="../documenti%20per%20sito/amos6_disastro_indagine_ripartenza_2016.html">
+        <img src="../documenti%20per%20sito/assets_fondazione/amos6-2016/amos6-fumo-soccorsi.jpg" alt="Il fumo sopra SLC-40 dopo la distruzione di AMOS-6, fotografia dei soccorsi" loading="lazy">
+        <div>
+          <small>Dodicesima parte</small>
+          <h3>AMOS-6: il disastro sulla rampa</h3>
+          <p>Settembre 2016–febbraio 2017: la perdita del satellite e del Falcon, l'indagine sui COPV, le critiche e le modifiche. Il ritorno con Iridium e la ripartenza dalla rampa 39A.</p>
+          <span class="button secondary">Apri approfondimento</span>
+        </div>
+      </a>
     </div>
   </div>
 </section>
