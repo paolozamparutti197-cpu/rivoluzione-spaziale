@@ -1,0 +1,18 @@
+{
+  "titolo": "Crew Dragon. Costruire la fiducia, portare le persone nello spazio",
+  "data": "2026-10-09",
+  "capitoli": [
+    ["01-origini-contratti", "Dallo Shuttle al Commercial Crew", "Una necessità nazionale, una scommessa industriale"],
+    ["02-concetto-capsula", "Dentro Crew Dragon", "Che cosa significa progettare una nave per esseri umani"],
+    ["03-sviluppo-prove", "Dall’idea alle prove", "Dragon V2, fuga dalla rampa e progetto che cambia"],
+    ["04-ritardi-certificazione", "Gli anni che non bastavano", "Ritardi, finanziamenti e responsabilità della certificazione"],
+    ["05-demo1", "Demo-1: la nave arriva alla stazione", "Il primo viaggio orbitale, senza persone a bordo"],
+    ["06-incidente-2019", "Il 20 aprile 2019", "Una capsula distrutta, un’indagine che cambia il progetto"],
+    ["07-fuga-in-volo", "La prova che deve rompere il razzo", "Gennaio 2020: dimostrare la fuga durante l’ascesa"],
+    ["08-demo2", "Demo-2: finalmente, gli astronauti", "Behnken e Hurley, dal decollo al ritorno a casa"],
+    ["09-servizio-riuso", "Dall’impresa al servizio", "Crew-1, riutilizzo e responsabilità quotidiana"],
+    ["10-missioni-private", "Oltre le rotazioni NASA", "Inspiration4, Axiom, Polaris Dawn e Fram2"],
+    ["11-archivio-voli", "Il registro dei viaggi", "Missioni, equipaggi, capsule e criteri di conteggio"],
+    ["12-presente-futuro", "Una storia ancora aperta", "Ciò che Dragon ha cambiato, ciò che non può promettere"]
+  ]
+}

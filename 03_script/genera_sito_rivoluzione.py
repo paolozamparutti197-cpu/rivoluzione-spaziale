@@ -2594,9 +2594,10 @@ def render_spacex(data):
         </div>
         <div class="door-group">
           <h3>Lettura</h3>
-          <p>Storia narrata e guida per vedere un lancio.</p>
+          <p>Storia narrata, monografie dei programmi e guida per vedere un lancio.</p>
           <div class="actions">
             <a class="button secondary" href="storia-spacex.html">Storia</a>
+            <a class="button secondary" href="monografie-spacex.html">Programmi e monografie</a>
             <a class="button secondary" href="guida-lancio-slc40.html">Vedere un lancio da SLC-40</a>
           </div>
         </div>
@@ -2760,6 +2761,7 @@ def render_spacex_history_page(data):
     <div class="section-head">
       <h2>Parti disponibili</h2>
       <p>La storia generale si conclude con Block 5 e l'inizio del predominio industriale. Il racconto proseguirà per monografie aggiornabili, a partire da Crew Dragon e Boca Chica/Starship, ciascuna con la propria storia.</p>
+      <div class="actions"><a class="button" href="../monografie/crew-dragon/index.html">Crew Dragon: il libro in dodici capitoli</a><a class="button secondary" href="monografie-spacex.html">Programmi e monografie</a></div>
     </div>
     <div class="story-list">
       <a class="story-card" href="../documenti%20per%20sito/fondazione_spacex_fino_primo_falcon1.html">
