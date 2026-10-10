@@ -1,0 +1,30 @@
+{
+  "titolo": "Starmind. Portare il calcolo nello spazio",
+  "data": "2026-10-10",
+  "capitoli": [
+    ["01-perche-orbita", "Perché portare il calcolo nello spazio", "La domanda elettrica, le reti e la scommessa di SpaceX"],
+    ["02-precedenti", "I computer erano già nello spazio", "Dall’avionica al supercalcolo: che cosa dimostrano i precedenti"],
+    ["03-nascita", "Da un’idea a un programma industriale", "2025–2026: proposte, acquisizione, domanda FCC e nome Starmind"],
+    ["04-ai1", "AI1: leggere il satellite", "Bus, pannelli, radiatori e una scheda che continua a evolvere"],
+    ["05-processori", "Vera Rubin arriva al confine dello spazio", "CPU, GPU, memoria e adattamento di una piattaforma terrestre"],
+    ["06-lavoro", "Quale intelligenza artificiale in orbita", "Inferenza, addestramento e dati prodotti dai satelliti"],
+    ["07-orbite", "Scegliere un’orbita significa scegliere un sistema", "Alba e tramonto, ombre, quote e convivenza con altre missioni"],
+    ["08-energia", "Raccogliere il Sole, alimentare i chip", "Celle, superfici, accumulo e potenza realmente disponibile"],
+    ["09-calore", "Il vuoto non porta via il calore", "Dal processore al radiatore: il problema fisico del raffreddamento"],
+    ["10-radiatori", "Quanto deve essere grande un radiatore", "Temperatura, emissività e un calcolatore per leggere gli ordini di grandezza"],
+    ["11-laser", "La rete ottica è parte del computer", "Puntamento, acquisizione e collegamenti fra veicoli in movimento"],
+    ["12-starlink", "Starmind incontra Starlink", "Dalla richiesta al risultato: trasporto, latenza e capacità condivisa"],
+    ["13-radiazioni", "Un bit sbagliato può diventare un risultato", "Dose, eventi singoli, protezione e affidabilità del calcolo"],
+    ["14-apertura", "Settantacinque metri dentro un razzo", "Ripiegare, lanciare, dispiegare e controllare grandi strutture"],
+    ["15-prove", "La strada delle prove", "Componenti, termovuoto, vibrazioni e missione sperimentale"],
+    ["16-gigasat", "Gigasat: costruire la capacità di costruire", "Bastrop, fornitori, collaudi e produzione seriale"],
+    ["17-trasporto", "La dipendenza da Starship", "Massa, volume e cadenza: un laboratorio della logistica orbitale"],
+    ["18-operazioni", "Un centro di calcolo senza corridoi", "Software, manutenzione, ricambio e servizio quotidiano"],
+    ["19-economia", "Quando l’orbita può convenire", "Costo del satellite, vita utile, utilizzo e confronto con la Terra"],
+    ["20-concorrenti", "Una corsa con strade diverse", "Starcloud, Google Suncatcher e lo studio europeo ASCEND"],
+    ["21-sicurezza", "Un milione cambia il problema", "Collisioni, guasti, fine vita e rischi cumulativi"],
+    ["22-cielo", "Il cielo resta un luogo di osservazione", "Astronomia, luce riflessa e il confronto con la comunità scientifica"],
+    ["23-ambiente", "L’energia solare non chiude il bilancio", "Atmosfera, materiali, territori e responsabilità pubbliche"],
+    ["24-bilancio", "Che cosa Starmind deve ancora dimostrare", "Bilancio datato, cronologia consultabile e glossario"]
+  ]
+}

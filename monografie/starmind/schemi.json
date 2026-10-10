@@ -1,0 +1,194 @@
+[
+  {
+    "file": "energia-calcolo.svg",
+    "titolo": "Il percorso che il Sole deve alimentare",
+    "descrizione": "Catena funzionale; la luce raccolta non equivale alla potenza utile del payload.",
+    "autore": "Rivoluzione Spaziale",
+    "licenza": "CC BY 4.0",
+    "metodo": "Schema didattico originale; non disegno costruttivo SpaceX."
+  },
+  {
+    "file": "precedenti.svg",
+    "titolo": "Tre ambienti, tre prove differenti",
+    "descrizione": "Una prova locale non dimostra automaticamente un servizio mondiale.",
+    "autore": "Rivoluzione Spaziale",
+    "licenza": "CC BY 4.0",
+    "metodo": "Schema didattico originale; non disegno costruttivo SpaceX."
+  },
+  {
+    "file": "programma.svg",
+    "titolo": "Da una proposta a una capacità operativa",
+    "descrizione": "Soglie diverse, non calendario garantito.",
+    "autore": "Rivoluzione Spaziale",
+    "licenza": "CC BY 4.0",
+    "metodo": "Schema didattico originale; non disegno costruttivo SpaceX."
+  },
+  {
+    "file": "chip-moduli.svg",
+    "titolo": "Un processore non lavora da solo",
+    "descrizione": "Schema generale di una piattaforma di calcolo; non distinta AI1.",
+    "autore": "Rivoluzione Spaziale",
+    "licenza": "CC BY 4.0",
+    "metodo": "Schema didattico originale; non disegno costruttivo SpaceX."
+  },
+  {
+    "file": "carichi.svg",
+    "titolo": "Tre lavori che chiedono reti diverse",
+    "descrizione": "La convenienza dipende da dati trasferiti, comunicazioni e uso dei processori.",
+    "autore": "Rivoluzione Spaziale",
+    "licenza": "CC BY 4.0",
+    "metodo": "Schema didattico originale; non disegno costruttivo SpaceX."
+  },
+  {
+    "file": "termico.svg",
+    "titolo": "Dove passa il calore",
+    "descrizione": "Conduzione e trasporto interno, irraggiamento verso l’esterno.",
+    "autore": "Rivoluzione Spaziale",
+    "licenza": "CC BY 4.0",
+    "metodo": "Schema didattico originale; non disegno costruttivo SpaceX."
+  },
+  {
+    "file": "rete-laser.svg",
+    "titolo": "Dalla richiesta al risultato",
+    "descrizione": "Schema funzionale, non topologia reale o garanzia di latenza.",
+    "autore": "Rivoluzione Spaziale",
+    "licenza": "CC BY 4.0",
+    "metodo": "Schema didattico originale; non disegno costruttivo SpaceX."
+  },
+  {
+    "file": "radiazioni.svg",
+    "titolo": "Proteggere il risultato, oltre al satellite",
+    "descrizione": "Mitigazioni generali; efficacia e tassi di guasto vanno misurati.",
+    "autore": "Rivoluzione Spaziale",
+    "licenza": "CC BY 4.0",
+    "metodo": "Schema didattico originale; non disegno costruttivo SpaceX."
+  },
+  {
+    "file": "dispiegamento.svg",
+    "titolo": "Da carico compatto a grande satellite",
+    "descrizione": "Sequenza didattica; non procedura di dispiegamento SpaceX.",
+    "autore": "Rivoluzione Spaziale",
+    "licenza": "CC BY 4.0",
+    "metodo": "Schema didattico originale; non disegno costruttivo SpaceX."
+  },
+  {
+    "file": "prove.svg",
+    "titolo": "Una catena di prove rappresentative",
+    "descrizione": "Una modifica successiva può richiedere nuove prove.",
+    "autore": "Rivoluzione Spaziale",
+    "licenza": "CC BY 4.0",
+    "metodo": "Schema didattico originale; non disegno costruttivo SpaceX."
+  },
+  {
+    "file": "fabbrica.svg",
+    "titolo": "La fabbrica deve imparare a ripetere",
+    "descrizione": "Modello industriale generale, non pianta Gigasat.",
+    "autore": "Rivoluzione Spaziale",
+    "licenza": "CC BY 4.0",
+    "metodo": "Schema didattico originale; non disegno costruttivo SpaceX."
+  },
+  {
+    "file": "operazioni.svg",
+    "titolo": "Il ciclo di un nodo di calcolo",
+    "descrizione": "La capacità venduta deve includere riserve e indisponibilità.",
+    "autore": "Rivoluzione Spaziale",
+    "licenza": "CC BY 4.0",
+    "metodo": "Schema didattico originale; non disegno costruttivo SpaceX."
+  },
+  {
+    "file": "costi.svg",
+    "titolo": "Che cosa entra nel costo del servizio",
+    "descrizione": "Il costo per watt installato non è il costo per risultato utile.",
+    "autore": "Rivoluzione Spaziale",
+    "licenza": "CC BY 4.0",
+    "metodo": "Schema didattico originale; non disegno costruttivo SpaceX."
+  },
+  {
+    "file": "concorrenti.svg",
+    "titolo": "Confrontare lo stesso livello di maturità",
+    "descrizione": "Non è una classifica fra aziende; il livello va attribuito a una capacità specifica.",
+    "autore": "Rivoluzione Spaziale",
+    "licenza": "CC BY 4.0",
+    "metodo": "Schema didattico originale; non disegno costruttivo SpaceX."
+  },
+  {
+    "file": "astronomia.svg",
+    "titolo": "La luce che raggiunge un telescopio",
+    "descrizione": "Nessuna stima di magnitudine Starmind viene ricavata dalla sola apertura.",
+    "autore": "Rivoluzione Spaziale",
+    "licenza": "CC BY 4.0",
+    "metodo": "Schema didattico originale; non disegno costruttivo SpaceX."
+  },
+  {
+    "file": "atmosfera.svg",
+    "titolo": "Seguire il materiale fino all’atmosfera",
+    "descrizione": "Il bilancio ambientale non termina al distacco dalla rampa.",
+    "autore": "Rivoluzione Spaziale",
+    "licenza": "CC BY 4.0",
+    "metodo": "Schema didattico originale; non disegno costruttivo SpaceX."
+  },
+  {
+    "file": "soglie.svg",
+    "titolo": "Che cosa dovrà misurare la prossima edizione",
+    "descrizione": "Criteri editoriali per valutare il progresso.",
+    "autore": "Rivoluzione Spaziale",
+    "licenza": "CC BY 4.0",
+    "metodo": "Schema didattico originale; non disegno costruttivo SpaceX."
+  },
+  {
+    "file": "ai1-anatomia.svg",
+    "titolo": "AI1: funzioni e dati dichiarati",
+    "descrizione": "Schema concettuale originale. Posizioni e proporzioni non sono il progetto SpaceX.",
+    "autore": "Rivoluzione Spaziale",
+    "licenza": "CC BY 4.0",
+    "metodo": "Schema didattico originale; non disegno costruttivo SpaceX."
+  },
+  {
+    "file": "orbita-sole.svg",
+    "titolo": "Cercare il Sole vicino al terminatore",
+    "descrizione": "Proiezione illustrativa di un’orbita alba-tramonto; stagioni e ombre reali richiedono calcolo orbitale.",
+    "autore": "Rivoluzione Spaziale",
+    "licenza": "CC BY 4.0",
+    "metodo": "Schema didattico originale; non disegno costruttivo SpaceX."
+  },
+  {
+    "file": "radiatore-area.svg",
+    "titolo": "Più freddo significa più superficie",
+    "descrizione": "Grafico didattico calcolato. 175 kW · emissività 0,90 · fondo ideale a 0 K. Esclusi Sole, Terra, margini e differenze fra chip e radiatore.",
+    "autore": "Rivoluzione Spaziale",
+    "licenza": "CC BY 4.0",
+    "metodo": "Schema didattico originale; non disegno costruttivo SpaceX."
+  },
+  {
+    "file": "solare-area.svg",
+    "titolo": "Dalla luce alla superficie fotovoltaica",
+    "descrizione": "Grafico didattico calcolato. Esempio: 200 kW elettrici, 1.361 W/m², fattore residuo 0,85. Pannelli normali al Sole. Non dimensionamento AI1.",
+    "autore": "Rivoluzione Spaziale",
+    "licenza": "CC BY 4.0",
+    "metodo": "Schema didattico originale; non disegno costruttivo SpaceX."
+  },
+  {
+    "file": "ritardo-luce.svg",
+    "titolo": "Il limite posto dalla distanza",
+    "descrizione": "Grafico didattico calcolato. Solo propagazione; niente code, elaborazione o accessi radio.",
+    "autore": "Rivoluzione Spaziale",
+    "licenza": "CC BY 4.0",
+    "metodo": "Schema didattico originale; non disegno costruttivo SpaceX."
+  },
+  {
+    "file": "utilizzo-costo.svg",
+    "titolo": "Il costo cresce quando il nodo resta vuoto",
+    "descrizione": "Grafico didattico calcolato. Investimento e vita costanti; valore 1 a utilizzo 100%. Modello didattico senza prezzi o prestazioni SpaceX.",
+    "autore": "Rivoluzione Spaziale",
+    "licenza": "CC BY 4.0",
+    "metodo": "Schema didattico originale; non disegno costruttivo SpaceX."
+  },
+  {
+    "file": "guasti-scala.svg",
+    "titolo": "Una percentuale piccola su una rete grande",
+    "descrizione": "Esempio aritmetico, non previsione di affidabilità Starmind. Lunghezze compresse logaritmicamente.",
+    "autore": "Rivoluzione Spaziale",
+    "licenza": "CC BY 4.0",
+    "metodo": "Schema didattico originale; non disegno costruttivo SpaceX."
+  }
+]

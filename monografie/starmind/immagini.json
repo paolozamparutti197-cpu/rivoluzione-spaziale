@@ -1,0 +1,340 @@
+[
+  {
+    "id": "pleiades",
+    "file": "pleiades.jpg",
+    "url": "http://images-assets.nasa.gov/image/ARC-2008-ACD08-0272-005/ARC-2008-ACD08-0272-005~medium.jpg",
+    "fonte": "https://images.nasa.gov/details/ARC-2008-ACD08-0272-005",
+    "credito": "NASA/Dominic Hart",
+    "licenza": "Materiale NASA per uso informativo; attribuzione richiesta",
+    "licenza_url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "alt": "File di rack del supercomputer Pleiades al centro Ames",
+    "didascalia": "Supercomputer Pleiades al centro NASA Ames, 2008. Fotografia di un impianto terrestre; non è il computer di AI1.",
+    "modifiche": "Nessun ritocco o ritaglio; file alla risoluzione distribuita dalla libreria NASA.",
+    "tipo": "fotografia documentaria di contesto",
+    "metadata_originali": {
+      "center": "ARC",
+      "date_created": "2008-12-02T00:00:00Z",
+      "description": "N-258 NAS Supercomputer Pleiades",
+      "keywords": [
+        "NAS Pleiades",
+        "supercomputer"
+      ],
+      "media_type": "image",
+      "nasa_id": "ARC-2008-ACD08-0272-005",
+      "photographer": "Dominic Hart",
+      "title": "ARC-2008-ACD08-0272-005"
+    }
+  },
+  {
+    "id": "spaceborne",
+    "file": "spaceborne.jpg",
+    "url": "http://images-assets.nasa.gov/image/iss065e009485/iss065e009485~medium.jpg",
+    "fonte": "https://images.nasa.gov/details/iss065e009485",
+    "credito": "NASA/Michael Hopkins",
+    "licenza": "Materiale NASA per uso informativo; attribuzione richiesta",
+    "licenza_url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "alt": "Il computer sperimentale Spaceborne Computer-2 installato sulla ISS",
+    "didascalia": "29 aprile 2021: Spaceborne Computer-2 sulla ISS, fotografato da Michael Hopkins. Un precedente di calcolo commerciale in ambiente spaziale, all’interno di una stazione abitata.",
+    "modifiche": "Nessun ritocco o ritaglio; file alla risoluzione distribuita dalla libreria NASA.",
+    "tipo": "fotografia documentaria di contesto",
+    "metadata_originali": {
+      "center": "JSC",
+      "date_created": "2021-04-29T00:00:00Z",
+      "description": "iss065e009485 4/29/2021 --- A view of the Spaceborne Computer-2 High Performance Commercial Off-The-Shelf (COTS) Computer System on the ISS (Spaceborne Computer-2) aboard the International Space Station (ISS). The study explores how space exploration can be advanced by the use of the commercial off-the-shelf computer systems. Spaceborne Computer-2 further tests additional techniques for recovering or mitigating errors in the extreme environment of unprotected solar radiation, galactic cosmic radiation (GCR) and other events.",
+      "media_type": "image",
+      "nasa_id": "iss065e009485",
+      "photographer": "Michael Hopkins",
+      "title": "Spaceborne Computer-2"
+    }
+  },
+  {
+    "id": "radiatori-iss",
+    "file": "radiatori-iss.jpg",
+    "url": "http://images-assets.nasa.gov/image/iss064e041634/iss064e041634~medium.jpg",
+    "fonte": "https://images.nasa.gov/details/iss064e041634",
+    "credito": "NASA",
+    "licenza": "Materiale NASA per uso informativo; attribuzione richiesta",
+    "licenza_url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "alt": "Astronauti in attività extraveicolare accanto ai pannelli e radiatori della ISS",
+    "didascalia": "13 marzo 2021: Michael Hopkins e Victor Glover lavorano fra pannelli solari e radiatori della ISS. I radiatori sono hardware reale di un sistema diverso da Starmind.",
+    "modifiche": "Nessun ritocco o ritaglio; file alla risoluzione distribuita dalla libreria NASA.",
+    "tipo": "fotografia documentaria di contesto",
+    "metadata_originali": {
+      "center": "JSC",
+      "date_created": "2021-03-13T00:00:00Z",
+      "description": "iss064e041634 (March 13, 2021) --- NASA spacewalkers Michael Hopkins and Victor Glover (both at center) are dwarfed by the International Space Station's main solar arrays and radiators during a spacewalk to service the station’s cooling system and communications gear.",
+      "media_type": "image",
+      "nasa_id": "iss064e041634",
+      "title": "iss064e041634"
+    }
+  },
+  {
+    "id": "solari-iss",
+    "file": "solari-iss.jpg",
+    "url": "http://images-assets.nasa.gov/image/iss065e124482/iss065e124482~medium.jpg",
+    "fonte": "https://images.nasa.gov/details/iss065e124482",
+    "credito": "NASA",
+    "licenza": "Materiale NASA per uso informativo; attribuzione richiesta",
+    "licenza_url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "alt": "Installazione di un pannello solare arrotolabile sulla struttura della ISS",
+    "didascalia": "20 giugno 2021: Shane Kimbrough e Thomas Pesquet completano l’installazione di un pannello solare arrotolabile sulla ISS. Una grande struttura dispiegabile già utilizzata in orbita.",
+    "modifiche": "Nessun ritocco o ritaglio; file alla risoluzione distribuita dalla libreria NASA.",
+    "tipo": "fotografia documentaria di contesto",
+    "metadata_originali": {
+      "center": "JSC",
+      "date_created": "2021-06-20T00:00:00Z",
+      "description": "iss065e124482 (June 20, 2021) --- Dwarfed by the International Space Station's main solar arrays, spacewalkers Shane Kimbrough and Thomas Pesquet work to complete the installation of a roll out solar array on the P-6 truss structure.",
+      "media_type": "image",
+      "nasa_id": "iss065e124482",
+      "title": "iss065e124482"
+    }
+  },
+  {
+    "id": "termovuoto",
+    "file": "termovuoto.jpg",
+    "url": "http://images-assets.nasa.gov/image/PIA12021/PIA12021~medium.jpg",
+    "fonte": "https://images.nasa.gov/details/PIA12021",
+    "credito": "NASA/JPL",
+    "licenza": "Materiale NASA per uso informativo; attribuzione richiesta",
+    "licenza_url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "alt": "La sonda Dawn sospesa sopra l’apertura di una camera termovuoto",
+    "didascalia": "Dawn viene trasferita in una camera termovuoto. Immagine d’archivio NASA/JPL pubblicata nel 2009; illustra una prova ambientale, non la qualificazione di Starmind.",
+    "modifiche": "Nessun ritocco o ritaglio; file alla risoluzione distribuita dalla libreria NASA.",
+    "tipo": "fotografia documentaria di contesto",
+    "metadata_originali": {
+      "center": "JPL",
+      "date_created": "2009-05-29T20:50:06Z",
+      "description": "NASA Dawn spacecraft being moved into thermal vacuum chamber for bake-out.",
+      "description_508": "NASA Dawn spacecraft being moved into thermal vacuum chamber for bake-out.",
+      "keywords": [
+        "Dawn"
+      ],
+      "media_type": "image",
+      "nasa_id": "PIA12021",
+      "secondary_creator": "NASA/JPL",
+      "title": "Dawn Spacecraft Moved into Thermal Vacuum Chamber"
+    }
+  },
+  {
+    "id": "telescopio-ottico",
+    "file": "telescopio-ottico.jpg",
+    "url": "http://images-assets.nasa.gov/image/PIA18577/PIA18577~orig.jpg",
+    "fonte": "https://images.nasa.gov/details/PIA18577",
+    "credito": "NASA/JPL-Caltech",
+    "licenza": "Materiale NASA per uso informativo; attribuzione richiesta",
+    "licenza_url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "alt": "Il telescopio della stazione ottica OCTL del JPL",
+    "didascalia": "Telescopio da circa un metro dell’Optical Communications Telescope Laboratory del JPL, immagine pubblicata nel 2014. Stazione sperimentale OPALS, non gateway Starmind.",
+    "modifiche": "Nessun ritocco o ritaglio; file alla risoluzione distribuita dalla libreria NASA.",
+    "tipo": "fotografia documentaria di contesto",
+    "metadata_originali": {
+      "center": "JPL",
+      "date_created": "2014-07-24T05:47:07Z",
+      "description": "This is a 3-foot 1-meter aperture main telescope located at the NASA Jet Propulsion Laboratory Optical Communications Telescope Laboratory ground station.",
+      "description_508": "This is a 3-foot 1-meter aperture main telescope located at the NASA Jet Propulsion Laboratory Optical Communications Telescope Laboratory ground station.",
+      "keywords": [
+        "Earth",
+        "International Space Station ISS"
+      ],
+      "media_type": "image",
+      "nasa_id": "PIA18577",
+      "secondary_creator": "NASA/JPL-Caltech",
+      "title": "OPALS Main Telescope"
+    }
+  },
+  {
+    "id": "opals",
+    "file": "opals.jpg",
+    "url": "http://images-assets.nasa.gov/image/iss048e057073/iss048e057073~medium.jpg",
+    "fonte": "https://images.nasa.gov/details/iss048e057073",
+    "credito": "NASA/Kate Rubins",
+    "licenza": "Materiale NASA per uso informativo; attribuzione richiesta",
+    "licenza_url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "alt": "Apparato OPALS montato su una piattaforma esterna della ISS",
+    "didascalia": "12 agosto 2016: l’apparato OPALS all’esterno della ISS, fotografia di Kate Rubins. Precedente sperimentale di comunicazioni ottiche.",
+    "modifiche": "Nessun ritocco o ritaglio; file alla risoluzione distribuita dalla libreria NASA.",
+    "tipo": "fotografia documentaria di contesto",
+    "metadata_originali": {
+      "center": "JSC",
+      "date_created": "2016-08-12T00:00:00Z",
+      "description": "iss048e057073 (8/12/2016) --- A view of Optical Payload for Lasercomm Science (OPALS) installed on ExPRESS (Expedite the Processing of Experiments to Space Station) Logistics Carrier-1 (ELC-1). The Optical Payload for Lasercomm Science (OPALS) aims to demonstrate optical communications technology. This is accomplished by transferring a video from hardware onboard the ISS to our ground receiver at JPL’s Optical Communications Telescope Laboratory (OCTL) in Wrightwood, California.",
+      "media_type": "image",
+      "nasa_id": "iss048e057073",
+      "photographer": "Kate Rubins",
+      "title": "Optical Payload for Lasercomm Science (OPALS)"
+    }
+  },
+  {
+    "id": "celle-laboratorio",
+    "file": "celle-laboratorio.jpg",
+    "url": "http://images-assets.nasa.gov/image/GRC-2018-C-07373/GRC-2018-C-07373~medium.jpg",
+    "fonte": "https://images.nasa.gov/details/GRC-2018-C-07373",
+    "credito": "NASA Glenn Research Center",
+    "licenza": "Materiale NASA per uso informativo; attribuzione richiesta",
+    "licenza_url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "alt": "Ricercatore NASA Glenn mostra una sottile cella fotovoltaica sperimentale",
+    "didascalia": "29 agosto 2018: Tim Peshek mostra una cella sperimentale a perovskite al NASA Glenn. Ricerca sui materiali fotovoltaici; non identifica la tecnologia scelta per AI1.",
+    "modifiche": "Nessun ritocco o ritaglio; file alla risoluzione distribuita dalla libreria NASA.",
+    "tipo": "fotografia documentaria di contesto",
+    "metadata_originali": {
+      "center": "GRC",
+      "date_created": "2018-08-29T00:00:00Z",
+      "description": "NASA Glenn researcher Tim Peshek shows off a new type of ultrathin solar cell, known as a ‘perovskite’ because of its structure. These solar cells show promise for space applications because of their high efficiency and radiation tolerance and open the door to extremely low cost and large solar arrays for spacecraft or lunar surface habitats.",
+      "keywords": [
+        "Perovskite-based Photovoltaics: A New Pathway to Ultra-Low-Co...",
+        "Tim Peshek",
+        "Horsham_665422"
+      ],
+      "location": "NASA Glenn Research Center",
+      "media_type": "image",
+      "nasa_id": "GRC-2018-C-07373",
+      "photographer": "NASA Glenn Research Center",
+      "title": "Perovskite-based Photovoltaics: A New Pathway to Ultra-Low-Cost Space Power"
+    }
+  },
+  {
+    "id": "solari-1966",
+    "file": "solari-1966.jpg",
+    "url": "http://images-assets.nasa.gov/image/GRC-1966-C-02754/GRC-1966-C-02754~medium.jpg",
+    "fonte": "https://images.nasa.gov/details/GRC-1966-C-02754",
+    "credito": "NASA",
+    "licenza": "Materiale NASA per uso informativo; attribuzione richiesta",
+    "licenza_url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "alt": "Adolph Spakowski presenta pannelli e celle solari a film sottile nel 1966",
+    "didascalia": "Adolph Spakowski confronta celle convenzionali e celle a film sottile al NASA Lewis nel 1966. L’esigenza di ottenere pannelli leggeri e ripiegabili precede di decenni Starmind.",
+    "modifiche": "Nessun ritocco o ritaglio; file alla risoluzione distribuita dalla libreria NASA.",
+    "tipo": "fotografia documentaria di contesto",
+    "metadata_originali": {
+      "center": "GRC",
+      "date_created": "1966-06-23T00:00:00Z",
+      "description": "Adolph Spakowski, head of the Photovoltaic Fundamentals Section at the National Aeronautics and Space Administration (NASA) Lewis Research Center, illustrated the difference between conventional silicon solar cells (rear panel) and the new thin-film cells. The larger, flexible thin-film cells in the foreground were evaluated by Lewis energy conversion specialists for possible future space use. The conventional solar cells used on most spacecraft at the time were both delicate and heavy. For example, the Mariner IV spacecraft required 28,000 these solar cells for its flyby of Mars in 1964.     NASA Lewis began investigating cadmium sulfide thin-film solar cells in 1961. The thin-film cells were made by heating semiconductor material until it evaporated. The vapor was then condensed onto an electricity-producing film only one-thousandth of an inch thick. The physical flexibility of the new thin-film cells allowed them to be furled, or rolled up, during launch.    Spakowski led an 18-month test program at Lewis to investigate the application of cadmium sulfide semiconductors on a light metallized substrate. The new thin-film solar cells were tested in a space simulation chamber at a simulated altitude of 200 miles. Sunlight was recreated by a 5000-watt xenon light. Two dozen cells were exposed to 15 minutes of light followed by 15 minutes of darkness to test their durability in the constantly changing illumination of Earth orbit.",
+      "media_type": "image",
+      "nasa_id": "GRC-1966-C-02754",
+      "title": "New Thin-Film Solar Cells Compared to Normal Solar Cells"
+    }
+  },
+  {
+    "id": "lcrd-lancio",
+    "file": "lcrd-lancio.jpg",
+    "url": "http://images-assets.nasa.gov/image/NHQ202112070004/NHQ202112070004~medium.jpg",
+    "fonte": "https://images.nasa.gov/details/NHQ202112070004",
+    "credito": "NASA/Joel Kowsky",
+    "licenza": "Materiale NASA per uso informativo; attribuzione richiesta",
+    "licenza_url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "alt": "Atlas V lascia la rampa nel lancio del dimostratore di comunicazioni LCRD",
+    "didascalia": "7 dicembre 2021: Atlas V lancia STP-3, con LCRD ospitato a bordo di STPSat-6. Fotografia NASA/Joel Kowsky; non è un lancio SpaceX.",
+    "modifiche": "Nessun ritocco o ritaglio; file alla risoluzione distribuita dalla libreria NASA.",
+    "tipo": "fotografia documentaria di contesto",
+    "metadata_originali": {
+      "center": "HQ",
+      "date_created": "2021-12-07T00:00:00Z",
+      "description": "A United Launch Alliance Atlas V rocket launches on the Department of Defense’s Space Test Program 3 (STP-3) mission from Space Launch Complex 41 at Cape Canaveral Space Force Station, Tuesday, Dec. 7, 2021, from NASA’s Kennedy Space Center in Florida. The mission’s Space Test Program Satellite-6 (STPSat-6) spacecraft hosts NASA’s Laser Communications Relay Demonstration (LCRD) and the NASA-U.S. Naval Research Laboratory Ultraviolet Spectro-Coronagraph (UVSC) Pathfinder.  Photo Credit: (NASA/Joel Kowsky)",
+      "keywords": [
+        "Atlas V",
+        "Cape Canaveral",
+        "Cape Canaveral Space Force Station (CCSFS)",
+        "Florida",
+        "Kennedy Space Center",
+        "Launch Complex 41",
+        "Space Test Program-3 (STP-3)",
+        "United Launch Alliance (ULA)"
+      ],
+      "location": "Cape Canaveral Space Force Stati",
+      "media_type": "image",
+      "nasa_id": "NHQ202112070004",
+      "photographer": "NASA/Joel Kowsky",
+      "title": "ULA Atlas V DoD STP-3 Launch"
+    }
+  },
+  {
+    "id": "starlink-satelliti",
+    "file": "starlink-satelliti.jpg",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Starlink_Mission_(47926144123).jpg",
+    "url": "https://live.staticflickr.com/65535/47926144123_84745c353a_b.jpg",
+    "credito": "Official SpaceX Photos",
+    "licenza": "CC0 1.0, dedica precedente verificata su Commons nel 2019",
+    "licenza_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "alt": "Il gruppo di satelliti Starlink ancora unito al secondo stadio, con la Terra sullo sfondo",
+    "didascalia": "I satelliti del primo grande gruppo Starlink del maggio 2019, ripresi in orbita prima del rilascio. Documentano una rete di comunicazione, non satelliti AI1.",
+    "modifiche": "Copia identica del file del libro starlink, senza ritocchi o ritagli.",
+    "tipo": "fotografia documentaria di contesto"
+  },
+  {
+    "id": "starlink-lancio",
+    "file": "starlink-lancio.jpg",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Starlink_Mission_(47926143711).jpg",
+    "url": "https://live.staticflickr.com/65535/47926143711_c07b61583f_b.jpg",
+    "credito": "Official SpaceX Photos",
+    "licenza": "CC0 1.0, dedica precedente verificata su Commons nel 2019",
+    "licenza_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "alt": "Lancio Falcon 9 del gruppo Starlink del maggio 2019",
+    "didascalia": "Falcon 9 lancia il primo grande gruppo Starlink nel maggio 2019. Un precedente di costruzione seriale della costellazione.",
+    "modifiche": "Copia identica del file del libro starlink, senza ritocchi o ritagli.",
+    "tipo": "fotografia documentaria di contesto"
+  },
+  {
+    "id": "tracce-satelliti",
+    "file": "tracce-satelliti.jpg",
+    "fonte": "https://noirlab.edu/public/images/ann22005a/",
+    "url": "https://noirlab.edu/public/media/archives/images/screen/ann22005a.jpg",
+    "credito": "M. Lewinsky/NOIRLab",
+    "licenza": "CC BY 2.0",
+    "licenza_url": "https://creativecommons.org/licenses/by/2.0/",
+    "alt": "Tracce di satelliti attraversano un campo stellare osservato da terra",
+    "didascalia": "Tracce di satelliti in un’immagine astronomica pubblicata da NOIRLab. Il fenomeno è documentato per costellazioni esistenti; non è una misura della luminosità di Starmind.",
+    "modifiche": "Copia identica del file del libro starlink, senza ritocchi o ritagli.",
+    "tipo": "fotografia documentaria di contesto"
+  },
+  {
+    "id": "gemini-south",
+    "file": "gemini-south.jpg",
+    "fonte": "https://noirlab.edu/public/images/Startrails-outside-fisheye_moonlight_1-CC/",
+    "url": "https://noirlab.edu/public/media/archives/images/screen/Startrails-outside-fisheye_moonlight_1-CC.jpg",
+    "credito": "International Gemini Observatory/NOIRLab/AURA/NSF/M. Paredes",
+    "licenza": "CC BY 4.0",
+    "licenza_url": "https://creativecommons.org/licenses/by/4.0/",
+    "alt": "Osservatorio Gemini South sotto il cielo notturno",
+    "didascalia": "L’osservatorio Gemini South in Cile. La qualità del cielo costituisce una risorsa scientifica da includere nelle scelte sulle grandi costellazioni.",
+    "modifiche": "Copia identica del file del libro starlink, senza ritocchi o ritagli.",
+    "tipo": "fotografia documentaria di contesto"
+  },
+  {
+    "id": "terminale-alaska",
+    "file": "terminale-alaska.jpg",
+    "fonte": "https://www.flickr.com/photos/alaskanationalguard/54905679447",
+    "url": "https://live.staticflickr.com/65535/54905679447_60741d97de_b.jpg",
+    "credito": "U.S. Army National Guard/Spc. Ericka Gillespie",
+    "licenza": "Public Domain Mark",
+    "licenza_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "alt": "Terminale Starlink usato dalla Guardia nazionale in Alaska",
+    "didascalia": "Terminale Starlink durante un’attività della Guardia nazionale in Alaska. Un punto di accesso alla rete terrestre, distinto dal nodo di calcolo orbitale.",
+    "modifiche": "Copia identica del file del libro starlink, senza ritocchi o ritagli.",
+    "tipo": "fotografia documentaria di contesto"
+  },
+  {
+    "id": "starship-decollo",
+    "file": "starship-decollo.jpg",
+    "fonte": "https://commons.wikimedia.org/wiki/File:SpaceX_Starship_ignition_during_IFT-5.jpg",
+    "url": "",
+    "credito": "Steve Jurvetson",
+    "licenza": "CC BY 2.0",
+    "licenza_url": "https://creativecommons.org/licenses/by/2.0/",
+    "alt": "Starship e Super Heavy all’accensione del quinto volo integrato",
+    "didascalia": "13 ottobre 2024: accensione di Starship durante Flight 5. Fotografia di Steve Jurvetson; illustra il sistema di trasporto, non un lancio Starmind.",
+    "modifiche": "Copia identica del file del libro starship, senza ritocchi o ritagli.",
+    "tipo": "fotografia documentaria di contesto"
+  },
+  {
+    "id": "superheavy-rientro",
+    "file": "superheavy-rientro.jpg",
+    "fonte": "https://commons.wikimedia.org/wiki/File:SpaceX_Starship_booster_landing_approach_IFT-5.jpg",
+    "url": "",
+    "credito": "Steve Jurvetson",
+    "licenza": "CC BY 2.0",
+    "licenza_url": "https://creativecommons.org/licenses/by/2.0/",
+    "alt": "Super Heavy in avvicinamento alla torre durante Flight 5",
+    "didascalia": "13 ottobre 2024: Super Heavy si avvicina alla torre prima della prima cattura. Il recupero del booster è una parte della catena di riuso richiesta dal progetto orbitale.",
+    "modifiche": "Copia identica del file del libro starship, senza ritocchi o ritagli.",
+    "tipo": "fotografia documentaria di contesto"
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {"data":"2017", "evento":"Spaceborne Computer sulla ISS", "tipo":"Precedente", "stato":"Esperimento su hardware commerciale dentro una stazione abitata; ritorno nel 2019.", "fonte":"spaceborne"},
+  {"data":"2021", "evento":"Spaceborne Computer-2", "tipo":"Precedente", "stato":"Nuove prove di calcolo locale e IA sulla ISS.", "fonte":"sbc2"},
+  {"data":"2024-06-27", "evento":"Risultati dello studio ASCEND", "tipo":"Studio", "stato":"Studio europeo di fattibilità, con condizioni sul ciclo ambientale e sul trasporto.", "fonte":"ascend"},
+  {"data":"2025-11-04", "evento":"Google presenta Project Suncatcher", "tipo":"Annuncio", "stato":"Programma di ricerca su calcolo con TPU alimentato dal Sole in orbita.", "fonte":"google25"},
+  {"data":"2025-11", "evento":"Starcloud-1 raggiunge l’orbita", "tipo":"Dimostratore", "stato":"Il costruttore documenta il lancio con H100; successivamente rivendica prove di modelli.", "fonte":"starcloud"},
+  {"data":"2026-01-30", "evento":"Domanda SpaceX Orbital Data Center System", "tipo":"Atto", "stato":"Fino a un milione di satelliti nel perimetro richiesto; non flotta dispiegata.", "fonte":"fcc"},
+  {"data":"2026-02-02", "evento":"Accordo SpaceX–xAI", "tipo":"Atto", "stato":"Documento societario del nuovo perimetro industriale.", "fonte":"merger"},
+  {"data":"2026-02-04", "evento":"FCC accetta la domanda per l’istruttoria", "tipo":"Atto", "stato":"DA 26-113 apre l’esame e il periodo di commenti; non concede la costellazione.", "fonte":"fcc"},
+  {"data":"2026-03-06", "evento":"Commenti Secure World Foundation", "tipo":"Commento", "stato":"Richiesta di analisi dei rischi cumulativi, trasparenza e autorizzazioni per fasi.", "fonte":"swf"},
+  {"data":"2026-03-06", "evento":"Petizione American Astronomical Society", "tipo":"Commento", "stato":"Opposizione alla domanda: posizione di una parte, non decisione FCC.", "fonte":"aas"},
+  {"data":"2026-06-23", "evento":"Conferma del nome Starmind", "tipo":"Annuncio", "stato":"Conferma di Musk documentata dalla cronaca del 25 giugno; non riguarda il lancio di un satellite.", "fonte":"nome"},
+  {"data":"2026-08-24", "evento":"NVIDIA conferma Vera Rubin per Starmind", "tipo":"Annuncio", "stato":"Piattaforma ottimizzata per la prima generazione; non benchmark di volo.", "fonte":"nvidia"},
+  {"data":"2026-09-16", "evento":"Risposta tecnica SpaceX alla FCC", "tipo":"Atto", "stato":"Documento datato 16 settembre, dopo l’incontro del 14: inviluppi, laser e fine vita.", "fonte":"fccsep"},
+  {"data":"2026-10-01", "evento":"Prototipo Suncatcher in orbita", "tipo":"Dimostratore", "stato":"Google annuncia lancio Transporter-18, contatto e inizio degli esperimenti.", "fonte":"google26"},
+  {"data":"2026-10-10", "evento":"Scheda AI1 verificata per questa edizione", "tipo":"Scheda", "stato":"30 m, 75 m, fino a 250 kW di picco e 175 kW medi: caratteristiche dichiarate.", "fonte":"starmind"},
+  {"data":"Fine 2027", "evento":"Obiettivo Gigasat / primo dispiegamento", "tipo":"Obiettivo", "stato":"La pagina SpaceX indica una possibile partenza della produzione e del dispiegamento dalla fine del 2027; calendario prospettico.", "fonte":"starmind"}
+]
