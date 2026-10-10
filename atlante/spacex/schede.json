@@ -1,0 +1,3959 @@
+{
+  "edition": "2026-10-10",
+  "sources": {
+    "starship:rednasa": {
+      "title": "NASA, collaborazione Red Dragon al Congresso, 11 luglio 2016",
+      "url": "https://www.nasa.gov/wp-content/uploads/2015/03/jreuter_reddragon_july_2016tagged_0.pdf",
+      "note": "Ruolo tecnico NASA, finanziamento SpaceX e dati di discesa attesi. Il rendering SpaceX nel PDF ha diritti riservati e non viene ripubblicato."
+    },
+    "starship:redclose": {
+      "title": "NASA TechPort, progetto Red Dragon",
+      "url": "https://techport.nasa.gov/projects/93875",
+      "note": "Scheda istituzionale: chiusura del progetto a seguito della cancellazione SpaceX."
+    },
+    "starship:vehicle": {
+      "title": "SpaceX, Starship",
+      "url": "https://www.spacex.com/vehicles/starship",
+      "note": "Pagina del costruttore: specifiche e obiettivi possono cambiare; consultazione 10 ottobre 2026."
+    },
+    "starship:propulsion": {
+      "title": "NASA NTRS, Liquid Propulsion Systems",
+      "url": "https://ntrs.nasa.gov/api/citations/20140002716/downloads/20140002716.pdf",
+      "note": "Principi e confronti fra cicli dei motori a propellente liquido."
+    },
+    "starship:hotstage": {
+      "title": "NASA Advanced Supercomputing, Starship Hot Staging",
+      "url": "https://www.nas.nasa.gov/SC24/research/project24.php",
+      "note": "Ricerca CFD NASA: interazione fra getti e stadi."
+    },
+    "starship:faa": {
+      "title": "FAA, archivio ambientale Starship a Boca Chica",
+      "url": "https://www.faa.gov/space/stakeholder_engagement/spacex_starship",
+      "note": "Documenti finali e proposte distinti; pagina consultata il 10 ottobre 2026."
+    },
+    "starship:faa2026": {
+      "title": "FAA, EA finale per traiettorie e rientri a Boca Chica",
+      "url": "https://www.faa.gov/space/stakeholder_engagement/spacex_starship/Final_Tiered_EA_Additional_Launch_Trajectories_Starship_RTLS_mission_profiles_SpaceX_Starship-Super_Heavy_Boca_Chica.pdf",
+      "note": "Documento finale disponibile nell’archivio consultato; non è da solo una licenza per qualsiasi volo."
+    },
+    "starship:transfer24": {
+      "title": "NASA, dimostrazione di trasferimento nel terzo volo",
+      "url": "https://www.nasa.gov/directorates/esdmd/artemis-campaign-development-division/human-landing-system-program/nasa-artemis-mission-progresses-with-spacex-starship-test-flight/",
+      "note": "14 marzo 2024: trasferimento interno fra serbatoi, non rifornimento fra due Starship."
+    },
+    "starship:zbot": {
+      "title": "NASA, Zero-Boil-Off Tank Experiments",
+      "url": "https://science.nasa.gov/science-research/science-enabling-technology/zero-boil-off-tank-experiments-to-enable-long-duration-space-exploration/",
+      "note": "Ricerca sulla gestione dei propellenti, non certificazione di un deposito Starship già operativo."
+    },
+    "starship:hls21": {
+      "title": "NASA, selezione SpaceX HLS del 16 aprile 2021",
+      "url": "https://www.nasa.gov/news-release/as-artemis-moves-forward-nasa-picks-spacex-to-land-next-americans-on-moon/",
+      "note": "Contratto di sviluppo e dimostrazione, non allunaggio già effettuato."
+    },
+    "starship:v3": {
+      "title": "Starlink, satelliti Version 3",
+      "url": "https://starlink.com/updates/starlink-version-3-satellites",
+      "note": "Specifiche del progetto e rapporto industriale con Starship."
+    },
+    "starship:florida": {
+      "title": "FAA, Starship a SLC-37; avvio SEIS settembre 2026",
+      "url": "https://www.faa.gov/space/stakeholder_engagement/spacex_starship_ccsfs",
+      "note": "Infrastrutture in sviluppo e procedura di licenza distinta dalle opere; non pad già operativo."
+    },
+    "starship:snreport": {
+      "title": "USTRANSCOM, aggiornamento tecnico pubblico SpaceX",
+      "url": "https://www.ustranscom.mil/foia/docs/USTRANSCOM%20update--SpaceX___Redacted.pdf",
+      "note": "Riepilogo dei test SN8–SN15 conservato in documentazione pubblica FOIA."
+    },
+    "starlink:cooper": {
+      "title": "SpaceX, testimonianza di Patricia Cooper al Senato, 3 maggio 2017",
+      "url": "https://www.commerce.senate.gov/wp-content/uploads/meetings/98C6FDC4-B916-41FA-A78A-80E6D513E652/Testimony%20Patricia%20Cooper%20-%20Broadband%20Infrastructure%20Hearing.pdf",
+      "note": "Progetto iniziale, necessità di connettività e ruolo del riutilizzo; non descrive la rete del 2026."
+    },
+    "starlink:gen2": {
+      "title": "SpaceX, Second Generation Starlink Satellites",
+      "url": "https://www.starlink.com/public-files/Gen2StarlinkSatellites.pdf",
+      "note": "Documento del 2023: V2 Mini per Falcon 9, capacità e mitigazioni dichiarate."
+    },
+    "starlink:report24": {
+      "title": "Starlink, Progress Report 2024",
+      "url": "https://www.starlink.com/public-files/starlinkProgressReport_2024.pdf",
+      "note": "Dati aziendali riferiti al 2024, inclusi V1.5, V2 Mini e proiezioni iniziali per V3."
+    },
+    "starlink:technology": {
+      "title": "Starlink, tecnologia del sistema",
+      "url": "https://www.starlink.com/technology",
+      "note": "Panoramica ufficiale; alcuni conteggi e quote riassuntive possono aggiornarsi con ritardo."
+    },
+    "starlink:latency": {
+      "title": "Starlink, Improving Starlink’s Latency",
+      "url": "https://www.starlink.com/public-files/StarlinkLatency.pdf",
+      "note": "Marzo 2024: propagazione, rete terrestre, code e misure percentile. Obiettivi distinti dalle prestazioni garantite."
+    },
+    "starlink:v3": {
+      "title": "Starlink, scheda tecnica pubblica dei satelliti Version 3",
+      "url": "https://starlink.com/updates/starlink-version-3-satellites",
+      "note": "Consultata il 10 ottobre 2026. Specifiche progettuali del costruttore, non una misura indipendente del servizio."
+    },
+    "starlink:flight14": {
+      "title": "SpaceX, resoconto Starship Flight 14",
+      "url": "https://www.spacex.com/launches/starship-flight-14",
+      "note": "28 settembre 2026: primo dispiegamento orbitale di 26 V3; contatto, verifiche e innalzamento orbitale successivi."
+    },
+    "starlink:operators": {
+      "title": "Starlink, coordinamento con gli operatori satellitari",
+      "url": "https://www.starlink.com/satellite-operators",
+      "note": "Effemeridi, contatti e sistemi di screening delle congiunzioni."
+    },
+    "starlink:updates": {
+      "title": "Starlink, archivio aggiornamenti ufficiali",
+      "url": "https://www.starlink.com/updates",
+      "note": "Contiene documenti datati su sostenibilità, Direct to Cell e sicurezza informatica. Gli annunci di calendario non sono risultati automatici."
+    },
+    "starlink:tmobile": {
+      "title": "T-Mobile, Reaching for the Stars with T-Satellite",
+      "url": "https://www.t-mobile.com/news/un-carrier/reaching-for-the-stars-with-t-satellite",
+      "note": "21 gennaio 2026: testimonianze e funzioni commerciali; disponibilità legata a dispositivi, applicazioni e mercato."
+    },
+    "starlink:terms": {
+      "title": "Starlink, condizioni di servizio",
+      "url": "https://starlink.com/legal",
+      "note": "Consultare la versione del proprio Paese; il libro non sostituisce condizioni contrattuali o consulenza legale."
+    },
+    "starmind:starmind": {
+      "title": "SpaceX, Starmind e scheda AI1",
+      "url": "https://new.spacex.com/spacexai/starmind",
+      "note": "Consultata il 10 ottobre 2026. Fonte aziendale per la scheda corrente e gli obiettivi Gigasat; non rapporto di prove in volo."
+    },
+    "starmind:fcc": {
+      "title": "FCC, DA 26-113: domanda accettata per l’istruttoria",
+      "url": "https://docs.fcc.gov/public/attachments/DA-26-113A1.pdf",
+      "note": "4 febbraio 2026. Deposito del 30 gennaio, fino a un milione di satelliti, 500–2.000 km. Accettazione procedurale, non autorizzazione."
+    },
+    "starmind:nvidia": {
+      "title": "NVIDIA, SpaceXAI e prima generazione Starmind",
+      "url": "https://investor.nvidia.com/news/press-release-details/2026/SpaceXAI-Adopts-NVIDIA-Vera-CPU-to-Accelerate-Agentic-AI-at-Massive-Scale/default.aspx",
+      "note": "24 agosto 2026. Conferma l’adattamento di Vera Rubin NVL72; non pubblica una distinta completa del satellite."
+    },
+    "starmind:thermal": {
+      "title": "NASA, stato dell’arte: controllo termico",
+      "url": "https://www.nasa.gov/smallsat-institute/sst-soa/thermal-control/",
+      "note": "Riferimento per bilancio termico, superfici radianti e trasferimento del calore. Grafici e dimensionamenti nel libro sono esempi semplificati, non una ricostruzione del progetto SpaceX."
+    },
+    "starmind:lcrd": {
+      "title": "NASA, Laser Communications Relay Demonstration",
+      "url": "https://www.nasa.gov/goddard/esc/lcrd/",
+      "note": "Storia e operazioni del dimostratore ottico LCRD; la rete Starmind ha un’architettura differente."
+    },
+    "artemis:iii": {
+      "title": "NASA, come il test Artemis III prepara gli allunaggi, 15 luglio 2026",
+      "url": "https://www.nasa.gov/directorates/esdmd/artemis-campaign-development-division/human-landing-system-program/how-nasas-artemis-iii-lander-test-will-pave-way-for-moon-landings/",
+      "note": "Prova di rendezvous e docking, non allunaggio Artemis III."
+    },
+    "artemis:transfer": {
+      "title": "NASA, test criogenico durante Flight 3 Starship",
+      "url": "https://www.nasa.gov/directorates/esdmd/artemis-campaign-development-division/human-landing-system-program/nasa-artemis-mission-progresses-with-spacex-starship-test-flight/",
+      "note": "Trasferimento interno fra serbatoi, non rifornimento fra due navi."
+    },
+    "artemis:hls-oig": {
+      "title": "NASA OIG, gestione dei contratti HLS, marzo 2026",
+      "url": "https://oig.nasa.gov/wp-content/uploads/2026/03/final-report-ig-26-004-nasas-management-of-the-human-landing-system-contracts.pdf",
+      "note": "Rapporto sui contratti e addendum sul piano del febbraio 2026."
+    },
+    "falcon": {
+      "title": "SpaceX, Falcon User’s Guide, versione 8",
+      "url": "https://www.spacex.com/assets/media/falcon-users-guide-2025-05-09.pdf",
+      "note": "Marzo 2025; geometria e architettura, pp. 6–10; siti, pp. 58–68. Le condizioni della missione determinano le prestazioni."
+    },
+    "f1": {
+      "title": "Dinardi e Bjelde, SpaceX, Falcon 1 Flight Results and Multiple Payload Integration",
+      "url": "https://digitalcommons.usu.edu/smallsat/2009/all2009/54/",
+      "note": "Small Satellite Conference, 2009. Risultati del Falcon 1 e contesto del programma; riferimento storico."
+    },
+    "f1design": {
+      "title": "SpaceX, The Falcon Launch Vehicle: An Attempt at Making Access to Space More Affordable, Reliable and Pleasant",
+      "url": "https://digitalcommons.usu.edu/smallsat/2003/All2003/3/",
+      "note": "Relazione del costruttore, 2003. Architettura iniziale; non assumere che ogni previsione fosse realizzata nei voli successivi."
+    },
+    "rockets": {
+      "title": "NASA, Launch Services Program: i lanciatori",
+      "url": "https://www.nasa.gov/launch-services-program-rockets/",
+      "note": "Panoramica dei sistemi impiegati per missioni NASA. Non confrontare le capacità senza specificare orbita e configurazione."
+    },
+    "heavy": {
+      "title": "NASA, cinque anni dal primo volo Falcon Heavy",
+      "url": "https://www.nasa.gov/history/5-years-ago-first-flight-of-the-falcon-heavy-rocket/",
+      "note": "Ricostruzione del debutto del 6 febbraio 2018 e dei voli successivi."
+    },
+    "crew": {
+      "title": "NASA, Commercial Crew Program Press Kit",
+      "url": "https://www.nasa.gov/commercial-crew-program-press-kit/",
+      "note": "Architettura Crew Dragon, sistemi di sicurezza e operazioni. Il profilo delle missioni NASA non definisce ogni possibile missione privata."
+    },
+    "return": {
+      "title": "NASA, SpaceX Crew Launch and Return Operations",
+      "url": "https://www.nasa.gov/reference/nasa-spacex-crew-launch-return-operations/",
+      "note": "Vincoli di lancio, ritorno, meteo e recupero per la sicurezza degli equipaggi."
+    },
+    "abort": {
+      "title": "NASA, prove di sviluppo della propulsione Crew Dragon",
+      "url": "https://blogs.nasa.gov/commercialcrew/2015/11/10/crew-dragon-propulsion-system-completes-development-testing/",
+      "note": "10 novembre 2015; otto SuperDraco e prove di sviluppo. Dati di test, non una descrizione immutabile di tutte le capsule."
+    },
+    "cargo": {
+      "title": "NASA, CRS-21 Mission Overview",
+      "url": "https://www.nasa.gov/wp-content/uploads/2020/12/spacex_crs-21_mision_overview_high_res_0.pdf",
+      "note": "Dicembre 2020: debutto Cargo Dragon 2 e passaggio all’attracco autonomo. Distinguere massa consegnata, massa riportata e volume."
+    },
+    "dragon1": {
+      "title": "NASA OIG, effetti del fallimento CRS-7",
+      "url": "https://oig.nasa.gov/wp-content/uploads/2024/02/IG-16-025.pdf",
+      "note": "Rapporto del 2016; storia del servizio Dragon 1, cattura robotica e capacità di riportare esperimenti."
+    },
+    "merlin": {
+      "title": "NASA Marshall e SpaceX: prove dei motori per Crew-1",
+      "url": "https://www.nasa.gov/missions/station/nasa-marshall-spacex-team-celebrates-engines-of-success/",
+      "note": "2020; ruolo di McGregor e revisione dei dati di prova Merlin. Non indica la cadenza produttiva del 2026."
+    },
+    "standard": {
+      "title": "Starlink, specifiche del terminale Standard",
+      "url": "https://www.starlink.com/public-files/specification_sheet_standard.pdf",
+      "note": "Scheda pubblica del modello Standard; consumi e condizioni si riferiscono al modello, non a tutti i terminali."
+    }
+  },
+  "photos": {
+    "starship/ift5-ignition.jpg": {
+      "name": "ift5-ignition.jpg",
+      "path": "../../monografie/starship/assets/ift5-ignition.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:SpaceX_Starship_ignition_during_IFT-5.jpg",
+      "author": "Steve Jurvetson",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "caption": ""
+    },
+    "starship/ift5-approach.jpg": {
+      "name": "ift5-approach.jpg",
+      "path": "../../monografie/starship/assets/ift5-approach.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:SpaceX_Starship_booster_landing_approach_IFT-5.jpg",
+      "author": "Steve Jurvetson",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "caption": ""
+    },
+    "starship/raptor-2016.jpg": {
+      "name": "raptor-2016.jpg",
+      "path": "../../monografie/starship/assets/raptor-2016.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Raptor-test-9-25-2016.jpg",
+      "author": "SpaceX / Elon Musk",
+      "license": "CC0 storico documentato",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "caption": ""
+    },
+    "starship/hot-staging-nasa.jpg": {
+      "name": "hot-staging-nasa.jpg",
+      "path": "../../monografie/starship/assets/hot-staging-nasa.jpg",
+      "source": "https://www.nas.nasa.gov/SC24/research/project24.php",
+      "author": "Jason Howison, NASA/Marshall",
+      "license": "Materiale NASA per uso informativo; condizioni NASA",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "caption": ""
+    },
+    "starship/starhopper.jpg": {
+      "name": "starhopper.jpg",
+      "path": "../../monografie/starship/assets/starhopper.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Starhopper.jpg",
+      "author": "Giuseppe De Chiara",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "caption": ""
+    },
+    "starship/sn15.jpg": {
+      "name": "sn15.jpg",
+      "path": "../../monografie/starship/assets/sn15.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Starship_SN15_flap_and_nosecone_(51437260707).jpg",
+      "author": "Lars Plougmann",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "caption": ""
+    },
+    "starlink/satelliti-2019.jpg": {
+      "name": "satelliti-2019.jpg",
+      "path": "../../monografie/starlink/assets/satelliti-2019.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Starlink_Mission_(47926144123).jpg",
+      "author": "Official SpaceX Photos",
+      "license": "CC0 1.0, dedica precedente verificata su Commons nel 2019",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "caption": ""
+    },
+    "starlink/lancio-2019.jpg": {
+      "name": "lancio-2019.jpg",
+      "path": "../../monografie/starlink/assets/lancio-2019.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Starlink_Mission_(47926143711).jpg",
+      "author": "Official SpaceX Photos",
+      "license": "CC0 1.0, dedica precedente verificata su Commons nel 2019",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "caption": ""
+    },
+    "starlink/treno-satelliti.jpg": {
+      "name": "treno-satelliti.jpg",
+      "path": "../../monografie/starlink/assets/treno-satelliti.jpg",
+      "source": "https://noirlab.edu/public/images/ann22005a/",
+      "author": "M. Lewinsky/NOIRLab",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "caption": ""
+    },
+    "starlink/terminale-alaska.jpg": {
+      "name": "terminale-alaska.jpg",
+      "path": "../../monografie/starlink/assets/terminale-alaska.jpg",
+      "source": "https://www.flickr.com/photos/alaskanationalguard/54905679447",
+      "author": "U.S. Army National Guard/Spc. Ericka Gillespie",
+      "license": "Public Domain Mark",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "caption": ""
+    },
+    "starmind/pleiades.jpg": {
+      "name": "pleiades.jpg",
+      "path": "../../monografie/starmind/assets/pleiades.jpg",
+      "source": "https://images.nasa.gov/details/ARC-2008-ACD08-0272-005",
+      "author": "NASA/Dominic Hart",
+      "license": "Materiale NASA per uso informativo; attribuzione richiesta",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "caption": "Supercomputer Pleiades al centro NASA Ames, 2008. Fotografia di un impianto terrestre; non è il computer di AI1."
+    },
+    "starmind/spaceborne.jpg": {
+      "name": "spaceborne.jpg",
+      "path": "../../monografie/starmind/assets/spaceborne.jpg",
+      "source": "https://images.nasa.gov/details/iss065e009485",
+      "author": "NASA/Michael Hopkins",
+      "license": "Materiale NASA per uso informativo; attribuzione richiesta",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "caption": "29 aprile 2021: Spaceborne Computer-2 sulla ISS, fotografato da Michael Hopkins. Un precedente di calcolo commerciale in ambiente spaziale, all’interno di una stazione abitata."
+    },
+    "starmind/radiatori-iss.jpg": {
+      "name": "radiatori-iss.jpg",
+      "path": "../../monografie/starmind/assets/radiatori-iss.jpg",
+      "source": "https://images.nasa.gov/details/iss064e041634",
+      "author": "NASA",
+      "license": "Materiale NASA per uso informativo; attribuzione richiesta",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "caption": "13 marzo 2021: Michael Hopkins e Victor Glover lavorano fra pannelli solari e radiatori della ISS. I radiatori sono hardware reale di un sistema diverso da Starmind."
+    },
+    "starmind/solari-iss.jpg": {
+      "name": "solari-iss.jpg",
+      "path": "../../monografie/starmind/assets/solari-iss.jpg",
+      "source": "https://images.nasa.gov/details/iss065e124482",
+      "author": "NASA",
+      "license": "Materiale NASA per uso informativo; attribuzione richiesta",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "caption": "20 giugno 2021: Shane Kimbrough e Thomas Pesquet completano l’installazione di un pannello solare arrotolabile sulla ISS. Una grande struttura dispiegabile già utilizzata in orbita."
+    },
+    "starmind/termovuoto.jpg": {
+      "name": "termovuoto.jpg",
+      "path": "../../monografie/starmind/assets/termovuoto.jpg",
+      "source": "https://images.nasa.gov/details/PIA12021",
+      "author": "NASA/JPL",
+      "license": "Materiale NASA per uso informativo; attribuzione richiesta",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "caption": "Dawn viene trasferita in una camera termovuoto. Immagine d’archivio NASA/JPL pubblicata nel 2009; illustra una prova ambientale, non la qualificazione di Starmind."
+    },
+    "starmind/opals.jpg": {
+      "name": "opals.jpg",
+      "path": "../../monografie/starmind/assets/opals.jpg",
+      "source": "https://images.nasa.gov/details/iss048e057073",
+      "author": "NASA/Kate Rubins",
+      "license": "Materiale NASA per uso informativo; attribuzione richiesta",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "caption": "12 agosto 2016: l’apparato OPALS all’esterno della ISS, fotografia di Kate Rubins. Precedente sperimentale di comunicazioni ottiche."
+    },
+    "starmind/celle-laboratorio.jpg": {
+      "name": "celle-laboratorio.jpg",
+      "path": "../../monografie/starmind/assets/celle-laboratorio.jpg",
+      "source": "https://images.nasa.gov/details/GRC-2018-C-07373",
+      "author": "NASA Glenn Research Center",
+      "license": "Materiale NASA per uso informativo; attribuzione richiesta",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "caption": "29 agosto 2018: Tim Peshek mostra una cella sperimentale a perovskite al NASA Glenn. Ricerca sui materiali fotovoltaici; non identifica la tecnologia scelta per AI1."
+    },
+    "crew-dragon/pad-abort-2015.jpg": {
+      "name": "pad-abort-2015.jpg",
+      "path": "../../monografie/crew-dragon/assets/pad-abort-2015.jpg",
+      "source": "https://www.nasa.gov/image-article/crew-dragons-superdraco-engines-fire/",
+      "author": "NASA",
+      "license": "Materiale NASA per uso informativo; attribuzione",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "caption": "Prova pad abort del 6 maggio 2015"
+    },
+    "crew-dragon/demo1-preflight.jpg": {
+      "name": "demo1-preflight.jpg",
+      "path": "../../monografie/crew-dragon/assets/demo1-preflight.jpg",
+      "source": "https://www.nasa.gov/image-article/spacex-demo-1-preflight-3/",
+      "author": "NASA/Joel Kowsky",
+      "license": "Materiale NASA per uso informativo; attribuzione",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "caption": "Preparativi Demo-1, 1 marzo 2019"
+    },
+    "crew-dragon/crew1-ritratto.jpg": {
+      "name": "crew1-ritratto.jpg",
+      "path": "../../monografie/crew-dragon/assets/crew1-ritratto.jpg",
+      "source": "https://www.nasa.gov/image-article/spacex-crew-1-official-crew-portrait/",
+      "author": "NASA",
+      "license": "Materiale NASA per uso informativo; attribuzione",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "caption": "Ritratto ufficiale Crew-1, 11 agosto 2020"
+    },
+    "crew-dragon/demo2-decollo.jpg": {
+      "name": "demo2-decollo.jpg",
+      "path": "../../monografie/crew-dragon/assets/demo2-decollo.jpg",
+      "source": "https://www.nasa.gov/image-article/demo-2-launch-setting-forth-historic-journey/",
+      "author": "NASA/Bill Ingalls",
+      "license": "Materiale NASA per uso informativo; attribuzione",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "caption": "Lancio Demo-2, 30 maggio 2020"
+    },
+    "crew-dragon/demo2-avvicinamento.jpg": {
+      "name": "demo2-avvicinamento.jpg",
+      "path": "../../monografie/crew-dragon/assets/demo2-avvicinamento.jpg",
+      "source": "https://www.nasa.gov/image-article/crew-dragon-approaches-international-space-station/",
+      "author": "NASA",
+      "license": "Materiale NASA per uso informativo; attribuzione",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "caption": "Endeavour si avvicina alla ISS, 31 maggio 2020"
+    },
+    "crew-dragon/demo2-rientro.png": {
+      "name": "demo2-rientro.png",
+      "path": "../../monografie/crew-dragon/assets/demo2-rientro.png",
+      "source": "https://www.nasa.gov/news-release/nasa-astronauts-safely-splash-down-after-first-commercial-crew-flight-to-space-station/",
+      "author": "NASA Television",
+      "license": "Materiale NASA per uso informativo; attribuzione",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "caption": "Recupero Demo-2, 2 agosto 2020"
+    },
+    "artemis/polo-sud-2026.jpg": {
+      "name": "polo-sud-2026.jpg",
+      "path": "../../monografie/artemis/assets/polo-sud-2026.jpg",
+      "source": "https://svs.gsfc.nasa.gov/4930/",
+      "author": "NASA’s Scientific Visualization Studio; Ernie Wright (USRA), Noah Petro (NASA/GSFC)",
+      "license": "Materiale NASA per uso informativo; attribuzione",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "caption": "Visualizzazione geometrica per il 2026, pubblicata nell’atlante NASA 2023–2030. Non è una foto né una carta del ghiaccio."
+    },
+    "falcon1": {
+      "name": "Falcon 1, quarto volo, 28 settembre 2008",
+      "path": "../../documenti%20per%20sito/assets_fondazione/falcon1_flight4_launch.jpg",
+      "author": "SpaceX",
+      "license": "CC0 1.0, dedica storica documentata",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://commons.wikimedia.org/wiki/File:Falcon_1_Flight_4_launch.jpg",
+      "caption": "Falcon 1, quarto volo, 28 settembre 2008"
+    },
+    "heavy-launch": {
+      "name": "Falcon Heavy, debutto del 6 febbraio 2018",
+      "path": "../../documenti%20per%20sito/assets_fondazione/falcon-heavy-2018/lancio.jpg",
+      "author": "SpaceX",
+      "license": "CC0 1.0, dedica storica documentata",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://commons.wikimedia.org/wiki/File:Falcon_Heavy_Demo_Mission_(40126461851).jpg",
+      "caption": "Falcon Heavy, debutto del 6 febbraio 2018"
+    },
+    "heavy-pad": {
+      "name": "Falcon Heavy a LC-39A, 28 dicembre 2017",
+      "path": "../../documenti%20per%20sito/assets_fondazione/falcon-heavy-2018/preparazione.jpg",
+      "author": "SpaceX",
+      "license": "CC0 1.0, dedica storica documentata",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://commons.wikimedia.org/wiki/File:Falcon_Heavy_Demo_Mission_(38583829295).jpg",
+      "caption": "Falcon Heavy a LC-39A, 28 dicembre 2017"
+    },
+    "heavy-return": {
+      "name": "Booster laterali Falcon Heavy, 6 febbraio 2018; composizione fotografica dei due atterraggi",
+      "path": "../../documenti%20per%20sito/assets_fondazione/falcon-heavy-2018/doppio-atterraggio.jpg",
+      "author": "SpaceX",
+      "license": "CC0 1.0, dedica storica documentata",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source": "https://commons.wikimedia.org/wiki/File:Falcon_Heavy_Side_Boosters_landing_on_LZ1_and_LZ2_-_2018_(25254688767).jpg",
+      "caption": "Booster laterali Falcon Heavy, 6 febbraio 2018; composizione fotografica dei due atterraggi"
+    },
+    "cargo-2022": {
+      "name": "Cargo Dragon presso la ISS, 27 novembre 2022",
+      "path": "assets/cargo-dragon-2022.jpg",
+      "source": "https://www.nasa.gov/image-article/spacex-dragon-cargo-craft-approaches-space-station/",
+      "author": "NASA, ISS Expedition 68",
+      "license": "Materiale NASA per uso informativo; attribuzione",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "caption": "iss068e025336, 27 novembre 2022. File distribuito dalla pagina NASA, senza ritocchi.",
+      "download": "https://www.nasa.gov/wp-content/uploads/2023/03/iss068e025336.jpg"
+    },
+    "dragon1-approach": {
+      "name": "Dragon C2+ si avvicina alla ISS, 25 maggio 2012, NASA. Prima generazione, con pannelli dispiegati.",
+      "path": "../../documenti%20per%20sito/assets_fondazione/cots2-2012/dragon-c2-approach.jpg",
+      "source": "https://images.nasa.gov/details/iss031e071143",
+      "author": "NASA / ISS Expedition 31",
+      "license": "Materiale NASA per uso informativo; attribuzione",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "caption": "Dragon C2+ si avvicina alla ISS, 25 maggio 2012, NASA. Prima generazione, con pannelli dispiegati."
+    },
+    "dragon1-grappled": {
+      "name": "Dragon viene afferrata dal Canadarm2 nel maggio 2012: cattura robotica prima del berthing, NASA.",
+      "path": "../../documenti%20per%20sito/assets_fondazione/cots2-2012/dragon-grappled.jpg",
+      "source": "https://images.nasa.gov/details/iss031e070804",
+      "author": "NASA / ISS Expedition 31",
+      "license": "Materiale NASA per uso informativo; attribuzione",
+      "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "caption": "Dragon viene afferrata dal Canadarm2 nel maggio 2012: cattura robotica prima del berthing, NASA."
+    },
+    "pad-slc4e": {
+      "name": "File:NROL-87 Launches from Vandenberg (7032050).jpeg",
+      "path": "../../pad_di_lancio/assets/slc4e.jpeg",
+      "source": "https://commons.wikimedia.org/wiki/File:NROL-87%20Launches%20from%20Vandenberg%20(7032050).jpeg",
+      "author": "U.S. Space Force/Michael Peterson",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "caption": "Taken on 2 February 2022"
+    },
+    "pad-lc39a": {
+      "name": "File:KSC-20190624-PH KLS01 0056.jpg",
+      "path": "../../pad_di_lancio/assets/lc39a.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:KSC-20190624-PH%20KLS01%200056.jpg",
+      "author": "Kim Shiflett",
+      "license": "Public domain",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "caption": "2019-06-24 15:16:55"
+    },
+    "pad-boca1": {
+      "name": "File:Tower-OLM.jpg",
+      "path": "../../pad_di_lancio/assets/boca1.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Tower-OLM.jpg",
+      "author": "Jenny Hautmann",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "caption": "2023-03-14 20:11:30"
+    }
+  },
+  "cards": [
+    {
+      "id": "falcon-1",
+      "title": "Falcon 1",
+      "family": "Veicoli",
+      "status": "Storico",
+      "summary": "Il piccolo lanciatore con cui SpaceX imparò a raggiungere l’orbita: due stadi, due motori diversi e cinque tentativi fra il 2006 e il 2009.",
+      "specs": [
+        [
+          "Ruolo",
+          "Lanciatore orbitale per piccoli carichi"
+        ],
+        [
+          "Stadi",
+          "2"
+        ],
+        [
+          "Primo stadio",
+          "1 Merlin"
+        ],
+        [
+          "Secondo stadio",
+          "1 Kestrel"
+        ],
+        [
+          "Propellenti",
+          "Ossigeno liquido e RP-1"
+        ],
+        [
+          "Primo successo orbitale",
+          "28 settembre 2008, quarto volo"
+        ]
+      ],
+      "photos": [
+        [
+          "falcon1",
+          "Falcon 1 al quarto lancio, 28 settembre 2008."
+        ],
+        [
+          "crew-dragon/demo2-decollo.jpg",
+          "Falcon 9 con Demo-2, 2020: il successore appartiene a una scala e a una missione differenti."
+        ]
+      ],
+      "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
+      "diagram": {
+        "type": "vehicle",
+        "labels": [
+          "Carico utile",
+          "Secondo stadio",
+          "Kestrel",
+          "Separazione",
+          "Primo stadio",
+          "Merlin"
+        ],
+        "title": "Architettura funzionale",
+        "description": "Carico utile → Secondo stadio → Kestrel → Separazione → Primo stadio → Merlin",
+        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+      },
+      "sections": [
+        [
+          "Come funziona",
+          "Il Merlin del primo stadio usava turbopompe; Kestrel alimentava la camera tramite la pressione nei serbatoi. Questa scelta rendeva il secondo stadio più semplice, ma non eliminava i problemi di controllo e separazione."
+        ],
+        [
+          "Versioni ed evoluzione",
+          "I tre primi voli fallirono. Il quarto raggiunse l’orbita; il quinto trasportò un satellite cliente. Il programma fu poi abbandonato mentre Falcon 9 e Dragon assorbivano l’attività industriale."
+        ],
+        [
+          "Limiti e condizioni d’impiego",
+          "La storia Falcon 1 non va letta attraverso le prestazioni di Falcon 9. Le configurazioni cambiarono durante lo sviluppo e il recupero del primo stadio non divenne un servizio operativo."
+        ]
+      ],
+      "evidence": [
+        [
+          "Dimostrato",
+          "Raggiungimento dell’orbita e trasporto di un satellite cliente."
+        ],
+        [
+          "Dichiarato o previsto",
+          "Il recupero figurava nelle ambizioni del programma."
+        ],
+        [
+          "Da verificare",
+          "Nessun ciclo commerciale di recupero e riuso Falcon 1 fu dimostrato."
+        ]
+      ],
+      "sources": [
+        "f1",
+        "f1design"
+      ],
+      "readings": [
+        [
+          "../../documenti%20per%20sito/falcon1_dal_primo_fallimento_al_quarto_lancio.html",
+          "Dal primo fallimento al quarto volo"
+        ],
+        [
+          "../../documenti%20per%20sito/falcon1_successo_orbitale_contratto_crs.html",
+          "Successo orbitale e contratto CRS"
+        ]
+      ],
+      "related": [
+        "kestrel",
+        "merlin",
+        "falcon-9"
+      ]
+    },
+    {
+      "id": "falcon-9",
+      "title": "Falcon 9",
+      "family": "Veicoli",
+      "status": "Operativo",
+      "summary": "Il lanciatore che combina servizio orbitale e riuso del primo stadio. La configurazione Block 5 ha consolidato una storia fatta di versioni e prove successive.",
+      "specs": [
+        [
+          "Configurazione",
+          "Block 5, guida v8 marzo 2025"
+        ],
+        [
+          "Altezza standard",
+          "70 m con carenatura standard"
+        ],
+        [
+          "Diametro del core",
+          "3,66 m"
+        ],
+        [
+          "Primo stadio",
+          "9 Merlin 1D"
+        ],
+        [
+          "Secondo stadio",
+          "1 Merlin Vacuum"
+        ],
+        [
+          "Propellenti",
+          "LOX / RP-1"
+        ]
+      ],
+      "photos": [
+        [
+          "crew-dragon/demo2-decollo.jpg",
+          "Falcon 9 porta Demo-2 in volo il 30 maggio 2020, NASA/Bill Ingalls."
+        ],
+        [
+          "starlink/lancio-2019.jpg",
+          "Falcon 9 lancia il primo gruppo di sessanta Starlink, maggio 2019, SpaceX."
+        ]
+      ],
+      "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
+      "diagram": {
+        "type": "vehicle",
+        "labels": [
+          "Carico / Dragon",
+          "Secondo stadio",
+          "Merlin Vacuum",
+          "Separazione",
+          "Primo stadio",
+          "9 Merlin 1D"
+        ],
+        "title": "Architettura funzionale",
+        "description": "Carico / Dragon → Secondo stadio → Merlin Vacuum → Separazione → Primo stadio → 9 Merlin 1D",
+        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+      },
+      "sections": [
+        [
+          "Come funziona",
+          "Dopo la separazione, il secondo stadio prosegue verso l’orbita mentre il primo esegue il profilo di rientro. Il ritorno a terra o su nave richiede propellente riservato e una traiettoria compatibile."
+        ],
+        [
+          "Versioni ed evoluzione",
+          "Dalla versione iniziale si passò a v1.1, Full Thrust e Block 5. La prima riconsegna di un booster non coincide con il primo rivolo, avvenuto successivamente."
+        ],
+        [
+          "Limiti e condizioni d’impiego",
+          "L’orbita richiesta, il carico e il recupero determinano le prestazioni disponibili. Il secondo stadio viene consumato: il riuso del booster non rende riutilizzabile l’intero lanciatore."
+        ]
+      ],
+      "evidence": [
+        [
+          "Dimostrato",
+          "Primi stadi recuperati e ripetutamente rilanciati; missioni cargo e umane con Dragon."
+        ],
+        [
+          "Dichiarato o previsto",
+          "Prestazioni commerciali definite per configurazione e missione."
+        ],
+        [
+          "Da verificare",
+          "Il costo di ogni volo e il lavoro di ricondizionamento non sono interamente pubblici."
+        ]
+      ],
+      "sources": [
+        "falcon",
+        "rockets"
+      ],
+      "readings": [
+        [
+          "../../documenti%20per%20sito/falcon9_block5_2018_inizio_dominio.html",
+          "Falcon 9 Block 5 nella storia"
+        ],
+        [
+          "../../monografie/crew-dragon/08-demo2.html",
+          "Demo-2: il volo umano"
+        ]
+      ],
+      "related": [
+        "merlin",
+        "recupero-falcon",
+        "falcon-heavy"
+      ]
+    },
+    {
+      "id": "falcon-heavy",
+      "title": "Falcon Heavy",
+      "family": "Veicoli",
+      "status": "Operativo",
+      "summary": "Tre core e un secondo stadio per missioni pesanti o ad alta energia. I booster laterali e il core centrale affrontano condizioni di recupero diverse.",
+      "specs": [
+        [
+          "Primo volo",
+          "6 febbraio 2018"
+        ],
+        [
+          "Core del primo stadio",
+          "3"
+        ],
+        [
+          "Motori al decollo",
+          "27 Merlin"
+        ],
+        [
+          "Secondo stadio",
+          "1 Merlin Vacuum"
+        ],
+        [
+          "Propellenti",
+          "LOX / RP-1"
+        ],
+        [
+          "Sito documentato nella guida 2025",
+          "LC-39A, Florida"
+        ]
+      ],
+      "photos": [
+        [
+          "heavy-launch",
+          "Debutto Falcon Heavy del 6 febbraio 2018, SpaceX."
+        ],
+        [
+          "heavy-return",
+          "Booster laterali del debutto del 2018. Immagine composta dei due atterraggi; il core centrale non fu recuperato."
+        ]
+      ],
+      "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
+      "diagram": {
+        "type": "vehicle",
+        "labels": [
+          "Carico utile",
+          "Secondo stadio",
+          "Merlin Vacuum",
+          "Core centrale",
+          "Booster laterali",
+          "27 Merlin totali"
+        ],
+        "title": "Architettura funzionale",
+        "description": "Carico utile → Secondo stadio → Merlin Vacuum → Core centrale → Booster laterali → 27 Merlin totali",
+        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+      },
+      "sections": [
+        [
+          "Come funziona",
+          "I laterali si separano prima del core centrale. Quest’ultimo prosegue in condizioni più energetiche, che rendono il recupero più impegnativo. La scelta di consumare uno o più core può aumentare la prestazione di missione."
+        ],
+        [
+          "Versioni ed evoluzione",
+          "Il sistema deriva dalla famiglia Falcon 9, ma il centrale e le interfacce laterali richiedono modifiche strutturali. Non basta affiancare tre lanciatori completi."
+        ],
+        [
+          "Limiti e condizioni d’impiego",
+          "La capacità massima verso un’orbita bassa non misura la capacità verso una destinazione scientifica. Falcon Heavy non offre un servizio umano qualificato. I progetti di altre rampe vanno distinti dagli impieghi già documentati."
+        ]
+      ],
+      "evidence": [
+        [
+          "Dimostrato",
+          "Lanci operativi, separazione dei laterali e riuso di booster laterali."
+        ],
+        [
+          "Dichiarato o previsto",
+          "Configurazioni recuperabili o a perdere secondo il contratto di missione."
+        ],
+        [
+          "Da verificare",
+          "Il recupero del centrale non ha la stessa maturità del servizio dei laterali."
+        ]
+      ],
+      "sources": [
+        "heavy",
+        "falcon",
+        "rockets"
+      ],
+      "readings": [
+        [
+          "../../documenti%20per%20sito/falcon_heavy_2018_debutto_potenza.html",
+          "Il debutto e la doppia discesa"
+        ],
+        [
+          "../../documenti%20per%20sito/spacex_falcon_heavy_roman.html",
+          "La missione Roman nel dossier del sito"
+        ]
+      ],
+      "related": [
+        "falcon-9",
+        "merlin",
+        "recupero-falcon"
+      ]
+    },
+    {
+      "id": "merlin",
+      "title": "Merlin",
+      "family": "Motori",
+      "status": "Operativo",
+      "summary": "La famiglia di motori a ossigeno liquido e kerosene dei Falcon. La versione atmosferica e quella per il vuoto condividono principi, ma hanno ugelli e impieghi differenti.",
+      "specs": [
+        [
+          "Famiglia attuale di riferimento",
+          "Merlin 1D / Merlin Vacuum"
+        ],
+        [
+          "Ciclo",
+          "Generatore di gas"
+        ],
+        [
+          "Ossidante",
+          "Ossigeno liquido"
+        ],
+        [
+          "Combustibile",
+          "RP-1"
+        ],
+        [
+          "Installazione Falcon 9",
+          "9 sul primo stadio; 1 sul secondo"
+        ],
+        [
+          "Installazione Falcon Heavy",
+          "27 sul primo stadio; 1 sul secondo"
+        ],
+        [
+          "Spinta Merlin 1D a livello del mare",
+          "845 kN per motore nel testo della guida v8, marzo 2025"
+        ]
+      ],
+      "photos": [
+        [
+          "crew-dragon/demo2-decollo.jpg",
+          "I motori Merlin sostengono il lancio Demo-2 del 2020. È una vista del lanciatore in volo, non un primo piano del motore."
+        ],
+        [
+          "heavy-launch",
+          "Falcon Heavy al decollo nel 2018: tre gruppi di motori della famiglia Merlin."
+        ]
+      ],
+      "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026.  Il documento presenta totali di spinta non uniformi: qui è riportato il valore del singolo motore nel testo, senza ricostruire un totale.",
+      "diagram": {
+        "type": "engine",
+        "labels": [
+          "Serbatoio LOX",
+          "Serbatoio RP-1",
+          "Turbopompa LOX",
+          "Turbopompa RP-1",
+          "Camera e ugello",
+          "Generatore di gas → turbine"
+        ],
+        "title": "Architettura funzionale",
+        "description": "Serbatoio LOX → Serbatoio RP-1 → Turbopompa LOX → Turbopompa RP-1 → Camera e ugello → Generatore di gas → turbine",
+        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+      },
+      "sections": [
+        [
+          "Come funziona",
+          "Una parte dei propellenti alimenta il generatore di gas, che aziona le turbine delle pompe. La camera principale riceve il restante flusso; lo scarico delle turbine non compie lo stesso percorso dei motori a combustione stadiata."
+        ],
+        [
+          "Versioni ed evoluzione",
+          "Le prime versioni volarono su Falcon 1. Merlin 1D accompagnò l’aumento della scala produttiva e il riuso. Merlin Vacuum ha un ugello adatto alla bassa pressione esterna."
+        ],
+        [
+          "Limiti e condizioni d’impiego",
+          "La spinta dipende dalla pressione ambiente e dal regime del motore. La durata utile non si ricava dal numero di voli di un booster senza conoscere ispezioni e sostituzioni dei suoi componenti."
+        ]
+      ],
+      "evidence": [
+        [
+          "Dimostrato",
+          "Propulsione dei Falcon e molteplici cicli di volo dei primi stadi."
+        ],
+        [
+          "Dichiarato o previsto",
+          "Qualifica e accettazione dei motori secondo le procedure del programma."
+        ],
+        [
+          "Da verificare",
+          "Vita residua e costo del singolo motore non sono ricostruibili dal solo registro lanci."
+        ]
+      ],
+      "sources": [
+        "falcon",
+        "merlin"
+      ],
+      "readings": [
+        [
+          "../../documenti%20per%20sito/falcon9_v11_mercato_riuso_2013.html",
+          "Il passaggio a Falcon 9 v1.1"
+        ],
+        [
+          "../../monografie/starship/06-raptor-ciclo.html",
+          "Confronto con il ciclo Raptor"
+        ]
+      ],
+      "related": [
+        "kestrel",
+        "raptor",
+        "mcgregor"
+      ]
+    },
+    {
+      "id": "kestrel",
+      "title": "Kestrel",
+      "family": "Motori",
+      "status": "Storico",
+      "summary": "Il motore del secondo stadio Falcon 1. La sua alimentazione a pressione mostra una soluzione più semplice delle turbopompe, con compromessi propri.",
+      "specs": [
+        [
+          "Impiego",
+          "Secondo stadio Falcon 1"
+        ],
+        [
+          "Alimentazione",
+          "Pressione nei serbatoi"
+        ],
+        [
+          "Ossidante",
+          "Ossigeno liquido"
+        ],
+        [
+          "Combustibile",
+          "RP-1"
+        ],
+        [
+          "Ambiente di lavoro",
+          "Alta quota e vuoto"
+        ],
+        [
+          "Riferimento temporale",
+          "Programma Falcon 1, 2006–2009"
+        ]
+      ],
+      "photos": [
+        [
+          "falcon1",
+          "Falcon 1 al decollo nel 2008. Kestrel è nel secondo stadio e non è visibile in questa fotografia di contesto."
+        ],
+        [
+          "starship/raptor-2016.jpg",
+          "Prototipo Raptor in prova nel 2016: un confronto storico con una famiglia di motori molto diversa da Kestrel."
+        ]
+      ],
+      "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
+      "diagram": {
+        "type": "engine",
+        "labels": [
+          "Serbatoio LOX",
+          "Serbatoio RP-1",
+          "Pressurizzazione",
+          "Valvole di alimentazione",
+          "Camera e ugello",
+          "Alimentazione senza turbopompe"
+        ],
+        "title": "Architettura funzionale",
+        "description": "Serbatoio LOX → Serbatoio RP-1 → Pressurizzazione → Valvole di alimentazione → Camera e ugello → Alimentazione senza turbopompe",
+        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+      },
+      "sections": [
+        [
+          "Come funziona",
+          "La pressione spinge i propellenti verso la camera. Eliminare le turbopompe riduce il numero di organi rotanti, ma richiede serbatoi e pressurizzazione compatibili con le pressioni del sistema."
+        ],
+        [
+          "Versioni ed evoluzione",
+          "Kestrel appartiene alla fase Falcon 1; non è il Merlin Vacuum del secondo stadio Falcon 9. L’evoluzione dell’azienda portò verso un lanciatore con architettura e prestazioni differenti."
+        ],
+        [
+          "Limiti e condizioni d’impiego",
+          "Una soluzione a pressione non è universalmente migliore: massa dei serbatoi, pressione di camera e durata della missione incidono sul bilancio. I dati di una proposta iniziale vanno separati dalla configurazione effettivamente volata."
+        ]
+      ],
+      "evidence": [
+        [
+          "Dimostrato",
+          "Impiego nei voli Falcon 1 che raggiunsero l’orbita."
+        ],
+        [
+          "Dichiarato o previsto",
+          "Architettura descritta nei documenti iniziali del costruttore."
+        ],
+        [
+          "Da verificare",
+          "Nessun impiego Kestrel nei lanciatori Falcon attuali."
+        ]
+      ],
+      "sources": [
+        "f1design",
+        "f1"
+      ],
+      "readings": [
+        [
+          "../../documenti%20per%20sito/fondazione_spacex_fino_primo_falcon1.html",
+          "La nascita dei primi motori"
+        ],
+        [
+          "../../documenti%20per%20sito/falcon1_dal_primo_fallimento_al_quarto_lancio.html",
+          "Le prove Falcon 1"
+        ]
+      ],
+      "related": [
+        "falcon-1",
+        "merlin",
+        "draco"
+      ]
+    },
+    {
+      "id": "dragon-cargo-1",
+      "title": "Dragon cargo: prima generazione",
+      "family": "Veicoli",
+      "status": "Storico",
+      "summary": "La capsula cargo che aprì il servizio SpaceX verso la ISS e riportò esperimenti sulla Terra. Alla stazione arrivava tramite cattura robotica e berthing.",
+      "specs": [
+        [
+          "Programma",
+          "COTS e CRS-1"
+        ],
+        [
+          "Prima dimostrazione orbitale",
+          "Dicembre 2010"
+        ],
+        [
+          "Prima visita alla ISS",
+          "Maggio 2012"
+        ],
+        [
+          "Collegamento alla ISS",
+          "Cattura con braccio robotico e berthing"
+        ],
+        [
+          "Ritorno",
+          "Capsula con scudo e paracadute"
+        ],
+        [
+          "Trunk",
+          "Vano non pressurizzato, non recuperato"
+        ]
+      ],
+      "photos": [
+        [
+          "dragon1-approach",
+          "Dragon C2+ si avvicina alla ISS, 25 maggio 2012, NASA. Prima generazione, con pannelli dispiegati."
+        ],
+        [
+          "dragon1-grappled",
+          "Dragon viene afferrata dal Canadarm2 nel maggio 2012: cattura robotica prima del berthing, NASA."
+        ]
+      ],
+      "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
+      "diagram": {
+        "type": "capsule",
+        "labels": [
+          "Vano pressurizzato",
+          "Portello cargo",
+          "Scudo termico",
+          "Capsula recuperata",
+          "Trunk",
+          "Carichi esterni"
+        ],
+        "title": "Architettura funzionale",
+        "description": "Vano pressurizzato → Portello cargo → Scudo termico → Capsula recuperata → Trunk → Carichi esterni",
+        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+      },
+      "sections": [
+        [
+          "Come funziona",
+          "Gli astronauti controllavano il braccio della stazione per catturare il veicolo e collegarlo a un portello. Al ritorno rientrava la capsula, mentre il trunk veniva separato e non recuperato."
+        ],
+        [
+          "Versioni ed evoluzione",
+          "La prima Dragon precede Crew Dragon e Cargo Dragon 2. La sua storia comprende le dimostrazioni COTS, i rifornimenti CRS e il progressivo impiego di capsule già volate."
+        ],
+        [
+          "Limiti e condizioni d’impiego",
+          "Carico consegnato e carico riportato sono quantità differenti; anche i limiti del volume contano. Il servizio termina con il ritorno degli esperimenti e il recupero della capsula, non con il solo arrivo alla stazione."
+        ]
+      ],
+      "evidence": [
+        [
+          "Dimostrato",
+          "Rifornimenti della ISS e ritorno di campioni ed esperimenti."
+        ],
+        [
+          "Dichiarato o previsto",
+          "Servizio definito dai contratti CRS dell’epoca."
+        ],
+        [
+          "Da verificare",
+          "Non attribuire alla prima Dragon l’attracco autonomo della seconda."
+        ]
+      ],
+      "sources": [
+        "dragon1",
+        "cargo"
+      ],
+      "readings": [
+        [
+          "../../documenti%20per%20sito/falcon9_salto_scala_cots1.html",
+          "COTS-1 e il salto di scala"
+        ],
+        [
+          "../../monografie/crew-dragon/01-origini-contratti.html",
+          "Da Dragon cargo al Commercial Crew"
+        ]
+      ],
+      "related": [
+        "cargo-dragon-2",
+        "crew-dragon",
+        "draco"
+      ]
+    },
+    {
+      "id": "crew-dragon",
+      "title": "Crew Dragon",
+      "family": "Veicoli",
+      "status": "Operativo",
+      "summary": "La capsula abitabile che collega Falcon 9, equipaggio e missione orbitale. Il ritorno e la sicurezza richiedono sistemi e prove propri, oltre al lanciatore.",
+      "specs": [
+        [
+          "Programma NASA",
+          "Commercial Crew"
+        ],
+        [
+          "Primo volo con equipaggio",
+          "Demo-2, 30 maggio 2020"
+        ],
+        [
+          "Equipaggio ordinario di rotazione NASA",
+          "4 persone; missioni speciali possono differire"
+        ],
+        [
+          "Attracco",
+          "Autonomo, con monitoraggio dell’equipaggio"
+        ],
+        [
+          "Fuga",
+          "8 motori SuperDraco"
+        ],
+        [
+          "Ritorno nominale",
+          "Scudo, paracadute e ammaraggio"
+        ]
+      ],
+      "photos": [
+        [
+          "crew-dragon/demo1-preflight.jpg",
+          "Crew Dragon per Demo-1, marzo 2019, NASA/Joel Kowsky."
+        ],
+        [
+          "crew-dragon/crew1-ritratto.jpg",
+          "I quattro astronauti della missione Crew-1, ritratto ufficiale NASA del 2020."
+        ]
+      ],
+      "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
+      "diagram": {
+        "type": "capsule",
+        "labels": [
+          "Portello e attracco",
+          "Vano equipaggio",
+          "SuperDraco laterali",
+          "Scudo termico",
+          "Trunk",
+          "Pannelli solari"
+        ],
+        "title": "Architettura funzionale",
+        "description": "Portello e attracco → Vano equipaggio → SuperDraco laterali → Scudo termico → Trunk → Pannelli solari",
+        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+      },
+      "sections": [
+        [
+          "Come funziona",
+          "La capsula dispone di controllo orbitale, supporto vitale, comunicazioni e sistemi di fuga. Il trunk sostiene funzioni del volo, ma viene separato prima del rientro; a terra torna la capsula."
+        ],
+        [
+          "Versioni ed evoluzione",
+          "Demo-1 provò il sistema senza equipaggio; Demo-2 portò due astronauti. La configurazione, le missioni private e le successive rotazioni NASA vanno lette separatamente, senza dedurre il numero di sedili dal singolo equipaggio."
+        ],
+        [
+          "Limiti e condizioni d’impiego",
+          "Un lancio riuscito non chiude la missione: attracco, permanenza, rientro e meteo del recupero restano vincoli. Il servizio NASA certificato non qualifica automaticamente ogni nuova missione privata."
+        ]
+      ],
+      "evidence": [
+        [
+          "Dimostrato",
+          "Trasporto umano, attracco e ritorno, con capsule riutilizzate."
+        ],
+        [
+          "Dichiarato o previsto",
+          "Sistemi e operazioni definiti per i profili di missione approvati."
+        ],
+        [
+          "Da verificare",
+          "Affidabilità e margini devono essere valutati lungo l’intera missione."
+        ]
+      ],
+      "sources": [
+        "crew",
+        "return"
+      ],
+      "readings": [
+        [
+          "../../monografie/crew-dragon/02-concetto-capsula.html",
+          "Dentro Crew Dragon"
+        ],
+        [
+          "../../monografie/crew-dragon/11-archivio-voli.html",
+          "Registro di missioni, equipaggi e capsule"
+        ]
+      ],
+      "related": [
+        "cargo-dragon-2",
+        "draco",
+        "superdraco"
+      ]
+    },
+    {
+      "id": "cargo-dragon-2",
+      "title": "Cargo Dragon 2",
+      "family": "Veicoli",
+      "status": "Operativo",
+      "summary": "La versione cargo della seconda generazione Dragon: attracco autonomo, carichi pressurizzati ed esterni, ritorno degli esperimenti sulla Terra.",
+      "specs": [
+        [
+          "Debutto CRS",
+          "CRS-21, dicembre 2020"
+        ],
+        [
+          "Famiglia",
+          "Dragon 2"
+        ],
+        [
+          "Equipaggio",
+          "Nessuno"
+        ],
+        [
+          "Collegamento ISS",
+          "Docking autonomo"
+        ],
+        [
+          "Ritorno",
+          "Capsula recuperata"
+        ],
+        [
+          "Trunk",
+          "Carichi esterni e funzioni di servizio"
+        ]
+      ],
+      "photos": [
+        [
+          "cargo-2022",
+          "Cargo Dragon si avvicina alla ISS per l’attracco il 27 novembre 2022, NASA."
+        ],
+        [
+          "crew-dragon/demo2-rientro.png",
+          "Recupero Crew Dragon dopo Demo-2: contesto della famiglia Dragon 2, non fotografia di Cargo Dragon."
+        ]
+      ],
+      "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
+      "diagram": {
+        "type": "capsule",
+        "labels": [
+          "Portello di docking",
+          "Vano cargo",
+          "Avionica e Draco",
+          "Capsula di ritorno",
+          "Trunk",
+          "Carichi non pressurizzati"
+        ],
+        "title": "Architettura funzionale",
+        "description": "Portello di docking → Vano cargo → Avionica e Draco → Capsula di ritorno → Trunk → Carichi non pressurizzati",
+        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+      },
+      "sections": [
+        [
+          "Come funziona",
+          "Il veicolo raggiunge e aggancia autonomamente un portello compatibile della ISS. Gli esperimenti da restituire vengono collocati nella capsula, mentre i carichi esterni e il trunk seguono una destinazione differente."
+        ],
+        [
+          "Versioni ed evoluzione",
+          "Con CRS-21 il servizio passò dalla cattura robotica Dragon 1 al docking Dragon 2. Cargo Dragon deriva dalla stessa famiglia della capsula umana, ma non trasporta persone e non dispone dello stesso sistema di fuga."
+        ],
+        [
+          "Limiti e condizioni d’impiego",
+          "La disponibilità del portello e il programma della stazione condizionano la missione. Massa, volume, alimentazione degli esperimenti e condizioni del ritorno devono essere considerati insieme."
+        ]
+      ],
+      "evidence": [
+        [
+          "Dimostrato",
+          "Attracco autonomo cargo e restituzione di esperimenti."
+        ],
+        [
+          "Dichiarato o previsto",
+          "Prestazioni del servizio definite per la missione CRS."
+        ],
+        [
+          "Da verificare",
+          "Le capacità cargo non descrivono la qualifica per il trasporto umano."
+        ]
+      ],
+      "sources": [
+        "cargo",
+        "dragon1"
+      ],
+      "readings": [
+        [
+          "../../monografie/crew-dragon/02-concetto-capsula.html",
+          "La famiglia Dragon 2"
+        ],
+        [
+          "../../monografie/crew-dragon/09-servizio-riuso.html",
+          "Il servizio e la responsabilità del riuso"
+        ]
+      ],
+      "related": [
+        "dragon-cargo-1",
+        "crew-dragon",
+        "draco"
+      ]
+    },
+    {
+      "id": "draco",
+      "title": "Draco",
+      "family": "Motori",
+      "status": "Operativo",
+      "summary": "I piccoli propulsori che permettono a Dragon di orientarsi e manovrare. Il loro compito è diverso dalla fuga rapida affidata ai SuperDraco.",
+      "specs": [
+        [
+          "Ruolo",
+          "Controllo d’assetto e manovra orbitale"
+        ],
+        [
+          "Famiglia veicolo",
+          "Dragon"
+        ],
+        [
+          "Combustibile",
+          "Monometilidrazina, MMH"
+        ],
+        [
+          "Ossidante",
+          "Tetrossido di diazoto, NTO"
+        ],
+        [
+          "Accensione",
+          "Propellenti ipergolici"
+        ],
+        [
+          "Configurazione",
+          "Numero e disposizione da leggere per versione"
+        ]
+      ],
+      "photos": [
+        [
+          "crew-dragon/demo2-avvicinamento.jpg",
+          "Dragon durante l’avvicinamento alla ISS: fase in cui orientamento e manovre precise sono essenziali."
+        ],
+        [
+          "crew-dragon/demo1-preflight.jpg",
+          "Demo-1 sulla Terra nel 2019: fotografia della capsula, non del singolo propulsore."
+        ]
+      ],
+      "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
+      "diagram": {
+        "type": "engine",
+        "labels": [
+          "Serbatoio ossidante",
+          "Serbatoio MMH",
+          "Pressurizzazione",
+          "Valvole e impulsi",
+          "Camera e ugello",
+          "Contatto dei propellenti → accensione"
+        ],
+        "title": "Architettura funzionale",
+        "description": "Serbatoio ossidante → Serbatoio MMH → Pressurizzazione → Valvole e impulsi → Camera e ugello → Contatto dei propellenti → accensione",
+        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+      },
+      "sections": [
+        [
+          "Come funziona",
+          "I propellenti reagiscono quando entrano in contatto. Comandando piccoli impulsi, la capsula varia orientamento o velocità; posizione e direzione dei propulsori determinano le forze e le coppie ottenute."
+        ],
+        [
+          "Versioni ed evoluzione",
+          "La famiglia Dragon ha attraversato configurazioni diverse. Le descrizioni di un prototipo non devono essere utilizzate per ricostruire automaticamente il conteggio dei propulsori di ogni capsula operativa."
+        ],
+        [
+          "Limiti e condizioni d’impiego",
+          "Il propellente è finito e ogni manovra ne consuma una parte. La precisione in prossimità della stazione dipende anche da sensori, software e vincoli operativi, oltre che dal motore."
+        ]
+      ],
+      "evidence": [
+        [
+          "Dimostrato",
+          "Manovre e controllo di Dragon durante missioni orbitali."
+        ],
+        [
+          "Dichiarato o previsto",
+          "Sistema di propulsione descritto per le configurazioni qualificate."
+        ],
+        [
+          "Da verificare",
+          "Il margine residuo di una specifica missione non è deducibile dalla sola durata del volo."
+        ]
+      ],
+      "sources": [
+        "crew",
+        "cargo"
+      ],
+      "readings": [
+        [
+          "../../monografie/crew-dragon/02-concetto-capsula.html",
+          "Avionica e propulsione della capsula"
+        ],
+        [
+          "../../monografie/crew-dragon/05-demo1.html",
+          "Demo-1 e l’avvicinamento alla ISS"
+        ]
+      ],
+      "related": [
+        "superdraco",
+        "crew-dragon",
+        "cargo-dragon-2"
+      ]
+    },
+    {
+      "id": "superdraco",
+      "title": "SuperDraco",
+      "family": "Motori",
+      "status": "Operativo",
+      "summary": "La propulsione di fuga integrata in Crew Dragon. Otto motori devono allontanare rapidamente la capsula da una situazione pericolosa durante il lancio.",
+      "specs": [
+        [
+          "Installazione di riferimento",
+          "Crew Dragon"
+        ],
+        [
+          "Motori di fuga",
+          "8"
+        ],
+        [
+          "Propellenti",
+          "MMH / NTO, ipergolici"
+        ],
+        [
+          "Prova dalla rampa",
+          "6 maggio 2015"
+        ],
+        [
+          "Prova di fuga in volo",
+          "Gennaio 2020"
+        ],
+        [
+          "Ritorno nominale qualificato",
+          "Ammaraggio con paracadute"
+        ]
+      ],
+      "photos": [
+        [
+          "crew-dragon/pad-abort-2015.jpg",
+          "Prova pad abort del 6 maggio 2015: Crew Dragon lascia la rampa spinta dai SuperDraco."
+        ],
+        [
+          "crew-dragon/demo2-rientro.png",
+          "Ammaraggio Demo-2 nel 2020: il ritorno nominale avviene con paracadute, non con un atterraggio propulsivo SuperDraco."
+        ]
+      ],
+      "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
+      "diagram": {
+        "type": "engine",
+        "labels": [
+          "Ossidante ipergolico",
+          "Combustibile MMH",
+          "Pressurizzazione",
+          "Valvole di fuga",
+          "Camere SuperDraco",
+          "Spinta rapida per allontanare la capsula"
+        ],
+        "title": "Architettura funzionale",
+        "description": "Ossidante ipergolico → Combustibile MMH → Pressurizzazione → Valvole di fuga → Camere SuperDraco → Spinta rapida per allontanare la capsula",
+        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+      },
+      "sections": [
+        [
+          "Come funziona",
+          "Il sistema è incorporato nei lati della capsula. La fuga richiede propulsione, rilevazione dell’emergenza e una sequenza che prepari il successivo ritorno in sicurezza. La semplice accensione di un motore non dimostra l’intera funzione."
+        ],
+        [
+          "Versioni ed evoluzione",
+          "Le idee iniziali comprendevano un atterraggio propulsivo Dragon. Lo sviluppo operativo consolidò il ritorno con paracadute. L’incidente di prova del 2019 portò a modifiche e verifiche prima del trasporto umano."
+        ],
+        [
+          "Limiti e condizioni d’impiego",
+          "Il profilo nominale e quello di emergenza hanno condizioni differenti. La prova dalla rampa del 2015 non corrisponde alla configurazione definitiva dei paracadute né sostituisce la prova di fuga in volo."
+        ]
+      ],
+      "evidence": [
+        [
+          "Dimostrato",
+          "Prove di fuga dalla rampa e durante l’ascesa."
+        ],
+        [
+          "Dichiarato o previsto",
+          "Sistema di sicurezza della configurazione Crew Dragon certificata."
+        ],
+        [
+          "Da verificare",
+          "L’atterraggio propulsivo Dragon non è un servizio nominale qualificato."
+        ]
+      ],
+      "sources": [
+        "abort",
+        "crew",
+        "return"
+      ],
+      "readings": [
+        [
+          "../../monografie/crew-dragon/03-sviluppo-prove.html",
+          "Le prime prove di fuga"
+        ],
+        [
+          "../../monografie/crew-dragon/06-incidente-2019.html",
+          "L’incidente del 2019"
+        ],
+        [
+          "../../monografie/crew-dragon/07-fuga-in-volo.html",
+          "La prova durante l’ascesa"
+        ]
+      ],
+      "related": [
+        "draco",
+        "crew-dragon",
+        "red-dragon"
+      ]
+    },
+    {
+      "id": "super-heavy",
+      "title": "Super Heavy",
+      "family": "Veicoli",
+      "status": "Sperimentale",
+      "summary": "Il booster di Starship: sostiene la prima parte dell’ascesa, si separa dalla nave e tenta il ritorno. La cattura alla torre è una funzione dell’intero sistema.",
+      "specs": [
+        [
+          "Ruolo",
+          "Primo stadio del sistema Starship"
+        ],
+        [
+          "Propellenti",
+          "Ossigeno liquido / metano"
+        ],
+        [
+          "Motori",
+          "Raptor; numero riferito alla versione"
+        ],
+        [
+          "Riferimento storico IFT-5",
+          "33 motori, ottobre 2024"
+        ],
+        [
+          "Separazione",
+          "Hot staging"
+        ],
+        [
+          "Prima cattura alla torre",
+          "Flight 5, 13 ottobre 2024"
+        ]
+      ],
+      "photos": [
+        [
+          "starship/ift5-approach.jpg",
+          "Super Heavy torna verso i bracci della torre durante Flight 5, ottobre 2024."
+        ],
+        [
+          "starship/ift5-ignition.jpg",
+          "Il sistema completo durante l’accensione di Flight 5. Fotografia della configurazione 2024, non della V3 del 2026."
+        ]
+      ],
+      "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
+      "diagram": {
+        "type": "vehicle",
+        "labels": [
+          "Ship sopra il booster",
+          "Anello di separazione",
+          "Serbatoi criogenici",
+          "Struttura in acciaio",
+          "Controllo di rientro",
+          "Gruppo Raptor"
+        ],
+        "title": "Architettura funzionale",
+        "description": "Ship sopra il booster → Anello di separazione → Serbatoi criogenici → Struttura in acciaio → Controllo di rientro → Gruppo Raptor",
+        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+      },
+      "sections": [
+        [
+          "Come funziona",
+          "Il booster accelera la nave e mantiene il controllo durante la separazione a caldo. Dopo il distacco deve conservare una traiettoria e una riserva di propellente compatibili con il rientro e, quando previsto, con la cattura."
+        ],
+        [
+          "Versioni ed evoluzione",
+          "Le prime campagne integrate e le generazioni successive hanno modificato motori, struttura, interfacce e infrastrutture. Il conteggio di una configurazione storica non va trasferito senza verifica a ogni versione futura."
+        ],
+        [
+          "Limiti e condizioni d’impiego",
+          "La cattura evita l’uso di gambe convenzionali sul booster, ma richiede una torre pronta, margini di sicurezza e coordinamento fra volo e terra. Un ammaraggio di prova non equivale a una cattura."
+        ]
+      ],
+      "evidence": [
+        [
+          "Dimostrato",
+          "Voli integrati e cattura del booster alla torre."
+        ],
+        [
+          "Dichiarato o previsto",
+          "Riuso rapido come obiettivo del sistema."
+        ],
+        [
+          "Da verificare",
+          "Cadenza, costo e affidabilità del ciclo completo richiedono prove ripetute."
+        ]
+      ],
+      "sources": [
+        "starship:vehicle",
+        "starship:hotstage",
+        "starlink:flight14"
+      ],
+      "readings": [
+        [
+          "../../monografie/starship/05-sistema.html",
+          "Super Heavy e Ship nella stessa architettura"
+        ],
+        [
+          "../../monografie/starship/15-rientro-cattura.html",
+          "La prima cattura"
+        ],
+        [
+          "../../monografie/starship/18-registro.html",
+          "Registro dei voli integrati"
+        ]
+      ],
+      "related": [
+        "ship",
+        "hot-staging",
+        "recupero-starship"
+      ]
+    },
+    {
+      "id": "ship",
+      "title": "Ship",
+      "family": "Veicoli",
+      "status": "Sperimentale",
+      "summary": "Il secondo stadio e veicolo orbitale di Starship. Carico, rientro e varianti lunari o cisterna impongono compiti differenti alla stessa famiglia.",
+      "specs": [
+        [
+          "Ruolo",
+          "Secondo stadio e nave"
+        ],
+        [
+          "Propellenti",
+          "LOX / metano"
+        ],
+        [
+          "Struttura",
+          "Acciaio inossidabile"
+        ],
+        [
+          "Motori storici IFT-5",
+          "6 Raptor: 3 atmosferici e 3 Vacuum"
+        ],
+        [
+          "Varianti",
+          "Carico, cisterna e HLS: qualifiche distinte"
+        ],
+        [
+          "Riferimento cronologico",
+          "Bilancio dei voli al 10 ottobre 2026"
+        ]
+      ],
+      "photos": [
+        [
+          "starship/sn15.jpg",
+          "Dettaglio di SN15, prototipo del 2021: flap e superficie della nave prima dei voli integrati."
+        ],
+        [
+          "starship/ift5-ignition.jpg",
+          "Starship Flight 5 al decollo, ottobre 2024. La fotografia non rappresenta la successiva configurazione V3."
+        ]
+      ],
+      "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
+      "diagram": {
+        "type": "vehicle",
+        "labels": [
+          "Vano carico",
+          "Flap anteriori",
+          "Serbatoio LOX",
+          "Scudo sul ventre",
+          "Serbatoio metano",
+          "Raptor e Raptor Vacuum"
+        ],
+        "title": "Architettura funzionale",
+        "description": "Vano carico → Flap anteriori → Serbatoio LOX → Scudo sul ventre → Serbatoio metano → Raptor e Raptor Vacuum",
+        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+      },
+      "sections": [
+        [
+          "Come funziona",
+          "Ship continua l’ascesa dopo la separazione, porta il carico e deve governare l’energia del ritorno. Lo scudo protegge la superficie esposta e i flap controllano l’assetto durante la discesa atmosferica."
+        ],
+        [
+          "Versioni ed evoluzione",
+          "I prototipi SN provarono manovre a quota limitata. I voli integrati introdussero problemi nuovi di separazione e rientro. Il capitolo V3 e il registro datato distinguono i risultati del 2026 dai profili precedenti."
+        ],
+        [
+          "Limiti e condizioni d’impiego",
+          "Una nave cargo, una cisterna e HLS non hanno la stessa dotazione. Raggiungere l’orbita non dimostra la disponibilità quotidiana di una nave completamente riutilizzabile né il servizio umano."
+        ]
+      ],
+      "evidence": [
+        [
+          "Dimostrato",
+          "Prove di volo, rientro e risultati registrati per ciascuna missione."
+        ],
+        [
+          "Dichiarato o previsto",
+          "Famiglia di varianti per trasporto, rifornimento e missioni lunari."
+        ],
+        [
+          "Da verificare",
+          "Riuso completo della nave e qualifica delle singole varianti."
+        ]
+      ],
+      "sources": [
+        "starship:vehicle",
+        "starlink:flight14"
+      ],
+      "readings": [
+        [
+          "../../monografie/starship/05-sistema.html",
+          "Due stadi e molte varianti"
+        ],
+        [
+          "../../monografie/starship/17-v3-orbita.html",
+          "V3 e il bilancio orbitale"
+        ],
+        [
+          "../../monografie/starship/18-registro.html",
+          "Risultati missione per missione"
+        ]
+      ],
+      "related": [
+        "super-heavy",
+        "scudo-starship",
+        "rifornimento-orbitale"
+      ]
+    },
+    {
+      "id": "raptor",
+      "title": "Raptor",
+      "family": "Motori",
+      "status": "In sviluppo",
+      "summary": "Il motore a metano del sistema Starship. La combustione stadiata a flusso completo modifica il percorso dei propellenti e rende molto impegnativa l’integrazione.",
+      "specs": [
+        [
+          "Ciclo",
+          "Combustione stadiata a flusso completo"
+        ],
+        [
+          "Ossidante",
+          "Ossigeno liquido"
+        ],
+        [
+          "Combustibile",
+          "Metano"
+        ],
+        [
+          "Precombustori",
+          "Lato ricco di ossigeno e lato ricco di combustibile"
+        ],
+        [
+          "Versioni",
+          "Raptor 1, 2 e 3; dati da separare"
+        ],
+        [
+          "Impieghi",
+          "Super Heavy e Ship; variante Vacuum"
+        ]
+      ],
+      "photos": [
+        [
+          "starship/raptor-2016.jpg",
+          "Prototipo Raptor in prova il 25 settembre 2016, SpaceX. Non è una fotografia di Raptor 3."
+        ],
+        [
+          "starship/starhopper.jpg",
+          "Starhopper: il veicolo sperimentale con cui Raptor cominciò le prove di volo."
+        ]
+      ],
+      "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
+      "diagram": {
+        "type": "engine",
+        "labels": [
+          "Ossigeno liquido",
+          "Metano liquido",
+          "Pompa / precombustore O",
+          "Pompa / precombustore CH4",
+          "Camera principale e ugello",
+          "Due flussi alimentano la combustione finale"
+        ],
+        "title": "Architettura funzionale",
+        "description": "Ossigeno liquido → Metano liquido → Pompa / precombustore O → Pompa / precombustore CH4 → Camera principale e ugello → Due flussi alimentano la combustione finale",
+        "note": "Due rami di alimentazione e combustione finale; lo schema omette valvole, pressurizzazione e circuiti di raffreddamento. Non rappresenta il layout reale."
+      },
+      "sections": [
+        [
+          "Come funziona",
+          "I due rami alimentano precombustori e turbine; i flussi arrivano poi alla camera principale. La gestione di temperature, pressioni, materiali e avviamento richiede un progetto coordinato, non soltanto un ugello più efficiente."
+        ],
+        [
+          "Versioni ed evoluzione",
+          "Raptor 1, 2 e 3 descrivono passaggi del progetto e dell’integrazione. Le fotografie del 2016 documentano lo sviluppo iniziale; le prestazioni annunciate per una nuova versione richiedono prove nella configurazione installata."
+        ],
+        [
+          "Limiti e condizioni d’impiego",
+          "Spinta e impulso specifico variano con ugello, ambiente e regime. La riduzione di tubazioni esterne non dimostra da sola minore manutenzione o affidabilità superiore."
+        ]
+      ],
+      "evidence": [
+        [
+          "Dimostrato",
+          "Prove a terra e impiego nei voli del sistema Starship."
+        ],
+        [
+          "Dichiarato o previsto",
+          "Semplificazione e prestazioni delle generazioni successive dichiarate dal costruttore."
+        ],
+        [
+          "Da verificare",
+          "Durata, manutenzione e margini del motore nel ciclo di riuso previsto."
+        ]
+      ],
+      "sources": [
+        "starship:propulsion",
+        "starship:vehicle",
+        "starship:v3"
+      ],
+      "readings": [
+        [
+          "../../monografie/starship/06-raptor-ciclo.html",
+          "Il ciclo Raptor"
+        ],
+        [
+          "../../monografie/starship/07-raptor-evoluzione.html",
+          "Dal primo Raptor a Raptor 3"
+        ]
+      ],
+      "related": [
+        "merlin",
+        "super-heavy",
+        "mcgregor"
+      ]
+    },
+    {
+      "id": "scudo-starship",
+      "title": "Scudo termico di Ship",
+      "family": "Sistemi",
+      "status": "In sviluppo",
+      "summary": "Il sistema che permette alla nave di affrontare il rientro atmosferico. Materiali, giunti, orientamento e manovre contano insieme alle singole piastrelle.",
+      "specs": [
+        [
+          "Ruolo",
+          "Protezione durante il rientro"
+        ],
+        [
+          "Zona principale",
+          "Ventre esposto al flusso"
+        ],
+        [
+          "Elementi",
+          "Piastrelle ceramiche e protezioni locali"
+        ],
+        [
+          "Controllo associato",
+          "Flap e gestione dell’assetto"
+        ],
+        [
+          "Condizione critica",
+          "Integrità di piastrelle, giunti e attacchi"
+        ],
+        [
+          "Riferimento",
+          "Campagne di prova, versioni distinte"
+        ]
+      ],
+      "photos": [
+        [
+          "starship/sn15.jpg",
+          "SN15 nel 2021: superficie e flap del prototipo, non uno scudo orbitale qualificato."
+        ],
+        [
+          "starmind/termovuoto.jpg",
+          "Camera di termovuoto NASA/JPL: fotografia di contesto del collaudo spaziale, non impianto Starship."
+        ]
+      ],
+      "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
+      "diagram": {
+        "type": "sequence",
+        "labels": [
+          "Traiettoria di rientro",
+          "Flusso e riscaldamento",
+          "Ventre e piastrelle",
+          "Giunti e punti locali",
+          "Flap governano l’assetto",
+          "Ispezione dopo il volo"
+        ],
+        "title": "Architettura funzionale",
+        "description": "Traiettoria di rientro → Flusso e riscaldamento → Ventre e piastrelle → Giunti e punti locali → Flap governano l’assetto → Ispezione dopo il volo",
+        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+      },
+      "sections": [
+        [
+          "Come funziona",
+          "Il rientro trasforma energia del moto in riscaldamento del gas e del veicolo. L’assetto decide quale superficie riceve il carico; la protezione deve funzionare anche vicino a aperture, bordi e meccanismi dei flap."
+        ],
+        [
+          "Versioni ed evoluzione",
+          "I prototipi e i voli integrati hanno utilizzato configurazioni diverse. Modifiche delle protezioni e dei flap sono risposte a problemi emersi nelle prove, non dettagli intercambiabili fra generazioni."
+        ],
+        [
+          "Limiti e condizioni d’impiego",
+          "La sopravvivenza a un rientro non determina quanti voli siano possibili senza sostituzioni. Un ritorno da orbita terrestre non qualifica automaticamente un rientro da Marte, con condizioni energetiche e operative differenti."
+        ]
+      ],
+      "evidence": [
+        [
+          "Dimostrato",
+          "Rientri sperimentali e osservazione dei problemi termici in volo."
+        ],
+        [
+          "Dichiarato o previsto",
+          "Riusabilità della protezione come obiettivo di progetto."
+        ],
+        [
+          "Da verificare",
+          "Ispezioni, sostituzioni e prestazione ripetuta della configurazione recuperata."
+        ]
+      ],
+      "sources": [
+        "starship:vehicle",
+        "starship:snreport"
+      ],
+      "readings": [
+        [
+          "../../monografie/starship/08-volo-rientro.html",
+          "Scudo, flap e discesa"
+        ],
+        [
+          "../../monografie/starship/19-riutilizzo.html",
+          "Ispezionare per poter riutilizzare"
+        ]
+      ],
+      "related": [
+        "ship",
+        "recupero-starship",
+        "hls"
+      ]
+    },
+    {
+      "id": "hot-staging",
+      "title": "Hot staging",
+      "family": "Sistemi",
+      "status": "Sperimentale",
+      "summary": "La separazione nella quale la nave accende i motori prima che il booster abbia concluso completamente la propria spinta. L’interfaccia deve gestire getti e carichi.",
+      "specs": [
+        [
+          "Sistema",
+          "Super Heavy / Ship"
+        ],
+        [
+          "Principio",
+          "Accensione della nave durante la separazione"
+        ],
+        [
+          "Interfaccia",
+          "Struttura interstadio ventilata"
+        ],
+        [
+          "Problema fisico",
+          "Getti, pressione e riscaldamento"
+        ],
+        [
+          "Riferimento",
+          "Introduzione nei voli integrati"
+        ],
+        [
+          "Sequenza",
+          "Dipende dalla versione e dalla prova"
+        ]
+      ],
+      "photos": [
+        [
+          "starship/hot-staging-nasa.jpg",
+          "Visualizzazione numerica NASA del problema di hot staging: simulazione CFD, non fotografia di un volo."
+        ],
+        [
+          "starship/ift5-ignition.jpg",
+          "Starship Flight 5 sulla rampa: vista del sistema completo prima della separazione."
+        ]
+      ],
+      "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
+      "diagram": {
+        "type": "sequence",
+        "labels": [
+          "Ascesa integrata",
+          "Preparazione al distacco",
+          "Ship accende i motori",
+          "Getti nell’interstadio",
+          "Le traiettorie si separano",
+          "Ship sale / booster rientra"
+        ],
+        "title": "Architettura funzionale",
+        "description": "Ascesa integrata → Preparazione al distacco → Ship accende i motori → Getti nell’interstadio → Le traiettorie si separano → Ship sale / booster rientra",
+        "note": "Sequenza concettuale, senza conteggio dei motori accesi o tempi: questi dettagli non sono universali fra versioni."
+      },
+      "sections": [
+        [
+          "Come funziona",
+          "La nave deve generare spinta mentre la separazione è in corso. La struttura di interfaccia permette lo sfogo dei gas e protegge le zone sensibili; il controllo evita contatti e condizioni dinamiche incompatibili."
+        ],
+        [
+          "Versioni ed evoluzione",
+          "La configurazione dei primi voli e quella con separazione a caldo non sono equivalenti. Anche la gestione dell’anello e la sequenza dei motori possono cambiare tra campagne."
+        ],
+        [
+          "Limiti e condizioni d’impiego",
+          "Non si può dedurre la sicurezza della separazione da un’immagine del getto. Servono modelli, prove e dati dei carichi reali, comprese pressioni locali e riscaldamento."
+        ]
+      ],
+      "evidence": [
+        [
+          "Dimostrato",
+          "Separazioni a caldo durante i voli integrati."
+        ],
+        [
+          "Dichiarato o previsto",
+          "Affinamento dell’interfaccia e della sequenza di controllo."
+        ],
+        [
+          "Da verificare",
+          "Margini ripetuti nelle nuove configurazioni e recuperabilità delle parti previste."
+        ]
+      ],
+      "sources": [
+        "starship:hotstage",
+        "starship:vehicle"
+      ],
+      "readings": [
+        [
+          "../../monografie/starship/11-torri-pad.html",
+          "Interfacce, rampe e separazione"
+        ],
+        [
+          "../../monografie/starship/14-primi-integrati.html",
+          "I primi voli del sistema completo"
+        ]
+      ],
+      "related": [
+        "super-heavy",
+        "ship",
+        "raptor"
+      ]
+    },
+    {
+      "id": "rifornimento-orbitale",
+      "title": "Rifornimento orbitale",
+      "family": "Sistemi",
+      "status": "In sviluppo",
+      "summary": "Il passaggio che rende possibili molte missioni Starship oltre l’orbita bassa. Non è soltanto attraccare due veicoli: occorre gestire liquidi criogenici e riserve.",
+      "specs": [
+        [
+          "Veicoli previsti",
+          "Nave utilizzatrice, cisterne e possibile deposito"
+        ],
+        [
+          "Fluidi",
+          "Ossigeno liquido e metano"
+        ],
+        [
+          "Operazioni",
+          "Rendezvous, collegamento e trasferimento"
+        ],
+        [
+          "Problemi termici",
+          "Evaporazione e conservazione"
+        ],
+        [
+          "Prova di riferimento",
+          "Trasferimento interno nella Ship, marzo 2024"
+        ],
+        [
+          "Numero di lanci",
+          "Dipende dalla missione, non valore fisso"
+        ]
+      ],
+      "photos": [
+        [
+          "starmind/solari-iss.jpg",
+          "Pannelli solari della ISS: contesto delle operazioni e dell’energia in orbita, non una cisterna Starship."
+        ],
+        [
+          "starship/ift5-ignition.jpg",
+          "Starship Flight 5: veicolo della famiglia da cui derivano le varianti previste per il rifornimento."
+        ]
+      ],
+      "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
+      "diagram": {
+        "type": "sequence",
+        "labels": [
+          "Lancio della cisterna",
+          "Rendezvous orbitale",
+          "Collegamento dei veicoli",
+          "Gestione dei liquidi",
+          "Trasferimento e misura",
+          "Riserva per la missione"
+        ],
+        "title": "Architettura funzionale",
+        "description": "Lancio della cisterna → Rendezvous orbitale → Collegamento dei veicoli → Gestione dei liquidi → Trasferimento e misura → Riserva per la missione",
+        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+      },
+      "sections": [
+        [
+          "Come funziona",
+          "In microgravità i liquidi non occupano i serbatoi come sulla Terra. Pressione, temperatura, movimento e misurazione della massa devono essere controllati prima, durante e dopo il trasferimento."
+        ],
+        [
+          "Versioni ed evoluzione",
+          "Una prova di trasferimento interno prepara alcune conoscenze, ma non dimostra l’interfaccia tra due navi. Un deposito aggiunge requisiti di permanenza, controllo termico e logistica."
+        ],
+        [
+          "Limiti e condizioni d’impiego",
+          "Il numero di cisterne dipende da massa trasferibile, consumi, perdite, orbita e margini. Ripetere un singolo numero senza queste ipotesi nasconde le dipendenze della missione lunare."
+        ]
+      ],
+      "evidence": [
+        [
+          "Dimostrato",
+          "Prova interna del 2024, documentata dalla NASA."
+        ],
+        [
+          "Dichiarato o previsto",
+          "Architettura di cisterne e rifornimento per HLS e altre missioni."
+        ],
+        [
+          "Da verificare",
+          "Trasferimenti tra veicoli, conservazione prolungata e campagna completa qualificata."
+        ]
+      ],
+      "sources": [
+        "starship:transfer24",
+        "starship:zbot",
+        "artemis:transfer"
+      ],
+      "readings": [
+        [
+          "../../monografie/starship/20-rifornimento.html",
+          "Criogenia e campagna orbitale"
+        ],
+        [
+          "../../monografie/artemis/15-rifornimento.html",
+          "Il rifornimento nella missione lunare"
+        ]
+      ],
+      "related": [
+        "hls",
+        "ship",
+        "super-heavy"
+      ]
+    },
+    {
+      "id": "hls",
+      "title": "Starship HLS",
+      "family": "Programmi",
+      "status": "In sviluppo",
+      "summary": "La variante lunare scelta dalla NASA per il programma Human Landing System. Il suo percorso di qualifica è distinto da quello della nave che rientra sulla Terra.",
+      "specs": [
+        [
+          "Programma",
+          "NASA Human Landing System"
+        ],
+        [
+          "Contratto iniziale",
+          "Aprile 2021"
+        ],
+        [
+          "Ruolo",
+          "Trasporto tra orbita lunare e superficie"
+        ],
+        [
+          "Propellenti",
+          "LOX / metano"
+        ],
+        [
+          "Dipendenza",
+          "Rifornimento in orbita terrestre"
+        ],
+        [
+          "Ritorno degli astronauti sulla Terra",
+          "Affidato alla catena di missione con Orion"
+        ]
+      ],
+      "photos": [
+        [
+          "artemis/polo-sud-2026.jpg",
+          "Visualizzazione NASA del polo sud lunare: contesto della destinazione HLS, non fotografia di un lander sulla superficie."
+        ],
+        [
+          "starmind/solari-iss.jpg",
+          "Installazione di pannelli sulla ISS: contesto dell’attività umana nello spazio, non dotazione HLS."
+        ]
+      ],
+      "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
+      "diagram": {
+        "type": "sequence",
+        "labels": [
+          "Lanci e cisterne",
+          "Rifornimento HLS",
+          "Trasferimento lunare",
+          "Incontro con equipaggio",
+          "Discesa e lavoro al suolo",
+          "Risalita e trasferimento"
+        ],
+        "title": "Architettura funzionale",
+        "description": "Lanci e cisterne → Rifornimento HLS → Trasferimento lunare → Incontro con equipaggio → Discesa e lavoro al suolo → Risalita e trasferimento",
+        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+      },
+      "sections": [
+        [
+          "Come funziona",
+          "HLS deve ricevere propellente, raggiungere la regione lunare, accogliere gli astronauti e riportarli dopo l’attività al suolo. La catena comprende altri veicoli e sistemi: il lander non svolge da solo ogni fase."
+        ],
+        [
+          "Versioni ed evoluzione",
+          "La variante lunare cambia requisiti rispetto a Ship terrestre. Scudo e flap per il rientro atmosferico non rappresentano il problema centrale di una nave destinata al collegamento con la superficie lunare."
+        ],
+        [
+          "Limiti e condizioni d’impiego",
+          "Rifornimento, atterraggio, abitabilità, mobilità e prove senza equipaggio sono dipendenze reali. I calendari NASA indicano obiettivi di programma e possono cambiare in base ai risultati."
+        ]
+      ],
+      "evidence": [
+        [
+          "Dimostrato",
+          "Sviluppo contrattuale e prove di tecnologie collegate."
+        ],
+        [
+          "Dichiarato o previsto",
+          "Missioni lunari secondo l’architettura NASA datata nei capitoli Artemis."
+        ],
+        [
+          "Da verificare",
+          "Dimostrazione senza equipaggio e qualifica per l’allunaggio umano."
+        ]
+      ],
+      "sources": [
+        "starship:hls21",
+        "artemis:iii",
+        "artemis:hls-oig"
+      ],
+      "readings": [
+        [
+          "../../monografie/starship/21-hls.html",
+          "La variante HLS"
+        ],
+        [
+          "../../monografie/artemis/13-starship-hls.html",
+          "HLS nel programma Artemis"
+        ],
+        [
+          "../../monografie/artemis/12-artemis-iv.html",
+          "L’allunaggio da preparare"
+        ]
+      ],
+      "related": [
+        "rifornimento-orbitale",
+        "ship",
+        "scudo-starship"
+      ]
+    },
+    {
+      "id": "starlink-generazioni",
+      "title": "Starlink: generazioni dei satelliti",
+      "family": "Reti",
+      "status": "Operativo",
+      "summary": "Una rete che cambia hardware mentre continua a funzionare. V0.9, V1, V1.5, V2 Mini e V3 descrivono passaggi differenti dalle autorizzazioni Gen2.",
+      "specs": [
+        [
+          "Precedenti",
+          "Tintin, 2018"
+        ],
+        [
+          "Primo grande gruppo",
+          "60 satelliti, maggio 2019"
+        ],
+        [
+          "V1.5",
+          "Introduzione estesa dei collegamenti laser"
+        ],
+        [
+          "V2 Mini",
+          "Versione compatibile con Falcon 9"
+        ],
+        [
+          "V3",
+          "Generazione progettata per Starship"
+        ],
+        [
+          "Gen2",
+          "Categoria autorizzativa, non sinonimo di V2"
+        ]
+      ],
+      "photos": [
+        [
+          "starlink/satelliti-2019.jpg",
+          "Gruppo Starlink del maggio 2019 dopo il lancio, prima del dispiegamento. Non sono satelliti V3."
+        ],
+        [
+          "starlink/treno-satelliti.jpg",
+          "Tracce di un gruppo Starlink: immagine NOIRLab che documenta la visibilità dal suolo, non la copertura Internet."
+        ]
+      ],
+      "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
+      "diagram": {
+        "type": "network",
+        "labels": [
+          "Satelliti in orbita",
+          "Generazioni coesistenti",
+          "Collegamenti fra nodi",
+          "Terminale utente",
+          "Gateway e rete terrestre",
+          "Hardware, servizio e autorizzazioni distinti"
+        ],
+        "title": "Architettura funzionale",
+        "description": "Satelliti in orbita → Generazioni coexistenti → Collegamenti fra nodi → Terminale utente → Gateway e rete terrestre → Hardware, servizio e autorizzazioni distinti",
+        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+      },
+      "sections": [
+        [
+          "Come funziona",
+          "La rete unisce satelliti, terminali, stazioni e gestione a terra. Il passaggio a un nuovo satellite deve essere compatibile con l’insieme: più capacità del veicolo non produce automaticamente la stessa crescita per ogni utente."
+        ],
+        [
+          "Versioni ed evoluzione",
+          "Le sigle hardware e quelle regolatorie seguono criteri differenti. V2 Mini consente il trasporto su Falcon 9, mentre V3 dipende dalla scala Starship; la monografia distingue le prove suborbitali dai dispiegamenti orbitali."
+        ],
+        [
+          "Limiti e condizioni d’impiego",
+          "Autorizzati, costruiti, lanciati e operativi sono conteggi diversi. I dati annuali del costruttore non sono un contatore in tempo reale; le prestazioni annunciate di una generazione non sono misure indipendenti del servizio."
+        ]
+      ],
+      "evidence": [
+        [
+          "Dimostrato",
+          "Servizio con satelliti di più generazioni e infrastruttura a terra."
+        ],
+        [
+          "Dichiarato o previsto",
+          "Caratteristiche e aumenti di capacità delle nuove generazioni pubblicati dall’operatore."
+        ],
+        [
+          "Da verificare",
+          "Qualità del servizio V3 su larga scala e prestazioni nelle diverse condizioni di carico."
+        ]
+      ],
+      "sources": [
+        "starlink:gen2",
+        "starlink:report24",
+        "starlink:v3",
+        "starlink:flight14"
+      ],
+      "readings": [
+        [
+          "../../monografie/starlink/07-generazioni.html",
+          "Le generazioni hardware"
+        ],
+        [
+          "../../monografie/starlink/14-v3-starship.html",
+          "V3 e i voli Starship"
+        ],
+        [
+          "../../monografie/starlink/22-atlante-prospettive.html",
+          "Cronologia e criteri di confronto"
+        ]
+      ],
+      "related": [
+        "starlink-laser",
+        "starlink-terminali",
+        "direct-to-cell"
+      ]
+    },
+    {
+      "id": "starlink-laser",
+      "title": "Collegamenti laser Starlink",
+      "family": "Reti",
+      "status": "Operativo",
+      "summary": "Il percorso ottico fra satelliti permette di instradare traffico sopra oceani e regioni lontane dalle stazioni terrestri. La latenza dipende anche dalla gestione della rete.",
+      "specs": [
+        [
+          "Mezzo",
+          "Collegamenti ottici nello spazio"
+        ],
+        [
+          "Funzione",
+          "Trasporto fra satelliti"
+        ],
+        [
+          "Requisiti",
+          "Puntamento, acquisizione e inseguimento"
+        ],
+        [
+          "Relazione con il terminale",
+          "Il terminale utente resta un collegamento radio"
+        ],
+        [
+          "Riferimento",
+          "V1.5 e generazioni successive, configurazioni distinte"
+        ],
+        [
+          "Latenza",
+          "Propagazione, percorso, elaborazione e code"
+        ]
+      ],
+      "photos": [
+        [
+          "starmind/opals.jpg",
+          "Esperimento ottico OPALS sulla ISS, NASA: un precedente tecnologico, non un terminale laser Starlink."
+        ],
+        [
+          "starlink/satelliti-2019.jpg",
+          "Satelliti del primo gruppo Starlink del 2019. Questa fotografia storica non documenta la dotazione laser delle generazioni successive."
+        ]
+      ],
+      "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
+      "diagram": {
+        "type": "network",
+        "labels": [
+          "Satellite di ingresso",
+          "Percorso laser",
+          "Satellite di uscita",
+          "Collegamento utente",
+          "Gateway / destinazione",
+          "La scelta del percorso influisce sulla latenza"
+        ],
+        "title": "Architettura funzionale",
+        "description": "Satellite di ingresso → Percorso laser → Satellite di uscita → Collegamento utente → Gateway / destinazione → La scelta del percorso influisce sulla latenza",
+        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+      },
+      "sections": [
+        [
+          "Come funziona",
+          "Ogni collegamento deve mantenere il fascio allineato fra nodi in movimento. La rete sceglie il percorso dei pacchetti e cambia le connessioni disponibili durante il moto orbitale. Il fascio fra satelliti non attraversa le nuvole del terminale utente."
+        ],
+        [
+          "Versioni ed evoluzione",
+          "La dotazione ottica è evoluta con le generazioni. Il numero di collegamenti e le capacità dichiarate per V3 non devono essere attribuiti alle fotografie dei primi gruppi lanciati."
+        ],
+        [
+          "Limiti e condizioni d’impiego",
+          "Un percorso nello spazio può evitare lunghe deviazioni terrestri, ma aggiunge passaggi e gestione. La velocità della luce nel vuoto da sola non basta a prevedere il tempo di risposta di una connessione reale."
+        ]
+      ],
+      "evidence": [
+        [
+          "Dimostrato",
+          "Uso di collegamenti ottici intersatellitari nella rete."
+        ],
+        [
+          "Dichiarato o previsto",
+          "Capacità e miglioramenti pubblicati per le generazioni nuove."
+        ],
+        [
+          "Da verificare",
+          "Prestazione effettiva del percorso completo e nei periodi di congestione."
+        ]
+      ],
+      "sources": [
+        "starlink:technology",
+        "starlink:latency",
+        "starlink:v3",
+        "starmind:lcrd"
+      ],
+      "readings": [
+        [
+          "../../monografie/starlink/09-laser.html",
+          "Instradamento e rete laser"
+        ],
+        [
+          "../../monografie/starmind/11-laser.html",
+          "Il laser nella rete di calcolo"
+        ]
+      ],
+      "related": [
+        "starlink-generazioni",
+        "stazioni-terra",
+        "starmind"
+      ]
+    },
+    {
+      "id": "starlink-terminali",
+      "title": "Terminali Starlink",
+      "family": "Reti",
+      "status": "Operativo",
+      "summary": "L’antenna dell’utente è parte del sistema: visibilità del cielo, energia e installazione incidono sul collegamento quanto i satelliti.",
+      "specs": [
+        [
+          "Principio",
+          "Array a fasi con puntamento elettronico"
+        ],
+        [
+          "Collegamento",
+          "Radio fra terminale e satellite"
+        ],
+        [
+          "Modelli",
+          "Standard, Mini e terminali per impieghi specifici"
+        ],
+        [
+          "Potenza media Standard",
+          "75–100 W nella scheda citata"
+        ],
+        [
+          "Requisito esterno",
+          "Campo di vista libero da ostacoli"
+        ],
+        [
+          "Dati",
+          "Riferiti al modello Standard del documento"
+        ]
+      ],
+      "photos": [
+        [
+          "starlink/terminale-alaska.jpg",
+          "Terminale Starlink impiegato in Alaska, US Army National Guard. Il contesto operativo non certifica le prestazioni di tutti i modelli."
+        ],
+        [
+          "starlink/treno-satelliti.jpg",
+          "Satelliti visibili dal suolo: il cielo libero necessario al terminale non è una misura della qualità di servizio."
+        ]
+      ],
+      "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
+      "diagram": {
+        "type": "network",
+        "labels": [
+          "Satelliti disponibili",
+          "Passaggio del servizio",
+          "Fasci e inseguimento",
+          "Antenna dell’utente",
+          "Router e rete locale",
+          "Ostacoli e alimentazione fanno parte del sistema"
+        ],
+        "title": "Architettura funzionale",
+        "description": "Satelliti disponibili → Passaggio del servizio → Fasci e inseguimento → Antenna dell’utente → Router e rete locale → Ostacoli e alimentazione fanno parte del sistema",
+        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+      },
+      "sections": [
+        [
+          "Come funziona",
+          "Il terminale modifica elettronicamente il fascio per seguire il collegamento. Alberi, edifici e altri ostacoli possono interrompere la disponibilità anche quando la rete satellitare è funzionante."
+        ],
+        [
+          "Versioni ed evoluzione",
+          "Dimensioni, consumi e accessori cambiano tra Standard, Mini e altri prodotti. Un dato di potenza di un modello non vale per l’intero catalogo; anche gli usi in movimento dipendono da hardware e servizio abilitati."
+        ],
+        [
+          "Limiti e condizioni d’impiego",
+          "La connessione richiede energia, installazione appropriata e un servizio disponibile nella giurisdizione. Pioggia, neve, congestione e percorso di rete possono incidere sui risultati; la velocità di catalogo non è una garanzia costante."
+        ]
+      ],
+      "evidence": [
+        [
+          "Dimostrato",
+          "Connessione degli utenti tramite terminali dedicati."
+        ],
+        [
+          "Dichiarato o previsto",
+          "Consumi e caratteristiche pubblicati per ciascun modello."
+        ],
+        [
+          "Da verificare",
+          "Prestazioni del singolo luogo e condizioni del contratto di servizio."
+        ]
+      ],
+      "sources": [
+        "standard",
+        "starlink:technology",
+        "starlink:terms"
+      ],
+      "readings": [
+        [
+          "../../monografie/starlink/08-terminali.html",
+          "Antenna, installazione ed energia"
+        ],
+        [
+          "../../monografie/starlink/11-servizi.html",
+          "Case, navi, aerei ed emergenze"
+        ]
+      ],
+      "related": [
+        "stazioni-terra",
+        "starlink-laser",
+        "direct-to-cell"
+      ]
+    },
+    {
+      "id": "direct-to-cell",
+      "title": "Direct to Cell",
+      "family": "Reti",
+      "status": "Operativo",
+      "summary": "Un collegamento mobile diretto fra satellite e telefono compatibile, costruito insieme agli operatori. Servizi, frequenze e disponibilità dipendono dal mercato.",
+      "specs": [
+        [
+          "Terminale",
+          "Telefono compatibile, secondo il servizio"
+        ],
+        [
+          "Interfaccia",
+          "Tecnologia mobile e frequenze autorizzate"
+        ],
+        [
+          "Integrazione",
+          "Operatori mobili partner"
+        ],
+        [
+          "Differenza da Starlink tradizionale",
+          "Nessuna antenna domestica dedicata"
+        ],
+        [
+          "Servizi",
+          "Messaggi, dati o voce secondo paese e fase"
+        ],
+        [
+          "Ambito",
+          "Disponibilità da verificare per mercato"
+        ]
+      ],
+      "photos": [
+        [
+          "starlink/satelliti-2019.jpg",
+          "Satelliti Starlink del 2019: fotografia di contesto della rete, non hardware Direct to Cell."
+        ],
+        [
+          "starlink/terminale-alaska.jpg",
+          "Un terminale Starlink dedicato in Alaska. Direct to Cell usa un’altra modalità di accesso, senza questa antenna domestica."
+        ]
+      ],
+      "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
+      "diagram": {
+        "type": "network",
+        "labels": [
+          "Satellite mobile",
+          "Rete nello spazio",
+          "Operatore partner",
+          "Telefono compatibile",
+          "Rete mobile e servizi",
+          "Frequenze e servizi dipendono dal mercato"
+        ],
+        "title": "Architettura funzionale",
+        "description": "Satellite mobile → Rete nello spazio → Operatore partner → Telefono compatibile → Rete mobile e servizi → Frequenze e servizi dipendono dal mercato",
+        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+      },
+      "sections": [
+        [
+          "Come funziona",
+          "Il satellite svolge una funzione di accesso mobile e si integra con la rete dell’operatore. Il collegamento deve gestire distanza, movimento, potenza disponibile sul telefono e compatibilità del servizio."
+        ],
+        [
+          "Versioni ed evoluzione",
+          "I primi servizi e le generazioni successive hanno obiettivi diversi. Una prova o un’autorizzazione per messaggi non implica automaticamente voce e accesso dati equivalenti a una cella terrestre."
+        ],
+        [
+          "Limiti e condizioni d’impiego",
+          "Regole sulle frequenze e accordi commerciali contano quanto l’hardware. La disponibilità annunciata in un paese non si estende a tutti gli utenti; i limiti del collegamento diretto non coincidono con quelli di una parabola Starlink."
+        ]
+      ],
+      "evidence": [
+        [
+          "Dimostrato",
+          "Servizi e prove descritti dall’operatore per mercati specifici."
+        ],
+        [
+          "Dichiarato o previsto",
+          "Espansione dei servizi e nuove generazioni mobile."
+        ],
+        [
+          "Da verificare",
+          "Compatibilità, copertura e prestazioni nel paese e nel piano dell’utente."
+        ]
+      ],
+      "sources": [
+        "starlink:operators",
+        "starlink:tmobile",
+        "starlink:updates"
+      ],
+      "readings": [
+        [
+          "../../monografie/starlink/12-direct-to-cell.html",
+          "Operatori e collegamento diretto"
+        ],
+        [
+          "../../monografie/starlink/21-potere-regole.html",
+          "Frequenze e responsabilità pubbliche"
+        ]
+      ],
+      "related": [
+        "starlink-generazioni",
+        "starlink-terminali",
+        "stazioni-terra"
+      ]
+    },
+    {
+      "id": "starmind",
+      "title": "Starmind e AI1",
+      "family": "Programmi",
+      "status": "In sviluppo",
+      "summary": "Il progetto SpaceX per il calcolo IA in orbita. Processori, energia, radiatori, rete e lancio formano un unico sistema da dimostrare.",
+      "specs": [
+        [
+          "Programma",
+          "Calcolo orbitale SpaceXAI / Starmind"
+        ],
+        [
+          "Veicolo descritto",
+          "AI1, scheda progettuale datata"
+        ],
+        [
+          "Processori",
+          "Adattamento di architetture terrestri"
+        ],
+        [
+          "Energia",
+          "Pannelli solari e gestione elettrica"
+        ],
+        [
+          "Calore",
+          "Trasferimento interno e radiazione verso lo spazio"
+        ],
+        [
+          "Stato regolatorio",
+          "Domanda e istruttoria da distinguere dall’autorizzazione"
+        ]
+      ],
+      "photos": [
+        [
+          "starmind/spaceborne.jpg",
+          "Spaceborne Computer-2 sulla ISS, NASA: precedente di calcolo orbitale, non satellite AI1."
+        ],
+        [
+          "starmind/radiatori-iss.jpg",
+          "Radiatori della ISS: esempio documentario di smaltimento del calore nello spazio, non progetto Starmind."
+        ]
+      ],
+      "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
+      "diagram": {
+        "type": "sequence",
+        "labels": [
+          "Energia solare",
+          "Distribuzione e accumulo",
+          "Processori e memoria",
+          "Rete ottica e dati",
+          "Trasporto del calore",
+          "Radiatori verso lo spazio"
+        ],
+        "title": "Architettura funzionale",
+        "description": "Energia solare → Distribuzione e accumulo → Processori e memoria → Rete ottica e dati → Trasporto del calore → Radiatori verso lo spazio",
+        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+      },
+      "sections": [
+        [
+          "Come funziona",
+          "Il computer assorbe energia e produce calore. Nel vuoto esterno manca la convezione con l’aria: il calore deve essere portato alle superfici radianti. I laser e la rete determinano dove arrivano i dati e dove torna il risultato."
+        ],
+        [
+          "Versioni ed evoluzione",
+          "AI1 e gli obiettivi Gigasat appartengono al progetto descritto nelle fonti datate. Le esperienze di calcolo dentro la ISS operano in un ambiente differente da un satellite autonomo con grandi strutture dispiegabili."
+        ],
+        [
+          "Limiti e condizioni d’impiego",
+          "Una piattaforma terrestre non conserva automaticamente prestazioni e consumi dopo l’adattamento orbitale. Radiazioni, dispiegamento, manutenzione, fine vita e costo dei lanci restano parti del problema."
+        ]
+      ],
+      "evidence": [
+        [
+          "Dimostrato",
+          "Precedenti di calcolo nello spazio, descritti per i rispettivi programmi."
+        ],
+        [
+          "Dichiarato o previsto",
+          "Architettura AI1 e obiettivi industriali pubblicati dai proponenti."
+        ],
+        [
+          "Da verificare",
+          "Qualifica del sistema autonomo, servizio su larga scala e sostenibilità economica."
+        ]
+      ],
+      "sources": [
+        "starmind:starmind",
+        "starmind:fcc",
+        "starmind:nvidia",
+        "starmind:thermal"
+      ],
+      "readings": [
+        [
+          "../../monografie/starmind/04-ai1.html",
+          "La scheda AI1 e i suoi limiti"
+        ],
+        [
+          "../../monografie/starmind/09-calore.html",
+          "Perché il vuoto non porta via il calore"
+        ],
+        [
+          "../../monografie/starmind/24-bilancio.html",
+          "Che cosa resta da dimostrare"
+        ]
+      ],
+      "related": [
+        "starlink-laser",
+        "ship",
+        "redmond"
+      ]
+    },
+    {
+      "id": "starbase",
+      "title": "Starbase",
+      "family": "Infrastrutture",
+      "status": "Operativo",
+      "summary": "Il polo texano in cui produzione, prove e lanci Starship si incontrano. Una mappa datata deve distinguere edifici industriali, aree di prova e rampe.",
+      "specs": [
+        [
+          "Luogo",
+          "Boca Chica, Texas"
+        ],
+        [
+          "Funzioni",
+          "Produzione, integrazione, prove e lancio"
+        ],
+        [
+          "Sistema",
+          "Starship / Super Heavy"
+        ],
+        [
+          "Infrastrutture di lancio",
+          "Rampe, torri e impianti associati"
+        ],
+        [
+          "Ambito della scheda",
+          "Funzioni, non planimetria costruttiva"
+        ],
+        [
+          "Riferimento",
+          "Atlante Starbase della monografia, datato"
+        ]
+      ],
+      "photos": [
+        [
+          "starship/ift5-ignition.jpg",
+          "Flight 5 a Starbase, ottobre 2024: rampa e sistema al momento dell’accensione."
+        ],
+        [
+          "pad-boca1",
+          "Torre e piattaforma orbitale di Starbase il 14 marzo 2023, Jenny Hautmann. Configurazione storica del sito."
+        ]
+      ],
+      "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
+      "diagram": {
+        "type": "sequence",
+        "labels": [
+          "Produzione degli elementi",
+          "Integrazione dei veicoli",
+          "Prove e verifiche",
+          "Trasporto alla rampa",
+          "Rifornimento e lancio",
+          "Rientro e ispezioni"
+        ],
+        "title": "Architettura funzionale",
+        "description": "Produzione degli elementi → Integrazione dei veicoli → Prove e verifiche → Trasporto alla rampa → Rifornimento e lancio → Rientro e ispezioni",
+        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+      },
+      "sections": [
+        [
+          "Come funziona",
+          "Il sito collega una filiera industriale con operazioni di volo. Costruire un veicolo, provarlo e lanciarlo sono funzioni distinte, anche quando si trovano nello stesso territorio. Le torri partecipano alle operazioni e alla cattura."
+        ],
+        [
+          "Versioni ed evoluzione",
+          "Boca Chica nacque con un progetto diverso e divenne il centro Starship. Edifici, piazzali e rampe sono cambiati durante lo sviluppo: una fotografia storica non ricostruisce la situazione attuale."
+        ],
+        [
+          "Limiti e condizioni d’impiego",
+          "Viabilità, autorizzazioni, ambiente e sicurezza influenzano le attività. Il numero delle rampe non è una misura della cadenza ottenibile, che dipende anche da produzione, prove e disponibilità dei veicoli."
+        ]
+      ],
+      "evidence": [
+        [
+          "Dimostrato",
+          "Produzione, prove e lanci integrati dal sito."
+        ],
+        [
+          "Dichiarato o previsto",
+          "Espansione industriale e nuove infrastrutture nei programmi pubblicati."
+        ],
+        [
+          "Da verificare",
+          "Cadenza stabile e compatibilità di tutte le attività con i vincoli del territorio."
+        ]
+      ],
+      "sources": [
+        "starship:faa",
+        "starship:faa2026"
+      ],
+      "readings": [
+        [
+          "../../monografie/starship/09-boca-chica.html",
+          "Come Boca Chica divenne Starbase"
+        ],
+        [
+          "../../monografie/starship/10-atlante-starbase.html",
+          "Mappa e funzioni del polo"
+        ],
+        [
+          "../../monografie/starship/23-territorio.html",
+          "Il territorio e le autorizzazioni"
+        ]
+      ],
+      "related": [
+        "super-heavy",
+        "recupero-starship",
+        "cape-canaveral"
+      ]
+    },
+    {
+      "id": "cape-canaveral",
+      "title": "Cape Canaveral e Kennedy",
+      "family": "Infrastrutture",
+      "status": "Operativo",
+      "summary": "Il sistema di siti della Florida per Falcon 9, Falcon Heavy e Dragon. Kennedy Space Center e Cape Canaveral Space Force Station sono aree e amministrazioni differenti.",
+      "specs": [
+        [
+          "Regione",
+          "Costa atlantica della Florida"
+        ],
+        [
+          "LC-39A",
+          "Kennedy Space Center"
+        ],
+        [
+          "SLC-40",
+          "Cape Canaveral Space Force Station"
+        ],
+        [
+          "Impieghi Falcon",
+          "Satellite, cargo e missioni umane secondo rampa"
+        ],
+        [
+          "Falcon Heavy nella guida 2025",
+          "LC-39A"
+        ],
+        [
+          "Vincoli",
+          "Range, meteo, traiettorie e infrastrutture"
+        ]
+      ],
+      "photos": [
+        [
+          "heavy-pad",
+          "Falcon Heavy a LC-39A nel dicembre 2017: preparazione al debutto, non vista di SLC-40."
+        ],
+        [
+          "pad-lc39a",
+          "LC-39A nel giugno 2019, NASA/Kim Shiflett. La fotografia non rappresenta SLC-40."
+        ]
+      ],
+      "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
+      "diagram": {
+        "type": "sequence",
+        "labels": [
+          "Integrazione del carico",
+          "Trasporto alla rampa",
+          "Range e autorizzazioni",
+          "Rifornimento e conto alla rovescia",
+          "Ascesa sulla traiettoria",
+          "Recupero secondo missione"
+        ],
+        "title": "Architettura funzionale",
+        "description": "Integrazione del carico → Trasporto alla rampa → Range e autorizzazioni → Rifornimento e conto alla rovescia → Ascesa sulla traiettoria → Recupero secondo missione",
+        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+      },
+      "sections": [
+        [
+          "Come funziona",
+          "Le rampe comprendono collegamenti elettrici, fluidi, strutture di accesso e sistemi di sicurezza. La scelta del sito dipende dalla missione e dalle interfacce disponibili, non soltanto dal lanciatore."
+        ],
+        [
+          "Versioni ed evoluzione",
+          "LC-39A conserva una storia Apollo e Shuttle ed è stata adattata da SpaceX. SLC-40 ha una storia e una configurazione proprie. Nuovi progetti e ampliamenti non vanno confusi con servizi già operativi."
+        ],
+        [
+          "Limiti e condizioni d’impiego",
+          "Il meteo di lancio può essere accettabile mentre quello nelle aree di emergenza Dragon non lo è. La gestione dello spazio aereo e marittimo e la disponibilità del range condizionano il calendario."
+        ]
+      ],
+      "evidence": [
+        [
+          "Dimostrato",
+          "Lanci Falcon, missioni Dragon e servizio Falcon Heavy a LC-39A."
+        ],
+        [
+          "Dichiarato o previsto",
+          "Modifiche ed espansioni delle infrastrutture secondo i programmi autorizzati."
+        ],
+        [
+          "Da verificare",
+          "La disponibilità di una nuova rampa richiede prove e qualifica specifiche."
+        ]
+      ],
+      "sources": [
+        "falcon",
+        "return",
+        "starship:florida"
+      ],
+      "readings": [
+        [
+          "../../monografie/crew-dragon/08-demo2.html",
+          "Demo-2 dalla rampa al volo"
+        ],
+        [
+          "../../monografie/starship/11-torri-pad.html",
+          "Le infrastrutture oltre il Texas"
+        ]
+      ],
+      "related": [
+        "falcon-9",
+        "falcon-heavy",
+        "recupero-falcon"
+      ]
+    },
+    {
+      "id": "vandenberg",
+      "title": "Vandenberg",
+      "family": "Infrastrutture",
+      "status": "Operativo",
+      "summary": "Il sito californiano che permette traiettorie utili per molte orbite polari ed eliosincrone. La geografia offre opportunità e impone vincoli.",
+      "specs": [
+        [
+          "Luogo",
+          "Costa della California"
+        ],
+        [
+          "Rampa Falcon 9 documentata",
+          "SLC-4E"
+        ],
+        [
+          "Range",
+          "Western Range"
+        ],
+        [
+          "Traiettorie tipiche",
+          "Polari ed eliosincrone, secondo missione"
+        ],
+        [
+          "Recupero",
+          "Terra o nave secondo profilo"
+        ],
+        [
+          "Falcon Heavy",
+          "Progetti infrastrutturali distinti dagli impieghi verificati"
+        ]
+      ],
+      "photos": [
+        [
+          "pad-slc4e",
+          "Falcon 9 durante NROL-87 da SLC-4E a Vandenberg, 2 febbraio 2022, U.S. Space Force/Michael Peterson."
+        ],
+        [
+          "starlink/terminale-alaska.jpg",
+          "Terminale in Alaska: contesto dell’utilità di reti che servono regioni ad alta latitudine, non immagine del sito californiano."
+        ]
+      ],
+      "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
+      "diagram": {
+        "type": "sequence",
+        "labels": [
+          "Missione e orbita",
+          "Scelta della traiettoria",
+          "Integrazione a SLC-4E",
+          "Autorizzazione del range",
+          "Lancio verso il Pacifico",
+          "Recupero previsto"
+        ],
+        "title": "Architettura funzionale",
+        "description": "Missione e orbita → Scelta della traiettoria → Integrazione a SLC-4E → Autorizzazione del range → Lancio verso il Pacifico → Recupero previsto",
+        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+      },
+      "sections": [
+        [
+          "Come funziona",
+          "Per raggiungere un’orbita conta la direzione dell’ascesa rispetto alla rotazione terrestre e alle aree sorvolabili. La costa pacifica rende disponibili traiettorie differenti da quelle della Florida."
+        ],
+        [
+          "Versioni ed evoluzione",
+          "SLC-4E è la rampa Falcon 9 descritta nella guida del 2025. Il sito e altre aree di lancio hanno una storia distinta; un progetto su SLC-6 non autorizza a contare automaticamente voli Falcon Heavy operativi da lì."
+        ],
+        [
+          "Limiti e condizioni d’impiego",
+          "Orbite polari ed eliosincrone non sono sinonimi: l’eliosincronia richiede parametri specifici. Il carico e i margini di recupero dipendono dalla traiettoria; non ogni missione verso nord usa lo stesso profilo."
+        ]
+      ],
+      "evidence": [
+        [
+          "Dimostrato",
+          "Lanci Falcon 9 dal sito californiano."
+        ],
+        [
+          "Dichiarato o previsto",
+          "Sviluppi di altre infrastrutture secondo documenti e autorizzazioni datati."
+        ],
+        [
+          "Da verificare",
+          "Qualifica delle nuove installazioni e del relativo servizio."
+        ]
+      ],
+      "sources": [
+        "falcon",
+        "rockets"
+      ],
+      "readings": [
+        [
+          "../../monografie/starlink/10-fabbrica-lanci.html",
+          "La rete e la scelta dei lanci"
+        ],
+        [
+          "../../documenti%20per%20sito/falcon9_block5_2018_inizio_dominio.html",
+          "Block 5 e le operazioni su due coste"
+        ]
+      ],
+      "related": [
+        "falcon-9",
+        "cape-canaveral",
+        "recupero-falcon"
+      ]
+    },
+    {
+      "id": "mcgregor",
+      "title": "McGregor",
+      "family": "Infrastrutture",
+      "status": "Operativo",
+      "summary": "Il centro texano di prove dei motori SpaceX. Il collaudo a terra produce dati essenziali, ma deve essere collegato alla configurazione che volerà.",
+      "specs": [
+        [
+          "Luogo",
+          "McGregor, Texas"
+        ],
+        [
+          "Funzione",
+          "Prove propulsive e accettazione"
+        ],
+        [
+          "Famiglie coinvolte",
+          "Motori SpaceX, secondo programma"
+        ],
+        [
+          "Riferimento NASA",
+          "Prove Merlin per Crew-1, 2020"
+        ],
+        [
+          "Misure",
+          "Comportamento durante accensione e funzionamento"
+        ],
+        [
+          "Cadenza e numero di banchi",
+          "Non stimati in questa scheda"
+        ]
+      ],
+      "photos": [
+        [
+          "starship/raptor-2016.jpg",
+          "Prova del prototipo Raptor nel settembre 2016: documento della fase iniziale di sviluppo propulsivo."
+        ],
+        [
+          "crew-dragon/demo2-decollo.jpg",
+          "Demo-2 nel 2020: il volo richiede dati di collaudo e verifiche della configurazione installata."
+        ]
+      ],
+      "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
+      "diagram": {
+        "type": "sequence",
+        "labels": [
+          "Motore e configurazione",
+          "Installazione al banco",
+          "Accensione controllata",
+          "Misure e registrazione",
+          "Analisi e accettazione",
+          "Integrazione sul veicolo"
+        ],
+        "title": "Architettura funzionale",
+        "description": "Motore e configurazione → Installazione al banco → Accensione controllata → Misure e registrazione → Analisi e accettazione → Integrazione sul veicolo",
+        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+      },
+      "sections": [
+        [
+          "Come funziona",
+          "Un banco riproduce condizioni definite e misura la risposta del motore. Le prove di sviluppo cercano margini e problemi; quelle di accettazione verificano che l’esemplare soddisfi i criteri richiesti. Sono attività con finalità diverse."
+        ],
+        [
+          "Versioni ed evoluzione",
+          "McGregor accompagna la storia dei Falcon e delle nuove famiglie propulsive. La documentazione NASA per Crew-1 mostra il ruolo della revisione dei dati Merlin, non la capacità produttiva attuale dell’intero sito."
+        ],
+        [
+          "Limiti e condizioni d’impiego",
+          "Un banco non riproduce ogni condizione del volo: integrazione, vibrazioni, alimentazione e sequenze del veicolo richiedono ulteriori verifiche. Il numero di accensioni non equivale al numero di motori prodotti."
+        ]
+      ],
+      "evidence": [
+        [
+          "Dimostrato",
+          "Prove propulsive e revisione dei dati a supporto delle missioni."
+        ],
+        [
+          "Dichiarato o previsto",
+          "Evoluzione dei motori e dei relativi impianti di collaudo."
+        ],
+        [
+          "Da verificare",
+          "Ritmi industriali e capacità dei banchi non ricostruiti da fotografie."
+        ]
+      ],
+      "sources": [
+        "merlin",
+        "falcon",
+        "starship:propulsion"
+      ],
+      "readings": [
+        [
+          "../../monografie/starship/07-raptor-evoluzione.html",
+          "Prove ed evoluzione Raptor"
+        ],
+        [
+          "../../monografie/crew-dragon/04-ritardi-certificazione.html",
+          "Dati, controlli e certificazione"
+        ]
+      ],
+      "related": [
+        "merlin",
+        "raptor",
+        "hawthorne"
+      ]
+    },
+    {
+      "id": "hawthorne",
+      "title": "Hawthorne",
+      "family": "Infrastrutture",
+      "status": "Operativo",
+      "summary": "Il polo californiano legato a progettazione e produzione della famiglia Falcon e Dragon. È un anello industriale distinto dalle rampe e dai siti di prova.",
+      "specs": [
+        [
+          "Luogo",
+          "Hawthorne, California"
+        ],
+        [
+          "Ruolo storico",
+          "Sede e polo industriale SpaceX"
+        ],
+        [
+          "Famiglie documentate",
+          "Falcon e Dragon"
+        ],
+        [
+          "Relazione con McGregor",
+          "Produzione e prove sono funzioni distinte"
+        ],
+        [
+          "Relazione con le rampe",
+          "Trasporto e integrazione di missione"
+        ],
+        [
+          "Riferimento",
+          "Guida Falcon v8, impianti industriali"
+        ]
+      ],
+      "photos": [
+        [
+          "crew-dragon/demo1-preflight.jpg",
+          "Capsula preparata per Demo-1 nel 2019: prodotto della famiglia Dragon, non fotografia della fabbrica di Hawthorne."
+        ],
+        [
+          "crew-dragon/demo2-decollo.jpg",
+          "Falcon 9 per Demo-2: il risultato in volo di una filiera con produzione, prove e operazioni distribuite."
+        ]
+      ],
+      "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
+      "diagram": {
+        "type": "sequence",
+        "labels": [
+          "Progettazione",
+          "Fornitori e componenti",
+          "Produzione e assemblaggio",
+          "Prove e accettazione",
+          "Trasporto al sito di lancio",
+          "Integrazione di missione"
+        ],
+        "title": "Architettura funzionale",
+        "description": "Progettazione → Fornitori e componenti → Produzione e assemblaggio → Prove e accettazione → Trasporto al sito di lancio → Integrazione di missione",
+        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+      },
+      "sections": [
+        [
+          "Come funziona",
+          "La produzione coordina strutture, propulsione, avionica e veicoli. La filiera continua fuori dallo stabilimento: motori e sistemi vengono provati, trasportati e integrati per la missione."
+        ],
+        [
+          "Versioni ed evoluzione",
+          "La crescita SpaceX ha distribuito nuove attività in altri poli. Hawthorne non descrive da sola l’insieme dell’azienda e non deve essere usata come sinonimo delle fabbriche Starship o satellitari."
+        ],
+        [
+          "Limiti e condizioni d’impiego",
+          "La produzione effettiva dipende da fornitori, lavorazioni e verifiche. Una vista di uno stabilimento non dimostra capacità annua, costo unitario o numero di esemplari accettati."
+        ]
+      ],
+      "evidence": [
+        [
+          "Dimostrato",
+          "Polo industriale Falcon e Dragon descritto nella documentazione."
+        ],
+        [
+          "Dichiarato o previsto",
+          "Organizzazione distribuita delle attività industriali."
+        ],
+        [
+          "Da verificare",
+          "Capacità produttiva attuale e organico, non stimati nel catalogo."
+        ]
+      ],
+      "sources": [
+        "falcon",
+        "crew"
+      ],
+      "readings": [
+        [
+          "../../documenti%20per%20sito/fondazione_spacex_fino_primo_falcon1.html",
+          "La formazione dell’azienda"
+        ],
+        [
+          "../../monografie/crew-dragon/03-sviluppo-prove.html",
+          "Dallo sviluppo alle prove della capsula"
+        ]
+      ],
+      "related": [
+        "mcgregor",
+        "redmond",
+        "starbase"
+      ]
+    },
+    {
+      "id": "redmond",
+      "title": "Redmond e produzione Starlink",
+      "family": "Infrastrutture",
+      "status": "Operativo",
+      "summary": "Il polo dello stato di Washington legato allo sviluppo e alla produzione Starlink. Fabbrica, rete e cadenza dei lanci sono parti della stessa attività industriale.",
+      "specs": [
+        [
+          "Regione",
+          "Stato di Washington, area Seattle / Redmond"
+        ],
+        [
+          "Programma",
+          "Starlink"
+        ],
+        [
+          "Funzione",
+          "Sviluppo e produzione dei satelliti"
+        ],
+        [
+          "Prodotto",
+          "Generazioni diverse, non un unico modello"
+        ],
+        [
+          "Logistica",
+          "Integrazione dei gruppi e trasporto al lancio"
+        ],
+        [
+          "Ritmo produttivo",
+          "Da leggere soltanto in fonti e periodi definiti"
+        ]
+      ],
+      "photos": [
+        [
+          "starlink/satelliti-2019.jpg",
+          "Primo gruppo di satelliti Starlink del 2019: prodotto storico della filiera, non fotografia dello stabilimento."
+        ],
+        [
+          "starmind/celle-laboratorio.jpg",
+          "Laboratorio NASA sulle celle solari: contesto del lavoro sui componenti spaziali, non un reparto SpaceX a Redmond."
+        ]
+      ],
+      "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
+      "diagram": {
+        "type": "sequence",
+        "labels": [
+          "Progetto del satellite",
+          "Fornitori e componenti",
+          "Produzione seriale",
+          "Test e accettazione",
+          "Preparazione del gruppo",
+          "Lancio e ingresso in rete"
+        ],
+        "title": "Architettura funzionale",
+        "description": "Progetto del satellite → Fornitori e componenti → Produzione seriale → Test e accettazione → Preparazione del gruppo → Lancio e ingresso in rete",
+        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+      },
+      "sections": [
+        [
+          "Come funziona",
+          "La produzione seriale deve rendere ripetibili assemblaggio e verifica. Un satellite nuovo deve funzionare nello spazio e integrarsi con la rete; la produzione fisica è soltanto una parte del percorso verso il servizio."
+        ],
+        [
+          "Versioni ed evoluzione",
+          "Il progetto satellitare nacque nell’area di Seattle e attraversò riorganizzazioni prima della crescita. I passaggi V1, V2 Mini e V3 cambiano dimensioni e fabbisogni della filiera."
+        ],
+        [
+          "Limiti e condizioni d’impiego",
+          "La cadenza di fabbrica deve coordinarsi con trasporto, lanci e sostituzione della flotta. I numeri settimanali pubblicati per un anno non sono un indicatore permanente della produzione, né una stima della futura Gigasat."
+        ]
+      ],
+      "evidence": [
+        [
+          "Dimostrato",
+          "Produzione e lanci seriali a supporto della rete Starlink."
+        ],
+        [
+          "Dichiarato o previsto",
+          "Obiettivi industriali comunicati nei rapporti annuali."
+        ],
+        [
+          "Da verificare",
+          "Capacità futura per nuove generazioni, da verificare con risultati e periodo."
+        ]
+      ],
+      "sources": [
+        "starlink:cooper",
+        "starlink:gen2",
+        "starlink:report24"
+      ],
+      "readings": [
+        [
+          "../../monografie/starlink/03-nascita.html",
+          "La nascita del polo satellitare"
+        ],
+        [
+          "../../monografie/starlink/10-fabbrica-lanci.html",
+          "Fabbrica, lanci e ricambio"
+        ],
+        [
+          "../../monografie/starmind/16-gigasat.html",
+          "Gigasat è un programma industriale distinto"
+        ]
+      ],
+      "related": [
+        "starlink-generazioni",
+        "starmind",
+        "hawthorne"
+      ]
+    },
+    {
+      "id": "recupero-falcon",
+      "title": "Recupero dei booster Falcon",
+      "family": "Operazioni",
+      "status": "Operativo",
+      "summary": "Il percorso che porta il primo stadio dal volo a una nuova missione: rientro, atterraggio, trasporto, ispezioni e preparazione al rivolo.",
+      "specs": [
+        [
+          "Veicoli",
+          "Falcon 9 e core Falcon Heavy"
+        ],
+        [
+          "Tecniche",
+          "Controllo aerodinamico e accensioni di rientro"
+        ],
+        [
+          "Superficie",
+          "Zona a terra oppure nave autonoma"
+        ],
+        [
+          "Appoggio",
+          "Gambe di atterraggio"
+        ],
+        [
+          "Primo atterraggio Falcon 9 a terra",
+          "Dicembre 2015"
+        ],
+        [
+          "Primo rivolo di un booster orbitale Falcon 9",
+          "Marzo 2017"
+        ]
+      ],
+      "photos": [
+        [
+          "heavy-return",
+          "Ritorno dei due laterali Falcon Heavy nel 2018. Composizione fotografica dei due atterraggi."
+        ],
+        [
+          "starlink/lancio-2019.jpg",
+          "Un lancio Starlink del 2019: cadenza e riuso si incontrano nelle missioni ripetute della rete."
+        ]
+      ],
+      "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
+      "diagram": {
+        "type": "sequence",
+        "labels": [
+          "Separazione del booster",
+          "Profilo di ritorno",
+          "Frenata e controllo",
+          "Atterraggio su terra / nave",
+          "Trasporto e ispezione",
+          "Preparazione al rivolo"
+        ],
+        "title": "Architettura funzionale",
+        "description": "Separazione del booster → Profilo di ritorno → Frenata e controllo → Atterraggio su terra / nave → Trasporto e ispezione → Preparazione al rivolo",
+        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+      },
+      "sections": [
+        [
+          "Come funziona",
+          "Il booster mantiene una riserva di propellente e controlla la discesa. La nave permette un atterraggio lontano dalla rampa; il ritorno a terra richiede condizioni di traiettoria differenti. Dopo l’atterraggio comincia il lavoro che rende possibile il riuso."
+        ],
+        [
+          "Versioni ed evoluzione",
+          "Atterrare, recuperare un esemplare e farlo volare di nuovo sono traguardi separati. Il centrale Falcon Heavy affronta condizioni diverse dai laterali; una configurazione a perdere può essere necessaria alla missione."
+        ],
+        [
+          "Limiti e condizioni d’impiego",
+          "Numero di atterraggi e numero di booster distinti non sono la stessa misura. Un booster può compiere molti voli; il costo non si ricava dalla sola frequenza senza dati di manutenzione e sostituzione."
+        ]
+      ],
+      "evidence": [
+        [
+          "Dimostrato",
+          "Atterraggi e rivoli ripetuti dei primi stadi Falcon."
+        ],
+        [
+          "Dichiarato o previsto",
+          "Strategie di recupero scelte per le condizioni di missione."
+        ],
+        [
+          "Da verificare",
+          "Costo completo del ricondizionamento e vita residua dei componenti."
+        ]
+      ],
+      "sources": [
+        "falcon",
+        "heavy"
+      ],
+      "readings": [
+        [
+          "../../documenti%20per%20sito/primo_atterraggio_falcon9_2015.html",
+          "Il primo atterraggio"
+        ],
+        [
+          "../../documenti%20per%20sito/falcon9_2017_riutilizzo_accelerazione.html",
+          "Il primo rivolo e l’accelerazione"
+        ],
+        [
+          "../../documenti%20per%20sito/falcon_heavy_2018_debutto_potenza.html",
+          "Laterali e centrale Falcon Heavy"
+        ]
+      ],
+      "related": [
+        "falcon-9",
+        "falcon-heavy",
+        "recupero-starship"
+      ]
+    },
+    {
+      "id": "recupero-starship",
+      "title": "Recupero del sistema Starship",
+      "family": "Operazioni",
+      "status": "Sperimentale",
+      "summary": "La cattura del booster e il ritorno della nave sono due problemi diversi. Il riuso completo richiede che entrambi tornino in condizioni adatte a una nuova missione.",
+      "specs": [
+        [
+          "Booster",
+          "Rientro propulsivo e cattura alla torre"
+        ],
+        [
+          "Nave",
+          "Scudo, flap e manovre di ritorno"
+        ],
+        [
+          "Prima cattura Super Heavy",
+          "13 ottobre 2024, Flight 5"
+        ],
+        [
+          "Ammaraggio",
+          "Può essere un obiettivo di prova, non riuso"
+        ],
+        [
+          "Recupero dopo il volo",
+          "Da distinguere dal rivolo"
+        ],
+        [
+          "Riferimento",
+          "Registro integrato datato al 10 ottobre 2026"
+        ]
+      ],
+      "photos": [
+        [
+          "starship/ift5-approach.jpg",
+          "Prima cattura Super Heavy in Flight 5, Steve Jurvetson, ottobre 2024."
+        ],
+        [
+          "starship/sn15.jpg",
+          "Flap e superficie SN15 nel 2021: fase sperimentale precedente ai rientri integrati."
+        ]
+      ],
+      "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
+      "diagram": {
+        "type": "sequence",
+        "labels": [
+          "Separazione dei due stadi",
+          "Booster verso la torre",
+          "Ship affronta il rientro",
+          "Ritorno nella zona prevista",
+          "Recupero e ispezioni",
+          "Qualifica per il rivolo"
+        ],
+        "title": "Architettura funzionale",
+        "description": "Separazione dei due stadi → Booster verso la torre → Ship affronta il rientro → Ritorno nella zona prevista → Recupero e ispezioni → Qualifica per il rivolo",
+        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+      },
+      "sections": [
+        [
+          "Come funziona",
+          "Il booster torna dopo una traiettoria diversa da quella della nave. La torre deve essere pronta a riceverlo, mentre Ship affronta riscaldamento e controllo atmosferico. Un successo di uno stadio non dimostra il risultato dell’altro."
+        ],
+        [
+          "Versioni ed evoluzione",
+          "Le campagne hanno aggiunto ammaraggi controllati, catture e nuove configurazioni. Il registro dei voli conserva gli esiti separati di booster e nave invece di assegnare un unico successo a ogni tentativo."
+        ],
+        [
+          "Limiti e condizioni d’impiego",
+          "Un veicolo recuperato dopo un ammaraggio può richiedere lavorazioni molto diverse da uno catturato. Tempi, integrità e costo del ricondizionamento sono parte della verifica del riuso; recuperare un relitto o una nave non dimostra un rivolo."
+        ]
+      ],
+      "evidence": [
+        [
+          "Dimostrato",
+          "Cattura del booster e risultati di rientro documentati per ciascun volo."
+        ],
+        [
+          "Dichiarato o previsto",
+          "Riuso rapido di entrambi gli stadi come obiettivo del sistema."
+        ],
+        [
+          "Da verificare",
+          "Ciclo regolare completo: recupero, manutenzione, rilancio e costo."
+        ]
+      ],
+      "sources": [
+        "starship:vehicle",
+        "starlink:flight14",
+        "starship:snreport"
+      ],
+      "readings": [
+        [
+          "../../monografie/starship/15-rientro-cattura.html",
+          "Rientri e cattura"
+        ],
+        [
+          "../../monografie/starship/18-registro.html",
+          "Registro con esiti separati"
+        ],
+        [
+          "../../monografie/starship/19-riutilizzo.html",
+          "Recuperare e riutilizzare"
+        ]
+      ],
+      "related": [
+        "super-heavy",
+        "ship",
+        "scudo-starship"
+      ]
+    },
+    {
+      "id": "stazioni-terra",
+      "title": "Stazioni a terra Starlink",
+      "family": "Reti",
+      "status": "Operativo",
+      "summary": "L’infrastruttura che collega la rete satellitare a quella terrestre. I laser estendono i percorsi disponibili, ma non eliminano la necessità di raggiungere una destinazione a terra.",
+      "specs": [
+        [
+          "Ruolo",
+          "Collegamento satelliti / rete terrestre"
+        ],
+        [
+          "Elementi",
+          "Gateway, interconnessione e gestione"
+        ],
+        [
+          "Interfaccia spaziale",
+          "Radio secondo generazione e autorizzazioni"
+        ],
+        [
+          "Interfaccia terrestre",
+          "Rete e punti di presenza"
+        ],
+        [
+          "Rapporto con i laser",
+          "Il traffico può raggiungere gateway più lontani"
+        ],
+        [
+          "Limiti",
+          "Geografia, frequenze, disponibilità e carico"
+        ]
+      ],
+      "photos": [
+        [
+          "starlink/terminale-alaska.jpg",
+          "Terminale utente in Alaska: questo apparecchio non è una stazione gateway. Le funzioni sono distinte."
+        ],
+        [
+          "starmind/pleiades.jpg",
+          "Pleiades al centro NASA Ames nel 2008: fotografia di contesto dell’infrastruttura digitale terrestre, non impianto Starlink."
+        ]
+      ],
+      "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
+      "diagram": {
+        "type": "network",
+        "labels": [
+          "Satellite di ingresso",
+          "Percorso intersatellitare",
+          "Satellite sul gateway",
+          "Terminale utente",
+          "Gateway → rete terrestre",
+          "Destinazione e interconnessione condizionano il percorso"
+        ],
+        "title": "Architettura funzionale",
+        "description": "Satellite di ingresso → Percorso intersatellitare → Satellite sul gateway → Terminale utente → Gateway → rete terrestre → Destinazione e interconnessione condizionano il percorso",
+        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+      },
+      "sections": [
+        [
+          "Come funziona",
+          "Un gateway riceve il traffico dalla rete spaziale e lo immette nella rete terrestre. Il percorso può passare prima per satelliti collegati otticamente, allontanando il punto di uscita rispetto alla posizione dell’utente."
+        ],
+        [
+          "Versioni ed evoluzione",
+          "Le prime architetture richiedevano più vicinanza fra satellite, utente e stazione disponibile. L’espansione dei laser modifica le possibilità di instradamento; non rende il sistema indipendente da reti, autorizzazioni e gestione a terra."
+        ],
+        [
+          "Limiti e condizioni d’impiego",
+          "La latenza include percorso terrestre, code e interconnessioni. Un terminale domestico e un gateway non hanno lo stesso ruolo: contarli insieme o chiamarli tutti antenne nasconde la struttura della rete."
+        ]
+      ],
+      "evidence": [
+        [
+          "Dimostrato",
+          "Interconnessione fra rete satellitare, gateway e reti terrestri."
+        ],
+        [
+          "Dichiarato o previsto",
+          "Ampliamento dei percorsi tramite rete ottica."
+        ],
+        [
+          "Da verificare",
+          "Prestazioni locali e resilienza dell’intero percorso, non del solo tratto satellitare."
+        ]
+      ],
+      "sources": [
+        "starlink:technology",
+        "starlink:latency",
+        "starlink:cooper"
+      ],
+      "readings": [
+        [
+          "../../monografie/starlink/06-architettura.html",
+          "Il percorso di un pacchetto"
+        ],
+        [
+          "../../monografie/starlink/09-laser.html",
+          "Come cambia l’instradamento"
+        ]
+      ],
+      "related": [
+        "starlink-laser",
+        "starlink-terminali",
+        "direct-to-cell"
+      ]
+    },
+    {
+      "id": "red-dragon",
+      "title": "Red Dragon",
+      "family": "Programmi",
+      "status": "Abbandonato",
+      "summary": "Il progetto per portare una Dragon su Marte e raccogliere dati di discesa. Fu abbandonato prima di una missione: resta un passaggio nella storia delle scelte SpaceX.",
+      "specs": [
+        [
+          "Destinazione proposta",
+          "Marte"
+        ],
+        [
+          "Veicolo di partenza",
+          "Architettura Dragon modificata"
+        ],
+        [
+          "Idea di discesa",
+          "Atterraggio propulsivo"
+        ],
+        [
+          "Ruolo NASA",
+          "Collaborazione tecnica e dati attesi"
+        ],
+        [
+          "Decisione SpaceX",
+          "Abbandono nel 2017"
+        ],
+        [
+          "Missioni effettuate",
+          "Nessuna missione Red Dragon"
+        ]
+      ],
+      "photos": [
+        [
+          "crew-dragon/pad-abort-2015.jpg",
+          "Prova SuperDraco del 2015 sulla Terra: tecnologia della famiglia Dragon, non una dimostrazione di atterraggio su Marte."
+        ],
+        [
+          "starship/raptor-2016.jpg",
+          "Prototipo Raptor nel 2016: il programma di una nave più grande seguiva una strada propulsiva differente."
+        ]
+      ],
+      "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
+      "diagram": {
+        "type": "sequence",
+        "labels": [
+          "Proposta Dragon per Marte",
+          "Adattamento del veicolo",
+          "Studio di ingresso e discesa",
+          "Atterraggio propulsivo previsto",
+          "Dati attesi dalla NASA",
+          "Progetto abbandonato"
+        ],
+        "title": "Architettura funzionale",
+        "description": "Proposta Dragon per Marte → Adattamento del veicolo → Studio di ingresso e discesa → Atterraggio propulsivo previsto → Dati attesi dalla NASA → Progetto abbandonato",
+        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+      },
+      "sections": [
+        [
+          "Come funziona",
+          "L’idea prevedeva di usare una capsula modificata per una discesa marziana e un atterraggio propulsivo. L’atmosfera di Marte e il carico rendono il problema diverso da una prova di fuga Dragon sulla Terra."
+        ],
+        [
+          "Versioni ed evoluzione",
+          "La collaborazione NASA aveva un ruolo tecnico e un interesse nei dati; non equivaleva a una missione NASA già finanziata e operativa. SpaceX passò verso un’architettura di trasporto molto più grande."
+        ],
+        [
+          "Limiti e condizioni d’impiego",
+          "Rendering e calendari iniziali descrivono intenzioni. Nessun volo Red Dragon ha provato ingresso, discesa o atterraggio su Marte; la qualifica dei SuperDraco per la fuga umana non dimostra quell’impiego."
+        ]
+      ],
+      "evidence": [
+        [
+          "Dimostrato",
+          "Studi e collaborazione tecnica, documentati nelle fonti del progetto."
+        ],
+        [
+          "Dichiarato o previsto",
+          "Missione e dati marziani previsti prima dell’abbandono."
+        ],
+        [
+          "Da verificare",
+          "Non esistono risultati di una missione Red Dragon su Marte."
+        ]
+      ],
+      "sources": [
+        "starship:rednasa",
+        "starship:redclose"
+      ],
+      "readings": [
+        [
+          "../../monografie/starship/02-red-dragon.html",
+          "La strada lasciata da SpaceX"
+        ],
+        [
+          "../../monografie/starship/03-its.html",
+          "Il passaggio a un sistema più grande"
+        ]
+      ],
+      "related": [
+        "superdraco",
+        "ship",
+        "rifornimento-orbitale"
+      ]
+    }
+  ]
+}
