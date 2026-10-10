@@ -1,0 +1,30 @@
+{
+ "titolo":"Starship. Storia di un’idea, costruzione di un sistema",
+ "data":"2026-10-10",
+ "capitoli":[
+ ["01-marte","Marte prima di Starship","Il problema che SpaceX voleva risolvere, prima del veicolo"],
+ ["02-red-dragon","Red Dragon: la strada che SpaceX lasciò","Dragon su Marte, collaborazione NASA e scelta di un sistema più grande"],
+ ["03-its","Guadalajara, 2016: l’architettura del sogno","ITS, riuso, rifornimento e il divario fra aspirazione e calendario"],
+ ["04-bfr-acciaio","Da BFR all’acciaio","Ridimensionare il progetto per poterlo costruire"],
+ ["05-sistema","Due stadi, molti mestieri","Super Heavy, Ship e varianti: leggere il sistema senza confondere le versioni"],
+ ["06-raptor-ciclo","Raptor: perché il ciclo cambia tutto","Combustione stadiata a flusso completo, pompe e difficoltà del progetto"],
+ ["07-raptor-evoluzione","Dal primo Raptor a Raptor 3","Prestazioni, semplificazione, produzione e affidabilità"],
+ ["08-volo-rientro","Governare il volo e sopravvivere al rientro","Flap, serbatoi di atterraggio, scudo e manovra finale"],
+ ["09-boca-chica","Boca Chica diventa Starbase","Un sito Falcon trasformato in fabbrica e centro di prova"],
+ ["10-atlante-starbase","Atlante ragionato di Starbase","Mappa datata, produzione, test, rampe e collegamenti logistici"],
+ ["11-torri-pad","La rampa è parte del veicolo","Torri, bracci, hot staging, acqua e infrastrutture fuori dal Texas"],
+ ["12-starhopper-sn","Starhopper e la scuola dei prototipi","Imparare a costruire, pressurizzare e far volare"],
+ ["13-sn-alta-quota","La nave impara ad atterrare","Da SN8 a SN15: perdite, correzioni e primo recupero integro"],
+ ["14-primi-integrati","Il sistema completo: i primi tre voli","2023–2024: lasciare la rampa, separarsi, raggiungere lo spazio"],
+ ["15-rientro-cattura","Rientrare e catturare","Flight 4–6: scudo, ammaraggi e la prima cattura del booster"],
+ ["16-block2","La seconda generazione e le difficoltà nuove","Flight 7–11: il progresso non elimina le crisi"],
+ ["17-v3-orbita","V3 e l’arrivo in orbita","Flight 12–14, Raptor 3, Pad 2 e i primi Starlink V3 orbitali"],
+ ["18-registro","Atlante dei voli integrati","Missioni, obiettivi, risultati e lettura critica dei successi"],
+ ["19-riutilizzo","Recuperare non basta: riutilizzare","Ispezioni, scudi, motori, tempi e costo del sistema"],
+ ["20-rifornimento","Il rifornimento orbitale cambia la missione","Cisterne, deposito, criogenia e prove ancora necessarie"],
+ ["21-hls","Starship sulla Luna: il programma HLS","Contratti, varianti e dipendenze della missione Artemis"],
+ ["22-marte-operazioni","Arrivare su Marte non significa abitarlo","Atterraggio, energia, propellenti, equipaggi e ritorno"],
+ ["23-territorio","Un programma enorme dentro un territorio reale","Ambiente, sicurezza, autorizzazioni, persone e costi collettivi"],
+ ["24-prospettive","Ciò che Starship deve ancora dimostrare","Bilancio datato, glossario e criteri per gli aggiornamenti"]
+ ]
+}

@@ -1,0 +1,15 @@
+﻿numero,data,versione,profilo,booster,ship,carico,nota,traguardo
+1,2023-04-20,Prima generazione,"Suborbitale previsto, interrotto",Perduto prima della separazione,Perduta con il sistema,Nessun rilascio,Prima partenza del sistema integrato; indagine FAA e correzioni.,Decollo
+2,2023-11-18,Prima generazione,"Suborbitale previsto, interrotto",Perduto dopo la separazione,Perduta durante la salita,Nessun rilascio,Primo hot staging riuscito.,Hot staging
+3,2024-03-14,Prima generazione,Suborbitale,Ritorno non completato,Perduta al rientro,Prova del portello,Trasferimento interno di propellente; riaccensione non eseguita.,Operazioni nello spazio
+4,2024-06-06,Prima generazione,Suborbitale,Ammaraggio controllato,Ammaraggio controllato,Nessun rilascio,Primi ritorni controllati di entrambi gli stadi.,Due ammaraggi controllati
+5,2024-10-13,Prima generazione,Suborbitale,Catturato alla torre,Ammaraggio controllato,Nessun rilascio,Prima cattura del booster.,Prima cattura
+6,2024-11-19,Prima generazione,Suborbitale,Diversione e ammaraggio controllato,Ammaraggio controllato,Nessun rilascio,Prima riaccensione Raptor nello spazio; cattura non autorizzata dai controlli a terra.,Riaccensione nello spazio
+7,2025-01-16,Ship seconda generazione,"Suborbitale previsto, interrotto",Catturato alla torre,Perduta durante la salita,Rilascio non raggiunto,Debutto nuova Ship; evento nella parte posteriore.,Seconda cattura
+8,2025-03-06,Ship seconda generazione,"Suborbitale previsto, interrotto",Catturato alla torre,Perduta durante la salita,Rilascio non raggiunto,Nuova perdita Ship; terza cattura del booster.,Terza cattura
+9,2025-05-27,Ship seconda generazione,Suborbitale,"Riutilizzato, poi perduto nel ritorno",Perduta al rientro,"Portello non aperto, rilascio non eseguito",Primo secondo volo di un Super Heavy; problema di assetto Ship.,Primo riutilizzo booster
+10,2025-08-26,Ship seconda generazione,Suborbitale,Ammaraggio controllato,Ammaraggio controllato,8 simulatori Starlink,Rilascio dimostrativo e riaccensione nello spazio.,Primo rilascio simulatori
+11,2025-10-13,Ship seconda generazione,Suborbitale,Ammaraggio controllato,Ammaraggio controllato,8 simulatori Starlink,"Ultima missione di questa configurazione Ship, booster e Pad 1.",Chiusura configurazione
+12,2026-05-22,V3 · Raptor 3 · Pad 2,Suborbitale,Ammaraggio duro,Prova di rientro e ammaraggio,20 simulatori e 2 Starlink modificati,Debutto V3; carico non destinato a una costellazione operativa.,Debutto V3
+13,2026-07-24,V3,Suborbitale,Ammaraggio duro,Ammaraggio controllato,"20 V3 reali, suborbitali",Prove radio e laser prima del previsto rientro dei satelliti.,Prove V3 reali
+14,2026-09-28,V3,"Orbitale, dopo fase suborbitale sicura",Ammaraggio e successiva terminazione,Deorbitazione anticipata e ammaraggio nel Pacifico,26 V3 in orbita,"Prima inserzione orbitale; carico contattato, controlli prima del servizio.",Orbita e carico reale

@@ -1,0 +1,242 @@
+{
+  "rednasa": [
+    "NASA, collaborazione Red Dragon al Congresso, 11 luglio 2016",
+    "https://www.nasa.gov/wp-content/uploads/2015/03/jreuter_reddragon_july_2016tagged_0.pdf",
+    "Ruolo tecnico NASA, finanziamento SpaceX e dati di discesa attesi. Il rendering SpaceX nel PDF ha diritti riservati e non viene ripubblicato."
+  ],
+  "redclose": [
+    "NASA TechPort, progetto Red Dragon",
+    "https://techport.nasa.gov/projects/93875",
+    "Scheda istituzionale: chiusura del progetto a seguito della cancellazione SpaceX."
+  ],
+  "red2017": [
+    "Spaceflight Now, dichiarazioni di Musk alla ISS R&D Conference, 19 luglio 2017",
+    "https://spaceflightnow.com/2017/07/19/propulsive-landings-nixed-from-spacexs-dragon-spaceship/",
+    "Resoconto diretto: abbandono dell’atterraggio propulsivo Dragon e difficoltà di qualifica."
+  ],
+  "redbigger": [
+    "Dichiarazione Musk del 19 luglio 2017, conservata nel resoconto Teslarati",
+    "https://www.teslarati.com/spacex-skipping-red-dragon-vastly-bigger-ships-mars-confirms-musk/",
+    "Passaggio a una nave molto più grande; Starship è il nome successivo, non quello usato nel 2017."
+  ],
+  "iac16": [
+    "SpaceX, presentazione IAC 2016",
+    "https://www.youtube.com/watch?v=H7Uyfqi_TE8",
+    "Presentazione storica del progetto ITS, non stato attuale."
+  ],
+  "iac17": [
+    "SpaceX, Making Life Multiplanetary, IAC 2017",
+    "https://www.youtube.com/watch?v=tdUX3ypDVwI",
+    "Progetto BFR e obiettivi temporali allora dichiarati."
+  ],
+  "steel": [
+    "Dichiarazioni Musk sui materiali, intervista riportata da Space.com, gennaio 2019",
+    "https://www.space.com/43101-elon-musk-explains-stainless-steel-starship.html",
+    "Motivazioni pubbliche della scelta dell’acciaio; non equivale a un bilancio completo dei costi."
+  ],
+  "vehicle": [
+    "SpaceX, Starship",
+    "https://www.spacex.com/vehicles/starship",
+    "Pagina del costruttore: specifiche e obiettivi possono cambiare; consultazione 10 ottobre 2026."
+  ],
+  "ipd": [
+    "NASA NTRS, simulazione del dimostratore IPD",
+    "https://ntrs.nasa.gov/citations/20040075665",
+    "Precedente di ricerca sul ciclo full-flow, non motore Raptor né veicolo operativo."
+  ],
+  "propulsion": [
+    "NASA NTRS, Liquid Propulsion Systems",
+    "https://ntrs.nasa.gov/api/citations/20140002716/downloads/20140002716.pdf",
+    "Principi e confronti fra cicli dei motori a propellente liquido."
+  ],
+  "raptorfigure": [
+    "Livingjw e HVM, schema stimato Raptor 2, Wikimedia Commons",
+    "https://commons.wikimedia.org/wiki/File:Raptor_2_Full_Flow_Staged_Combustion_Cycle_Estimate.svg",
+    "Ricostruzione indipendente, non disegno SpaceX. CC BY-SA 4.0; revisione Nyq del luglio 2026."
+  ],
+  "hotstage": [
+    "NASA Advanced Supercomputing, Starship Hot Staging",
+    "https://www.nas.nasa.gov/SC24/research/project24.php",
+    "Ricerca CFD NASA: interazione fra getti e stadi."
+  ],
+  "faa": [
+    "FAA, archivio ambientale Starship a Boca Chica",
+    "https://www.faa.gov/space/stakeholder_engagement/spacex_starship",
+    "Documenti finali e proposte distinti; pagina consultata il 10 ottobre 2026."
+  ],
+  "faa2025": [
+    "FAA, Final Tiered EA Increased Cadence, aprile 2025",
+    "https://www.faa.gov/media/94346",
+    "Configurazioni di sito e attività esaminate; una planimetria ambientale non certifica il completamento di ogni edificio."
+  ],
+  "faa2026": [
+    "FAA, EA finale per traiettorie e rientri a Boca Chica",
+    "https://www.faa.gov/space/stakeholder_engagement/spacex_starship/Final_Tiered_EA_Additional_Launch_Trajectories_Starship_RTLS_mission_profiles_SpaceX_Starship-Super_Heavy_Boca_Chica.pdf",
+    "Documento finale disponibile nell’archivio consultato; non è da solo una licenza per qualsiasi volo."
+  ],
+  "mishap1": [
+    "FAA, chiusura dell’indagine sul primo volo",
+    "https://www.faa.gov/newsroom/faa-closes-spacex-starship-mishap-investigation",
+    "Settembre 2023: 63 azioni correttive, con modifica di licenza distinta dalla chiusura dell’indagine."
+  ],
+  "transfer24": [
+    "NASA, dimostrazione di trasferimento nel terzo volo",
+    "https://www.nasa.gov/directorates/esdmd/artemis-campaign-development-division/human-landing-system-program/nasa-artemis-mission-progresses-with-spacex-starship-test-flight/",
+    "14 marzo 2024: trasferimento interno fra serbatoi, non rifornimento fra due Starship."
+  ],
+  "transfer25": [
+    "NASA NTRS, In-Space Cryogenic Propellant Management",
+    "https://ntrs.nasa.gov/api/citations/20250003325/downloads/In-Space%20Cryogenic_Hauser.pdf",
+    "Riepilogo tecnico del test 2024 e dei problemi criogenici."
+  ],
+  "zbot": [
+    "NASA, Zero-Boil-Off Tank Experiments",
+    "https://science.nasa.gov/science-research/science-enabling-technology/zero-boil-off-tank-experiments-to-enable-long-duration-space-exploration/",
+    "Ricerca sulla gestione dei propellenti, non certificazione di un deposito Starship già operativo."
+  ],
+  "hls21": [
+    "NASA, selezione SpaceX HLS del 16 aprile 2021",
+    "https://www.nasa.gov/news-release/as-artemis-moves-forward-nasa-picks-spacex-to-land-next-americans-on-moon/",
+    "Contratto di sviluppo e dimostrazione, non allunaggio già effettuato."
+  ],
+  "hlsconcept": [
+    "NASA, illustrazioni della missione Starship HLS",
+    "https://www.nasa.gov/humans-in-space/nasa-spacex-illustrate-key-moments-of-artemis-lunar-lander-mission/",
+    "Architettura illustrata nel 2024; immagini con eventuali crediti SpaceX non automaticamente libere."
+  ],
+  "mars": [
+    "NASA Science, Mars Facts",
+    "https://science.nasa.gov/mars/facts/",
+    "Ambiente marziano e differenze dalla Terra."
+  ],
+  "isru": [
+    "NASA, MOXIE completa la dimostrazione su Marte",
+    "https://www.nasa.gov/missions/mars-2020-perseverance/perseverance-rover/nasas-oxygen-generating-experiment-moxie-completes-mars-mission/",
+    "Produzione sperimentale di ossigeno; non fabbrica di metano né impianto per un ritorno umano."
+  ],
+  "v3": [
+    "Starlink, satelliti Version 3",
+    "https://starlink.com/updates/starlink-version-3-satellites",
+    "Specifiche del progetto e rapporto industriale con Starship."
+  ],
+  "orbital": [
+    "SpaceX, aggiornamenti sulle missioni orbitali",
+    "https://www.spacex.com/updates",
+    "Contatto con carico, traiettorie, rientro e salvaguardia del pubblico; distinguere gli aggiornamenti datati."
+  ],
+  "osm": [
+    "OpenStreetMap, dati e attribuzione",
+    "https://www.openstreetmap.org/copyright",
+    "Mappa interattiva con attribuzione ODbL; edifici e marker non costituiscono una perizia sul cantiere."
+  ],
+  "florida": [
+    "FAA, Starship a SLC-37; avvio SEIS settembre 2026",
+    "https://www.faa.gov/space/stakeholder_engagement/spacex_starship_ccsfs",
+    "Infrastrutture in sviluppo e procedura di licenza distinta dalle opere; non pad già operativo."
+  ],
+  "hopper": [
+    "SpaceX, archivio Starhopper e voli dei prototipi",
+    "https://www.spacex.com/updates/reusability",
+    "Archivio storico del costruttore; non usare le date-obiettivo di allora come calendario attuale."
+  ],
+  "sn5": [
+    "SpaceX, archivio del salto SN5 del 4 agosto 2020",
+    "https://www.spacex.com/updates/reusability",
+    "Volo a bassa quota, non rientro orbitale."
+  ],
+  "sn6": [
+    "SpaceX, archivio dei prototipi SN",
+    "https://www.spacex.com/updates/reusability",
+    "SN6 e la campagna di voli a bassa quota."
+  ],
+  "sn8": [
+    "SpaceX, SN8: riepilogo ufficiale",
+    "https://www.youtube.com/watch?v=_qwLHlVjRyw",
+    "Volo del 9 dicembre 2020; archivio video, non copia dei contenuti."
+  ],
+  "sn10": [
+    "SpaceX, archivio SN10",
+    "https://www.spacex.com/updates/reusability",
+    "Atterraggio e sopravvivenza devono essere distinti."
+  ],
+  "sn15": [
+    "SpaceX, archivio SN15, 5 maggio 2021",
+    "https://www.spacex.com/updates/starship-moon-announcement",
+    "Completamento della prova ad alta quota e ritorno a terra."
+  ],
+  "snreport": [
+    "USTRANSCOM, aggiornamento tecnico pubblico SpaceX",
+    "https://www.ustranscom.mil/foia/docs/USTRANSCOM%20update--SpaceX___Redacted.pdf",
+    "Riepilogo dei test SN8–SN15 conservato in documentazione pubblica FOIA."
+  ],
+  "flight1": [
+    "FAA, primo test integrato e chiusura dell’indagine",
+    "https://www.faa.gov/newsroom/faa-closes-spacex-starship-mishap-investigation",
+    "Primo volo del 20 aprile 2023 e azioni correttive richieste."
+  ],
+  "flight2": [
+    "SpaceX, resoconto Flight 2",
+    "https://www.spacex.com/launches/starship-flight-2",
+    "Resoconto del costruttore; obiettivi di prova distinti dal successo commerciale."
+  ],
+  "flight3": [
+    "SpaceX, resoconto Flight 3",
+    "https://www.spacex.com/launches/starship-flight-3",
+    "Resoconto del costruttore; obiettivi di prova distinti dal successo commerciale."
+  ],
+  "flight4": [
+    "SpaceX, resoconto Flight 4",
+    "https://www.spacex.com/launches/starship-flight-4",
+    "Resoconto del costruttore; obiettivi di prova distinti dal successo commerciale."
+  ],
+  "flight5": [
+    "SpaceX, resoconto Flight 5",
+    "https://www.spacex.com/launches/starship-flight-5",
+    "Resoconto del costruttore; obiettivi di prova distinti dal successo commerciale."
+  ],
+  "flight6": [
+    "SpaceX, resoconto Flight 6",
+    "https://www.spacex.com/launches/starship-flight-6",
+    "Resoconto del costruttore; obiettivi di prova distinti dal successo commerciale."
+  ],
+  "flight7": [
+    "SpaceX, resoconto Flight 7",
+    "https://www.spacex.com/launches/starship-flight-7",
+    "Resoconto del costruttore; obiettivi di prova distinti dal successo commerciale."
+  ],
+  "flight8": [
+    "SpaceX, resoconto Flight 8",
+    "https://www.spacex.com/launches/starship-flight-8",
+    "Resoconto del costruttore; obiettivi di prova distinti dal successo commerciale."
+  ],
+  "flight9": [
+    "SpaceX, resoconto Flight 9",
+    "https://www.spacex.com/launches/starship-flight-9",
+    "Resoconto del costruttore; obiettivi di prova distinti dal successo commerciale."
+  ],
+  "flight10": [
+    "SpaceX, resoconto Flight 10",
+    "https://www.spacex.com/launches/starship-flight-10",
+    "Resoconto del costruttore; obiettivi di prova distinti dal successo commerciale."
+  ],
+  "flight11": [
+    "SpaceX, resoconto Flight 11",
+    "https://www.spacex.com/launches/starship-flight-11",
+    "Resoconto del costruttore; obiettivi di prova distinti dal successo commerciale."
+  ],
+  "flight12": [
+    "SpaceX, resoconto Flight 12",
+    "https://www.spacex.com/launches/starship-flight-12",
+    "Resoconto del costruttore; obiettivi di prova distinti dal successo commerciale."
+  ],
+  "flight13": [
+    "SpaceX, resoconto Flight 13",
+    "https://www.spacex.com/launches/starship-flight-13",
+    "Resoconto del costruttore; obiettivi di prova distinti dal successo commerciale."
+  ],
+  "flight14": [
+    "SpaceX, resoconto Flight 14",
+    "https://www.spacex.com/launches/starship-flight-14",
+    "Resoconto del costruttore; obiettivi di prova distinti dal successo commerciale."
+  ]
+}
