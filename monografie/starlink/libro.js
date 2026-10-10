@@ -1,0 +1,6 @@
+document.querySelectorAll('.bookaside details').forEach(d=>{if(innerWidth<951)d.open=false});
+const altitude=document.querySelector('#quota');
+const users=document.querySelector('#utenti');
+function calculate(){if(altitude){const h=Number(altitude.value);const c=299792.458;document.querySelector('#quota-valore').textContent=h.toLocaleString('it-IT')+' km';document.querySelector('#tempo-luce').value=(4*h/c*1000).toLocaleString('it-IT',{maximumFractionDigits:1})+' ms';}if(users){const n=Number(users.value);document.querySelector('#utenti-valore').textContent=n.toLocaleString('it-IT');document.querySelector('#capacita-quota').value=(1000000/n).toLocaleString('it-IT',{maximumFractionDigits:1})+' Mbps';}}
+altitude?.addEventListener('input',calculate);users?.addEventListener('input',calculate);calculate();
+const search=document.querySelector('#cerca-cronologia');search?.addEventListener('input',()=>{const q=search.value.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();let n=0;document.querySelectorAll('#cronologia tbody tr').forEach(r=>{r.hidden=!r.textContent.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().includes(q);if(!r.hidden)n++});document.querySelector('#risultati').textContent=n+' tappe visualizzate';});

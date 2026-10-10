@@ -1,0 +1,44 @@
+[
+  {
+    "file": "satelliti-2019.jpg",
+    "url": "https://live.staticflickr.com/65535/47926144123_84745c353a_b.jpg",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Starlink_Mission_(47926144123).jpg",
+    "credito": "Official SpaceX Photos",
+    "licenza": "CC0 1.0, dedica precedente verificata su Commons nel 2019"
+  },
+  {
+    "file": "lancio-2019.jpg",
+    "url": "https://live.staticflickr.com/65535/47926143711_c07b61583f_b.jpg",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Starlink_Mission_(47926143711).jpg",
+    "credito": "Official SpaceX Photos",
+    "licenza": "CC0 1.0, dedica precedente verificata su Commons nel 2019"
+  },
+  {
+    "file": "treno-satelliti.jpg",
+    "url": "https://noirlab.edu/public/media/archives/images/screen/ann22005a.jpg",
+    "fonte": "https://noirlab.edu/public/images/ann22005a/",
+    "credito": "M. Lewinsky/NOIRLab",
+    "licenza": "CC BY 2.0"
+  },
+  {
+    "file": "gemini-south.jpg",
+    "url": "https://noirlab.edu/public/media/archives/images/screen/Startrails-outside-fisheye_moonlight_1-CC.jpg",
+    "fonte": "https://noirlab.edu/public/images/Startrails-outside-fisheye_moonlight_1-CC/",
+    "credito": "International Gemini Observatory/NOIRLab/AURA/NSF/M. Paredes",
+    "licenza": "CC BY 4.0"
+  },
+  {
+    "file": "terra-notte.jpg",
+    "url": "https://svs.gsfc.nasa.gov/vis/a030000/a030800/a030876/BlackMarble_2016_global_7km_print.jpg",
+    "fonte": "https://svs.gsfc.nasa.gov/30876/",
+    "credito": "NASA’s Goddard Space Flight Center/Joshua Stevens (SSAI), osservazioni Suomi NPP",
+    "licenza": "Uso informativo NASA, vedere pagina SVS e condizioni NASA"
+  },
+  {
+    "file": "terminale-alaska.jpg",
+    "url": "https://live.staticflickr.com/65535/54905679447_60741d97de_b.jpg",
+    "fonte": "https://www.flickr.com/photos/alaskanationalguard/54905679447",
+    "credito": "U.S. Army National Guard/Spc. Ericka Gillespie",
+    "licenza": "Public Domain Mark"
+  }
+]

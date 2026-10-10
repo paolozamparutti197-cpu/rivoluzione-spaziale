@@ -1,0 +1,28 @@
+{
+ "titolo":"Starlink. Costruire una rete, cambiare il cielo",
+ "data":"2026-10-10",
+ "capitoli":[
+ ["01-perche-spazio","Perché Internet dallo spazio","Il problema delle distanze, non una sostituzione universale della fibra"],
+ ["02-predecessori","Le costellazioni prima di Starlink","Idee antiche, fallimenti economici e tecnologie che maturano"],
+ ["03-nascita","Seattle, 2015: la seconda missione di SpaceX","Il concetto iniziale, Marte e la costruzione di un gruppo industriale"],
+ ["04-crisi-rifondazione","La crisi prima della costellazione","Tintin, riorganizzazione del 2018 e licenziamenti: la crescita non era inevitabile"],
+ ["05-primi-lanci","Sessanta satelliti, poi una rete","Dal maggio 2019 alla sperimentazione con gli utenti"],
+ ["06-architettura","Come funziona davvero Starlink","Orbite, fasci, stazioni a terra e percorso di un pacchetto"],
+ ["07-generazioni","Il satellite cambia, la rete continua","V0.9, V1, V1.5 e V2 Mini: non confondere hardware e autorizzazioni"],
+ ["08-terminali","L’antenna dell’utente è metà del problema","Array a fasi, installazione, energia e qualità del servizio"],
+ ["09-laser","Una rete laser sopra la Terra","Instradamento, oceani e i limiti della promessa di bassa latenza"],
+ ["10-fabbrica-lanci","Produrre e lanciare senza fermarsi","Redmond, Falcon 9 e il rapporto reciproco fra rete e riutilizzo"],
+ ["11-servizi","Dalle case alle navi e agli aerei","Connettività quotidiana, emergenze e divario digitale"],
+ ["12-direct-to-cell","Dal satellite al telefono","Direct to Cell, operatori mobili e la nuova generazione Mobile"],
+ ["13-v3-progetto","V3: il salto di capacità","Antenne, laser, backhaul e pannelli solari della terza generazione"],
+ ["14-v3-starship","Starship comincia a costruire la nuova rete","Prove suborbitali, 26 satelliti in orbita e servizio ancora da verificare"],
+ ["15-economia","L’economia di una rete che va ricostruita","Abbonamenti, investimenti, ricambio e costi che non spariscono"],
+ ["16-oneweb","Starlink e OneWeb: due strade diverse","Architettura, mercati, crisi e rinnovo della costellazione Eutelsat"],
+ ["17-concorrenza","Non ci sono soltanto due concorrenti","Amazon Leo, progetti sovrani e complementarità con le reti terrestri"],
+ ["18-sicurezza-orbitale","Le megacostellazioni e l’orbita affollata","Collisioni, manovre, fine vita e coordinamento del traffico"],
+ ["19-cielo-astronomia","Un cielo condiviso, non uno schermo vuoto","Astronomia ottica e radio, mitigazioni e questioni irrisolte"],
+ ["20-atmosfera","Quando il satellite rientra","Lanci, materiali, atmosfera e il confine fra misure e modelli"],
+ ["21-potere-regole","Una rete privata, responsabilità pubbliche","Frequenze, sovranità, sicurezza, privacy e Starshield"],
+ ["22-atlante-prospettive","Una costellazione che non sarà mai finita","Cronologia, glossario, dati confrontabili e prossime verifiche"]
+ ]
+}
