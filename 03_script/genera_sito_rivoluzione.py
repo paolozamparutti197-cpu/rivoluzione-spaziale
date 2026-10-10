@@ -157,6 +157,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-10-10",
+        "date_label": "10 ottobre 2026",
+        "tag": "SpaceX · Falcon 9 SDA T1TL-A",
+        "title": "Falcon 9 lancia il quarto piano della rete militare SDA: 21 satelliti Northrop Grumman da Vandenberg",
+        "summary": "Il 10 ottobre, dopo cinque giorni di rinvii, un Falcon 9 è partito dallo SLC-4E con la missione Tranche 1 Transport Layer A per la Space Development Agency. Che cosa sono i satelliti con collegamenti laser, a che punto è la costellazione e il ruolo di SpaceX nei lanci per la sicurezza nazionale USA.",
+        "href": "../documenti%20per%20sito/spacex_sda_t1tla_lancio.html",
+        "image": "../documenti%20per%20sito/assets_sda_t1tla/sda-t1tlc-lancio-slc4e.jpg",
+        "image_alt": "Falcon 9 decolla dallo SLC-4E di Vandenberg con una missione SDA Tranche 1, foto U.S. Space Force",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-10-09",
         "date_label": "9 ottobre 2026",
         "tag": "SpaceX · Starlink Mobile",
@@ -165,8 +178,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_starlink_mobile_spettro.html",
         "image": "../documenti%20per%20sito/assets_starlink_mobile_spettro/slm-spacex-annuncio-spettro.jpg",
         "image_alt": "Grafica ufficiale SpaceX sull’annuncio dello spettro low-band per Starlink Mobile, 8 ottobre 2026",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
