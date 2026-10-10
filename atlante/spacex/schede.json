@@ -261,21 +261,23 @@
     },
     "starship/starhopper.jpg": {
       "name": "starhopper.jpg",
-      "path": "../../monografie/starship/assets/starhopper.jpg",
+      "path": "assets/starhopper.jpg",
       "source": "https://commons.wikimedia.org/wiki/File:Starhopper.jpg",
       "author": "Giuseppe De Chiara",
       "license": "CC BY-SA 4.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
-      "caption": ""
+      "caption": " Variante web distribuita dall’archivio, senza ulteriori ritocchi.",
+      "variant": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Starhopper.jpg/960px-Starhopper.jpg"
     },
     "starship/sn15.jpg": {
       "name": "sn15.jpg",
-      "path": "../../monografie/starship/assets/sn15.jpg",
+      "path": "assets/sn15-2021.jpg",
       "source": "https://commons.wikimedia.org/wiki/File:Starship_SN15_flap_and_nosecone_(51437260707).jpg",
       "author": "Lars Plougmann",
       "license": "CC BY-SA 2.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
-      "caption": ""
+      "caption": " Variante alla risoluzione distribuita dall’archivio per il web, senza ulteriori ritocchi.",
+      "variant": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Starship_SN15_flap_and_nosecone_%2851437260707%29.jpg/1280px-Starship_SN15_flap_and_nosecone_%2851437260707%29.jpg"
     },
     "starlink/satelliti-2019.jpg": {
       "name": "satelliti-2019.jpg",
@@ -505,30 +507,33 @@
     },
     "pad-slc4e": {
       "name": "File:NROL-87 Launches from Vandenberg (7032050).jpeg",
-      "path": "../../pad_di_lancio/assets/slc4e.jpeg",
+      "path": "assets/vandenberg-nrol87-2022.jpeg",
       "source": "https://commons.wikimedia.org/wiki/File:NROL-87%20Launches%20from%20Vandenberg%20(7032050).jpeg",
       "author": "U.S. Space Force/Michael Peterson",
       "license": "Public domain",
       "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-      "caption": "Taken on 2 February 2022"
+      "caption": "Taken on 2 February 2022 Variante alla risoluzione distribuita dall’archivio per il web, senza ulteriori ritocchi.",
+      "variant": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/NROL-87_Launches_from_Vandenberg_%287032050%29.jpeg/1280px-NROL-87_Launches_from_Vandenberg_%287032050%29.jpeg"
     },
     "pad-lc39a": {
       "name": "File:KSC-20190624-PH KLS01 0056.jpg",
-      "path": "../../pad_di_lancio/assets/lc39a.jpg",
+      "path": "assets/lc39a-2019.jpg",
       "source": "https://commons.wikimedia.org/wiki/File:KSC-20190624-PH%20KLS01%200056.jpg",
       "author": "Kim Shiflett",
       "license": "Public domain",
       "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-      "caption": "2019-06-24 15:16:55"
+      "caption": "2019-06-24 15:16:55 Variante alla risoluzione distribuita dall’archivio per il web, senza ulteriori ritocchi.",
+      "variant": "https://images-assets.nasa.gov/image/KSC-20190624-PH_KLS01_0056/KSC-20190624-PH_KLS01_0056~medium.jpg"
     },
     "pad-boca1": {
       "name": "File:Tower-OLM.jpg",
-      "path": "../../pad_di_lancio/assets/boca1.jpg",
+      "path": "assets/starbase-torre-2023.jpg",
       "source": "https://commons.wikimedia.org/wiki/File:Tower-OLM.jpg",
       "author": "Jenny Hautmann",
       "license": "CC BY-SA 4.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
-      "caption": "2023-03-14 20:11:30"
+      "caption": "2023-03-14 20:11:30 Variante web distribuita dall’archivio, senza ulteriori ritocchi.",
+      "variant": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Tower-OLM.jpg/960px-Tower-OLM.jpg"
     }
   },
   "cards": [

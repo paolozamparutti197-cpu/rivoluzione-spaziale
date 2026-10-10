@@ -63,7 +63,7 @@ Separati: configurazioni storiche e attuali; dichiarazioni del costruttore e pro
 
 Riuso completo Starship, rifornimento fra veicoli, qualifica HLS, servizio V3 esteso e sostenibilità Starmind rimangono questioni aperte. Questo upgrade non certifica tutte le affermazioni presenti nel resto del sito e non modifica il dossier finanziario Q2 preesistente.
 
-Le foto vengono dai materiali già accreditati, più una fotografia NASA Cargo Dragon del 27 novembre 2022. La pagina metodo.html raccoglie fonti, autori e condizioni. Le immagini di altri programmi sono dichiarate di contesto. Gli SVG sono schemi funzionali non in scala, non copie delle tavole proprietarie.
+Le foto vengono dai materiali già accreditati, più una fotografia NASA Cargo Dragon del 27 novembre 2022. Le immagini più grandi usano varianti web distribuite dagli stessi archivi; i file originali nelle altre sezioni del sito restano invariati. La pagina metodo.html raccoglie fonti, autori e condizioni. Le immagini di altri programmi sono dichiarate di contesto. Gli SVG sono schemi funzionali non in scala, non copie delle tavole proprietarie.
 
 ## Verifica locale
 
