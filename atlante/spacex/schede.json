@@ -260,13 +260,13 @@
       "caption": ""
     },
     "starship/starhopper.jpg": {
-      "name": "starhopper.jpg",
+      "name": "Starhopper: illustrazione indipendente",
       "path": "assets/starhopper.jpg",
       "source": "https://commons.wikimedia.org/wiki/File:Starhopper.jpg",
       "author": "Giuseppe De Chiara",
       "license": "CC BY-SA 4.0",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
-      "caption": " Variante web distribuita dall’archivio, senza ulteriori ritocchi.",
+      "caption": "Illustrazione di Giuseppe De Chiara, configurazione dell’agosto 2019. Variante web distribuita da Wikimedia, senza ulteriori modifiche. Non è una fotografia né un disegno costruttivo SpaceX.",
       "variant": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Starhopper.jpg/960px-Starhopper.jpg"
     },
     "starship/sn15.jpg": {
@@ -1855,7 +1855,7 @@
         ],
         [
           "starship/starhopper.jpg",
-          "Starhopper: il veicolo sperimentale con cui Raptor cominciò le prove di volo."
+          "Illustrazione indipendente di Starhopper, Giuseppe De Chiara, configurazione dell’agosto 2019. Non è una fotografia né un disegno costruttivo SpaceX."
         ]
       ],
       "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
