@@ -1,0 +1,2 @@
+document.querySelectorAll('.bookaside details').forEach(d=>{if(innerWidth<951)d.open=false;});
+document.querySelector('#cerca-cronologia')?.addEventListener('input',function(){const q=this.value.toLowerCase();let n=0;document.querySelectorAll('#cronologia tbody tr').forEach(r=>{r.hidden=!r.textContent.toLowerCase().includes(q);if(!r.hidden)n++;});document.querySelector('#risultati').textContent=n+' eventi visualizzati';});

@@ -1,0 +1,92 @@
+[
+  {
+    "id": "lancio1",
+    "file": "artemis1-lancio.jpg",
+    "url": "https://www.nasa.gov/wp-content/uploads/2024/11/52507883571-396b3c1c6c-o.jpg?w=1600",
+    "credito": "NASA/Joel Kowsky",
+    "fonte": "https://www.nasa.gov/image-article/two-years-ago-artemis-i-liftoff/",
+    "alt": "SLS e Orion lasciano LC-39B nel lancio notturno Artemis I",
+    "didascalia": "16 novembre 2022: partenza di Artemis I.",
+    "modifiche": "Nessun ritaglio o ritocco; versione alla risoluzione indicata dall’URL NASA."
+  },
+  {
+    "id": "lancio2",
+    "file": "artemis2-lancio.jpg",
+    "url": "https://www.nasa.gov/wp-content/uploads/2026/04/nhq202604010230.jpg?w=1600",
+    "credito": "NASA/Bill Ingalls",
+    "fonte": "https://www.nasa.gov/general/artemis-ii-mission-milestones-an-image-and-video-recap/",
+    "alt": "Il lancio di Artemis II da Kennedy il primo aprile 2026",
+    "didascalia": "1 aprile 2026: lancio Artemis II, non allunaggio.",
+    "modifiche": "Nessun ritaglio o ritocco; versione alla risoluzione indicata dall’URL NASA."
+  },
+  {
+    "id": "terra2",
+    "file": "artemis2-terra.jpg",
+    "url": "https://www.nasa.gov/wp-content/uploads/2026/04/art002e000180.jpg?w=1024",
+    "credito": "NASA",
+    "fonte": "https://www.nasa.gov/general/artemis-ii-mission-milestones-an-image-and-video-recap/",
+    "alt": "La Terra fotografata dall’equipaggio di Orion durante Artemis II",
+    "didascalia": "Artemis II: fotografia della Terra durante il viaggio.",
+    "modifiche": "Nessun ritaglio o ritocco; versione alla risoluzione indicata dall’URL NASA."
+  },
+  {
+    "id": "earthset",
+    "file": "artemis2-earthset.jpg",
+    "url": "https://www.nasa.gov/wp-content/uploads/2026/04/art002e009288orig.jpg?w=1024",
+    "credito": "NASA",
+    "fonte": "https://www.nasa.gov/general/artemis-ii-mission-milestones-an-image-and-video-recap/",
+    "alt": "La Terra scompare dietro il bordo lunare durante il sorvolo di Artemis II",
+    "didascalia": "6 aprile 2026: Earthset osservato durante il sorvolo, non dalla superficie.",
+    "modifiche": "Nessun ritaglio o ritocco; versione alla risoluzione indicata dall’URL NASA."
+  },
+  {
+    "id": "luna2",
+    "file": "artemis2-luna-terra.jpg",
+    "url": "https://www.nasa.gov/wp-content/uploads/2026/04/art002e015228orig.jpg?w=1024",
+    "credito": "NASA",
+    "fonte": "https://www.nasa.gov/general/artemis-ii-mission-milestones-an-image-and-video-recap/",
+    "alt": "Luna in primo piano e Terra sullo sfondo fotografate da Orion",
+    "didascalia": "Artemis II: la geometria Terra–Luna vista dall’equipaggio.",
+    "modifiche": "Nessun ritaglio o ritocco; versione alla risoluzione indicata dall’URL NASA."
+  },
+  {
+    "id": "recupero2",
+    "file": "artemis2-recupero.jpg",
+    "url": "https://www.nasa.gov/wp-content/uploads/2026/04/jsc2026e022260-3695dc.jpg?w=1024",
+    "credito": "NASA/James Blair",
+    "fonte": "https://www.nasa.gov/general/artemis-ii-mission-milestones-an-image-and-video-recap/",
+    "alt": "Operazioni di recupero dell’equipaggio Artemis II nel Pacifico",
+    "didascalia": "10 aprile 2026: recupero dopo il ritorno di Artemis II.",
+    "modifiche": "Nessun ritaglio o ritocco; versione alla risoluzione indicata dall’URL NASA."
+  },
+  {
+    "id": "rs25",
+    "file": "rs25-installazione.jpg",
+    "url": "https://www.nasa.gov/wp-content/uploads/2023/09/maf_20230908_cs2_eng2059_eng1move44to47-17medium.jpg?w=985",
+    "credito": "NASA",
+    "fonte": "https://www.nasa.gov/reference/space-launch-system-rs-25-core-stage-engine/",
+    "alt": "Tecnici installano un motore RS-25 nello stadio centrale SLS",
+    "didascalia": "Settembre 2023: installazione RS-25 a Michoud, fotografia di lavorazione.",
+    "modifiche": "Nessun ritaglio o ritocco; versione alla risoluzione indicata dall’URL NASA."
+  },
+  {
+    "id": "polo",
+    "file": "polo-sud-2026.jpg",
+    "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2026_print.jpg",
+    "credito": "NASA’s Scientific Visualization Studio; Ernie Wright (USRA), Noah Petro (NASA/GSFC)",
+    "fonte": "https://svs.gsfc.nasa.gov/4930/",
+    "alt": "Visualizzazione dell’illuminazione e delle ombre entro due gradi dal polo sud lunare",
+    "didascalia": "Visualizzazione geometrica per il 2026, pubblicata nell’atlante NASA 2023–2030. Non è una foto né una carta del ghiaccio.",
+    "modifiche": "Nessun ritaglio o ritocco; versione alla risoluzione indicata dall’URL NASA."
+  },
+  {
+    "id": "tuta",
+    "file": "axemu-prova.jpg",
+    "url": "https://www.nasa.gov/wp-content/uploads/2026/02/jsc2025e087229.jpg?w=1024",
+    "credito": "NASA",
+    "fonte": "https://www.nasa.gov/humans-in-space/nasa-moon-mission-spacesuit-nears-milestone/",
+    "alt": "Prova AxEMU in piscina durante una simulazione di lavoro sulla superficie",
+    "didascalia": "Prova a terra nella Neutral Buoyancy Laboratory, non attività già svolta sulla Luna.",
+    "modifiche": "Nessun ritaglio o ritocco; versione alla risoluzione indicata dall’URL NASA."
+  }
+]
