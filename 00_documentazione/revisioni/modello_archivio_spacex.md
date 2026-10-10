@@ -15,11 +15,11 @@ Edizione iniziale: 10 ottobre 2026. Gli Excel, i registri e i Python esistenti r
 
 ## Perimetri
 
-Il valore predefinito mostra le missioni Falcon dell'archivio principale. Tutti i voli integrati Starship sono consultabili nel perimetro sperimentale. Il volo 14 è una sola missione, con due classificazioni conservate: fase Operativo nell'Excel e presenza nel registro di sviluppo. Rimane nel gruppo «orbita con carico (fase mista)», selezionabile esplicitamente, senza attribuirgli una maturità operativa dimostrata. Orbita, carico e fase del programma sono campi separati. Le prove precedenti restano prove anche quando trasportano carichi di verifica.
+La ricerca predefinita mostra il registro operativo principale: Falcon 1, Falcon 9, Falcon Heavy e Starship soltanto con fase Operativo nell'Excel dell'utente. Flight 14 è unito ai suoi record di sviluppo e compare una sola volta nel registro operativo. I voli 1–13 restano prove, con elenco e filtro separati. Amos-6 è un evento a terra escluso dai decolli.
 
 ## Fonti e riconciliazione
 
-Lanci e booster Falcon: foglio elenco di lanci_spacex.xlsx. Rientri del volo 14: recuperi_veicoli dello stesso file. Prove integrate: «Voli integrati» di sviluppo_starship.xlsx e monografie/starship/voli.json. Matricole delle prove sono estratte dal campo Veicolo dell'Excel sviluppo; il suffisso -2 indica reflight e non un nuovo booster. Non si assegnano progressivi ai primi voli per deduzione.
+Lanci e booster Falcon: foglio elenco di lanci_spacex.xlsx. Rientri del volo 14: recuperi_veicoli dello stesso file. Prove integrate: «Voli integrati» di sviluppo_starship.xlsx e monografie/starship/voli.json. Matricole delle prove sono estratte dal campo Veicolo dell'Excel sviluppo; il suffisso -2 indica reflight e non un nuovo booster. Per le prove Starship non si assegnano progressivi per deduzione. La revisione Falcon indica esplicitamente i primi impieghi ricostruiti dalla cronologia Wikipedia completa.
 
 Il sito storico espone riepiloghi: confronto dei totali e dell'ultima missione, senza rivendicare una verifica riga per riga di una tabella non pubblicata. Le divergenze fra registri Starship restano riportate nelle schede con entrambi i testi. Le somme dei flag Excel sono una statistica del registro, non una verifica indipendente degli eventi. Le fonti web già associate sono riportate come riferimenti: un URL non costituisce prova che il suo contenuto sia stato verificato durante questo aggiornamento.
 
@@ -32,3 +32,8 @@ La nuova sezione archivio/spacex è statica e autonoma. Nessuna dipendenza viene
 Per aggiornare la fotografia dei dati, eseguire `03_script/aggiorna_archivio_spacex.ps1`. Legge gli XLSX in sola lettura, importa anche il registro JSON e confronta il sito corrente, poi esegue il costruttore Node. Se il sito storico è più vecchio, la discrepanza viene documentata senza scartare i dati Excel. Il confronto Excel/sito va quindi eseguito dopo il normale aggiornamento del sito. L'archivio espone sempre la data dell'importazione e l'ultima data presente; non finge di aggiornarsi automaticamente. Le modifiche future allo schema o nuove sigle non riconosciute vengono bloccate oppure segnalate, senza diventare zero.
 
 Validazione: unicità dei lanci; relazioni fra record; tre posizioni Falcon Heavy; nessun doppio volo 14; flag ammessi; date e numeri coerenti; successo recupero senza tentativo; matricole duplicate nello stesso lancio. Le incoerenze già esistenti sui progressivi sono segnalate come anomalie delle fonti e non corrette automaticamente.
+
+
+## Revisione Wikipedia del 10 ottobre 2026
+
+713 decolli operativi verificati uno a uno. Le correzioni documentate sono in archivio/spacex/correzioni-wikipedia.json e vengono applicate dal costruttore Node, senza riscrivere gli originali. Il nuovo passaggio aggiorna anche sezioni/storico-lanci.html e i KPI di sezioni/spacex.html; va eseguito dopo la generazione Python e prima della pubblicazione. Le precondizioni bloccano una fonte cambiata. Metodo, risultati e limiti attuali sono nel rapporto verifica_wikipedia_lanci_20261010.md; prevalgono sulle descrizioni della prima importazione.

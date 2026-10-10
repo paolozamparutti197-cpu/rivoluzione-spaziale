@@ -1,5 +1,7 @@
 # Terzo upgrade: archivio missioni SpaceX
 
+Rapporto della prima importazione, precedente al confronto Wikipedia. I perimetri e i risultati attuali sono descritti in [verifica_wikipedia_lanci_20261010.md](verifica_wikipedia_lanci_20261010.md).
+
 10 ottobre 2026. Nuova sezione statica `archivio/spacex`, collegata dall'ingresso persistente Programmi e monografie. L'atlante è rimasto invariato.
 
 ## Risultato

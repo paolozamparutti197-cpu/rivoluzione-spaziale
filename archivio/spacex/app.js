@@ -19,13 +19,14 @@ export const definitions = {
 function readFilters() { return Object.fromEntries(new FormData(form)); }
 function restore() {
   const p = new URLSearchParams(location.search);
-  for (const field of form.elements) if (field.name) field.value = p.get(field.name) ?? (field.name === 'scope' ? 'falcon' : field.name === 'event' ? 'launch' : '');
+  if (p.get('scope') === 'mixed') p.set('scope','starship');
+  for (const field of form.elements) if (field.name) field.value = p.get(field.name) ?? (field.name === 'scope' ? 'operational' : field.name === 'event' ? 'launch' : '');
   const sortValue = p.get('sort');
   $('sort').value = ['desc','asc','name'].includes(sortValue) ? sortValue : 'desc';
 }
 function synchronizeURL() {
   const p = new URLSearchParams();
-  for (const [key,value] of Object.entries(filters)) if (value && !(key === 'scope' && value === 'falcon') && !(key === 'event' && value === 'launch')) p.set(key,value);
+  for (const [key,value] of Object.entries(filters)) if (value && !(key === 'scope' && value === 'operational') && !(key === 'event' && value === 'launch')) p.set(key,value);
   if ($('sort').value !== 'desc') p.set('sort',$('sort').value);
   history.replaceState(null,'',location.pathname + (p.size ? `?${p}` : '') + location.hash);
 }
@@ -48,7 +49,7 @@ function renderMetrics() {
   ];
   $('metrics').innerHTML = cards.map(([key,value,note])=>`<article class="metric"><strong>${value}</strong><span>${definitions[key].label}</span>${key === 'physical' ? '<p class="source">Copertura parziale; nessun totale storico ricostruito.</p>' : ''}<details><summary>Formula e copertura</summary><p>${definitions[key].formula}</p><p>${note}</p><p>Perimetro: ricerca corrente. Importazione ${data.imported}. Fonti: elenco e recuperi_veicoli dell’Excel lanci; Voli integrati dell’Excel sviluppo per le prove (foglio «Voli integrati»). Dettaglio di riga nella scheda.</p></details></article>`).join('');
   const scopeName = form.elements.scope.selectedOptions[0]?.textContent || 'Perimetro non valido';
-  const context = `Perimetro: ${scopeName}; tutti i filtri sopra applicati. ${selected.length ? `Date dei risultati: ${selected[0].date} / ${selected.at(-1).date}.` : 'Nessuna missione corrispondente.'} Importazione ${data.imported}; copertura fino al ${data.coverageEnd}. Provenienza: registri Excel lanci e sviluppo Starship, registro della monografia. Dati locali, senza verifica indipendente di ogni missione.`;
+  const context = `Perimetro: ${scopeName}; tutti i filtri sopra applicati. ${selected.length ? `Date dei risultati: ${selected[0].date} / ${selected.at(-1).date}.` : 'Nessuna missione corrispondente.'} Importazione ${data.imported}; copertura fino al ${data.coverageEnd}. Provenienza: registri Excel lanci e sviluppo Starship, registro della monografia. Revisione Wikipedia del ${data.wikipedia.date}: ${data.wikipedia.matchedLaunches} decolli operativi abbinati; originali conservati. Le prove sono escluse da questa revisione.`;
   $('statistics-context').textContent = context;
   document.querySelector('.chart-context').textContent = context;
 }
@@ -56,7 +57,7 @@ function renderCards() {
   const sorted = [...selected].sort((a,b)=>$('sort').value === 'name' ? a.name.localeCompare(b.name,'it') : ($('sort').value === 'asc' ? 1 : -1)*(a.date.localeCompare(b.date)||a.id.localeCompare(b.id)));
   const pages = Math.max(1,Math.ceil(sorted.length/pageSize));
   page = Math.max(0,Math.min(page,pages-1));
-  $('cards').innerHTML = sorted.length ? sorted.slice(page*pageSize,(page+1)*pageSize).map(m=>`<article class="mission-card"><span class="date">${m.date} · ${escape(m.id)}</span><span class="tag">${escape(m.family)}${m.scope === 'test' ? ' · prova' : m.scope === 'mixed' ? ' · fase mista' : ''}</span><h3 class="name"><a href="missioni/${encodeURIComponent(m.id)}.html">${escape(m.name)}</a></h3><p>${escape(m.pad || 'Pad non documentato')} · ${escape(m.orbit || 'Orbita non documentata')}</p><p>${m.launch.id ? 'Lancio' : 'Evento pre-lancio'}: ${escape(m.launch.outcome || (!m.launch.id ? 'nessun decollo' : m.scope === 'test' ? 'valutazione sperimentale' : 'non documentato'))}</p><p>Carico: ${escape(m.payload.outcome || 'esito non documentato')}</p><p>Booster: ${m.flights.filter(v=>v.role !== 'Ship').map(v=>`${escape(v.serial || 'matricola ignota')}${v.ordinal ? ` (${v.ordinal})` : ''}`).join(', ')}</p>${m.issues.length ? `<p class="gap-note">${m.issues.length} lacune o divergenze nella scheda</p>` : ''}<p class="source">${escape(m.source)}</p></article>`).join('') : '<p class="panel">Nessuna missione corrisponde ai filtri. Amplia il perimetro o azzera la ricerca.</p>';
+  $('cards').innerHTML = sorted.length ? sorted.slice(page*pageSize,(page+1)*pageSize).map(m=>`<article class="mission-card"><span class="date">${m.date} · ${escape(m.id)}</span><span class="tag">${escape(m.family)}${m.scope === 'test' ? ' · prova' : m.scope === 'operational' ? ' · operativa' : ''}</span><h3 class="name"><a href="missioni/${encodeURIComponent(m.id)}.html">${escape(m.name)}</a></h3><p>${escape(m.pad || 'Pad non documentato')} · ${escape(m.orbit || 'Orbita non documentata')}</p><p>${m.launch.id ? 'Lancio' : 'Evento pre-lancio'}: ${escape(m.launch.outcome || (!m.launch.id ? 'nessun decollo' : m.scope === 'test' ? 'valutazione sperimentale' : 'non documentato'))}</p><p>Carico: ${escape(m.payload.outcome || 'esito non documentato')}</p><p>Booster: ${m.flights.filter(v=>v.role !== 'Ship').map(v=>`${escape(v.serial || 'matricola ignota')}${v.ordinal ? ` (${v.ordinal})` : ''}`).join(', ')}</p>${m.issues.length ? `<p class="gap-note">${m.issues.length} lacune o divergenze nella scheda</p>` : ''}<p class="source">${escape(m.source)}</p></article>`).join('') : '<p class="panel">Nessuna missione corrisponde ai filtri. Amplia il perimetro o azzera la ricerca.</p>';
   $('page').textContent = `Pagina ${page+1} di ${pages}`;
   $('previous').disabled = page === 0;
   $('next').disabled = page === pages-1;

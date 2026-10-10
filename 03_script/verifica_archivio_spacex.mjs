@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {aggregate,filterMissions,validate,compareYears,annualSeries,csv} from '../archivio/spacex/core.js';
+import {applyWikipediaCorrections} from './correzioni_archivio_spacex.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const read=name=>JSON.parse(fs.readFileSync(path.join(root,'archivio/spacex',name),'utf8'));
 const data=read('dati.json'),snapshot=read('fonti-snapshot.json'),report=read('riconciliazione.json');
@@ -23,15 +24,43 @@ assert.equal(aggregate(filterMissions(data.missions,{scope:'tests'})).launchDeci
 assert.equal(aggregate(filterMissions(data.missions,{scope:'tests'})).launchSuccess,0);
 const sourceMain=snapshot.launches.filter(r=>r.tipo_record==='Lancio principale');
 assert.equal(sourceMain.length,data.coverage.principal);
-assert.equal(aggregate(data.missions).launchSuccess,sourceMain.filter(r=>r.stato==='successo').length);
+const review=read('correzioni-wikipedia.json');
+const originalSuccess=sourceMain.filter(r=>r.stato==='successo').length;
+assert.equal(aggregate(data.missions).launchSuccess,originalSuccess-1); // CRS-1 complessivamente parziale.
+assert.equal(data.missions.find(m=>m.id==='SX-0009').launch.outcome,'parziale');
+assert.equal(filterMissions(data.missions).length,data.coverage.principalLaunches);
+assert.ok(filterMissions(data.missions).every(m=>m.family!=='Starship'||m.originalPhase==='Operativo'));
+assert.equal(filterMissions(data.missions,{scope:'tests'}).length,data.coverage.starshipTests-data.coverage.starshipOverlap);
+assert.equal(filterMissions(data.missions,{scope:'starship'}).length,sourceMain.filter(m=>m.famiglia_lanciatore==='Starship'&&m.fase_programma==='Operativo').length);
+assert.equal(new Set(review.checks.map(c=>c.id)).size,review.summary.matchedLaunches);
+for (const c of review.checks) {
+  const m=data.missions.find(m=>m.id===c.id);
+  assert.equal(m.date,c.dateUTC);
+  for (const [field,before] of Object.entries(c.expectedOriginal)) {
+    const p=review.patches.find(p=>p.missionId===c.id&&p.field===field);
+    assert.deepEqual(field.split('.').reduce((o,k)=>o[k],m),p?p.after:before);
+  }
+}
+for (const p of review.patches) {
+  const m=data.missions.find(m=>m.id===p.missionId);
+  assert.deepEqual(p.field.split('.').reduce((o,k)=>o[k],m),p.after);
+}
+const incompatible=structuredClone(data.missions);
+incompatible.find(m=>m.id==='SX-0714').name='Fonte cambiata';
+assert.throws(()=>applyWikipediaCorrections(incompatible,review),/Fonte cambiata/);
+assert.deepEqual(applyWikipediaCorrections(structuredClone(data.missions),review).length,review.patches.length);
 assert.equal(report.workbookFlags.landingSuccess,report.principalStatistics.landingSuccess);
-assert.equal(report.principalStatistics.reflights,snapshot.launches.filter(r=>typeof r.voli==='number'&&r.voli>1).length);
+assert.ok(report.principalStatistics.reflights>=snapshot.launches.filter(r=>typeof r.voli==='number'&&r.voli>1).length);
 const missingPayload=data.missions.find(m=>m.launch.outcome==='successo'&&!m.payload.outcome);
 assert.ok(missingPayload);
 assert.equal(aggregate([missingPayload]).payloadDecided,0);
 const missingSerial=data.missions.find(m=>m.flights.some(v=>!v.serial));
-assert.ok(missingSerial);
-assert.ok(aggregate([missingSerial]).missingSerial>0);
+if (missingSerial) assert.ok(aggregate([missingSerial]).missingSerial>0);
+assert.equal(data.missions.find(m=>m.id==='SX-0381').flights[0].serial,'B1075');
+assert.equal(data.missions.find(m=>m.id==='SX-0381').flights[0].ordinal,12);
+assert.equal(data.missions.find(m=>m.id==='SX-0299').flights[0].serial,'B1084');
+assert.equal(data.missions.find(m=>m.id==='SX-0299').flights[0].ordinal,1);
+assert.equal(data.missions.find(m=>m.id==='SX-0396').flights.filter(v=>v.recovery.landed===1).length,0);
 const flight13=data.missions.find(m=>m.id==='IFT-13');
 assert.equal(flight13.flights.find(v=>v.role==='Ship').recovery.physical,1);
 assert.equal(data.missions.find(m=>m.id==='SX-0710').flights.reduce((n,v)=>n+(v.recovery.physical||0),0),0);

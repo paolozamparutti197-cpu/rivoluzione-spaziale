@@ -4,10 +4,11 @@ export function filterMissions(missions, f = {}) {
   return missions.filter(m => {
     const event = f.event || 'launch';
     if (event === 'launch' && !m.launch.id || event === 'prelaunch' && m.launch.id) return false;
-    const scope = f.scope || 'falcon';
+    const scope = f.scope || 'operational';
+    if (scope === 'operational' && m.scope === 'test') return false;
     if (scope === 'falcon' && m.family === 'Starship') return false;
     if (scope === 'tests' && m.scope !== 'test') return false;
-    if (scope === 'mixed' && m.scope !== 'mixed') return false;
+    if (['mixed','starship'].includes(scope) && !(m.family === 'Starship' && m.originalPhase === 'Operativo')) return false;
     if (f.family && m.family !== f.family || f.pad && m.pad !== f.pad || f.outcome && (m.launch.outcome || 'unknown') !== f.outcome || f.class && m.class !== f.class) return false;
     if (f.from && m.date < f.from || f.to && m.date > f.to) return false;
     if (f.payload && (m.payload.outcome || 'unknown') !== f.payload) return false;
@@ -89,7 +90,8 @@ export function validate(data) {
     if (!m.id || ids.has(m.id)) fail(`Missione duplicata/mancante: ${m.id}`);
     ids.add(m.id);
     if (!['Falcon 1','Falcon 9','Falcon Heavy','Starship'].includes(m.family)) fail(`Famiglia non riconosciuta: ${m.id}`);
-    if (!['falcon','test','mixed'].includes(m.scope)) fail(`Perimetro non riconosciuto: ${m.id}`);
+    if (!['falcon','test','operational'].includes(m.scope)) fail(`Perimetro non riconosciuto: ${m.id}`);
+    if (m.family==='Starship' && m.scope==='operational' && m.originalPhase!=='Operativo') fail(`Starship operativa senza fase Operativo: ${m.id}`);
     if (m.launch.id && launches.has(m.launch.id)) fail(`Lancio duplicato: ${m.launch.id}`);
     if (m.launch.id) launches.add(m.launch.id);
     if (!m.launch.id && (m.flights.length || m.launch.outcome)) fail(`Evento pre-lancio con voli o esito di lancio: ${m.id}`);
