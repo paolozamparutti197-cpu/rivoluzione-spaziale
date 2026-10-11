@@ -157,6 +157,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-10-11",
+        "date_label": "11 ottobre 2026",
+        "tag": "SpaceX · Starship Flight 14 / 15",
+        "title": "Musk su Starship Flight 14: glitch del motore gestibile, Flight 15 punta al catch della Ship",
+        "summary": "Il 10 ottobre, in collegamento all'X Takeover di Giga Texas, Elon Musk ridimensiona l'anomalia Raptor del Flight 14, dice che lo scudo termico ha tenuto e colloca Flight 15 fra quattro e sei settimane, con il primo tentativo di catturare lo stadio superiore.",
+        "href": "../documenti%20per%20sito/spacex_starship_flight14_musk.html",
+        "image": "../documenti%20per%20sito/assets_starship_f14_musk/f14m-flight14-lancio.jpg",
+        "image_alt": "Starship Flight 14 decolla da Starbase il 28 settembre 2026, foto SpaceX",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-10-10",
         "date_label": "10 ottobre 2026",
         "tag": "SpaceX · Falcon 9 SDA T1TL-A",
@@ -165,8 +178,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_sda_t1tla_lancio.html",
         "image": "../documenti%20per%20sito/assets_sda_t1tla/sda-t1tla-liftoff-spacex.jpg",
         "image_alt": "Falcon 9 in decollo da Vandenberg con la missione SDA T1TL-A, 10 ottobre 2026, fotogramma SpaceX",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
