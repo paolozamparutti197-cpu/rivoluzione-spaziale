@@ -48,10 +48,7 @@ function engine(c){
   const hyper=c.id!=='kestrel';desc=hyper?'Gas di pressurizzazione verso entrambi i serbatoi; ossidante e MMH attraverso valvole separate fino alla camera. Nessuna turbopompa.':'Gas di pressurizzazione verso entrambi i serbatoi; LOX e RP-1 attraversano valvole separate fino alla camera. Nessuna turbopompa.';
   b=node(340,110,320,['Gas di pressurizzazione'])+node(45,265,320,[hyper?'Ossidante ipergolico':'Ossigeno liquido',hyper?'Serbatoio NTO':'Serbatoio LOX'])+node(635,265,320,[hyper?'Monometilidrazina':'Cherosene RP-1',hyper?'Serbatoio MMH':'Serbatoio RP-1'])+node(45,450,320,['Valvola ossidante'])+node(635,450,320,['Valvola combustibile'])+node(330,630,340,['Camera di combustione','Ugello e gas di scarico'])+flow('M400 196 V225 H205 V265',true)+flow('M600 196 V225 H795 V265',true)+flow('M205 351 V450')+flow('M795 351 V450')+flow('M205 536 V673 H330')+flow('M795 536 V673 H670')+text(30,775,hyper?'Accensione al contatto dei propellenti · nessuna turbopompa':'Alimentazione pressurizzata · accensione non ipergolica','small');
  }else if(c.id==='merlin'){
-  c.diagram.note='Schema editoriale del ciclo a generatore di gas: azzurro per i flussi, tratteggio oro per il collegamento meccanico turbina-pompe. Una parte dei propellenti passa nel generatore; il gas della turbina non rientra nella camera principale. Raffreddamento, valvole e avviamento omessi.';
-  desc='LOX e RP-1 alimentano le pompe e la camera principale. Una parte dei propellenti alimenta il generatore di gas; il gas aziona la turbina e non ritorna nella camera principale. L’albero collega turbina e pompe.';
-  b=node(40,110,300,['Ossigeno liquido','Serbatoio LOX'])+node(660,110,300,['Cherosene','Serbatoio RP-1'])+node(40,280,300,['Pompa ossidante'])+node(660,280,300,['Pompa combustibile'])+node(350,390,300,['Generatore di gas','Solo parte dei flussi'])+node(350,530,300,['Turbina','Aziona le pompe'])+node(40,660,300,['Camera principale','Ugello propulsivo'])+node(660,660,300,['Scarico del gas','Fuori dalla camera']);
-  b+=flow('M190 196 V280')+flow('M810 196 V280')+flow('M190 366 V660')+flow('M810 366 V620 H275 V660')+flow('M190 400 H350 V430')+flow('M810 400 H650 V430')+flow('M500 476 V530')+flow('M650 573 H810 V660')+`<path d="M350 573H310V322H340 M650 573H690V370H960V322" fill="none" stroke="#efbd78" stroke-width="3" stroke-dasharray="8 6"/>`+text(340,245,'Tratteggio: collegamento meccanico','tiny')+text(30,790,'Ciclo aperto a generatore di gas · scarico separato dalla camera principale','small');
+  throw Error('Merlin: configurare diagram.animation in schede.json. Il vecchio schema con raccordi ambigui non è più consentito.');
  }else{
   c.diagram.note='Schema editoriale full-flow: pompe, due precombustori, due turbine e camera principale. Sono mostrate anche le alimentazioni incrociate necessarie ai precombustori. Non è un disegno costruttivo Raptor: alberi meccanici, raffreddamento, pressurizzazione e valvole omessi.';
   desc='Due pompe e due precombustori, uno ricco di ossigeno e uno ricco di metano. Entrambi i flussi attraversano le turbine e raggiungono la camera principale; piccole alimentazioni incrociate consentono la combustione nei precombustori.';
@@ -91,6 +88,7 @@ function special(c){
  return null;
 }
 export function verifiedFigure(c,data,root){
+ if(c.diagram.animation)return fs.readFileSync(path.resolve(root,c.diagram.animation.static),'utf8');
  let svg;
  if(photoConfigs[c.id])svg=photoFigure(c,photoConfigs[c.id],data,root);
  else if(c.id==='falcon-1')svg=falcon1(c);
