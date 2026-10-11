@@ -2,10 +2,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {falconHeavyPhoto} from './falcon-heavy-annotato.mjs';
 const root=path.dirname(fileURLToPath(import.meta.url));
 const data=JSON.parse(fs.readFileSync(path.join(root,'schede.json'),'utf8'));
 const esc=x=>String(x).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
-const write=(name,body)=>fs.writeFileSync(path.join(root,name),body,'utf8');
+const write=(name,body)=>fs.writeFileSync(path.join(root,name),body.replace('<b>32</b> schemi originali','<b>32</b> figure tecniche').replace('I 32 SVG sono disegni didattici originali, non in scala.','31 SVG sono disegni didattici originali, non in scala. La figura Falcon Heavy è invece una fotografia ufficiale SpaceX del 28 dicembre 2017, con annotazioni vettoriali. La fotografia è riutilizzabile con dedica CC0 1.0: <a href="https://commons.wikimedia.org/wiki/File:Falcon_Heavy_Demo_Mission_(38583829295).jpg">fonte e licenza</a>. Le annotazioni distinguono separatamente i due booster laterali dal corpo centrale; non indicano come visibili i motori nascosti. Il generatore conserva questa figura fotografica e non ricrea il precedente schema semplificato.'),'utf8');
 const head=(title,description)=>`<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)} | Atlante SpaceX</title><meta name="description" content="${esc(description)}"><link rel="stylesheet" href="atlante.css"><script src="atlante.js" defer></script></head><body><a class="skip" href="#contenuto">Vai al contenuto</a><header><a class="brand" href="../../index.html">Rivoluzione <span>Spaziale</span></a><nav aria-label="Navigazione principale"><a href="index.html">Atlante</a><a href="../../sezioni/monografie-spacex.html">Monografie</a><a href="../../sezioni/storia-spacex.html">Storia</a><a href="metodo.html">Fonti e metodo</a></nav></header>`;
 const foot=`<footer>Rivoluzione Spaziale · Atlante tecnico SpaceX · Edizione 10 ottobre 2026.<br>Pubblicazione indipendente. <a href="metodo.html">Criteri, crediti e limiti</a> · <a href="index.html">Tutte le schede</a></footer></body></html>`;
 const photo=(id,caption)=>{const p=data.photos[id];return `<figure class="photo"><img src="${esc(p.path)}" alt="${esc(caption)}" loading="lazy" decoding="async"><figcaption>${esc(caption)} <span class="credit">${esc(p.author)} · ${esc(p.license)}. <a href="${esc(p.source)}">Fonte dell’immagine</a> · <a href="${esc(p.licenseUrl)}">Condizioni</a>. Visualizzazione proporzionata, senza ritocchi.</span></figcaption></figure>`;};
@@ -13,6 +14,7 @@ const link=(href,label)=>`<a href="${esc(href)}">${esc(label)}</a>`;
 const box=(x,y,w,h,t,sub='')=>{const max=Math.floor((w-20)/9),lines=[];for(const word of t.split(' ')){if(!lines.length||lines.at(-1).length+word.length+1>max)lines.push(word);else lines[lines.length-1]+=' '+word;}return `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="9"/>${lines.map((line,i)=>`<text x="${x+w/2}" y="${y+h/2+(i-(lines.length-1)/2)*21}" text-anchor="middle">${esc(line)}</text>`).join('')}${sub?`<text class="small" x="${x+w/2}" y="${y+h/2+15}" text-anchor="middle">${esc(sub)}</text>`:''}`;};
 const line=(x,y,xx,yy,color='')=>`<path ${color?`class="${color}"`:''} d="M ${x} ${y} L ${xx} ${yy}" marker-end="url(#arrow)"/>`;
 function diagram(c){let shapes='',labels=c.diagram.labels;
+ if(c.id==='falcon-heavy') return falconHeavyPhoto(root);
  if(c.diagram.type==='vehicle'){
   shapes=`<path class="outline" d="M 320 69 L 368 139 L 368 359 L 272 359 L 272 139 Z"/><rect class="tank" x="280" y="175" width="80" height="69"/><rect class="tank" x="280" y="257" width="80" height="72"/><path class="fire" d="M 291 360 L 280 395 L 307 395 Z M 320 360 L 310 412 L 330 412 Z M 349 360 L 336 395 L 360 395 Z"/>`;
   if(c.id==='falcon-heavy')shapes+=`<rect class="outline" x="223" y="175" width="39" height="183" rx="12"/><rect class="outline" x="378" y="175" width="39" height="183" rx="12"/>`;
@@ -37,6 +39,7 @@ function diagram(c){let shapes='',labels=c.diagram.labels;
 }
 fs.mkdirSync(path.join(root,'schemi'),{recursive:true});
 for(const c of data.cards){
+ if(c.id==='falcon-heavy') c.diagram.title='Fotografia ufficiale annotata';
  write(`schemi/${c.id}.svg`,diagram(c));
  let refs=c.sources.map(id=>{const s=data.sources[id];if(!s)throw Error(`Fonte assente ${id}`);return `<li>${link(s.url,s.title)}. ${esc(s.note)}</li>`;}).join('');
  let related=c.related.map(id=>{const r=data.cards.find(x=>x.id===id);if(!r)throw Error(`Scheda assente ${id}`);return link(`${id}.html`,r.title);}).join('');

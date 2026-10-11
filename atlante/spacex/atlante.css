@@ -2,3 +2,4 @@
 
 .diagram-view{overflow-x:auto;border-radius:4px}.diagram-view a{display:block}.diagram-view:focus-visible{outline:3px solid #ba7421;outline-offset:4px}@media(max-width:620px){.diagram-view img{min-width:560px;max-width:none}}
 .technical>*{min-width:0}.diagram{max-width:100%}
+.diagram figcaption{overflow-wrap:anywhere}
