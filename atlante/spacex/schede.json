@@ -582,17 +582,10 @@
       "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
       "diagram": {
         "type": "vehicle",
-        "labels": [
-          "Carico utile",
-          "Secondo stadio",
-          "Kestrel",
-          "Separazione",
-          "Primo stadio",
-          "Merlin"
-        ],
-        "title": "Architettura funzionale",
-        "description": "Carico utile → Secondo stadio → Kestrel → Separazione → Primo stadio → Merlin",
-        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+        "title": "Architettura a due stadi",
+        "description": "Carenatura sopra il secondo stadio; Kestrel nel secondo stadio; interstadio; primo stadio con un Merlin. Disegno funzionale, non una sezione costruttiva.",
+        "note": "Ricostruzione editoriale dell’architettura, verificata sulle fonti Falcon 1 della scheda. I motori interni sono indicati nel disegno, non su una fotografia. Dimensioni e impianti omessi.",
+        "reviewed": "2026-10-11"
       },
       "sections": [
         [
@@ -688,16 +681,21 @@
       "diagram": {
         "type": "vehicle",
         "labels": [
-          "Carico / Dragon",
+          "Dragon",
           "Secondo stadio",
-          "Merlin Vacuum",
-          "Separazione",
           "Primo stadio",
-          "9 Merlin 1D"
+          "Gamba ripiegata"
         ],
-        "title": "Architettura funzionale",
-        "description": "Carico / Dragon → Secondo stadio → Merlin Vacuum → Separazione → Primo stadio → 9 Merlin 1D",
-        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+        "title": "Fotografia annotata: componenti visibili",
+        "description": "Dragon; Secondo stadio; Primo stadio; Gamba ripiegata. Configurazione storica v1.1, non Block 5. Merlin Vacuum e nove Merlin del primo stadio: non visibili.",
+        "note": "SpaceX; CC0 1.0. Inquadratura di dettaglio e annotazioni vettoriali; JPEG non ritoccato. 17 aprile 2014 · Falcon 9 v1.1 / CRS-3. Configurazione storica v1.1, non Block 5. Merlin Vacuum e nove Merlin del primo stadio: non visibili.",
+        "credit": {
+          "author": "SpaceX",
+          "source": "https://commons.wikimedia.org/wiki/File:Falcon_9_with_CRS-3_Dragon_on_SLC-40_pad_(16166732954).jpg",
+          "license": "CC0 1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "reviewed": "2026-10-11"
       },
       "sections": [
         [
@@ -800,9 +798,15 @@
           "Booster laterali",
           "27 Merlin totali"
         ],
-        "title": "Architettura funzionale",
+        "title": "Fotografia ufficiale annotata",
         "description": "Fotografia ufficiale annotata: carenatura, secondo stadio, corpo centrale e due booster laterali indicati separatamente. Motori e carico utile non visibili.",
-        "note": "Fotografia SpaceX del 28 dicembre 2017, dedica CC0 1.0; annotazioni vettoriali aggiunte dal sito. Configurazione storica del debutto, non Block 5. I 27 Merlin appartengono al primo stadio; il secondo ha un ulteriore Merlin Vacuum, non visibile. Fonte e licenza: https://commons.wikimedia.org/wiki/File:Falcon_Heavy_Demo_Mission_(38583829295).jpg"
+        "note": "Fotografia SpaceX del 28 dicembre 2017, dedica CC0 1.0; annotazioni vettoriali aggiunte dal sito. Configurazione storica del debutto, non Block 5. I 27 Merlin appartengono al primo stadio; il secondo ha un ulteriore Merlin Vacuum, non visibile. Fonte e licenza: https://commons.wikimedia.org/wiki/File:Falcon_Heavy_Demo_Mission_(38583829295).jpg",
+        "credit": {
+          "author": "SpaceX",
+          "source": "https://commons.wikimedia.org/wiki/File:Falcon_Heavy_Demo_Mission_(38583829295).jpg",
+          "license": "CC0 1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
       },
       "sections": [
         [
@@ -902,17 +906,10 @@
       "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026.  Il documento presenta totali di spinta non uniformi: qui è riportato il valore del singolo motore nel testo, senza ricostruire un totale.",
       "diagram": {
         "type": "engine",
-        "labels": [
-          "Serbatoio LOX",
-          "Serbatoio RP-1",
-          "Turbopompa LOX",
-          "Turbopompa RP-1",
-          "Camera e ugello",
-          "Generatore di gas → turbine"
-        ],
-        "title": "Architettura funzionale",
-        "description": "Serbatoio LOX → Serbatoio RP-1 → Turbopompa LOX → Turbopompa RP-1 → Camera e ugello → Generatore di gas → turbine",
-        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+        "title": "Schema del principio di alimentazione",
+        "description": "LOX e RP-1 alimentano le pompe e la camera principale. Una parte dei propellenti alimenta il generatore di gas; il gas aziona la turbina e non ritorna nella camera principale. L’albero collega turbina e pompe.",
+        "note": "Schema editoriale del ciclo a generatore di gas: azzurro per i flussi, tratteggio oro per il collegamento meccanico turbina-pompe. Una parte dei propellenti passa nel generatore; il gas della turbina non rientra nella camera principale. Raffreddamento, valvole e avviamento omessi.",
+        "reviewed": "2026-10-11"
       },
       "sections": [
         [
@@ -1007,17 +1004,10 @@
       "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
       "diagram": {
         "type": "engine",
-        "labels": [
-          "Serbatoio LOX",
-          "Serbatoio RP-1",
-          "Pressurizzazione",
-          "Valvole di alimentazione",
-          "Camera e ugello",
-          "Alimentazione senza turbopompe"
-        ],
-        "title": "Architettura funzionale",
-        "description": "Serbatoio LOX → Serbatoio RP-1 → Pressurizzazione → Valvole di alimentazione → Camera e ugello → Alimentazione senza turbopompe",
-        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+        "title": "Schema del principio di alimentazione",
+        "description": "Gas di pressurizzazione verso entrambi i serbatoi; LOX e RP-1 attraversano valvole separate fino alla camera. Nessuna turbopompa.",
+        "note": "Schema funzionale editoriale, non planimetria del motore: frecce continue per i flussi principali, tratteggiate per la pressurizzazione. Valvole ausiliarie, raffreddamento e sistemi di avviamento omessi. Verifica nelle fonti della scheda.",
+        "reviewed": "2026-10-11"
       },
       "sections": [
         [
@@ -1113,16 +1103,21 @@
       "diagram": {
         "type": "capsule",
         "labels": [
-          "Vano pressurizzato",
-          "Portello cargo",
-          "Scudo termico",
-          "Capsula recuperata",
+          "Interfaccia di berthing",
+          "Capsula",
           "Trunk",
-          "Carichi esterni"
+          "Pannello solare"
         ],
-        "title": "Architettura funzionale",
-        "description": "Vano pressurizzato → Portello cargo → Scudo termico → Capsula recuperata → Trunk → Carichi esterni",
-        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+        "title": "Fotografia annotata: componenti visibili",
+        "description": "Interfaccia di berthing; Capsula; Trunk; Pannello solare. Prima generazione: pannelli solari dispiegabili. Scudo termico sotto la capsula: nascosto in questa vista.",
+        "note": "NASA / ISS Expedition 31; Materiale NASA per uso informativo; attribuzione. Inquadratura di dettaglio e annotazioni vettoriali; JPEG non ritoccato. 25 maggio 2012 · Dragon C2+. Prima generazione: pannelli solari dispiegabili. Scudo termico sotto la capsula: nascosto in questa vista.",
+        "credit": {
+          "author": "NASA / ISS Expedition 31",
+          "source": "https://images.nasa.gov/details/iss031e071143",
+          "license": "Materiale NASA per uso informativo; attribuzione",
+          "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/"
+        },
+        "reviewed": "2026-10-11"
       },
       "sections": [
         [
@@ -1218,16 +1213,20 @@
       "diagram": {
         "type": "capsule",
         "labels": [
-          "Portello e attracco",
-          "Vano equipaggio",
-          "SuperDraco laterali",
-          "Scudo termico",
-          "Trunk",
-          "Pannelli solari"
+          "Cono anteriore aperto",
+          "Interfaccia di attracco",
+          "Capsula"
         ],
-        "title": "Architettura funzionale",
-        "description": "Portello e attracco → Vano equipaggio → SuperDraco laterali → Scudo termico → Trunk → Pannelli solari",
-        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+        "title": "Fotografia annotata: componenti visibili",
+        "description": "Cono anteriore aperto; Interfaccia di attracco; Capsula. Il cono aperto espone la zona di attracco. Trunk, scudo termico e SuperDraco non identificabili in questa vista.",
+        "note": "NASA / Chris Cassidy; Materiale NASA per uso informativo. Inquadratura di dettaglio e annotazioni vettoriali; JPEG non ritoccato. 31 maggio 2020 · Endeavour / Demo-2. Il cono aperto espone la zona di attracco. Trunk, scudo termico e SuperDraco non identificabili in questa vista.",
+        "credit": {
+          "author": "NASA / Chris Cassidy",
+          "source": "https://www.nasa.gov/image-article/spacex-crew-dragon-approaches-international-space-station-4/",
+          "license": "Materiale NASA per uso informativo",
+          "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/"
+        },
+        "reviewed": "2026-10-11"
       },
       "sections": [
         [
@@ -1323,16 +1322,20 @@
       "diagram": {
         "type": "capsule",
         "labels": [
-          "Portello di docking",
-          "Vano cargo",
-          "Avionica e Draco",
-          "Capsula di ritorno",
-          "Trunk",
-          "Carichi non pressurizzati"
+          "Cono anteriore aperto",
+          "Interfaccia di attracco",
+          "Capsula cargo"
         ],
-        "title": "Architettura funzionale",
-        "description": "Portello di docking → Vano cargo → Avionica e Draco → Capsula di ritorno → Trunk → Carichi non pressurizzati",
-        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+        "title": "Fotografia annotata: componenti visibili",
+        "description": "Cono anteriore aperto; Interfaccia di attracco; Capsula cargo. Cargo Dragon 2: attracco autonomo alla ISS. Trunk e carichi interni non visibili; niente SuperDraco nella variante cargo.",
+        "note": "NASA / ISS Expedition 68; Materiale NASA per uso informativo. Inquadratura di dettaglio e annotazioni vettoriali; JPEG non ritoccato. 27 novembre 2022 · Cargo Dragon / CRS-26. Cargo Dragon 2: attracco autonomo alla ISS. Trunk e carichi interni non visibili; niente SuperDraco nella variante cargo.",
+        "credit": {
+          "author": "NASA / ISS Expedition 68",
+          "source": "https://www.nasa.gov/image-article/spacex-dragon-cargo-craft-approaches-space-station/",
+          "license": "Materiale NASA per uso informativo",
+          "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/"
+        },
+        "reviewed": "2026-10-11"
       },
       "sections": [
         [
@@ -1427,17 +1430,10 @@
       "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
       "diagram": {
         "type": "engine",
-        "labels": [
-          "Serbatoio ossidante",
-          "Serbatoio MMH",
-          "Pressurizzazione",
-          "Valvole e impulsi",
-          "Camera e ugello",
-          "Contatto dei propellenti → accensione"
-        ],
-        "title": "Architettura funzionale",
-        "description": "Serbatoio ossidante → Serbatoio MMH → Pressurizzazione → Valvole e impulsi → Camera e ugello → Contatto dei propellenti → accensione",
-        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+        "title": "Schema del principio di alimentazione",
+        "description": "Gas di pressurizzazione verso entrambi i serbatoi; ossidante e MMH attraverso valvole separate fino alla camera. Nessuna turbopompa.",
+        "note": "Schema funzionale editoriale, non planimetria del motore: frecce continue per i flussi principali, tratteggiate per la pressurizzazione. Valvole ausiliarie, raffreddamento e sistemi di avviamento omessi. Verifica nelle fonti della scheda.",
+        "reviewed": "2026-10-11"
       },
       "sections": [
         [
@@ -1532,17 +1528,10 @@
       "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
       "diagram": {
         "type": "engine",
-        "labels": [
-          "Ossidante ipergolico",
-          "Combustibile MMH",
-          "Pressurizzazione",
-          "Valvole di fuga",
-          "Camere SuperDraco",
-          "Spinta rapida per allontanare la capsula"
-        ],
-        "title": "Architettura funzionale",
-        "description": "Ossidante ipergolico → Combustibile MMH → Pressurizzazione → Valvole di fuga → Camere SuperDraco → Spinta rapida per allontanare la capsula",
-        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+        "title": "Schema del principio di alimentazione",
+        "description": "Gas di pressurizzazione verso entrambi i serbatoi; ossidante e MMH attraverso valvole separate fino alla camera. Nessuna turbopompa.",
+        "note": "Schema funzionale editoriale, non planimetria del motore: frecce continue per i flussi principali, tratteggiate per la pressurizzazione. Valvole ausiliarie, raffreddamento e sistemi di avviamento omessi. Verifica nelle fonti della scheda.",
+        "reviewed": "2026-10-11"
       },
       "sections": [
         [
@@ -1643,16 +1632,20 @@
       "diagram": {
         "type": "vehicle",
         "labels": [
-          "Ship sopra il booster",
-          "Anello di separazione",
-          "Serbatoi criogenici",
-          "Struttura in acciaio",
-          "Controllo di rientro",
-          "Gruppo Raptor"
+          "Griglia aerodinamica",
+          "Corpo del booster",
+          "Zona di propulsione"
         ],
-        "title": "Architettura funzionale",
-        "description": "Ship sopra il booster → Anello di separazione → Serbatoi criogenici → Struttura in acciaio → Controllo di rientro → Gruppo Raptor",
-        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+        "title": "Fotografia annotata: componenti visibili",
+        "description": "Griglia aerodinamica; Corpo del booster; Zona di propulsione. Booster in ritorno: Ship si è già separata. I singoli Raptor e i serbatoi interni non sono distinguibili.",
+        "note": "Steve Jurvetson; CC BY 2.0. Inquadratura di dettaglio e annotazioni vettoriali; JPEG non ritoccato. 13 ottobre 2024 · Super Heavy / Flight 5. Booster in ritorno: Ship si è già separata. I singoli Raptor e i serbatoi interni non sono distinguibili.",
+        "credit": {
+          "author": "Steve Jurvetson",
+          "source": "https://commons.wikimedia.org/wiki/File:SpaceX_Starship_booster_landing_approach_IFT-5.jpg",
+          "license": "CC BY 2.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/2.0/"
+        },
+        "reviewed": "2026-10-11"
       },
       "sections": [
         [
@@ -1753,16 +1746,20 @@
       "diagram": {
         "type": "vehicle",
         "labels": [
-          "Vano carico",
-          "Flap anteriori",
-          "Serbatoio LOX",
-          "Scudo sul ventre",
-          "Serbatoio metano",
-          "Raptor e Raptor Vacuum"
+          "Ogiva",
+          "Flap anteriore",
+          "Superficie in acciaio"
         ],
-        "title": "Architettura funzionale",
-        "description": "Vano carico → Flap anteriori → Serbatoio LOX → Scudo sul ventre → Serbatoio metano → Raptor e Raptor Vacuum",
-        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+        "title": "Fotografia annotata: componenti visibili",
+        "description": "Ogiva; Flap anteriore; Superficie in acciaio. Dettaglio storico di SN15: non la configurazione orbitale attuale. Serbatoi, motori e scudo orbitale non vengono indicati come visibili.",
+        "note": "Lars Plougmann; CC BY-SA 2.0. Inquadratura di dettaglio e annotazioni vettoriali; JPEG non ritoccato. 2021 · prototipo SN15. La figura annotata conserva la stessa licenza della fotografia. Dettaglio storico di SN15: non la configurazione orbitale attuale. Serbatoi, motori e scudo orbitale non vengono indicati come visibili.",
+        "credit": {
+          "author": "Lars Plougmann",
+          "source": "https://commons.wikimedia.org/wiki/File:Starship_SN15_flap_and_nosecone_(51437260707).jpg",
+          "license": "CC BY-SA 2.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+        },
+        "reviewed": "2026-10-11"
       },
       "sections": [
         [
@@ -1861,17 +1858,10 @@
       "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
       "diagram": {
         "type": "engine",
-        "labels": [
-          "Ossigeno liquido",
-          "Metano liquido",
-          "Pompa / precombustore O",
-          "Pompa / precombustore CH4",
-          "Camera principale e ugello",
-          "Due flussi alimentano la combustione finale"
-        ],
-        "title": "Architettura funzionale",
-        "description": "Ossigeno liquido → Metano liquido → Pompa / precombustore O → Pompa / precombustore CH4 → Camera principale e ugello → Due flussi alimentano la combustione finale",
-        "note": "Due rami di alimentazione e combustione finale; lo schema omette valvole, pressurizzazione e circuiti di raffreddamento. Non rappresenta il layout reale."
+        "title": "Schema del principio di alimentazione",
+        "description": "Due pompe e due precombustori, uno ricco di ossigeno e uno ricco di metano. Entrambi i flussi attraversano le turbine e raggiungono la camera principale; piccole alimentazioni incrociate consentono la combustione nei precombustori.",
+        "note": "Schema editoriale full-flow: pompe, due precombustori, due turbine e camera principale. Sono mostrate anche le alimentazioni incrociate necessarie ai precombustori. Non è un disegno costruttivo Raptor: alberi meccanici, raffreddamento, pressurizzazione e valvole omessi.",
+        "reviewed": "2026-10-11"
       },
       "sections": [
         [
@@ -2393,17 +2383,10 @@
       "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
       "diagram": {
         "type": "network",
-        "labels": [
-          "Satelliti in orbita",
-          "Generazioni coesistenti",
-          "Collegamenti fra nodi",
-          "Terminale utente",
-          "Gateway e rete terrestre",
-          "Hardware, servizio e autorizzazioni distinti"
-        ],
-        "title": "Architettura funzionale",
-        "description": "Satelliti in orbita → Generazioni coexistenti → Collegamenti fra nodi → Terminale utente → Gateway e rete terrestre → Hardware, servizio e autorizzazioni distinti",
-        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+        "title": "Percorso dei dati: nodi e collegamenti",
+        "description": "Terminale utente, satellite e gateway sono nodi diversi. Il traffico può raggiungere il gateway direttamente oppure attraverso satelliti collegati da laser; poi attraversa la rete terrestre verso la destinazione.",
+        "note": "Topologia funzionale editoriale, non una mappa di copertura né una disposizione orbitale. Le linee descrivono collegamenti dati bidirezionali; i percorsi laser sono opzionali e non appartengono a tutte le generazioni.",
+        "reviewed": "2026-10-11"
       },
       "sections": [
         [
@@ -2504,17 +2487,10 @@
       "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
       "diagram": {
         "type": "network",
-        "labels": [
-          "Satellite di ingresso",
-          "Percorso laser",
-          "Satellite di uscita",
-          "Collegamento utente",
-          "Gateway / destinazione",
-          "La scelta del percorso influisce sulla latenza"
-        ],
-        "title": "Architettura funzionale",
-        "description": "Satellite di ingresso → Percorso laser → Satellite di uscita → Collegamento utente → Gateway / destinazione → La scelta del percorso influisce sulla latenza",
-        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+        "title": "Percorso dei dati: nodi e collegamenti",
+        "description": "Terminale utente, satellite e gateway sono nodi diversi. Il traffico può raggiungere il gateway direttamente oppure attraverso satelliti collegati da laser; poi attraversa la rete terrestre verso la destinazione.",
+        "note": "Topologia funzionale editoriale, non una mappa di copertura né una disposizione orbitale. Le linee descrivono collegamenti dati bidirezionali; i percorsi laser sono opzionali e non appartengono a tutte le generazioni.",
+        "reviewed": "2026-10-11"
       },
       "sections": [
         [
@@ -2611,17 +2587,10 @@
       "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
       "diagram": {
         "type": "network",
-        "labels": [
-          "Satelliti disponibili",
-          "Passaggio del servizio",
-          "Fasci e inseguimento",
-          "Antenna dell’utente",
-          "Router e rete locale",
-          "Ostacoli e alimentazione fanno parte del sistema"
-        ],
-        "title": "Architettura funzionale",
-        "description": "Satelliti disponibili → Passaggio del servizio → Fasci e inseguimento → Antenna dell’utente → Router e rete locale → Ostacoli e alimentazione fanno parte del sistema",
-        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+        "title": "Percorso dei dati: nodi e collegamenti",
+        "description": "Dispositivi locali e router comunicano con l’antenna Starlink, che si collega via radio ai satelliti disponibili. Il satellite si collega alla rete terrestre, direttamente o attraverso altri satelliti.",
+        "note": "Topologia funzionale editoriale, non una mappa di copertura né una disposizione orbitale. Le linee descrivono collegamenti dati bidirezionali; i percorsi laser sono opzionali e non appartengono a tutte le generazioni.",
+        "reviewed": "2026-10-11"
       },
       "sections": [
         [
@@ -2717,17 +2686,10 @@
       "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
       "diagram": {
         "type": "network",
-        "labels": [
-          "Satellite mobile",
-          "Rete nello spazio",
-          "Operatore partner",
-          "Telefono compatibile",
-          "Rete mobile e servizi",
-          "Frequenze e servizi dipendono dal mercato"
-        ],
-        "title": "Architettura funzionale",
-        "description": "Satellite mobile → Rete nello spazio → Operatore partner → Telefono compatibile → Rete mobile e servizi → Frequenze e servizi dipendono dal mercato",
-        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+        "title": "Percorso dei dati: nodi e collegamenti",
+        "description": "Telefono compatibile comunica via radio con un satellite Direct to Cell; la rete spaziale si collega all’infrastruttura terrestre e al core dell’operatore mobile. Non è richiesto un terminale domestico Starlink.",
+        "note": "Topologia funzionale editoriale, non una mappa di copertura né una disposizione orbitale. Le linee descrivono collegamenti dati bidirezionali; i percorsi laser sono opzionali e non appartengono a tutte le generazioni.",
+        "reviewed": "2026-10-11"
       },
       "sections": [
         [
@@ -2823,17 +2785,10 @@
       "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
       "diagram": {
         "type": "sequence",
-        "labels": [
-          "Energia solare",
-          "Distribuzione e accumulo",
-          "Processori e memoria",
-          "Rete ottica e dati",
-          "Trasporto del calore",
-          "Radiatori verso lo spazio"
-        ],
-        "title": "Architettura funzionale",
-        "description": "Energia solare → Distribuzione e accumulo → Processori e memoria → Rete ottica e dati → Trasporto del calore → Radiatori verso lo spazio",
-        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+        "title": "Energia, dati e calore: tre percorsi distinti",
+        "description": "Energia solare e accumulo alimentano il calcolo. Il calcolo scambia dati con la rete ottica e cede calore al circuito termico e ai radiatori. Non è una singola catena sequenziale.",
+        "note": "Schema funzionale editoriale del concetto di calcolo orbitale, non planimetria di AI1. Energia, dati e calore sono percorsi differenti; geometria, prestazioni e dettagli proprietari non rappresentati.",
+        "reviewed": "2026-10-11"
       },
       "sections": [
         [
@@ -3684,17 +3639,10 @@
       "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
       "diagram": {
         "type": "sequence",
-        "labels": [
-          "Separazione dei due stadi",
-          "Booster verso la torre",
-          "Ship affronta il rientro",
-          "Ritorno nella zona prevista",
-          "Recupero e ispezioni",
-          "Qualifica per il rivolo"
-        ],
-        "title": "Architettura funzionale",
-        "description": "Separazione dei due stadi → Booster verso la torre → Ship affronta il rientro → Ritorno nella zona prevista → Recupero e ispezioni → Qualifica per il rivolo",
-        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+        "title": "Due stadi, due percorsi di ritorno",
+        "description": "Dopo la separazione, Super Heavy ritorna lungo il proprio profilo mentre Ship prosegue la missione e affronta un rientro separato. Ispezione e qualifica al rivolo sono valutate per ciascun veicolo.",
+        "note": "Schema di missione editoriale: i percorsi dei due stadi sono paralleli, non una sequenza unica. Recupero, cattura e rivolo dipendono dall’esito e dagli obiettivi del singolo volo.",
+        "reviewed": "2026-10-11"
       },
       "sections": [
         [
@@ -3794,17 +3742,10 @@
       "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
       "diagram": {
         "type": "network",
-        "labels": [
-          "Satellite di ingresso",
-          "Percorso intersatellitare",
-          "Satellite sul gateway",
-          "Terminale utente",
-          "Gateway → rete terrestre",
-          "Destinazione e interconnessione condizionano il percorso"
-        ],
-        "title": "Architettura funzionale",
-        "description": "Satellite di ingresso → Percorso intersatellitare → Satellite sul gateway → Terminale utente → Gateway → rete terrestre → Destinazione e interconnessione condizionano il percorso",
-        "note": "Sono mostrati i legami funzionali principali. Proporzioni, cablaggi e dettagli costruttivi sono omessi."
+        "title": "Percorso dei dati: nodi e collegamenti",
+        "description": "Terminale utente, satellite e gateway sono nodi diversi. Il traffico può raggiungere il gateway direttamente oppure attraverso satelliti collegati da laser; poi attraversa la rete terrestre verso la destinazione.",
+        "note": "Topologia funzionale editoriale, non una mappa di copertura né una disposizione orbitale. Le linee descrivono collegamenti dati bidirezionali; i percorsi laser sono opzionali e non appartengono a tutte le generazioni.",
+        "reviewed": "2026-10-11"
       },
       "sections": [
         [
