@@ -36,6 +36,7 @@ Il generatore generale `genera_sito_rivoluzione.py` conserva il nuovo riepilogo 
 ## Ricerca, accessibilità e prestazioni
 
 - L’indice è richiesto soltanto nella pagina ricerca. Le altre pagine caricano un piccolo script che termina immediatamente: nessun download full-text durante la lettura.
+- Le versioni dell’indice e delle risorse CSS/JS derivano dalle loro impronte: le future modifiche non restano nascoste dalla cache. Cambiare un dato dell’indice aggiorna la sua chiave nella sola pagina ricerca, senza riscrivere tutti i capitoli.
 - Ricerca senza distinzione fra maiuscole/minuscole o accenti; parole comuni delle domande italiane ignorate; tutte le parole significative devono comparire. È una ricerca lessicale, non un sistema semantico AI.
 - Titoli pesano più delle occorrenze nel testo; estratti mostrano il contesto. Ogni risultato è un normale collegamento, non un contenuto caricato dinamicamente nel libro.
 - Venti risultati iniziali, pulsante per i successivi; filtri combinabili, stato annunciato ai lettori di schermo, etichette esplicite, pulsanti e link raggiungibili da tastiera.

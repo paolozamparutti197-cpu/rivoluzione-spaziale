@@ -7,10 +7,11 @@ from pathlib import Path
 from html import escape
 from html.parser import HTMLParser
 from urllib.parse import urlsplit, unquote, quote
-import argparse, json, re, os
+import argparse, json, re, os, hashlib
 
 ROOT = Path(__file__).resolve().parents[1]
 VERSION = '20261011-lettori'
+ASSET_VERSION = VERSION
 SECTIONS = ['spacex','storia-spacex','monografie-spacex','storico-lanci','lanci-imminenti','starship','lancio13','lancio14','pad-di-lancio','localita-spacex','guida-lancio-slc40']
 TOPICS = [('Starship',r'starship|super heavy|raptor|boca chica|red dragon'),('Falcon',r'falcon|merlin|crs.?7|amos.?6'),('Crew Dragon',r'crew dragon|commercial crew|demo.?2|ax.?[1-9]'),('Starlink',r'starlink|oneweb|megacostell'),('Artemis',r'artemis|orion|blue moon|gateway'),('AI nello spazio',r'starmind|data center|intelligenza artificiale|xai'),('Infrastrutture',r'starbase|vandenberg|slc.?40|lc.?39|piazzol')]
 
@@ -74,7 +75,7 @@ def decorate(path,html):
     html=re.sub(r'<!-- LETTORI:HEAD -->.*?<!-- /LETTORI:HEAD -->','',html,flags=re.S)
     html=re.sub(r'<!-- LETTORI:NAV -->.*?<!-- /LETTORI:NAV -->','',html,flags=re.S)
     css=relative(path,'css/lettori-spacex.css'); js=relative(path,'js/lettori-spacex.js')
-    html=html.replace('</head>',f'<!-- LETTORI:HEAD --><link rel="stylesheet" href="{css}?v={VERSION}"><script src="{js}?v={VERSION}" defer></script><!-- /LETTORI:HEAD --></head>',1)
+    html=html.replace('</head>',f'<!-- LETTORI:HEAD --><link rel="stylesheet" href="{css}?v={ASSET_VERSION}"><script src="{js}?v={ASSET_VERSION}" defer></script><!-- /LETTORI:HEAD --></head>',1)
     def link(target,label): return f'<a href="{relative(path,target)}">{escape(label)}</a>'
     ancestors=[link('index.html','Home'),link('sezioni/spacex.html','SpaceX')]
     if path.parent.parent.name=='monografie':
@@ -102,7 +103,7 @@ def decorate(path,html):
 def page(title_,body):
     return f'<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{escape(title_)} | Rivoluzione Spaziale</title><link rel="stylesheet" href="../css/style.css?v=20260830-f13-f14"></head><body><header class="topbar"><a class="brand" href="../index.html">Rivoluzione <span>Spaziale</span></a><nav class="nav"><a href="spacex.html">SpaceX</a><a href="monografie-spacex.html">Monografie</a></nav></header><main><div class="reader-hub"><h1>{escape(title_)}</h1>{body}</div></main><footer class="footer">Rivoluzione Spaziale · Percorsi e ricerca SpaceX</footer></body></html>'
 
-def landing_pages():
+def landing_pages(index_version=None):
     paths='''<p>Quattro ingressi allo stesso patrimonio: scegli la domanda che ti porta qui.</p><div class="reader-grid">
 <section><h2>Capire SpaceX</h2><p>Per cominciare: la storia generale, poi i programmi. Non serve conoscere già motori e orbite.</p><ol><li><a href="storia-spacex.html">I sedici capitoli della storia</a>: dalla fondazione a Block 5.</li><li><a href="../documenti%20per%20sito/falcon9_2017_riutilizzo_accelerazione.html">Perché il riutilizzo cambia il ritmo</a>.</li><li><a href="monografie-spacex.html">Scegli un libro</a> e segui l’indice.</li></ol></section>
 <section><h2>Consultare un dato</h2><p>Per chi vuole verificare un numero, una missione o un booster, senza attraversare tutto il racconto.</p><ol><li><a href="storico-lanci.html">Riepilogo e cadenza annuale</a>.</li><li><a href="../archivio/spacex/index.html">Ricerca e filtri dell’archivio operativo</a>.</li><li><a href="../archivio/spacex/metodo.html">Metodo: cosa contano lanci e recuperi</a>.</li></ol></section>
@@ -110,12 +111,16 @@ def landing_pages():
 <section><h2>Approfondire un programma</h2><p>Per lettori esperti: entra direttamente nell’architettura, poi controlla dipendenze, limiti e fonti.</p><ul><li><a href="../monografie/crew-dragon/index.html">Crew Dragon</a>: sviluppo, sicurezza e servizio.</li><li><a href="../monografie/starlink/index.html">Starlink</a>: rete, OneWeb e megacostellazioni.</li><li><a href="../monografie/starship/index.html">Starship</a>: Raptor, riuso, rifornimento e Marte.</li><li><a href="../monografie/artemis/index.html">Artemis</a>: veicoli, lander e presenza lunare.</li><li><a href="../monografie/starmind/index.html">Starmind</a>: calcolo e infrastrutture orbitali.</li></ul></section></div>
 <h2>Tre itinerari trasversali</h2><ul><li><strong>Dal fallimento alla fiducia:</strong> <a href="../documenti%20per%20sito/crs7_crisi_indagine_ripresa_2015.html">CRS-7</a> → <a href="../documenti%20per%20sito/primo_atterraggio_falcon9_2015.html">primo atterraggio</a> → <a href="../monografie/crew-dragon/index.html">certificazione Crew Dragon</a>.</li><li><strong>Dal motore alla missione:</strong> <a href="../monografie/starship/06-raptor-ciclo.html">Raptor</a> → <a href="../monografie/starship/20-rifornimento.html">rifornimento orbitale</a> → <a href="../monografie/artemis/13-starship-hls.html">HLS</a>.</li><li><strong>Dalla rete al cielo condiviso:</strong> <a href="../monografie/starlink/06-architettura.html">architettura Starlink</a> → <a href="../monografie/starlink/16-oneweb.html">OneWeb</a> → <a href="../monografie/starlink/19-cielo-astronomia.html">astronomia</a>.</li></ul><p><a href="cerca-spacex.html">Hai una domanda precisa? Cerca nel testo di tutto il percorso.</a></p>'''
     search='''<p>Ricerca nel testo dei capitoli, delle schede e degli articoli. Per statistiche e filtri sui voli usa anche <a href="../archivio/spacex/index.html">l’archivio operativo</a>.</p><form id="reader-search" class="reader-search" role="search"><label>Parole da cercare<input id="reader-query" name="q" type="search" maxlength="180" placeholder="Es. scudo termico, Red Dragon, SX-0714"></label><label>Tipo di contenuto<select id="reader-type"><option value="">Tutti i tipi</option></select></label><label>Argomento<select id="reader-topic"><option value="">Tutti gli argomenti</option></select></label><button type="submit">Cerca</button></form><p id="reader-status" role="status" aria-live="polite">Caricamento dell’indice…</p><div id="reader-results"></div><button id="reader-more" type="button" hidden>Mostra altri risultati</button><noscript><p>La ricerca full-text richiede JavaScript. Puoi comunque consultare <a href="percorsi-spacex.html">i percorsi</a>, <a href="monografie-spacex.html">gli indici dei libri</a> e <a href="../archivio/spacex/elenco.html">l’elenco statico delle missioni</a>.</p></noscript>'''
-    return {'percorsi-spacex':page('Da dove cominciare',paths),'cerca-spacex':page('Cerca in SpaceX',search)}
+    existing=ROOT/'ricerca/spacex.json'
+    index_version=index_version or (hashlib.sha256(existing.read_text(encoding='utf8').encode('utf8')).hexdigest()[:16] if existing.exists() else VERSION)
+    return {'percorsi-spacex':page('Da dove cominciare',paths),'cerca-spacex':page('Cerca in SpaceX',search).replace('<main>',f'<main data-search-version="{index_version}">',1)}
 
 def update(root=ROOT, check=False):
     # root parametrico permette test su copia isolata, senza workbook reali.
-    global ROOT
+    global ROOT, ASSET_VERSION
     ROOT=Path(root)
+    assets=''.join((ROOT/p).read_text(encoding='utf8') for p in ['css/lettori-spacex.css','js/lettori-spacex.js'])
+    ASSET_VERSION=VERSION+'-'+hashlib.sha256(assets.encode('utf8')).hexdigest()[:10]
     pending=[]
     for slug,html in landing_pages().items():
         p=ROOT/'sezioni'/f'{slug}.html';p.parent.mkdir(parents=True,exist_ok=True)
@@ -142,6 +147,13 @@ def update(root=ROOT, check=False):
     if not index.exists() or index.read_text(encoding='utf8')!=value:
         pending.append(index)
         if not check:index.write_text(value,encoding='utf8')
+    # Solo la pagina ricerca porta l'impronta dell'indice: cache aggiornata
+    # senza riscrivere centinaia di articoli a ogni nuova missione.
+    search_page=ROOT/'sezioni/cerca-spacex.html'
+    search_html=decorate(search_page,landing_pages(hashlib.sha256(value.encode('utf8')).hexdigest()[:16])['cerca-spacex'])
+    if not search_page.exists() or search_page.read_text(encoding='utf8')!=search_html:
+        pending.append(search_page)
+        if not check:search_page.write_text(search_html,encoding='utf8')
     if check and pending:
         raise RuntimeError('Navigazione o ricerca da aggiornare: '+', '.join(str(p.relative_to(ROOT)) for p in pending[:10]))
     print(f'Navigazione: {len(changed)} pagine aggiornate; ricerca: {len(docs)} documenti, {len(value.encode("utf8"))} byte.')
