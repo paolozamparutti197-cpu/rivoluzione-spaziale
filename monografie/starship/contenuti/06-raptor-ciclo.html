@@ -5,7 +5,18 @@
 <h2>Che cosa significa full-flow</h2>
 <p>Nel ciclo a combustione stadiata a flusso completo, i due propellenti attraversano circuiti con prebruciatori e turbine prima della combustione principale. Un prebruciatore lavora con miscela ricca di combustibile, l’altro con miscela ricca di ossigeno. I gas risultanti azionano le turbine e vengono poi portati alla camera, dove la combustione si completa.</p>
 <p>Il vantaggio concettuale è distribuire il lavoro su flussi importanti, invece di ottenere tutta la potenza della pompa da una piccola quantità di gas estremamente sollecitata. Non significa che i componenti siano freddi o facili da realizzare. Un ambiente ricco di ossigeno caldo pone problemi specifici ai materiali; pressioni, tenute, transitori e avviamento restano molto impegnativi.</p>
-<figure><img src="assets/raptor-ciclo-it.svg" alt="Schema in italiano del ciclo full-flow con due prebruciatori, due turbine e camera principale" loading="lazy"><figcaption>Schema didattico originale. Mostra le funzioni del ciclo, non il percorso costruttivo del Raptor. Sono omessi valvole, raffreddamento, avviamento e numerosi rami del circuito.</figcaption></figure>
+<figure id="schema-animato" class="raptor-flow" data-raptor-flow>
+<div class="raptor-flow-view" tabindex="0" role="region" aria-label="Schema del ciclo Raptor, scorribile">
+<img src="../../assets/raptor-full-flow/raptor-full-flow.svg?v=20261011" data-gif="../../assets/raptor-full-flow/raptor-full-flow.gif?v=20261011" width="1800" height="1300" loading="lazy" alt="Ciclo full-flow a metano e ossigeno: due pompe alimentano due prebruciatori, con piccoli flussi incrociati. Il gas ricco di combustibile e quello ricco di ossigeno azionano le rispettive turbine, collegate meccanicamente alle pompe, e raggiungono l’iniettore della camera principale. La combustione si completa e i gas escono dall’ugello. Un riquadro separato mostra il metano che assorbe calore dalle pareti.">
+</div>
+<div class="raptor-flow-controls">
+<button type="button" data-flow-toggle hidden>Avvia animazione</button>
+<a href="../../assets/raptor-full-flow/raptor-full-flow.gif?v=20261011">GIF a piena dimensione</a>
+<a href="../../assets/raptor-full-flow/raptor-full-flow.svg?v=20261011">Schema statico SVG</a>
+<span data-flow-status role="status" aria-live="polite">Schema statico.</span>
+</div>
+<figcaption>Tavola originale Rivoluzione Spaziale, aggiornata l’11 ottobre 2026, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. L’animazione illustra i percorsi dei liquidi e dei gas e il collegamento fra turbine e pompe: geometrie, portate e velocità non sono in scala. Il raffreddamento è mostrato in un dettaglio funzionale separato, non come ricostruzione delle tubazioni. Non è un disegno costruttivo del Raptor e non attribuisce al motore pressioni o temperature stimate. Principi verificati sugli studi <a href="https://ntrs.nasa.gov/citations/19910021901">NASA sul ciclo full-flow</a>, <a href="https://ntrs.nasa.gov/citations/20030003786">sull’iniezione gas–gas</a> e <a href="https://ntrs.nasa.gov/citations/20170005557">sulla propulsione LOX/metano</a>, sul <a href="https://www.nasa.gov/news-release/new-rocket-engine-combustion-cycle-technology-testing-reaches-100-power-level/">dimostratore IPD</a> e sul <a href="https://www.nasa.gov/rocket-laboratory-space-propulsion/">raffreddamento rigenerativo</a>. Queste fonti riguardano principi e programmi di ricerca; non sono documentazione costruttiva SpaceX. Nessuna loro figura è stata copiata.</figcaption>
+</figure>
 <h2>Una tecnologia con precedenti di ricerca</h2>
 <p>SpaceX non inventò dal nulla il principio full-flow. Il dimostratore IPD, sviluppato nell’ambito di un programma congiunto NASA e Air Force, aveva affrontato questo ciclo con propellenti differenti. Riconoscere il precedente non riduce il lavoro Raptor: un dimostratore a terra e un motore che deve essere prodotto e usato in volo rispondono a livelli di maturità diversi.</p>
 <p>Il contributo industriale riguarda la capacità di rendere il ciclo parte di un veicolo reale, con avviamenti ripetuti, regolazione, integrazione e una serie di motori. Dimostrare una condizione di funzionamento non significa aver risolto tutte le condizioni fra avviamento e spegnimento.</p>
@@ -17,7 +28,7 @@
 <h2>L’avviamento è una manovra</h2>
 <p>Un motore non passa istantaneamente da zero alla propria condizione stabile. Devono essere preparati temperature, pressioni e flussi; le sequenze devono evitare condizioni nelle quali un componente riceva ciò che non può ancora gestire. La riaccensione durante il ritorno avviene inoltre dopo una storia di vibrazioni, accelerazioni e variazioni dei fluidi.</p>
 <p>È qui che il motore incontra il veicolo. Una pompa può essere ben progettata e ricevere comunque condizioni sfavorevoli dal serbatoio. Una prova statica importante può non riprodurre ogni transitorio del volo. La parte rivoluzionaria di Raptor non sta quindi soltanto nel diagramma: sta nel tentativo di rendere ripetibile un ciclo complesso dentro una macchina destinata a tornare.</p>
-<!-- FONTI: propulsion ipd raptorfigure vehicle -->
+<!-- FONTI: propulsion ipd ffsc1990 gasgas2002 methanegaps2017 ipdcycle cooling raptorfigure vehicle -->
 
 <!-- ATLANTE SPACEX -->
 <section class="callout"><h2>Consultare l’atlante tecnico</h2><p>Caratteristiche, schemi, configurazioni e limiti: <a href="../../atlante/spacex/merlin.html">Merlin</a> · <a href="../../atlante/spacex/raptor.html">Raptor</a>.</p><p><a href="../../atlante/spacex/index.html">Tutte le 32 schede dell’atlante SpaceX</a>.</p></section>

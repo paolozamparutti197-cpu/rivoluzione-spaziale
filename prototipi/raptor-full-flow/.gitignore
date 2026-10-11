@@ -1,0 +1,10 @@
+# Materiale di lavoro locale: non deve entrare nella pubblicazione del sito.
+fotogrammi/
+controllo-*.png
+raptor-full-flow-base.svg
+raptor-full-flow.svg
+raptor-full-flow.png
+raptor-full-flow.gif
+anteprima.html
+flussi.json
+verifica-*.json

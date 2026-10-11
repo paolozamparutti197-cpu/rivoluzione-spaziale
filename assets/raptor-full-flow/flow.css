@@ -1,0 +1,15 @@
+/* Lettore condiviso: capitolo Raptor e atlante. Nessuna regola globale. */
+.raptor-flow{margin:32px 0;border:1px solid #31465b;border-radius:8px;overflow:hidden;background:#0a111d;color:#f1f6fb;max-width:100%;min-width:0;scroll-margin-top:28px}
+.raptor-flow .raptor-flow-view{overflow:auto;max-width:100%;background:#0a111d}
+.raptor-flow .raptor-flow-view img{display:block;width:100%;height:auto;max-width:none;max-height:none;object-fit:contain}
+.raptor-flow.is-zoomed .raptor-flow-view img{width:1800px;min-width:1800px}
+.raptor-flow .raptor-flow-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:14px 16px;border-top:1px solid #31465b;font:14px/1.5 system-ui,Segoe UI,sans-serif}
+.raptor-flow .raptor-flow-controls button,.raptor-flow .raptor-flow-controls a{font:inherit;color:#f1f6fb;background:#17293b;border:1px solid #526c84;border-radius:5px;padding:9px 12px;text-decoration:none;cursor:pointer}
+.raptor-flow .raptor-flow-controls button:hover,.raptor-flow .raptor-flow-controls a:hover{background:#223b50;color:#fff}
+.raptor-flow .raptor-flow-controls [data-flow-status]{color:#adbdcf;font-size:13px}
+.raptor-flow figcaption{font:14px/1.65 system-ui,Segoe UI,sans-serif;color:#c4d2df;margin:0;padding:16px;border-top:1px solid #31465b;overflow-wrap:anywhere}
+.raptor-flow figcaption a{color:#8ed9ff}
+.raptor-flow :focus-visible{outline:3px solid #ffbb68;outline-offset:-3px}
+.raptor-flow [hidden]{display:none!important}
+.technical.technical-text-only{display:block;max-width:900px}
+@media(max-width:620px){.raptor-flow .raptor-flow-view img{min-width:1000px}.raptor-flow .raptor-flow-controls{padding:12px;gap:8px}.raptor-flow figcaption{padding:13px}}

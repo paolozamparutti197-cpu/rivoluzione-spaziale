@@ -21,6 +21,31 @@
       "url": "https://ntrs.nasa.gov/api/citations/20140002716/downloads/20140002716.pdf",
       "note": "Principi e confronti fra cicli dei motori a propellente liquido."
     },
+    "raptor:ffsc": {
+      "title": "NASA-CR-184205, Evaluation of undeveloped rocket engine cycle applications to advanced transportation",
+      "url": "https://ntrs.nasa.gov/citations/19910021901",
+      "note": "Architettura full-flow e alimentazioni incrociate, §2.2.2.1, pagine stampate 46–47. Principi, non schema costruttivo Raptor."
+    },
+    "raptor:gasgas": {
+      "title": "NASA/TM-2002-211982, Experimental Evaluation of a Subscale Gaseous Hydrogen/Gaseous Oxygen Coaxial Rocket Injector",
+      "url": "https://ntrs.nasa.gov/citations/20030003786",
+      "note": "Ricerca sull'iniezione gas–gas con idrogeno/ossigeno, non geometria dell'iniettore del Raptor."
+    },
+    "raptor:methane": {
+      "title": "NASA, LOX/Methane In-Space Propulsion Systems Technology Status and Gaps",
+      "url": "https://ntrs.nasa.gov/citations/20170005557",
+      "note": "2017, slide 12: Raptor identificato come full-flow. Le vecchie prestazioni non sono trasferite alle versioni attuali."
+    },
+    "raptor:ipd": {
+      "title": "NASA, Integrated Powerhead Demonstrator: prova al 100%",
+      "url": "https://www.nasa.gov/news-release/new-rocket-engine-combustion-cycle-technology-testing-reaches-100-power-level/",
+      "note": "Prebruciatori e turbine nei due rami del ciclo; dimostratore idrogeno/ossigeno, non Raptor."
+    },
+    "raptor:cooling": {
+      "title": "NASA Glenn, Rocket Laboratory: Low-Cost Engine Cooling",
+      "url": "https://www.nasa.gov/rocket-laboratory-space-propulsion/",
+      "note": "Principio del raffreddamento rigenerativo mediante combustibile criogenico, non ricostruzione del circuito interno Raptor."
+    },
     "starship:hotstage": {
       "title": "NASA Advanced Supercomputing, Starship Hot Staging",
       "url": "https://www.nas.nasa.gov/SC24/research/project24.php",
@@ -1858,9 +1883,13 @@
       "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
       "diagram": {
         "type": "engine",
-        "title": "Schema del principio di alimentazione",
-        "description": "Due pompe e due precombustori, uno ricco di ossigeno e uno ricco di metano. Entrambi i flussi attraversano le turbine e raggiungono la camera principale; piccole alimentazioni incrociate consentono la combustione nei precombustori.",
-        "note": "Schema editoriale full-flow: pompe, due precombustori, due turbine e camera principale. Sono mostrate anche le alimentazioni incrociate necessarie ai precombustori. Non è un disegno costruttivo Raptor: alberi meccanici, raffreddamento, pressurizzazione e valvole omessi.",
+      "title": "Raptor: il principio del ciclo full-flow, in movimento",
+      "description": "Schema del ciclo Raptor: metano e ossigeno attraversano pompe distinte e prebruciatori con piccole alimentazioni incrociate. I gas ricchi di combustibile e di ossigeno muovono turbine con alberi indipendenti e raggiungono la camera principale. Sono mostrati ugello, legenda e dettaglio del raffreddamento rigenerativo.",
+      "note": "Tavola originale del principio FFSC LOX/metano, non della disposizione costruttiva di Raptor 1, 2 o 3. Geometria, frecce e velocità sono illustrative, non portate o regimi reali. Le due metà dell'iniettore sono simboliche. Il raffreddamento è separato solo nel disegno; sono omessi valvole, avviamento, pressurizzazione e circuiti ausiliari.",
+      "animation": {
+        "gif": "../../assets/raptor-full-flow/raptor-full-flow.gif",
+        "static": "../../assets/raptor-full-flow/raptor-full-flow.svg"
+      },
         "reviewed": "2026-10-11"
       },
       "sections": [
@@ -1894,7 +1923,11 @@
       "sources": [
         "starship:propulsion",
         "starship:vehicle",
-        "starship:v3"
+      "raptor:ffsc",
+      "raptor:gasgas",
+      "raptor:methane",
+      "raptor:ipd",
+      "raptor:cooling"
       ],
       "readings": [
         [
