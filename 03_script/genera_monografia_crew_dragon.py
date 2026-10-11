@@ -87,3 +87,7 @@ for i, (slug, title, desc) in enumerate(CHAPTERS):
 index_body = (BOOK / 'contenuti' / 'indice.html').read_text(encoding='utf-8') if (BOOK / 'contenuti' / 'indice.html').exists() else '<p>Il libro è in costruzione. I capitoli completati vengono salvati durante il lavoro.</p>'
 (BOOK / 'index.html').write_text(header(DATA['titolo'], 'Un libro in dodici capitoli sulla storia, lo sviluppo e le missioni di Crew Dragon.') + f'<main id="contenuto"><div class="chapterhead cover"><p class="eyebrow">Programmi e monografie · SpaceX</p><h1>Crew Dragon</h1><p class="lead">Costruire la fiducia, portare le persone nello spazio</p><p class="readingtime">Dodici capitoli · {total:,} parole negli HTML · Edizione 9 ottobre 2026</p></div><div class="indexbody">{index_body}<h2>Il percorso di lettura</h2>{contents()}<p class="note">Il registro distingue i voli orbitali dalle prove suborbitali, le persone lanciate da quelle riportate a Terra e i risultati dalle previsioni.</p></div></main>' + end(), encoding='utf-8')
 print(f'HTML salvati: {sum((BOOK / "contenuti" / (c[0]+".html")).exists() for c in CHAPTERS)}/12; parole incluse fonti e didascalie: {total}')
+
+# Ricostruisce ricerca e percorsi anche dopo la rigenerazione del libro.
+from navigazione_spacex import update as update_reader_navigation
+update_reader_navigation(ROOT)

@@ -45,3 +45,7 @@ css+='''
 with (B/'cronologia.csv').open('w',newline='',encoding='utf-8-sig') as f:
  w=csv.DictWriter(f,fieldnames=['data','evento','tipo','stato','fonte']);w.writeheader();w.writerows([{**e,'fonte':sources[e['fonte']][1]} for e in events])
 print(json.dumps(dict(capitoli=len(chapters),parole=total,figure_capitoli=figures,fotografie=len(images),schemi=len(diagrams),eventi=len(events)),ensure_ascii=False))
+
+# Ricostruisce ricerca e percorsi anche dopo la rigenerazione del libro.
+from navigazione_spacex import update as update_reader_navigation
+update_reader_navigation(ROOT)

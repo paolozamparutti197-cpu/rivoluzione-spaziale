@@ -27,3 +27,7 @@ if p.exists():
  listing='<ul>'+''.join(f'<li><a href="assets/{r["file"]}">{r["file"]}</a> · {escape(r["credito"])} · <a href="{escape(r["fonte"],quote=True)}">Fonte</a>. {escape(r["didascalia"])} {escape(r["modifiche"])}</li>' for r in images)+'</ul>'
  (BOOK/'crediti.html').write_text(head('Fonti e licenze','Crediti delle fotografie NASA e degli schemi originali.')+'<main id="contenuto"><div class="chapterhead"><h1>Fonti e licenze</h1></div><article class="reading indexbody">'+p.read_text(encoding='utf-8').replace('<!-- CREDITI -->',listing)+'</article></main>'+end(),encoding='utf-8')
 css=(ROOT/'monografie/crew-dragon/libro.css').read_text(encoding='utf-8');css+='\n.cover{background:linear-gradient(90deg,#050607e8,#05060765),url("assets/artemis2-lancio.jpg") center/cover}.bookaside{max-height:90vh;overflow:auto}.reading dt{color:var(--amber);font-weight:bold;margin-top:20px}.reading dd{margin:8px 0 20px;line-height:1.8}.filters input{max-width:100%}@media(max-width:950px){.bookaside{max-height:none}}\n';(BOOK/'libro.css').write_text(css,encoding='utf-8');print('Capitoli',sum((BOOK/'contenuti'/f'{s}.html').exists() for s,t,d in chapters),'parole',total)
+
+# Ricostruisce ricerca e percorsi anche dopo la rigenerazione del libro.
+from navigazione_spacex import update as update_reader_navigation
+update_reader_navigation(ROOT)

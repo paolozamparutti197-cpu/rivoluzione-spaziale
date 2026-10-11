@@ -92,6 +92,14 @@ SPECIAL_NAMES = {
 }
 
 PUBLISH_FILES = [
+    "03_script/navigazione_spacex.py",
+    "03_script/aggiorna_archivio_spacex.py",
+    "css/lettori-spacex.css",
+    "js/lettori-spacex.js",
+    "ricerca/spacex.json",
+    "sezioni/cerca-spacex.html",
+    "sezioni/percorsi-spacex.html",
+    "archivio/spacex",
     "spacex_lanci_fino_luglio_2026 (1).html",
     "electronlab/prossimi_lanci_electron.json",
     "css/style.css",

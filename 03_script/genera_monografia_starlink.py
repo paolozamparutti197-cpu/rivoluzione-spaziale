@@ -43,3 +43,7 @@ css=(ROOT/'monografie'/'crew-dragon'/'libro.css').read_text(encoding='utf-8')
 css+='\n.cover{background:linear-gradient(90deg,#050607e8,#05060785),url("assets/terra-notte.jpg") center/cover}.bookaside{max-height:90vh;overflow:auto}.status{display:inline-block;padding:5px 9px;border:1px solid #49606f;color:var(--amber);font-size:13px}.calculator{padding:24px;border:1px solid var(--line);background:#101b24}.calculator label{display:block;margin:15px 0}.calculator input{max-width:100%;width:100%;accent-color:var(--cyan)}.calculator output{display:block;font-size:23px;line-height:1.7;color:var(--amber)}.reading code{overflow-wrap:anywhere}@media(max-width:950px){.bookaside{max-height:none}}\n'
 (BOOK/'libro.css').write_text(css,encoding='utf-8')
 print(f'Capitoli: {sum((BOOK/"contenuti"/f"{c[0]}.html").exists() for c in chapters)}/{len(chapters)}; parole: {total}')
+
+# Ricostruisce ricerca e percorsi anche dopo la rigenerazione del libro.
+from navigazione_spacex import update as update_reader_navigation
+update_reader_navigation(ROOT)

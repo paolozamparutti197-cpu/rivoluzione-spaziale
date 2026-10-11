@@ -3102,6 +3102,11 @@ def render_launches_page(data):
 
 
 def render_history_page(data):
+    # Il nuovo archivio è la fonte del riepilogo: non sostituirlo con la
+    # vecchia dashboard. main() lo aggiorna poi mediante la pipeline dedicata.
+    current = SECTIONS_DIR / "storico-lanci.html"
+    if (ROOT / "archivio/spacex/dati.json").exists() and current.exists():
+        return current.read_text(encoding="utf-8")
     body = f"""
 {page_hero("Storico lanci", "Dashboard SpaceX", "Riepilogo dei lanci operativi SpaceX: cadenza, successi, pad, lanciatori e recupero booster.")}
 <section>
@@ -3441,6 +3446,13 @@ def render():
 
 def main():
     data, outputs, changed = render()
+    archive_updater = ROOT / "03_script/aggiorna_archivio_spacex.py"
+    if (ROOT / "archivio/spacex/index.html").exists() and archive_updater.exists():
+        # Importazione in sola lettura dei workbook, senza alterare Excel.
+        from aggiorna_archivio_spacex import update_archive
+        update_archive()
+    from navigazione_spacex import update as update_reader_navigation
+    update_reader_navigation(ROOT)
     falcon = data["falcon"]
     metrics = falcon["metrics"]
     latest = falcon.get("latest") or {}

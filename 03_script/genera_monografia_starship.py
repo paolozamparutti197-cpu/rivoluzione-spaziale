@@ -46,3 +46,7 @@ if credit.exists():
 css=(ROOT/'monografie/crew-dragon/libro.css').read_text(encoding='utf-8')
 css+='\n.cover{background:linear-gradient(90deg,#050607e8,#05060775),url("assets/ift5-ignition.jpg") center/cover}.bookaside{max-height:90vh;overflow:auto}.diagram-light{background:white}.calculator{padding:24px;border:1px solid var(--line);background:#101b24}.calculator input{width:100%;accent-color:var(--cyan)}.calculator output{display:block;color:var(--amber);font-size:23px}.map{height:550px;background:#12222b}.map .leaflet-popup-content{color:#172633}.map .leaflet-control a{color:#111}.map-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}.reading dt{color:var(--amber);font-weight:bold;margin-top:20px}.reading dd{margin:8px 0 20px;font-size:17px;line-height:1.7}@media(max-width:950px){.bookaside{max-height:none}}@media(max-width:550px){.map-list{grid-template-columns:1fr}.map{height:450px}}\n'
 (BOOK/'libro.css').write_text(css,encoding='utf-8');print('Capitoli',sum((BOOK/'contenuti'/f'{c[0]}.html').exists() for c in chapters),'/',len(chapters),'parole',total)
+
+# Ricostruisce ricerca e percorsi anche dopo la rigenerazione del libro.
+from navigazione_spacex import update as update_reader_navigation
+update_reader_navigation(ROOT)
