@@ -157,6 +157,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-10-12",
+        "date_label": "12 ottobre 2026",
+        "tag": "SpaceX · Dragon CRS-35",
+        "title": "CRS-35: il Dragon porta alla ISS gli ultimi pannelli solari iROSA",
+        "summary": "Martedì 13 ottobre alle 12:33 ora italiana un Falcon 9 deve lanciare da Cape Canaveral il Dragon cargo CRS-35: 2.867 kg di carico, esperimenti su retine artificiali, cuore e cervello, e l'ultima coppia di pannelli iROSA che completa il potenziamento elettrico della Stazione.",
+        "href": "../documenti%20per%20sito/spacex_crs35_irosa.html",
+        "image": "../documenti%20per%20sito/assets_crs35/crs35-irosa-kennedy.jpg",
+        "image_alt": "L'ultima coppia di pannelli solari iROSA per CRS-35 al Kennedy Space Center, 11 agosto 2026, foto NASA",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-10-11",
         "date_label": "11 ottobre 2026",
         "tag": "SpaceX · Starship Flight 14 / 15",
@@ -165,8 +178,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_starship_flight14_musk.html",
         "image": "../documenti%20per%20sito/assets_starship_f14_musk/f14m-flight14-lancio.jpg",
         "image_alt": "Starship Flight 14 decolla da Starbase il 28 settembre 2026, foto SpaceX",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
