@@ -35,7 +35,11 @@ for(const r of result.annual){
  assert.ok(selected.every(m=>m.family!=='Starship'&&m.launch.id));
  assert.equal(r.boosterFlights,selected.reduce((n,m)=>n+m.flights.length,0));
 }
-assert.ok(result.sameCutoff[0].cutoff.slice(5)===result.sameCutoff[1].cutoff.slice(5),'Confronto infrannuale non omogeneo.');
+const [cutMonth,cutDay]=data.coverageEnd.slice(5).split('-').map(Number);
+for(const r of result.sameCutoff){
+ const boundedDay=Math.min(cutDay,new Date(Date.UTC(r.year,cutMonth,0)).getUTCDate());
+ assert.equal(r.cutoff,`${r.year}-${String(cutMonth).padStart(2,'0')}-${String(boundedDay).padStart(2,'0')}`,'Confronto infrannuale non omogeneo: ultimo giorno disponibile del mese.');
+}
 assert.equal(result.intervals.filter(i=>i.to.startsWith('2025')).length,result.availability2025.consecutivePairs);
 assert.equal(result.initialCost.average,costModel().average);
 assert.equal(costModel({flights:1,refurb:99}).average,135);

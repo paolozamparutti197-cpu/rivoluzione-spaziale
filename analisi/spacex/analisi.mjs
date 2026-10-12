@@ -17,5 +17,9 @@ document.querySelectorAll('form[data-model]').forEach(form=>{
   }catch(e){error.textContent=e.message;output.textContent='Correggi i parametri per calcolare il modello.';}
  }
  form.addEventListener('submit',update);
+ form.addEventListener('invalid',()=>{
+  error.textContent='Uno o più parametri non rispettano i limiti indicati.';
+  output.textContent='Risultato non ricalcolato: correggi i parametri.';
+ },true);
  form.addEventListener('reset',()=>setTimeout(()=>update(),0));
 });
