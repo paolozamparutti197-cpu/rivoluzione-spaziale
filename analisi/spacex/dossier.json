@@ -1,0 +1,10 @@
+{
+  "edition": "2026-10-12",
+  "editorialReview": "2026-10-12",
+  "historicalWindow": {"from": 2017, "to": 2025},
+  "articles": [
+    {"id":"falcon-cadenza-riuso","title":"Il decollo industriale di SpaceX: cadenza, riuso e domanda","subtitle":"Che cosa dimostrano i voli Falcon dal 2017 al 2025, e che cosa non possiamo ricavarne sui costi.","question":"Il riutilizzo spiega da solo l'accelerazione?","reason":"Mette in relazione tre serie omogenee: decolli, voli dei booster e missioni Starlink. Non trasforma la correlazione in una prova causale.","reviewDue":"2026-10-26","sources":["registro","falcon","starlink2025"]},
+    {"id":"starship-promesse-prove","title":"Starship: la distanza fra una promessa e una prova","subtitle":"Un calendario può essere mancato e un'idea può sopravvivere. Per valutarli occorre misurare cose diverse.","question":"Quando un risultato parziale cambia davvero il giudizio sul progetto?","reason":"Confronta gli obiettivi marziani del 2017 con prove terrestri datate, senza riscrivere gli annunci né attribuire a un test ciò che non ha dimostrato.","reviewDue":"2027-01-12","sources":["iac2016","iac2017","hls2023","transfer2024","hls2026","registro"]},
+    {"id":"megacostellazioni-bilancio","title":"La rete non finisce con il lancio: il bilancio delle megacostellazioni","subtitle":"Connettività, rinnovo della flotta e cielo condiviso. Un modello semplice per porre le domande giuste.","question":"Che cosa significa sostenere una costellazione, oltre a metterla in orbita?","reason":"Separa stock e flussi, benefici per gli utenti e costi collettivi; rende esplicito ciò che il modello di sostituzione non può misurare.","reviewDue":"2026-11-12","sources":["esa2026","ztf2022","nsf2023","atmosfera2024","starlink2025"]}
+  ]
+}

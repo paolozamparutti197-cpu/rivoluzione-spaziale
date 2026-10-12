@@ -1,0 +1,9 @@
+# Impronte e riproducibilità delle analisi: newline stabili anche nei checkout Windows.
+/archivio/spacex/dati.json text eol=lf
+/analisi/spacex/dati/*.json text eol=lf
+/analisi/spacex/*.json text eol=lf
+/analisi/spacex/*.mjs text eol=lf
+/analisi/spacex/*.css text eol=lf
+/analisi/spacex/*.html text eol=lf
+/analisi/spacex/contenuti/*.html text eol=lf
+/analisi/spacex/grafici/*.svg text eol=lf

@@ -92,6 +92,11 @@ SPECIAL_NAMES = {
 }
 
 PUBLISH_FILES = [
+    ".gitattributes",
+    "03_script/genera_analisi_spacex.mjs",
+    "03_script/verifica_analisi_spacex.mjs",
+    "03_script/costruisci_archivio_spacex.mjs",
+    "analisi/spacex",
     "03_script/navigazione_spacex.py",
     "03_script/aggiorna_archivio_spacex.py",
     "css/lettori-spacex.css",

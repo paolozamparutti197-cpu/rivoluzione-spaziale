@@ -40,6 +40,7 @@ def title(html):
 
 def category(path):
     s=path.relative_to(ROOT).as_posix()
+    if s.startswith('analisi/spacex/'): return 'Analisi originale e metodo'
     if s.startswith('monografie/'): return 'Monografia'
     if '/missioni/' in s: return 'Missione'
     if '/veicoli/' in s: return 'Veicolo'
@@ -55,7 +56,7 @@ def history_files():
 
 def discover():
     paths={ROOT/'sezioni'/f'{s}.html' for s in SECTIONS}
-    for folder in (ROOT/'monografie',ROOT/'archivio/spacex'):
+    for folder in (ROOT/'monografie',ROOT/'archivio/spacex',ROOT/'analisi/spacex'):
         paths.update(p for p in folder.rglob('*.html') if 'contenuti' not in p.parts)
     # Solo articoli pubblici raggiunti dalle pagine SpaceX, mai copie in output/tmp.
     queue=list(paths)
@@ -81,6 +82,8 @@ def decorate(path,html):
     if path.parent.parent.name=='monografie':
         ancestors.append(link('sezioni/monografie-spacex.html','Monografie'))
         if path.name!='index.html': ancestors.append(link(f'monografie/{path.parent.name}/index.html',path.parent.name.replace('-',' ').title()))
+    elif 'analisi' in path.parts:
+        if path.name!='index.html': ancestors.append(link('analisi/spacex/index.html','Analisi originali'))
     elif 'archivio' in path.parts: ancestors.append(link('archivio/spacex/index.html','Archivio lanci'))
     elif category(path)=='Storia': ancestors.append(link('sezioni/storia-spacex.html','Storia'))
     crumbs=' <span aria-hidden="true">›</span> '.join(ancestors)+f' <span aria-hidden="true">›</span> <span aria-current="page">{escape(title(html))}</span>'

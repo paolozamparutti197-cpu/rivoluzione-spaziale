@@ -1,0 +1,56 @@
+{
+  "edition": "2026-10-12",
+  "editorialReview": "2026-10-12",
+  "sourceAsOf": "2026-10-10",
+  "sourceSha256": "a27987b1c5dc9e1d911d0b280750eba199304f13d65998c7749519c6222c4e28",
+  "automationsActivated": false,
+  "articles": [
+    {
+      "id": "falcon-cadenza-riuso",
+      "reviewDue": "2026-10-26",
+      "sources": [
+        "registro",
+        "falcon",
+        "starlink2025"
+      ]
+    },
+    {
+      "id": "starship-promesse-prove",
+      "reviewDue": "2027-01-12",
+      "sources": [
+        "iac2016",
+        "iac2017",
+        "hls2023",
+        "transfer2024",
+        "hls2026",
+        "registro"
+      ]
+    },
+    {
+      "id": "megacostellazioni-bilancio",
+      "reviewDue": "2026-11-12",
+      "sources": [
+        "esa2026",
+        "ztf2022",
+        "nsf2023",
+        "atmosfera2024",
+        "starlink2025"
+      ]
+    }
+  ],
+  "outputs": [
+    "dati/snapshot-archivio.json",
+    "dati/calcoli.json",
+    "grafici/cadenza.svg",
+    "grafici/riuso.svg",
+    "grafici/costi.svg",
+    "grafici/rinnovo.svg",
+    "grafici/promesse-prove.svg",
+    "falcon-cadenza-riuso.html",
+    "starship-promesse-prove.html",
+    "megacostellazioni-bilancio.html",
+    "index.html",
+    "metodo.html",
+    "revisioni.html"
+  ]
+}

@@ -1,0 +1,6168 @@
+{
+  "schemaVersion": 1,
+  "editorialReview": "2026-10-12",
+  "sourceAsOf": "2026-10-10",
+  "imported": "2026-10-10",
+  "source": "archivio/spacex/dati.json",
+  "sourceSha256": "a27987b1c5dc9e1d911d0b280750eba199304f13d65998c7749519c6222c4e28",
+  "historicalWindow": {
+    "from": 2017,
+    "to": 2025
+  },
+  "annual": [
+    {
+      "year": 2017,
+      "missions": 18,
+      "launches": 18,
+      "launchDecided": 18,
+      "launchSuccess": 18,
+      "payloadDecided": 0,
+      "payloadSuccess": 0,
+      "boosterFlights": 18,
+      "knownBoosters": 14,
+      "missingSerial": 0,
+      "reflights": 5,
+      "ordinalUnknown": 0,
+      "recoveryAttempts": 15,
+      "recoveryDecided": 15,
+      "landingSuccess": 14,
+      "landingRateNumerator": 14,
+      "recoveryUnknown": 0,
+      "physicalRecoveries": 0,
+      "physicalKnown": 0,
+      "gaps": 18,
+      "starlink": 0,
+      "other": 18,
+      "missionIds": [
+        "SX-0035",
+        "SX-0036",
+        "SX-0037",
+        "SX-0038",
+        "SX-0039",
+        "SX-0040",
+        "SX-0041",
+        "SX-0042",
+        "SX-0043",
+        "SX-0044",
+        "SX-0045",
+        "SX-0046",
+        "SX-0047",
+        "SX-0048",
+        "SX-0049",
+        "SX-0050",
+        "SX-0051",
+        "SX-0052"
+      ],
+      "medianIntervalDays": 195
+    },
+    {
+      "year": 2018,
+      "missions": 21,
+      "launches": 21,
+      "launchDecided": 21,
+      "launchSuccess": 21,
+      "payloadDecided": 0,
+      "payloadSuccess": 0,
+      "boosterFlights": 23,
+      "knownBoosters": 17,
+      "missingSerial": 0,
+      "reflights": 13,
+      "ordinalUnknown": 0,
+      "recoveryAttempts": 16,
+      "recoveryDecided": 16,
+      "landingSuccess": 12,
+      "landingRateNumerator": 12,
+      "recoveryUnknown": 0,
+      "physicalRecoveries": 0,
+      "physicalKnown": 0,
+      "gaps": 21,
+      "starlink": 1,
+      "other": 20,
+      "missionIds": [
+        "SX-0053",
+        "SX-0054",
+        "SX-0055",
+        "SX-0056",
+        "SX-0057",
+        "SX-0058",
+        "SX-0059",
+        "SX-0060",
+        "SX-0061",
+        "SX-0062",
+        "SX-0063",
+        "SX-0064",
+        "SX-0065",
+        "SX-0066",
+        "SX-0067",
+        "SX-0068",
+        "SX-0069",
+        "SX-0070",
+        "SX-0071",
+        "SX-0072",
+        "SX-0073"
+      ],
+      "medianIntervalDays": 172
+    },
+    {
+      "year": 2019,
+      "missions": 13,
+      "launches": 13,
+      "launchDecided": 13,
+      "launchSuccess": 13,
+      "payloadDecided": 0,
+      "payloadSuccess": 0,
+      "boosterFlights": 17,
+      "knownBoosters": 10,
+      "missingSerial": 0,
+      "reflights": 10,
+      "ordinalUnknown": 0,
+      "recoveryAttempts": 16,
+      "recoveryDecided": 16,
+      "landingSuccess": 15,
+      "landingRateNumerator": 15,
+      "recoveryUnknown": 0,
+      "physicalRecoveries": 0,
+      "physicalKnown": 1,
+      "gaps": 13,
+      "starlink": 2,
+      "other": 11,
+      "missionIds": [
+        "SX-0074",
+        "SX-0075",
+        "SX-0076",
+        "SX-0077",
+        "SX-0078",
+        "SX-0079",
+        "SX-0080",
+        "SX-0081",
+        "SX-0082",
+        "SX-0083",
+        "SX-0084",
+        "SX-0085",
+        "SX-0086"
+      ],
+      "medianIntervalDays": 128
+    },
+    {
+      "year": 2020,
+      "missions": 26,
+      "launches": 26,
+      "launchDecided": 26,
+      "launchSuccess": 26,
+      "payloadDecided": 0,
+      "payloadSuccess": 0,
+      "boosterFlights": 26,
+      "knownBoosters": 11,
+      "missingSerial": 0,
+      "reflights": 21,
+      "ordinalUnknown": 0,
+      "recoveryAttempts": 25,
+      "recoveryDecided": 25,
+      "landingSuccess": 23,
+      "landingRateNumerator": 23,
+      "recoveryUnknown": 0,
+      "physicalRecoveries": 0,
+      "physicalKnown": 0,
+      "gaps": 26,
+      "starlink": 14,
+      "other": 12,
+      "missionIds": [
+        "SX-0087",
+        "SX-0088",
+        "SX-0089",
+        "SX-0090",
+        "SX-0091",
+        "SX-0092",
+        "SX-0093",
+        "SX-0094",
+        "SX-0095",
+        "SX-0096",
+        "SX-0097",
+        "SX-0098",
+        "SX-0099",
+        "SX-0100",
+        "SX-0101",
+        "SX-0102",
+        "SX-0103",
+        "SX-0104",
+        "SX-0105",
+        "SX-0106",
+        "SX-0107",
+        "SX-0108",
+        "SX-0109",
+        "SX-0110",
+        "SX-0111",
+        "SX-0112"
+      ],
+      "medianIntervalDays": 84
+    },
+    {
+      "year": 2021,
+      "missions": 31,
+      "launches": 31,
+      "launchDecided": 31,
+      "launchSuccess": 31,
+      "payloadDecided": 0,
+      "payloadSuccess": 0,
+      "boosterFlights": 31,
+      "knownBoosters": 10,
+      "missingSerial": 0,
+      "reflights": 29,
+      "ordinalUnknown": 0,
+      "recoveryAttempts": 31,
+      "recoveryDecided": 31,
+      "landingSuccess": 30,
+      "landingRateNumerator": 30,
+      "recoveryUnknown": 0,
+      "physicalRecoveries": 0,
+      "physicalKnown": 0,
+      "gaps": 31,
+      "starlink": 17,
+      "other": 14,
+      "missionIds": [
+        "SX-0113",
+        "SX-0114",
+        "SX-0115",
+        "SX-0116",
+        "SX-0117",
+        "SX-0118",
+        "SX-0119",
+        "SX-0120",
+        "SX-0121",
+        "SX-0122",
+        "SX-0123",
+        "SX-0124",
+        "SX-0125",
+        "SX-0126",
+        "SX-0127",
+        "SX-0128",
+        "SX-0129",
+        "SX-0130",
+        "SX-0131",
+        "SX-0132",
+        "SX-0133",
+        "SX-0134",
+        "SX-0135",
+        "SX-0136",
+        "SX-0137",
+        "SX-0138",
+        "SX-0139",
+        "SX-0140",
+        "SX-0141",
+        "SX-0142",
+        "SX-0143"
+      ],
+      "medianIntervalDays": 62
+    },
+    {
+      "year": 2022,
+      "missions": 61,
+      "launches": 61,
+      "launchDecided": 61,
+      "launchSuccess": 61,
+      "payloadDecided": 0,
+      "payloadSuccess": 0,
+      "boosterFlights": 63,
+      "knownBoosters": 17,
+      "missingSerial": 0,
+      "reflights": 56,
+      "ordinalUnknown": 0,
+      "recoveryAttempts": 60,
+      "recoveryDecided": 60,
+      "landingSuccess": 60,
+      "landingRateNumerator": 60,
+      "recoveryUnknown": 0,
+      "physicalRecoveries": 0,
+      "physicalKnown": 0,
+      "gaps": 61,
+      "starlink": 34,
+      "other": 27,
+      "missionIds": [
+        "SX-0144",
+        "SX-0145",
+        "SX-0146",
+        "SX-0147",
+        "SX-0148",
+        "SX-0149",
+        "SX-0150",
+        "SX-0151",
+        "SX-0152",
+        "SX-0153",
+        "SX-0154",
+        "SX-0155",
+        "SX-0156",
+        "SX-0157",
+        "SX-0158",
+        "SX-0159",
+        "SX-0160",
+        "SX-0161",
+        "SX-0162",
+        "SX-0163",
+        "SX-0164",
+        "SX-0165",
+        "SX-0166",
+        "SX-0167",
+        "SX-0168",
+        "SX-0169",
+        "SX-0170",
+        "SX-0171",
+        "SX-0172",
+        "SX-0173",
+        "SX-0174",
+        "SX-0175",
+        "SX-0176",
+        "SX-0177",
+        "SX-0178",
+        "SX-0179",
+        "SX-0180",
+        "SX-0181",
+        "SX-0182",
+        "SX-0183",
+        "SX-0184",
+        "SX-0185",
+        "SX-0186",
+        "SX-0187",
+        "SX-0188",
+        "SX-0189",
+        "SX-0190",
+        "SX-0191",
+        "SX-0192",
+        "SX-0193",
+        "SX-0194",
+        "SX-0195",
+        "SX-0196",
+        "SX-0197",
+        "SX-0198",
+        "SX-0199",
+        "SX-0200",
+        "SX-0201",
+        "SX-0202",
+        "SX-0203",
+        "SX-0204"
+      ],
+      "medianIntervalDays": 61.5
+    },
+    {
+      "year": 2023,
+      "missions": 96,
+      "launches": 96,
+      "launchDecided": 96,
+      "launchSuccess": 96,
+      "payloadDecided": 0,
+      "payloadSuccess": 0,
+      "boosterFlights": 106,
+      "knownBoosters": 24,
+      "missingSerial": 0,
+      "reflights": 97,
+      "ordinalUnknown": 0,
+      "recoveryAttempts": 99,
+      "recoveryDecided": 99,
+      "landingSuccess": 99,
+      "landingRateNumerator": 99,
+      "recoveryUnknown": 0,
+      "physicalRecoveries": 0,
+      "physicalKnown": 1,
+      "gaps": 96,
+      "starlink": 63,
+      "other": 33,
+      "missionIds": [
+        "SX-0205",
+        "SX-0206",
+        "SX-0207",
+        "SX-0208",
+        "SX-0209",
+        "SX-0210",
+        "SX-0211",
+        "SX-0212",
+        "SX-0213",
+        "SX-0214",
+        "SX-0215",
+        "SX-0216",
+        "SX-0217",
+        "SX-0218",
+        "SX-0219",
+        "SX-0220",
+        "SX-0221",
+        "SX-0222",
+        "SX-0223",
+        "SX-0224",
+        "SX-0225",
+        "SX-0226",
+        "SX-0227",
+        "SX-0228",
+        "SX-0229",
+        "SX-0230",
+        "SX-0231",
+        "SX-0232",
+        "SX-0233",
+        "SX-0234",
+        "SX-0235",
+        "SX-0236",
+        "SX-0237",
+        "SX-0238",
+        "SX-0239",
+        "SX-0240",
+        "SX-0241",
+        "SX-0242",
+        "SX-0243",
+        "SX-0244",
+        "SX-0245",
+        "SX-0246",
+        "SX-0247",
+        "SX-0248",
+        "SX-0249",
+        "SX-0250",
+        "SX-0251",
+        "SX-0252",
+        "SX-0253",
+        "SX-0254",
+        "SX-0255",
+        "SX-0256",
+        "SX-0257",
+        "SX-0258",
+        "SX-0259",
+        "SX-0260",
+        "SX-0261",
+        "SX-0262",
+        "SX-0263",
+        "SX-0264",
+        "SX-0265",
+        "SX-0266",
+        "SX-0267",
+        "SX-0268",
+        "SX-0269",
+        "SX-0270",
+        "SX-0271",
+        "SX-0272",
+        "SX-0273",
+        "SX-0274",
+        "SX-0275",
+        "SX-0276",
+        "SX-0277",
+        "SX-0278",
+        "SX-0279",
+        "SX-0280",
+        "SX-0281",
+        "SX-0282",
+        "SX-0283",
+        "SX-0284",
+        "SX-0285",
+        "SX-0286",
+        "SX-0287",
+        "SX-0288",
+        "SX-0289",
+        "SX-0290",
+        "SX-0291",
+        "SX-0292",
+        "SX-0293",
+        "SX-0294",
+        "SX-0295",
+        "SX-0296",
+        "SX-0297",
+        "SX-0298",
+        "SX-0299",
+        "SX-0300"
+      ],
+      "medianIntervalDays": 54
+    },
+    {
+      "year": 2024,
+      "missions": 134,
+      "launches": 134,
+      "launchDecided": 134,
+      "launchSuccess": 133,
+      "payloadDecided": 0,
+      "payloadSuccess": 0,
+      "boosterFlights": 138,
+      "knownBoosters": 25,
+      "missingSerial": 0,
+      "reflights": 129,
+      "ordinalUnknown": 0,
+      "recoveryAttempts": 132,
+      "recoveryDecided": 132,
+      "landingSuccess": 131,
+      "landingRateNumerator": 131,
+      "recoveryUnknown": 0,
+      "physicalRecoveries": 0,
+      "physicalKnown": 0,
+      "gaps": 134,
+      "starlink": 89,
+      "other": 45,
+      "missionIds": [
+        "SX-0301",
+        "SX-0302",
+        "SX-0303",
+        "SX-0304",
+        "SX-0305",
+        "SX-0306",
+        "SX-0307",
+        "SX-0308",
+        "SX-0309",
+        "SX-0310",
+        "SX-0311",
+        "SX-0312",
+        "SX-0313",
+        "SX-0314",
+        "SX-0315",
+        "SX-0316",
+        "SX-0317",
+        "SX-0318",
+        "SX-0319",
+        "SX-0320",
+        "SX-0321",
+        "SX-0322",
+        "SX-0323",
+        "SX-0324",
+        "SX-0325",
+        "SX-0326",
+        "SX-0327",
+        "SX-0328",
+        "SX-0329",
+        "SX-0330",
+        "SX-0331",
+        "SX-0332",
+        "SX-0333",
+        "SX-0334",
+        "SX-0335",
+        "SX-0336",
+        "SX-0337",
+        "SX-0338",
+        "SX-0339",
+        "SX-0340",
+        "SX-0341",
+        "SX-0342",
+        "SX-0343",
+        "SX-0344",
+        "SX-0345",
+        "SX-0346",
+        "SX-0347",
+        "SX-0348",
+        "SX-0349",
+        "SX-0350",
+        "SX-0351",
+        "SX-0352",
+        "SX-0353",
+        "SX-0354",
+        "SX-0355",
+        "SX-0356",
+        "SX-0357",
+        "SX-0358",
+        "SX-0359",
+        "SX-0360",
+        "SX-0361",
+        "SX-0362",
+        "SX-0363",
+        "SX-0364",
+        "SX-0365",
+        "SX-0366",
+        "SX-0367",
+        "SX-0368",
+        "SX-0369",
+        "SX-0370",
+        "SX-0371",
+        "SX-0372",
+        "SX-0373",
+        "SX-0374",
+        "SX-0375",
+        "SX-0376",
+        "SX-0377",
+        "SX-0378",
+        "SX-0379",
+        "SX-0380",
+        "SX-0381",
+        "SX-0382",
+        "SX-0383",
+        "SX-0384",
+        "SX-0385",
+        "SX-0386",
+        "SX-0387",
+        "SX-0388",
+        "SX-0389",
+        "SX-0390",
+        "SX-0391",
+        "SX-0392",
+        "SX-0393",
+        "SX-0394",
+        "SX-0395",
+        "SX-0396",
+        "SX-0397",
+        "SX-0398",
+        "SX-0399",
+        "SX-0400",
+        "SX-0401",
+        "SX-0402",
+        "SX-0403",
+        "SX-0404",
+        "SX-0405",
+        "SX-0406",
+        "SX-0407",
+        "SX-0408",
+        "SX-0409",
+        "SX-0410",
+        "SX-0411",
+        "SX-0412",
+        "SX-0413",
+        "SX-0414",
+        "SX-0415",
+        "SX-0416",
+        "SX-0417",
+        "SX-0418",
+        "SX-0419",
+        "SX-0420",
+        "SX-0421",
+        "SX-0422",
+        "SX-0423",
+        "SX-0424",
+        "SX-0425",
+        "SX-0426",
+        "SX-0427",
+        "SX-0428",
+        "SX-0429",
+        "SX-0430",
+        "SX-0431",
+        "SX-0432",
+        "SX-0433",
+        "SX-0434"
+      ],
+      "medianIntervalDays": 40
+    },
+    {
+      "year": 2025,
+      "missions": 165,
+      "launches": 165,
+      "launchDecided": 165,
+      "launchSuccess": 165,
+      "payloadDecided": 0,
+      "payloadSuccess": 0,
+      "boosterFlights": 165,
+      "knownBoosters": 25,
+      "missingSerial": 0,
+      "reflights": 157,
+      "ordinalUnknown": 0,
+      "recoveryAttempts": 163,
+      "recoveryDecided": 163,
+      "landingSuccess": 162,
+      "landingRateNumerator": 162,
+      "recoveryUnknown": 0,
+      "physicalRecoveries": 0,
+      "physicalKnown": 0,
+      "gaps": 165,
+      "starlink": 122,
+      "other": 43,
+      "missionIds": [
+        "SX-0435",
+        "SX-0436",
+        "SX-0437",
+        "SX-0438",
+        "SX-0439",
+        "SX-0440",
+        "SX-0441",
+        "SX-0442",
+        "SX-0443",
+        "SX-0444",
+        "SX-0445",
+        "SX-0446",
+        "SX-0447",
+        "SX-0448",
+        "SX-0449",
+        "SX-0450",
+        "SX-0451",
+        "SX-0452",
+        "SX-0453",
+        "SX-0454",
+        "SX-0455",
+        "SX-0456",
+        "SX-0457",
+        "SX-0458",
+        "SX-0459",
+        "SX-0460",
+        "SX-0461",
+        "SX-0462",
+        "SX-0463",
+        "SX-0464",
+        "SX-0465",
+        "SX-0466",
+        "SX-0467",
+        "SX-0468",
+        "SX-0469",
+        "SX-0470",
+        "SX-0471",
+        "SX-0472",
+        "SX-0473",
+        "SX-0474",
+        "SX-0475",
+        "SX-0476",
+        "SX-0477",
+        "SX-0478",
+        "SX-0479",
+        "SX-0480",
+        "SX-0481",
+        "SX-0482",
+        "SX-0483",
+        "SX-0484",
+        "SX-0485",
+        "SX-0486",
+        "SX-0487",
+        "SX-0488",
+        "SX-0489",
+        "SX-0490",
+        "SX-0491",
+        "SX-0492",
+        "SX-0493",
+        "SX-0494",
+        "SX-0495",
+        "SX-0496",
+        "SX-0497",
+        "SX-0498",
+        "SX-0499",
+        "SX-0500",
+        "SX-0501",
+        "SX-0502",
+        "SX-0503",
+        "SX-0504",
+        "SX-0505",
+        "SX-0506",
+        "SX-0507",
+        "SX-0508",
+        "SX-0509",
+        "SX-0510",
+        "SX-0511",
+        "SX-0512",
+        "SX-0513",
+        "SX-0514",
+        "SX-0515",
+        "SX-0516",
+        "SX-0517",
+        "SX-0518",
+        "SX-0519",
+        "SX-0520",
+        "SX-0521",
+        "SX-0522",
+        "SX-0523",
+        "SX-0524",
+        "SX-0525",
+        "SX-0526",
+        "SX-0527",
+        "SX-0528",
+        "SX-0529",
+        "SX-0530",
+        "SX-0531",
+        "SX-0532",
+        "SX-0533",
+        "SX-0534",
+        "SX-0535",
+        "SX-0536",
+        "SX-0537",
+        "SX-0538",
+        "SX-0539",
+        "SX-0540",
+        "SX-0541",
+        "SX-0542",
+        "SX-0543",
+        "SX-0544",
+        "SX-0545",
+        "SX-0546",
+        "SX-0547",
+        "SX-0548",
+        "SX-0549",
+        "SX-0550",
+        "SX-0551",
+        "SX-0552",
+        "SX-0553",
+        "SX-0554",
+        "SX-0555",
+        "SX-0556",
+        "SX-0557",
+        "SX-0558",
+        "SX-0559",
+        "SX-0560",
+        "SX-0561",
+        "SX-0562",
+        "SX-0563",
+        "SX-0564",
+        "SX-0565",
+        "SX-0566",
+        "SX-0567",
+        "SX-0568",
+        "SX-0569",
+        "SX-0570",
+        "SX-0571",
+        "SX-0572",
+        "SX-0573",
+        "SX-0574",
+        "SX-0575",
+        "SX-0576",
+        "SX-0577",
+        "SX-0578",
+        "SX-0579",
+        "SX-0580",
+        "SX-0581",
+        "SX-0582",
+        "SX-0583",
+        "SX-0584",
+        "SX-0585",
+        "SX-0586",
+        "SX-0587",
+        "SX-0588",
+        "SX-0589",
+        "SX-0590",
+        "SX-0591",
+        "SX-0592",
+        "SX-0593",
+        "SX-0594",
+        "SX-0595",
+        "SX-0596",
+        "SX-0597",
+        "SX-0598",
+        "SX-0599"
+      ],
+      "medianIntervalDays": 38
+    }
+  ],
+  "sameCutoff": [
+    {
+      "year": 2025,
+      "cutoff": "2025-10-10",
+      "missions": 127,
+      "launches": 127,
+      "launchDecided": 127,
+      "launchSuccess": 127,
+      "payloadDecided": 0,
+      "payloadSuccess": 0,
+      "boosterFlights": 127,
+      "knownBoosters": 24,
+      "missingSerial": 0,
+      "reflights": 120,
+      "ordinalUnknown": 0,
+      "recoveryAttempts": 126,
+      "recoveryDecided": 126,
+      "landingSuccess": 125,
+      "landingRateNumerator": 125,
+      "recoveryUnknown": 0,
+      "physicalRecoveries": 0,
+      "physicalKnown": 0,
+      "gaps": 127
+    },
+    {
+      "year": 2026,
+      "cutoff": "2026-10-10",
+      "missions": 114,
+      "launches": 114,
+      "launchDecided": 114,
+      "launchSuccess": 114,
+      "payloadDecided": 0,
+      "payloadSuccess": 0,
+      "boosterFlights": 120,
+      "knownBoosters": 27,
+      "missingSerial": 0,
+      "reflights": 114,
+      "ordinalUnknown": 0,
+      "recoveryAttempts": 116,
+      "recoveryDecided": 116,
+      "landingSuccess": 116,
+      "landingRateNumerator": 116,
+      "recoveryUnknown": 0,
+      "physicalRecoveries": 0,
+      "physicalKnown": 0,
+      "gaps": 114
+    }
+  ],
+  "intervals": [
+    {
+      "serial": "B1021",
+      "fromMission": "SX-0028",
+      "toMission": "SX-0038",
+      "from": "2016-04-08",
+      "to": "2017-03-30",
+      "days": 356
+    },
+    {
+      "serial": "B1029",
+      "fromMission": "SX-0035",
+      "toMission": "SX-0042",
+      "from": "2017-01-14",
+      "to": "2017-06-23",
+      "days": 160
+    },
+    {
+      "serial": "B1031",
+      "fromMission": "SX-0036",
+      "toMission": "SX-0049",
+      "from": "2017-02-19",
+      "to": "2017-10-11",
+      "days": 234
+    },
+    {
+      "serial": "B1035",
+      "fromMission": "SX-0041",
+      "toMission": "SX-0051",
+      "from": "2017-06-03",
+      "to": "2017-12-15",
+      "days": 195
+    },
+    {
+      "serial": "B1036",
+      "fromMission": "SX-0043",
+      "toMission": "SX-0052",
+      "from": "2017-06-25",
+      "to": "2017-12-23",
+      "days": 181
+    },
+    {
+      "serial": "B1032",
+      "fromMission": "SX-0039",
+      "toMission": "SX-0054",
+      "from": "2017-05-01",
+      "to": "2018-01-31",
+      "days": 275
+    },
+    {
+      "serial": "B1023",
+      "fromMission": "SX-0030",
+      "toMission": "SX-0055",
+      "from": "2016-05-27",
+      "to": "2018-02-06",
+      "days": 620
+    },
+    {
+      "serial": "B1025",
+      "fromMission": "SX-0032",
+      "toMission": "SX-0055",
+      "from": "2016-07-18",
+      "to": "2018-02-06",
+      "days": 568
+    },
+    {
+      "serial": "B1038",
+      "fromMission": "SX-0046",
+      "toMission": "SX-0056",
+      "from": "2017-08-24",
+      "to": "2018-02-22",
+      "days": 182
+    },
+    {
+      "serial": "B1041",
+      "fromMission": "SX-0048",
+      "toMission": "SX-0058",
+      "from": "2017-10-09",
+      "to": "2018-03-30",
+      "days": 172
+    },
+    {
+      "serial": "B1039",
+      "fromMission": "SX-0045",
+      "toMission": "SX-0059",
+      "from": "2017-08-14",
+      "to": "2018-04-02",
+      "days": 231
+    },
+    {
+      "serial": "B1043",
+      "fromMission": "SX-0053",
+      "toMission": "SX-0062",
+      "from": "2018-01-08",
+      "to": "2018-05-22",
+      "days": 134
+    },
+    {
+      "serial": "B1040",
+      "fromMission": "SX-0047",
+      "toMission": "SX-0063",
+      "from": "2017-09-07",
+      "to": "2018-06-04",
+      "days": 270
+    },
+    {
+      "serial": "B1045",
+      "fromMission": "SX-0060",
+      "toMission": "SX-0064",
+      "from": "2018-04-18",
+      "to": "2018-06-29",
+      "days": 72
+    },
+    {
+      "serial": "B1046",
+      "fromMission": "SX-0061",
+      "toMission": "SX-0067",
+      "from": "2018-05-11",
+      "to": "2018-08-07",
+      "days": 88
+    },
+    {
+      "serial": "B1048",
+      "fromMission": "SX-0066",
+      "toMission": "SX-0069",
+      "from": "2018-07-25",
+      "to": "2018-10-08",
+      "days": 75
+    },
+    {
+      "serial": "B1047",
+      "fromMission": "SX-0065",
+      "toMission": "SX-0070",
+      "from": "2018-07-22",
+      "to": "2018-11-15",
+      "days": 116
+    },
+    {
+      "serial": "B1046",
+      "fromMission": "SX-0067",
+      "toMission": "SX-0071",
+      "from": "2018-08-07",
+      "to": "2018-12-03",
+      "days": 118
+    },
+    {
+      "serial": "B1049",
+      "fromMission": "SX-0068",
+      "toMission": "SX-0074",
+      "from": "2018-09-10",
+      "to": "2019-01-11",
+      "days": 123
+    },
+    {
+      "serial": "B1048",
+      "fromMission": "SX-0069",
+      "toMission": "SX-0075",
+      "from": "2018-10-08",
+      "to": "2019-02-22",
+      "days": 137
+    },
+    {
+      "serial": "B1049",
+      "fromMission": "SX-0074",
+      "toMission": "SX-0079",
+      "from": "2019-01-11",
+      "to": "2019-05-24",
+      "days": 133
+    },
+    {
+      "serial": "B1051",
+      "fromMission": "SX-0076",
+      "toMission": "SX-0080",
+      "from": "2019-03-02",
+      "to": "2019-06-12",
+      "days": 102
+    },
+    {
+      "serial": "B1052",
+      "fromMission": "SX-0077",
+      "toMission": "SX-0081",
+      "from": "2019-04-11",
+      "to": "2019-06-25",
+      "days": 75
+    },
+    {
+      "serial": "B1053",
+      "fromMission": "SX-0077",
+      "toMission": "SX-0081",
+      "from": "2019-04-11",
+      "to": "2019-06-25",
+      "days": 75
+    },
+    {
+      "serial": "B1056",
+      "fromMission": "SX-0078",
+      "toMission": "SX-0082",
+      "from": "2019-05-04",
+      "to": "2019-07-25",
+      "days": 82
+    },
+    {
+      "serial": "B1047",
+      "fromMission": "SX-0070",
+      "toMission": "SX-0083",
+      "from": "2018-11-15",
+      "to": "2019-08-06",
+      "days": 264
+    },
+    {
+      "serial": "B1048",
+      "fromMission": "SX-0075",
+      "toMission": "SX-0084",
+      "from": "2019-02-22",
+      "to": "2019-11-11",
+      "days": 262
+    },
+    {
+      "serial": "B1056",
+      "fromMission": "SX-0082",
+      "toMission": "SX-0086",
+      "from": "2019-07-25",
+      "to": "2019-12-17",
+      "days": 145
+    },
+    {
+      "serial": "B1049",
+      "fromMission": "SX-0079",
+      "toMission": "SX-0087",
+      "from": "2019-05-24",
+      "to": "2020-01-07",
+      "days": 228
+    },
+    {
+      "serial": "B1046",
+      "fromMission": "SX-0071",
+      "toMission": "SX-0088",
+      "from": "2018-12-03",
+      "to": "2020-01-19",
+      "days": 412
+    },
+    {
+      "serial": "B1051",
+      "fromMission": "SX-0080",
+      "toMission": "SX-0089",
+      "from": "2019-06-12",
+      "to": "2020-01-29",
+      "days": 231
+    },
+    {
+      "serial": "B1056",
+      "fromMission": "SX-0086",
+      "toMission": "SX-0090",
+      "from": "2019-12-17",
+      "to": "2020-02-17",
+      "days": 62
+    },
+    {
+      "serial": "B1059",
+      "fromMission": "SX-0085",
+      "toMission": "SX-0091",
+      "from": "2019-12-05",
+      "to": "2020-03-07",
+      "days": 93
+    },
+    {
+      "serial": "B1048",
+      "fromMission": "SX-0084",
+      "toMission": "SX-0092",
+      "from": "2019-11-11",
+      "to": "2020-03-18",
+      "days": 128
+    },
+    {
+      "serial": "B1051",
+      "fromMission": "SX-0089",
+      "toMission": "SX-0093",
+      "from": "2020-01-29",
+      "to": "2020-04-22",
+      "days": 84
+    },
+    {
+      "serial": "B1049",
+      "fromMission": "SX-0087",
+      "toMission": "SX-0095",
+      "from": "2020-01-07",
+      "to": "2020-06-04",
+      "days": 149
+    },
+    {
+      "serial": "B1059",
+      "fromMission": "SX-0091",
+      "toMission": "SX-0096",
+      "from": "2020-03-07",
+      "to": "2020-06-13",
+      "days": 98
+    },
+    {
+      "serial": "B1058",
+      "fromMission": "SX-0094",
+      "toMission": "SX-0098",
+      "from": "2020-05-30",
+      "to": "2020-07-20",
+      "days": 51
+    },
+    {
+      "serial": "B1051",
+      "fromMission": "SX-0093",
+      "toMission": "SX-0099",
+      "from": "2020-04-22",
+      "to": "2020-08-07",
+      "days": 107
+    },
+    {
+      "serial": "B1049",
+      "fromMission": "SX-0095",
+      "toMission": "SX-0100",
+      "from": "2020-06-04",
+      "to": "2020-08-18",
+      "days": 75
+    },
+    {
+      "serial": "B1059",
+      "fromMission": "SX-0096",
+      "toMission": "SX-0101",
+      "from": "2020-06-13",
+      "to": "2020-08-30",
+      "days": 78
+    },
+    {
+      "serial": "B1060",
+      "fromMission": "SX-0097",
+      "toMission": "SX-0102",
+      "from": "2020-06-30",
+      "to": "2020-09-03",
+      "days": 65
+    },
+    {
+      "serial": "B1058",
+      "fromMission": "SX-0098",
+      "toMission": "SX-0103",
+      "from": "2020-07-20",
+      "to": "2020-10-06",
+      "days": 78
+    },
+    {
+      "serial": "B1051",
+      "fromMission": "SX-0099",
+      "toMission": "SX-0104",
+      "from": "2020-08-07",
+      "to": "2020-10-18",
+      "days": 72
+    },
+    {
+      "serial": "B1060",
+      "fromMission": "SX-0102",
+      "toMission": "SX-0105",
+      "from": "2020-09-03",
+      "to": "2020-10-24",
+      "days": 51
+    },
+    {
+      "serial": "B1049",
+      "fromMission": "SX-0100",
+      "toMission": "SX-0109",
+      "from": "2020-08-18",
+      "to": "2020-11-25",
+      "days": 99
+    },
+    {
+      "serial": "B1058",
+      "fromMission": "SX-0103",
+      "toMission": "SX-0110",
+      "from": "2020-10-06",
+      "to": "2020-12-06",
+      "days": 61
+    },
+    {
+      "serial": "B1051",
+      "fromMission": "SX-0104",
+      "toMission": "SX-0111",
+      "from": "2020-10-18",
+      "to": "2020-12-13",
+      "days": 56
+    },
+    {
+      "serial": "B1059",
+      "fromMission": "SX-0101",
+      "toMission": "SX-0112",
+      "from": "2020-08-30",
+      "to": "2020-12-19",
+      "days": 111
+    },
+    {
+      "serial": "B1060",
+      "fromMission": "SX-0105",
+      "toMission": "SX-0113",
+      "from": "2020-10-24",
+      "to": "2021-01-08",
+      "days": 76
+    },
+    {
+      "serial": "B1051",
+      "fromMission": "SX-0111",
+      "toMission": "SX-0114",
+      "from": "2020-12-13",
+      "to": "2021-01-20",
+      "days": 38
+    },
+    {
+      "serial": "B1058",
+      "fromMission": "SX-0110",
+      "toMission": "SX-0115",
+      "from": "2020-12-06",
+      "to": "2021-01-24",
+      "days": 49
+    },
+    {
+      "serial": "B1060",
+      "fromMission": "SX-0113",
+      "toMission": "SX-0116",
+      "from": "2021-01-08",
+      "to": "2021-02-04",
+      "days": 27
+    },
+    {
+      "serial": "B1059",
+      "fromMission": "SX-0112",
+      "toMission": "SX-0117",
+      "from": "2020-12-19",
+      "to": "2021-02-16",
+      "days": 59
+    },
+    {
+      "serial": "B1049",
+      "fromMission": "SX-0109",
+      "toMission": "SX-0118",
+      "from": "2020-11-25",
+      "to": "2021-03-04",
+      "days": 99
+    },
+    {
+      "serial": "B1058",
+      "fromMission": "SX-0115",
+      "toMission": "SX-0119",
+      "from": "2021-01-24",
+      "to": "2021-03-11",
+      "days": 46
+    },
+    {
+      "serial": "B1051",
+      "fromMission": "SX-0114",
+      "toMission": "SX-0120",
+      "from": "2021-01-20",
+      "to": "2021-03-14",
+      "days": 53
+    },
+    {
+      "serial": "B1060",
+      "fromMission": "SX-0116",
+      "toMission": "SX-0121",
+      "from": "2021-02-04",
+      "to": "2021-03-24",
+      "days": 48
+    },
+    {
+      "serial": "B1058",
+      "fromMission": "SX-0119",
+      "toMission": "SX-0122",
+      "from": "2021-03-11",
+      "to": "2021-04-07",
+      "days": 27
+    },
+    {
+      "serial": "B1061",
+      "fromMission": "SX-0107",
+      "toMission": "SX-0123",
+      "from": "2020-11-16",
+      "to": "2021-04-23",
+      "days": 158
+    },
+    {
+      "serial": "B1060",
+      "fromMission": "SX-0121",
+      "toMission": "SX-0124",
+      "from": "2021-03-24",
+      "to": "2021-04-29",
+      "days": 36
+    },
+    {
+      "serial": "B1049",
+      "fromMission": "SX-0118",
+      "toMission": "SX-0125",
+      "from": "2021-03-04",
+      "to": "2021-05-04",
+      "days": 61
+    },
+    {
+      "serial": "B1051",
+      "fromMission": "SX-0120",
+      "toMission": "SX-0126",
+      "from": "2021-03-14",
+      "to": "2021-05-09",
+      "days": 56
+    },
+    {
+      "serial": "B1058",
+      "fromMission": "SX-0122",
+      "toMission": "SX-0127",
+      "from": "2021-04-07",
+      "to": "2021-05-15",
+      "days": 38
+    },
+    {
+      "serial": "B1063",
+      "fromMission": "SX-0108",
+      "toMission": "SX-0128",
+      "from": "2020-11-21",
+      "to": "2021-05-26",
+      "days": 186
+    },
+    {
+      "serial": "B1061",
+      "fromMission": "SX-0123",
+      "toMission": "SX-0130",
+      "from": "2021-04-23",
+      "to": "2021-06-06",
+      "days": 44
+    },
+    {
+      "serial": "B1062",
+      "fromMission": "SX-0106",
+      "toMission": "SX-0131",
+      "from": "2020-11-05",
+      "to": "2021-06-17",
+      "days": 224
+    },
+    {
+      "serial": "B1060",
+      "fromMission": "SX-0124",
+      "toMission": "SX-0132",
+      "from": "2021-04-29",
+      "to": "2021-06-30",
+      "days": 62
+    },
+    {
+      "serial": "B1061",
+      "fromMission": "SX-0130",
+      "toMission": "SX-0133",
+      "from": "2021-06-06",
+      "to": "2021-08-29",
+      "days": 84
+    },
+    {
+      "serial": "B1049",
+      "fromMission": "SX-0125",
+      "toMission": "SX-0134",
+      "from": "2021-05-04",
+      "to": "2021-09-14",
+      "days": 133
+    },
+    {
+      "serial": "B1062",
+      "fromMission": "SX-0131",
+      "toMission": "SX-0135",
+      "from": "2021-06-17",
+      "to": "2021-09-16",
+      "days": 91
+    },
+    {
+      "serial": "B1067",
+      "fromMission": "SX-0129",
+      "toMission": "SX-0136",
+      "from": "2021-06-03",
+      "to": "2021-11-11",
+      "days": 161
+    },
+    {
+      "serial": "B1058",
+      "fromMission": "SX-0127",
+      "toMission": "SX-0137",
+      "from": "2021-05-15",
+      "to": "2021-11-13",
+      "days": 182
+    },
+    {
+      "serial": "B1063",
+      "fromMission": "SX-0128",
+      "toMission": "SX-0138",
+      "from": "2021-05-26",
+      "to": "2021-11-24",
+      "days": 182
+    },
+    {
+      "serial": "B1060",
+      "fromMission": "SX-0132",
+      "toMission": "SX-0139",
+      "from": "2021-06-30",
+      "to": "2021-12-02",
+      "days": 155
+    },
+    {
+      "serial": "B1061",
+      "fromMission": "SX-0133",
+      "toMission": "SX-0140",
+      "from": "2021-08-29",
+      "to": "2021-12-09",
+      "days": 102
+    },
+    {
+      "serial": "B1051",
+      "fromMission": "SX-0126",
+      "toMission": "SX-0141",
+      "from": "2021-05-09",
+      "to": "2021-12-18",
+      "days": 223
+    },
+    {
+      "serial": "B1067",
+      "fromMission": "SX-0136",
+      "toMission": "SX-0142",
+      "from": "2021-11-11",
+      "to": "2021-12-19",
+      "days": 38
+    },
+    {
+      "serial": "B1062",
+      "fromMission": "SX-0135",
+      "toMission": "SX-0144",
+      "from": "2021-09-16",
+      "to": "2022-01-06",
+      "days": 112
+    },
+    {
+      "serial": "B1058",
+      "fromMission": "SX-0137",
+      "toMission": "SX-0145",
+      "from": "2021-11-13",
+      "to": "2022-01-13",
+      "days": 61
+    },
+    {
+      "serial": "B1060",
+      "fromMission": "SX-0139",
+      "toMission": "SX-0146",
+      "from": "2021-12-02",
+      "to": "2022-01-19",
+      "days": 48
+    },
+    {
+      "serial": "B1052",
+      "fromMission": "SX-0081",
+      "toMission": "SX-0147",
+      "from": "2019-06-25",
+      "to": "2022-01-31",
+      "days": 951
+    },
+    {
+      "serial": "B1061",
+      "fromMission": "SX-0140",
+      "toMission": "SX-0149",
+      "from": "2021-12-09",
+      "to": "2022-02-03",
+      "days": 56
+    },
+    {
+      "serial": "B1058",
+      "fromMission": "SX-0145",
+      "toMission": "SX-0150",
+      "from": "2022-01-13",
+      "to": "2022-02-21",
+      "days": 39
+    },
+    {
+      "serial": "B1063",
+      "fromMission": "SX-0138",
+      "toMission": "SX-0151",
+      "from": "2021-11-24",
+      "to": "2022-02-25",
+      "days": 93
+    },
+    {
+      "serial": "B1060",
+      "fromMission": "SX-0146",
+      "toMission": "SX-0152",
+      "from": "2022-01-19",
+      "to": "2022-03-03",
+      "days": 43
+    },
+    {
+      "serial": "B1052",
+      "fromMission": "SX-0147",
+      "toMission": "SX-0153",
+      "from": "2022-01-31",
+      "to": "2022-03-09",
+      "days": 37
+    },
+    {
+      "serial": "B1051",
+      "fromMission": "SX-0141",
+      "toMission": "SX-0154",
+      "from": "2021-12-18",
+      "to": "2022-03-19",
+      "days": 91
+    },
+    {
+      "serial": "B1061",
+      "fromMission": "SX-0149",
+      "toMission": "SX-0155",
+      "from": "2022-02-03",
+      "to": "2022-04-01",
+      "days": 57
+    },
+    {
+      "serial": "B1062",
+      "fromMission": "SX-0144",
+      "toMission": "SX-0156",
+      "from": "2022-01-06",
+      "to": "2022-04-08",
+      "days": 92
+    },
+    {
+      "serial": "B1071",
+      "fromMission": "SX-0148",
+      "toMission": "SX-0157",
+      "from": "2022-02-02",
+      "to": "2022-04-17",
+      "days": 74
+    },
+    {
+      "serial": "B1060",
+      "fromMission": "SX-0152",
+      "toMission": "SX-0158",
+      "from": "2022-03-03",
+      "to": "2022-04-21",
+      "days": 49
+    },
+    {
+      "serial": "B1067",
+      "fromMission": "SX-0142",
+      "toMission": "SX-0159",
+      "from": "2021-12-19",
+      "to": "2022-04-27",
+      "days": 129
+    },
+    {
+      "serial": "B1062",
+      "fromMission": "SX-0156",
+      "toMission": "SX-0160",
+      "from": "2022-04-08",
+      "to": "2022-04-29",
+      "days": 21
+    },
+    {
+      "serial": "B1058",
+      "fromMission": "SX-0150",
+      "toMission": "SX-0161",
+      "from": "2022-02-21",
+      "to": "2022-05-06",
+      "days": 74
+    },
+    {
+      "serial": "B1063",
+      "fromMission": "SX-0151",
+      "toMission": "SX-0162",
+      "from": "2022-02-25",
+      "to": "2022-05-13",
+      "days": 77
+    },
+    {
+      "serial": "B1052",
+      "fromMission": "SX-0153",
+      "toMission": "SX-0164",
+      "from": "2022-03-09",
+      "to": "2022-05-18",
+      "days": 70
+    },
+    {
+      "serial": "B1061",
+      "fromMission": "SX-0155",
+      "toMission": "SX-0165",
+      "from": "2022-04-01",
+      "to": "2022-05-25",
+      "days": 54
+    },
+    {
+      "serial": "B1062",
+      "fromMission": "SX-0160",
+      "toMission": "SX-0166",
+      "from": "2022-04-29",
+      "to": "2022-06-08",
+      "days": 40
+    },
+    {
+      "serial": "B1060",
+      "fromMission": "SX-0158",
+      "toMission": "SX-0167",
+      "from": "2022-04-21",
+      "to": "2022-06-17",
+      "days": 57
+    },
+    {
+      "serial": "B1071",
+      "fromMission": "SX-0157",
+      "toMission": "SX-0168",
+      "from": "2022-04-17",
+      "to": "2022-06-18",
+      "days": 62
+    },
+    {
+      "serial": "B1061",
+      "fromMission": "SX-0165",
+      "toMission": "SX-0169",
+      "from": "2022-05-25",
+      "to": "2022-06-19",
+      "days": 25
+    },
+    {
+      "serial": "B1073",
+      "fromMission": "SX-0163",
+      "toMission": "SX-0170",
+      "from": "2022-05-14",
+      "to": "2022-06-29",
+      "days": 46
+    },
+    {
+      "serial": "B1058",
+      "fromMission": "SX-0161",
+      "toMission": "SX-0171",
+      "from": "2022-05-06",
+      "to": "2022-07-07",
+      "days": 62
+    },
+    {
+      "serial": "B1063",
+      "fromMission": "SX-0162",
+      "toMission": "SX-0172",
+      "from": "2022-05-13",
+      "to": "2022-07-11",
+      "days": 59
+    },
+    {
+      "serial": "B1067",
+      "fromMission": "SX-0159",
+      "toMission": "SX-0173",
+      "from": "2022-04-27",
+      "to": "2022-07-15",
+      "days": 79
+    },
+    {
+      "serial": "B1051",
+      "fromMission": "SX-0154",
+      "toMission": "SX-0174",
+      "from": "2022-03-19",
+      "to": "2022-07-17",
+      "days": 120
+    },
+    {
+      "serial": "B1071",
+      "fromMission": "SX-0168",
+      "toMission": "SX-0175",
+      "from": "2022-06-18",
+      "to": "2022-07-22",
+      "days": 34
+    },
+    {
+      "serial": "B1062",
+      "fromMission": "SX-0166",
+      "toMission": "SX-0176",
+      "from": "2022-06-08",
+      "to": "2022-07-24",
+      "days": 46
+    },
+    {
+      "serial": "B1052",
+      "fromMission": "SX-0164",
+      "toMission": "SX-0177",
+      "from": "2022-05-18",
+      "to": "2022-08-04",
+      "days": 78
+    },
+    {
+      "serial": "B1073",
+      "fromMission": "SX-0170",
+      "toMission": "SX-0178",
+      "from": "2022-06-29",
+      "to": "2022-08-10",
+      "days": 42
+    },
+    {
+      "serial": "B1061",
+      "fromMission": "SX-0169",
+      "toMission": "SX-0179",
+      "from": "2022-06-19",
+      "to": "2022-08-12",
+      "days": 54
+    },
+    {
+      "serial": "B1062",
+      "fromMission": "SX-0176",
+      "toMission": "SX-0180",
+      "from": "2022-07-24",
+      "to": "2022-08-19",
+      "days": 26
+    },
+    {
+      "serial": "B1069",
+      "fromMission": "SX-0143",
+      "toMission": "SX-0181",
+      "from": "2021-12-21",
+      "to": "2022-08-28",
+      "days": 250
+    },
+    {
+      "serial": "B1063",
+      "fromMission": "SX-0172",
+      "toMission": "SX-0182",
+      "from": "2022-07-11",
+      "to": "2022-08-31",
+      "days": 51
+    },
+    {
+      "serial": "B1052",
+      "fromMission": "SX-0177",
+      "toMission": "SX-0183",
+      "from": "2022-08-04",
+      "to": "2022-09-05",
+      "days": 32
+    },
+    {
+      "serial": "B1058",
+      "fromMission": "SX-0171",
+      "toMission": "SX-0184",
+      "from": "2022-07-07",
+      "to": "2022-09-11",
+      "days": 66
+    },
+    {
+      "serial": "B1067",
+      "fromMission": "SX-0173",
+      "toMission": "SX-0185",
+      "from": "2022-07-15",
+      "to": "2022-09-19",
+      "days": 66
+    },
+    {
+      "serial": "B1073",
+      "fromMission": "SX-0178",
+      "toMission": "SX-0186",
+      "from": "2022-08-10",
+      "to": "2022-09-24",
+      "days": 45
+    },
+    {
+      "serial": "B1071",
+      "fromMission": "SX-0175",
+      "toMission": "SX-0188",
+      "from": "2022-07-22",
+      "to": "2022-10-05",
+      "days": 75
+    },
+    {
+      "serial": "B1060",
+      "fromMission": "SX-0167",
+      "toMission": "SX-0189",
+      "from": "2022-06-17",
+      "to": "2022-10-08",
+      "days": 113
+    },
+    {
+      "serial": "B1069",
+      "fromMission": "SX-0181",
+      "toMission": "SX-0190",
+      "from": "2022-08-28",
+      "to": "2022-10-15",
+      "days": 48
+    },
+    {
+      "serial": "B1062",
+      "fromMission": "SX-0180",
+      "toMission": "SX-0191",
+      "from": "2022-08-19",
+      "to": "2022-10-20",
+      "days": 62
+    },
+    {
+      "serial": "B1063",
+      "fromMission": "SX-0182",
+      "toMission": "SX-0192",
+      "from": "2022-08-31",
+      "to": "2022-10-28",
+      "days": 58
+    },
+    {
+      "serial": "B1067",
+      "fromMission": "SX-0185",
+      "toMission": "SX-0194",
+      "from": "2022-09-19",
+      "to": "2022-11-03",
+      "days": 45
+    },
+    {
+      "serial": "B1051",
+      "fromMission": "SX-0174",
+      "toMission": "SX-0195",
+      "from": "2022-07-17",
+      "to": "2022-11-12",
+      "days": 118
+    },
+    {
+      "serial": "B1049",
+      "fromMission": "SX-0134",
+      "toMission": "SX-0196",
+      "from": "2021-09-14",
+      "to": "2022-11-23",
+      "days": 435
+    },
+    {
+      "serial": "B1069",
+      "fromMission": "SX-0190",
+      "toMission": "SX-0198",
+      "from": "2022-10-15",
+      "to": "2022-12-08",
+      "days": 54
+    },
+    {
+      "serial": "B1073",
+      "fromMission": "SX-0186",
+      "toMission": "SX-0199",
+      "from": "2022-09-24",
+      "to": "2022-12-11",
+      "days": 78
+    },
+    {
+      "serial": "B1071",
+      "fromMission": "SX-0188",
+      "toMission": "SX-0200",
+      "from": "2022-10-05",
+      "to": "2022-12-16",
+      "days": 72
+    },
+    {
+      "serial": "B1067",
+      "fromMission": "SX-0194",
+      "toMission": "SX-0201",
+      "from": "2022-11-03",
+      "to": "2022-12-16",
+      "days": 43
+    },
+    {
+      "serial": "B1058",
+      "fromMission": "SX-0184",
+      "toMission": "SX-0202",
+      "from": "2022-09-11",
+      "to": "2022-12-17",
+      "days": 97
+    },
+    {
+      "serial": "B1062",
+      "fromMission": "SX-0191",
+      "toMission": "SX-0203",
+      "from": "2022-10-20",
+      "to": "2022-12-28",
+      "days": 69
+    },
+    {
+      "serial": "B1061",
+      "fromMission": "SX-0179",
+      "toMission": "SX-0204",
+      "from": "2022-08-12",
+      "to": "2022-12-30",
+      "days": 140
+    },
+    {
+      "serial": "B1060",
+      "fromMission": "SX-0189",
+      "toMission": "SX-0205",
+      "from": "2022-10-08",
+      "to": "2023-01-03",
+      "days": 87
+    },
+    {
+      "serial": "B1076",
+      "fromMission": "SX-0197",
+      "toMission": "SX-0206",
+      "from": "2022-11-26",
+      "to": "2023-01-10",
+      "days": 45
+    },
+    {
+      "serial": "B1064",
+      "fromMission": "SX-0193",
+      "toMission": "SX-0207",
+      "from": "2022-11-01",
+      "to": "2023-01-15",
+      "days": 75
+    },
+    {
+      "serial": "B1065",
+      "fromMission": "SX-0193",
+      "toMission": "SX-0207",
+      "from": "2022-11-01",
+      "to": "2023-01-15",
+      "days": 75
+    },
+    {
+      "serial": "B1077",
+      "fromMission": "SX-0187",
+      "toMission": "SX-0208",
+      "from": "2022-10-05",
+      "to": "2023-01-18",
+      "days": 105
+    },
+    {
+      "serial": "B1067",
+      "fromMission": "SX-0201",
+      "toMission": "SX-0210",
+      "from": "2022-12-16",
+      "to": "2023-01-26",
+      "days": 41
+    },
+    {
+      "serial": "B1071",
+      "fromMission": "SX-0200",
+      "toMission": "SX-0211",
+      "from": "2022-12-16",
+      "to": "2023-01-31",
+      "days": 46
+    },
+    {
+      "serial": "B1069",
+      "fromMission": "SX-0198",
+      "toMission": "SX-0212",
+      "from": "2022-12-08",
+      "to": "2023-02-02",
+      "days": 56
+    },
+    {
+      "serial": "B1073",
+      "fromMission": "SX-0199",
+      "toMission": "SX-0213",
+      "from": "2022-12-11",
+      "to": "2023-02-07",
+      "days": 58
+    },
+    {
+      "serial": "B1062",
+      "fromMission": "SX-0203",
+      "toMission": "SX-0214",
+      "from": "2022-12-28",
+      "to": "2023-02-12",
+      "days": 46
+    },
+    {
+      "serial": "B1063",
+      "fromMission": "SX-0192",
+      "toMission": "SX-0215",
+      "from": "2022-10-28",
+      "to": "2023-02-17",
+      "days": 112
+    },
+    {
+      "serial": "B1077",
+      "fromMission": "SX-0208",
+      "toMission": "SX-0216",
+      "from": "2023-01-18",
+      "to": "2023-02-18",
+      "days": 31
+    },
+    {
+      "serial": "B1076",
+      "fromMission": "SX-0206",
+      "toMission": "SX-0217",
+      "from": "2023-01-10",
+      "to": "2023-02-27",
+      "days": 48
+    },
+    {
+      "serial": "B1061",
+      "fromMission": "SX-0204",
+      "toMission": "SX-0219",
+      "from": "2022-12-30",
+      "to": "2023-03-03",
+      "days": 63
+    },
+    {
+      "serial": "B1062",
+      "fromMission": "SX-0214",
+      "toMission": "SX-0220",
+      "from": "2023-02-12",
+      "to": "2023-03-09",
+      "days": 25
+    },
+    {
+      "serial": "B1073",
+      "fromMission": "SX-0213",
+      "toMission": "SX-0221",
+      "from": "2023-02-07",
+      "to": "2023-03-15",
+      "days": 36
+    },
+    {
+      "serial": "B1071",
+      "fromMission": "SX-0211",
+      "toMission": "SX-0222",
+      "from": "2023-01-31",
+      "to": "2023-03-17",
+      "days": 45
+    },
+    {
+      "serial": "B1069",
+      "fromMission": "SX-0212",
+      "toMission": "SX-0223",
+      "from": "2023-02-02",
+      "to": "2023-03-17",
+      "days": 43
+    },
+    {
+      "serial": "B1067",
+      "fromMission": "SX-0210",
+      "toMission": "SX-0224",
+      "from": "2023-01-26",
+      "to": "2023-03-24",
+      "days": 57
+    },
+    {
+      "serial": "B1077",
+      "fromMission": "SX-0216",
+      "toMission": "SX-0225",
+      "from": "2023-02-18",
+      "to": "2023-03-29",
+      "days": 39
+    },
+    {
+      "serial": "B1075",
+      "fromMission": "SX-0209",
+      "toMission": "SX-0226",
+      "from": "2023-01-19",
+      "to": "2023-04-02",
+      "days": 73
+    },
+    {
+      "serial": "B1076",
+      "fromMission": "SX-0217",
+      "toMission": "SX-0227",
+      "from": "2023-02-27",
+      "to": "2023-04-07",
+      "days": 39
+    },
+    {
+      "serial": "B1063",
+      "fromMission": "SX-0215",
+      "toMission": "SX-0228",
+      "from": "2023-02-17",
+      "to": "2023-04-15",
+      "days": 57
+    },
+    {
+      "serial": "B1073",
+      "fromMission": "SX-0221",
+      "toMission": "SX-0229",
+      "from": "2023-03-15",
+      "to": "2023-04-19",
+      "days": 35
+    },
+    {
+      "serial": "B1061",
+      "fromMission": "SX-0219",
+      "toMission": "SX-0230",
+      "from": "2023-03-03",
+      "to": "2023-04-27",
+      "days": 55
+    },
+    {
+      "serial": "B1078",
+      "fromMission": "SX-0218",
+      "toMission": "SX-0231",
+      "from": "2023-03-02",
+      "to": "2023-04-28",
+      "days": 57
+    },
+    {
+      "serial": "B1052",
+      "fromMission": "SX-0183",
+      "toMission": "SX-0232",
+      "from": "2022-09-05",
+      "to": "2023-05-01",
+      "days": 238
+    },
+    {
+      "serial": "B1053",
+      "fromMission": "SX-0081",
+      "toMission": "SX-0232",
+      "from": "2019-06-25",
+      "to": "2023-05-01",
+      "days": 1406
+    },
+    {
+      "serial": "B1069",
+      "fromMission": "SX-0223",
+      "toMission": "SX-0233",
+      "from": "2023-03-17",
+      "to": "2023-05-04",
+      "days": 48
+    },
+    {
+      "serial": "B1075",
+      "fromMission": "SX-0226",
+      "toMission": "SX-0234",
+      "from": "2023-04-02",
+      "to": "2023-05-10",
+      "days": 38
+    },
+    {
+      "serial": "B1067",
+      "fromMission": "SX-0224",
+      "toMission": "SX-0235",
+      "from": "2023-03-24",
+      "to": "2023-05-14",
+      "days": 51
+    },
+    {
+      "serial": "B1076",
+      "fromMission": "SX-0227",
+      "toMission": "SX-0236",
+      "from": "2023-04-07",
+      "to": "2023-05-19",
+      "days": 42
+    },
+    {
+      "serial": "B1063",
+      "fromMission": "SX-0228",
+      "toMission": "SX-0237",
+      "from": "2023-04-15",
+      "to": "2023-05-20",
+      "days": 35
+    },
+    {
+      "serial": "B1062",
+      "fromMission": "SX-0220",
+      "toMission": "SX-0239",
+      "from": "2023-03-09",
+      "to": "2023-05-27",
+      "days": 79
+    },
+    {
+      "serial": "B1061",
+      "fromMission": "SX-0230",
+      "toMission": "SX-0240",
+      "from": "2023-04-27",
+      "to": "2023-05-31",
+      "days": 34
+    },
+    {
+      "serial": "B1078",
+      "fromMission": "SX-0231",
+      "toMission": "SX-0241",
+      "from": "2023-04-28",
+      "to": "2023-06-04",
+      "days": 37
+    },
+    {
+      "serial": "B1077",
+      "fromMission": "SX-0225",
+      "toMission": "SX-0242",
+      "from": "2023-03-29",
+      "to": "2023-06-05",
+      "days": 68
+    },
+    {
+      "serial": "B1073",
+      "fromMission": "SX-0229",
+      "toMission": "SX-0243",
+      "from": "2023-04-19",
+      "to": "2023-06-12",
+      "days": 54
+    },
+    {
+      "serial": "B1071",
+      "fromMission": "SX-0222",
+      "toMission": "SX-0244",
+      "from": "2023-03-17",
+      "to": "2023-06-12",
+      "days": 87
+    },
+    {
+      "serial": "B1067",
+      "fromMission": "SX-0235",
+      "toMission": "SX-0245",
+      "from": "2023-05-14",
+      "to": "2023-06-18",
+      "days": 35
+    },
+    {
+      "serial": "B1075",
+      "fromMission": "SX-0234",
+      "toMission": "SX-0246",
+      "from": "2023-05-10",
+      "to": "2023-06-22",
+      "days": 43
+    },
+    {
+      "serial": "B1069",
+      "fromMission": "SX-0233",
+      "toMission": "SX-0247",
+      "from": "2023-05-04",
+      "to": "2023-06-23",
+      "days": 50
+    },
+    {
+      "serial": "B1080",
+      "fromMission": "SX-0238",
+      "toMission": "SX-0248",
+      "from": "2023-05-21",
+      "to": "2023-07-01",
+      "days": 41
+    },
+    {
+      "serial": "B1063",
+      "fromMission": "SX-0237",
+      "toMission": "SX-0249",
+      "from": "2023-05-20",
+      "to": "2023-07-07",
+      "days": 48
+    },
+    {
+      "serial": "B1058",
+      "fromMission": "SX-0202",
+      "toMission": "SX-0250",
+      "from": "2022-12-17",
+      "to": "2023-07-10",
+      "days": 205
+    },
+    {
+      "serial": "B1060",
+      "fromMission": "SX-0205",
+      "toMission": "SX-0251",
+      "from": "2023-01-03",
+      "to": "2023-07-16",
+      "days": 194
+    },
+    {
+      "serial": "B1071",
+      "fromMission": "SX-0244",
+      "toMission": "SX-0252",
+      "from": "2023-06-12",
+      "to": "2023-07-20",
+      "days": 38
+    },
+    {
+      "serial": "B1076",
+      "fromMission": "SX-0236",
+      "toMission": "SX-0253",
+      "from": "2023-05-19",
+      "to": "2023-07-24",
+      "days": 66
+    },
+    {
+      "serial": "B1062",
+      "fromMission": "SX-0239",
+      "toMission": "SX-0254",
+      "from": "2023-05-27",
+      "to": "2023-07-28",
+      "days": 62
+    },
+    {
+      "serial": "B1064",
+      "fromMission": "SX-0207",
+      "toMission": "SX-0255",
+      "from": "2023-01-15",
+      "to": "2023-07-29",
+      "days": 195
+    },
+    {
+      "serial": "B1065",
+      "fromMission": "SX-0207",
+      "toMission": "SX-0255",
+      "from": "2023-01-15",
+      "to": "2023-07-29",
+      "days": 195
+    },
+    {
+      "serial": "B1077",
+      "fromMission": "SX-0242",
+      "toMission": "SX-0256",
+      "from": "2023-06-05",
+      "to": "2023-08-03",
+      "days": 59
+    },
+    {
+      "serial": "B1078",
+      "fromMission": "SX-0241",
+      "toMission": "SX-0257",
+      "from": "2023-06-04",
+      "to": "2023-08-07",
+      "days": 64
+    },
+    {
+      "serial": "B1075",
+      "fromMission": "SX-0246",
+      "toMission": "SX-0258",
+      "from": "2023-06-22",
+      "to": "2023-08-08",
+      "days": 47
+    },
+    {
+      "serial": "B1069",
+      "fromMission": "SX-0247",
+      "toMission": "SX-0259",
+      "from": "2023-06-23",
+      "to": "2023-08-11",
+      "days": 49
+    },
+    {
+      "serial": "B1067",
+      "fromMission": "SX-0245",
+      "toMission": "SX-0260",
+      "from": "2023-06-18",
+      "to": "2023-08-17",
+      "days": 60
+    },
+    {
+      "serial": "B1061",
+      "fromMission": "SX-0240",
+      "toMission": "SX-0261",
+      "from": "2023-05-31",
+      "to": "2023-08-22",
+      "days": 83
+    },
+    {
+      "serial": "B1080",
+      "fromMission": "SX-0248",
+      "toMission": "SX-0263",
+      "from": "2023-07-01",
+      "to": "2023-08-27",
+      "days": 57
+    },
+    {
+      "serial": "B1077",
+      "fromMission": "SX-0256",
+      "toMission": "SX-0264",
+      "from": "2023-08-03",
+      "to": "2023-09-01",
+      "days": 29
+    },
+    {
+      "serial": "B1063",
+      "fromMission": "SX-0249",
+      "toMission": "SX-0265",
+      "from": "2023-07-07",
+      "to": "2023-09-02",
+      "days": 57
+    },
+    {
+      "serial": "B1073",
+      "fromMission": "SX-0243",
+      "toMission": "SX-0266",
+      "from": "2023-06-12",
+      "to": "2023-09-04",
+      "days": 84
+    },
+    {
+      "serial": "B1076",
+      "fromMission": "SX-0253",
+      "toMission": "SX-0267",
+      "from": "2023-07-24",
+      "to": "2023-09-09",
+      "days": 47
+    },
+    {
+      "serial": "B1071",
+      "fromMission": "SX-0252",
+      "toMission": "SX-0268",
+      "from": "2023-07-20",
+      "to": "2023-09-12",
+      "days": 54
+    },
+    {
+      "serial": "B1078",
+      "fromMission": "SX-0257",
+      "toMission": "SX-0269",
+      "from": "2023-08-07",
+      "to": "2023-09-16",
+      "days": 40
+    },
+    {
+      "serial": "B1058",
+      "fromMission": "SX-0250",
+      "toMission": "SX-0270",
+      "from": "2023-07-10",
+      "to": "2023-09-20",
+      "days": 72
+    },
+    {
+      "serial": "B1060",
+      "fromMission": "SX-0251",
+      "toMission": "SX-0271",
+      "from": "2023-07-16",
+      "to": "2023-09-24",
+      "days": 70
+    },
+    {
+      "serial": "B1075",
+      "fromMission": "SX-0258",
+      "toMission": "SX-0272",
+      "from": "2023-08-08",
+      "to": "2023-09-25",
+      "days": 48
+    },
+    {
+      "serial": "B1069",
+      "fromMission": "SX-0259",
+      "toMission": "SX-0273",
+      "from": "2023-08-11",
+      "to": "2023-09-30",
+      "days": 50
+    },
+    {
+      "serial": "B1076",
+      "fromMission": "SX-0267",
+      "toMission": "SX-0274",
+      "from": "2023-09-09",
+      "to": "2023-10-05",
+      "days": 26
+    },
+    {
+      "serial": "B1063",
+      "fromMission": "SX-0265",
+      "toMission": "SX-0275",
+      "from": "2023-09-02",
+      "to": "2023-10-09",
+      "days": 37
+    },
+    {
+      "serial": "B1064",
+      "fromMission": "SX-0255",
+      "toMission": "SX-0276",
+      "from": "2023-07-29",
+      "to": "2023-10-13",
+      "days": 76
+    },
+    {
+      "serial": "B1065",
+      "fromMission": "SX-0255",
+      "toMission": "SX-0276",
+      "from": "2023-07-29",
+      "to": "2023-10-13",
+      "days": 76
+    },
+    {
+      "serial": "B1067",
+      "fromMission": "SX-0260",
+      "toMission": "SX-0277",
+      "from": "2023-08-17",
+      "to": "2023-10-13",
+      "days": 57
+    },
+    {
+      "serial": "B1062",
+      "fromMission": "SX-0254",
+      "toMission": "SX-0278",
+      "from": "2023-07-28",
+      "to": "2023-10-18",
+      "days": 82
+    },
+    {
+      "serial": "B1061",
+      "fromMission": "SX-0261",
+      "toMission": "SX-0279",
+      "from": "2023-08-22",
+      "to": "2023-10-21",
+      "days": 60
+    },
+    {
+      "serial": "B1080",
+      "fromMission": "SX-0263",
+      "toMission": "SX-0280",
+      "from": "2023-08-27",
+      "to": "2023-10-22",
+      "days": 56
+    },
+    {
+      "serial": "B1075",
+      "fromMission": "SX-0272",
+      "toMission": "SX-0281",
+      "from": "2023-09-25",
+      "to": "2023-10-29",
+      "days": 34
+    },
+    {
+      "serial": "B1077",
+      "fromMission": "SX-0264",
+      "toMission": "SX-0282",
+      "from": "2023-09-01",
+      "to": "2023-10-30",
+      "days": 59
+    },
+    {
+      "serial": "B1058",
+      "fromMission": "SX-0270",
+      "toMission": "SX-0283",
+      "from": "2023-09-20",
+      "to": "2023-11-04",
+      "days": 45
+    },
+    {
+      "serial": "B1073",
+      "fromMission": "SX-0266",
+      "toMission": "SX-0284",
+      "from": "2023-09-04",
+      "to": "2023-11-08",
+      "days": 65
+    },
+    {
+      "serial": "B1081",
+      "fromMission": "SX-0262",
+      "toMission": "SX-0285",
+      "from": "2023-08-26",
+      "to": "2023-11-10",
+      "days": 76
+    },
+    {
+      "serial": "B1071",
+      "fromMission": "SX-0268",
+      "toMission": "SX-0286",
+      "from": "2023-09-12",
+      "to": "2023-11-11",
+      "days": 60
+    },
+    {
+      "serial": "B1076",
+      "fromMission": "SX-0274",
+      "toMission": "SX-0287",
+      "from": "2023-10-05",
+      "to": "2023-11-12",
+      "days": 38
+    },
+    {
+      "serial": "B1069",
+      "fromMission": "SX-0273",
+      "toMission": "SX-0288",
+      "from": "2023-09-30",
+      "to": "2023-11-18",
+      "days": 49
+    },
+    {
+      "serial": "B1063",
+      "fromMission": "SX-0275",
+      "toMission": "SX-0289",
+      "from": "2023-10-09",
+      "to": "2023-11-20",
+      "days": 42
+    },
+    {
+      "serial": "B1067",
+      "fromMission": "SX-0277",
+      "toMission": "SX-0290",
+      "from": "2023-10-13",
+      "to": "2023-11-22",
+      "days": 40
+    },
+    {
+      "serial": "B1062",
+      "fromMission": "SX-0278",
+      "toMission": "SX-0291",
+      "from": "2023-10-18",
+      "to": "2023-11-28",
+      "days": 41
+    },
+    {
+      "serial": "B1061",
+      "fromMission": "SX-0279",
+      "toMission": "SX-0292",
+      "from": "2023-10-21",
+      "to": "2023-12-01",
+      "days": 41
+    },
+    {
+      "serial": "B1078",
+      "fromMission": "SX-0269",
+      "toMission": "SX-0293",
+      "from": "2023-09-16",
+      "to": "2023-12-03",
+      "days": 78
+    },
+    {
+      "serial": "B1077",
+      "fromMission": "SX-0282",
+      "toMission": "SX-0294",
+      "from": "2023-10-30",
+      "to": "2023-12-07",
+      "days": 38
+    },
+    {
+      "serial": "B1071",
+      "fromMission": "SX-0286",
+      "toMission": "SX-0295",
+      "from": "2023-11-11",
+      "to": "2023-12-08",
+      "days": 27
+    },
+    {
+      "serial": "B1081",
+      "fromMission": "SX-0285",
+      "toMission": "SX-0296",
+      "from": "2023-11-10",
+      "to": "2023-12-19",
+      "days": 39
+    },
+    {
+      "serial": "B1058",
+      "fromMission": "SX-0283",
+      "toMission": "SX-0297",
+      "from": "2023-11-04",
+      "to": "2023-12-23",
+      "days": 49
+    },
+    {
+      "serial": "B1075",
+      "fromMission": "SX-0281",
+      "toMission": "SX-0298",
+      "from": "2023-10-29",
+      "to": "2023-12-24",
+      "days": 56
+    },
+    {
+      "serial": "B1064",
+      "fromMission": "SX-0276",
+      "toMission": "SX-0299",
+      "from": "2023-10-13",
+      "to": "2023-12-29",
+      "days": 77
+    },
+    {
+      "serial": "B1065",
+      "fromMission": "SX-0276",
+      "toMission": "SX-0299",
+      "from": "2023-10-13",
+      "to": "2023-12-29",
+      "days": 77
+    },
+    {
+      "serial": "B1069",
+      "fromMission": "SX-0288",
+      "toMission": "SX-0300",
+      "from": "2023-11-18",
+      "to": "2023-12-29",
+      "days": 41
+    },
+    {
+      "serial": "B1076",
+      "fromMission": "SX-0287",
+      "toMission": "SX-0302",
+      "from": "2023-11-12",
+      "to": "2024-01-03",
+      "days": 52
+    },
+    {
+      "serial": "B1067",
+      "fromMission": "SX-0290",
+      "toMission": "SX-0303",
+      "from": "2023-11-22",
+      "to": "2024-01-07",
+      "days": 46
+    },
+    {
+      "serial": "B1061",
+      "fromMission": "SX-0292",
+      "toMission": "SX-0304",
+      "from": "2023-12-01",
+      "to": "2024-01-14",
+      "days": 44
+    },
+    {
+      "serial": "B1073",
+      "fromMission": "SX-0284",
+      "toMission": "SX-0305",
+      "from": "2023-11-08",
+      "to": "2024-01-15",
+      "days": 68
+    },
+    {
+      "serial": "B1080",
+      "fromMission": "SX-0280",
+      "toMission": "SX-0306",
+      "from": "2023-10-22",
+      "to": "2024-01-18",
+      "days": 88
+    },
+    {
+      "serial": "B1063",
+      "fromMission": "SX-0289",
+      "toMission": "SX-0307",
+      "from": "2023-11-20",
+      "to": "2024-01-24",
+      "days": 65
+    },
+    {
+      "serial": "B1062",
+      "fromMission": "SX-0291",
+      "toMission": "SX-0308",
+      "from": "2023-11-28",
+      "to": "2024-01-29",
+      "days": 62
+    },
+    {
+      "serial": "B1075",
+      "fromMission": "SX-0298",
+      "toMission": "SX-0309",
+      "from": "2023-12-24",
+      "to": "2024-01-29",
+      "days": 36
+    },
+    {
+      "serial": "B1077",
+      "fromMission": "SX-0294",
+      "toMission": "SX-0310",
+      "from": "2023-12-07",
+      "to": "2024-01-30",
+      "days": 54
+    },
+    {
+      "serial": "B1081",
+      "fromMission": "SX-0296",
+      "toMission": "SX-0311",
+      "from": "2023-12-19",
+      "to": "2024-02-08",
+      "days": 51
+    },
+    {
+      "serial": "B1071",
+      "fromMission": "SX-0295",
+      "toMission": "SX-0312",
+      "from": "2023-12-08",
+      "to": "2024-02-10",
+      "days": 64
+    },
+    {
+      "serial": "B1078",
+      "fromMission": "SX-0293",
+      "toMission": "SX-0313",
+      "from": "2023-12-03",
+      "to": "2024-02-14",
+      "days": 73
+    },
+    {
+      "serial": "B1060",
+      "fromMission": "SX-0271",
+      "toMission": "SX-0314",
+      "from": "2023-09-24",
+      "to": "2024-02-15",
+      "days": 144
+    },
+    {
+      "serial": "B1082",
+      "fromMission": "SX-0301",
+      "toMission": "SX-0315",
+      "from": "2024-01-03",
+      "to": "2024-02-15",
+      "days": 43
+    },
+    {
+      "serial": "B1067",
+      "fromMission": "SX-0303",
+      "toMission": "SX-0316",
+      "from": "2024-01-07",
+      "to": "2024-02-20",
+      "days": 44
+    },
+    {
+      "serial": "B1061",
+      "fromMission": "SX-0304",
+      "toMission": "SX-0317",
+      "from": "2024-01-14",
+      "to": "2024-02-23",
+      "days": 40
+    },
+    {
+      "serial": "B1069",
+      "fromMission": "SX-0300",
+      "toMission": "SX-0318",
+      "from": "2023-12-29",
+      "to": "2024-02-25",
+      "days": 58
+    },
+    {
+      "serial": "B1076",
+      "fromMission": "SX-0302",
+      "toMission": "SX-0319",
+      "from": "2024-01-03",
+      "to": "2024-02-29",
+      "days": 57
+    },
+    {
+      "serial": "B1081",
+      "fromMission": "SX-0311",
+      "toMission": "SX-0321",
+      "from": "2024-02-08",
+      "to": "2024-03-04",
+      "days": 25
+    },
+    {
+      "serial": "B1073",
+      "fromMission": "SX-0305",
+      "toMission": "SX-0322",
+      "from": "2024-01-15",
+      "to": "2024-03-04",
+      "days": 49
+    },
+    {
+      "serial": "B1077",
+      "fromMission": "SX-0310",
+      "toMission": "SX-0323",
+      "from": "2024-01-30",
+      "to": "2024-03-10",
+      "days": 40
+    },
+    {
+      "serial": "B1063",
+      "fromMission": "SX-0307",
+      "toMission": "SX-0324",
+      "from": "2024-01-24",
+      "to": "2024-03-11",
+      "days": 47
+    },
+    {
+      "serial": "B1062",
+      "fromMission": "SX-0308",
+      "toMission": "SX-0325",
+      "from": "2024-01-29",
+      "to": "2024-03-16",
+      "days": 47
+    },
+    {
+      "serial": "B1075",
+      "fromMission": "SX-0309",
+      "toMission": "SX-0326",
+      "from": "2024-01-29",
+      "to": "2024-03-19",
+      "days": 50
+    },
+    {
+      "serial": "B1080",
+      "fromMission": "SX-0306",
+      "toMission": "SX-0327",
+      "from": "2024-01-18",
+      "to": "2024-03-21",
+      "days": 63
+    },
+    {
+      "serial": "B1060",
+      "fromMission": "SX-0314",
+      "toMission": "SX-0328",
+      "from": "2024-02-15",
+      "to": "2024-03-24",
+      "days": 38
+    },
+    {
+      "serial": "B1078",
+      "fromMission": "SX-0313",
+      "toMission": "SX-0329",
+      "from": "2024-02-14",
+      "to": "2024-03-25",
+      "days": 40
+    },
+    {
+      "serial": "B1076",
+      "fromMission": "SX-0319",
+      "toMission": "SX-0330",
+      "from": "2024-02-29",
+      "to": "2024-03-30",
+      "days": 30
+    },
+    {
+      "serial": "B1067",
+      "fromMission": "SX-0316",
+      "toMission": "SX-0331",
+      "from": "2024-02-20",
+      "to": "2024-03-31",
+      "days": 40
+    },
+    {
+      "serial": "B1071",
+      "fromMission": "SX-0312",
+      "toMission": "SX-0332",
+      "from": "2024-02-10",
+      "to": "2024-04-02",
+      "days": 52
+    },
+    {
+      "serial": "B1069",
+      "fromMission": "SX-0318",
+      "toMission": "SX-0333",
+      "from": "2024-02-25",
+      "to": "2024-04-05",
+      "days": 40
+    },
+    {
+      "serial": "B1081",
+      "fromMission": "SX-0321",
+      "toMission": "SX-0334",
+      "from": "2024-03-04",
+      "to": "2024-04-07",
+      "days": 34
+    },
+    {
+      "serial": "B1073",
+      "fromMission": "SX-0322",
+      "toMission": "SX-0335",
+      "from": "2024-03-04",
+      "to": "2024-04-07",
+      "days": 34
+    },
+    {
+      "serial": "B1083",
+      "fromMission": "SX-0320",
+      "toMission": "SX-0336",
+      "from": "2024-03-04",
+      "to": "2024-04-10",
+      "days": 37
+    },
+    {
+      "serial": "B1082",
+      "fromMission": "SX-0315",
+      "toMission": "SX-0337",
+      "from": "2024-02-15",
+      "to": "2024-04-11",
+      "days": 56
+    },
+    {
+      "serial": "B1062",
+      "fromMission": "SX-0325",
+      "toMission": "SX-0338",
+      "from": "2024-03-16",
+      "to": "2024-04-13",
+      "days": 28
+    },
+    {
+      "serial": "B1077",
+      "fromMission": "SX-0323",
+      "toMission": "SX-0339",
+      "from": "2024-03-10",
+      "to": "2024-04-17",
+      "days": 38
+    },
+    {
+      "serial": "B1080",
+      "fromMission": "SX-0327",
+      "toMission": "SX-0340",
+      "from": "2024-03-21",
+      "to": "2024-04-18",
+      "days": 28
+    },
+    {
+      "serial": "B1078",
+      "fromMission": "SX-0329",
+      "toMission": "SX-0341",
+      "from": "2024-03-25",
+      "to": "2024-04-23",
+      "days": 29
+    },
+    {
+      "serial": "B1060",
+      "fromMission": "SX-0328",
+      "toMission": "SX-0342",
+      "from": "2024-03-24",
+      "to": "2024-04-28",
+      "days": 35
+    },
+    {
+      "serial": "B1076",
+      "fromMission": "SX-0330",
+      "toMission": "SX-0343",
+      "from": "2024-03-30",
+      "to": "2024-04-28",
+      "days": 29
+    },
+    {
+      "serial": "B1061",
+      "fromMission": "SX-0317",
+      "toMission": "SX-0344",
+      "from": "2024-02-23",
+      "to": "2024-05-02",
+      "days": 69
+    },
+    {
+      "serial": "B1067",
+      "fromMission": "SX-0331",
+      "toMission": "SX-0345",
+      "from": "2024-03-31",
+      "to": "2024-05-03",
+      "days": 33
+    },
+    {
+      "serial": "B1069",
+      "fromMission": "SX-0333",
+      "toMission": "SX-0346",
+      "from": "2024-04-05",
+      "to": "2024-05-06",
+      "days": 31
+    },
+    {
+      "serial": "B1083",
+      "fromMission": "SX-0336",
+      "toMission": "SX-0347",
+      "from": "2024-04-10",
+      "to": "2024-05-08",
+      "days": 28
+    },
+    {
+      "serial": "B1082",
+      "fromMission": "SX-0337",
+      "toMission": "SX-0348",
+      "from": "2024-04-11",
+      "to": "2024-05-10",
+      "days": 29
+    },
+    {
+      "serial": "B1073",
+      "fromMission": "SX-0335",
+      "toMission": "SX-0349",
+      "from": "2024-04-07",
+      "to": "2024-05-13",
+      "days": 36
+    },
+    {
+      "serial": "B1063",
+      "fromMission": "SX-0324",
+      "toMission": "SX-0350",
+      "from": "2024-03-11",
+      "to": "2024-05-14",
+      "days": 64
+    },
+    {
+      "serial": "B1062",
+      "fromMission": "SX-0338",
+      "toMission": "SX-0351",
+      "from": "2024-04-13",
+      "to": "2024-05-18",
+      "days": 35
+    },
+    {
+      "serial": "B1071",
+      "fromMission": "SX-0332",
+      "toMission": "SX-0352",
+      "from": "2024-04-02",
+      "to": "2024-05-22",
+      "days": 50
+    },
+    {
+      "serial": "B1080",
+      "fromMission": "SX-0340",
+      "toMission": "SX-0353",
+      "from": "2024-04-18",
+      "to": "2024-05-23",
+      "days": 35
+    },
+    {
+      "serial": "B1077",
+      "fromMission": "SX-0339",
+      "toMission": "SX-0354",
+      "from": "2024-04-17",
+      "to": "2024-05-24",
+      "days": 37
+    },
+    {
+      "serial": "B1078",
+      "fromMission": "SX-0341",
+      "toMission": "SX-0355",
+      "from": "2024-04-23",
+      "to": "2024-05-28",
+      "days": 35
+    },
+    {
+      "serial": "B1081",
+      "fromMission": "SX-0334",
+      "toMission": "SX-0356",
+      "from": "2024-04-07",
+      "to": "2024-05-28",
+      "days": 51
+    },
+    {
+      "serial": "B1076",
+      "fromMission": "SX-0343",
+      "toMission": "SX-0357",
+      "from": "2024-04-28",
+      "to": "2024-06-01",
+      "days": 34
+    },
+    {
+      "serial": "B1067",
+      "fromMission": "SX-0345",
+      "toMission": "SX-0358",
+      "from": "2024-05-03",
+      "to": "2024-06-05",
+      "days": 33
+    },
+    {
+      "serial": "B1069",
+      "fromMission": "SX-0346",
+      "toMission": "SX-0359",
+      "from": "2024-05-06",
+      "to": "2024-06-08",
+      "days": 33
+    },
+    {
+      "serial": "B1061",
+      "fromMission": "SX-0344",
+      "toMission": "SX-0360",
+      "from": "2024-05-02",
+      "to": "2024-06-08",
+      "days": 37
+    },
+    {
+      "serial": "B1082",
+      "fromMission": "SX-0348",
+      "toMission": "SX-0361",
+      "from": "2024-05-10",
+      "to": "2024-06-19",
+      "days": 40
+    },
+    {
+      "serial": "B1080",
+      "fromMission": "SX-0353",
+      "toMission": "SX-0362",
+      "from": "2024-05-23",
+      "to": "2024-06-20",
+      "days": 28
+    },
+    {
+      "serial": "B1078",
+      "fromMission": "SX-0355",
+      "toMission": "SX-0363",
+      "from": "2024-05-28",
+      "to": "2024-06-23",
+      "days": 26
+    },
+    {
+      "serial": "B1075",
+      "fromMission": "SX-0326",
+      "toMission": "SX-0364",
+      "from": "2024-03-19",
+      "to": "2024-06-24",
+      "days": 97
+    },
+    {
+      "serial": "B1062",
+      "fromMission": "SX-0351",
+      "toMission": "SX-0366",
+      "from": "2024-05-18",
+      "to": "2024-06-27",
+      "days": 40
+    },
+    {
+      "serial": "B1081",
+      "fromMission": "SX-0356",
+      "toMission": "SX-0367",
+      "from": "2024-05-28",
+      "to": "2024-06-29",
+      "days": 32
+    },
+    {
+      "serial": "B1073",
+      "fromMission": "SX-0349",
+      "toMission": "SX-0368",
+      "from": "2024-05-13",
+      "to": "2024-07-03",
+      "days": 51
+    },
+    {
+      "serial": "B1076",
+      "fromMission": "SX-0357",
+      "toMission": "SX-0369",
+      "from": "2024-06-01",
+      "to": "2024-07-08",
+      "days": 37
+    },
+    {
+      "serial": "B1063",
+      "fromMission": "SX-0350",
+      "toMission": "SX-0370",
+      "from": "2024-05-14",
+      "to": "2024-07-12",
+      "days": 59
+    },
+    {
+      "serial": "B1069",
+      "fromMission": "SX-0359",
+      "toMission": "SX-0371",
+      "from": "2024-06-08",
+      "to": "2024-07-27",
+      "days": 49
+    },
+    {
+      "serial": "B1077",
+      "fromMission": "SX-0354",
+      "toMission": "SX-0372",
+      "from": "2024-05-24",
+      "to": "2024-07-28",
+      "days": 65
+    },
+    {
+      "serial": "B1071",
+      "fromMission": "SX-0352",
+      "toMission": "SX-0373",
+      "from": "2024-05-22",
+      "to": "2024-07-28",
+      "days": 67
+    },
+    {
+      "serial": "B1078",
+      "fromMission": "SX-0363",
+      "toMission": "SX-0374",
+      "from": "2024-06-23",
+      "to": "2024-08-02",
+      "days": 40
+    },
+    {
+      "serial": "B1082",
+      "fromMission": "SX-0361",
+      "toMission": "SX-0375",
+      "from": "2024-06-19",
+      "to": "2024-08-04",
+      "days": 46
+    },
+    {
+      "serial": "B1080",
+      "fromMission": "SX-0362",
+      "toMission": "SX-0376",
+      "from": "2024-06-20",
+      "to": "2024-08-04",
+      "days": 45
+    },
+    {
+      "serial": "B1067",
+      "fromMission": "SX-0358",
+      "toMission": "SX-0377",
+      "from": "2024-06-05",
+      "to": "2024-08-10",
+      "days": 66
+    },
+    {
+      "serial": "B1061",
+      "fromMission": "SX-0360",
+      "toMission": "SX-0378",
+      "from": "2024-06-08",
+      "to": "2024-08-12",
+      "days": 65
+    },
+    {
+      "serial": "B1073",
+      "fromMission": "SX-0368",
+      "toMission": "SX-0379",
+      "from": "2024-07-03",
+      "to": "2024-08-12",
+      "days": 40
+    },
+    {
+      "serial": "B1076",
+      "fromMission": "SX-0369",
+      "toMission": "SX-0380",
+      "from": "2024-07-08",
+      "to": "2024-08-15",
+      "days": 38
+    },
+    {
+      "serial": "B1075",
+      "fromMission": "SX-0364",
+      "toMission": "SX-0381",
+      "from": "2024-06-24",
+      "to": "2024-08-16",
+      "days": 53
+    },
+    {
+      "serial": "B1062",
+      "fromMission": "SX-0366",
+      "toMission": "SX-0383",
+      "from": "2024-06-27",
+      "to": "2024-08-28",
+      "days": 62
+    },
+    {
+      "serial": "B1069",
+      "fromMission": "SX-0371",
+      "toMission": "SX-0384",
+      "from": "2024-07-27",
+      "to": "2024-08-31",
+      "days": 35
+    },
+    {
+      "serial": "B1081",
+      "fromMission": "SX-0367",
+      "toMission": "SX-0385",
+      "from": "2024-06-29",
+      "to": "2024-08-31",
+      "days": 63
+    },
+    {
+      "serial": "B1077",
+      "fromMission": "SX-0372",
+      "toMission": "SX-0386",
+      "from": "2024-07-28",
+      "to": "2024-09-05",
+      "days": 39
+    },
+    {
+      "serial": "B1063",
+      "fromMission": "SX-0370",
+      "toMission": "SX-0387",
+      "from": "2024-07-12",
+      "to": "2024-09-06",
+      "days": 56
+    },
+    {
+      "serial": "B1083",
+      "fromMission": "SX-0347",
+      "toMission": "SX-0388",
+      "from": "2024-05-08",
+      "to": "2024-09-10",
+      "days": 125
+    },
+    {
+      "serial": "B1078",
+      "fromMission": "SX-0374",
+      "toMission": "SX-0389",
+      "from": "2024-08-02",
+      "to": "2024-09-12",
+      "days": 41
+    },
+    {
+      "serial": "B1071",
+      "fromMission": "SX-0373",
+      "toMission": "SX-0390",
+      "from": "2024-07-28",
+      "to": "2024-09-13",
+      "days": 47
+    },
+    {
+      "serial": "B1067",
+      "fromMission": "SX-0377",
+      "toMission": "SX-0391",
+      "from": "2024-08-10",
+      "to": "2024-09-17",
+      "days": 38
+    },
+    {
+      "serial": "B1075",
+      "fromMission": "SX-0381",
+      "toMission": "SX-0392",
+      "from": "2024-08-16",
+      "to": "2024-09-20",
+      "days": 35
+    },
+    {
+      "serial": "B1081",
+      "fromMission": "SX-0385",
+      "toMission": "SX-0393",
+      "from": "2024-08-31",
+      "to": "2024-09-25",
+      "days": 25
+    },
+    {
+      "serial": "B1085",
+      "fromMission": "SX-0382",
+      "toMission": "SX-0394",
+      "from": "2024-08-20",
+      "to": "2024-09-28",
+      "days": 39
+    },
+    {
+      "serial": "B1061",
+      "fromMission": "SX-0378",
+      "toMission": "SX-0395",
+      "from": "2024-08-12",
+      "to": "2024-10-07",
+      "days": 56
+    },
+    {
+      "serial": "B1064",
+      "fromMission": "SX-0299",
+      "toMission": "SX-0396",
+      "from": "2023-12-29",
+      "to": "2024-10-14",
+      "days": 290
+    },
+    {
+      "serial": "B1065",
+      "fromMission": "SX-0299",
+      "toMission": "SX-0396",
+      "from": "2023-12-29",
+      "to": "2024-10-14",
+      "days": 290
+    },
+    {
+      "serial": "B1080",
+      "fromMission": "SX-0376",
+      "toMission": "SX-0397",
+      "from": "2024-08-04",
+      "to": "2024-10-15",
+      "days": 72
+    },
+    {
+      "serial": "B1071",
+      "fromMission": "SX-0390",
+      "toMission": "SX-0398",
+      "from": "2024-09-13",
+      "to": "2024-10-15",
+      "days": 32
+    },
+    {
+      "serial": "B1076",
+      "fromMission": "SX-0380",
+      "toMission": "SX-0399",
+      "from": "2024-08-15",
+      "to": "2024-10-18",
+      "days": 64
+    },
+    {
+      "serial": "B1082",
+      "fromMission": "SX-0375",
+      "toMission": "SX-0400",
+      "from": "2024-08-04",
+      "to": "2024-10-20",
+      "days": 77
+    },
+    {
+      "serial": "B1073",
+      "fromMission": "SX-0379",
+      "toMission": "SX-0401",
+      "from": "2024-08-12",
+      "to": "2024-10-23",
+      "days": 72
+    },
+    {
+      "serial": "B1063",
+      "fromMission": "SX-0387",
+      "toMission": "SX-0402",
+      "from": "2024-09-06",
+      "to": "2024-10-24",
+      "days": 48
+    },
+    {
+      "serial": "B1069",
+      "fromMission": "SX-0384",
+      "toMission": "SX-0403",
+      "from": "2024-08-31",
+      "to": "2024-10-26",
+      "days": 56
+    },
+    {
+      "serial": "B1075",
+      "fromMission": "SX-0392",
+      "toMission": "SX-0404",
+      "from": "2024-09-20",
+      "to": "2024-10-30",
+      "days": 40
+    },
+    {
+      "serial": "B1078",
+      "fromMission": "SX-0389",
+      "toMission": "SX-0405",
+      "from": "2024-09-12",
+      "to": "2024-10-30",
+      "days": 48
+    },
+    {
+      "serial": "B1083",
+      "fromMission": "SX-0388",
+      "toMission": "SX-0406",
+      "from": "2024-09-10",
+      "to": "2024-11-05",
+      "days": 56
+    },
+    {
+      "serial": "B1085",
+      "fromMission": "SX-0394",
+      "toMission": "SX-0407",
+      "from": "2024-09-28",
+      "to": "2024-11-07",
+      "days": 40
+    },
+    {
+      "serial": "B1081",
+      "fromMission": "SX-0393",
+      "toMission": "SX-0408",
+      "from": "2024-09-25",
+      "to": "2024-11-09",
+      "days": 45
+    },
+    {
+      "serial": "B1067",
+      "fromMission": "SX-0391",
+      "toMission": "SX-0409",
+      "from": "2024-09-17",
+      "to": "2024-11-11",
+      "days": 55
+    },
+    {
+      "serial": "B1080",
+      "fromMission": "SX-0397",
+      "toMission": "SX-0410",
+      "from": "2024-10-15",
+      "to": "2024-11-11",
+      "days": 27
+    },
+    {
+      "serial": "B1082",
+      "fromMission": "SX-0400",
+      "toMission": "SX-0411",
+      "from": "2024-10-20",
+      "to": "2024-11-14",
+      "days": 25
+    },
+    {
+      "serial": "B1076",
+      "fromMission": "SX-0399",
+      "toMission": "SX-0412",
+      "from": "2024-10-18",
+      "to": "2024-11-14",
+      "days": 27
+    },
+    {
+      "serial": "B1077",
+      "fromMission": "SX-0386",
+      "toMission": "SX-0413",
+      "from": "2024-09-05",
+      "to": "2024-11-17",
+      "days": 73
+    },
+    {
+      "serial": "B1071",
+      "fromMission": "SX-0398",
+      "toMission": "SX-0414",
+      "from": "2024-10-15",
+      "to": "2024-11-18",
+      "days": 34
+    },
+    {
+      "serial": "B1073",
+      "fromMission": "SX-0401",
+      "toMission": "SX-0415",
+      "from": "2024-10-23",
+      "to": "2024-11-18",
+      "days": 26
+    },
+    {
+      "serial": "B1069",
+      "fromMission": "SX-0403",
+      "toMission": "SX-0416",
+      "from": "2024-10-26",
+      "to": "2024-11-21",
+      "days": 26
+    },
+    {
+      "serial": "B1075",
+      "fromMission": "SX-0404",
+      "toMission": "SX-0417",
+      "from": "2024-10-30",
+      "to": "2024-11-24",
+      "days": 25
+    },
+    {
+      "serial": "B1080",
+      "fromMission": "SX-0410",
+      "toMission": "SX-0418",
+      "from": "2024-11-11",
+      "to": "2024-11-25",
+      "days": 14
+    },
+    {
+      "serial": "B1078",
+      "fromMission": "SX-0405",
+      "toMission": "SX-0419",
+      "from": "2024-10-30",
+      "to": "2024-11-27",
+      "days": 28
+    },
+    {
+      "serial": "B1083",
+      "fromMission": "SX-0406",
+      "toMission": "SX-0420",
+      "from": "2024-11-05",
+      "to": "2024-11-30",
+      "days": 25
+    },
+    {
+      "serial": "B1067",
+      "fromMission": "SX-0409",
+      "toMission": "SX-0422",
+      "from": "2024-11-11",
+      "to": "2024-12-04",
+      "days": 23
+    },
+    {
+      "serial": "B1081",
+      "fromMission": "SX-0408",
+      "toMission": "SX-0423",
+      "from": "2024-11-09",
+      "to": "2024-12-05",
+      "days": 26
+    },
+    {
+      "serial": "B1076",
+      "fromMission": "SX-0412",
+      "toMission": "SX-0424",
+      "from": "2024-11-14",
+      "to": "2024-12-05",
+      "days": 21
+    },
+    {
+      "serial": "B1086",
+      "fromMission": "SX-0365",
+      "toMission": "SX-0425",
+      "from": "2024-06-25",
+      "to": "2024-12-08",
+      "days": 166
+    },
+    {
+      "serial": "B1082",
+      "fromMission": "SX-0411",
+      "toMission": "SX-0426",
+      "from": "2024-11-14",
+      "to": "2024-12-13",
+      "days": 29
+    },
+    {
+      "serial": "B1085",
+      "fromMission": "SX-0407",
+      "toMission": "SX-0427",
+      "from": "2024-11-07",
+      "to": "2024-12-17",
+      "days": 40
+    },
+    {
+      "serial": "B1063",
+      "fromMission": "SX-0402",
+      "toMission": "SX-0428",
+      "from": "2024-10-24",
+      "to": "2024-12-17",
+      "days": 54
+    },
+    {
+      "serial": "B1071",
+      "fromMission": "SX-0414",
+      "toMission": "SX-0430",
+      "from": "2024-11-18",
+      "to": "2024-12-21",
+      "days": 33
+    },
+    {
+      "serial": "B1080",
+      "fromMission": "SX-0418",
+      "toMission": "SX-0431",
+      "from": "2024-11-25",
+      "to": "2024-12-23",
+      "days": 28
+    },
+    {
+      "serial": "B1075",
+      "fromMission": "SX-0417",
+      "toMission": "SX-0432",
+      "from": "2024-11-24",
+      "to": "2024-12-29",
+      "days": 35
+    },
+    {
+      "serial": "B1083",
+      "fromMission": "SX-0420",
+      "toMission": "SX-0433",
+      "from": "2024-11-30",
+      "to": "2024-12-29",
+      "days": 29
+    },
+    {
+      "serial": "B1078",
+      "fromMission": "SX-0419",
+      "toMission": "SX-0434",
+      "from": "2024-11-27",
+      "to": "2024-12-31",
+      "days": 34
+    },
+    {
+      "serial": "B1073",
+      "fromMission": "SX-0415",
+      "toMission": "SX-0435",
+      "from": "2024-11-18",
+      "to": "2025-01-04",
+      "days": 47
+    },
+    {
+      "serial": "B1077",
+      "fromMission": "SX-0413",
+      "toMission": "SX-0436",
+      "from": "2024-11-17",
+      "to": "2025-01-06",
+      "days": 50
+    },
+    {
+      "serial": "B1086",
+      "fromMission": "SX-0425",
+      "toMission": "SX-0437",
+      "from": "2024-12-08",
+      "to": "2025-01-08",
+      "days": 31
+    },
+    {
+      "serial": "B1071",
+      "fromMission": "SX-0430",
+      "toMission": "SX-0438",
+      "from": "2024-12-21",
+      "to": "2025-01-10",
+      "days": 20
+    },
+    {
+      "serial": "B1067",
+      "fromMission": "SX-0422",
+      "toMission": "SX-0439",
+      "from": "2024-12-04",
+      "to": "2025-01-10",
+      "days": 37
+    },
+    {
+      "serial": "B1080",
+      "fromMission": "SX-0431",
+      "toMission": "SX-0440",
+      "from": "2024-12-23",
+      "to": "2025-01-13",
+      "days": 21
+    },
+    {
+      "serial": "B1088",
+      "fromMission": "SX-0421",
+      "toMission": "SX-0441",
+      "from": "2024-11-30",
+      "to": "2025-01-14",
+      "days": 45
+    },
+    {
+      "serial": "B1085",
+      "fromMission": "SX-0427",
+      "toMission": "SX-0442",
+      "from": "2024-12-17",
+      "to": "2025-01-15",
+      "days": 29
+    },
+    {
+      "serial": "B1083",
+      "fromMission": "SX-0433",
+      "toMission": "SX-0443",
+      "from": "2024-12-29",
+      "to": "2025-01-21",
+      "days": 23
+    },
+    {
+      "serial": "B1082",
+      "fromMission": "SX-0426",
+      "toMission": "SX-0444",
+      "from": "2024-12-13",
+      "to": "2025-01-21",
+      "days": 39
+    },
+    {
+      "serial": "B1063",
+      "fromMission": "SX-0428",
+      "toMission": "SX-0445",
+      "from": "2024-12-17",
+      "to": "2025-01-24",
+      "days": 38
+    },
+    {
+      "serial": "B1076",
+      "fromMission": "SX-0424",
+      "toMission": "SX-0446",
+      "from": "2024-12-05",
+      "to": "2025-01-27",
+      "days": 53
+    },
+    {
+      "serial": "B1073",
+      "fromMission": "SX-0435",
+      "toMission": "SX-0447",
+      "from": "2025-01-04",
+      "to": "2025-01-30",
+      "days": 26
+    },
+    {
+      "serial": "B1075",
+      "fromMission": "SX-0432",
+      "toMission": "SX-0448",
+      "from": "2024-12-29",
+      "to": "2025-02-01",
+      "days": 34
+    },
+    {
+      "serial": "B1069",
+      "fromMission": "SX-0416",
+      "toMission": "SX-0449",
+      "from": "2024-11-21",
+      "to": "2025-02-04",
+      "days": 75
+    },
+    {
+      "serial": "B1086",
+      "fromMission": "SX-0437",
+      "toMission": "SX-0450",
+      "from": "2025-01-08",
+      "to": "2025-02-04",
+      "days": 27
+    },
+    {
+      "serial": "B1078",
+      "fromMission": "SX-0434",
+      "toMission": "SX-0451",
+      "from": "2024-12-31",
+      "to": "2025-02-08",
+      "days": 39
+    },
+    {
+      "serial": "B1071",
+      "fromMission": "SX-0438",
+      "toMission": "SX-0452",
+      "from": "2025-01-10",
+      "to": "2025-02-11",
+      "days": 32
+    },
+    {
+      "serial": "B1077",
+      "fromMission": "SX-0436",
+      "toMission": "SX-0453",
+      "from": "2025-01-06",
+      "to": "2025-02-11",
+      "days": 36
+    },
+    {
+      "serial": "B1067",
+      "fromMission": "SX-0439",
+      "toMission": "SX-0454",
+      "from": "2025-01-10",
+      "to": "2025-02-15",
+      "days": 36
+    },
+    {
+      "serial": "B1080",
+      "fromMission": "SX-0440",
+      "toMission": "SX-0455",
+      "from": "2025-01-13",
+      "to": "2025-02-18",
+      "days": 36
+    },
+    {
+      "serial": "B1076",
+      "fromMission": "SX-0446",
+      "toMission": "SX-0456",
+      "from": "2025-01-27",
+      "to": "2025-02-21",
+      "days": 25
+    },
+    {
+      "serial": "B1082",
+      "fromMission": "SX-0444",
+      "toMission": "SX-0457",
+      "from": "2025-01-21",
+      "to": "2025-02-23",
+      "days": 33
+    },
+    {
+      "serial": "B1083",
+      "fromMission": "SX-0443",
+      "toMission": "SX-0458",
+      "from": "2025-01-21",
+      "to": "2025-02-27",
+      "days": 37
+    },
+    {
+      "serial": "B1086",
+      "fromMission": "SX-0450",
+      "toMission": "SX-0460",
+      "from": "2025-02-04",
+      "to": "2025-03-03",
+      "days": 27
+    },
+    {
+      "serial": "B1088",
+      "fromMission": "SX-0441",
+      "toMission": "SX-0461",
+      "from": "2025-01-14",
+      "to": "2025-03-12",
+      "days": 57
+    },
+    {
+      "serial": "B1069",
+      "fromMission": "SX-0449",
+      "toMission": "SX-0462",
+      "from": "2025-02-04",
+      "to": "2025-03-13",
+      "days": 37
+    },
+    {
+      "serial": "B1090",
+      "fromMission": "SX-0429",
+      "toMission": "SX-0463",
+      "from": "2024-12-17",
+      "to": "2025-03-14",
+      "days": 87
+    },
+    {
+      "serial": "B1081",
+      "fromMission": "SX-0423",
+      "toMission": "SX-0464",
+      "from": "2024-12-05",
+      "to": "2025-03-15",
+      "days": 100
+    },
+    {
+      "serial": "B1078",
+      "fromMission": "SX-0451",
+      "toMission": "SX-0465",
+      "from": "2025-02-08",
+      "to": "2025-03-15",
+      "days": 35
+    },
+    {
+      "serial": "B1077",
+      "fromMission": "SX-0453",
+      "toMission": "SX-0466",
+      "from": "2025-02-11",
+      "to": "2025-03-18",
+      "days": 35
+    },
+    {
+      "serial": "B1088",
+      "fromMission": "SX-0461",
+      "toMission": "SX-0467",
+      "from": "2025-03-12",
+      "to": "2025-03-21",
+      "days": 9
+    },
+    {
+      "serial": "B1092",
+      "fromMission": "SX-0459",
+      "toMission": "SX-0468",
+      "from": "2025-02-27",
+      "to": "2025-03-24",
+      "days": 25
+    },
+    {
+      "serial": "B1063",
+      "fromMission": "SX-0445",
+      "toMission": "SX-0469",
+      "from": "2025-01-24",
+      "to": "2025-03-26",
+      "days": 61
+    },
+    {
+      "serial": "B1080",
+      "fromMission": "SX-0455",
+      "toMission": "SX-0470",
+      "from": "2025-02-18",
+      "to": "2025-03-31",
+      "days": 41
+    },
+    {
+      "serial": "B1085",
+      "fromMission": "SX-0442",
+      "toMission": "SX-0471",
+      "from": "2025-01-15",
+      "to": "2025-04-01",
+      "days": 76
+    },
+    {
+      "serial": "B1088",
+      "fromMission": "SX-0467",
+      "toMission": "SX-0472",
+      "from": "2025-03-21",
+      "to": "2025-04-04",
+      "days": 14
+    },
+    {
+      "serial": "B1078",
+      "fromMission": "SX-0465",
+      "toMission": "SX-0473",
+      "from": "2025-03-15",
+      "to": "2025-04-06",
+      "days": 22
+    },
+    {
+      "serial": "B1071",
+      "fromMission": "SX-0452",
+      "toMission": "SX-0475",
+      "from": "2025-02-11",
+      "to": "2025-04-12",
+      "days": 60
+    },
+    {
+      "serial": "B1083",
+      "fromMission": "SX-0458",
+      "toMission": "SX-0476",
+      "from": "2025-02-27",
+      "to": "2025-04-13",
+      "days": 45
+    },
+    {
+      "serial": "B1067",
+      "fromMission": "SX-0454",
+      "toMission": "SX-0477",
+      "from": "2025-02-15",
+      "to": "2025-04-14",
+      "days": 58
+    },
+    {
+      "serial": "B1082",
+      "fromMission": "SX-0457",
+      "toMission": "SX-0478",
+      "from": "2025-02-23",
+      "to": "2025-04-20",
+      "days": 56
+    },
+    {
+      "serial": "B1092",
+      "fromMission": "SX-0468",
+      "toMission": "SX-0479",
+      "from": "2025-03-24",
+      "to": "2025-04-21",
+      "days": 28
+    },
+    {
+      "serial": "B1090",
+      "fromMission": "SX-0463",
+      "toMission": "SX-0480",
+      "from": "2025-03-14",
+      "to": "2025-04-22",
+      "days": 39
+    },
+    {
+      "serial": "B1069",
+      "fromMission": "SX-0462",
+      "toMission": "SX-0481",
+      "from": "2025-03-13",
+      "to": "2025-04-25",
+      "days": 43
+    },
+    {
+      "serial": "B1077",
+      "fromMission": "SX-0466",
+      "toMission": "SX-0482",
+      "from": "2025-03-18",
+      "to": "2025-04-28",
+      "days": 41
+    },
+    {
+      "serial": "B1063",
+      "fromMission": "SX-0469",
+      "toMission": "SX-0483",
+      "from": "2025-03-26",
+      "to": "2025-04-28",
+      "days": 33
+    },
+    {
+      "serial": "B1080",
+      "fromMission": "SX-0470",
+      "toMission": "SX-0485",
+      "from": "2025-03-31",
+      "to": "2025-05-02",
+      "days": 32
+    },
+    {
+      "serial": "B1078",
+      "fromMission": "SX-0473",
+      "toMission": "SX-0486",
+      "from": "2025-04-06",
+      "to": "2025-05-04",
+      "days": 28
+    },
+    {
+      "serial": "B1085",
+      "fromMission": "SX-0471",
+      "toMission": "SX-0487",
+      "from": "2025-04-01",
+      "to": "2025-05-07",
+      "days": 36
+    },
+    {
+      "serial": "B1081",
+      "fromMission": "SX-0464",
+      "toMission": "SX-0488",
+      "from": "2025-03-15",
+      "to": "2025-05-10",
+      "days": 56
+    },
+    {
+      "serial": "B1083",
+      "fromMission": "SX-0476",
+      "toMission": "SX-0489",
+      "from": "2025-04-13",
+      "to": "2025-05-10",
+      "days": 27
+    },
+    {
+      "serial": "B1088",
+      "fromMission": "SX-0472",
+      "toMission": "SX-0490",
+      "from": "2025-04-04",
+      "to": "2025-05-13",
+      "days": 39
+    },
+    {
+      "serial": "B1067",
+      "fromMission": "SX-0477",
+      "toMission": "SX-0491",
+      "from": "2025-04-14",
+      "to": "2025-05-13",
+      "days": 29
+    },
+    {
+      "serial": "B1090",
+      "fromMission": "SX-0480",
+      "toMission": "SX-0492",
+      "from": "2025-04-22",
+      "to": "2025-05-14",
+      "days": 22
+    },
+    {
+      "serial": "B1093",
+      "fromMission": "SX-0474",
+      "toMission": "SX-0493",
+      "from": "2025-04-07",
+      "to": "2025-05-16",
+      "days": 39
+    },
+    {
+      "serial": "B1075",
+      "fromMission": "SX-0448",
+      "toMission": "SX-0495",
+      "from": "2025-02-01",
+      "to": "2025-05-23",
+      "days": 111
+    },
+    {
+      "serial": "B1069",
+      "fromMission": "SX-0481",
+      "toMission": "SX-0496",
+      "from": "2025-04-25",
+      "to": "2025-05-24",
+      "days": 29
+    },
+    {
+      "serial": "B1082",
+      "fromMission": "SX-0478",
+      "toMission": "SX-0497",
+      "from": "2025-04-20",
+      "to": "2025-05-27",
+      "days": 37
+    },
+    {
+      "serial": "B1080",
+      "fromMission": "SX-0485",
+      "toMission": "SX-0498",
+      "from": "2025-05-02",
+      "to": "2025-05-28",
+      "days": 26
+    },
+    {
+      "serial": "B1092",
+      "fromMission": "SX-0479",
+      "toMission": "SX-0499",
+      "from": "2025-04-21",
+      "to": "2025-05-30",
+      "days": 39
+    },
+    {
+      "serial": "B1071",
+      "fromMission": "SX-0475",
+      "toMission": "SX-0500",
+      "from": "2025-04-12",
+      "to": "2025-05-31",
+      "days": 49
+    },
+    {
+      "serial": "B1077",
+      "fromMission": "SX-0482",
+      "toMission": "SX-0501",
+      "from": "2025-04-28",
+      "to": "2025-06-03",
+      "days": 36
+    },
+    {
+      "serial": "B1063",
+      "fromMission": "SX-0483",
+      "toMission": "SX-0502",
+      "from": "2025-04-28",
+      "to": "2025-06-04",
+      "days": 37
+    },
+    {
+      "serial": "B1085",
+      "fromMission": "SX-0487",
+      "toMission": "SX-0503",
+      "from": "2025-05-07",
+      "to": "2025-06-07",
+      "days": 31
+    },
+    {
+      "serial": "B1088",
+      "fromMission": "SX-0490",
+      "toMission": "SX-0504",
+      "from": "2025-05-13",
+      "to": "2025-06-08",
+      "days": 26
+    },
+    {
+      "serial": "B1083",
+      "fromMission": "SX-0489",
+      "toMission": "SX-0505",
+      "from": "2025-05-10",
+      "to": "2025-06-10",
+      "days": 31
+    },
+    {
+      "serial": "B1081",
+      "fromMission": "SX-0488",
+      "toMission": "SX-0506",
+      "from": "2025-05-10",
+      "to": "2025-06-13",
+      "days": 34
+    },
+    {
+      "serial": "B1078",
+      "fromMission": "SX-0486",
+      "toMission": "SX-0507",
+      "from": "2025-05-04",
+      "to": "2025-06-13",
+      "days": 40
+    },
+    {
+      "serial": "B1093",
+      "fromMission": "SX-0493",
+      "toMission": "SX-0508",
+      "from": "2025-05-16",
+      "to": "2025-06-17",
+      "days": 32
+    },
+    {
+      "serial": "B1090",
+      "fromMission": "SX-0492",
+      "toMission": "SX-0509",
+      "from": "2025-05-14",
+      "to": "2025-06-18",
+      "days": 35
+    },
+    {
+      "serial": "B1069",
+      "fromMission": "SX-0496",
+      "toMission": "SX-0510",
+      "from": "2025-05-24",
+      "to": "2025-06-23",
+      "days": 30
+    },
+    {
+      "serial": "B1071",
+      "fromMission": "SX-0500",
+      "toMission": "SX-0511",
+      "from": "2025-05-31",
+      "to": "2025-06-23",
+      "days": 23
+    },
+    {
+      "serial": "B1094",
+      "fromMission": "SX-0484",
+      "toMission": "SX-0512",
+      "from": "2025-04-29",
+      "to": "2025-06-25",
+      "days": 57
+    },
+    {
+      "serial": "B1080",
+      "fromMission": "SX-0498",
+      "toMission": "SX-0513",
+      "from": "2025-05-28",
+      "to": "2025-06-25",
+      "days": 28
+    },
+    {
+      "serial": "B1092",
+      "fromMission": "SX-0499",
+      "toMission": "SX-0514",
+      "from": "2025-05-30",
+      "to": "2025-06-28",
+      "days": 29
+    },
+    {
+      "serial": "B1088",
+      "fromMission": "SX-0504",
+      "toMission": "SX-0515",
+      "from": "2025-06-08",
+      "to": "2025-06-28",
+      "days": 20
+    },
+    {
+      "serial": "B1085",
+      "fromMission": "SX-0503",
+      "toMission": "SX-0516",
+      "from": "2025-06-07",
+      "to": "2025-07-01",
+      "days": 24
+    },
+    {
+      "serial": "B1067",
+      "fromMission": "SX-0491",
+      "toMission": "SX-0517",
+      "from": "2025-05-13",
+      "to": "2025-07-02",
+      "days": 50
+    },
+    {
+      "serial": "B1077",
+      "fromMission": "SX-0501",
+      "toMission": "SX-0518",
+      "from": "2025-06-03",
+      "to": "2025-07-08",
+      "days": 35
+    },
+    {
+      "serial": "B1083",
+      "fromMission": "SX-0505",
+      "toMission": "SX-0519",
+      "from": "2025-06-10",
+      "to": "2025-07-13",
+      "days": 33
+    },
+    {
+      "serial": "B1093",
+      "fromMission": "SX-0508",
+      "toMission": "SX-0520",
+      "from": "2025-06-17",
+      "to": "2025-07-16",
+      "days": 29
+    },
+    {
+      "serial": "B1082",
+      "fromMission": "SX-0497",
+      "toMission": "SX-0522",
+      "from": "2025-05-27",
+      "to": "2025-07-19",
+      "days": 53
+    },
+    {
+      "serial": "B1090",
+      "fromMission": "SX-0509",
+      "toMission": "SX-0523",
+      "from": "2025-06-18",
+      "to": "2025-07-22",
+      "days": 34
+    },
+    {
+      "serial": "B1081",
+      "fromMission": "SX-0506",
+      "toMission": "SX-0524",
+      "from": "2025-06-13",
+      "to": "2025-07-23",
+      "days": 40
+    },
+    {
+      "serial": "B1078",
+      "fromMission": "SX-0507",
+      "toMission": "SX-0525",
+      "from": "2025-06-13",
+      "to": "2025-07-26",
+      "days": 43
+    },
+    {
+      "serial": "B1075",
+      "fromMission": "SX-0495",
+      "toMission": "SX-0526",
+      "from": "2025-05-23",
+      "to": "2025-07-27",
+      "days": 65
+    },
+    {
+      "serial": "B1069",
+      "fromMission": "SX-0510",
+      "toMission": "SX-0527",
+      "from": "2025-06-23",
+      "to": "2025-07-30",
+      "days": 37
+    },
+    {
+      "serial": "B1071",
+      "fromMission": "SX-0511",
+      "toMission": "SX-0528",
+      "from": "2025-06-23",
+      "to": "2025-07-31",
+      "days": 38
+    },
+    {
+      "serial": "B1094",
+      "fromMission": "SX-0512",
+      "toMission": "SX-0529",
+      "from": "2025-06-25",
+      "to": "2025-08-01",
+      "days": 37
+    },
+    {
+      "serial": "B1080",
+      "fromMission": "SX-0513",
+      "toMission": "SX-0530",
+      "from": "2025-06-25",
+      "to": "2025-08-04",
+      "days": 40
+    },
+    {
+      "serial": "B1093",
+      "fromMission": "SX-0520",
+      "toMission": "SX-0532",
+      "from": "2025-07-16",
+      "to": "2025-08-14",
+      "days": 29
+    },
+    {
+      "serial": "B1085",
+      "fromMission": "SX-0516",
+      "toMission": "SX-0533",
+      "from": "2025-07-01",
+      "to": "2025-08-14",
+      "days": 44
+    },
+    {
+      "serial": "B1088",
+      "fromMission": "SX-0515",
+      "toMission": "SX-0534",
+      "from": "2025-06-28",
+      "to": "2025-08-18",
+      "days": 51
+    },
+    {
+      "serial": "B1092",
+      "fromMission": "SX-0514",
+      "toMission": "SX-0535",
+      "from": "2025-06-28",
+      "to": "2025-08-22",
+      "days": 55
+    },
+    {
+      "serial": "B1081",
+      "fromMission": "SX-0524",
+      "toMission": "SX-0536",
+      "from": "2025-07-23",
+      "to": "2025-08-22",
+      "days": 30
+    },
+    {
+      "serial": "B1090",
+      "fromMission": "SX-0523",
+      "toMission": "SX-0537",
+      "from": "2025-07-22",
+      "to": "2025-08-24",
+      "days": 33
+    },
+    {
+      "serial": "B1063",
+      "fromMission": "SX-0502",
+      "toMission": "SX-0538",
+      "from": "2025-06-04",
+      "to": "2025-08-26",
+      "days": 83
+    },
+    {
+      "serial": "B1095",
+      "fromMission": "SX-0494",
+      "toMission": "SX-0539",
+      "from": "2025-05-21",
+      "to": "2025-08-27",
+      "days": 98
+    },
+    {
+      "serial": "B1067",
+      "fromMission": "SX-0517",
+      "toMission": "SX-0540",
+      "from": "2025-07-02",
+      "to": "2025-08-28",
+      "days": 57
+    },
+    {
+      "serial": "B1082",
+      "fromMission": "SX-0522",
+      "toMission": "SX-0541",
+      "from": "2025-07-19",
+      "to": "2025-08-30",
+      "days": 42
+    },
+    {
+      "serial": "B1077",
+      "fromMission": "SX-0518",
+      "toMission": "SX-0542",
+      "from": "2025-07-08",
+      "to": "2025-08-31",
+      "days": 54
+    },
+    {
+      "serial": "B1083",
+      "fromMission": "SX-0519",
+      "toMission": "SX-0544",
+      "from": "2025-07-13",
+      "to": "2025-09-03",
+      "days": 52
+    },
+    {
+      "serial": "B1069",
+      "fromMission": "SX-0527",
+      "toMission": "SX-0545",
+      "from": "2025-07-30",
+      "to": "2025-09-05",
+      "days": 37
+    },
+    {
+      "serial": "B1075",
+      "fromMission": "SX-0526",
+      "toMission": "SX-0546",
+      "from": "2025-07-27",
+      "to": "2025-09-06",
+      "days": 41
+    },
+    {
+      "serial": "B1093",
+      "fromMission": "SX-0532",
+      "toMission": "SX-0547",
+      "from": "2025-08-14",
+      "to": "2025-09-10",
+      "days": 27
+    },
+    {
+      "serial": "B1078",
+      "fromMission": "SX-0525",
+      "toMission": "SX-0548",
+      "from": "2025-07-26",
+      "to": "2025-09-12",
+      "days": 48
+    },
+    {
+      "serial": "B1071",
+      "fromMission": "SX-0528",
+      "toMission": "SX-0549",
+      "from": "2025-07-31",
+      "to": "2025-09-13",
+      "days": 44
+    },
+    {
+      "serial": "B1094",
+      "fromMission": "SX-0529",
+      "toMission": "SX-0550",
+      "from": "2025-08-01",
+      "to": "2025-09-14",
+      "days": 44
+    },
+    {
+      "serial": "B1092",
+      "fromMission": "SX-0535",
+      "toMission": "SX-0551",
+      "from": "2025-08-22",
+      "to": "2025-09-18",
+      "days": 27
+    },
+    {
+      "serial": "B1088",
+      "fromMission": "SX-0534",
+      "toMission": "SX-0552",
+      "from": "2025-08-18",
+      "to": "2025-09-19",
+      "days": 32
+    },
+    {
+      "serial": "B1085",
+      "fromMission": "SX-0533",
+      "toMission": "SX-0553",
+      "from": "2025-08-14",
+      "to": "2025-09-21",
+      "days": 38
+    },
+    {
+      "serial": "B1081",
+      "fromMission": "SX-0536",
+      "toMission": "SX-0554",
+      "from": "2025-08-22",
+      "to": "2025-09-22",
+      "days": 31
+    },
+    {
+      "serial": "B1096",
+      "fromMission": "SX-0521",
+      "toMission": "SX-0555",
+      "from": "2025-07-16",
+      "to": "2025-09-24",
+      "days": 70
+    },
+    {
+      "serial": "B1080",
+      "fromMission": "SX-0530",
+      "toMission": "SX-0556",
+      "from": "2025-08-04",
+      "to": "2025-09-25",
+      "days": 52
+    },
+    {
+      "serial": "B1082",
+      "fromMission": "SX-0541",
+      "toMission": "SX-0557",
+      "from": "2025-08-30",
+      "to": "2025-09-26",
+      "days": 27
+    },
+    {
+      "serial": "B1063",
+      "fromMission": "SX-0538",
+      "toMission": "SX-0558",
+      "from": "2025-08-26",
+      "to": "2025-09-29",
+      "days": 34
+    },
+    {
+      "serial": "B1097",
+      "fromMission": "SX-0543",
+      "toMission": "SX-0559",
+      "from": "2025-09-03",
+      "to": "2025-10-03",
+      "days": 30
+    },
+    {
+      "serial": "B1090",
+      "fromMission": "SX-0537",
+      "toMission": "SX-0560",
+      "from": "2025-08-24",
+      "to": "2025-10-07",
+      "days": 44
+    },
+    {
+      "serial": "B1071",
+      "fromMission": "SX-0549",
+      "toMission": "SX-0561",
+      "from": "2025-09-13",
+      "to": "2025-10-08",
+      "days": 25
+    },
+    {
+      "serial": "B1091",
+      "fromMission": "SX-0531",
+      "toMission": "SX-0562",
+      "from": "2025-08-11",
+      "to": "2025-10-14",
+      "days": 64
+    },
+    {
+      "serial": "B1093",
+      "fromMission": "SX-0547",
+      "toMission": "SX-0563",
+      "from": "2025-09-10",
+      "to": "2025-10-15",
+      "days": 35
+    },
+    {
+      "serial": "B1095",
+      "fromMission": "SX-0539",
+      "toMission": "SX-0564",
+      "from": "2025-08-27",
+      "to": "2025-10-16",
+      "days": 50
+    },
+    {
+      "serial": "B1067",
+      "fromMission": "SX-0540",
+      "toMission": "SX-0565",
+      "from": "2025-08-28",
+      "to": "2025-10-19",
+      "days": 52
+    },
+    {
+      "serial": "B1088",
+      "fromMission": "SX-0552",
+      "toMission": "SX-0566",
+      "from": "2025-09-19",
+      "to": "2025-10-19",
+      "days": 30
+    },
+    {
+      "serial": "B1075",
+      "fromMission": "SX-0546",
+      "toMission": "SX-0567",
+      "from": "2025-09-06",
+      "to": "2025-10-22",
+      "days": 46
+    },
+    {
+      "serial": "B1076",
+      "fromMission": "SX-0456",
+      "toMission": "SX-0568",
+      "from": "2025-02-21",
+      "to": "2025-10-24",
+      "days": 245
+    },
+    {
+      "serial": "B1081",
+      "fromMission": "SX-0554",
+      "toMission": "SX-0569",
+      "from": "2025-09-22",
+      "to": "2025-10-25",
+      "days": 33
+    },
+    {
+      "serial": "B1077",
+      "fromMission": "SX-0542",
+      "toMission": "SX-0570",
+      "from": "2025-08-31",
+      "to": "2025-10-26",
+      "days": 56
+    },
+    {
+      "serial": "B1082",
+      "fromMission": "SX-0557",
+      "toMission": "SX-0571",
+      "from": "2025-09-26",
+      "to": "2025-10-28",
+      "days": 32
+    },
+    {
+      "serial": "B1083",
+      "fromMission": "SX-0544",
+      "toMission": "SX-0572",
+      "from": "2025-09-03",
+      "to": "2025-10-29",
+      "days": 56
+    },
+    {
+      "serial": "B1063",
+      "fromMission": "SX-0558",
+      "toMission": "SX-0573",
+      "from": "2025-09-29",
+      "to": "2025-10-31",
+      "days": 32
+    },
+    {
+      "serial": "B1091",
+      "fromMission": "SX-0562",
+      "toMission": "SX-0574",
+      "from": "2025-10-14",
+      "to": "2025-11-02",
+      "days": 19
+    },
+    {
+      "serial": "B1094",
+      "fromMission": "SX-0550",
+      "toMission": "SX-0575",
+      "from": "2025-09-14",
+      "to": "2025-11-06",
+      "days": 53
+    },
+    {
+      "serial": "B1093",
+      "fromMission": "SX-0563",
+      "toMission": "SX-0576",
+      "from": "2025-10-15",
+      "to": "2025-11-06",
+      "days": 22
+    },
+    {
+      "serial": "B1069",
+      "fromMission": "SX-0545",
+      "toMission": "SX-0577",
+      "from": "2025-09-05",
+      "to": "2025-11-09",
+      "days": 65
+    },
+    {
+      "serial": "B1096",
+      "fromMission": "SX-0555",
+      "toMission": "SX-0578",
+      "from": "2025-09-24",
+      "to": "2025-11-11",
+      "days": 48
+    },
+    {
+      "serial": "B1092",
+      "fromMission": "SX-0551",
+      "toMission": "SX-0579",
+      "from": "2025-09-18",
+      "to": "2025-11-15",
+      "days": 58
+    },
+    {
+      "serial": "B1078",
+      "fromMission": "SX-0548",
+      "toMission": "SX-0580",
+      "from": "2025-09-12",
+      "to": "2025-11-15",
+      "days": 64
+    },
+    {
+      "serial": "B1097",
+      "fromMission": "SX-0559",
+      "toMission": "SX-0581",
+      "from": "2025-10-03",
+      "to": "2025-11-17",
+      "days": 45
+    },
+    {
+      "serial": "B1085",
+      "fromMission": "SX-0553",
+      "toMission": "SX-0582",
+      "from": "2025-09-21",
+      "to": "2025-11-19",
+      "days": 59
+    },
+    {
+      "serial": "B1080",
+      "fromMission": "SX-0556",
+      "toMission": "SX-0583",
+      "from": "2025-09-25",
+      "to": "2025-11-21",
+      "days": 57
+    },
+    {
+      "serial": "B1090",
+      "fromMission": "SX-0560",
+      "toMission": "SX-0584",
+      "from": "2025-10-07",
+      "to": "2025-11-22",
+      "days": 46
+    },
+    {
+      "serial": "B1071",
+      "fromMission": "SX-0561",
+      "toMission": "SX-0586",
+      "from": "2025-10-08",
+      "to": "2025-11-28",
+      "days": 51
+    },
+    {
+      "serial": "B1095",
+      "fromMission": "SX-0564",
+      "toMission": "SX-0587",
+      "from": "2025-10-16",
+      "to": "2025-12-01",
+      "days": 46
+    },
+    {
+      "serial": "B1081",
+      "fromMission": "SX-0569",
+      "toMission": "SX-0588",
+      "from": "2025-10-25",
+      "to": "2025-12-02",
+      "days": 38
+    },
+    {
+      "serial": "B1077",
+      "fromMission": "SX-0570",
+      "toMission": "SX-0589",
+      "from": "2025-10-26",
+      "to": "2025-12-02",
+      "days": 37
+    },
+    {
+      "serial": "B1097",
+      "fromMission": "SX-0581",
+      "toMission": "SX-0590",
+      "from": "2025-11-17",
+      "to": "2025-12-04",
+      "days": 17
+    },
+    {
+      "serial": "B1088",
+      "fromMission": "SX-0566",
+      "toMission": "SX-0591",
+      "from": "2025-10-19",
+      "to": "2025-12-07",
+      "days": 49
+    },
+    {
+      "serial": "B1067",
+      "fromMission": "SX-0565",
+      "toMission": "SX-0592",
+      "from": "2025-10-19",
+      "to": "2025-12-08",
+      "days": 50
+    },
+    {
+      "serial": "B1096",
+      "fromMission": "SX-0578",
+      "toMission": "SX-0593",
+      "from": "2025-11-11",
+      "to": "2025-12-09",
+      "days": 28
+    },
+    {
+      "serial": "B1082",
+      "fromMission": "SX-0571",
+      "toMission": "SX-0594",
+      "from": "2025-10-28",
+      "to": "2025-12-10",
+      "days": 43
+    },
+    {
+      "serial": "B1083",
+      "fromMission": "SX-0572",
+      "toMission": "SX-0595",
+      "from": "2025-10-29",
+      "to": "2025-12-11",
+      "days": 43
+    },
+    {
+      "serial": "B1093",
+      "fromMission": "SX-0576",
+      "toMission": "SX-0596",
+      "from": "2025-11-06",
+      "to": "2025-12-14",
+      "days": 38
+    },
+    {
+      "serial": "B1092",
+      "fromMission": "SX-0579",
+      "toMission": "SX-0597",
+      "from": "2025-11-15",
+      "to": "2025-12-15",
+      "days": 30
+    },
+    {
+      "serial": "B1094",
+      "fromMission": "SX-0575",
+      "toMission": "SX-0598",
+      "from": "2025-11-06",
+      "to": "2025-12-17",
+      "days": 41
+    },
+    {
+      "serial": "B1063",
+      "fromMission": "SX-0573",
+      "toMission": "SX-0599",
+      "from": "2025-10-31",
+      "to": "2025-12-17",
+      "days": 47
+    },
+    {
+      "serial": "B1081",
+      "fromMission": "SX-0588",
+      "toMission": "SX-0600",
+      "from": "2025-12-02",
+      "to": "2026-01-03",
+      "days": 32
+    },
+    {
+      "serial": "B1069",
+      "fromMission": "SX-0577",
+      "toMission": "SX-0602",
+      "from": "2025-11-09",
+      "to": "2026-01-09",
+      "days": 61
+    },
+    {
+      "serial": "B1097",
+      "fromMission": "SX-0590",
+      "toMission": "SX-0603",
+      "from": "2025-12-04",
+      "to": "2026-01-11",
+      "days": 38
+    },
+    {
+      "serial": "B1078",
+      "fromMission": "SX-0580",
+      "toMission": "SX-0604",
+      "from": "2025-11-15",
+      "to": "2026-01-12",
+      "days": 58
+    },
+    {
+      "serial": "B1085",
+      "fromMission": "SX-0582",
+      "toMission": "SX-0605",
+      "from": "2025-11-19",
+      "to": "2026-01-14",
+      "days": 56
+    },
+    {
+      "serial": "B1100",
+      "fromMission": "SX-0585",
+      "toMission": "SX-0606",
+      "from": "2025-11-23",
+      "to": "2026-01-17",
+      "days": 55
+    },
+    {
+      "serial": "B1080",
+      "fromMission": "SX-0583",
+      "toMission": "SX-0607",
+      "from": "2025-11-21",
+      "to": "2026-01-18",
+      "days": 58
+    },
+    {
+      "serial": "B1093",
+      "fromMission": "SX-0596",
+      "toMission": "SX-0608",
+      "from": "2025-12-14",
+      "to": "2026-01-22",
+      "days": 39
+    },
+    {
+      "serial": "B1097",
+      "fromMission": "SX-0603",
+      "toMission": "SX-0609",
+      "from": "2026-01-11",
+      "to": "2026-01-25",
+      "days": 14
+    },
+    {
+      "serial": "B1096",
+      "fromMission": "SX-0593",
+      "toMission": "SX-0610",
+      "from": "2025-12-09",
+      "to": "2026-01-28",
+      "days": 50
+    },
+    {
+      "serial": "B1082",
+      "fromMission": "SX-0594",
+      "toMission": "SX-0611",
+      "from": "2025-12-10",
+      "to": "2026-01-29",
+      "days": 50
+    },
+    {
+      "serial": "B1095",
+      "fromMission": "SX-0587",
+      "toMission": "SX-0612",
+      "from": "2025-12-01",
+      "to": "2026-01-30",
+      "days": 60
+    },
+    {
+      "serial": "B1071",
+      "fromMission": "SX-0586",
+      "toMission": "SX-0613",
+      "from": "2025-11-28",
+      "to": "2026-02-02",
+      "days": 66
+    },
+    {
+      "serial": "B1088",
+      "fromMission": "SX-0591",
+      "toMission": "SX-0614",
+      "from": "2025-12-07",
+      "to": "2026-02-07",
+      "days": 62
+    },
+    {
+      "serial": "B1100",
+      "fromMission": "SX-0606",
+      "toMission": "SX-0615",
+      "from": "2026-01-17",
+      "to": "2026-02-11",
+      "days": 25
+    },
+    {
+      "serial": "B1101",
+      "fromMission": "SX-0601",
+      "toMission": "SX-0616",
+      "from": "2026-01-04",
+      "to": "2026-02-13",
+      "days": 40
+    },
+    {
+      "serial": "B1081",
+      "fromMission": "SX-0600",
+      "toMission": "SX-0617",
+      "from": "2026-01-03",
+      "to": "2026-02-15",
+      "days": 43
+    },
+    {
+      "serial": "B1090",
+      "fromMission": "SX-0584",
+      "toMission": "SX-0618",
+      "from": "2025-11-22",
+      "to": "2026-02-16",
+      "days": 86
+    },
+    {
+      "serial": "B1077",
+      "fromMission": "SX-0589",
+      "toMission": "SX-0619",
+      "from": "2025-12-02",
+      "to": "2026-02-20",
+      "days": 80
+    },
+    {
+      "serial": "B1063",
+      "fromMission": "SX-0599",
+      "toMission": "SX-0620",
+      "from": "2025-12-17",
+      "to": "2026-02-21",
+      "days": 66
+    },
+    {
+      "serial": "B1067",
+      "fromMission": "SX-0592",
+      "toMission": "SX-0621",
+      "from": "2025-12-08",
+      "to": "2026-02-22",
+      "days": 76
+    },
+    {
+      "serial": "B1092",
+      "fromMission": "SX-0597",
+      "toMission": "SX-0622",
+      "from": "2025-12-15",
+      "to": "2026-02-24",
+      "days": 71
+    },
+    {
+      "serial": "B1093",
+      "fromMission": "SX-0608",
+      "toMission": "SX-0623",
+      "from": "2026-01-22",
+      "to": "2026-02-25",
+      "days": 34
+    },
+    {
+      "serial": "B1069",
+      "fromMission": "SX-0602",
+      "toMission": "SX-0624",
+      "from": "2026-01-09",
+      "to": "2026-02-27",
+      "days": 49
+    },
+    {
+      "serial": "B1082",
+      "fromMission": "SX-0611",
+      "toMission": "SX-0625",
+      "from": "2026-01-29",
+      "to": "2026-03-01",
+      "days": 31
+    },
+    {
+      "serial": "B1078",
+      "fromMission": "SX-0604",
+      "toMission": "SX-0626",
+      "from": "2026-01-12",
+      "to": "2026-03-02",
+      "days": 49
+    },
+    {
+      "serial": "B1080",
+      "fromMission": "SX-0607",
+      "toMission": "SX-0627",
+      "from": "2026-01-18",
+      "to": "2026-03-04",
+      "days": 45
+    },
+    {
+      "serial": "B1097",
+      "fromMission": "SX-0609",
+      "toMission": "SX-0628",
+      "from": "2026-01-25",
+      "to": "2026-03-08",
+      "days": 42
+    },
+    {
+      "serial": "B1085",
+      "fromMission": "SX-0605",
+      "toMission": "SX-0629",
+      "from": "2026-01-14",
+      "to": "2026-03-10",
+      "days": 55
+    },
+    {
+      "serial": "B1071",
+      "fromMission": "SX-0613",
+      "toMission": "SX-0630",
+      "from": "2026-02-02",
+      "to": "2026-03-13",
+      "days": 39
+    },
+    {
+      "serial": "B1095",
+      "fromMission": "SX-0612",
+      "toMission": "SX-0631",
+      "from": "2026-01-30",
+      "to": "2026-03-14",
+      "days": 43
+    },
+    {
+      "serial": "B1088",
+      "fromMission": "SX-0614",
+      "toMission": "SX-0632",
+      "from": "2026-02-07",
+      "to": "2026-03-17",
+      "days": 38
+    },
+    {
+      "serial": "B1090",
+      "fromMission": "SX-0618",
+      "toMission": "SX-0633",
+      "from": "2026-02-16",
+      "to": "2026-03-17",
+      "days": 29
+    },
+    {
+      "serial": "B1077",
+      "fromMission": "SX-0619",
+      "toMission": "SX-0634",
+      "from": "2026-02-20",
+      "to": "2026-03-19",
+      "days": 27
+    },
+    {
+      "serial": "B1100",
+      "fromMission": "SX-0615",
+      "toMission": "SX-0635",
+      "from": "2026-02-11",
+      "to": "2026-03-20",
+      "days": 37
+    },
+    {
+      "serial": "B1078",
+      "fromMission": "SX-0626",
+      "toMission": "SX-0636",
+      "from": "2026-03-02",
+      "to": "2026-03-22",
+      "days": 20
+    },
+    {
+      "serial": "B1081",
+      "fromMission": "SX-0617",
+      "toMission": "SX-0637",
+      "from": "2026-02-15",
+      "to": "2026-03-26",
+      "days": 39
+    },
+    {
+      "serial": "B1093",
+      "fromMission": "SX-0623",
+      "toMission": "SX-0638",
+      "from": "2026-02-25",
+      "to": "2026-03-30",
+      "days": 33
+    },
+    {
+      "serial": "B1067",
+      "fromMission": "SX-0621",
+      "toMission": "SX-0639",
+      "from": "2026-02-22",
+      "to": "2026-03-30",
+      "days": 36
+    },
+    {
+      "serial": "B1085",
+      "fromMission": "SX-0629",
+      "toMission": "SX-0640",
+      "from": "2026-03-10",
+      "to": "2026-04-02",
+      "days": 23
+    },
+    {
+      "serial": "B1063",
+      "fromMission": "SX-0620",
+      "toMission": "SX-0642",
+      "from": "2026-02-21",
+      "to": "2026-04-11",
+      "days": 49
+    },
+    {
+      "serial": "B1094",
+      "fromMission": "SX-0598",
+      "toMission": "SX-0643",
+      "from": "2025-12-17",
+      "to": "2026-04-11",
+      "days": 115
+    },
+    {
+      "serial": "B1080",
+      "fromMission": "SX-0627",
+      "toMission": "SX-0644",
+      "from": "2026-03-04",
+      "to": "2026-04-14",
+      "days": 41
+    },
+    {
+      "serial": "B1082",
+      "fromMission": "SX-0625",
+      "toMission": "SX-0645",
+      "from": "2026-03-01",
+      "to": "2026-04-15",
+      "days": 45
+    },
+    {
+      "serial": "B1097",
+      "fromMission": "SX-0628",
+      "toMission": "SX-0646",
+      "from": "2026-03-08",
+      "to": "2026-04-19",
+      "days": 42
+    },
+    {
+      "serial": "B1095",
+      "fromMission": "SX-0631",
+      "toMission": "SX-0647",
+      "from": "2026-03-14",
+      "to": "2026-04-21",
+      "days": 38
+    },
+    {
+      "serial": "B1100",
+      "fromMission": "SX-0635",
+      "toMission": "SX-0648",
+      "from": "2026-03-20",
+      "to": "2026-04-23",
+      "days": 34
+    },
+    {
+      "serial": "B1088",
+      "fromMission": "SX-0632",
+      "toMission": "SX-0649",
+      "from": "2026-03-17",
+      "to": "2026-04-26",
+      "days": 40
+    },
+    {
+      "serial": "B1072",
+      "fromMission": "SX-0365",
+      "toMission": "SX-0650",
+      "from": "2024-06-25",
+      "to": "2026-04-29",
+      "days": 673
+    },
+    {
+      "serial": "B1075",
+      "fromMission": "SX-0567",
+      "toMission": "SX-0650",
+      "from": "2025-10-22",
+      "to": "2026-04-29",
+      "days": 189
+    },
+    {
+      "serial": "B1093",
+      "fromMission": "SX-0638",
+      "toMission": "SX-0651",
+      "from": "2026-03-30",
+      "to": "2026-04-30",
+      "days": 31
+    },
+    {
+      "serial": "B1069",
+      "fromMission": "SX-0624",
+      "toMission": "SX-0652",
+      "from": "2026-02-27",
+      "to": "2026-05-01",
+      "days": 63
+    },
+    {
+      "serial": "B1071",
+      "fromMission": "SX-0630",
+      "toMission": "SX-0653",
+      "from": "2026-03-13",
+      "to": "2026-05-03",
+      "days": 51
+    },
+    {
+      "serial": "B1081",
+      "fromMission": "SX-0637",
+      "toMission": "SX-0654",
+      "from": "2026-03-26",
+      "to": "2026-05-06",
+      "days": 41
+    },
+    {
+      "serial": "B1097",
+      "fromMission": "SX-0646",
+      "toMission": "SX-0655",
+      "from": "2026-04-19",
+      "to": "2026-05-12",
+      "days": 23
+    },
+    {
+      "serial": "B1096",
+      "fromMission": "SX-0610",
+      "toMission": "SX-0656",
+      "from": "2026-01-28",
+      "to": "2026-05-15",
+      "days": 107
+    },
+    {
+      "serial": "B1103",
+      "fromMission": "SX-0641",
+      "toMission": "SX-0657",
+      "from": "2026-04-07",
+      "to": "2026-05-20",
+      "days": 43
+    },
+    {
+      "serial": "B1077",
+      "fromMission": "SX-0634",
+      "toMission": "SX-0658",
+      "from": "2026-03-19",
+      "to": "2026-05-21",
+      "days": 63
+    },
+    {
+      "serial": "B1078",
+      "fromMission": "SX-0636",
+      "toMission": "SX-0659",
+      "from": "2026-03-22",
+      "to": "2026-05-25",
+      "days": 64
+    },
+    {
+      "serial": "B1100",
+      "fromMission": "SX-0648",
+      "toMission": "SX-0660",
+      "from": "2026-04-23",
+      "to": "2026-05-26",
+      "days": 33
+    },
+    {
+      "serial": "B1085",
+      "fromMission": "SX-0640",
+      "toMission": "SX-0661",
+      "from": "2026-04-02",
+      "to": "2026-05-29",
+      "days": 57
+    },
+    {
+      "serial": "B1082",
+      "fromMission": "SX-0645",
+      "toMission": "SX-0662",
+      "from": "2026-04-15",
+      "to": "2026-05-30",
+      "days": 45
+    },
+    {
+      "serial": "B1088",
+      "fromMission": "SX-0649",
+      "toMission": "SX-0663",
+      "from": "2026-04-26",
+      "to": "2026-06-03",
+      "days": 38
+    },
+    {
+      "serial": "B1090",
+      "fromMission": "SX-0633",
+      "toMission": "SX-0664",
+      "from": "2026-03-17",
+      "to": "2026-06-04",
+      "days": 79
+    },
+    {
+      "serial": "B1097",
+      "fromMission": "SX-0655",
+      "toMission": "SX-0665",
+      "from": "2026-05-12",
+      "to": "2026-06-07",
+      "days": 26
+    },
+    {
+      "serial": "B1067",
+      "fromMission": "SX-0639",
+      "toMission": "SX-0666",
+      "from": "2026-03-30",
+      "to": "2026-06-08",
+      "days": 70
+    },
+    {
+      "serial": "B1071",
+      "fromMission": "SX-0653",
+      "toMission": "SX-0667",
+      "from": "2026-05-03",
+      "to": "2026-06-11",
+      "days": 39
+    },
+    {
+      "serial": "B1080",
+      "fromMission": "SX-0644",
+      "toMission": "SX-0668",
+      "from": "2026-04-14",
+      "to": "2026-06-12",
+      "days": 59
+    },
+    {
+      "serial": "B1093",
+      "fromMission": "SX-0651",
+      "toMission": "SX-0669",
+      "from": "2026-04-30",
+      "to": "2026-06-15",
+      "days": 46
+    },
+    {
+      "serial": "B1077",
+      "fromMission": "SX-0658",
+      "toMission": "SX-0670",
+      "from": "2026-05-21",
+      "to": "2026-06-17",
+      "days": 27
+    },
+    {
+      "serial": "B1103",
+      "fromMission": "SX-0657",
+      "toMission": "SX-0671",
+      "from": "2026-05-20",
+      "to": "2026-06-19",
+      "days": 30
+    },
+    {
+      "serial": "B1063",
+      "fromMission": "SX-0642",
+      "toMission": "SX-0672",
+      "from": "2026-04-11",
+      "to": "2026-06-21",
+      "days": 71
+    },
+    {
+      "serial": "B1078",
+      "fromMission": "SX-0659",
+      "toMission": "SX-0673",
+      "from": "2026-05-25",
+      "to": "2026-06-23",
+      "days": 29
+    },
+    {
+      "serial": "B1081",
+      "fromMission": "SX-0654",
+      "toMission": "SX-0674",
+      "from": "2026-05-06",
+      "to": "2026-06-25",
+      "days": 50
+    },
+    {
+      "serial": "B1088",
+      "fromMission": "SX-0663",
+      "toMission": "SX-0675",
+      "from": "2026-06-03",
+      "to": "2026-06-28",
+      "days": 25
+    },
+    {
+      "serial": "B1085",
+      "fromMission": "SX-0661",
+      "toMission": "SX-0676",
+      "from": "2026-05-29",
+      "to": "2026-06-29",
+      "days": 31
+    },
+    {
+      "serial": "B1100",
+      "fromMission": "SX-0660",
+      "toMission": "SX-0677",
+      "from": "2026-05-26",
+      "to": "2026-07-02",
+      "days": 37
+    },
+    {
+      "serial": "B1090",
+      "fromMission": "SX-0664",
+      "toMission": "SX-0678",
+      "from": "2026-06-04",
+      "to": "2026-07-05",
+      "days": 31
+    },
+    {
+      "serial": "B1097",
+      "fromMission": "SX-0665",
+      "toMission": "SX-0679",
+      "from": "2026-06-07",
+      "to": "2026-07-07",
+      "days": 30
+    },
+    {
+      "serial": "B1067",
+      "fromMission": "SX-0666",
+      "toMission": "SX-0680",
+      "from": "2026-06-08",
+      "to": "2026-07-09",
+      "days": 31
+    },
+    {
+      "serial": "B1071",
+      "fromMission": "SX-0667",
+      "toMission": "SX-0681",
+      "from": "2026-06-11",
+      "to": "2026-07-11",
+      "days": 30
+    },
+    {
+      "serial": "B1093",
+      "fromMission": "SX-0669",
+      "toMission": "SX-0682",
+      "from": "2026-06-15",
+      "to": "2026-07-14",
+      "days": 29
+    },
+    {
+      "serial": "B1080",
+      "fromMission": "SX-0668",
+      "toMission": "SX-0683",
+      "from": "2026-06-12",
+      "to": "2026-07-14",
+      "days": 32
+    },
+    {
+      "serial": "B1103",
+      "fromMission": "SX-0671",
+      "toMission": "SX-0684",
+      "from": "2026-06-19",
+      "to": "2026-07-16",
+      "days": 27
+    },
+    {
+      "serial": "B1082",
+      "fromMission": "SX-0662",
+      "toMission": "SX-0685",
+      "from": "2026-05-30",
+      "to": "2026-07-21",
+      "days": 52
+    },
+    {
+      "serial": "B1069",
+      "fromMission": "SX-0652",
+      "toMission": "SX-0686",
+      "from": "2026-05-01",
+      "to": "2026-07-21",
+      "days": 81
+    },
+    {
+      "serial": "B1100",
+      "fromMission": "SX-0677",
+      "toMission": "SX-0687",
+      "from": "2026-07-02",
+      "to": "2026-07-25",
+      "days": 23
+    },
+    {
+      "serial": "B1096",
+      "fromMission": "SX-0656",
+      "toMission": "SX-0688",
+      "from": "2026-05-15",
+      "to": "2026-07-30",
+      "days": 76
+    },
+    {
+      "serial": "B1081",
+      "fromMission": "SX-0674",
+      "toMission": "SX-0689",
+      "from": "2026-06-25",
+      "to": "2026-08-01",
+      "days": 37
+    },
+    {
+      "serial": "B1063",
+      "fromMission": "SX-0672",
+      "toMission": "SX-0690",
+      "from": "2026-06-21",
+      "to": "2026-08-04",
+      "days": 44
+    },
+    {
+      "serial": "B1077",
+      "fromMission": "SX-0670",
+      "toMission": "SX-0691",
+      "from": "2026-06-17",
+      "to": "2026-08-05",
+      "days": 49
+    },
+    {
+      "serial": "B1093",
+      "fromMission": "SX-0682",
+      "toMission": "SX-0692",
+      "from": "2026-07-14",
+      "to": "2026-08-08",
+      "days": 25
+    },
+    {
+      "serial": "B1085",
+      "fromMission": "SX-0676",
+      "toMission": "SX-0693",
+      "from": "2026-06-29",
+      "to": "2026-08-11",
+      "days": 43
+    },
+    {
+      "serial": "B1103",
+      "fromMission": "SX-0684",
+      "toMission": "SX-0694",
+      "from": "2026-07-16",
+      "to": "2026-08-12",
+      "days": 27
+    },
+    {
+      "serial": "B1090",
+      "fromMission": "SX-0678",
+      "toMission": "SX-0695",
+      "from": "2026-07-05",
+      "to": "2026-08-16",
+      "days": 42
+    },
+    {
+      "serial": "B1088",
+      "fromMission": "SX-0675",
+      "toMission": "SX-0696",
+      "from": "2026-06-28",
+      "to": "2026-08-16",
+      "days": 49
+    },
+    {
+      "serial": "B1097",
+      "fromMission": "SX-0679",
+      "toMission": "SX-0697",
+      "from": "2026-07-07",
+      "to": "2026-08-19",
+      "days": 43
+    },
+    {
+      "serial": "B1078",
+      "fromMission": "SX-0673",
+      "toMission": "SX-0698",
+      "from": "2026-06-23",
+      "to": "2026-08-21",
+      "days": 59
+    },
+    {
+      "serial": "B1100",
+      "fromMission": "SX-0687",
+      "toMission": "SX-0699",
+      "from": "2026-07-25",
+      "to": "2026-08-22",
+      "days": 28
+    },
+    {
+      "serial": "B1067",
+      "fromMission": "SX-0680",
+      "toMission": "SX-0700",
+      "from": "2026-07-09",
+      "to": "2026-08-25",
+      "days": 47
+    },
+    {
+      "serial": "B1082",
+      "fromMission": "SX-0685",
+      "toMission": "SX-0701",
+      "from": "2026-07-21",
+      "to": "2026-08-26",
+      "days": 36
+    },
+    {
+      "serial": "B1072",
+      "fromMission": "SX-0650",
+      "toMission": "SX-0702",
+      "from": "2026-04-29",
+      "to": "2026-08-30",
+      "days": 123
+    },
+    {
+      "serial": "B1063",
+      "fromMission": "SX-0690",
+      "toMission": "SX-0703",
+      "from": "2026-08-04",
+      "to": "2026-09-02",
+      "days": 29
+    },
+    {
+      "serial": "B1088",
+      "fromMission": "SX-0696",
+      "toMission": "SX-0704",
+      "from": "2026-08-16",
+      "to": "2026-09-06",
+      "days": 21
+    },
+    {
+      "serial": "B1081",
+      "fromMission": "SX-0689",
+      "toMission": "SX-0705",
+      "from": "2026-08-01",
+      "to": "2026-09-10",
+      "days": 40
+    },
+    {
+      "serial": "B1080",
+      "fromMission": "SX-0683",
+      "toMission": "SX-0706",
+      "from": "2026-07-14",
+      "to": "2026-09-13",
+      "days": 61
+    },
+    {
+      "serial": "B1097",
+      "fromMission": "SX-0697",
+      "toMission": "SX-0707",
+      "from": "2026-08-19",
+      "to": "2026-09-17",
+      "days": 29
+    },
+    {
+      "serial": "B1093",
+      "fromMission": "SX-0692",
+      "toMission": "SX-0708",
+      "from": "2026-08-08",
+      "to": "2026-09-20",
+      "days": 43
+    },
+    {
+      "serial": "B1100",
+      "fromMission": "SX-0699",
+      "toMission": "SX-0709",
+      "from": "2026-08-22",
+      "to": "2026-09-26",
+      "days": 35
+    },
+    {
+      "serial": "B1101",
+      "fromMission": "SX-0616",
+      "toMission": "SX-0711",
+      "from": "2026-02-13",
+      "to": "2026-10-01",
+      "days": 230
+    },
+    {
+      "serial": "B1082",
+      "fromMission": "SX-0701",
+      "toMission": "SX-0712",
+      "from": "2026-08-26",
+      "to": "2026-10-01",
+      "days": 36
+    },
+    {
+      "serial": "B1072",
+      "fromMission": "SX-0702",
+      "toMission": "SX-0713",
+      "from": "2026-08-30",
+      "to": "2026-10-02",
+      "days": 33
+    },
+    {
+      "serial": "B1104",
+      "fromMission": "SX-0702",
+      "toMission": "SX-0713",
+      "from": "2026-08-30",
+      "to": "2026-10-02",
+      "days": 33
+    },
+    {
+      "serial": "B1103",
+      "fromMission": "SX-0694",
+      "toMission": "SX-0714",
+      "from": "2026-08-12",
+      "to": "2026-10-10",
+      "days": 59
+    }
+  ],
+  "initialCost": {
+    "stage": 100,
+    "refurb": 5,
+    "other": 35,
+    "flights": 10,
+    "average": 49.5,
+    "disposable": 135,
+    "ratio": 0.36666666666666664
+  },
+  "costCurve": [
+    {
+      "stage": 100,
+      "refurb": 5,
+      "other": 35,
+      "flights": 1,
+      "average": 135,
+      "disposable": 135,
+      "ratio": 1
+    },
+    {
+      "stage": 100,
+      "refurb": 5,
+      "other": 35,
+      "flights": 2,
+      "average": 87.5,
+      "disposable": 135,
+      "ratio": 0.6481481481481481
+    },
+    {
+      "stage": 100,
+      "refurb": 5,
+      "other": 35,
+      "flights": 3,
+      "average": 71.66666666666667,
+      "disposable": 135,
+      "ratio": 0.5308641975308642
+    },
+    {
+      "stage": 100,
+      "refurb": 5,
+      "other": 35,
+      "flights": 4,
+      "average": 63.75,
+      "disposable": 135,
+      "ratio": 0.4722222222222222
+    },
+    {
+      "stage": 100,
+      "refurb": 5,
+      "other": 35,
+      "flights": 5,
+      "average": 59,
+      "disposable": 135,
+      "ratio": 0.43703703703703706
+    },
+    {
+      "stage": 100,
+      "refurb": 5,
+      "other": 35,
+      "flights": 6,
+      "average": 55.833333333333336,
+      "disposable": 135,
+      "ratio": 0.41358024691358025
+    },
+    {
+      "stage": 100,
+      "refurb": 5,
+      "other": 35,
+      "flights": 7,
+      "average": 53.57142857142857,
+      "disposable": 135,
+      "ratio": 0.3968253968253968
+    },
+    {
+      "stage": 100,
+      "refurb": 5,
+      "other": 35,
+      "flights": 8,
+      "average": 51.875,
+      "disposable": 135,
+      "ratio": 0.38425925925925924
+    },
+    {
+      "stage": 100,
+      "refurb": 5,
+      "other": 35,
+      "flights": 9,
+      "average": 50.55555555555556,
+      "disposable": 135,
+      "ratio": 0.37448559670781895
+    },
+    {
+      "stage": 100,
+      "refurb": 5,
+      "other": 35,
+      "flights": 10,
+      "average": 49.5,
+      "disposable": 135,
+      "ratio": 0.36666666666666664
+    },
+    {
+      "stage": 100,
+      "refurb": 5,
+      "other": 35,
+      "flights": 11,
+      "average": 48.63636363636364,
+      "disposable": 135,
+      "ratio": 0.3602693602693603
+    },
+    {
+      "stage": 100,
+      "refurb": 5,
+      "other": 35,
+      "flights": 12,
+      "average": 47.91666666666667,
+      "disposable": 135,
+      "ratio": 0.3549382716049383
+    },
+    {
+      "stage": 100,
+      "refurb": 5,
+      "other": 35,
+      "flights": 13,
+      "average": 47.30769230769231,
+      "disposable": 135,
+      "ratio": 0.3504273504273504
+    },
+    {
+      "stage": 100,
+      "refurb": 5,
+      "other": 35,
+      "flights": 14,
+      "average": 46.785714285714285,
+      "disposable": 135,
+      "ratio": 0.34656084656084657
+    },
+    {
+      "stage": 100,
+      "refurb": 5,
+      "other": 35,
+      "flights": 15,
+      "average": 46.333333333333336,
+      "disposable": 135,
+      "ratio": 0.3432098765432099
+    },
+    {
+      "stage": 100,
+      "refurb": 5,
+      "other": 35,
+      "flights": 16,
+      "average": 45.9375,
+      "disposable": 135,
+      "ratio": 0.3402777777777778
+    },
+    {
+      "stage": 100,
+      "refurb": 5,
+      "other": 35,
+      "flights": 17,
+      "average": 45.58823529411765,
+      "disposable": 135,
+      "ratio": 0.3376906318082789
+    },
+    {
+      "stage": 100,
+      "refurb": 5,
+      "other": 35,
+      "flights": 18,
+      "average": 45.27777777777778,
+      "disposable": 135,
+      "ratio": 0.33539094650205764
+    },
+    {
+      "stage": 100,
+      "refurb": 5,
+      "other": 35,
+      "flights": 19,
+      "average": 45,
+      "disposable": 135,
+      "ratio": 0.3333333333333333
+    },
+    {
+      "stage": 100,
+      "refurb": 5,
+      "other": 35,
+      "flights": 20,
+      "average": 44.75,
+      "disposable": 135,
+      "ratio": 0.3314814814814815
+    }
+  ],
+  "replacementScenarios": [
+    {
+      "satellites": 5000,
+      "lifetime": 5,
+      "perYear": 1000,
+      "perDay": 2.737850787132101
+    },
+    {
+      "satellites": 5000,
+      "lifetime": 10,
+      "perYear": 500,
+      "perDay": 1.3689253935660506
+    },
+    {
+      "satellites": 15000,
+      "lifetime": 5,
+      "perYear": 3000,
+      "perDay": 8.213552361396303
+    },
+    {
+      "satellites": 15000,
+      "lifetime": 10,
+      "perYear": 1500,
+      "perDay": 4.1067761806981515
+    }
+  ],
+  "availability2025": {
+    "missions": 165,
+    "launches": 165,
+    "launchDecided": 165,
+    "launchSuccess": 165,
+    "payloadDecided": 0,
+    "payloadSuccess": 0,
+    "boosterFlights": 165,
+    "knownBoosters": 25,
+    "missingSerial": 0,
+    "reflights": 157,
+    "ordinalUnknown": 0,
+    "recoveryAttempts": 163,
+    "recoveryDecided": 163,
+    "landingSuccess": 162,
+    "landingRateNumerator": 162,
+    "recoveryUnknown": 0,
+    "physicalRecoveries": 0,
+    "physicalKnown": 0,
+    "gaps": 165,
+    "consecutivePairs": 157,
+    "medianIntervalDays": 38
+  },
+  "formulas": {
+    "launches": "Numero di identificatori di lancio distinti; nessun evento pre-lancio o Starship.",
+    "reflights": "Voli di booster con progressivo > 1. Denominatore: tutti i voli dei booster; ignoti dichiarati.",
+    "starlink": "Missioni con class = Starlink; altre non significa automaticamente clienti esterni.",
+    "interval": "Giorni di calendario tra due voli della stessa matricola, con progressivi consecutivi; non tempo di officina.",
+    "cost": "C/n + R*(n-1)/n + A; unità convenzionali, non dati SpaceX.",
+    "replacement": "N/L; regime stazionario, stock costante e distribuzione delle età stabilizzata."
+  }
+}
