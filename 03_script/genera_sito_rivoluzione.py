@@ -157,6 +157,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-10-13",
+        "date_label": "13 ottobre 2026",
+        "tag": "SpaceX · Starship",
+        "title": "Ship 40 di nuovo in piedi: la prima Starship recuperata torna verticale nella Megabay 2",
+        "summary": "Il 12 ottobre SpaceX ha sollevato in verticale nella Megabay 2 di Starbase la Ship del Flight 13 recuperata dall'Oceano Indiano. Alle sue spalle c'è Ship 43, candidata al primo volo dalla Florida; Flight 15 punta a novembre e la torre del LC-39A riceve la copertura.",
+        "href": "../documenti%20per%20sito/spacex_ship40_verticale.html",
+        "image": "../documenti%20per%20sito/assets_ship40_verticale/s40v-megabay2-nsf.jpg",
+        "image_alt": "Ship 40 in posizione verticale nella Megabay 2 di Starbase, 12 ottobre 2026, foto Gage Telesz per NASASpaceflight",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-10-12",
         "date_label": "12 ottobre 2026",
         "tag": "SpaceX · Dragon CRS-35",
@@ -165,8 +178,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_crs35_irosa.html",
         "image": "../documenti%20per%20sito/assets_crs35/crs35-irosa-kennedy.jpg",
         "image_alt": "L'ultima coppia di pannelli solari iROSA per CRS-35 al Kennedy Space Center, 11 agosto 2026, foto NASA",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
