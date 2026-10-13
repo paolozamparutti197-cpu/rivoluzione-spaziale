@@ -128,6 +128,8 @@ PUBLISH_FILES = [
     "sezioni/localita-spacex.html",
     "03_script/genera_sito_rivoluzione.py",
     "03_script/aggiorna_lanci_spacex_sito.py",
+    "03_script/riepilogo_archivio_spacex.mjs",
+    "03_script/verifica_archivio_spacex.mjs",
 ]
 
 

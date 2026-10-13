@@ -1,6 +1,6 @@
 # Analisi originali SpaceX: quinto prompt per110
 
-Prima edizione e revisione editoriale: 12 ottobre 2026. Tre dossier, cinque SVG originali, due modelli didattici. Dati iniziali: archivio riconciliato del 10 ottobre 2026. Non è un aggiornamento dei voli al 12 ottobre.
+Prima edizione e revisione editoriale: 12 ottobre 2026. Tre dossier, cinque SVG originali, due modelli didattici. Dati iniziali: archivio riconciliato del 10 ottobre 2026. Dal 13 ottobre 2026 (decisione di Paolo) le analisi seguono l'archivio: a ogni ricostruzione dell'archivio serie e snapshot vengono ricalcolati sui dati correnti; la revisione editoriale del testo resta quella dichiarata.
 
 ## Sorgenti e risultati
 

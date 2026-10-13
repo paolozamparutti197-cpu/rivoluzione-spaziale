@@ -26,8 +26,8 @@ const sourceMain=snapshot.launches.filter(r=>r.tipo_record==='Lancio principale'
 assert.equal(sourceMain.length,data.coverage.principal);
 const review=read('correzioni-wikipedia.json');
 const originalSuccess=sourceMain.filter(r=>r.stato==='successo').length;
-assert.equal(aggregate(data.missions).launchSuccess,originalSuccess-1); // CRS-1 complessivamente parziale.
-assert.equal(data.missions.find(m=>m.id==='SX-0009').launch.outcome,'parziale');
+assert.equal(aggregate(data.missions).launchSuccess,originalSuccess); // CRS-1 successo: esito lancio fino alla separazione del carico.
+assert.equal(data.missions.find(m=>m.id==='SX-0009').launch.outcome,'successo');
 assert.equal(filterMissions(data.missions).length,data.coverage.principalLaunches);
 assert.ok(filterMissions(data.missions).every(m=>m.family!=='Starship'||m.originalPhase==='Operativo'));
 assert.equal(filterMissions(data.missions,{scope:'tests'}).length,data.coverage.starshipTests-data.coverage.starshipOverlap);
@@ -70,8 +70,9 @@ assert.ok(subset.every(m=>m.name.toLowerCase().includes('starlink')||m.notes.toL
 assert.ok(subset.every(m=>m.date>='2026-01-01'&&m.date<='2026-10-10'));
 assert.equal(annualSeries(subset).reduce((n,y)=>n+y.launches,0),aggregate(subset).launches);
 const [a,b]=compareYears(data.missions,2025,2026,true,data.coverageEnd);
-assert.ok(a.cutoff.endsWith('-10-10')&&b.cutoff.endsWith('-10-10'));
-assert.equal(a.launches,aggregate(data.missions.filter(m=>m.date>='2025-01-01'&&m.date<='2025-10-10')).launches);
+// Le analisi seguono l'archivio: il taglio del confronto annuale coincide con la data dell'archivio corrente.
+assert.equal(b.cutoff,data.coverageEnd);assert.ok(a.cutoff.endsWith(data.coverageEnd.slice(4)));
+assert.equal(a.launches,aggregate(data.missions.filter(m=>m.date>='2025-01-01'&&m.date<=a.cutoff)).launches);
 assert.equal(compareYears(data.missions,2025,2024,true,'2024-02-29')[0].cutoff,'2025-02-28');
 assert.equal(report.latestComparison.matches,true);
 const none=aggregate([]);assert.equal(none.launches,0);assert.equal(none.recoveryDecided,0);

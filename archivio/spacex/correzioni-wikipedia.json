@@ -11,8 +11,8 @@
     "excludedStarshipTests": 13,
     "unmatchedLocal": 0,
     "unmatchedWikipedia": 0,
-    "correctedMissions": 224,
-    "correctedFields": 523
+    "correctedMissions": 223,
+    "correctedFields": 522
   },
   "sources": [
     {
@@ -29028,18 +29028,6 @@
       "source": "https://en.wikipedia.org/wiki/Falcon_1"
     },
     {
-      "field": "launch.outcome",
-      "before": "successo",
-      "after": "parziale",
-      "missionId": "SX-0009",
-      "source": "https://en.wikipedia.org/wiki/List_of_Falcon_9_and_Falcon_Heavy_launches_(2010%E2%80%932019)",
-      "reason": "CRS-1: Dragon raggiunge la ISS; il carico secondario Orbcomm non raggiunge l’orbita richiesta. Esito complessivo parziale.",
-      "references": [
-        "https://oig.nasa.gov/docs/IG-13-016.pdf",
-        "https://www.nasa.gov/news-release/first-contracted-spacex-resupply-mission-launches-with-nasa-cargo-to-space-station/"
-      ]
-    },
-    {
       "field": "flights.0.recovery.mode",
       "before": "TAD",
       "after": "WL (fallito)",
@@ -32778,6 +32766,21 @@
       "reason": null,
       "missionId": "SX-0711",
       "source": "https://en.wikipedia.org/wiki/List_of_Falcon_9_and_Falcon_Heavy_launches"
+    }
+  ],
+  "notAppliedPatches": [
+    {
+      "field": "launch.outcome",
+      "before": "successo",
+      "after": "parziale",
+      "missionId": "SX-0009",
+      "source": "https://en.wikipedia.org/wiki/List_of_Falcon_9_and_Falcon_Heavy_launches_(2010%E2%80%932019)",
+      "reason": "CRS-1: Dragon raggiunge la ISS; il carico secondario Orbcomm non raggiunge l’orbita richiesta. Esito complessivo parziale.",
+      "references": [
+        "https://oig.nasa.gov/docs/IG-13-016.pdf",
+        "https://www.nasa.gov/news-release/first-contracted-spacex-resupply-mission-launches-with-nasa-cargo-to-space-station/"
+      ],
+      "decision": "Non applicata (decisione di Paolo, 13/10/2026): l'esito del lancio si valuta fino alla separazione del carico. Dragon si e separata correttamente: CRS-1 resta successo. Problemi di capsula o del carico secondario Orbcomm vanno nelle schede dedicate, non nelle statistiche dei lanci."
     }
   ]
 }

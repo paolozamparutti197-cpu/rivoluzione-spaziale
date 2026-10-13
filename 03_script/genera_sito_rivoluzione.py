@@ -574,6 +574,9 @@ def falcon_data():
             continue
         if not row.get('lanciatore'):
             continue
+        if row.get('id_lancio') == 'SX-0034':
+            # Amos-6: evento a terra prima del decollo, escluso dai lanci come nell'archivio.
+            continue
         launch_rows.append(row)
         if (
             row.get("data")

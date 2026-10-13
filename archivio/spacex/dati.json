@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "imported": "2026-10-10",
-  "coverageEnd": "2026-10-10",
+  "imported": "2026-10-13",
+  "coverageEnd": "2026-10-13",
   "wikipedia": {
     "date": "2026-10-10",
     "principalLaunches": 713,
@@ -13,13 +13,13 @@
     "excludedStarshipTests": 13,
     "unmatchedLocal": 0,
     "unmatchedWikipedia": 0,
-    "correctedMissions": 224,
-    "correctedFields": 523
+    "correctedMissions": 223,
+    "correctedFields": 522
   },
   "sources": [
     {
       "file": "01_workbook/lanci_spacex.xlsx",
-      "sha256": "7cc22ac92ce7fc9879a28c8c925c5ee1d74d962c296b4744d96f69b62e53de32"
+      "sha256": "d908fa7548b1120c6ac3f25b17c69c27f5e732f2c05cff8387f510872301dc50"
     },
     {
       "file": "01_workbook/sviluppo_starship.xlsx",
@@ -31,12 +31,12 @@
     },
     {
       "file": "sezioni/storico-lanci.html",
-      "sha256": "6190c594c93f728b7d411b8a808a24a542bb170f47de2f8fe625e816661ec7a6"
+      "sha256": "f64db81d57ac081d0cdfae3c9864d14da5b1cabdcf50b056f1648f4aa76be533"
     }
   ],
   "coverage": {
-    "principal": 714,
-    "principalLaunches": 713,
+    "principal": 716,
+    "principalLaunches": 715,
     "prelaunchEvents": 1,
     "starshipOverlap": 1,
     "additional": 28,
@@ -1344,9 +1344,7 @@
       "source": "lanci_spacex.xlsx · elenco · riga 10",
       "sourceRow": 10,
       "references": [
-        "https://en.wikipedia.org/wiki/List_of_Falcon_9_and_Falcon_Heavy_launches_(2010%E2%80%932019)",
-        "https://oig.nasa.gov/docs/IG-13-016.pdf",
-        "https://www.nasa.gov/news-release/first-contracted-spacex-resupply-mission-launches-with-nasa-cargo-to-space-station/"
+        "https://en.wikipedia.org/wiki/List_of_Falcon_9_and_Falcon_Heavy_launches_(2010%E2%80%932019)"
       ],
       "sourceNote": null,
       "video": "https://www.youtube.com/watch?v=-Vk3hiV_zXU",
@@ -1366,7 +1364,7 @@
         "id": "SX-0009:lancio",
         "missionId": "SX-0009",
         "attemptId": "SX-0009:decollo",
-        "outcome": "parziale",
+        "outcome": "successo",
         "timeUTC": null
       },
       "payload": {
@@ -69559,10 +69557,9 @@
       ],
       "sourceNote": "https://www.spacex.com/launches/sda-t1tl-a ; https://ll.thespacedevs.com/2.3.0/launches/da43dc2c-00af-4cc1-8ef1-90a60b2eb9e5/ ; conferma di Paolo 10/10/2026",
       "video": "https://www.spacex.com/launches/sda-t1tl-a",
-      "notes": "Missione Space Development Agency. Booster B1103 al 6° volo, atterrato a Landing Zone 4 (Vandenberg). Secondo stadio non mostrato per richiesta del cliente; registrato come successo su indicazione di Paolo (10/10/2026), in attesa di conferma ufficiale del rilascio dei satelliti.",
+      "notes": "Missione Space Development Agency. Booster B1103 al 6° volo, atterrato a Landing Zone 4 (Vandenberg). Secondo stadio non mostrato per richiesta del cliente; successo confermato da Launch Library 2 (Launch Successful).",
       "issues": [
-        "Esito del carico non documentato separatamente.",
-        "Successo generale registrato su indicazione dell’utente; conferma ufficiale del rilascio ancora pendente."
+        "Esito del carico non documentato separatamente."
       ],
       "programFlight": null,
       "attempt": {
@@ -69634,6 +69631,140 @@
         ],
         "checked": "2026-10-10"
       }
+    },
+    {
+      "id": "SX-0715",
+      "name": "Starlink Group 15-25",
+      "date": "2026-10-13",
+      "family": "Falcon 9",
+      "launcher": "Falcon 9 bl 5",
+      "scope": "falcon",
+      "originalPhase": "Storico",
+      "class": "Starlink",
+      "pad": "SLC-4E",
+      "padId": "PAD-SLC4E",
+      "orbit": "LEO",
+      "source": "lanci_spacex.xlsx · elenco · riga 744",
+      "sourceRow": 744,
+      "references": [
+        "https://www.spacex.com/launches/sl-15-25",
+        "https://ll.thespacedevs.com/2.3.0/launches/97c6f5e1-299e-4652-b72d-9618ac047076/"
+      ],
+      "sourceNote": "https://www.spacex.com/launches/sl-15-25 ; https://ll.thespacedevs.com/2.3.0/launches/97c6f5e1-299e-4652-b72d-9618ac047076/",
+      "video": "https://www.spacex.com/launches/sl-15-25",
+      "notes": "27 satelliti Starlink. Booster B1088 al 20° volo, atterrato su OCISLY. Successo confermato da Launch Library 2 (Launch Successful).",
+      "issues": [
+        "Esito del carico non documentato separatamente."
+      ],
+      "programFlight": null,
+      "attempt": {
+        "id": "SX-0715:decollo",
+        "missionId": "SX-0715",
+        "status": "decollato",
+        "ordinal": null,
+        "cancelledAttempts": null
+      },
+      "launch": {
+        "id": "SX-0715:lancio",
+        "missionId": "SX-0715",
+        "attemptId": "SX-0715:decollo",
+        "outcome": "successo",
+        "timeUTC": "00:28:11"
+      },
+      "payload": {
+        "outcome": null,
+        "count": null,
+        "description": "Starlink Group 15-25",
+        "source": "lanci_spacex.xlsx · elenco · riga 744"
+      },
+      "flights": [
+        {
+          "id": "SX-0715:booster",
+          "launchId": "SX-0715:lancio",
+          "role": "booster",
+          "serial": "B1088",
+          "serialOriginal": "B1088",
+          "ordinal": 20,
+          "ordinalOriginal": 20,
+          "source": "lanci_spacex.xlsx · elenco · riga 744",
+          "sourceRow": 744,
+          "recovery": {
+            "id": "SX-0715:booster:recupero",
+            "attempt": 1,
+            "landed": 1,
+            "physical": null,
+            "mode": "OCISLY",
+            "notes": "Flag di atterraggio del registro. Recupero fisico e sopravvivenza durante il trasporto non documentati separatamente."
+          }
+        }
+      ]
+    },
+    {
+      "id": "SX-0716",
+      "name": "CRS SpX-35",
+      "date": "2026-10-13",
+      "family": "Falcon 9",
+      "launcher": "Falcon 9 bl 5",
+      "scope": "falcon",
+      "originalPhase": "Storico",
+      "class": "Cargo",
+      "pad": "SLC-40",
+      "padId": "PAD-SLC40",
+      "orbit": "LEO",
+      "source": "lanci_spacex.xlsx · elenco · riga 745",
+      "sourceRow": 745,
+      "references": [
+        "https://www.spacex.com/launches/crs35",
+        "https://ll.thespacedevs.com/2.3.0/launches/bf2c3027-a314-403e-a416-2bfd5d165ad1/"
+      ],
+      "sourceNote": "https://www.spacex.com/launches/crs35 ; https://ll.thespacedevs.com/2.3.0/launches/bf2c3027-a314-403e-a416-2bfd5d165ad1/ ; conferma di Paolo 13/10/2026",
+      "video": "https://www.spacex.com/launches/crs35",
+      "notes": "Dragon cargo CRS-35 per la ISS (NASA). Booster B1096 all'8° volo, atterrato a LZ-40 (Cape Canaveral). Successo su conferma di Paolo (13/10/2026) dopo la separazione della capsula Dragon.",
+      "issues": [
+        "Esito del carico non documentato separatamente."
+      ],
+      "programFlight": null,
+      "attempt": {
+        "id": "SX-0716:decollo",
+        "missionId": "SX-0716",
+        "status": "decollato",
+        "ordinal": null,
+        "cancelledAttempts": null
+      },
+      "launch": {
+        "id": "SX-0716:lancio",
+        "missionId": "SX-0716",
+        "attemptId": "SX-0716:decollo",
+        "outcome": "successo",
+        "timeUTC": "10:33:44"
+      },
+      "payload": {
+        "outcome": null,
+        "count": null,
+        "description": "CRS SpX-35",
+        "source": "lanci_spacex.xlsx · elenco · riga 745"
+      },
+      "flights": [
+        {
+          "id": "SX-0716:booster",
+          "launchId": "SX-0716:lancio",
+          "role": "booster",
+          "serial": "B1096",
+          "serialOriginal": "B1096",
+          "ordinal": 8,
+          "ordinalOriginal": 8,
+          "source": "lanci_spacex.xlsx · elenco · riga 745",
+          "sourceRow": 745,
+          "recovery": {
+            "id": "SX-0716:booster:recupero",
+            "attempt": 1,
+            "landed": 1,
+            "physical": null,
+            "mode": "RTLS",
+            "notes": "Flag di atterraggio del registro. Recupero fisico e sopravvivenza durante il trasporto non documentati separatamente."
+          }
+        }
+      ]
     }
   ]
 }
