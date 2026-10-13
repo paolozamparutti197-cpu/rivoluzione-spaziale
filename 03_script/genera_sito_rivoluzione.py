@@ -2621,7 +2621,6 @@ def render_spacex(data):
         else '<div class="panel"><p class="muted">Nessun T-0 puntuale disponibile al momento.</p></div>'
     )
     starship_stato = f"{data['starship']['metrics']['voli']} voli integrati nel dossier di sviluppo"
-    flight14_done = any(item.get('volo_programma') == 14 for item in data['starshipOperational'])
     kpi_metrics = "".join(
         [
             metric(f"{f['lanci']:,}".replace(",", "."), "lanci SpaceX principali"),
@@ -2640,16 +2639,9 @@ def render_spacex(data):
             ) if flight15_pending(data) else "",
             metric(
                 starship_stato,
-                "stato Starship · dossier di sviluppo" if flight14_done else "stato Starship · scheda Flight 13",
-                href="starship.html#flight-14" if flight14_done else "lancio13.html",
-                title="Apri il dossier Sviluppo Starship" if flight14_done else "Apri la scheda illustrativa Flight 13",
-            ),
-            metric(
-                "Flight 14 (28 settembre): successo, 26 Starlink V3 in orbita" if flight14_done else "Flight 14: NET 28 settembre; prima orbita e 26 Starlink V3 previsti",
-                "Starship · volo orbitale" if flight14_done else "prossimo Starship · piano di volo",
-                href="../documenti%20per%20sito/spacex_starship_flight14_resoconto.html" if flight14_done else "lancio14.html",
-                title="Leggi il resoconto del Flight 14" if flight14_done else "Apri il piano del Flight 14",
-                variant="f14",
+                "cronologia Starship · dossier di sviluppo",
+                href="starship.html#voli",
+                title="Consulta la cronologia dei voli integrati Starship",
             ),
         ]
     )

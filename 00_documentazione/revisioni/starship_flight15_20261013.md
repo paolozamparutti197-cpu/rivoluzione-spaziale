@@ -36,3 +36,9 @@ Per aggiornare le notizie cambiare il testo del dossier e le brevi anticipazioni
 - Script e schermate di QA in `99_temporanei/flight15`, esclusi da Git. Il controllo può essere eseguito online con `FLIGHT15_ONLINE=1`.
 
 La prosa segue lo stile Paolo: italiano analitico e naturale, senza enfasi artificiale; annunci, osservazioni e interpretazione restano distinti.
+
+## Seconda modifica richiesta: archiviare Flight 14
+
+Il 13 ottobre il proprietario ha chiesto di togliere la notizia Flight 14 dal cruscotto. Rimossa la relativa card anche dal generatore; il contatore dei voli rimanda ora alla cronologia completa (`starship.html#voli`), non al singolo Flight 14. Resta in evidenza Flight 15.
+
+Il resoconto Flight 14 era già presente in `SITE_NEWS` come `breaking=False`, badge `Dossier archiviato`, e collegato dal dossier storico Starship. Conservato quindi nello stesso URL, senza spostare o cancellare file e senza rompere i collegamenti. Aggiunte l’etichetta di archivio e una nota con rimandi a Notizie, cronologia e Flight 15. Nessun risultato o dato storico modificato.
