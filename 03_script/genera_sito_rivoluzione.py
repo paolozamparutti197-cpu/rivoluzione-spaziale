@@ -17,6 +17,7 @@ CSS_DIR = ROOT / "css"
 
 HERO_IMAGE = "https://upload.wikimedia.org/wikipedia/commons/5/5d/Falcon_1_Flight_4_launch.jpg"
 CSS_VERSION = "20260830-f13-f14"
+FLIGHT15_DOSSIER = "../documenti%20per%20sito/spacex_starship_flight15_preparazione.html"
 ROME_TZ = ZoneInfo("Europe/Rome")
 MONTHS_IT = {
     1: "gennaio",
@@ -1191,6 +1192,31 @@ def metric(value, label, href=None, title=None, variant=None):
             f"<b>{escape(str(value))}</b><span>{escape(label)}</span></a>"
         )
     return f'<div class="metric"><b>{escape(str(value))}</b><span>{escape(label)}</span></div>'
+
+
+def flight15_pending(data):
+    # Una previsione editoriale non deve restare "prossimo volo" dopo il decollo.
+    try:
+        completed = int(data["starship"]["metrics"]["voli"])
+        latest_operational = max(
+            (int(item.get("volo_programma") or 0)
+             for item in data["starshipOperational"]), default=0
+        )
+    except (TypeError, ValueError):
+        # Con dati non interpretabili non dichiarare un volo ancora futuro.
+        return False
+    return completed < 15 and latest_operational < 15
+
+
+def flight15_preview(data):
+    if not flight15_pending(data):
+        return ""
+    return f'''<section id="flight-15"><div class="inner">
+    <div class="section-head"><h2>Verso Flight 15</h2><p>Aggiornamento editoriale del 13 ottobre 2026, distinto dal registro dei voli completati.</p></div>
+    <article class="panel"><h3>Obiettivo: catturare anche la Ship</h3>
+    <p>Musk indica quattro-sei settimane dal 10 ottobre, quindi circa il 7-21 novembre, per un tentativo di recuperare booster e Ship. È una stima, non una data confermata. Ship 42 e Booster 22 sono i veicoli associati al volo dagli osservatori; orario, carico e profilo definitivo restano da annunciare.</p>
+    <div class="actions"><a class="button" href="{FLIGHT15_DOSSIER}">Flight 15: notizie, preparativi e punti ancora aperti</a></div></article>
+    </div></section>'''
 
 
 def percent(value):
@@ -2606,6 +2632,13 @@ def render_spacex(data):
     starship_status = "".join(
         [
             metric(
+                "Flight 15: obiettivo catch della Ship",
+                "Novembre secondo Musk · data da confermare · dossier al 13 ottobre",
+                href=FLIGHT15_DOSSIER,
+                title="Flight 15: leggi le notizie verificate e i preparativi",
+                variant="f15",
+            ) if flight15_pending(data) else "",
+            metric(
                 starship_stato,
                 "stato Starship · dossier di sviluppo" if flight14_done else "stato Starship · scheda Flight 13",
                 href="starship.html#flight-14" if flight14_done else "lancio13.html",
@@ -3275,6 +3308,7 @@ def render_starship_development_page(data):
         <h3>Indice del dossier</h3>
         <nav class="starship-index" aria-label="Indice Sviluppo Starship">
           <a href="#fasi">Le grandi fasi</a>
+          <a href="{FLIGHT15_DOSSIER}">Flight 15: verso il catch della Ship</a>
           <a href="#flight-14">Esito Flight 14</a>
           <a href="#flight-13">Esito Flight 13</a>
           <a href="lancio13.html">Scheda dedicata Flight 13</a>
@@ -3321,6 +3355,7 @@ def render_starship_development_page(data):
   </div>
 </section>
 
+{flight15_preview(data)}
 {flight14_section}
 <section id="flight-13">
   <div class="inner">
