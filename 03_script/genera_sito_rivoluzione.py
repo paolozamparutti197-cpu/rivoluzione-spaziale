@@ -158,6 +158,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-10-14",
+        "date_label": "14 ottobre 2026",
+        "tag": "SpaceX · Starship / FAA",
+        "title": "FAA: in revisione fino a 456 lanci Starship all'anno da Starbase",
+        "summary": "Il 13 ottobre la FAA deposita l'avviso di intent per una PEIS su Starbase: fino a 456 lanci e 912 atterraggi Starship-Super Heavy all'anno, in due fasi (100 poi 456). Non è un'autorizzazione. Commenti pubblici fino al 30 novembre 2026.",
+        "href": "../documenti%20per%20sito/spacex_faa_starbase_456.html",
+        "image": "../documenti%20per%20sito/assets_faa_starbase_456/faa-fullstack-starbase.jpg",
+        "image_alt": "Starship-Super Heavy a pieno stack sulla rampa di Boca Chica, Starbase, foto Jenny Hautmann",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-10-13",
         "date_label": "13 ottobre 2026",
         "tag": "SpaceX · Starship",
@@ -166,8 +179,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_ship40_verticale.html",
         "image": "../documenti%20per%20sito/assets_ship40_verticale/s40v-megabay2-nsf.jpg",
         "image_alt": "Ship 40 in posizione verticale nella Megabay 2 di Starbase, 12 ottobre 2026, foto Gage Telesz per NASASpaceflight",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
