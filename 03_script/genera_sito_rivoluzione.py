@@ -158,6 +158,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-10-15",
+        "date_label": "15 ottobre 2026",
+        "tag": "SpaceX · Starlink / Starshield",
+        "title": "Starshield in Ucraina: un tetto di velocità ferma i droni, Musk indica Washington",
+        "summary": "Dalla notte del 13 ottobre i terminali Starshield usati da Kiev perdono il segnale sopra i 160 km/h, colpendo droni d'attacco e intercettori. Musk risponde che su Starshield decidono le forze armate USA e il presidente. Il collegamento migliora, ma il limite resta e nessuno ha detto chi l'ha ordinato.",
+        "href": "../documenti%20per%20sito/spacex_starshield_ucraina.html",
+        "image": "../documenti%20per%20sito/assets_starshield_ucraina/ssu-terminale-starlink-ucraina.jpg",
+        "image_alt": "Soldato delle Forze di supporto ucraine installa un terminale Starlink, foto Support Forces of Ukraine Command",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-10-14",
         "date_label": "14 ottobre 2026",
         "tag": "SpaceX · Starship / FAA",
@@ -166,8 +179,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_faa_starbase_456.html",
         "image": "../documenti%20per%20sito/assets_faa_starbase_456/faa-fullstack-starbase.jpg",
         "image_alt": "Starship-Super Heavy a pieno stack sulla rampa di Boca Chica, Starbase, foto Jenny Hautmann",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
