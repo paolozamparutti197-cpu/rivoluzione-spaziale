@@ -1,9 +1,9 @@
 {
-  "date": "2026-10-13",
+  "date": "2026-10-16",
   "sources": [
     {
       "file": "01_workbook/lanci_spacex.xlsx",
-      "sha256": "d908fa7548b1120c6ac3f25b17c69c27f5e732f2c05cff8387f510872301dc50"
+      "sha256": "7ae9becc3535e7ef7303452580ccd6266488ca0910d1bc88db508036420ff3eb"
     },
     {
       "file": "01_workbook/sviluppo_starship.xlsx",
@@ -15,7 +15,7 @@
     },
     {
       "file": "sezioni/storico-lanci.html",
-      "sha256": "f64db81d57ac081d0cdfae3c9864d14da5b1cabdcf50b056f1648f4aa76be533"
+      "sha256": "724f7f0d8bd72e3f8bba800cef6d092ef7d2e4a2d4cf998acc0a350867b816b6"
     }
   ],
   "launches": [
@@ -31262,6 +31262,48 @@
       "voli_ship": null,
       "note_missione": "Dragon cargo CRS-35 per la ISS (NASA). Booster B1096 all'8° volo, atterrato a LZ-40 (Cape Canaveral). Successo su conferma di Paolo (13/10/2026) dopo la separazione della capsula Dragon.",
       "fonti_missione": "https://www.spacex.com/launches/crs35 ; https://ll.thespacedevs.com/2.3.0/launches/bf2c3027-a314-403e-a416-2bfd5d165ad1/ ; conferma di Paolo 13/10/2026",
+      "esito_definito_num": 1,
+      "esito_orbita": null,
+      "esito_payload": null,
+      "numero_payload": null
+    },
+    {
+      "source_row": 746,
+      "nr": 717,
+      "data": "2026-10-16",
+      "year": 2026,
+      "lanciatore": "Falcon 9 bl 5",
+      "cliente": "USSF-481",
+      "stato": "successo",
+      "video": "lancio",
+      "orbita": "PO",
+      "landing": "OCISLY",
+      "booster": "B1081",
+      "voli": 28,
+      "dove": "SLC-4E",
+      "s.bl 5": 2026,
+      "s.f.h.": null,
+      "tipo_record": "Lancio principale",
+      "data_evento": "2026-10-16",
+      "anno_mese": "2026-10-01",
+      "famiglia_lanciatore": "Falcon 9",
+      "classe_missione": "Commerciale/Istituzionale",
+      "esito_lancio_num": 1,
+      "tentativo_recupero": 1,
+      "recupero_riuscito": 1,
+      "booster_riutilizzato": 1,
+      "area_lancio": "Vandenberg",
+      "video_url": "https://www.spacex.com/launches/ussf481",
+      "id_lancio": "SX-0717",
+      "fase_programma": "Storico",
+      "volo_programma": null,
+      "versione_veicolo": null,
+      "pad_id": "PAD-SLC4E",
+      "ora_utc": "00:01:05",
+      "ship": null,
+      "voli_ship": null,
+      "note_missione": "Missione classificata della US Space Force (probabili satelliti Starshield in LEO polare). Booster B1081 al 28° volo, atterrato su OCISLY. Successo confermato da Launch Library 2 (Launch Successful).",
+      "fonti_missione": "https://www.spacex.com/launches/ussf481 ; https://ll.thespacedevs.com/2.3.0/launches/df88cfbf-f504-4e11-8370-e33dd6280b5b/",
       "esito_definito_num": 1,
       "esito_orbita": null,
       "esito_payload": null,
