@@ -30,3 +30,7 @@ L'impronta di `01_workbook/lanci_spacex.xlsx` attuale differisce da quella regis
 Verifiche locali: 188 collegamenti locali, 13 ancore; 12 combinazioni pagina/viewport (1440 e 390), tre dossier senza JavaScript, cinque SVG entro i limiti. Calcolatori provati con parametri iniziali, variazioni, zero denominatore e input non validi; ripristino, focus da tastiera, scorrimento interno e contrasto delle tabelle verificati. Ricerca con una domanda reale sul ricondizionamento. Nessuna modifica agli asset Raptor o Merlin.
 
 Comandi e limiti completi in `analisi/spacex/README.md` e nel metodo pubblico. Screenshot, rapporto browser e rapporto dei dati in `99_temporanei/analisi110/` e `99_temporanei/verifica_analisi_spacex.json`, esclusi dalla pubblicazione. Pubblicare con staging mirato e verificare Pages prima di dichiarare completato il rilascio.
+
+## Aggiornamento 13 ottobre 2026
+
+Decisione di Paolo: le analisi seguono l'archivio. Snapshot e calcoli vengono rigenerati con l'archivio corrente; `verifica_archivio_spacex.mjs` controlla che il taglio del confronto annuale coincida con la data dell'archivio, non piu con il 10 ottobre.

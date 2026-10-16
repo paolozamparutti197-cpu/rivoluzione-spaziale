@@ -8,13 +8,13 @@ Questa cartella e' organizzata per separare file operativi, backup, script, font
 File correnti
 -------------
 - 01_workbook\sviluppo_starship.xlsx: workbook corrente sullo sviluppo Starship.
-- 01_workbook\lanci_spacex_falcon.xlsx: workbook corrente dei lanci SpaceX/Falcon.
+- 01_workbook\lanci_spacex.xlsx: workbook corrente dei lanci SpaceX/Falcon.
 - pad_di_lancio\: cartella corrente delle infografiche pad di lancio SpaceX, aggiornata al 14/06/2026.
 - Nota git: i workbook, i backup, le fonti Office, i temporanei, le cache e gli output HTML intermedi sono locali e ignorati; i sorgenti Python, HTML pubblici, immagini pubblicate, fonti e guide vanno versionati.
 
 Nomi standard
 -------------
-- lanci_spacex_falcon.xlsx: workbook Falcon/SpaceX corrente, gia' spostato in 01_workbook.
+- lanci_spacex.xlsx: workbook Falcon/SpaceX corrente, gia' spostato in 01_workbook.
 - sviluppo_starship.xlsx: workbook Starship corretto; sostituisce il vecchio nome con refuso Sviluppp_starship.xlsx.
 - *_backup_YYYYMMDD_HHMMSS.xlsx: formato per i backup con timestamp.
 
@@ -58,5 +58,8 @@ Nota licenze: per le infografiche pad le immagini NASA/USSF/NOAA/U.S. Air Force 
 Nota sui file bloccati
 ----------------------
 Durante il riordino del 26/05/2026 il workbook Falcon e il relativo lock Excel sono risultati temporaneamente bloccati. Dopo un secondo controllo sono stati spostati correttamente:
-- 01_workbook\lanci_spacex_falcon.xlsx
+- 01_workbook\lanci_spacex.xlsx
 - 99_temporanei\lock_excel_spacex_20250521.tmp
+
+[13/10/2026] Criteri di conteggio (Amos-6 escluso, CRS-1 successo), analisi che seguono l'archivio e controlli
+obbligatori prima della pubblicazione: vedi procedure_aggiornamento.txt e storico_sessioni_lavoro.txt (sezione 13/10/2026).

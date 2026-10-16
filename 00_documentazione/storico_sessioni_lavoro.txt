@@ -467,3 +467,72 @@ Sessione 19/06/2026 - riordino generale directory e memoria operativa
 - lancio14.html: static fire S41 (deorbit burn + 60 s / 6 motori) e B21 (33-engine 28/08) chiusi; NET redazione 15/09; 28/08 non piu data centrale.
 - Cruscotto SpaceX: I5 workbook su S40 semi-sub; F14 hardcoded "static fire chiusi; NET community meta settembre".
 - starship.html rigenerato dal workbook (taglio 30/08). CSS v=20260830-f13-f14.
+
+17/09/2026 - Aggiornamento workbook lanci SpaceX/Falcon
+- Aggiunti cinque lanci principali, righe 730-734, numeri 703-707: Starlink Group 15-23 (02/09), Starlink Group 15-24 (06/09), USSF-153 (10/09), O3b mPower 11-13 (13/09), USSF-259 (17/09, data UTC).
+- Fonti: Launch Library 2 API 2.3.0, cinque record salvati in 99_temporanei/launches_20260917.json; webcast ufficiali SpaceX su X nella colonna Y.
+- USSF-259 registrato come successo su indicazione esplicita dell'utente, che segnala conferma SpaceX su X; al controllo LL2 riporta ancora Launch in Flight. Recupero B1097-13 su OCISLY confermato nel record LL2.
+- Scrittura Excel COM secondo procedura locale; confronto di tutte le celle/formule: variazioni limitate ai dati delle cinque righe. Salvataggio e riapertura read-only verificati; nessun errore formula. Dashboard 707 lanci, ultimo 17/09/2026.
+- Backup: 02_backup/lanci_spacex_falcon_backup_20260917_080834.xlsx.
+
+
+17/09/2026 - Aggiornamento workbook sviluppo Starship
+- Timeline: +15 eventi R124-R138, totale 134. Aggiornamenti dal 30/08 e integrazione retrospettiva cryo S43.1 del 28/08.
+- Flight 14: piano ufficiale SpaceX NET 22/09 subordinato ad approvazione, primo tentativo orbitale, sei orbite, 26 Starlink V3, splashdown Pacifico e nessun catch. Restano 13 voli integrati completati.
+- Aggiunti test cryo S42/B22, simulazioni chopsticks/SQD S42, modifiche B21 e TPS S41 con due piastrelle S40 previste, infrastrutture Florida, progetto heavy haul e quadro FAA. Trasporto S40 ancora in corso; ETA ottobre non equivale ad arrivo.
+- Fonti multiple: SpaceX, FAA, NASASpaceflight, Next Spaceflight, USACE; 17 riferimenti aggiunti. Indice USACE verificato, dettaglio completo non accessibile. Discrepanze su date cryo B22, analisi successiva B20, piano e autorizzazione F14 annotate.
+- Aggiornate tutte le sette schede; conteggi dashboard ricalcolati dalla timeline per correggere il precedente disallineamento di cinque eventi. Nessuna variazione alle celle estranee all’aggiornamento.
+- Authoring e controllo visivo Artifact Tool; persistenza con Excel COM per conservare i filtri nativi, estesi alle nuove righe. Verificati salvataggio e riapertura, 134 eventi, 13 voli, assenza di errori formula e conservazione delle caratteristiche native.
+- Backup: 02_backup/sviluppo_starship_backup_20260917_081642.xlsx.
+
+==========================================================================
+13/10/2026 - Aggiornamento lanci SX-0715/SX-0716, criteri di conteggio, pubblicazione c524d95
+==========================================================================
+Nuovi lanci: SX-0715 Starlink Group 15-25 e SX-0716 CRS SpX-35 (13/10/2026).
+Totali pubblicati: 715 lanci principali (decolli), 710 successi, 5 falliti, 0 parziali, 670 atterraggi booster.
+
+Criteri di conteggio decisi da Paolo (13/10/2026):
+- Amos-6 (SX-0034, 01/09/2016) e escluso dai lanci: evento a terra sul pad prima del decollo.
+  Il workbook resta invariato (716 righe "Lancio principale"); l'esclusione avviene nell'archivio
+  (costruisci_archivio_spacex.mjs) e ora anche in genera_sito_rivoluzione.py, falcon_data().
+- CRS-1 (SX-0009) e un successo pieno: l'esito del lancio si valuta fino alla separazione del carico.
+  Problemi di capsula o del carico secondario (Orbcomm) vanno nelle schede dedicate, non nelle statistiche.
+  La correzione Wikipedia "successo -> parziale" e stata spostata in correzioni-wikipedia.json, chiave
+  "notAppliedPatches" (testo conservato, campo "decision"); riepilogo correctedFields 523->522, correctedMissions 224->223.
+- Analisi SpaceX (analisi/spacex): seguono l'archivio (opzione b). A ogni ricostruzione dell'archivio
+  snapshot e calcoli vengono rigenerati sui dati correnti. verifica_archivio_spacex.mjs L73-75: il taglio del
+  confronto annuale deve coincidere con la data dell'archivio (data.coverageEnd), non piu con '-10-10'.
+
+File modificati:
+- 03_script/genera_sito_rivoluzione.py (esclusione SX-0034 in falcon_data)
+- 03_script/riepilogo_archivio_spacex.mjs (nota CRS-1 nello storico)
+- 03_script/verifica_archivio_spacex.mjs (L29-30 CRS-1 successo; L73-75 taglio = data archivio)
+- 03_script/aggiorna_lanci_spacex_sito.py (PUBLISH_FILES + riepilogo_archivio_spacex.mjs e verifica_archivio_spacex.mjs)
+- archivio/spacex/correzioni-wikipedia.json, archivio/spacex/metodo.html (testo CRS-1)
+- analisi/spacex/README.md, 00_documentazione/revisioni/analisi_originali_spacex_20261012.md (opzione b)
+Backup in 02_backup: *_20261013_1306.*, *_20261013_1320.py, *_20261013_1335.*, *_20261013_pre_merge.*,
+  e i backup di questi documenti con suffisso del momento della modifica.
+
+Sincronizzazione: GitHub aveva il commit f7545e1 (notizia Ship 40 verticale, CRS-35 archiviato).
+Modifiche locali messe in stash ("pre-merge f7545e1 13/10", conservato in git stash list), merge --ff-only,
+esclusione Amos-6 riapplicata sul file remoto, sezioni/spacex.html rigenerato. Nessun force push o reset.
+
+Controlli prima della pubblicazione (tutti exit 0): verifica_archivio_spacex.mjs, verifica_analisi_spacex.mjs
+--as-of 2026-10-12 --report, genera_analisi_spacex.mjs --snapshot ... --check, navigazione_spacex.py --check.
+Pubblicazione: commit c524d95 (760 file), push f7545e1..c524d95 su main e gh-pages.
+Verifica online (HTTP 200): storico-lanci.html (715 / 710, CRS SpX-35 ultimo), spacex.html (715, notizia Ship 40),
+archivio/spacex/missioni/SX-0715.html e SX-0716.html, spacex_ship40_verticale.html, starship.html.
+Lo script ha segnalato che Pages non ha confermato tutti i 760 file entro 10 minuti; le pagine chiave sono verificate.
+
+Punti aperti:
+- verifica_analisi segnala newDataNeedsReview: true: rileggere il testo dei dossier di analisi con i dati nuovi.
+- Dopo questa esecuzione la pubblicazione e di nuovo sospesa fino a un nuovo ok di Paolo.
+13/10/2026 14:28 - Stash "pre-merge f7545e1 13/10" verificato come integrato in c524d95 ed eliminato; adottate le regole di pubblicazione approvate da Paolo alle 14:18 (vedi procedure_aggiornamento.txt).
+
+16/10/2026 - Bot C: nuovo lancio SX-0717 USSF-481 (16/10, B1081-28)
+- Stash "pre-merge f7545e1 13/10": gia eliminato il 13/10 alle 14:28 (git stash list vuota); regole del 13/10 in procedure_aggiornamento.txt.
+- git fetch + fast-forward 70a4a9b... (3 commit remoti: FAA Starbase 456, Starshield Ucraina, Roadster), poi passi 1 e 2 exit 0.
+- Workbook 717 lanci / 711 successi -> sito 716 decolli (Amos-6 escluso) / 711 successi: controllo regola superato.
+- Controlli README tutti exit 0 (verifica_archivio: 730 schede, 729 decolli; verifica_analisi snapshotIdentical true, newDataNeedsReview true).
+- Pubblicazione: commit c19df69 (753 file) su main e gh-pages. Online 200: storico-lanci.html (716/711, USSF-481), spacex.html (716), archivio/spacex/missioni/SX-0717.html.
+- Aperto: rileggere il testo delle analisi (newDataNeedsReview).

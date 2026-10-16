@@ -35,7 +35,7 @@ Aggiornare il workbook lanci SpaceX/Falcon
 ------------------------------------------
 1. Verificare le fonti recenti, in particolare Wikipedia "List of Falcon 9 and Falcon Heavy launches" e fonti ufficiali quando disponibili.
 2. Chiudere Excel o verificare che il workbook non sia aperto da altri processi.
-3. Creare un backup in 02_backup con nome lanci_spacex_falcon_backup_YYYYMMDD_HHMMSS.xlsx.
+3. Creare un backup in 02_backup con nome lanci_spacex_backup_YYYYMMDD_HHMMSS.xlsx.
 4. Aprire il workbook con Excel COM.
 5. Aggiornare il foglio elenco mantenendo formule e stili esistenti.
 6. Salvare da Excel.
@@ -43,7 +43,7 @@ Aggiornare il workbook lanci SpaceX/Falcon
 8. Chiudere workbook e processi Excel creati dall'automazione.
 
 Nota percorso:
-- Percorso previsto: 01_workbook\lanci_spacex_falcon.xlsx.
+- Percorso previsto: 01_workbook\lanci_spacex.xlsx.
 - Vecchio nome storico: spacex.xlsx.
 
 Aggiornare il workbook Starship
@@ -93,3 +93,41 @@ Pulizia
 - I file di lock Excel possono essere rimossi solo se Excel e' chiuso e il workbook non e' aperto.
 - Non eliminare backup senza una richiesta esplicita.
 - .gitignore tiene fuori da git workbook locali, backup, sorgenti Office, cache, temporanei e output HTML intermedi. Se un file ignorato diventa parte pubblica del sito, spostarlo in una cartella pubblica appropriata o forzarne consapevolmente il tracking.
+
+--------------------------------------------------------------------------
+Aggiornamento 13/10/2026 - criteri e controlli prima di --publish
+--------------------------------------------------------------------------
+- Lanci = decolli: Amos-6 (SX-0034) escluso; CRS-1 successo (esito del lancio fino alla separazione del carico;
+  problemi di capsula/carico nelle schede dedicate).
+- Le analisi (analisi/spacex) seguono l'archivio e si rigenerano con esso.
+- Prima di --publish devono uscire con codice 0:
+    node 03_script/verifica_archivio_spacex.mjs
+    node 03_script/verifica_analisi_spacex.mjs --as-of 2026-10-12 --report
+    node 03_script/genera_analisi_spacex.mjs --snapshot analisi/spacex/dati/snapshot-archivio.json --check
+    python -X utf8 03_script/navigazione_spacex.py --check
+- Se --publish si ferma con "Il repository locale e indietro" e conflitti locali: copia di sicurezza in 02_backup,
+  git stash, git merge --ff-only origin/main, riapplicare le modifiche senza perdere quelle remote, rigenerare.
+  Mai force push o reset --hard.
+- Pubblicare solo con un ok esplicito di Paolo per quella esecuzione.
+
+--- 13/10/2026 14:26 - lanci_spaziali_html.py: modalita' senza finestra (--auto) ---
+Backup prima della modifica: E:\spacex\02_backup\lanci_spaziali_html_20261013_142210.py
+Uso in pipeline (passo B): C:\Python314\python.exe E:\spacex\03_script\lanci_spaziali_html.py --auto   (cwd E:\spacex\03_script)
+Opzioni: --auto non apre la GUI Tk; --provider facoltativo, default "SpaceX".
+Esito: scrive 03_script\lanci_spacex.html; exit 0 se ok, exit 1 in caso di errore (messaggio su stderr).
+Stampa l'ora della chiamata all'API The Space Devs (1 chiamata per esecuzione).
+Modifiche: nuova funzione resolve_provider() usata sia dal pulsante sia da --auto; GUI spostata in run_gui();
+nuove funzioni run_auto() e main() con argparse. Senza --auto la GUI e' identica.
+Prova: 13/10/2026 14:25:44, exit 0, HTML riscritto alle 14:26:03, 100 lanci.
+
+--------------------------------------------------------------------------
+Regole approvate da Paolo il 13/10/2026 alle 14:18
+--------------------------------------------------------------------------
+- Le istruzioni di Paolo a paolospacex valgono anche per il bot C (spacex-pubblica) quando paolospacex
+  le riporta citandole. Il publish e sempre autorizzato, salvo uno stop esplicito di Paolo ancora valido.
+- Prima del passo 1: git fetch e fast-forward su origin/main (con backup o stash se servono), poi lettura
+  delle revisioni piu recenti in 00_documentazione.
+- Controllo dei conteggi: lanci sul sito = lanci del workbook - 1 (Amos-6 escluso); successi uguali.
+  Ogni altra differenza e un errore: fermarsi.
+- Quota The Space Devs: se B ha appena interrogato l'API riusarne i dati quando possibile; se la quota
+  blocca, attendere e riprovare in autonomia.
