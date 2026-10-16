@@ -158,6 +158,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-10-16",
+        "date_label": "16 ottobre 2026",
+        "tag": "SpaceX · Tesla / McGregor",
+        "title": "Il Roadster che vola: Tesla e SpaceX presentano l'auto con i propulsori",
+        "summary": "Nel centro prove SpaceX di McGregor il nuovo Tesla Roadster sale su una rampa capovolta, si gira in aria e salta sopra la gamma Tesla grazie a ventole di risucchio e propulsori a gas freddo forniti da SpaceX. Dichiarati 0,81 secondi nello 0-60, produzione nel 2028, e intanto cresce l'attesa per un legame fra Tesla e SpaceX.",
+        "href": "../documenti%20per%20sito/spacex_roadster_propulsori.html",
+        "image": "../documenti%20per%20sito/assets_roadster_spacex/rds-roadster-mcgregor.jpg",
+        "image_alt": "Il nuovo Tesla Roadster bianco con le portiere ad ala aperte, foto Tesla",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-10-15",
         "date_label": "15 ottobre 2026",
         "tag": "SpaceX · Starlink / Starshield",
@@ -166,8 +179,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_starshield_ucraina.html",
         "image": "../documenti%20per%20sito/assets_starshield_ucraina/ssu-terminale-starlink-ucraina.jpg",
         "image_alt": "Soldato delle Forze di supporto ucraine installa un terminale Starlink, foto Support Forces of Ukraine Command",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
