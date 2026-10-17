@@ -158,6 +158,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-10-17",
+        "date_label": "17 ottobre 2026",
+        "tag": "SpaceX · Starlink / India",
+        "title": "Starlink in India: dopo lo scontro con Ambani, «pronti a collegare il Paese»",
+        "summary": "Dopo dieci giorni di attacchi di Musk a Mukesh Ambani, Reliance accoglie Starlink ma chiede regole uguali per tutti e ricorda che anche Jio aspetta i permessi. Starlink risponde di avere già costruito in India gateway e infrastrutture, Musk ringrazia. Restano da ottenere nulla osta di sicurezza e spettro.",
+        "href": "../documenti%20per%20sito/spacex_starlink_india.html",
+        "image": "../documenti%20per%20sito/assets_starlink_india/sli-modi-musk-blair-house.jpg",
+        "image_alt": "Elon Musk stringe la mano al primo ministro indiano Narendra Modi davanti alle bandiere di Stati Uniti e India, foto Prime Minister's Office",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-10-16",
         "date_label": "16 ottobre 2026",
         "tag": "SpaceX · Tesla / McGregor",
@@ -166,8 +179,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_roadster_propulsori.html",
         "image": "../documenti%20per%20sito/assets_roadster_spacex/rds-roadster-mcgregor.jpg",
         "image_alt": "Il nuovo Tesla Roadster bianco con le portiere ad ala aperte, foto Tesla",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
