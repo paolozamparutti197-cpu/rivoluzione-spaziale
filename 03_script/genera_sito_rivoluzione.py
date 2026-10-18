@@ -158,6 +158,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-10-18",
+        "date_label": "18 ottobre 2026",
+        "tag": "SpaceX · Starbase / Texas",
+        "title": "Boca Chica, il Texas valutava di vendere a SpaceX il parco attorno a Starbase",
+        "summary": "Una bozza di ordine del giorno metteva in calendario per il 5 novembre, a porte chiuse, la vendita di 1.300 acri nella contea di Cameron: per due fonti è il Boca Chica State Park e l'acquirente è SpaceX. L'agenzia dei parchi toglie il punto dalla riunione di novembre ma non dice che l'idea sia abbandonata. Intanto la FAA esamina la richiesta di 456 lanci l'anno.",
+        "href": "../documenti%20per%20sito/spacex_boca_chica_parco.html",
+        "image": "../documenti%20per%20sito/assets_boca_chica_parco/bcp-starbase-dalla-spiaggia.jpg",
+        "image_alt": "Le strutture di Starbase, con i serbatoi e la torre di lancio, viste da lontano oltre le piane di marea e la spiaggia di Boca Chica, foto Alexander Hatley",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-10-17",
         "date_label": "17 ottobre 2026",
         "tag": "SpaceX · Starlink / India",
@@ -166,8 +179,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_starlink_india.html",
         "image": "../documenti%20per%20sito/assets_starlink_india/sli-modi-musk-blair-house.jpg",
         "image_alt": "Elon Musk stringe la mano al primo ministro indiano Narendra Modi davanti alle bandiere di Stati Uniti e India, foto Prime Minister's Office",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
