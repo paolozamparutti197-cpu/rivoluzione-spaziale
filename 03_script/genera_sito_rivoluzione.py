@@ -158,6 +158,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-10-19",
+        "date_label": "19 ottobre 2026",
+        "tag": "SpaceX · Falcon 9 / Starfall",
+        "title": "Bandwagon-5: Starfall torna in orbita, SpaceX prova di nuovo la sua capsula di rientro",
+        "summary": "Il Falcon 9 della missione rideshare Bandwagon-5 è atteso il 19 ottobre da Cape Canaveral, finestra dalle 12:30 ora italiana, con 32 carichi. In cima c'è la seconda capsula Starfall, il disco con cui SpaceX vuole riportare a terra merci prodotte in orbita; a bordo anche la capsula W-7 di Varda. Meteo favorevole al 55%.",
+        "href": "../documenti%20per%20sito/spacex_bandwagon5_starfall.html",
+        "image": "../documenti%20per%20sito/assets_bandwagon5_starfall/bw5-payload-incapsulati.jpg",
+        "image_alt": "I carichi della missione Bandwagon-5 impilati fra le due metà dell'ogiva del Falcon 9, con le strutture di supporto blu, foto SpaceX",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-10-18",
         "date_label": "18 ottobre 2026",
         "tag": "SpaceX · Starbase / Texas",
@@ -166,8 +179,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_boca_chica_parco.html",
         "image": "../documenti%20per%20sito/assets_boca_chica_parco/bcp-starbase-dalla-spiaggia.jpg",
         "image_alt": "Le strutture di Starbase, con i serbatoi e la torre di lancio, viste da lontano oltre le piane di marea e la spiaggia di Boca Chica, foto Alexander Hatley",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
