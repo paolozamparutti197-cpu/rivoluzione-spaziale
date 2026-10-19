@@ -162,7 +162,7 @@ SITE_NEWS = [
         "date_label": "19 ottobre 2026",
         "tag": "SpaceX · Falcon 9 / Starfall",
         "title": "Bandwagon-5: Starfall torna in orbita, SpaceX prova di nuovo la sua capsula di rientro",
-        "summary": "Il Falcon 9 della missione rideshare Bandwagon-5 è atteso il 19 ottobre da Cape Canaveral, finestra dalle 12:30 ora italiana, con 32 carichi. In cima c'è la seconda capsula Starfall, il disco con cui SpaceX vuole riportare a terra merci prodotte in orbita; a bordo anche la capsula W-7 di Varda. Meteo favorevole al 55%.",
+        "summary": "Rinviato per maltempo nella zona di recupero del booster il lancio del 19 ottobre: il Falcon 9 della missione rideshare Bandwagon-5 ora punta a martedì 20 ottobre da Cape Canaveral, finestra dalle 12:30 ora italiana, con 32 carichi. In cima c'è la seconda capsula Starfall, il disco con cui SpaceX vuole riportare a terra merci prodotte in orbita; a bordo anche la capsula W-7 di Varda. Meteo favorevole al 90%.",
         "href": "../documenti%20per%20sito/spacex_bandwagon5_starfall.html",
         "image": "../documenti%20per%20sito/assets_bandwagon5_starfall/bw5-payload-incapsulati.jpg",
         "image_alt": "I carichi della missione Bandwagon-5 impilati fra le due metà dell'ogiva del Falcon 9, con le strutture di supporto blu, foto SpaceX",
