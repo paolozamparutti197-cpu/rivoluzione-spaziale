@@ -158,6 +158,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-10-20",
+        "date_label": "20 ottobre 2026",
+        "tag": "SpaceX · Azionisti / Trump Accounts",
+        "title": "Un’azione SpaceX a ogni bambino americano: la promessa di Musk e il nodo delle regole",
+        "summary": "Musk promette che nel 2027 regalerà una delle sue azioni SpaceX a ogni bambino degli Stati Uniti, «la prima di molte»: circa 72 milioni di titoli, oltre 10 miliardi di dollari ai prezzi di venerdì. Trump ringrazia e parla di Trump Accounts, ma regole del Tesoro, azioni vincolate e lock-up rendono il percorso ancora da costruire.",
+        "href": "../documenti%20per%20sito/spacex_musk_azioni_bambini.html",
+        "image": "../documenti%20per%20sito/assets_musk_azioni_bambini/trump-accounts-bambini.jpg",
+        "image_alt": "Bambini nello Studio Ovale con un cartello colorato con la scritta Thank you for Trump Accounts, foto Casa Bianca",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-10-19",
         "date_label": "19 ottobre 2026",
         "tag": "SpaceX · Falcon 9 / Starfall",
@@ -166,8 +179,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_bandwagon5_starfall.html",
         "image": "../documenti%20per%20sito/assets_bandwagon5_starfall/bw5-payload-incapsulati.jpg",
         "image_alt": "I carichi della missione Bandwagon-5 impilati fra le due metà dell'ogiva del Falcon 9, con le strutture di supporto blu, foto SpaceX",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
