@@ -158,6 +158,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-10-21",
+        "date_label": "21 ottobre 2026",
+        "tag": "SpaceX · Conti / Starship",
+        "title": "Conti record e doppio catch: il terzo trimestre che cambia SpaceX",
+        "summary": "Ricavi a 14,6 miliardi di dollari, più 161 per cento, e 4,4 miliardi di utile, trainati dall’intelligenza artificiale e da Starlink. Musk annuncia che il Flight 15, atteso a novembre, proverà a riportare alla torre sia il Super Heavy sia la Ship, e definisce «una buona idea» la fusione con Tesla, ancora tutta da negoziare.",
+        "href": "../documenti%20per%20sito/spacex_conti_q3_2026.html",
+        "image": "../documenti%20per%20sito/assets_conti_q3_2026/flight15-catch-animazione.jpg",
+        "image_alt": "La Ship di Starship trattenuta dai bracci della torre di lancio in un fotogramma dell’animazione SpaceX del Flight 15",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-10-20",
         "date_label": "20 ottobre 2026",
         "tag": "SpaceX · Azionisti / Trump Accounts",
@@ -166,8 +179,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_musk_azioni_bambini.html",
         "image": "../documenti%20per%20sito/assets_musk_azioni_bambini/trump-accounts-bambini.jpg",
         "image_alt": "Bambini nello Studio Ovale con un cartello colorato con la scritta Thank you for Trump Accounts, foto Casa Bianca",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
