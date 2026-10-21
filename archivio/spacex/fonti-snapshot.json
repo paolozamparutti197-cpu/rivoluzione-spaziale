@@ -1,9 +1,9 @@
 {
-  "date": "2026-10-16",
+  "date": "2026-10-21",
   "sources": [
     {
       "file": "01_workbook/lanci_spacex.xlsx",
-      "sha256": "7ae9becc3535e7ef7303452580ccd6266488ca0910d1bc88db508036420ff3eb"
+      "sha256": "31807e51f6be4187481e525f1c46955463a1d08d090a1616585c4ae1051f9d4c"
     },
     {
       "file": "01_workbook/sviluppo_starship.xlsx",
@@ -15,7 +15,7 @@
     },
     {
       "file": "sezioni/storico-lanci.html",
-      "sha256": "724f7f0d8bd72e3f8bba800cef6d092ef7d2e4a2d4cf998acc0a350867b816b6"
+      "sha256": "71b64f616320bc2e387c47e3ccc5224e327d6eb7ffcd72695f1f8a7bf423793d"
     }
   ],
   "launches": [
@@ -31304,6 +31304,48 @@
       "voli_ship": null,
       "note_missione": "Missione classificata della US Space Force (probabili satelliti Starshield in LEO polare). Booster B1081 al 28° volo, atterrato su OCISLY. Successo confermato da Launch Library 2 (Launch Successful).",
       "fonti_missione": "https://www.spacex.com/launches/ussf481 ; https://ll.thespacedevs.com/2.3.0/launches/df88cfbf-f504-4e11-8370-e33dd6280b5b/",
+      "esito_definito_num": 1,
+      "esito_orbita": null,
+      "esito_payload": null,
+      "numero_payload": null
+    },
+    {
+      "source_row": 747,
+      "nr": 718,
+      "data": "2026-10-20",
+      "year": 2026,
+      "lanciatore": "Falcon 9 bl 5",
+      "cliente": "Bandwagon-5",
+      "stato": "successo",
+      "video": "lancio",
+      "orbita": "LEO",
+      "landing": "ASOG",
+      "booster": "B1085",
+      "voli": 19,
+      "dove": "SLC-40",
+      "s.bl 5": 2026,
+      "s.f.h.": null,
+      "tipo_record": "Lancio principale",
+      "data_evento": "2026-10-20",
+      "anno_mese": "2026-10-01",
+      "famiglia_lanciatore": "Falcon 9",
+      "classe_missione": "Commerciale/Istituzionale",
+      "esito_lancio_num": 1,
+      "tentativo_recupero": 1,
+      "recupero_riuscito": 1,
+      "booster_riutilizzato": 1,
+      "area_lancio": "Cape Canaveral",
+      "video_url": "https://www.spacex.com/launches/bandwagon5",
+      "id_lancio": "SX-0718",
+      "fase_programma": "Storico",
+      "volo_programma": null,
+      "versione_veicolo": null,
+      "pad_id": "PAD-SLC40",
+      "ora_utc": "11:04:00",
+      "ship": null,
+      "voli_ship": null,
+      "note_missione": "Rideshare dedicato a inclinazione media con decine di micro e nanosatelliti. Booster B1085 al 19° volo, atterrato su ASOG. Successo confermato da Launch Library 2 (Launch Successful).",
+      "fonti_missione": "https://www.spacex.com/launches/bandwagon5 ; https://ll.thespacedevs.com/2.3.0/launches/3b430f81-0ff1-4d85-8a1a-cef0de326198/",
       "esito_definito_num": 1,
       "esito_orbita": null,
       "esito_payload": null,

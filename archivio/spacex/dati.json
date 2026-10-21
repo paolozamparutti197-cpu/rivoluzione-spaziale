@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "imported": "2026-10-16",
-  "coverageEnd": "2026-10-16",
+  "imported": "2026-10-21",
+  "coverageEnd": "2026-10-20",
   "wikipedia": {
     "date": "2026-10-10",
     "principalLaunches": 713,
@@ -19,7 +19,7 @@
   "sources": [
     {
       "file": "01_workbook/lanci_spacex.xlsx",
-      "sha256": "7ae9becc3535e7ef7303452580ccd6266488ca0910d1bc88db508036420ff3eb"
+      "sha256": "31807e51f6be4187481e525f1c46955463a1d08d090a1616585c4ae1051f9d4c"
     },
     {
       "file": "01_workbook/sviluppo_starship.xlsx",
@@ -31,12 +31,12 @@
     },
     {
       "file": "sezioni/storico-lanci.html",
-      "sha256": "724f7f0d8bd72e3f8bba800cef6d092ef7d2e4a2d4cf998acc0a350867b816b6"
+      "sha256": "71b64f616320bc2e387c47e3ccc5224e327d6eb7ffcd72695f1f8a7bf423793d"
     }
   ],
   "coverage": {
-    "principal": 717,
-    "principalLaunches": 716,
+    "principal": 718,
+    "principalLaunches": 717,
     "prelaunchEvents": 1,
     "starshipOverlap": 1,
     "additional": 28,
@@ -69828,6 +69828,73 @@
             "landed": 1,
             "physical": null,
             "mode": "OCISLY",
+            "notes": "Flag di atterraggio del registro. Recupero fisico e sopravvivenza durante il trasporto non documentati separatamente."
+          }
+        }
+      ]
+    },
+    {
+      "id": "SX-0718",
+      "name": "Bandwagon-5",
+      "date": "2026-10-20",
+      "family": "Falcon 9",
+      "launcher": "Falcon 9 bl 5",
+      "scope": "falcon",
+      "originalPhase": "Storico",
+      "class": "Commerciale/Istituzionale",
+      "pad": "SLC-40",
+      "padId": "PAD-SLC40",
+      "orbit": "LEO",
+      "source": "lanci_spacex.xlsx · elenco · riga 747",
+      "sourceRow": 747,
+      "references": [
+        "https://www.spacex.com/launches/bandwagon5",
+        "https://ll.thespacedevs.com/2.3.0/launches/3b430f81-0ff1-4d85-8a1a-cef0de326198/"
+      ],
+      "sourceNote": "https://www.spacex.com/launches/bandwagon5 ; https://ll.thespacedevs.com/2.3.0/launches/3b430f81-0ff1-4d85-8a1a-cef0de326198/",
+      "video": "https://www.spacex.com/launches/bandwagon5",
+      "notes": "Rideshare dedicato a inclinazione media con decine di micro e nanosatelliti. Booster B1085 al 19° volo, atterrato su ASOG. Successo confermato da Launch Library 2 (Launch Successful).",
+      "issues": [
+        "Esito del carico non documentato separatamente."
+      ],
+      "programFlight": null,
+      "attempt": {
+        "id": "SX-0718:decollo",
+        "missionId": "SX-0718",
+        "status": "decollato",
+        "ordinal": null,
+        "cancelledAttempts": null
+      },
+      "launch": {
+        "id": "SX-0718:lancio",
+        "missionId": "SX-0718",
+        "attemptId": "SX-0718:decollo",
+        "outcome": "successo",
+        "timeUTC": "11:04:00"
+      },
+      "payload": {
+        "outcome": null,
+        "count": null,
+        "description": "Bandwagon-5",
+        "source": "lanci_spacex.xlsx · elenco · riga 747"
+      },
+      "flights": [
+        {
+          "id": "SX-0718:booster",
+          "launchId": "SX-0718:lancio",
+          "role": "booster",
+          "serial": "B1085",
+          "serialOriginal": "B1085",
+          "ordinal": 19,
+          "ordinalOriginal": 19,
+          "source": "lanci_spacex.xlsx · elenco · riga 747",
+          "sourceRow": 747,
+          "recovery": {
+            "id": "SX-0718:booster:recupero",
+            "attempt": 1,
+            "landed": 1,
+            "physical": null,
+            "mode": "ASOG",
             "notes": "Flag di atterraggio del registro. Recupero fisico e sopravvivenza durante il trasporto non documentati separatamente."
           }
         }
