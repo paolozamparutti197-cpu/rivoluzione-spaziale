@@ -158,6 +158,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-10-22",
+        "date_label": "22 ottobre 2026",
+        "tag": "SpaceX · Starlink / Aviazione",
+        "title": "Starlink sugli aerei: United dice che i passeggeri cambiano compagnia per il Wi-Fi",
+        "summary": "United Airlines ha Starlink su oltre 640 aerei, circa metà dei suoi voli, e nella teleconferenza sui conti l’amministratore delegato Scott Kirby ha detto che clienti fedeli ad altre compagnie passano a United solo per il Wi-Fi satellitare di SpaceX. Musk commenta: «Starlink moves the needle». Flotta completa entro la fine del 2027.",
+        "href": "../documenti%20per%20sito/spacex_starlink_united.html",
+        "image": "../documenti%20per%20sito/assets_starlink_united/united-737max-boston.jpg",
+        "image_alt": "Un Boeing 737-9 MAX di United Airlines in decollo nel cielo azzurro sopra Boston",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-10-21",
         "date_label": "21 ottobre 2026",
         "tag": "SpaceX · Conti / Starship",
@@ -166,8 +179,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_conti_q3_2026.html",
         "image": "../documenti%20per%20sito/assets_conti_q3_2026/flight15-catch-animazione.jpg",
         "image_alt": "La Ship di Starship trattenuta dai bracci della torre di lancio in un fotogramma dell’animazione SpaceX del Flight 15",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
