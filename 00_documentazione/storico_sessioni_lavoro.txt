@@ -536,3 +536,22 @@ Punti aperti:
 - Controlli README tutti exit 0 (verifica_archivio: 730 schede, 729 decolli; verifica_analisi snapshotIdentical true, newDataNeedsReview true).
 - Pubblicazione: commit c19df69 (753 file) su main e gh-pages. Online 200: storico-lanci.html (716/711, USSF-481), spacex.html (716), archivio/spacex/missioni/SX-0717.html.
 - Aperto: rileggere il testo delle analisi (newDataNeedsReview).
+
+20/10/2026 - Giro non eseguito: PC offline dopo il controllo dei percorsi (nessun riferimento a G:\). Il fetch delle 10:49 e partito e si e interrotto.
+
+21/10/2026 - Bot C: SX-0718 Bandwagon-5 (20/10)
+- Riparazione repository dopo il fetch interrotto del 20/10: lock orfano refs/remotes/origin/main.lock rimosso, oggetto corrotto
+  093011cf... spostato, git fetch --refetch origin (fsck pulito). Backup in 02_backup\git_refs_remotes_origin_20261021_1235.
+- Fast-forward a 616ecba. Conflitto sul blocco di navigazione di "documenti per sito/spacex_roadster_propulsori.html": tenuta la
+  versione remota; locale in 02_backup\spacex_roadster_propulsori_20261021_pre_ff.html e nello stash "pre-ff 21/10 roadster"
+  (in attesa di decisione di Paolo, non eliminato).
+- Workbook 718/712 -> sito 717/712. Controlli README exit 0. Publish e48769b (754 file) su main e gh-pages, online verificato.
+- PC andato offline durante il publish: exit code non registrato; working tree combacia con e48769b. Voce scritta il 23/10.
+
+23/10/2026 - Bot C: solo prossimi lanci (Starlink 15-15 rinviata per meteo)
+- Fast-forward a 367c4c3. Backup di "documenti per sito/spacex_conti_q3_2026.html" (solo blocco di navigazione rigenerato) in
+  02_backup\spacex_conti_q3_2026_20261023_pre_ff.html, file riportato a HEAD per il fast-forward. Stash roadster non toccato.
+- Passi 1 e 2 exit 0 (717/712; agenda +0/-0/4 modificati). Controlli README exit 0.
+- Card T-0 (fonte: manifesto "spacex_lanci_fino_luglio_2026 (1).html", render in genera_sito_rivoluzione.py render_launch_cards):
+  Starlink 15-15 23/10 22:28 UTC (24/10 00:28 CEST), Starlink 15-16 27/10 04:45 UTC (05:45 CET).
+- Publish 6429b9c su main e gh-pages; online 200 e corretto su lanci-imminenti.html, spacex.html, storico-lanci.html (717/712), SX-0718.html.
