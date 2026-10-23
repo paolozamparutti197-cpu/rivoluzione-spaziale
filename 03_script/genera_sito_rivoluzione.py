@@ -158,6 +158,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-10-23",
+        "date_label": "23 ottobre 2026",
+        "tag": "SpaceX · Starship / Artemis",
+        "title": "Starship e la Luna: 22 lanci o 6-8? Il numero su cui NASA e Musk non sono d’accordo",
+        "summary": "Al pannello di sicurezza della NASA è stata citata una stima di circa 22 lanci di Starship per rifornire in orbita il lander di Artemis IV. Musk replica su X: «Troppo alto, saranno più come 6-8». Perché il numero conta per lo sbarco al Polo Sud previsto nel 2028.",
+        "href": "../documenti%20per%20sito/spacex_starship_rifornimenti_luna.html",
+        "image": "../documenti%20per%20sito/assets_starship_rifornimenti_luna/starship-hls-luna.jpg",
+        "image_alt": "Illustrazione NASA della Starship lunare di SpaceX sulla superficie della Luna",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-10-22",
         "date_label": "22 ottobre 2026",
         "tag": "SpaceX · Starlink / Aviazione",
@@ -166,8 +179,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_starlink_united.html",
         "image": "../documenti%20per%20sito/assets_starlink_united/united-737max-boston.jpg",
         "image_alt": "Un Boeing 737-9 MAX di United Airlines in decollo nel cielo azzurro sopra Boston",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
