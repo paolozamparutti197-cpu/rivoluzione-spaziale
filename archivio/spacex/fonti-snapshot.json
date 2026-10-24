@@ -1,9 +1,9 @@
 {
-  "date": "2026-10-23",
+  "date": "2026-10-24",
   "sources": [
     {
       "file": "01_workbook/lanci_spacex.xlsx",
-      "sha256": "31807e51f6be4187481e525f1c46955463a1d08d090a1616585c4ae1051f9d4c"
+      "sha256": "a99adc88560a3628ecbd4f142488ec3801a1d3030beaf4145d19eefd351f6d85"
     },
     {
       "file": "01_workbook/sviluppo_starship.xlsx",
@@ -15,7 +15,7 @@
     },
     {
       "file": "sezioni/storico-lanci.html",
-      "sha256": "075a11e73c0079b057a4cea2198826165a8806861a5ea74ee7c037de5f0442aa"
+      "sha256": "acd2e570c1eda08f5ab8be5071d9346ca8ff913ea4de6ed91d6963662dedd476"
     }
   ],
   "launches": [
@@ -31346,6 +31346,48 @@
       "voli_ship": null,
       "note_missione": "Rideshare dedicato a inclinazione media con decine di micro e nanosatelliti. Booster B1085 al 19° volo, atterrato su ASOG. Successo confermato da Launch Library 2 (Launch Successful).",
       "fonti_missione": "https://www.spacex.com/launches/bandwagon5 ; https://ll.thespacedevs.com/2.3.0/launches/3b430f81-0ff1-4d85-8a1a-cef0de326198/",
+      "esito_definito_num": 1,
+      "esito_orbita": null,
+      "esito_payload": null,
+      "numero_payload": null
+    },
+    {
+      "source_row": 748,
+      "nr": 719,
+      "data": "2026-10-23",
+      "year": 2026,
+      "lanciatore": "Falcon 9 bl 5",
+      "cliente": "Starlink Group 15-15",
+      "stato": "successo",
+      "video": "lancio",
+      "orbita": "LEO",
+      "landing": "OCISLY",
+      "booster": "B1063",
+      "voli": 36,
+      "dove": "SLC-4E",
+      "s.bl 5": 2026,
+      "s.f.h.": null,
+      "tipo_record": "Lancio principale",
+      "data_evento": "2026-10-23",
+      "anno_mese": "2026-10-01",
+      "famiglia_lanciatore": "Falcon 9",
+      "classe_missione": "Starlink",
+      "esito_lancio_num": 1,
+      "tentativo_recupero": 1,
+      "recupero_riuscito": 1,
+      "booster_riutilizzato": 1,
+      "area_lancio": "Vandenberg",
+      "video_url": "https://www.spacex.com/launches/sl-15-15",
+      "id_lancio": "SX-0719",
+      "fase_programma": "Storico",
+      "volo_programma": null,
+      "versione_veicolo": null,
+      "pad_id": "PAD-SLC4E",
+      "ora_utc": "22:48:44",
+      "ship": null,
+      "voli_ship": null,
+      "note_missione": "27 satelliti Starlink. Booster B1063 al 36° volo, atterrato su OCISLY. Successo confermato da Launch Library 2 (Launch Successful).",
+      "fonti_missione": "https://www.spacex.com/launches/sl-15-15 ; https://ll.thespacedevs.com/2.3.0/launches/f6af629d-39b5-4f86-bc0c-f8776444a858/",
       "esito_definito_num": 1,
       "esito_orbita": null,
       "esito_payload": null,
