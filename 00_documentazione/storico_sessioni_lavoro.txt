@@ -555,3 +555,12 @@ Punti aperti:
 - Card T-0 (fonte: manifesto "spacex_lanci_fino_luglio_2026 (1).html", render in genera_sito_rivoluzione.py render_launch_cards):
   Starlink 15-15 23/10 22:28 UTC (24/10 00:28 CEST), Starlink 15-16 27/10 04:45 UTC (05:45 CET).
 - Publish 6429b9c su main e gh-pages; online 200 e corretto su lanci-imminenti.html, spacex.html, storico-lanci.html (717/712), SX-0718.html.
+
+24/10/2026 - Bot C: SX-0719 Starlink Group 15-15 (23/10 22:48:44 UTC, B1063-36)
+- Stash list vuota (stash roadster eliminato su decisione di Paolo).
+- Fast-forward a e0a1126. Backup di "documenti per sito/spacex_starship_rifornimenti_luna.html" (solo blocco di navigazione)
+  in 02_backup\spacex_starship_rifornimenti_luna_20261024_pre_ff.html, file riportato a HEAD.
+- Workbook 719/713 -> sito 718/713. Passi 1 e 2 exit 0 (agenda +0/-1/0). Controlli README exit 0.
+- Starlink 15-15 non compare piu tra i prossimi lanci: build_manifest_launches (aggiorna_lanci_spacex_sito.py L572-574) scarta le
+  missioni con NET gia passato; non c'e un confronto con il workbook.
+- Publish eeb53d6 su main e gh-pages; online 200: SX-0719.html, storico-lanci.html (718/713, ultimo 15-15), spacex.html (718), lanci-imminenti.html (prima 15-16).
