@@ -158,6 +158,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-10-24",
+        "date_label": "24 ottobre 2026",
+        "tag": "SpaceX · Starship / Artemis",
+        "title": "Artemis, la NASA ridisegna il viaggio di Starship verso la Luna",
+        "summary": "Nella conferenza stampa del 23 ottobre la NASA ha spiegato come andranno Artemis III e IV, con Blue Moon e Starship. La Starship lunare si aggancerà a Orion vicino alla Terra e la spingerà fino all’orbita lunare; il primo travaso di propellente fra due Starship è previsto a inizio 2027.",
+        "href": "../documenti%20per%20sito/spacex_artemis_briefing_starship.html",
+        "image": "../documenti%20per%20sito/assets_artemis_briefing_starship/briefing-ksc.jpg",
+        "image_alt": "Jared Isaacman e i dirigenti NASA alla conferenza stampa Artemis Acceleration al Kennedy Space Center",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-10-23",
         "date_label": "23 ottobre 2026",
         "tag": "SpaceX · Starship / Artemis",
@@ -166,8 +179,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_starship_rifornimenti_luna.html",
         "image": "../documenti%20per%20sito/assets_starship_rifornimenti_luna/starship-hls-luna.jpg",
         "image_alt": "Illustrazione NASA della Starship lunare di SpaceX sulla superficie della Luna",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
