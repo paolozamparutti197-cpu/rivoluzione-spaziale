@@ -26,6 +26,17 @@ fs.mkdirSync(qa,{recursive:true});
    assert.ok(dimensions.scrollWidth<=dimensions.width+1,JSON.stringify(dimensions));
    assert.ok((await gallery.innerText()).includes('non fotografie'));
    assert.equal(await p.locator('#schema-animato').count(),1);
+   const chapters=p.locator('.merlin-chapters>section');
+   if(await chapters.count()){
+    assert.equal(await chapters.count(),13);
+    assert.equal(await p.locator('.merlin-contents li a').count(),13);
+    for(const a of await p.locator('.merlin-contents a, .source-ref').all()){
+     const href=await a.getAttribute('href');
+     assert.equal(await p.locator(href).count(),1,href);
+    }
+    const textWidth=await p.locator('.merlin-longform').evaluate(e=>e.getBoundingClientRect().width);
+    assert.ok(textWidth<=821,textWidth);
+   }
    for(const a of await gallery.locator('a').all()){
     const href=await a.getAttribute('href');
     if(href.startsWith('../../assets/'))assert.ok(fs.existsSync(path.resolve(root,'atlante/spacex',href)),href);
@@ -33,6 +44,11 @@ fs.mkdirSync(qa,{recursive:true});
    assert.deepEqual(errors,[]);assert.deepEqual(failed,[]);
    if(javaScriptEnabled){
     await gallery.screenshot({path:path.join(qa,`merlin-vedute-${width}.png`)});
+    if(await chapters.count()){
+     await p.locator('.merlin-contents').screenshot({path:path.join(qa,`merlin-indice-${width}.png`)});
+     await p.locator('#origini-merlin').screenshot({path:path.join(qa,`merlin-testo-${width}.png`)});
+     await p.locator('#ugello-merlin').screenshot({path:path.join(qa,`merlin-ugello-${width}.png`)});
+    }
    }
    checks.push({width,javaScriptEnabled,images:4,noOverflow:true,noErrors:true});
    console.log('OK',width,javaScriptEnabled?'JS':'senza JS');await ctx.close();

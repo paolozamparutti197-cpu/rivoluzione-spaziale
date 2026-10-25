@@ -13,6 +13,8 @@ Edizione iniziale: 10 ottobre 2026. Verifiche e inventario: `00_documentazione/r
 ## Vedute Merlin 1D
 
 La scheda Merlin comprende quattro rendering originali dal 25 ottobre 2026, con testi esplicativi e limiti della ricostruzione. I dati persistenti sono nel campo `renderGallery` della scheda in `schede.json`; il generatore li inserisce prima della tavola del ciclo. Immagini WebP e crediti in `assets/merlin-vedute/` dalla radice del sito, sorgenti Blender 2.93 in `prototipi/merlin-vedute/`. La lettura non richiede JavaScript.
+
+La monografia Merlin usa inoltre `merlin-articolo.json` per i tredici capitoli, richiamato dal campo `articleSource` della scheda. `article-text.mjs` genera indice, paragrafi e rimandi numerati alle fonti. Le altre schede conservano il formato precedente. Il conteggio ripetibile e la verifica delle aggiunte sono in `prototipi/merlin-vedute/verifica_editoriale.py`; l’inventario di confronto è in `00_documentazione/revisioni/merlin_incremento_informativo_20261025.json`.
 ## Tavola animata Raptor
 
 La scheda Raptor usa la tavola condivisa in `../../assets/raptor-full-flow/`, con versione GIF e poster SVG, arresto del movimento, ingrandimento e preferenza per il movimento ridotto. I percorsi sono registrati in `schede.json` → scheda `raptor` → `diagram.animation`; il generatore li mantiene anche nei rebuild. La tavola è mostrata a larghezza piena prima del testo tecnico, non nella stretta colonna delle altre figure. `schemi/raptor.svg` resta una copia statica per i vecchi collegamenti. I sorgenti grafici riproducibili sono in `../../prototipi/raptor-full-flow/`.

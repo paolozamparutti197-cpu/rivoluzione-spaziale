@@ -249,12 +249,62 @@
     "merlin": {
       "title": "NASA Marshall e SpaceX: prove dei motori per Crew-1",
       "url": "https://www.nasa.gov/missions/station/nasa-marshall-spacex-team-celebrates-engines-of-success/",
-      "note": "2020; ruolo di McGregor e revisione dei dati di prova Merlin. Non indica la cadenza produttiva del 2026."
+      "note": "NASA, 25 gennaio 2021: revisione delle prove per Crew-1, rotordinamica della turbopompa, contributi Fastrac e tradizione dell’iniettore a pintle."
     },
     "standard": {
       "title": "Starlink, specifiche del terminale Standard",
       "url": "https://www.starlink.com/public-files/specification_sheet_standard.pdf",
       "note": "Scheda pubblica del modello Standard; consumi e condizioni si riferiscono al modello, non a tutti i terminali."
+    },
+    "merlin:history": {
+      "title": "FAA, U.S. Commercial Space Transportation Developments and Concepts, 2009",
+      "url": "https://www.faa.gov/about/office_org/headquarters_offices/ast/media/Developments%20and%20Concepts%20January%202009.pdf",
+      "note": "Sezione Liquid Rocket Engines, pp. 53–54: passaggio dal Merlin 1A ablativo al Merlin 1C rigenerativo. Documento storico; prestazioni non trasferite al Merlin 1D."
+    },
+    "merlin:pintle": {
+      "title": "G. Dressler e J. Bauer, TRW Pintle Engine Heritage and Performance Characteristics",
+      "url": "https://rocket-propulsion.info/resources/articles/TRW_PINTLE_ENGINE.pdf",
+      "note": "AIAA 2000-3871, autori TRW. Geometria e caratteristiche della tecnologia a pintle; non disegno costruttivo Merlin."
+    },
+    "merlin:thermal": {
+      "title": "NASA NTRS, analisi strutturale delle camere raffreddate rigenerativamente",
+      "url": "https://ntrs.nasa.gov/citations/19740026129",
+      "note": "1974, introduzione: liner in lega di rame, passaggi fresati e sollecitazioni termiche cicliche. Principi generali, non qualificazione di una camera Merlin."
+    },
+    "merlin:nozzle": {
+      "title": "NASA Glenn, Nozzle Design: Converging/Diverging Nozzle",
+      "url": "https://www.grc.nasa.gov/www/k-12/airplane/nozzled.html",
+      "note": "Flusso sonico alla gola ed espansione supersonica nel divergente. Trattazione generale."
+    },
+    "merlin:separation": {
+      "title": "NASA, Flow Separation Side Loads Excitation of Rocket Nozzle FEM",
+      "url": "https://ntrs.nasa.gov/citations/20070031864",
+      "note": "2007: separazione del flusso in ugelli sovraespansi e carichi laterali. Non dati di carico specifici del Merlin."
+    },
+    "merlin:thrust": {
+      "title": "NASA Glenn, Rocket Thrust Equation",
+      "url": "https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/rocket-thrust-equation/",
+      "note": "Portata, velocità di uscita e contributo della differenza di pressione; funzionamento nel vuoto."
+    },
+    "merlin:isp": {
+      "title": "NASA Glenn, Specific Impulse",
+      "url": "https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/specific-impulse/",
+      "note": "Definizione di impulso specifico e relazione con spinta e consumo di propellente."
+    },
+    "merlin:anomaly": {
+      "title": "NASA, verifiche dei motori prima di Crew-1",
+      "url": "https://www.nasa.gov/blogs/commercialcrew/2020/10/30/nasa-spacex-work-toward-crew-1-mission-launch-targeted-for-nov-14/",
+      "note": "30 ottobre 2020: avviamento anticipato del generatore di gas, residuo di vernice nel passaggio verso una valvola di sfogo, prove a McGregor e sostituzioni per Crew-1."
+    },
+    "merlin:maintenance": {
+      "title": "NASA Marshall, revisione dei motori per Crew-4",
+      "url": "https://www.nasa.gov/centers-and-facilities/marshall/the-marshall-star-3/",
+      "note": "2022, servizio sulla certificazione: controllo di componenti, processi e modifiche; ciclo di revisione della manutenzione proprio di ogni motore."
+    },
+    "merlin:vehicle": {
+      "title": "SpaceX, Falcon 9: primo stadio, secondo stadio e motori",
+      "url": "https://www.spacex.com/vehicles/falcon-9/",
+      "note": "Pagina del costruttore. Architettura del lanciatore, propellenti, motori e impiego del Merlin Vacuum; consultazione 25 ottobre 2026."
     }
   },
   "photos": {
@@ -897,7 +947,7 @@
       "title": "Merlin",
       "family": "Motori",
       "status": "Operativo",
-      "summary": "La famiglia di motori a ossigeno liquido e kerosene dei Falcon. La versione atmosferica e quella per il vuoto condividono principi, ma hanno ugelli e impieghi differenti.",
+      "summary": "Il Merlin alimenta i primi stadi dei Falcon; la versione Vacuum spinge il secondo stadio. Questa monografia ne segue lo sviluppo e il funzionamento, dai propellenti alle prove al banco e al riuso.",
       "specs": [
         [
           "Famiglia attuale di riferimento",
@@ -938,11 +988,11 @@
           "Falcon Heavy al decollo nel 2018: tre gruppi di motori della famiglia Merlin."
         ]
       ],
-      "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026.  Il documento presenta totali di spinta non uniformi: qui è riportato il valore del singolo motore nel testo, senza ricostruire un totale.",
+      "specNote": "Il valore di 845 kN è riferito al singolo Merlin 1D al livello del mare, nel testo della guida Falcon 2025. Il totale di primo stadio non coincide fra testo e tabella: la discordanza è esaminata nel capitolo sulla spinta. Revisione del 25 ottobre 2026.",
       "renderGallery": {
         "title": "Quattro vedute per riconoscere il Merlin 1D",
-        "intro": "Il Merlin 1D del primo stadio riunisce la camera di combustione, l’ugello e il gruppo che alimenta il motore. Queste quattro ricostruzioni mostrano come leggere il loro insieme: dalla forma esterna della campana ai corpi della turbopompa. Le vedute frontale e laterale sono ortografiche, così il cambiamento di punto di vista rende più chiari gli ingombri senza introdurre la convergenza della prospettiva.",
-        "limits": "Le immagini rappresentano il Merlin 1D a livello del mare. Sono ricostruzioni visive originali, non fotografie o disegni esecutivi SpaceX. Il profilo, le dimensioni relative, la disposizione di raccordi, valvole, tiranti e tubazioni sono approssimati sulla base dei riferimenti pubblici. Le righe sull’ugello suggeriscono la lavorazione della camicia, ma non riproducono canali interni verificati. I colori dipendono dai materiali e dalle luci della scena; l’iniettore, le giranti e gli altri componenti interni non sono visibili. Il grande ugello del Merlin Vacuum non è rappresentato.",
+        "intro": "Tre vedute d’insieme e un dettaglio mostrano camera, ugello e gruppo di alimentazione del modello Merlin 1D. Le viste frontale e laterale sono ortografiche: gli ingombri si confrontano senza la convergenza della prospettiva. Le spiegazioni indicano le funzioni documentate e i particolari ricostruiti.",
+        "limits": "Le vedute rappresentano il Merlin 1D Sea Level. Sono ricostruzioni visive originali, non fotografie o disegni esecutivi SpaceX. Profilo, proporzioni e disposizione di raccordi, valvole, tiranti e tubazioni sono approssimati sui riferimenti pubblici. Le righe sull’ugello suggeriscono la lavorazione della camicia e non ricostruiscono i canali interni. Materiali e colori dipendono dalla scena; iniettore e giranti non sono esposti. Il Merlin Vacuum non è rappresentato.",
         "views": [
           {
             "id": "merlin-vista-insieme",
@@ -952,7 +1002,7 @@
             "width": 1280,
             "height": 1600,
             "alt": "Ricostruzione 3D del Merlin 1D a tre quarti: gruppo di alimentazione in alto, camera centrale, gola e campana in basso; sul fianco un condotto di scarico distinto.",
-            "explanation": "Il corpo centrale guida la lettura del motore: in alto si trova la camera, poi la sezione si restringe nella gola e si allarga nell’ugello. La campana permette ai gas della combustione principale di espandersi e accelerare. Nel Merlin 1D la camera e l’ugello sono raffreddati dal combustibile che scorre nella loro parete prima di raggiungere l’iniettore.",
+            "explanation": "Nella vista a tre quarti si riconoscono la camera, il restringimento della gola e la campana dell’ugello. Il gas della combustione principale accelera nel condotto. L’RP-1 percorre il circuito nelle pareti della camera e dell’ugello prima di arrivare all’iniettore, sottraendo calore al metallo.",
             "reading": "Segui dall’alto verso il basso la camera, il restringimento della gola e la campana. Il tubo scuro sul fianco rappresenta un percorso distinto dallo scarico principale."
           },
           {
@@ -963,8 +1013,8 @@
             "width": 1280,
             "height": 1600,
             "alt": "Vista frontale ortografica del modello Merlin 1D, con la gola stretta sopra l’ugello a campana e il gruppo turbopompa disposto lateralmente alla testa della camera.",
-            "explanation": "La vista frontale evidenzia il profilo della camera e dell’ugello. La quasi simmetria della campana contrasta con la disposizione asimmetrica degli organi esterni: pompe, condotti e attuatori occupano il volume intorno alla testa del motore. Non tutto ciò che appare davanti alla camera è parte del suo involucro; molte linee appartengono all’alimentazione o ai circuiti ausiliari.",
-            "reading": "Confronta il centro della campana con gli elementi spostati su un lato della testa. Questa vista aiuta a distinguere il corpo principale dagli impianti che lo circondano."
+            "explanation": "La camera e la campana seguono un asse centrale. I corpi delle pompe, i condotti e gli attuatori occupano invece posizioni asimmetriche intorno alla testa del motore. La vista frontale separa questi ingombri e permette di distinguere le linee esterne dall’involucro della camera.",
+            "reading": "Confronta l’asse della campana con il gruppo disposto su un lato della testa. Il disegno dei singoli raccordi resta approssimato."
           },
           {
             "id": "merlin-vista-laterale",
@@ -974,7 +1024,7 @@
             "width": 1280,
             "height": 1600,
             "alt": "Vista laterale ortografica del modello Merlin 1D: sporgenza del gruppo superiore, condotti lungo la camera e tubo dello scarico turbina esterno alla campana.",
-            "explanation": "Dal fianco diventano più leggibili la profondità del gruppo superiore e il condotto esterno che scende accanto all’ugello. Nel ciclo a generatore di gas, una parte dei propellenti produce il gas che aziona la turbina. Dopo aver ceduto energia, questo gas viene scaricato fuori dalla camera principale: il suo percorso va distinto da quello dei gas che attraversano la campana.",
+            "explanation": "La vista laterale mostra la profondità del gruppo superiore e lo scarico esterno accanto alla campana. Il gas prodotto nel generatore ha già azionato la turbina e viene scaricato fuori dalla camera principale. L’altro flusso, quello principale, attraversa la gola e l’ugello.",
             "reading": "Individua il tubo esterno che termina a fianco della campana. La posizione e le curve mostrate sono illustrative; è documentata la separazione funzionale dei due scarichi."
           },
           {
@@ -986,8 +1036,8 @@
             "height": 1200,
             "detail": true,
             "alt": "Dettaglio della ricostruzione del gruppo superiore: involucri della turbopompa, flange e grandi condotti accanto alla testa della camera; gli interni non sono sezionati.",
-            "explanation": "La guida SpaceX descrive una turbopompa con un unico albero che collega la pompa dell’ossigeno liquido, la pompa del combustibile e la turbina. Il dettaglio ne suggerisce l’ingombro attraverso gli involucri esterni e i raccordi. L’energia meccanica della turbina permette alle pompe di portare i propellenti alle pressioni necessarie per alimentare il motore.",
-            "reading": "Le forme circolari e le flange rappresentano involucri esterni. L’albero comune è una caratteristica documentata, ma in questa immagine non è esposto: per seguirne il funzionamento usa lo schema del ciclo qui sotto."
+            "explanation": "Gli involucri esterni rappresentano il gruppo turbopompa e i suoi raccordi. La guida SpaceX descrive un albero comune alla pompa dell’ossigeno, a quella del combustibile e alla turbina. Nel rendering l’albero è coperto dagli involucri; la sua funzione è spiegata nello schema del ciclo e nel testo.",
+            "reading": "Osserva i corpi circolari, le flange e i grandi condotti. Non sono esposte le giranti e non è rappresentata una sezione interna verificata."
           }
         ]
       },
@@ -1005,39 +1055,35 @@
         },
         "reviewed": "2026-10-11"
       },
-      "sections": [
-        [
-          "Come funziona",
-          "Una piccola parte dei propellenti alimenta il generatore di gas. I gas prodotti azionano una turbina, collegata sullo stesso albero alla pompa dell’ossigeno e alla pompa del cherosene. Il ramo principale dell’RP-1 sottrae calore alle pareti della camera e dell’ugello prima di alimentare la combustione. Lo scarico della turbina non ritorna nella camera principale: è questa la differenza essenziale rispetto alla combustione stadiata. La tavola mostra il principio, non la disposizione interna del motore né la sequenza di avviamento."
-        ],
-        [
-          "Versioni ed evoluzione",
-          "Le prime versioni volarono su Falcon 1. Merlin 1D accompagnò l’aumento della scala produttiva e il riuso. Merlin Vacuum ha un ugello adatto alla bassa pressione esterna."
-        ],
-        [
-          "Limiti e condizioni d’impiego",
-          "La spinta dipende dalla pressione ambiente e dal regime del motore. La durata utile non si ricava dal numero di voli di un booster senza conoscere ispezioni e sostituzioni dei suoi componenti."
-        ]
-      ],
       "evidence": [
         [
-          "Dimostrato",
-          "Propulsione dei Falcon e molteplici cicli di volo dei primi stadi."
+          "Impiego",
+          "Merlin 1D sui primi stadi Falcon 9 e Falcon Heavy; Merlin Vacuum sul secondo stadio."
         ],
         [
-          "Dichiarato o previsto",
-          "Qualifica e accettazione dei motori secondo le procedure del programma."
+          "Prove",
+          "Accettazione prima del primo volo; analisi dei dati e revisione delle modifiche, documentate da SpaceX e NASA."
         ],
         [
-          "Da verificare",
-          "Vita residua e costo del singolo motore non sono ricostruibili dal solo registro lanci."
+          "Vita del motore",
+          "Le fonti pubbliche non consentono di ricostruire ore di funzionamento, interventi e vita residua di ogni esemplare."
         ]
       ],
       "sources": [
         "falcon",
         "merlin",
         "merlin:cycle",
-        "merlin:visual"
+        "merlin:visual",
+        "merlin:history",
+        "merlin:pintle",
+        "merlin:thermal",
+        "merlin:nozzle",
+        "merlin:separation",
+        "merlin:thrust",
+        "merlin:isp",
+        "merlin:anomaly",
+        "merlin:maintenance",
+        "merlin:vehicle"
       ],
       "readings": [
         [
@@ -1053,7 +1099,8 @@
         "kestrel",
         "raptor",
         "mcgregor"
-      ]
+      ],
+      "articleSource": "merlin-articolo.json"
     },
     {
       "id": "kestrel",
@@ -1954,13 +2001,13 @@
       "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026. ",
       "diagram": {
         "type": "engine",
-      "title": "Raptor: il principio del ciclo full-flow, in movimento",
-      "description": "Schema del ciclo Raptor: metano e ossigeno attraversano pompe distinte e prebruciatori con piccole alimentazioni incrociate. I gas ricchi di combustibile e di ossigeno muovono turbine con alberi indipendenti e raggiungono la camera principale. Sono mostrati ugello, legenda e dettaglio del raffreddamento rigenerativo.",
-      "note": "Tavola originale del principio FFSC LOX/metano, non della disposizione costruttiva di Raptor 1, 2 o 3. Geometria, frecce e velocità sono illustrative, non portate o regimi reali. Le due metà dell'iniettore sono simboliche. Il raffreddamento è separato solo nel disegno; sono omessi valvole, avviamento, pressurizzazione e circuiti ausiliari.",
-      "animation": {
-        "gif": "../../assets/raptor-full-flow/raptor-full-flow.gif",
-        "static": "../../assets/raptor-full-flow/raptor-full-flow.svg"
-      },
+        "title": "Raptor: il principio del ciclo full-flow, in movimento",
+        "description": "Schema del ciclo Raptor: metano e ossigeno attraversano pompe distinte e prebruciatori con piccole alimentazioni incrociate. I gas ricchi di combustibile e di ossigeno muovono turbine con alberi indipendenti e raggiungono la camera principale. Sono mostrati ugello, legenda e dettaglio del raffreddamento rigenerativo.",
+        "note": "Tavola originale del principio FFSC LOX/metano, non della disposizione costruttiva di Raptor 1, 2 o 3. Geometria, frecce e velocità sono illustrative, non portate o regimi reali. Le due metà dell'iniettore sono simboliche. Il raffreddamento è separato solo nel disegno; sono omessi valvole, avviamento, pressurizzazione e circuiti ausiliari.",
+        "animation": {
+          "gif": "../../assets/raptor-full-flow/raptor-full-flow.gif",
+          "static": "../../assets/raptor-full-flow/raptor-full-flow.svg"
+        },
         "reviewed": "2026-10-11"
       },
       "sections": [
@@ -1994,11 +2041,11 @@
       "sources": [
         "starship:propulsion",
         "starship:vehicle",
-      "raptor:ffsc",
-      "raptor:gasgas",
-      "raptor:methane",
-      "raptor:ipd",
-      "raptor:cooling"
+        "raptor:ffsc",
+        "raptor:gasgas",
+        "raptor:methane",
+        "raptor:ipd",
+        "raptor:cooling"
       ],
       "readings": [
         [

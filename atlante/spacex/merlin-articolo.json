@@ -1,0 +1,133 @@
+{
+  "edition": "2026-10-25",
+  "sections": [
+    {
+      "id": "origini-merlin",
+      "title": "Da Merlin 1A al Merlin 1D",
+      "sources": ["merlin:history", "merlin", "falcon", "merlin:visual"],
+      "paragraphs": [
+        "La storia del Merlin comincia con Falcon 1, quando SpaceX doveva ancora portare un proprio razzo in orbita. Il Merlin 1A dei primi voli aveva una camera raffreddata per ablazione: il materiale della parete assorbiva calore e si consumava durante il funzionamento. Il successivo Merlin 1C adottò il raffreddamento rigenerativo, facendo passare il cherosene attorno alla camera e all’ugello prima di bruciarlo. La FAA descrive questo passaggio nel rapporto sulle tecnologie commerciali pubblicato nel 2009. Cambiava il modo di proteggere il motore dal calore, con conseguenze sulla costruzione e sull’impiego ripetuto.",
+        "Lo sviluppo riprendeva anche esperienze maturate fuori dall’azienda. NASA ricorda che tecnologie e soluzioni del programma Fastrac, chiuso nel 2001, contribuirono al primo Merlin. L’iniettore a pintle apparteneva a una tradizione precedente: era stato impiegato nel motore di discesa del modulo lunare Apollo. Queste parentele riguardano principi e conoscenze trasferite fra programmi; non fanno del Merlin una copia di un motore lunare, che lavorava con altri propellenti e in condizioni molto diverse.",
+        "Con il Merlin 1D la famiglia entrò nella fase dei Falcon 9 v1.1, volati dal 2013. Seguirono l’aggiornamento Full Thrust e, nel 2018, Block 5. La guida SpaceX del 2025 collega Block 5 a interventi su prestazioni, protezione termica, durata e ricondizionamento del lanciatore. Perciò un valore di spinta tratto da un press kit del 2014 conserva interesse storico, ma non descrive automaticamente il motore di riferimento attuale. Anche una fotografia va datata: nel tempo cambiano schermature, impianti e dettagli esterni, pur restando riconoscibile la disposizione generale."
+      ]
+    },
+    {
+      "id": "propellenti-merlin",
+      "title": "Ossigeno liquido, RP-1 e pressione di alimentazione",
+      "sources": ["falcon", "merlin:cycle", "merlin:thrust"],
+      "paragraphs": [
+        "Merlin usa ossigeno liquido come ossidante e RP-1, un cherosene per propulsione, come combustibile. Entrambi viaggiano nei serbatoi del razzo. La combustione non dipende dall’ossigeno dell’atmosfera e può continuare quando il veicolo raggiunge il vuoto. La fiamma visibile sotto il Falcon deriva dalla reazione dei propellenti di bordo; l’aria circostante modifica il comportamento del getto, ma non fornisce l’ossidante necessario al motore.",
+        "Per entrare nella camera, i liquidi devono arrivare a una pressione superiore a quella che vi trovano. Occorre inoltre vincere le perdite nei condotti, nel circuito di raffreddamento e nell’iniettore. Una turbopompa produce questo aumento di pressione. La pressurizzazione dei serbatoi sostiene invece l’alimentazione all’ingresso delle pompe e mantiene le condizioni previste durante lo svuotamento. Nella guida Falcon è indicato elio riscaldato per la pressurizzazione. Serbatoio pressurizzato e alimentazione a turbopompa coesistono nello stesso sistema."
+      ]
+    },
+    {
+      "id": "generatore-gas-merlin",
+      "title": "Il generatore di gas e lo scarico della turbina",
+      "sources": ["merlin:cycle", "falcon"],
+      "paragraphs": [
+        "Una parte dei propellenti viene inviata a un piccolo combustore, il generatore di gas. Il gas prodotto attraversa una turbina e la mette in rotazione. La turbina trasmette potenza alle pompe, che alimentano sia il generatore sia il circuito principale. Si forma così il collegamento fra combustione e alimentazione: durante il funzionamento il motore ricava dai propri propellenti l’energia meccanica necessaria a pompare gli altri propellenti.",
+        "Dopo la turbina, il gas viene scaricato separatamente dalla camera principale. Per questo il ciclo è detto aperto. Il flusso destinato a produrre la maggior parte della spinta percorre invece camera, gola e ugello. Nella combustione stadiata il gas che ha azionato la turbina viene inviato alla camera principale; mantenere i due percorsi separati evita quel passaggio ad alta pressione, ma una parte dei propellenti non viene sfruttata nella stessa espansione del flusso principale.",
+        "Nelle vedute 3D il condotto scuro che scende accanto alla campana rappresenta lo scarico della turbina. Nella tavola del ciclo, invece, il colore del ramo permette di seguirlo dal generatore fino all’uscita. Le due figure mostrano rispettivamente un ingombro esterno e un percorso funzionale: vanno confrontate tenendo conto di questa differenza."
+      ]
+    },
+    {
+      "id": "turbopompa-merlin",
+      "title": "La turbopompa e il problema delle vibrazioni",
+      "sources": ["falcon", "merlin"],
+      "paragraphs": [
+        "La guida SpaceX descrive un albero comune alla turbina, alla pompa dell’ossigeno liquido e alla pompa del combustibile. Le due pompe restano circuiti distinti: condividono l’azionamento meccanico, non il liquido che trattano. Nelle immagini si vedono gli involucri e i raccordi; l’albero e le giranti sono all’interno. Una fila di corpi circolari nel rendering suggerisce l’ingombro del gruppo, senza mostrarne una sezione verificata.",
+        "NASA ha fornito un dato utile per capire le sollecitazioni della macchina. Nel resoconto dedicato al lavoro svolto per Crew-1, pubblicato nel gennaio 2021, un tecnico di Marshall indica circa 30.000 giri al minuto per l’albero della turbopompa Merlin. È un ordine di grandezza riferito in quel contesto, non una velocità unica da assegnare a ogni fase del volo. A regimi simili piccoli squilibri e vibrazioni possono avere conseguenze pesanti; fra le discipline seguite dal gruppo NASA figurano infatti rotordinamica, risonanze strutturali e vibrazioni indotte dai flussi.",
+        "Una prova al banco deve quindi registrare più della spinta raggiunta. L’andamento delle pressioni, i tempi dei transitori e le oscillazioni aiutano a riconoscere un comportamento anomalo prima che produca un guasto. Una modifica a un componente può cambiare la risposta del gruppo: NASA sottolinea che le revisioni devono considerare le conseguenze sul resto del motore."
+      ]
+    },
+    {
+      "id": "camera-raffreddamento-merlin",
+      "title": "Camera, iniettore e raffreddamento delle pareti",
+      "sources": ["falcon", "merlin:pintle", "merlin:thermal"],
+      "paragraphs": [
+        "Nella testa della camera l’iniettore distribuisce i propellenti e ne favorisce il mescolamento. Il tipo a pintle concentra l’iniezione attorno a un elemento centrale, con getti che si incontrano; differisce dalle teste formate da molti piccoli elementi distribuiti. Il lavoro di Dressler e Bauer sulla tecnologia TRW ne descrive geometria e comportamento. Quel documento riguarda la famiglia degli iniettori a pintle, mentre la guida SpaceX conferma l’impiego del principio nel Merlin e lo collega alla stabilità della combustione.",
+        "Il calore della combustione deve attraversare la parete e raggiungere il refrigerante abbastanza rapidamente da evitare il danneggiamento della camera. SpaceX indica un rivestimento interno in lega di rame con lavorazioni ottenute per fresatura. La buona conduzione termica del rame aiuta a trasferire calore verso il combustibile che percorre i canali. Gli studi NASA sulle camere rigenerative mostrano anche il problema strutturale: pressione, temperature differenti e cicli di accensione producono deformazioni e sollecitazioni che influenzano la durata.",
+        "Nel circuito Merlin l’RP-1 sottrae calore alle pareti prima di arrivare alla combustione. Il combustibile svolge così due compiti lungo lo stesso percorso. I dettagli dei canali sono determinanti per lo scambio termico, ma non possono essere dedotti dalle righe visibili sulla superficie del nostro modello. Quelle nervature sono una scelta grafica della ricostruzione. Non rappresentano una misura del numero dei passaggi interni, del loro spessore o della loro sezione."
+      ]
+    },
+    {
+      "id": "ugello-merlin",
+      "title": "Dalla gola all’uscita dell’ugello",
+      "sources": ["merlin:nozzle", "merlin:separation", "merlin:thrust"],
+      "paragraphs": [
+        "La sezione del condotto diminuisce dalla camera fino alla gola e poi aumenta nella campana. Nelle condizioni di funzionamento previste il gas raggiunge velocità sonica alla gola. Nel tratto divergente il flusso supersonico continua ad accelerare mentre pressione e temperatura statica diminuiscono. Il rapporto fra area di uscita e area della gola contribuisce a determinare quanto il gas può espandersi prima di lasciare il motore.",
+        "La pressione esterna cambia durante la salita, mentre l’ugello conserva la propria geometria. Una campana adatta al decollo deve tollerare l’atmosfera densa; un ugello pensato per il vuoto può consentire un’espansione maggiore. Se la pressione del gas scende troppo rispetto a quella ambiente, il flusso può separarsi dalla parete e generare carichi laterali. Gli studi NASA su questo fenomeno spiegano perché l’allargamento dell’ugello incontra vincoli meccanici oltre che di ingombro."
+      ]
+    },
+    {
+      "id": "spinta-consumo-merlin",
+      "title": "Spinta e impulso specifico",
+      "sources": ["merlin:thrust", "merlin:isp", "falcon"],
+      "paragraphs": [
+        "La spinta dipende dalla portata dei gas, dalla loro velocità di uscita e dalla differenza fra pressione all’uscita e pressione esterna. L’equazione per un motore a razzo comprende un termine di quantità di moto e un termine di pressione. A parità delle altre condizioni, diminuendo la pressione ambiente aumenta il contributo di quest’ultimo. Si spiega così perché occorra specificare se una prestazione è riferita al livello del mare o al vuoto.",
+        "L’impulso specifico mette in relazione la spinta con il consumo di propellente e con l’accelerazione di gravità convenzionale. Si esprime in secondi. Un motore con impulso specifico maggiore ottiene più impulso dalla stessa quantità di propellente nelle condizioni considerate. Questo dato descrive un aspetto diverso dalla spinta: un piccolo motore può usare bene il propellente pur sviluppando una forza insufficiente a sollevare un primo stadio.",
+        "Per il Merlin 1D la guida Falcon riporta nel testo 845 kN al livello del mare. Il totale indicato nello stesso passaggio è 7.605 kN per nove motori, mentre la tabella successiva stampa 7.686 kN. La discordanza resta nel documento e viene segnalata anche qui. Il valore del singolo motore è mantenuto con la sua condizione di riferimento. Per ricavare consumo o rendimento servirebbero altri dati coerenti di configurazione e regime; il solo valore di spinta non basta."
+      ]
+    },
+    {
+      "id": "accensione-regolazione-merlin",
+      "title": "Avviamento, regolazione e spegnimento",
+      "sources": ["falcon", "merlin:anomaly"],
+      "paragraphs": [
+        "L’avviamento porta il motore da liquidi fermi e organi non ancora a regime a un funzionamento stabile. Apertura delle linee, accensione e aumento delle pressioni devono avvenire nei tempi previsti. Un ingresso prematuro di propellente o un ritardo nella combustione può alterare il transitorio anche se i componenti, presi singolarmente, sono integri. La sequenza reale richiede controlli che lo schema del ciclo non rappresenta.",
+        "SpaceX dichiara la regolazione della spinta per entrambe le versioni attuali. Nella tabella del 2025, per il motore del primo stadio, l’intervallo va da 190.000 a 108.300 libbre-forza al livello del mare. Il limite inferiore corrisponde al 57% del valore superiore; è un semplice rapporto fra i numeri pubblicati. Ridurre la spinta richiede di mantenere alimentazione, combustione e raffreddamento entro il campo qualificato, quindi non equivale a regolare liberamente una valvola fra zero e piena apertura.",
+        "Dopo l’accensione a terra il lanciatore resta trattenuto finché le verifiche dei sistemi consentono il rilascio. La possibilità di fermare il conto alla rovescia evita di trasformare ogni anomalia iniziale in un problema durante la salita. Anche lo spegnimento è comandato e attraversa un transitorio: chiudere l’alimentazione modifica pressioni, portate e velocità degli organi. La riaccensione richiede poi di ristabilire le condizioni iniziali previste, con i propellenti ancora disponibili e il motore nelle condizioni termiche ammesse."
+      ]
+    },
+    {
+      "id": "merlin-vacuum",
+      "title": "Il Merlin Vacuum del secondo stadio",
+      "sources": ["falcon", "merlin:visual", "merlin:nozzle"],
+      "paragraphs": [
+        "Il secondo stadio del Falcon 9 impiega un solo Merlin Vacuum, indicato anche come MVac. La guida SpaceX del 2025 assegna al suo ugello un rapporto di espansione di 165:1. Il numero confronta l’area di uscita con quella della gola: non è un rapporto fra i diametri. L’espansione maggiore è adatta alla bassa pressione esterna incontrata dal secondo stadio, che entra in funzione dopo la separazione.",
+        "La spinta riportata per MVac è 981 kN nel vuoto. Confrontarla direttamente con gli 845 kN atmosferici del Merlin 1D mescolerebbe condizioni diverse. I due dati identificano impieghi e riferimenti di prova distinti; non misurano da soli l’incremento di rendimento ottenuto passando da un motore all’altro. Anche l’ingombro della campana influisce sulla struttura e sull’integrazione dello stadio, perciò il motore da vuoto non si ottiene semplicemente ingrandendo il nostro modello esterno.",
+        "Per aumentare l’affidabilità delle riaccensioni, la guida descrive un’accensione piroforica TEA-TEB con doppia ridondanza. La sigla indica trietilalluminio e trietilborano. Il controllo dell’assetto durante le fasi senza spinta utilizza azoto gassoso freddo; durante la fase propulsiva interviene anche l’orientamento del motore. Questi compiti acquistano peso nelle missioni con più accensioni e periodi di attesa fra un’accensione e l’altra."
+      ]
+    },
+    {
+      "id": "gruppo-motori-merlin",
+      "title": "Nove motori sul Falcon 9, ventisette sul Falcon Heavy",
+      "sources": ["falcon", "merlin:vehicle"],
+      "paragraphs": [
+        "Nel primo stadio del Falcon 9 otto Merlin circondano un motore centrale. Il Falcon Heavy impiega tre gruppi da nove, uno per ciascun booster laterale e uno per il core centrale. I ventisette motori appartengono dunque al primo stadio complessivo; quello del secondo stadio si conta a parte. La disposizione circolare rende possibile distribuire la spinta intorno all’asse del veicolo, ma impone anche di integrare linee, struttura e protezioni in uno spazio ristretto.",
+        "Il sistema di controllo può orientare i motori per modificare la direzione della spinta. La tabella della guida Falcon attribuisce ai motori orientabili il controllo di beccheggio, imbardata e rollio del primo stadio durante la salita. Nelle fasi di ritorno senza propulsione sono previsti anche sistemi ad azoto. Il controllo del volo dipende quindi dalla fase: non tutti gli attuatori lavorano sempre e le alette a griglia non svolgono il compito dei motori quando manca pressione aerodinamica sufficiente.",
+        "La presenza di più motori offre margini in caso di perdita di spinta. La guida descrive il monitoraggio individuale e la possibilità di comandare lo spegnimento di un motore fuori condizioni quando quelli rimanenti permettono ancora di rispettare i criteri minimi della missione. L’esito dipende dal momento del guasto, dalla traiettoria e dalle riserve. Il fatto che il sistema tolleri determinate anomalie non assegna un numero fisso di motori perdibili a qualsiasi lancio."
+      ]
+    },
+    {
+      "id": "prove-merlin",
+      "title": "Dalla fabbrica alle prove di McGregor",
+      "sources": ["falcon", "merlin", "merlin:maintenance"],
+      "paragraphs": [
+        "Hawthorne, in California, ospita attività di progettazione e produzione dei Merlin; McGregor, in Texas, svolge le prove di propulsione. La guida Falcon dichiara che ogni Merlin e ogni primo e secondo stadio Falcon 9 e Falcon Heavy passa prove di accettazione prima del primo volo. A McGregor si effettuano anche attività di ricondizionamento. Sono passaggi distinti: costruire il motore, verificarne il funzionamento e integrarlo nel lanciatore richiedono controlli differenti.",
+        "La qualifica verifica che una configurazione possa sopportare gli ambienti e i carichi previsti con i margini stabiliti. L’accettazione riguarda l’esemplare che deve volare e cerca anche difetti di fabbricazione o montaggio. Nel lavoro per il programma Commercial Crew, NASA ha seguito componenti, processi e modifiche, affiancando SpaceX nella revisione dei dati. Una prova riuscita è parte di questa documentazione, insieme alle condizioni in cui si è svolta e alla storia dell’hardware.",
+        "Il controllo continua quando cambia il progetto o il processo produttivo. Un raccordo, una lavorazione o un trattamento superficiale possono influire su un componente che sembrava già consolidato. Per questo la verifica dei motori non si esaurisce con lo sviluppo iniziale della famiglia. Il caso del 2020, descritto qui sotto, mostra quanto possa essere utile riprodurre al banco un’anomalia osservata nelle operazioni di lancio."
+      ]
+    },
+    {
+      "id": "anomalia-merlin-2020",
+      "title": "L’anomalia di avviamento del 2020",
+      "sources": ["merlin:anomaly"],
+      "paragraphs": [
+        "Il 30 ottobre 2020 NASA pubblicò un resoconto delle verifiche svolte prima di Crew-1. Durante un precedente tentativo di lancio GPS III, SpaceX aveva osservato un aumento inatteso della pressione in due generatori di gas. Il controllo automatico aveva interrotto il lancio. Le prime ispezioni sul posto non avevano chiarito la causa e i motori erano stati inviati a McGregor.",
+        "Al banco i tecnici riprodussero l’avviamento anticipato e trovarono un passaggio ostruito verso una valvola di sfogo del generatore. L’ostruzione era dovuta a un residuo indurito di vernice protettiva usata durante la lavorazione. Rimosso il materiale, il comportamento tornò normale nelle prove successive. L’analisi delle registrazioni degli altri motori individuò segnali simili su due unità destinate al booster di Crew-1, che vennero sostituite.",
+        "Il controllo di avviamento aveva fermato il lancio; le prove successive portarono a identificare un difetto di processo. Il confronto delle firme nei dati permise poi di individuare altre unità da controllare prima del loro impiego."
+      ]
+    },
+    {
+      "id": "riuso-merlin",
+      "title": "Riuso e manutenzione",
+      "sources": ["merlin:maintenance", "merlin:thermal", "falcon"],
+      "paragraphs": [
+        "Il recupero del primo stadio impone al sistema propulsivo ulteriori fasi di funzionamento dopo la salita. Il motore deve riaccendersi nelle condizioni previste dal profilo di ritorno e contribuire alla frenata finale, quando la massa del booster è molto inferiore a quella del decollo. Le riserve di propellente per il recupero fanno parte del bilancio della missione: traiettoria, carico e scelta del punto di atterraggio si condizionano a vicenda.",
+        "Fra un’accensione e l’altra le pareti si scaldano e si raffreddano, cambiano le pressioni e gli organi rotanti attraversano nuovamente i transitori. Gli studi sulle camere rigenerative collegano queste sollecitazioni cicliche alla vita dei materiali. Il motore recuperato va quindi valutato attraverso dati e ispezioni. Nel resoconto NASA relativo alla certificazione per Crew-4, del 2022, viene precisato che ogni motore ha un proprio ciclo di revisione della manutenzione necessario all’autorizzazione al volo.",
+        "Il numero di missioni riportato sul booster non permette di ricostruire da solo la storia di tutte le sue parti. Per stimare la vita residua di un Merlin servirebbero anche i cicli effettivi, gli interventi e le eventuali sostituzioni. Lo stesso vale per i costi: i voli ripetuti documentano il riuso operativo, mentre il costo di un ricondizionamento richiede contabilità e criteri che le fonti pubbliche qui raccolte non forniscono."
+      ]
+    }
+  ]
+}
