@@ -158,6 +158,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-10-25",
+        "date_label": "25 ottobre 2026",
+        "tag": "SpaceX · Starship",
+        "title": "Starship, Booster 22 sul Pad 2: comincia il conto alla rovescia per Flight 15",
+        "summary": "Il 24 ottobre il Super Heavy di Flight 15 è arrivato alla rampa di Starbase ed è stato issato dalle braccia della torre sul supporto di lancio, in vista dello static fire. SpaceX punta a riprendere con la torre booster e Ship; prima data possibile 8 novembre. Ship 43, candidata a Flight 16, ha iniziato le prove criogeniche.",
+        "href": "../documenti%20per%20sito/spacex_starship_b22_pad2.html",
+        "image": "../documenti%20per%20sito/assets_starship_b22_pad2/b22-chopstick-olm.jpg",
+        "image_alt": "Starship Booster 22 sollevato dalle braccia della torre sul supporto di lancio del Pad 2 di Starbase",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-10-24",
         "date_label": "24 ottobre 2026",
         "tag": "SpaceX · Starship / Artemis",
@@ -166,8 +179,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_artemis_briefing_starship.html",
         "image": "../documenti%20per%20sito/assets_artemis_briefing_starship/briefing-ksc.jpg",
         "image_alt": "Jared Isaacman e i dirigenti NASA alla conferenza stampa Artemis Acceleration al Kennedy Space Center",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
