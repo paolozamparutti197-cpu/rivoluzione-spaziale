@@ -5,6 +5,7 @@ import {fileURLToPath} from 'node:url';
 import {falconHeavyPhoto} from './falcon-heavy-annotato.mjs';
 import {verifiedFigure,figureMethod} from './figure-verificate.mjs';
 import {createHash} from 'node:crypto';
+import {renderViews} from './render-views.mjs';
 const root=path.dirname(fileURLToPath(import.meta.url));
 const data=JSON.parse(fs.readFileSync(path.join(root,'schede.json'),'utf8'));
 const esc=x=>String(x).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
@@ -52,6 +53,11 @@ for(const c of data.cards){
   const oldFigure=/<div class="technical"><figure class="diagram">.*?<\/figure><div>/s;
   if(!oldFigure.test(body))throw Error(`Figura animata ${c.id}: blocco tecnico non trovato.`);
   body=body.replace(oldFigure,animatedFigure(c)+'<div class="technical technical-text-only"><div>');
+ }
+ if(c.renderGallery){
+  body=body.replace('</head>','<link rel="stylesheet" href="merlin-vedute.css?v=20261025"></head>');
+  body=body.replace('<figure class="raptor-flow"',renderViews(c.renderGallery)+'<figure class="raptor-flow"');
+  body=body.replace('<a class="button" href="#dati">Leggi i dati</a>','<a class="button" href="#dati">Leggi i dati</a> <a class="button secondary" href="#vedute-merlin">Esplora le vedute</a>');
  }
  write(`${c.id}.html`,body);
 }

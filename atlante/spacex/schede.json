@@ -1,6 +1,11 @@
 {
   "edition": "2026-10-10",
   "sources": {
+    "merlin:visual": {
+      "title": "SpaceX, CRS-4 Mission Press Kit, p. 15",
+      "url": "https://www.nasa.gov/wp-content/uploads/2018/07/spacex_nasa_crs-4_presskit.pdf",
+      "note": "Documento SpaceX del 2014 ospitato da NASA. Fotografia dei Merlin 1D usata come riferimento storico per le vedute 3D aggiunte il 25 ottobre 2026. I dati di prestazione storici non sono applicati al motore attuale; le vedute sono ricostruzioni visive con geometrie non quotate approssimate."
+    },
     "starship:rednasa": {
       "title": "NASA, collaborazione Red Dragon al Congresso, 11 luglio 2016",
       "url": "https://www.nasa.gov/wp-content/uploads/2015/03/jreuter_reddragon_july_2016tagged_0.pdf",
@@ -934,6 +939,58 @@
         ]
       ],
       "specNote": "Riferimento: documenti citati a fondo pagina, letti con le rispettive date. Stato editoriale al 10 ottobre 2026.  Il documento presenta totali di spinta non uniformi: qui è riportato il valore del singolo motore nel testo, senza ricostruire un totale.",
+      "renderGallery": {
+        "title": "Quattro vedute per riconoscere il Merlin 1D",
+        "intro": "Il Merlin 1D del primo stadio riunisce la camera di combustione, l’ugello e il gruppo che alimenta il motore. Queste quattro ricostruzioni mostrano come leggere il loro insieme: dalla forma esterna della campana ai corpi della turbopompa. Le vedute frontale e laterale sono ortografiche, così il cambiamento di punto di vista rende più chiari gli ingombri senza introdurre la convergenza della prospettiva.",
+        "limits": "Le immagini rappresentano il Merlin 1D a livello del mare. Sono ricostruzioni visive originali, non fotografie o disegni esecutivi SpaceX. Il profilo, le dimensioni relative, la disposizione di raccordi, valvole, tiranti e tubazioni sono approssimati sulla base dei riferimenti pubblici. Le righe sull’ugello suggeriscono la lavorazione della camicia, ma non riproducono canali interni verificati. I colori dipendono dai materiali e dalle luci della scena; l’iniettore, le giranti e gli altri componenti interni non sono visibili. Il grande ugello del Merlin Vacuum non è rappresentato.",
+        "views": [
+          {
+            "id": "merlin-vista-insieme",
+            "title": "L’insieme, a tre quarti",
+            "src": "../../assets/merlin-vedute/merlin-insieme.webp",
+            "small": "../../assets/merlin-vedute/merlin-insieme-640.webp",
+            "width": 1280,
+            "height": 1600,
+            "alt": "Ricostruzione 3D del Merlin 1D a tre quarti: gruppo di alimentazione in alto, camera centrale, gola e campana in basso; sul fianco un condotto di scarico distinto.",
+            "explanation": "Il corpo centrale guida la lettura del motore: in alto si trova la camera, poi la sezione si restringe nella gola e si allarga nell’ugello. La campana permette ai gas della combustione principale di espandersi e accelerare. Nel Merlin 1D la camera e l’ugello sono raffreddati dal combustibile che scorre nella loro parete prima di raggiungere l’iniettore.",
+            "reading": "Segui dall’alto verso il basso la camera, il restringimento della gola e la campana. Il tubo scuro sul fianco rappresenta un percorso distinto dallo scarico principale."
+          },
+          {
+            "id": "merlin-vista-frontale",
+            "title": "La vista frontale",
+            "src": "../../assets/merlin-vedute/merlin-frontale.webp",
+            "small": "../../assets/merlin-vedute/merlin-frontale-640.webp",
+            "width": 1280,
+            "height": 1600,
+            "alt": "Vista frontale ortografica del modello Merlin 1D, con la gola stretta sopra l’ugello a campana e il gruppo turbopompa disposto lateralmente alla testa della camera.",
+            "explanation": "La vista frontale evidenzia il profilo della camera e dell’ugello. La quasi simmetria della campana contrasta con la disposizione asimmetrica degli organi esterni: pompe, condotti e attuatori occupano il volume intorno alla testa del motore. Non tutto ciò che appare davanti alla camera è parte del suo involucro; molte linee appartengono all’alimentazione o ai circuiti ausiliari.",
+            "reading": "Confronta il centro della campana con gli elementi spostati su un lato della testa. Questa vista aiuta a distinguere il corpo principale dagli impianti che lo circondano."
+          },
+          {
+            "id": "merlin-vista-laterale",
+            "title": "La vista laterale",
+            "src": "../../assets/merlin-vedute/merlin-laterale.webp",
+            "small": "../../assets/merlin-vedute/merlin-laterale-640.webp",
+            "width": 1280,
+            "height": 1600,
+            "alt": "Vista laterale ortografica del modello Merlin 1D: sporgenza del gruppo superiore, condotti lungo la camera e tubo dello scarico turbina esterno alla campana.",
+            "explanation": "Dal fianco diventano più leggibili la profondità del gruppo superiore e il condotto esterno che scende accanto all’ugello. Nel ciclo a generatore di gas, una parte dei propellenti produce il gas che aziona la turbina. Dopo aver ceduto energia, questo gas viene scaricato fuori dalla camera principale: il suo percorso va distinto da quello dei gas che attraversano la campana.",
+            "reading": "Individua il tubo esterno che termina a fianco della campana. La posizione e le curve mostrate sono illustrative; è documentata la separazione funzionale dei due scarichi."
+          },
+          {
+            "id": "merlin-gruppo-superiore",
+            "title": "Il gruppo superiore, da vicino",
+            "src": "../../assets/merlin-vedute/merlin-gruppo-superiore.webp",
+            "small": "../../assets/merlin-vedute/merlin-gruppo-superiore-640.webp",
+            "width": 1600,
+            "height": 1200,
+            "detail": true,
+            "alt": "Dettaglio della ricostruzione del gruppo superiore: involucri della turbopompa, flange e grandi condotti accanto alla testa della camera; gli interni non sono sezionati.",
+            "explanation": "La guida SpaceX descrive una turbopompa con un unico albero che collega la pompa dell’ossigeno liquido, la pompa del combustibile e la turbina. Il dettaglio ne suggerisce l’ingombro attraverso gli involucri esterni e i raccordi. L’energia meccanica della turbina permette alle pompe di portare i propellenti alle pressioni necessarie per alimentare il motore.",
+            "reading": "Le forme circolari e le flange rappresentano involucri esterni. L’albero comune è una caratteristica documentata, ma in questa immagine non è esposto: per seguirne il funzionamento usa lo schema del ciclo qui sotto."
+          }
+        ]
+      },
       "diagram": {
         "type": "engine",
         "title": "Merlin: il circuito a generatore di gas, in movimento",
@@ -979,7 +1036,8 @@
       "sources": [
         "falcon",
         "merlin",
-        "merlin:cycle"
+        "merlin:cycle",
+        "merlin:visual"
       ],
       "readings": [
         [
