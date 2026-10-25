@@ -1,0 +1,764 @@
+{
+  "edition": "2026-10-25",
+  "brief": "Merlin è il motore a ossigeno liquido e cherosene dei razzi Falcon. Una piccola combustione separata aziona la turbina che mette in movimento le pompe. Queste spingono i propellenti nella camera principale, dove la combustione produce il getto. I Merlin del primo stadio sollevano il razzo e, nelle missioni con recupero, contribuiscono a frenarlo. Il Merlin Vacuum lavora sul secondo stadio, con un ugello adatto allo spazio. La famiglia permette di seguire il passaggio dai primi Falcon 1 al riuso dei booster Falcon 9.",
+  "sources": {
+    "merlin:faa2007": {
+      "title": "FAA/AST, 2007 U.S. Commercial Space Transportation Developments and Concepts",
+      "url": "https://www.faa.gov/about/office_org/headquarters_offices/ast/media/devcon2007.pdf",
+      "note": "Gennaio 2007, pp. stampate 37–38, Liquid Engines – Space Exploration Technologies Corporation: 1A, programma 1B, passaggio a 1C e progetto Merlin 2. Fotografia dello stato dei programmi all’epoca, non certificazione delle prestazioni attuali."
+    },
+    "merlin:faa2010": {
+      "title": "FAA/AST, 2010 U.S. Commercial Space Transportation Developments and Concepts",
+      "url": "https://www.faa.gov/about/office_org/headquarters_offices/ast/media/ast_developments_concepts_2010.pdf",
+      "note": "Gennaio 2010, pp. stampate 56–57 (PDF 64–65): Merlin 1C per Falcon 9 e MVac derivato da 1C; caratteristiche e prove storiche. La cronologia Falcon 1 è nella sezione del lanciatore."
+    },
+    "merlin:spacex2008": {
+      "title": "A. Dinardi, P. Capozzoli e G. Shotwell (SpaceX), Low-cost Launch Opportunities Provided by the Falcon Family of Launch Vehicles",
+      "url": "https://selenianboondocks.com/wp-content/uploads/2008/11/s12-11.pdf",
+      "note": "Fourth Asian Space Conference, 1–3 ottobre 2008, §3.1.2, quinta pagina del PDF: estensione in lega di niobio, espansione 117:1 e configurazione prevista del secondo stadio. Documento degli autori SpaceX conservato in copia; URL originale: http://www2.nspo.org.tw/ASC2008/4th%20Asian%20Space%20Conference%202008/oral/S12-11.pdf. Le previsioni del 2008 non sono risultati di volo."
+    },
+    "merlin:mvac2009": {
+      "title": "SpaceX, Falcon 9 Upper Stage Engine Successfully Completes Full Mission Duration Firing",
+      "url": "https://web.archive.org/web/20141213023346/http://www.spacex.com/press/2012/12/19/spacex-falcon-9-upper-stage-engine-successfully-completes-full-mission-duration",
+      "note": "Comunicato datato 10 marzo 2009 nel testo, prova del 7 marzo: MVac derivato da 1C, 92.500 lbf e 342 s nel vuoto; camera rigenerativa, estensione radiativa. Il percorso web contiene 2012, che non è la data della prova. Copia archiviata dell’originale SpaceX."
+    },
+    "merlin:guide2015": {
+      "title": "SpaceX, Falcon User’s Guide, Revision 2",
+      "url": "https://spacex.com.pl/files/2017-10/falcon-9-users-guide-rev-2.0.pdf?4f8d2248dc=",
+      "note": "21 ottobre 2015, pp. stampate 11–12, §2.2 e Table 2-1: M1D 756 kN al mare per motore, MVac 934 kN nel vuoto, intervalli di regolazione. Copia della guida originale SpaceX; URL originale non più disponibile: https://www.spacex.com/sites/spacex/files/falcon_9_users_guide_rev_2.0.pdf."
+    },
+    "merlin:web2013": {
+      "title": "SpaceX, Falcon 9, pagina del costruttore archiviata nel luglio 2013",
+      "url": "https://web.archive.org/web/20130715094112/http://www.spacex.com/falcon9",
+      "note": "Sezione SpaceX Merlin Engine: cherosene ad alta pressione per gli attuatori idraulici, ritorno all’ingresso a bassa pressione, valori storici 147.000/161.000 lbf e Isp 282/311 s. La pagina contiene anche descrizioni di configurazioni precedenti: ogni dato conserva il proprio contesto."
+    },
+    "merlin:eis2019": {
+      "title": "Sierra Engineering & Software, Analysis Report 2019-002, Exhaust Plume Calculations for SpaceX Merlin5 Booster Engine",
+      "url": "https://vsfbfalconlauncheis.com/Portals/falconprogrameis/PublicDocuments/VSFB_Falcon_Launch_Draft_EIS_May_2025_Volume2.pdf",
+      "note": "14 giugno 2019, rapporto preparato per SpaceX, §§1–2, pagina 1 di 11 (PDF complessivo, p. 248); riprodotto negli allegati del Draft EIS Vandenberg, volume II, maggio 2025. Valori nominali di ingresso del modello di pennacchio, non misure o specifiche generali Block 5. La denominazione Merlin 5 appartiene al rapporto."
+    },
+    "merlin:musk2018": {
+      "title": "Elon Musk intervistato da Kara Swisher, Recode Decode: trascrizione integrale",
+      "url": "https://www.vox.com/2018/11/2/18053428/recode-decode-full-podcast-transcript-elon-musk-tesla-spacex-boring-company-kara-swisher",
+      "note": "Intervista del 31 ottobre 2018, trascrizione pubblicata il 2 novembre 2018: dichiarazione approssimativa di Musk sul regime della turbopompa Merlin, circa 36.000 giri/min. Nessuna specifica di versione o distinzione fra regime nominale e massimo."
+    },
+    "merlin:trim": {
+      "title": "FAULHABER, Drive Systems for Aerospace & Aviation",
+      "url": "https://cdn.faulhaber.com/media/DAM/Documents/brochure/faulhaber-brochure-aerospace-aviation-en.pdf",
+      "note": "Brochure del fornitore, senza data editoriale esplicita, p. 11, Space / Rocket fuel valves: servomotori brushless e valvola di correzione della miscela, illustrazione accreditata SpaceX. Non identifica una revisione del Merlin né i limiti di regolazione. Consultata il 25 ottobre 2026."
+    },
+    "merlin:crs1": {
+      "title": "SpaceX, CRS-1 Mission Update, 8 ottobre 2012",
+      "url": "https://www.collectspace.com/ubb/Forum35/HTML/000553.html",
+      "note": "Comunicato originale SpaceX riprodotto integralmente nella discussione, sotto SpaceX release: caduta di pressione, comando di arresto a circa 79 s e ricalcolo della salita. È un primo aggiornamento, non il rapporto finale sulla causa. Fonte usata per il testo del comunicato, non per i commenti del forum."
+    },
+    "merlin:ipa2020": {
+      "title": "Elon Musk, dichiarazione del 22 aprile 2020 sul fluido di pulizia",
+      "url": "https://x.com/elonmusk/status/1252985622219960327",
+      "note": "Messaggio originale del 22 aprile 2020, verificato tramite l’endpoint pubblico oEmbed di X: alcol di pulizia nel ramo cieco di un sensore, acceso in volo. Nessuna specifica valvola o falsa lettura di temperatura è indicata nel messaggio."
+    },
+    "merlin:reed2021": {
+      "title": "Benji Reed (SpaceX), dichiarazioni alla conferenza NASA Crew-2 del 1º marzo 2021",
+      "url": "https://spaceflightnow.com/2021/03/01/component-fatigue-caused-early-shutdown-of-merlin-engine-on-last-spacex-launch/",
+      "note": "Intervento originale riprodotto da Stephen Clark: foro nella protezione termica del motore, ingresso di gas caldi e arresto; spinta insufficiente al recupero. Non viene precisato nella citazione il momento dello spegnimento. Registrazione NASA della conferenza: https://www.youtube.com/watch?v=9I8lvxoljvw."
+    },
+    "merlin:july2024": {
+      "title": "SpaceX, Falcon 9 Returns to Flight",
+      "url": "https://new.spacex.com/updates",
+      "note": "25 luglio 2024, aggiornamento sull’anomalia Starlink 9-3 dell’11 luglio, ora locale della California: linea del sensore, fatica e fascetta, perdita LOX, raffreddamento eccessivo, hard start e azioni correttive. L’indagine individua la causa più probabile. URL originale: https://www.spacex.com/updates/#falcon-9-returns-to-flight."
+    },
+    "merlin:booster37": {
+      "title": "SpaceX, primo 37º lancio e atterraggio di un booster Falcon 9",
+      "url": "https://x.com/SpaceX/status/2092186071266140286",
+      "note": "Dichiarazione del costruttore, 25 agosto 2026, verificata nel contenuto originale restituito dall’endpoint pubblico oEmbed di X. Traguardo datato, non inventario aggiornato di ogni esemplare al giorno di consultazione."
+    },
+    "merlin:engine22": {
+      "title": "SpaceX, un Merlin alla 22ª missione verso l’orbita terrestre",
+      "url": "https://x.com/SpaceX/status/1760882381148623202",
+      "note": "Dichiarazione del costruttore, 23 febbraio 2024, verificata nel contenuto originale restituito dall’endpoint pubblico oEmbed di X. SpaceX lo definisceva il motore con più voli della flotta; numero di serie e registro completo degli interventi non pubblicati nel messaggio."
+    },
+    "merlin:transporter7": {
+      "title": "SpaceX, Transporter-7 Mission, trasmissione ufficiale",
+      "url": "https://www.youtube.com/watch?v=F_OEbfFvdeE",
+      "note": "14 aprile 2023, ora del Pacifico, 15 aprile UTC. Registrazione e descrizione ufficiale della missione. Non costituisce una scheda tecnica con valori di spinta, espansione, massa e risparmio di materiale dell’estensione corta."
+    },
+    "merlin:orbcomm": {
+      "title": "ORBCOMM, OG2 Prototype Hardware Functionality Verified Prior to Deorbit",
+      "url": "https://www.sec.gov/Archives/edgar/data/1361983/000119312512421020/d424103dex99.htm",
+      "note": "11 ottobre 2012, comunicato della società depositato presso SEC: carico secondario CRS-1 rilasciato in orbita bassa per il vincolo di sicurezza ISS e successivamente rientrato. Il precedente comunicato dell’8 ottobre spiegava il mancato superamento della safety gate per la seconda accensione."
+    },
+    "merlin:asap2020": {
+      "title": "NASA Aerospace Safety Advisory Panel, verbale pubblico del 15 maggio 2020",
+      "url": "https://oiir.hq.nasa.gov/asap/documents/ASAP_Public_Meeting_Minutes_May_26_2020_Signed_TAGGED.pdf",
+      "note": "P. stampata 3: albero dei guasti per lo spegnimento del 18 marzo, causa probabile ancora in verifica e processi Demo-2 differenti. Riunione del 15 maggio, lettera di trasmissione del 22 maggio: il 26 maggio nel nome del file non data la riunione. Distinto dall’episodio della vernice nell’autunno 2020."
+    },
+    "merlin:raptor": {
+      "title": "NASA Glenn, M. D. Klem, LOX/Methane In-Space Propulsion Systems Technology Status and Gaps",
+      "url": "https://ntrs.nasa.gov/citations/20170005557",
+      "note": "Presentazione del 1º aprile 2017, slide 12: Raptor indicato come full-flow LOX/metano. Fonte per la distinzione di ciclo e propellenti, senza trasferire le prestazioni storiche alle versioni attuali. Impiego Starship/Super Heavy documentato nella monografia Raptor collegata."
+    },
+    "merlin:units": {
+      "title": "NIST, Guide for the Use of the International System of Units (SI), SP 811",
+      "url": "https://physics.nist.gov/cuu/pdf/sp811.pdf",
+      "note": "Edizione 2008, appendice B.8, p. stampata 53 e nota 23: conversioni lbf/N, psi/Pa e accelerazione standard di gravità. I fattori arrotondati sono indicati come approssimazioni."
+    },
+    "merlin:photo": {
+      "title": "SpaceX, Merlin 1D Test Fire, circa 2012",
+      "url": "https://commons.wikimedia.org/wiki/File:SpaceX_Testing_Merlin_1D_Engine_In_Texas.jpg",
+      "note": "Fotografia di McGregor, originale 921 × 614 pixel, donazione SpaceX CC0 1.0 registrata da Wikimedia Commons con verifica VRT 2015032410033985. File e condizioni verificati il 25 ottobre 2026; crediti conservati anche in assets/merlin-documentazione/CREDITI.md."
+    }
+  },
+  "blocks": [
+    {
+      "id": "parametri-merlin",
+      "placement": "parameters",
+      "title": "Parametri tecnici: Merlin 1D e Merlin Vacuum",
+      "paragraphs": [
+        "Il confronto assume come riferimento operativo la guida Falcon del marzo 2025. Le celle distinguono il dato dichiarato dal costruttore dai valori storici e dai rapporti calcolati. Una voce non pubblicata nella guida rimane aperta: completarla con un numero di un’altra generazione renderebbe il confronto meno attendibile."
+      ],
+      "caption": "Singolo motore, guida Falcon 2025, §2.3, pp. 8–9 e tabella a p. 9. SL = livello del mare; vac = vuoto. I valori di spinta sono dichiarati, non misurati per questa monografia.",
+      "columns": [
+        "Parametro",
+        "Merlin 1D · primo stadio",
+        "Merlin Vacuum · secondo stadio",
+        "Condizione e fonte"
+      ],
+      "rows": [
+        [
+          "Spinta SL",
+          {
+            "value": "845 kN",
+            "text": "Per motore, nel testo della guida."
+          },
+          "Non dichiarata; configurazione destinata al vuoto.",
+          {
+            "text": "§2.3, p. 8. Non usare il totale di stadio come spinta del motore.",
+            "sources": [
+              "falcon"
+            ]
+          }
+        ],
+        [
+          "Spinta vac",
+          "Non dichiarata per il singolo M1D nella guida consultata.",
+          {
+            "value": "981 kN",
+            "text": "Per il singolo MVac."
+          },
+          {
+            "text": "Tabella a p. 9. Confrontare spinte soltanto a parità di pressione esterna.",
+            "sources": [
+              "falcon"
+            ]
+          }
+        ],
+        [
+          "Impulso specifico, s",
+          "Non dichiarato nella guida 2025; valori storici nella tabella delle versioni.",
+          "Non dichiarato nella guida 2025; la prova MVac 1C del 2009 è riportata separatamente.",
+          {
+            "text": "Il numero di secondi richiede versione, regime e pressione esterna.",
+            "sources": [
+              "falcon",
+              "merlin:mvac2009"
+            ]
+          }
+        ],
+        [
+          "Pressione in camera, MPa",
+          "Non dichiarata nella guida 2025.",
+          "Non dichiarata nella guida 2025.",
+          {
+            "text": "Il valore nominale di un modello del 2019 è discusso nella nota sotto; non è una misura del motore attuale.",
+            "sources": [
+              "falcon",
+              "merlin:eis2019"
+            ]
+          }
+        ],
+        [
+          "Rapporto di espansione, Aᵤ/Aₜ",
+          "Non dichiarato nella guida 2025.",
+          {
+            "value": "165:1",
+            "text": "Configurazione descritta nel §2.3, p. 9."
+          },
+          {
+            "text": "Rapporto di aree, adimensionale; nessun automatismo per la variante con estensione corta.",
+            "sources": [
+              "falcon"
+            ]
+          }
+        ],
+        [
+          "Massa a secco, kg",
+          "Non dichiarata nella fonte consultata.",
+          "Non dichiarata nella fonte consultata.",
+          {
+            "text": "Mancano anche criteri uniformi su accessori inclusi e massa installata.",
+            "sources": [
+              "falcon"
+            ]
+          }
+        ],
+        [
+          "Rapporto spinta/peso, F/(m g₀)",
+          "Dato attuale non verificato. Il valore storico superiore a 150 è del 2014.",
+          "Dato pubblico non verificato.",
+          {
+            "text": "Adimensionale; serve una massa coerente con configurazione e spinta. g₀ = 9,80665 m/s².",
+            "sources": [
+              "merlin:visual",
+              "merlin:isp",
+              "merlin:units"
+            ]
+          }
+        ],
+        [
+          "Rapporto di miscela O/F, in massa",
+          "Non dichiarato nella guida 2025.",
+          "Non dichiarato nella guida 2025.",
+          {
+            "text": "Distinguere camera, generatore e intero motore; nota sul modello del 2019 sotto.",
+            "sources": [
+              "falcon",
+              "merlin:eis2019"
+            ]
+          }
+        ],
+        [
+          "Campo di regolazione",
+          {
+            "value": "108.300–190.000 lbf SL",
+            "text": "Minimo/massimo = 57%, calcolato."
+          },
+          {
+            "value": "140.679–220.500 lbf vac",
+            "text": "Minimo/massimo ≈ 63,8%, calcolato."
+          },
+          {
+            "text": "Tabella a p. 9 del 2025; gli estremi sono trascritti nell’unità originale per evitare conversioni superflue.",
+            "sources": [
+              "falcon"
+            ]
+          }
+        ],
+        [
+          "Ciclo e alimentazione",
+          "Generatore di gas; turbopompa.",
+          "Generatore di gas; turbopompa.",
+          {
+            "text": "§2.3. La turbina aziona le pompe su un albero comune.",
+            "sources": [
+              "falcon"
+            ]
+          }
+        ],
+        [
+          "Propellenti",
+          "Ossigeno liquido / cherosene RP-1.",
+          "Ossigeno liquido / cherosene RP-1.",
+          {
+            "text": "Tabella a p. 9. Non sono propellenti ipergolici.",
+            "sources": [
+              "falcon"
+            ]
+          }
+        ],
+        [
+          "Raffreddamento",
+          "Rigenerativo della camera e dell’ugello, con RP-1.",
+          "Camera rigenerativa; estensione radiativa documentata per la configurazione storica 1C.",
+          {
+            "text": "Non estendere senza verifica la descrizione di ogni parte a tutte le revisioni MVac.",
+            "sources": [
+              "falcon",
+              "merlin:mvac2009"
+            ]
+          }
+        ],
+        [
+          "Accensione",
+          "Architettura dettagliata non specificata nel §2.3, p. 8 della guida consultata.",
+          "Accenditori piroforici TEA-TEB a doppia ridondanza.",
+          {
+            "text": "§2.3, p. 9. La ridondanza dichiarata per MVac non va attribuita automaticamente al primo stadio.",
+            "sources": [
+              "falcon"
+            ]
+          }
+        ]
+      ],
+      "notes": [
+        {
+          "text": "Riferimento nominale del 2019. Il rapporto Sierra per SpaceX chiama il motore «Merlin 5» e usa 1.859 psia di pressione di ristagno alla faccia dell’iniettore, circa 12,82 MPa calcolati, con espansione 16,27:1. Non equivale a una misura di pressione statica in camera. Lo stesso paragrafo distingue O/F totale 2,356, della camera 2,576 e del generatore 0,423; più avanti indica 2,58 come engine MR. Questa ambiguità interna impedisce di trasferire un solo rapporto alla scheda attuale. Sono ingressi nominali di una simulazione del pennacchio del 2019, pubblicata negli allegati ambientali del 2025.",
+          "sources": [
+            "merlin:eis2019"
+          ]
+        },
+        {
+          "text": "Controllo delle unità. Qui 1 lbf = 4,4482216152605 N e 1 psi ≈ 6.894,757293 Pa. Le percentuali sono rapporti fra gli estremi della stessa riga e della stessa edizione; non sono nuovi limiti di qualifica. Il significato dell’impulso specifico e del termine di pressione nella spinta è spiegato nei capitoli dedicati.",
+          "sources": [
+            "merlin:isp",
+            "merlin:thrust",
+            "merlin:units"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "versioni-merlin",
+      "placement": "origini-merlin",
+      "title": "Versioni e prestazioni nel loro periodo",
+      "caption": "SL = livello del mare; vac = vuoto. Le righe storiche descrivono i documenti indicati, senza attribuire le loro prestazioni ai motori successivi. N.d. = non dichiarato nella fonte della riga.",
+      "wide": true,
+      "columns": [
+        "Versione",
+        "Periodo e veicolo",
+        "Raffreddamento",
+        "Spinta del singolo motore",
+        "Isp",
+        "Caratteristiche e stato",
+        "Fonte"
+      ],
+      "rows": [
+        [
+          "Merlin 1A",
+          "Falcon 1, primi voli 2006–2007; descrizione FAA 2007.",
+          "Ablativo.",
+          {
+            "value": "342,65 kN SL",
+            "text": "Valore storico FAA."
+          },
+          "N.d. nel passaggio consultato.",
+          "Prima generazione di volo, storica; sostituita da 1C.",
+          {
+            "sources": [
+              "merlin:faa2007",
+              "merlin:faa2010"
+            ]
+          }
+        ],
+        [
+          "Merlin 1B",
+          "Programma avviato nel 2005; previsto anche per Falcon 5.",
+          "Configurazione intermedia; dettaglio non verificato nella fonte FAA.",
+          "Non riportata qui: la descrizione del programma non basta a qualificare un motore di volo.",
+          "Dato pubblico non verificato.",
+          "Non impiegato in volo. La cronologia porta da 1A a 1C; la FAA descrive 1B come programma superato dai nuovi piani.",
+          {
+            "sources": [
+              "merlin:faa2007",
+              "merlin:faa2010"
+            ]
+          }
+        ],
+        [
+          "Merlin 1C",
+          "Falcon 1 dal 2008; Falcon 9 v1.0 dal 2010. Dati FAA per il primo stadio Falcon 9.",
+          "Rigenerativo, camera e ugello.",
+          {
+            "value": "423 kN SL; oltre 480 kN vac",
+            "text": "Configurazione descritta nel gennaio 2010."
+          },
+          {
+            "value": "304 s vac",
+            "text": "Dato FAA, non MVac."
+          },
+          "Generazione storica; valori distinti da quelli del Falcon 1 e dall’adattamento Vacuum.",
+          {
+            "sources": [
+              "merlin:history",
+              "merlin:faa2010"
+            ]
+          }
+        ],
+        [
+          "Merlin 1D, prima configurazione v1.1",
+          "Falcon 9 v1.1, dal 2013. Press kit CRS-4, 2014.",
+          "Rigenerativo.",
+          {
+            "value": "654 kN SL; 716 kN vac",
+            "text": "Dichiarazione SpaceX del 2014."
+          },
+          {
+            "value": "282 s SL; 311 s vac",
+            "text": "Pagina SpaceX archiviata nel 2013; dati storici."
+          },
+          "Rapporto spinta/peso dichiarato superiore a 150 nel 2014. Non calcolato usando masse di altre revisioni.",
+          {
+            "sources": [
+              "merlin:visual",
+              "merlin:web2013",
+              "falcon"
+            ]
+          }
+        ],
+        [
+          "Merlin 1D, guida 2015",
+          "Famiglia Falcon, edizione Revision 2.",
+          "Rigenerativo.",
+          {
+            "value": "756 kN SL",
+            "text": "Per motore, §2.2, p. 11."
+          },
+          "N.d. nella tabella della guida.",
+          "Regolazione pubblicata: 119.000–170.000 lbf SL, cioè 70–100% calcolati per quell’edizione.",
+          {
+            "sources": [
+              "merlin:guide2015"
+            ]
+          }
+        ],
+        [
+          "Merlin 1D, riferimento 2025",
+          "Falcon 9 / Falcon Heavy; famiglia operativa Block 5.",
+          "Rigenerativo.",
+          {
+            "value": "845 kN SL",
+            "text": "Testo del §2.3, p. 8, non totale di stadio."
+          },
+          "N.d. nella guida 2025.",
+          "Operativo. Regolazione della guida: 57–100% calcolati. La data Block 5 del 2018 non data automaticamente ogni parametro successivo.",
+          {
+            "sources": [
+              "falcon"
+            ]
+          }
+        ],
+        [
+          "Merlin Vacuum derivato da 1C",
+          "Prove del 2009; generazione Falcon 9 v1.0.",
+          "Camera rigenerativa; estensione radiativa.",
+          {
+            "value": "92.500 lbf vac ≈ 411 kN",
+            "text": "Risultato dichiarato della prova del 7 marzo 2009."
+          },
+          {
+            "value": "342 s vac",
+            "text": "Misurato nella prova secondo SpaceX; ripreso dalla FAA."
+          },
+          "Storico. La pubblicazione progettuale del 2008 prevedeva un’estensione in lega di niobio da 117:1.",
+          {
+            "sources": [
+              "merlin:mvac2009",
+              "merlin:faa2010",
+              "merlin:spacex2008"
+            ]
+          }
+        ],
+        [
+          "Merlin Vacuum, guida 2015",
+          "Secondo stadio Falcon, generazione 1D.",
+          "Camera rigenerativa; non si ricavano qui dettagli dell’intera estensione.",
+          {
+            "value": "934 kN vac",
+            "text": "Dichiarato nella Table 2-1."
+          },
+          "N.d. nella tabella della guida.",
+          "Regolazione pubblicata: 81.000–210.000 lbf, circa 38,6–100% calcolati. Dato storico.",
+          {
+            "sources": [
+              "merlin:guide2015"
+            ]
+          }
+        ],
+        [
+          "Merlin Vacuum, guida 2025",
+          "Secondo stadio Falcon 9 / Falcon Heavy.",
+          "Camera rigenerativa; dettagli dell’estensione da verificare per revisione.",
+          {
+            "value": "981 kN vac",
+            "text": "Dichiarato nella tabella a p. 9."
+          },
+          "N.d. nella guida 2025.",
+          "Operativo. Il minimo pubblicato è 140.679 lbf: circa 63,8% del massimo. Non è il minimo della guida 2015.",
+          {
+            "sources": [
+              "falcon"
+            ]
+          }
+        ]
+      ],
+      "notes": [
+        {
+          "text": "La verifica del mancato impiego di 1B incrocia i piani FAA del 2007, il successivo motore rigenerativo e la cronologia dei Falcon 1 e 9. È una ricostruzione storica documentale, non un registro di tutte le prove a terra. Per 1A e 1C «storico» riguarda la configurazione; per 1D e MVac «operativo» riguarda la famiglia, senza sostenere che ogni revisione del passato voli ancora.",
+          "sources": [
+            "merlin:faa2007",
+            "merlin:faa2010",
+            "falcon"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "miscela-generatore-merlin",
+      "placement": "generatore-gas-merlin",
+      "title": "La miscela del generatore",
+      "paragraphs": [
+        {
+          "text": "Il rapporto Sierra del 2019 descrive esplicitamente uno scarico del generatore ricco di combustibile. Nel suo riferimento nominale O/F è 0,423 nel generatore e 2,576 nella camera: due combustioni con compiti diversi. La composizione del gas destinato alla turbina va quindi distinta da quella del getto principale. Lo schema animato separa già questi percorsi; i valori del modello non ne trasformano il disegno in una ricostruzione delle portate reali.",
+          "sources": [
+            "merlin:eis2019"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "regimi-turbopompa-merlin",
+      "placement": "turbopompa-merlin",
+      "title": "30.000 e 36.000 giri/min: che cosa dicono le fonti",
+      "paragraphs": [
+        {
+          "text": "Il valore di circa 30.000 giri/min viene dall’ingegnere NASA Tony Fiorucci, nel servizio del gennaio 2021 dedicato al lavoro per Crew-1. I circa 36.000 giri/min compaiono invece in una risposta di Elon Musk a Kara Swisher, nell’intervista dell’ottobre 2018. Entrambe sono indicazioni approssimative: mancano il punto di funzionamento, il numero di revisione e la distinzione fra regime nominale e massimo.",
+          "sources": [
+            "merlin",
+            "merlin:musk2018"
+          ]
+        },
+        "Non è dunque verificata una discordanza fra due specifiche equivalenti. Né si può dedurre da quelle frasi un aumento o una diminuzione del regime fra il 2018 e il 2021. Per ricostruire l’evoluzione della turbopompa occorrerebbero dati di configurazione e mappe di funzionamento confrontabili. Qui i due valori restano attribuiti alle rispettive dichiarazioni, senza calcolarne una media o assegnarli arbitrariamente a 1A, 1C o 1D."
+      ]
+    },
+    {
+      "id": "controlli-merlin",
+      "placement": "accensione-regolazione-merlin",
+      "title": "Attuatori, miscela e controllo elettronico",
+      "paragraphs": [
+        {
+          "text": "La pagina tecnica SpaceX conservata nel luglio 2013 descrive una funzione ausiliaria della turbopompa: fornire cherosene ad alta pressione agli attuatori idraulici, con ritorno all’ingresso a bassa pressione. Nella configurazione descritta si evitava così una centrale idraulica separata. Questo documento dimostra il principio adottato allora; non certifica che ogni componente del circuito sia rimasto identico sulle successive revisioni Block 5.",
+          "sources": [
+            "merlin:web2013"
+          ]
+        },
+        {
+          "text": "Per la correzione della miscela, FAULHABER documenta una valvola di fuel trim azionata da servomotori brushless, in un caso applicativo illustrato con materiale SpaceX. È una regolazione di precisione del rapporto fra combustibile e ossigeno. La brochure non identifica la versione del motore e non pubblica una legge di controllo: non permette di fissare qui l’escursione O/F o la banda di risposta del Merlin attuale.",
+          "sources": [
+            "merlin:trim"
+          ]
+        },
+        {
+          "text": "La guida Falcon 2025 descrive nel §2.5 un’avionica del lanciatore su tre catene, con tolleranza ai guasti. Questa è una caratteristica del sistema di volo. Non basta per affermare che ciascun controller del Merlin attuale contenga tre processori indipendenti, né per attribuirgli la stessa logica di voto. Il controllo vettoriale è invece attribuito esplicitamente ai motori orientabili nella tabella a p. 9: la direzione della spinta e il suo valore sono comandi diversi.",
+          "sources": [
+            "falcon"
+          ]
+        },
+        {
+          "text": "Anche i limiti di regolazione vanno letti per edizione. Nel 2015 MVac era pubblicato con un minimo di circa 38,6% del massimo; nel 2025 il rapporto fra gli estremi è circa 63,8%. La guida più recente non spiega in quella tabella la ragione della differenza. Non la si traduce quindi in un peggioramento intrinseco del motore o in un limite universale valido per ogni missione. Il campo dichiarato è diverso da una curva di stabilità completa.",
+          "sources": [
+            "merlin:guide2015",
+            "falcon"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "estensioni-mvac",
+      "placement": "merlin-vacuum",
+      "title": "Materiali, estensioni e riaccensione",
+      "paragraphs": [
+        {
+          "text": "Per la generazione derivata da Merlin 1C esistono due riscontri distinti. Il contributo degli ingegneri SpaceX alla conferenza asiatica del 2008 descrive un’estensione in lega di niobio con espansione 117:1, ancora nel contesto del progetto. Il comunicato sulle prove del marzo 2009 distingue la camera rigenerativa dalla grande estensione raffreddata per irraggiamento. In quest’ultima il calore viene ceduto verso l’esterno mediante radiazione; il materiale deve sopportare la temperatura di esercizio senza affidarsi al medesimo circuito rigenerativo della camera.",
+          "sources": [
+            "merlin:spacex2008",
+            "merlin:mvac2009"
+          ]
+        },
+        "I 117:1 del documento progettuale del 2008 e i 165:1 della guida 2025 descrivono epoche diverse. La presenza del nome MVac in entrambi non prova che materiale, spessore, collegamenti e raffreddamento di ogni parte siano rimasti invariati. Il rapporto di espansione dipende anche dall’estensione installata; non è una proprietà immutabile di tutta la famiglia.",
+        {
+          "text": "L’estensione corta associata a Transporter-7 va trattata come una configurazione di missione. La trasmissione ufficiale identifica il lancio del 14 aprile 2023 in California, già 15 aprile UTC. Non è stata reperita nelle guide consultate una scheda che assegni a quella variante spinta, impulso specifico e risparmio di niobio verificabili. Non vengono quindi ripresi i valori percentuali circolanti nelle sintesi divulgative, né estesi automaticamente alla variante corta i 981 kN e i 165:1 della configurazione qui tabulata.",
+          "sources": [
+            "merlin:transporter7",
+            "falcon"
+          ]
+        },
+        {
+          "text": "Per l’anomalia del luglio 2024, SpaceX indicò come causa più probabile una cricca nella linea di un sensore dell’ossigeno, legata a fatica da vibrazioni e allentamento della fascetta. La perdita di LOX raffreddò eccessivamente i componenti di alimentazione del fluido di accensione. Il secondo avviamento fu violento (hard start), danneggiò il motore e fece perdere il controllo d’assetto. La correzione immediata eliminava linea e sensore ridondanti; il comunicato riferisce prove a McGregor. La sequenza riguarda l’integrazione del sistema propulsivo, non soltanto la campana dell’ugello.",
+          "sources": [
+            "merlin:july2024"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cronologia-anomalie-merlin",
+      "placement": "anomalia-merlin-2020",
+      "title": "Cronologia delle anomalie: motore, sistema e missione",
+      "paragraphs": [
+        "L’episodio della vernice appena descritto avvenne durante l’avviamento a terra nell’autunno 2020. È distinto dallo spegnimento in volo del marzo precedente. Per ogni evento occorre separare il difetto iniziale, la risposta del controllo, l’esito del carico e l’eventuale perdita del booster. Una missione primaria riuscita non rende riuscito anche il recupero."
+      ],
+      "caption": "Date UTC con data locale esplicitata quando diversa. La causa è attribuita al documento indicato; un primo comunicato non equivale a un rapporto finale d’indagine.",
+      "wide": true,
+      "columns": [
+        "Data e missione",
+        "Motore e fase",
+        "Anomalia e livello del sistema",
+        "Causa o stato dell’indagine",
+        "Conseguenze",
+        "Fonte"
+      ],
+      "rows": [
+        [
+          "8 ottobre 2012 UTC; 7 ottobre in Florida. CRS-1.",
+          "Merlin 1C, Falcon 9 v1.0; salita, circa T+79 s.",
+          "Caduta di pressione e arresto comandato di un motore. Il primo comunicato distingue l’apertura della protezione da un’esplosione del motore.",
+          "La nota SpaceX dell’8 ottobre è preliminare; non stabilisce la causa ultima della perdita di pressione. Nessuna causa finale viene ricavata qui dalle immagini.",
+          "Dragon raggiunse l’orbita. Il carico secondario ORBCOMM OG2 rimase in orbita troppo bassa e rientrò: la riaccensione prevista non rispettava il vincolo di sicurezza ISS.",
+          {
+            "sources": [
+              "merlin:crs1",
+              "merlin:orbcomm"
+            ]
+          }
+        ],
+        [
+          "18 marzo 2020. Missione Starlink.",
+          "Merlin 1D; spegnimento anticipato durante la salita.",
+          "Anomalia in volo, distinta dall’avviamento dei generatori nell’autunno 2020.",
+          "Secondo Musk: alcol isopropilico di pulizia rimasto in un ramo cieco del sensore e acceso in volo. Il verbale NASA di maggio parlava ancora di causa probabile in verifica.",
+          "Il carico raggiunse l’orbita; il booster non venne recuperato. La dichiarazione non autorizza a inventare un falso segnale di temperatura o una specifica valvola difettosa.",
+          {
+            "sources": [
+              "merlin:ipa2020",
+              "merlin:asap2020"
+            ]
+          }
+        ],
+        [
+          "16 febbraio 2021 UTC; 15 febbraio in Florida. Missione Starlink.",
+          "Merlin 1D. Spegnimento in volo; fase precisa non specificata nella dichiarazione citata.",
+          "Gas caldi superarono una protezione termica danneggiata. Problema di protezione e integrazione con conseguente arresto del motore.",
+          "Reed descrisse il foro in una protezione che aveva raggiunto il maggior numero di voli per quel progetto; non fornì un registro completo dell’usura.",
+          "Carico in orbita; spinta insufficiente al tentativo di recupero e booster perso. Non si attribuisce senza prova il guasto iniziale alla sola fase di rientro.",
+          {
+            "sources": [
+              "merlin:reed2021"
+            ]
+          }
+        ],
+        [
+          "12 luglio 2024 UTC; 11 luglio in California. Starlink 9-3.",
+          "Merlin Vacuum; perdita durante la prima accensione, anomalia al secondo avviamento.",
+          "Perdita LOX dal sistema del sensore, raffreddamento eccessivo e hard start. Il primo stadio funzionò normalmente.",
+          "Causa più probabile secondo l’aggiornamento SpaceX del 25 luglio; rimando all’approfondimento MVac per la sequenza.",
+          "Il booster atterrò; i 20 satelliti furono rilasciati troppo in basso e rientrarono. Successo del recupero e insuccesso orbitale del carico vanno distinti.",
+          {
+            "sources": [
+              "merlin:july2024"
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "id": "registri-riuso-merlin",
+      "placement": "riuso-merlin",
+      "title": "Record datati e vita dei componenti",
+      "paragraphs": [
+        {
+          "text": "Il 25 agosto 2026 SpaceX annunciò il primo booster arrivato a 37 lanci e 37 atterraggi. È il più alto traguardo verificato in una dichiarazione primaria nella presente revisione, consultata il 25 ottobre 2026; non equivale alla certificazione di un massimo assoluto aggiornato quotidianamente. Il messaggio riguarda lo stadio completo, senza elencare i motori installati in ciascun volo.",
+          "sources": [
+            "merlin:booster37"
+          ]
+        },
+        {
+          "text": "Per un singolo Merlin esiste invece una dichiarazione del 23 febbraio 2024: uno dei nove motori del primo stadio stava compiendo la 22ª missione verso l’orbita ed era allora il più utilizzato della flotta. È un primato storico documentato, non un record attuale dimostrato al 2026. La differenza fra le due date e fra stadio e motore impedisce di costruire una successione 22–37 come se descrivesse lo stesso hardware.",
+          "sources": [
+            "merlin:engine22"
+          ]
+        },
+        {
+          "text": "L’evoluzione della manutenzione si vede anche nei criteri con cui vengono esaminati componenti e processi. Il lavoro NASA del 2021 comprende la stabilità rotordinamica e il confronto delle prove; nel resoconto del 2022 la revisione per Crew-4 segue anche le modifiche e i cicli di manutenzione di ciascun motore. L’episodio della protezione termica del 2021 mostra perché si debba contare separatamente la vita di una parte. Questi riscontri non pubblicano un intervallo universale di smontaggio né autorizzano ad affermare che tutti i Merlin rivolino senza interventi.",
+          "sources": [
+            "merlin",
+            "merlin:maintenance",
+            "merlin:reed2021"
+          ]
+        },
+        "Non è disponibile, nelle fonti qui verificate, un totale riconciliato delle accensioni della famiglia Merlin. Le accensioni di prova, quelle annullate, quelle di salita e quelle di recupero sono conteggi differenti. Moltiplicare i lanci Falcon 9 per nove escluderebbe MVac, Falcon 1, Falcon Heavy e le riaccensioni, oltre a ignorare le sostituzioni. Restano non verificati il record attuale del singolo motore, i suoi tempi cumulativi di funzionamento e gli intervalli pubblici di sostituzione di ogni componente."
+      ]
+    },
+    {
+      "id": "genealogia-merlin-raptor",
+      "placement": "end",
+      "title": "Merlin 2 e il passaggio a Raptor",
+      "paragraphs": [
+        {
+          "text": "Il nome Merlin 2 compare già nel rapporto FAA del gennaio 2007 fra gli sviluppi previsti: un aumento di scala, spinta e pressione rispetto al Merlin allora in lavorazione. Il testo usa il futuro e descrive un percorso di sviluppo. Non documenta un motore Merlin 2 qualificato o impiegato in volo. Per questo il progetto resta fuori dalla tabella delle prestazioni operative.",
+          "sources": [
+            "merlin:faa2007"
+          ]
+        },
+        {
+          "text": "Raptor appartiene a una scelta propulsiva diversa: metano e ossigeno, combustione stadiata full flow e impiego su Starship e Super Heavy. Merlin usa RP-1 e un ciclo aperto a generatore di gas. L’esperienza industriale e di prova attraversa i programmi SpaceX, ma non rende i due motori intercambiabili o uno la semplice maggiorazione meccanica dell’altro. Il confronto utile riguarda cicli, propellenti e condizioni d’impiego.",
+          "sources": [
+            "merlin:raptor",
+            "falcon",
+            "merlin:cycle"
+          ]
+        }
+      ],
+      "links": [
+        [
+          "raptor.html",
+          "Leggi la monografia Raptor e le sue fonti"
+        ],
+        [
+          "../../monografie/starship/06-raptor-ciclo.html",
+          "Approfondisci il ciclo full flow"
+        ]
+      ]
+    },
+    {
+      "id": "glossario-merlin",
+      "placement": "end",
+      "title": "Glossario essenziale",
+      "terms": [
+        [
+          "Generatore di gas",
+          "Piccola camera che brucia una parte dei propellenti per produrre il gas destinato alla turbina. Nel ciclo aperto del Merlin quel gas non attraversa la camera principale."
+        ],
+        [
+          "Iniettore a pintle",
+          "Iniettore con un elemento centrale attorno al quale sono distribuiti i flussi dei propellenti. La geometria favorisce l’incontro fra i getti; non implica che il pintle del Merlin si muova durante il volo."
+        ],
+        [
+          "Impulso specifico (Isp)",
+          "Spinta divisa per la portata in massa dei propellenti e per l’accelerazione standard di gravità. Si esprime in secondi e indica quanto impulso si ottiene per unità di peso del propellente, nelle condizioni specificate."
+        ],
+        [
+          "Raffreddamento rigenerativo",
+          "Il propellente attraversa passaggi nelle pareti calde, assorbe calore e raggiunge poi l’iniettore. Si protegge il metallo recuperando parte del calore nel flusso che sarà bruciato."
+        ],
+        [
+          "Raffreddamento ablativo",
+          "Una parete o un rivestimento assorbe calore e si modifica o si consuma in modo controllato. La protezione dipende anche dallo spessore e dal materiale disponibile, che non resta integro come prima del funzionamento."
+        ],
+        [
+          "Turbopompa",
+          "Gruppo in cui una turbina fornisce il lavoro alle pompe dei propellenti. Nel Merlin la guida SpaceX descrive le pompe dell’ossigeno e del combustibile e la turbina su un albero comune."
+        ]
+      ],
+      "notes": [
+        {
+          "text": "Definizioni coerenti con i riferimenti generali NASA già presenti e con la descrizione SpaceX del Merlin. Le vedute 3D rimangono ricostruzioni originali: non mostrano una sezione esecutiva dell’iniettore o delle giranti.",
+          "sources": [
+            "falcon",
+            "merlin:cycle",
+            "merlin:pintle",
+            "merlin:thermal",
+            "merlin:isp",
+            "merlin:history"
+          ]
+        }
+      ]
+    }
+  ],
+  "photograph": {
+    "src": "../../assets/merlin-documentazione/merlin-1d-prova-2012.jpg",
+    "width": 921,
+    "height": 614,
+    "alt": "Fotografia SpaceX di un Merlin 1D acceso sul banco di McGregor, intorno al 2012: gruppo di alimentazione sopra la camera e ugello con il getto diretto verso il basso.",
+    "caption": "Un Merlin 1D durante una prova a McGregor, intorno al 2012. La fotografia permette di confrontare il gruppo superiore, le tubazioni e la campana con le quattro ricostruzioni. I supporti del banco e la luce della combustione condizionano la vista; le dimensioni e le geometrie del motore attuale richiedono riferimenti propri.",
+    "source": "https://commons.wikimedia.org/wiki/File:SpaceX_Testing_Merlin_1D_Engine_In_Texas.jpg"
+  }
+}

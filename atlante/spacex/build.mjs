@@ -7,6 +7,7 @@ import {verifiedFigure,figureMethod} from './figure-verificate.mjs';
 import {createHash} from 'node:crypto';
 import {renderViews} from './render-views.mjs';
 import {articleText,articleContents,sourceId} from './article-text.mjs';
+import {supplement,brief,authenticPhoto} from './merlin-integrazioni.mjs';
 const root=path.dirname(fileURLToPath(import.meta.url));
 const data=JSON.parse(fs.readFileSync(path.join(root,'schede.json'),'utf8'));
 const esc=x=>String(x).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
@@ -44,10 +45,14 @@ function animatedFigure(c){
 }
 for(const c of data.cards){
  if(c.articleSource)c.article=JSON.parse(fs.readFileSync(path.join(root,c.articleSource),'utf8'));
+ if(c.id==='merlin'){
+  c.integration=JSON.parse(fs.readFileSync(path.join(root,'merlin-integrazioni.json'),'utf8'));
+  c.sources=[...c.sources,...Object.keys(c.integration.sources)];
+ }
  if(c.id==='falcon-heavy') c.diagram.title='Fotografia ufficiale annotata';
  if(c.id==='falcon-heavy') c.diagram.credit={author:'SpaceX',source:'https://commons.wikimedia.org/wiki/File:Falcon_Heavy_Demo_Mission_(38583829295).jpg',license:'CC0 1.0',licenseUrl:'https://creativecommons.org/publicdomain/zero/1.0/'};
  write(`schemi/${c.id}.svg`,diagram(c));
- let refs=c.sources.map(id=>{const s=data.sources[id];if(!s)throw Error(`Fonte assente ${id}`);return `<li${c.article?` id="${sourceId(id)}"`:""}>${link(s.url,s.title)}. ${esc(s.note)}</li>`;}).join('');
+ let refs=c.sources.map(id=>{const s=data.sources[id]||c.integration?.sources[id];if(!s)throw Error(`Fonte assente ${id}`);return `<li${c.article?` id="${sourceId(id)}"`:""}>${link(s.url,s.title)}. ${esc(s.note)}</li>`;}).join('');
  let related=c.related.map(id=>{const r=data.cards.find(x=>x.id===id);if(!r)throw Error(`Scheda assente ${id}`);return link(`${id}.html`,r.title);}).join('');
  let body=head(c.title,c.summary)+`<main id="contenuto"><section class="hero"><div class="wrap"><p class="eyebrow">${esc(c.family)} · Scheda tecnica ${String(data.cards.indexOf(c)+1).padStart(2,'0')}</p><h1>${esc(c.title)}</h1><p class="lead">${esc(c.summary)}</p><p class="stamp">Stato al 10 ottobre 2026: <strong>${esc(c.status)}</strong></p><a class="button" href="#dati">Leggi i dati</a> <a class="button secondary" href="#fonti">Controlla le fonti</a></div></section><div class="wrap reading"><div class="intro-grid">${photo(...c.photos[0])}<section class="facts" id="dati"><h2>La configurazione di riferimento</h2><dl>${c.specs.map(([k,v])=>`<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl><p class="note">${esc(c.specNote)}</p></section></div><div class="technical"><figure class="diagram"><div class="diagram-view" tabindex="0" role="region" aria-label="Schema tecnico scorribile"><a href="schemi/${c.id}.svg" aria-label="Apri lo schema: ${esc(c.title)}"><img src="schemi/${c.id}.svg" alt="${esc(c.diagram.description)}" loading="lazy"></a></div><figcaption>${esc(c.diagram.title)}. ${esc(c.diagram.note)} <a href="schemi/${c.id}.svg">Apri lo schema</a>; sul telefono puoi scorrerlo orizzontalmente.</figcaption></figure><div>${articleText(c)}</div></div><section class="status"><h2>Che cosa è dimostrato, che cosa resta aperto</h2><div class="status-grid">${c.evidence.map(([k,v])=>`<article><h3>${esc(k)}</h3><p>${esc(v)}</p></article>`).join('')}</div></section>${photo(...c.photos[1])}<section><h2>Leggere la storia e le missioni</h2><ul>${c.readings.map(([url,title])=>`<li>${link(url,title)}</li>`).join('')}</ul></section><section><h2>Schede collegate</h2><div class="related">${related}</div></section><section class="sources" id="fonti"><h2>Fonti e verifica</h2><p>Consultazione editoriale: 10 ottobre 2026. Le date dei singoli documenti sono distinte dalla data della scheda.</p><ol>${refs}</ol><p>${link('metodo.html','Come leggere dati, fotografie e schemi')}</p></section></div></main>`+foot;
  if(c.diagram.animation){
@@ -67,7 +72,17 @@ for(const c of data.cards){
   body=body.replace('<div class="technical technical-text-only">','<div class="technical technical-text-only merlin-longform">');
   body=body.replace('Che cosa è dimostrato, che cosa resta aperto','Impiego e verifiche');
  }
+ if(c.integration){
+  const styleHash=createHash('sha256').update(fs.readFileSync(path.join(root,'merlin-integrazioni.css'))).digest('hex').slice(0,12);
+  body=body.replace('</head>',`<link rel="stylesheet" href="merlin-integrazioni.css?v=${styleHash}"></head>`);
+  body=body.replace('<div class="intro-grid">',brief(c)+'<div class="intro-grid">');
+  body=body.replace('<figure class="raptor-flow"',authenticPhoto(c)+'<figure class="raptor-flow"');
+  body=body.replace('</section></div><nav class="merlin-contents"','</section></div>'+supplement(c,'parameters')+'<nav class="merlin-contents"');
+  body=body.replace('<strong>Operativo</strong>','<strong>Merlin 1D e MVac operativi; 1A e 1C storici; 1B non volato</strong>');
+ }
  write(`${c.id}.html`,body);
+ // I supplementi non devono entrare nei metadati condivisi né nell'opzione --sync-figure-data.
+ if(c.integration){c.sources=c.sources.slice(0,-Object.keys(c.integration.sources).length);delete c.integration;}
 }
 // Opzione esplicita: allinea anche i metadati persistenti delle figure verificate.
 if(process.argv.includes('--sync-figure-data'))write('schede.json',JSON.stringify(data,(key,value)=>key==='article'?undefined:value,2)+'\n');

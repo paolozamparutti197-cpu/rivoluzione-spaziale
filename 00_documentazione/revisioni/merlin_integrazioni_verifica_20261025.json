@@ -1,0 +1,305 @@
+{
+  "baseline_commit": "03465767b81b5e08a7942aefd0678ae2ab20f425",
+  "revision_date": "2026-10-25",
+  "method": "Ogni voce registra riscontro originale, contesto e controllo di coerenza. Il terzo controllo non viene presentato come conferma indipendente quando usa lo stesso documento. Le fonti numerate della pagina conservano i primi 14 riferimenti e aggiungono i nuovi in coda.",
+  "information_inventory": {
+    "baseline_file": "00_documentazione/revisioni/merlin_incremento_informativo_20261025.json",
+    "baseline_items": 54,
+    "new_items": 24,
+    "increase_percent": 44.4,
+    "criterion": "Nuclei sostanziali di informazione documentata. Una voce raggruppa valori che descrivono lo stesso fatto e contesto. Non vengono contati come nuove informazioni la riformattazione in tabella, le ripetizioni, il glossario o i dati dichiarati non verificati. Il denominatore è l’inventario editoriale precedente (30 + 24), non una misura universale del contenuto informativo."
+  },
+  "new_items": [
+    {
+      "id": "N01",
+      "section": "versioni-merlin",
+      "evidence": "342,65 kN SL",
+      "source": "merlin:faa2007",
+      "check1": "FAA, p. stampata 37: 342.650 N al mare per 1A.",
+      "check2": "Stato del programma 2007; primo stadio Falcon 1. Non 1D.",
+      "check3": "342.650 N / 1.000 = 342,65 kN; coerenza con la successiva sostituzione ablativo/rigenerativo descritta da FAA 2010. Nessuna seconda misura indipendente.",
+      "kind": "dato storico istituzionale"
+    },
+    {
+      "id": "N02",
+      "section": "versioni-merlin",
+      "evidence": "Non impiegato in volo",
+      "source": "merlin:faa2007",
+      "check1": "FAA 2007 descrive lo sviluppo 1B dal 2005 e il cambio di piano verso 1C nel 2006.",
+      "check2": "Programma intermedio, non motore operativo Falcon 9.",
+      "check3": "Incrocio con cronologia Falcon 1 conclusa e descrizione Falcon 9/1C in FAA 2010. Conclusione storica documentale esplicitata in nota, non inventario delle prove a terra.",
+      "kind": "ricostruzione storica"
+    },
+    {
+      "id": "N03",
+      "section": "versioni-merlin",
+      "evidence": "423 kN SL; oltre 480 kN vac",
+      "source": "merlin:faa2010",
+      "check1": "FAA 2010, p. 56: 423.000 N SL, oltre 480.000 N vac, Isp 304 s vac.",
+      "check2": "1C nella configurazione primo stadio Falcon 9 descritta nel gennaio 2010; non 1C Vacuum.",
+      "check3": "Confronto con FAA 2009 già citata e separazione dalla descrizione MVac a p. 57; conversioni N/kN controllate.",
+      "kind": "dati storici istituzionali"
+    },
+    {
+      "id": "N04",
+      "section": "versioni-merlin",
+      "evidence": "654 kN SL; 716 kN vac",
+      "source": "merlin:visual",
+      "check1": "Press kit SpaceX CRS-4 2014, p. stampata 15 (PDF 16).",
+      "check2": "Merlin 1D prima generazione v1.1, non prestazione Block 5 attuale.",
+      "check3": "Pagina SpaceX archiviata 2013: 147.000/161.000 lbf, arrotondabili a 654/716 kN. Sono due pubblicazioni dello stesso costruttore.",
+      "kind": "dichiarazione storica SpaceX"
+    },
+    {
+      "id": "N05",
+      "section": "versioni-merlin",
+      "evidence": "282 s SL; 311 s vac",
+      "source": "merlin:web2013",
+      "check1": "Pagina SpaceX archiviata 15 luglio 2013, sezione Merlin Engine.",
+      "check2": "Isp storico associato alla descrizione con 147.000/161.000 lbf; non trasferito alla spinta 845 kN del 2025.",
+      "check3": "Controllo di contesto con press kit 2014 per la corrispondente spinta; nessuna seconda fonte primaria dell’Isp identificata.",
+      "kind": "dichiarazione storica SpaceX"
+    },
+    {
+      "id": "N06",
+      "section": "versioni-merlin",
+      "evidence": "superiore a 150",
+      "source": "merlin:visual",
+      "check1": "Press kit CRS-4, p. 15: thrust-to-weight ratio exceeds 150.",
+      "check2": "Valore dichiarato 2014, massa di riferimento non ricostruita.",
+      "check3": "Non ricalcolato usando i 470 kg riportati in sintesi secondarie o la spinta 2025; rapporto correttamente adimensionale.",
+      "kind": "dichiarazione storica SpaceX"
+    },
+    {
+      "id": "N07",
+      "section": "versioni-merlin",
+      "evidence": "756 kN SL",
+      "source": "merlin:guide2015",
+      "check1": "Guida originale SpaceX Rev 2 del 21 ottobre 2015, §2.2, p. 11, Table 2-1.",
+      "check2": "Singolo M1D; 170.000–119.000 lbf SL, non valori 2025.",
+      "check3": "756 × 9 = 6.804 kN, totale coerente con il testo; 119.000/170.000 = 70%. Controllo interno.",
+      "kind": "dichiarazione storica e calcolo"
+    },
+    {
+      "id": "N08",
+      "section": "estensioni-mvac",
+      "evidence": "lega di niobio",
+      "source": "merlin:spacex2008",
+      "check1": "Dinardi, Capozzoli e Shotwell (SpaceX), conferenza 2008, §3.1.2, quinta pagina PDF.",
+      "check2": "Estensione MVac progettata per la generazione 1C, rapporto aree 117:1; documento precedente al primo volo Falcon 9.",
+      "check3": "Non confuso con il rapporto 165:1 delle guide 2015/2025 né con una certificazione dei materiali di ogni revisione attuale.",
+      "kind": "descrizione progettuale storica SpaceX"
+    },
+    {
+      "id": "N09",
+      "section": "versioni-merlin",
+      "evidence": "342 s vac",
+      "source": "merlin:mvac2009",
+      "check1": "Comunicato SpaceX del 10 marzo 2009: prova del 7 marzo, 92.500 lbf vac, 342 s, camera rigenerativa ed estensione radiativa.",
+      "check2": "MVac derivato da 1C, non motore attuale. Data nel testo diversa dal percorso web /2012/12/19/.",
+      "check3": "FAA 2010, p. 57, riprende 92.500 lbf e 342 s; è un riscontro che deriva dalla stessa prova. Conversione: circa 411 kN.",
+      "kind": "risultato di prova dichiarato da SpaceX"
+    },
+    {
+      "id": "N10",
+      "section": "versioni-merlin",
+      "evidence": "934 kN vac",
+      "source": "merlin:guide2015",
+      "check1": "Guida 2015, Table 2-1: MVac 934 kN, 210.000–81.000 lbf.",
+      "check2": "Valori storici del secondo stadio, non totale dei nove motori del primo.",
+      "check3": "210.000 lbf circa 934 kN; 81.000/210.000 × 100 circa 38,6%. Confronto esplicito con edizione 2025, senza dedurne una causa progettuale.",
+      "kind": "dichiarazione storica e calcolo"
+    },
+    {
+      "id": "N11",
+      "section": "parametri-merlin",
+      "evidence": "63,8%",
+      "source": "falcon",
+      "check1": "Guida 2025, p. 9: MVac 220.500–140.679 lbf.",
+      "check2": "Estremi pubblicati nella stessa tabella per la stessa configurazione.",
+      "check3": "140.679/220.500 × 100 = 63,8%; non combinato con il minimo 81.000 lbf del 2015. Spinta 981 kN coerente con l’estremo alto arrotondato.",
+      "kind": "calcolo su dati dichiarati"
+    },
+    {
+      "id": "N12",
+      "section": "parametri-merlin",
+      "evidence": "12,82 MPa",
+      "source": "merlin:eis2019",
+      "check1": "Rapporto Sierra 2019-002, §2, p. 1 di 11, PDF EIS p. 248: 1.859 psia alla faccia dell’iniettore, espansione 16,27:1 e rapporti di miscela.",
+      "check2": "Ingressi nominali di simulazione 2019 per il motore denominato Merlin 5; non pressione statica misurata o specifica universale attuale.",
+      "check3": "Conversione NIST: 12,81755 MPa, arrotondati 12,82; rilevata nel medesimo paragrafo l’ambiguità engine MR 2,356 / 2,58, conservata in nota.",
+      "kind": "valori nominali di modello e calcolo"
+    },
+    {
+      "id": "N13",
+      "section": "miscela-generatore-merlin",
+      "evidence": "ricco di combustibile",
+      "source": "merlin:eis2019",
+      "check1": "Rapporto Sierra §2 descrive esplicitamente fuel-rich gas exhaust e O/F generatore 0,423 contro 2,576 della camera.",
+      "check2": "Rapporti in massa, combustioni e flussi diversi nello stesso modello.",
+      "check3": "Coerenza con la distinzione funzionale generatore/camera dello schema esistente. Nessuna attribuzione delle portate simulate all’animazione; nessuna conferma indipendente inventata.",
+      "kind": "descrizione del modello pubblico"
+    },
+    {
+      "id": "N14",
+      "section": "regimi-turbopompa-merlin",
+      "evidence": "36.000 giri/min",
+      "source": "merlin:musk2018",
+      "check1": "Trascrizione primaria dell’intervista Musk/Swisher, pubblicata 2 novembre 2018, intervista 31 ottobre.",
+      "check2": "Indicazione approssimativa; non identifica versione o regime nominale/massimo.",
+      "check3": "Confronto con circa 30.000 giri/min dichiarati da Fiorucci nel servizio NASA gennaio 2021. Condizioni insufficienti per dimostrare contraddizione o evoluzione del regime.",
+      "kind": "dichiarazioni approssimative attribuite"
+    },
+    {
+      "id": "N15",
+      "section": "controlli-merlin",
+      "evidence": "ritorno all’ingresso a bassa pressione",
+      "source": "merlin:web2013",
+      "check1": "Descrizione SpaceX Merlin Engine archiviata 2013: cherosene in pressione dalla turbopompa agli attuatori e ricircolo.",
+      "check2": "Architettura descritta storicamente, non dichiarata identica su ogni Block 5.",
+      "check3": "Articolo tecnico SpaceX 2008 menziona l’assenza di un sistema idraulico separato; stessa origine costruttore. Verificata separazione da controllo elettronico e TVC.",
+      "kind": "descrizione tecnica storica SpaceX"
+    },
+    {
+      "id": "N16",
+      "section": "controlli-merlin",
+      "evidence": "servomotori brushless",
+      "source": "merlin:trim",
+      "check1": "Brochure ufficiale FAULHABER, p. 11, Rocket fuel valves.",
+      "check2": "Caso applicativo con immagine SpaceX, revisione del motore non dichiarata.",
+      "check3": "Non vengono trasferiti alla configurazione attuale rapporto di riduzione, tipo di valvola, banda o limiti O/F non identificati nella brochure. Unica fonte del fornitore.",
+      "kind": "dichiarazione del fornitore, attribuzione limitata"
+    },
+    {
+      "id": "N17",
+      "section": "controlli-merlin",
+      "evidence": "tre catene",
+      "source": "falcon",
+      "check1": "Guida 2025 §2.5, p. 10: three-string, fault-tolerant Falcon avionics.",
+      "check2": "Architettura del lanciatore, non automaticamente di ciascun motore.",
+      "check3": "Guida 2015 §2.4, p. 12, attribuisce la stessa caratteristica all’avionica Falcon. Nessuna ricostruzione di processori o voto del controller attuale.",
+      "kind": "descrizione SpaceX del sistema di volo"
+    },
+    {
+      "id": "N18",
+      "section": "cronologia-anomalie-merlin",
+      "evidence": "T+79 s",
+      "source": "merlin:crs1",
+      "check1": "Comunicato SpaceX CRS-1 dell’8 ottobre 2012, testo originale riprodotto da collectSPACE.",
+      "check2": "Merlin 1C, salita, 8 ottobre UTC / 7 ottobre Florida. Nota preliminare, non causa definitiva.",
+      "check3": "Comunicati ORBCOMM 8 e 11 ottobre, depositati SEC, verificano distinto esito del carico secondario e vincolo di riaccensione. Non viene inferita la causa dalle immagini.",
+      "kind": "resoconto primario preliminare"
+    },
+    {
+      "id": "N19",
+      "section": "cronologia-anomalie-merlin",
+      "evidence": "alcol isopropilico",
+      "source": "merlin:ipa2020",
+      "check1": "Messaggio originale Musk 22 aprile 2020, ID 1252985622219960327, verificato tramite oEmbed X.",
+      "check2": "Spegnimento in volo del 18 marzo 2020, diverso dall’avviamento del generatore dell’autunno 2020.",
+      "check3": "NASA ASAP, verbale pubblico del 15 maggio, p. 3, trasmesso con lettera del 22 maggio: causa probabile ancora da confermare e processi Demo-2 differenti. La data 26 maggio nel nome del PDF non è quella della riunione. Non aggiunte ipotesi giornalistiche su valvola o falso segnale termico.",
+      "kind": "dichiarazione primaria e stato investigativo istituzionale"
+    },
+    {
+      "id": "N20",
+      "section": "cronologia-anomalie-merlin",
+      "evidence": "protezione termica danneggiata",
+      "source": "merlin:reed2021",
+      "check1": "Dichiarazioni Reed alla conferenza NASA 1 marzo 2021, riprodotte testualmente da Stephen Clark.",
+      "check2": "Starlink 15 febbraio locale / 16 febbraio UTC, Merlin 1D; momento esatto dell’arresto non precisato nella citazione.",
+      "check3": "Distinti usura della protezione, gas caldi, arresto del motore ed esito del recupero. Nessuna deduzione che il difetto sia nato necessariamente durante il rientro.",
+      "kind": "dichiarazione primaria attribuita"
+    },
+    {
+      "id": "N21",
+      "section": "estensioni-mvac",
+      "evidence": "hard start",
+      "source": "merlin:july2024",
+      "check1": "SpaceX, Falcon 9 Returns to Flight, 25 luglio 2024: linea sensore, fatica, fascetta, LOX, raffreddamento, hard start, correttivi.",
+      "check2": "Starlink 9-3, prima accensione e secondo avviamento; 11 luglio California / 12 luglio UTC; 20 satelliti.",
+      "check3": "Coerenza fra sequenza del rapporto e cronologia; distinzione fra nominale recupero del booster e perdita dei satelliti. Conservata la qualifica causa più probabile, senza dichiarare chiusa formalmente l’indagine FAA.",
+      "kind": "risultato investigativo attribuito a SpaceX"
+    },
+    {
+      "id": "N22",
+      "section": "registri-riuso-merlin",
+      "evidence": "37 lanci e 37 atterraggi",
+      "source": "merlin:booster37",
+      "check1": "Messaggio originale SpaceX 25 agosto 2026, ID 2092186071266140286, letto mediante oEmbed X.",
+      "check2": "Primo traguardo 37 di un booster; non numero di voli di ciascun motore.",
+      "check3": "Conservata la data; nessuna certificazione di record assoluto al 25 ottobre, né attribuzione di seriali assenti dal messaggio. Nessuna seconda fonte primaria indipendente identificata.",
+      "kind": "traguardo storico dichiarato da SpaceX"
+    },
+    {
+      "id": "N23",
+      "section": "registri-riuso-merlin",
+      "evidence": "22ª missione",
+      "source": "merlin:engine22",
+      "check1": "Messaggio originale SpaceX 23 febbraio 2024, ID 1760882381148623202, letto mediante oEmbed X.",
+      "check2": "Un singolo Merlin, definito allora flight leader; non record attuale al 2026.",
+      "check3": "Verificata la distinzione rispetto al successivo traguardo del booster; nessuna inferenza su sostituzioni o numero di serie non pubblicato.",
+      "kind": "traguardo storico dichiarato da SpaceX"
+    },
+    {
+      "id": "N24",
+      "section": "genealogia-merlin-raptor",
+      "evidence": "Merlin 2",
+      "source": "merlin:faa2007",
+      "check1": "FAA 2007 pp. 37–38: previsione di sviluppo Merlin 2, con aumento di scala e pressione.",
+      "check2": "Progetto descritto al futuro, non motore qualificato o volato.",
+      "check3": "Separato dal Raptor full-flow LOX/metano documentato da NASA NTRS 20170005557, slide 12. Percorsi delle due monografie Raptor controllati nel repository.",
+      "kind": "progetto storico e distinzione di architettura"
+    }
+  ],
+  "unverified": [
+    "Massa a secco e rapporto spinta/peso delle configurazioni attuali con accessori definiti.",
+    "Isp attuale dei due motori e spinta nel vuoto del singolo M1D nella guida 2025.",
+    "Pressione statica in camera e O/F della configurazione attuale; il modello 2019 resta distinto.",
+    "Espansione M1D attuale nella guida 2025 e specifiche numeriche dell’estensione MVac corta.",
+    "Materiali, geometrie e raffreddamento di ogni revisione attuale dell’estensione MVac.",
+    "Architettura interna del controller attuale e sua eventuale tripla ridondanza per motore.",
+    "Regime nominale/massimo e sequenza evolutiva della turbopompa; revisione e limiti del fuel trim.",
+    "Record attuale assoluto del singolo motore e inventario completo dei booster al 25 ottobre 2026.",
+    "Totale riconciliato di accensioni, ore, sostituzioni e intervalli di manutenzione per esemplare.",
+    "Causa finale della perdita di pressione CRS-1 e momento preciso dell’arresto nella dichiarazione Reed del 2021."
+  ],
+  "original_text_changes": [
+    "Nessuna modifica ai paragrafi dei tredici capitoli, alle didascalie originali o ai primi 14 riferimenti.",
+    "Solo campo Stato in pagina ampliato per distinguere 1D/MVac operativi, 1A/1C storici e 1B non volato."
+  ],
+  "word_counts": {
+    "before": {
+      "all": 4029,
+      "without_sources": 3581,
+      "chapters": 2651
+    },
+    "after": {
+      "all": 8426,
+      "without_sources": 6916,
+      "chapters": 5150
+    },
+    "criterion": "Titoli, testo, dati, didascalie e fonti; esclusi menu, comandi e numeri dei rimandi bibliografici. Apostrofi e trattini interni mantengono una sola parola.",
+    "difference": 4397
+  },
+  "validation": {
+    "html_checker": "Nu HTML Checker W3C, documento finale: messages=[]",
+    "viewports": [
+      1440,
+      768,
+      390,
+      320
+    ],
+    "javascript_modes": [
+      true,
+      false
+    ],
+    "browser_results": "8 combinazioni passate; nessun overflow, errore JS o richiesta locale fallita",
+    "interactive": "GIF avvio/arresto, poster movimento ridotto, zoom e scorrimento da tastiera verificati",
+    "http_css": "4 fogli caricati e analizzati; 34 regole nel nuovo foglio; allineamento numerico right; verifica desktop e smartphone",
+    "preserved": "13 capitoli, 14 fonti iniziali, galleria e immagini precedenti, didascalie e interattività",
+    "changed_html_pages": [
+      "atlante/spacex/merlin.html"
+    ],
+    "auth": "GitHub permissions.push=true; main e gh-pages ancora al commit baseline prima del rilascio"
+  }
+}

@@ -28,8 +28,10 @@ fs.mkdirSync(qa,{recursive:true});
    assert.equal(await p.locator('#schema-animato').count(),1);
    const chapters=p.locator('.merlin-chapters>section');
    if(await chapters.count()){
-    assert.equal(await chapters.count(),13);
-    assert.equal(await p.locator('.merlin-contents li a').count(),13);
+    const article=JSON.parse(fs.readFileSync(path.join(root,'atlante/spacex/merlin-articolo.json'),'utf8'));
+    const additions=JSON.parse(fs.readFileSync(path.join(root,'atlante/spacex/merlin-integrazioni.json'),'utf8')).blocks;
+    assert.equal(await chapters.count(),article.sections.length+additions.filter(x=>x.placement==='end').length);
+    assert.equal(await p.locator('.merlin-contents li a').count(),article.sections.length+additions.length);
     for(const a of await p.locator('.merlin-contents a, .source-ref').all()){
      const href=await a.getAttribute('href');
      assert.equal(await p.locator(href).count(),1,href);
