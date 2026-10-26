@@ -158,6 +158,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-10-26",
+        "date_label": "26 ottobre 2026",
+        "tag": "SpaceX · Starship",
+        "title": "Starship, Booster 22 accende i 33 motori: superato lo static fire di Flight 15",
+        "summary": "Il 25 ottobre il Super Heavy di Flight 15 ha completato sul Pad 2 di Starbase un'accensione statica di durata piena con tutti i 33 Raptor, confermata da SpaceX. Ora tocca allo static fire di Ship 42, arrivata a Massey's nella notte. Prima data possibile 8 novembre; Flight 16 prepara il debutto dal complesso 39A in Florida.",
+        "href": "../documenti%20per%20sito/spacex_starship_b22_static_fire.html",
+        "image": "../documenti%20per%20sito/assets_starship_b22_static_fire/b22-static-fire-pad2.jpg",
+        "image_alt": "Starship Booster 22 accende i 33 motori Raptor sul Pad 2 di Starbase durante lo static fire del 25 ottobre 2026",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-10-25",
         "date_label": "25 ottobre 2026",
         "tag": "SpaceX · Starship",
@@ -166,8 +179,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_starship_b22_pad2.html",
         "image": "../documenti%20per%20sito/assets_starship_b22_pad2/b22-chopstick-olm.jpg",
         "image_alt": "Starship Booster 22 sollevato dalle braccia della torre sul supporto di lancio del Pad 2 di Starbase",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
