@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "imported": "2026-10-24",
-  "coverageEnd": "2026-10-23",
+  "imported": "2026-10-28",
+  "coverageEnd": "2026-10-27",
   "wikipedia": {
     "date": "2026-10-10",
     "principalLaunches": 713,
@@ -19,7 +19,7 @@
   "sources": [
     {
       "file": "01_workbook/lanci_spacex.xlsx",
-      "sha256": "a99adc88560a3628ecbd4f142488ec3801a1d3030beaf4145d19eefd351f6d85"
+      "sha256": "fd7966bc18dde383a618638d142f7f76b541fa55049325c44a8a56c5e58c5f82"
     },
     {
       "file": "01_workbook/sviluppo_starship.xlsx",
@@ -31,12 +31,12 @@
     },
     {
       "file": "sezioni/storico-lanci.html",
-      "sha256": "acd2e570c1eda08f5ab8be5071d9346ca8ff913ea4de6ed91d6963662dedd476"
+      "sha256": "d6a34d8288a528cf26c0f031995709dc490c7d5db34557720426a1ec229e1000"
     }
   ],
   "coverage": {
-    "principal": 719,
-    "principalLaunches": 718,
+    "principal": 720,
+    "principalLaunches": 719,
     "prelaunchEvents": 1,
     "starshipOverlap": 1,
     "additional": 28,
@@ -69958,6 +69958,73 @@
           "sourceRow": 748,
           "recovery": {
             "id": "SX-0719:booster:recupero",
+            "attempt": 1,
+            "landed": 1,
+            "physical": null,
+            "mode": "OCISLY",
+            "notes": "Flag di atterraggio del registro. Recupero fisico e sopravvivenza durante il trasporto non documentati separatamente."
+          }
+        }
+      ]
+    },
+    {
+      "id": "SX-0720",
+      "name": "Starlink Group 15-16",
+      "date": "2026-10-27",
+      "family": "Falcon 9",
+      "launcher": "Falcon 9 bl 5",
+      "scope": "falcon",
+      "originalPhase": "Storico",
+      "class": "Starlink",
+      "pad": "SLC-4E",
+      "padId": "PAD-SLC4E",
+      "orbit": "LEO",
+      "source": "lanci_spacex.xlsx · elenco · riga 749",
+      "sourceRow": 749,
+      "references": [
+        "https://www.spacex.com/launches/sl-15-16",
+        "https://ll.thespacedevs.com/2.3.0/launches/e2886a96-5ce9-4f45-872f-4e25a00be837/"
+      ],
+      "sourceNote": "https://www.spacex.com/launches/sl-15-16 ; https://ll.thespacedevs.com/2.3.0/launches/e2886a96-5ce9-4f45-872f-4e25a00be837/",
+      "video": "https://www.spacex.com/launches/sl-15-16",
+      "notes": "27 satelliti Starlink. Booster B1082 al 26° volo, atterrato su OCISLY. Successo confermato da Launch Library 2 (Launch Successful).",
+      "issues": [
+        "Esito del carico non documentato separatamente."
+      ],
+      "programFlight": null,
+      "attempt": {
+        "id": "SX-0720:decollo",
+        "missionId": "SX-0720",
+        "status": "decollato",
+        "ordinal": null,
+        "cancelledAttempts": null
+      },
+      "launch": {
+        "id": "SX-0720:lancio",
+        "missionId": "SX-0720",
+        "attemptId": "SX-0720:decollo",
+        "outcome": "successo",
+        "timeUTC": "07:25:51"
+      },
+      "payload": {
+        "outcome": null,
+        "count": null,
+        "description": "Starlink Group 15-16",
+        "source": "lanci_spacex.xlsx · elenco · riga 749"
+      },
+      "flights": [
+        {
+          "id": "SX-0720:booster",
+          "launchId": "SX-0720:lancio",
+          "role": "booster",
+          "serial": "B1082",
+          "serialOriginal": "B1082",
+          "ordinal": 26,
+          "ordinalOriginal": 26,
+          "source": "lanci_spacex.xlsx · elenco · riga 749",
+          "sourceRow": 749,
+          "recovery": {
+            "id": "SX-0720:booster:recupero",
             "attempt": 1,
             "landed": 1,
             "physical": null,
