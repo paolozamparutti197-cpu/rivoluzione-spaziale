@@ -158,6 +158,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-10-28",
+        "date_label": "28 ottobre 2026",
+        "tag": "SpaceX · Starship",
+        "title": "Starship, Ship 42 accende i sei Raptor: Flight 15 ha superato tutte le prove a terra",
+        "summary": "Il 27 ottobre lo stadio superiore di Flight 15 ha completato a Massey's gli static fire con uno e con sei motori, dopo quello di Booster 22. Il volo della doppia presa è atteso a novembre, senza data ufficiale. Ship 43 e Booster 23 avanzano verso Flight 16 dal 39A, e SpaceX qualifica l'adattatore di aggancio con Orion.",
+        "href": "../documenti%20per%20sito/spacex_starship_s42_static_fire.html",
+        "image": "../documenti%20per%20sito/assets_starship_s42_static_fire/s42-static-fire-sei-motori.jpg",
+        "image_alt": "Starship Ship 42 accende i sei motori Raptor sul banco di Massey's durante lo static fire del 27 ottobre 2026",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-10-26",
         "date_label": "26 ottobre 2026",
         "tag": "SpaceX · Starship",
@@ -166,8 +179,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_starship_b22_static_fire.html",
         "image": "../documenti%20per%20sito/assets_starship_b22_static_fire/b22-static-fire-pad2.jpg",
         "image_alt": "Starship Booster 22 accende i 33 motori Raptor sul Pad 2 di Starbase durante lo static fire del 25 ottobre 2026",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
