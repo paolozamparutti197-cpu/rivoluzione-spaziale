@@ -564,3 +564,12 @@ Punti aperti:
 - Starlink 15-15 non compare piu tra i prossimi lanci: build_manifest_launches (aggiorna_lanci_spacex_sito.py L572-574) scarta le
   missioni con NET gia passato; non c'e un confronto con il workbook.
 - Publish eeb53d6 su main e gh-pages; online 200: SX-0719.html, storico-lanci.html (718/713, ultimo 15-15), spacex.html (718), lanci-imminenti.html (prima 15-16).
+
+28/10/2026 - Bot C: SX-0720 Starlink Group 15-16 (27/10 07:25:51, B1082-26)
+- Stash list vuota. Fast-forward a b188841. Backup di "documenti per sito/spacex_artemis_briefing_starship.html" (solo blocco
+  di navigazione) in 02_backup\spacex_artemis_briefing_starship_20261028_pre_ff.html, file riportato a HEAD.
+- Revisioni nuove in 00_documentazione: solo monografia Merlin (25/10), nessun impatto sulla pipeline.
+- Workbook 720/714 -> sito 719/714. Passi 1 e 2 exit 0 (agenda +1/-1/2 modificati). Controlli README exit 0.
+- Starlink 15-16 non compare piu tra i prossimi lanci (filtro NET passato). Prima card: Starlink 15-18 2026-10-30T04:02:00Z.
+- Publish faf1c2d (756 file) su main e gh-pages; online 200: SX-0720.html, storico-lanci.html (719/714, ultimo 15-16),
+  spacex.html (719), lanci-imminenti.html (prima 15-18).
