@@ -158,6 +158,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-10-29",
+        "date_label": "29 ottobre 2026",
+        "tag": "SpaceX · Starlink Mobile",
+        "title": "Starlink Mobile in soccorso a Urda, e a Washington la FCC vota sullo spettro satellitare",
+        "summary": "Dopo lo scontro tra due treni ad alta velocità in provincia di Toledo, Orange e Movistar attivano gratis la copertura satellitare di Starlink dove dodici antenne sono fuori uso. Musk: «Standard practice». Oggi la FCC vota la proposta che apre altri 482 MHz al direct-to-device, contestata da AT&T, Verizon e T-Mobile.",
+        "href": "../documenti%20per%20sito/spacex_starlink_mobile_spagna.html",
+        "image": "../documenti%20per%20sito/assets_starlink_mobile_spagna/slsp-falcon9-starlink.jpg",
+        "image_alt": "Un Falcon 9 decolla da Cape Canaveral con un carico di satelliti Starlink",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-10-28",
         "date_label": "28 ottobre 2026",
         "tag": "SpaceX · Starship",
@@ -166,8 +179,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_starship_s42_static_fire.html",
         "image": "../documenti%20per%20sito/assets_starship_s42_static_fire/s42-static-fire-sei-motori.jpg",
         "image_alt": "Starship Ship 42 accende i sei motori Raptor sul banco di Massey's durante lo static fire del 27 ottobre 2026",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
