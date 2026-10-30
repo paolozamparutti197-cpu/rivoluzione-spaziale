@@ -158,6 +158,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-10-30",
+        "date_label": "30 ottobre 2026",
+        "tag": "SpaceX · Super Intelligence",
+        "title": "Anthropic è il «Cliente B»: un terzo dei ricavi di SpaceX arriva dal calcolo per l’intelligenza artificiale",
+        "summary": "Nel terzo trimestre 2026 un solo cliente ha pagato il 34,5% dei ricavi di SpaceX, circa 5 miliardi di dollari, superando il governo americano. Secondo Bloomberg è Anthropic, che affitta i data center Colossus di Memphis con contratti fino a 120,5 miliardi al 2029, disdettabili con 90 giorni di preavviso da inizio 2027.",
+        "href": "../documenti%20per%20sito/spacex_anthropic_cliente_b.html",
+        "image": "../documenti%20per%20sito/assets_anthropic_cliente_b/acb-amodei.jpg",
+        "image_alt": "Dario Amodei, amministratore delegato di Anthropic, sul palco di TechCrunch Disrupt 2023",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-10-29",
         "date_label": "29 ottobre 2026",
         "tag": "SpaceX · Starlink Mobile",
@@ -166,8 +179,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_starlink_mobile_spagna.html",
         "image": "../documenti%20per%20sito/assets_starlink_mobile_spagna/slsp-falcon9-starlink.jpg",
         "image_alt": "Un Falcon 9 decolla da Cape Canaveral con un carico di satelliti Starlink",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
