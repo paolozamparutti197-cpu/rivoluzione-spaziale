@@ -573,3 +573,12 @@ Punti aperti:
 - Starlink 15-16 non compare piu tra i prossimi lanci (filtro NET passato). Prima card: Starlink 15-18 2026-10-30T04:02:00Z.
 - Publish faf1c2d (756 file) su main e gh-pages; online 200: SX-0720.html, storico-lanci.html (719/714, ultimo 15-16),
   spacex.html (719), lanci-imminenti.html (prima 15-18).
+
+31/10/2026 - Bot C: SX-0721 Starlink Group 15-18 (31/10 04:04:34, B1093-18)
+- Stash list vuota. Fast-forward a dd2a553. Backup di "documenti per sito/spacex_starship_s42_static_fire.html" (solo blocco
+  di navigazione) in 02_backup\spacex_starship_s42_static_fire_20261031_pre_ff.html, file riportato a HEAD.
+- Nessuna revisione nuova in 00_documentazione. Esclusione Amos-6 (SX-0034) presente in genera_sito_rivoluzione.py (L799).
+- Workbook 721/715 -> sito 720/715. Passi 1 e 2 exit 0 (agenda +3/-1/3 modificati). Controlli README exit 0.
+- Starlink 15-18 non compare piu tra i prossimi lanci (filtro NET passato). Prima card: USSF-432 2026-11-03T01:42:00Z.
+- Publish 78f6b62 (757 file) su main e gh-pages; online 200: SX-0721.html, storico-lanci.html (720/715, ultimo 15-18),
+  spacex.html (720), lanci-imminenti.html (prima USSF-432).
