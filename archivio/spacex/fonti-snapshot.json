@@ -1,9 +1,9 @@
 {
-  "date": "2026-10-28",
+  "date": "2026-10-31",
   "sources": [
     {
       "file": "01_workbook/lanci_spacex.xlsx",
-      "sha256": "fd7966bc18dde383a618638d142f7f76b541fa55049325c44a8a56c5e58c5f82"
+      "sha256": "bc78c00ae2216a9c4e4c791f0fa57dee80eda49ac023b1ad07ddd525e0330914"
     },
     {
       "file": "01_workbook/sviluppo_starship.xlsx",
@@ -15,7 +15,7 @@
     },
     {
       "file": "sezioni/storico-lanci.html",
-      "sha256": "d6a34d8288a528cf26c0f031995709dc490c7d5db34557720426a1ec229e1000"
+      "sha256": "463da0fe951b02463434744f6d7e8ce6244831b05df73b94b8e8fc29de302890"
     }
   ],
   "launches": [
@@ -31430,6 +31430,48 @@
       "voli_ship": null,
       "note_missione": "27 satelliti Starlink. Booster B1082 al 26° volo, atterrato su OCISLY. Successo confermato da Launch Library 2 (Launch Successful).",
       "fonti_missione": "https://www.spacex.com/launches/sl-15-16 ; https://ll.thespacedevs.com/2.3.0/launches/e2886a96-5ce9-4f45-872f-4e25a00be837/",
+      "esito_definito_num": 1,
+      "esito_orbita": null,
+      "esito_payload": null,
+      "numero_payload": null
+    },
+    {
+      "source_row": 750,
+      "nr": 721,
+      "data": "2026-10-31",
+      "year": 2026,
+      "lanciatore": "Falcon 9 bl 5",
+      "cliente": "Starlink Group 15-18",
+      "stato": "successo",
+      "video": "lancio",
+      "orbita": "LEO",
+      "landing": "OCISLY",
+      "booster": "B1093",
+      "voli": 18,
+      "dove": "SLC-4E",
+      "s.bl 5": 2026,
+      "s.f.h.": null,
+      "tipo_record": "Lancio principale",
+      "data_evento": "2026-10-31",
+      "anno_mese": "2026-10-01",
+      "famiglia_lanciatore": "Falcon 9",
+      "classe_missione": "Starlink",
+      "esito_lancio_num": 1,
+      "tentativo_recupero": 1,
+      "recupero_riuscito": 1,
+      "booster_riutilizzato": 1,
+      "area_lancio": "Vandenberg",
+      "video_url": "https://www.spacex.com/launches/sl-15-18",
+      "id_lancio": "SX-0721",
+      "fase_programma": "Storico",
+      "volo_programma": null,
+      "versione_veicolo": null,
+      "pad_id": "PAD-SLC4E",
+      "ora_utc": "04:04:34",
+      "ship": null,
+      "voli_ship": null,
+      "note_missione": "27 satelliti Starlink. Booster B1093 al 18° volo, atterrato su OCISLY. Successo confermato da Launch Library 2 (Launch Successful).",
+      "fonti_missione": "https://www.spacex.com/launches/sl-15-18 ; https://ll.thespacedevs.com/2.3.0/launches/57ce0a39-d035-4f16-a418-bd6108f78199/",
       "esito_definito_num": 1,
       "esito_orbita": null,
       "esito_payload": null,
