@@ -158,6 +158,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-10-31",
+        "date_label": "31 ottobre 2026",
+        "tag": "SpaceX · Azionisti",
+        "title": "Shotwell regala oltre 2 milioni di azioni SpaceX ai ragazzi: a dicembre nei Trump Accounts",
+        "summary": "La presidente di SpaceX e il marito Robert hanno messo in deposito oltre 2 milioni di azioni, circa 270 milioni di dollari: a dicembre andranno nei Trump Accounts di ragazzi fra gli 11 e i 17 anni delle zone a basso reddito, circa un’azione a testa. È il primo regalo di azioni SpaceX che arriva davvero nei conti dei minori, e una prova generale per la promessa di Musk.",
+        "href": "../documenti%20per%20sito/spacex_shotwell_azioni_trump_accounts.html",
+        "image": "../documenti%20per%20sito/assets_shotwell_azioni_trump_accounts/trump-accounts-1227.jpg",
+        "image_alt": "Ragazzi con il cartello Thank you for Trump Accounts nello Studio Ovale, 7 ottobre 2026",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-10-30",
         "date_label": "30 ottobre 2026",
         "tag": "SpaceX · Super Intelligence",
@@ -166,8 +179,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_anthropic_cliente_b.html",
         "image": "../documenti%20per%20sito/assets_anthropic_cliente_b/acb-amodei.jpg",
         "image_alt": "Dario Amodei, amministratore delegato di Anthropic, sul palco di TechCrunch Disrupt 2023",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
