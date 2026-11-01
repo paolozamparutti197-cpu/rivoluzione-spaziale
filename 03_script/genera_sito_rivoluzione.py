@@ -158,6 +158,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-11-01",
+        "date_label": "1 novembre 2026",
+        "tag": "SpaceX · Starship",
+        "title": "Starship, Flight 15 punta al 12 novembre: settimana record a Starbase e il ruolo in Artemis III",
+        "summary": "Booster 22 e Ship 42 hanno chiuso gli static fire, Ship 43 ha fatto le prove di presa con la torre del Pad 2 e il calendario della contea di Cameron sposta la prima data possibile del volo della doppia presa al 12 novembre, in attesa della licenza FAA. Isaacman spiega che in Artemis III Starship partirà dopo Blue Moon e lo SLS.",
+        "href": "../documenti%20per%20sito/spacex_starship_flight15_12novembre.html",
+        "image": "../documenti%20per%20sito/assets_starship_flight15_12novembre/s43-prova-presa-pad2.jpg",
+        "image_alt": "Ship 43 sollevata di notte dalle braccia della torre del Pad 2 di Starbase durante le prove di presa, con la luna fra le nuvole",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-10-31",
         "date_label": "31 ottobre 2026",
         "tag": "SpaceX · Azionisti",
@@ -166,8 +179,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_shotwell_azioni_trump_accounts.html",
         "image": "../documenti%20per%20sito/assets_shotwell_azioni_trump_accounts/trump-accounts-1227.jpg",
         "image_alt": "Ragazzi con il cartello Thank you for Trump Accounts nello Studio Ovale, 7 ottobre 2026",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
