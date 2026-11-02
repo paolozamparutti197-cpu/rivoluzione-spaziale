@@ -158,6 +158,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-11-02",
+        "date_label": "2 novembre 2026",
+        "tag": "SpaceX · Intelligenza artificiale",
+        "title": "Musk: il calcolo in orbita supererà quello a terra entro fine 2028",
+        "summary": "Nel fine settimana Elon Musk ha definito «noccioline» i centri dati terrestri rispetto ai satelliti Starmind, ha difeso l’efficienza degli investimenti contro una stima da 470 miliardi e rivendicato il primato di Colossus 2. Cosa sono i satelliti per l’IA in orbita, quanto costano e perché servono migliaia di voli di Starship.",
+        "href": "../documenti%20per%20sito/spacex_calcolo_orbitale_2028.html",
+        "image": "../documenti%20per%20sito/assets_spacex_calcolo_orbitale/starmind-orbita.jpg",
+        "image_alt": "Rendering di un satellite Starmind con le ali solari illuminate sopra la Terra",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-11-01",
         "date_label": "1 novembre 2026",
         "tag": "SpaceX · Starship",
@@ -166,8 +179,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_starship_flight15_12novembre.html",
         "image": "../documenti%20per%20sito/assets_starship_flight15_12novembre/s43-prova-presa-pad2.jpg",
         "image_alt": "Ship 43 sollevata di notte dalle braccia della torre del Pad 2 di Starbase durante le prove di presa, con la luna fra le nuvole",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
