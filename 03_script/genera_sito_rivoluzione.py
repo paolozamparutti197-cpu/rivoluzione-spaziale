@@ -158,6 +158,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-11-03",
+        "date_label": "3 novembre 2026",
+        "tag": "SpaceX · Starfall",
+        "title": "Starfall esce dall’ombra: SpaceX mette in vendita i voli in microgravità",
+        "summary": "SpaceX ha aperto la pagina commerciale di Starfall, la sua capsula di rientro: fino a 1.000 kg di carico, 1 kW di potenza, settimane in orbita con esperimenti sempre collegati via Starlink e lanci su Starship. Tre missioni sono già firmate; l’Aeronautica americana racconta il suo test di consegna dallo spazio con il volo di ottobre.",
+        "href": "../documenti%20per%20sito/spacex_starfall_vetrina.html",
+        "image": "../documenti%20per%20sito/assets_starfall_vetrina/starfall-zattera.jpg",
+        "image_alt": "Una zattera di salvataggio arancione sollevata con cinghie gialle sopra l’hardware della capsula Starfall, in un capannone con la bandiera americana",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-11-02",
         "date_label": "2 novembre 2026",
         "tag": "SpaceX · Intelligenza artificiale",
@@ -166,8 +179,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_calcolo_orbitale_2028.html",
         "image": "../documenti%20per%20sito/assets_spacex_calcolo_orbitale/starmind-orbita.jpg",
         "image_alt": "Rendering di un satellite Starmind con le ali solari illuminate sopra la Terra",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
