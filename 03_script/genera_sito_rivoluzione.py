@@ -158,6 +158,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-11-04",
+        "date_label": "4 novembre 2026",
+        "tag": "SpaceX · Starlink Mobile",
+        "title": "Starlink Mobile bussa a Boost: SpaceX tratta con EchoStar per entrare nella telefonia americana",
+        "summary": "Musk ha incontrato Charlie Ergen per comprare Boost Mobile o usarne la rete: 7,38 milioni di abbonati e una struttura commerciale già pronta per Starlink Mobile. Ma i contratti di Boost dipendono da AT&T e T-Mobile, che hanno già detto no a SpaceX. Nessun accordo è stato annunciato.",
+        "href": "../documenti%20per%20sito/spacex_starlink_boost_mobile.html",
+        "image": "../documenti%20per%20sito/assets_starlink_boost_mobile/boost-negozio.jpg",
+        "image_alt": "Facciata di un negozio Boost Mobile con insegna blu e arancione",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-11-03",
         "date_label": "3 novembre 2026",
         "tag": "SpaceX · Starfall",
@@ -166,8 +179,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_starfall_vetrina.html",
         "image": "../documenti%20per%20sito/assets_starfall_vetrina/starfall-zattera.jpg",
         "image_alt": "Una zattera di salvataggio arancione sollevata con cinghie gialle sopra l’hardware della capsula Starfall, in un capannone con la bandiera americana",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
