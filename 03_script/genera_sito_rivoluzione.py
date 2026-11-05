@@ -158,6 +158,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-11-05",
+        "date_label": "5 novembre 2026",
+        "tag": "SpaceX · Starlink Mobile",
+        "title": "Starlink Mobile sceglie Qualcomm: la rete 5G terrestre americana prende forma",
+        "summary": "Qualcomm fornisce le piattaforme Dragonwing QRU100 e QDU100 per decine di migliaia di macro celle 5G di Starlink Mobile. Dispiegamento dal 2027, Massive MIMO 64T64R fino a 2 GHz, rete ibrida satellitare e terrestre. Valore dell’accordo non divulgato.",
+        "href": "../documenti%20per%20sito/spacex_starlink_qualcomm_5g.html",
+        "image": "../documenti%20per%20sito/assets_starlink_qualcomm_5g/qcom-annuncio.jpg",
+        "image_alt": "Grafica ufficiale Qualcomm sull’accordo Dragonwing per Starlink Mobile",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-11-04",
         "date_label": "4 novembre 2026",
         "tag": "SpaceX · Starlink Mobile",
@@ -166,8 +179,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_starlink_boost_mobile.html",
         "image": "../documenti%20per%20sito/assets_starlink_boost_mobile/boost-negozio.jpg",
         "image_alt": "Facciata di un negozio Boost Mobile con insegna blu e arancione",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
