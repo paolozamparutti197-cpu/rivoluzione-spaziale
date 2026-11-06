@@ -158,6 +158,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-11-06",
+        "date_label": "6 novembre 2026",
+        "tag": "SpaceX · Starship",
+        "title": "Starship Flight 15: SpaceX punta al 13 novembre per il primo catch della Ship",
+        "summary": "Kiko Dontchev indica il venerdì 13 novembre come data obiettivo per Flight 15. Resta in programma la doppia presa: Super Heavy e, per la prima volta, la Ship. Booster 22 e Ship 42 hanno chiuso gli static fire; manca ancora la licenza FAA.",
+        "href": "../documenti%20per%20sito/spacex_starship_flight15_catch.html",
+        "image": "../documenti%20per%20sito/assets_starship_flight15_catch/catch-booster-ift5-avvicinamento.jpg",
+        "image_alt": "Super Heavy in avvicinamento alla torre di Starbase per il catch, IFT-5",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-11-05",
         "date_label": "5 novembre 2026",
         "tag": "SpaceX · Starlink Mobile",
@@ -166,8 +179,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_starlink_qualcomm_5g.html",
         "image": "../documenti%20per%20sito/assets_starlink_qualcomm_5g/qcom-annuncio.jpg",
         "image_alt": "Grafica ufficiale Qualcomm sull’accordo Dragonwing per Starlink Mobile",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
