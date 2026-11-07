@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "imported": "2026-10-31",
-  "coverageEnd": "2026-10-31",
+  "imported": "2026-11-07",
+  "coverageEnd": "2026-11-07",
   "wikipedia": {
     "date": "2026-10-10",
     "principalLaunches": 713,
@@ -19,7 +19,7 @@
   "sources": [
     {
       "file": "01_workbook/lanci_spacex.xlsx",
-      "sha256": "bc78c00ae2216a9c4e4c791f0fa57dee80eda49ac023b1ad07ddd525e0330914"
+      "sha256": "c9067faf7ecb7619087e68c097c29e83ee3a67229518b837719cf5500fb3d496"
     },
     {
       "file": "01_workbook/sviluppo_starship.xlsx",
@@ -31,12 +31,12 @@
     },
     {
       "file": "sezioni/storico-lanci.html",
-      "sha256": "463da0fe951b02463434744f6d7e8ce6244831b05df73b94b8e8fc29de302890"
+      "sha256": "81c82f39c0ee41fce2c568934941df4322bec18b033f6e97df16170376d8277e"
     }
   ],
   "coverage": {
-    "principal": 721,
-    "principalLaunches": 720,
+    "principal": 722,
+    "principalLaunches": 721,
     "prelaunchEvents": 1,
     "starshipOverlap": 1,
     "additional": 28,
@@ -70092,6 +70092,73 @@
           "sourceRow": 750,
           "recovery": {
             "id": "SX-0721:booster:recupero",
+            "attempt": 1,
+            "landed": 1,
+            "physical": null,
+            "mode": "OCISLY",
+            "notes": "Flag di atterraggio del registro. Recupero fisico e sopravvivenza durante il trasporto non documentati separatamente."
+          }
+        }
+      ]
+    },
+    {
+      "id": "SX-0722",
+      "name": "USSF-432",
+      "date": "2026-11-07",
+      "family": "Falcon 9",
+      "launcher": "Falcon 9 bl 5",
+      "scope": "falcon",
+      "originalPhase": "Storico",
+      "class": "Commerciale/Istituzionale",
+      "pad": "SLC-4E",
+      "padId": "PAD-SLC4E",
+      "orbit": "LEO",
+      "source": "lanci_spacex.xlsx · elenco · riga 751",
+      "sourceRow": 751,
+      "references": [
+        "https://www.spacex.com/launches/ussf432",
+        "https://ll.thespacedevs.com/2.3.0/launches/54d471e8-695c-4fa7-a3cf-dbd8b389e8ae/"
+      ],
+      "sourceNote": "https://www.spacex.com/launches/ussf432 ; https://ll.thespacedevs.com/2.3.0/launches/54d471e8-695c-4fa7-a3cf-dbd8b389e8ae/",
+      "video": "https://www.spacex.com/launches/ussf432",
+      "notes": "Missione classificata della US Space Force (probabili satelliti Starshield in LEO). Booster B1095 all'8° volo, atterrato su OCISLY. Successo confermato da Launch Library 2 (Launch Successful).",
+      "issues": [
+        "Esito del carico non documentato separatamente."
+      ],
+      "programFlight": null,
+      "attempt": {
+        "id": "SX-0722:decollo",
+        "missionId": "SX-0722",
+        "status": "decollato",
+        "ordinal": null,
+        "cancelledAttempts": null
+      },
+      "launch": {
+        "id": "SX-0722:lancio",
+        "missionId": "SX-0722",
+        "attemptId": "SX-0722:decollo",
+        "outcome": "successo",
+        "timeUTC": "00:48:42"
+      },
+      "payload": {
+        "outcome": null,
+        "count": null,
+        "description": "USSF-432",
+        "source": "lanci_spacex.xlsx · elenco · riga 751"
+      },
+      "flights": [
+        {
+          "id": "SX-0722:booster",
+          "launchId": "SX-0722:lancio",
+          "role": "booster",
+          "serial": "B1095",
+          "serialOriginal": "B1095",
+          "ordinal": 8,
+          "ordinalOriginal": 8,
+          "source": "lanci_spacex.xlsx · elenco · riga 751",
+          "sourceRow": 751,
+          "recovery": {
+            "id": "SX-0722:booster:recupero",
             "attempt": 1,
             "landed": 1,
             "physical": null,
