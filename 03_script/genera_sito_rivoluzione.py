@@ -158,6 +158,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-11-07",
+        "date_label": "7 novembre 2026",
+        "tag": "SpaceX · Falcon 9 / Starshield",
+        "title": "USSF-432: Falcon 9 porta in orbita la quarta tornata di satelliti segreti della Space Force",
+        "summary": "Alle 01:48 ora italiana del 7 novembre un Falcon 9 è partito da Vandenberg con la missione classificata USSF-432, quarta della serie R. A bordo, con ogni probabilità, 23 satelliti Starshield per il programma Space Based Sensing and Targeting. Il booster B1095, all'ottavo volo, è atterrato nel Pacifico; il rilascio dei satelliti non è stato comunicato.",
+        "href": "../documenti%20per%20sito/spacex_ussf432_starshield.html",
+        "image": "../documenti%20per%20sito/assets_ussf432_starshield/ussf432-decollo-tramonto.jpg",
+        "image_alt": "Falcon 9 della missione USSF-432 decolla da Vandenberg al tramonto, con il sole basso sul Pacifico",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-11-06",
         "date_label": "6 novembre 2026",
         "tag": "SpaceX · Starship",
@@ -166,8 +179,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_starship_flight15_catch.html",
         "image": "../documenti%20per%20sito/assets_starship_flight15_catch/catch-booster-ift5-avvicinamento.jpg",
         "image_alt": "Super Heavy in avvicinamento alla torre di Starbase per il catch, IFT-5",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
