@@ -1,0 +1,19 @@
+/* Countdown del cruscotto: stili isolati dalle card dell’agenda. */
+.flight-window{margin-top:20px;padding:17px 16px 14px;border:1px solid rgba(105,200,255,.48);border-top:3px solid #f2b84b;border-radius:8px;background:linear-gradient(135deg,rgba(105,200,255,.09),rgba(0,0,0,.2));color:#f5f7fa}
+.flight-window-heading{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.flight-window-heading h4{margin:0;color:#f2c46d;font-size:12px;line-height:1.5;letter-spacing:.06em;text-transform:uppercase}
+.flight-window-badge{font-size:10px;font-weight:850;letter-spacing:.08em;border:1px solid #667c88;border-radius:4px;padding:3px 6px;color:#dff4ff}
+.flight-window-state{margin:7px 0 12px;color:#d4e1ea;font-size:12px;line-height:1.5}
+.flight-window-digits{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;text-align:center}
+.flight-window-digits>div{min-width:0;padding:8px 2px 7px;border:1px solid rgba(255,255,255,.16);border-radius:5px;background:rgba(0,0,0,.25)}
+.flight-window-digits b{display:block;font:800 clamp(25px,3vw,38px)/1.1 system-ui,sans-serif;font-variant-numeric:tabular-nums;letter-spacing:.015em;color:#fff}
+.flight-window-digits span{display:block;margin-top:5px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#b8d8e9}
+.flight-window .flight-window-date{margin:13px 0 3px;font-size:16px;font-weight:800;line-height:1.5;color:#f5f7fa}
+.flight-window .flight-window-zones{margin:0;font-size:11px;line-height:1.6;color:#c3d5df}
+.flight-window .flight-window-note{margin:9px 0 0;font-size:11px;line-height:1.6;color:#bdc7cf}
+.flight-window .flight-window-links{margin:10px 0 0;font-size:11px;line-height:1.6;color:#bdc7cf}
+.flight-window-links a{color:#9edcff;text-decoration:underline;text-underline-offset:3px}
+.flight-window-links a:focus-visible{outline:2px solid #f2b84b;outline-offset:4px}
+.flight-window[data-window-phase="open"]{border-top-color:#78d58c}
+.flight-window[data-window-phase="ended"]{border-top-color:#b7c3ca}
+@media(max-width:400px){.flight-window{padding:14px 10px}.flight-window-digits{gap:5px}.flight-window .flight-window-date{font-size:14px}.flight-window-heading h4{font-size:11px}}

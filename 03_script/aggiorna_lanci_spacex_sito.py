@@ -101,6 +101,8 @@ PUBLISH_FILES = [
     "03_script/aggiorna_archivio_spacex.py",
     "css/lettori-spacex.css",
     "js/lettori-spacex.js",
+    "css/countdown-finestra.css",
+    "js/countdown-finestra.js",
     "ricerca/spacex.json",
     "sezioni/cerca-spacex.html",
     "sezioni/percorsi-spacex.html",

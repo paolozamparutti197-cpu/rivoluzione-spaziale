@@ -18,6 +18,15 @@ CSS_DIR = ROOT / "css"
 HERO_IMAGE = "https://upload.wikimedia.org/wikipedia/commons/5/5d/Falcon_1_Flight_4_launch.jpg"
 CSS_VERSION = "20260830-f13-f14"
 FLIGHT15_DOSSIER = "../documenti%20per%20sito/spacex_starship_flight15_preparazione.html"
+# Unica configurazione del countdown: usare sempre istanti UTC espliciti.
+# La fine della finestra non prova che il razzo sia decollato.
+FLIGHT15_WINDOW = {
+    "start": "2026-11-13T22:45:00Z",
+    "end": "2026-11-14T00:00:00Z",
+    "article": "../documenti%20per%20sito/spacex_starship_flight15_ufficiale.html",
+    "source": "https://www.spacex.com/launches/starship-flight-15",
+    "checked": "2026-11-08",
+}
 ROME_TZ = ZoneInfo("Europe/Rome")
 MONTHS_IT = {
     1: "gennaio",
@@ -1544,6 +1553,38 @@ def flight15_preview(data):
     </div></section>'''
 
 
+def flight15_window_times():
+    start = datetime.fromisoformat(FLIGHT15_WINDOW["start"].replace("Z", "+00:00"))
+    end = datetime.fromisoformat(FLIGHT15_WINDOW["end"].replace("Z", "+00:00"))
+    if start.tzinfo is None or end.tzinfo is None or end <= start:
+        raise ValueError("Finestra Flight 15 non valida: servono istanti con fuso e fine successiva all’inizio")
+    italy = start.astimezone(ROME_TZ)
+    texas = start.astimezone(ZoneInfo("America/Chicago"))
+    date_label = f"{italy.day} {MONTHS_IT[italy.month]}"
+    zones = (f"{start.astimezone(timezone.utc):%H:%M} UTC · {texas:%H:%M} in Texas ({texas.tzname()}) · "
+             f"finestra di {int((end - start).total_seconds() / 60)} minuti")
+    return date_label, f"{date_label} {italy.year} · {italy:%H:%M} italiane", zones, italy.strftime("%H:%M")
+
+
+def flight15_window_countdown(data):
+    if not flight15_pending(data):
+        return ""
+    window = FLIGHT15_WINDOW
+    _, date_label, zones, _ = flight15_window_times()
+    return f'''<div class="flight-window" data-launch-window data-start="{window['start']}" data-end="{window['end']}" data-checked="{window['checked']}" aria-labelledby="flight15-window-title">
+      <div class="flight-window-heading"><h4 id="flight15-window-title">Flight 15 · apertura finestra</h4><span class="flight-window-badge">NET</span></div>
+      <p class="flight-window-state" data-window-state role="status" aria-live="polite">Conto alla rovescia all’apertura</p>
+      <div class="flight-window-digits" role="timer" aria-label="Tempo rimanente all’apertura della finestra" aria-live="off">
+        <div><b data-window-part="days">—</b><span>giorni</span></div><div><b data-window-part="hours">—</b><span>ore</span></div><div><b data-window-part="minutes">—</b><span>minuti</span></div><div><b data-window-part="seconds">—</b><span>secondi</span></div>
+      </div>
+      <p class="flight-window-date"><time datetime="{window['start']}">{date_label}</time></p>
+      <p class="flight-window-zones">{zones}</p>
+      <p class="flight-window-note">Il timer indica l’apertura, non un decollo garantito. Lancio soggetto ad autorizzazioni e possibili rinvii.</p>
+      <p class="flight-window-links"><a href="{window['article']}">Leggi la breaking news</a> · <a href="{window['source']}">Fonte SpaceX</a></p>
+      <noscript><p class="flight-window-note">Per i secondi in tempo reale occorre JavaScript. Data e orario restano consultabili qui sopra.</p></noscript>
+    </div>'''
+
+
 def percent(value):
     if value is None:
         return "n.d."
@@ -2946,6 +2987,7 @@ def render_spacex(data):
         else '<div class="panel"><p class="muted">Nessun T-0 puntuale disponibile al momento.</p></div>'
     )
     starship_stato = f"{data['starship']['metrics']['voli']} voli integrati nel dossier di sviluppo"
+    flight15_date, _, _, flight15_time = flight15_window_times()
     kpi_metrics = "".join(
         [
             metric(f"{f['lanci']:,}".replace(",", "."), "lanci SpaceX principali"),
@@ -2956,9 +2998,9 @@ def render_spacex(data):
     starship_status = "".join(
         [
             metric(
-                "Flight 15: obiettivo catch della Ship",
-                "Novembre secondo Musk · data da confermare · dossier al 13 ottobre",
-                href=FLIGHT15_DOSSIER,
+                f"Flight 15: obiettivo {flight15_date}",
+                f"Finestra dalle {flight15_time} italiane · primo catch della Ship",
+                href=FLIGHT15_WINDOW["article"],
                 title="Flight 15: leggi le notizie verificate e i preparativi",
                 variant="f15",
             ) if flight15_pending(data) else "",
@@ -3014,6 +3056,7 @@ def render_spacex(data):
       <div class="metrics metrics-kpis">{kpi_metrics}</div>
       <p class="dash-label">Stato Starship</p>
       <div class="status-stack">{starship_status}</div>
+      {flight15_window_countdown(data)}
     </aside>
   </div>
 </section>
@@ -3031,7 +3074,9 @@ def render_spacex(data):
   </div>
 </section>
 """
-    return shell("SpaceX", "spacex", True, body, countdown_script())
+    countdown_assets = ('<link rel="stylesheet" href="../css/countdown-finestra.css?v=20261108-1">'
+                        '<script src="../js/countdown-finestra.js?v=20261108-1" defer></script>') if flight15_pending(data) else ""
+    return shell("SpaceX", "spacex", True, body, countdown_script(), extra_head=countdown_assets)
 
 
 def render_electron_dashboard(electron):
