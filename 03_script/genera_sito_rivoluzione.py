@@ -158,6 +158,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-11-08",
+        "date_label": "8 novembre 2026",
+        "tag": "SpaceX · Starship",
+        "title": "Starship Flight 15: SpaceX fissa il 13 novembre e spiega come riporterà a casa la Ship",
+        "summary": "Il 7 novembre SpaceX pubblica la pagina ufficiale di Flight 15 e un aggiornamento sul ritorno della nave: lancio non prima di venerdì 13 novembre, alle 16:45 ora del Texas (23:45 in Italia), in attesa del via libera regolatorio. Per la prima volta Super Heavy e Starship dovrebbero tornare entrambi alla torre, dopo più di 22 ore e il rilascio di 26 Starlink V3.",
+        "href": "../documenti%20per%20sito/spacex_starship_flight15_ufficiale.html",
+        "image": "../documenti%20per%20sito/assets_starship_flight15_ufficiale/catch-booster-ift5-bracci.jpg",
+        "image_alt": "Il Super Heavy dell'IFT-5 fermo tra i bracci della torre di Starbase dopo il catch del 13 ottobre 2024",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-11-07",
         "date_label": "7 novembre 2026",
         "tag": "SpaceX · Falcon 9 / Starshield",
@@ -166,8 +179,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_ussf432_starshield.html",
         "image": "../documenti%20per%20sito/assets_ussf432_starshield/ussf432-decollo-tramonto.jpg",
         "image_alt": "Falcon 9 della missione USSF-432 decolla da Vandenberg al tramonto, con il sole basso sul Pacifico",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
