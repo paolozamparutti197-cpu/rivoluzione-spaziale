@@ -167,6 +167,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-11-09",
+        "date_label": "9 novembre 2026",
+        "tag": "SpaceX · Starship / Moon Base",
+        "title": "Starship verso la Luna per la NASA: nel 2028 porterà i satelliti di comunicazione della Moon Base",
+        "summary": "Al MAX POWER del Kennedy Space Center la NASA assegna a SpaceX la Cislunar Communications Deployment Demonstration: nel 2028 una Starship lancerà satelliti di comunicazione nello spazio fra Terra e Luna. SpaceX entra anche fra le otto aziende di CLPS 2, il contratto da 10 miliardi per i lander cargo. Valore dell'ordine e numero dei satelliti non dichiarati.",
+        "href": "../documenti%20per%20sito/spacex_starship_comunicazioni_cislunari.html",
+        "image": "../documenti%20per%20sito/assets_starship_comunicazioni_cislunari/moon-base-concetto.jpg",
+        "image_alt": "Concetto artistico NASA della Moon Base al Polo Sud lunare, con moduli abitativi e la Terra sottile all'orizzonte",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-11-08",
         "date_label": "8 novembre 2026",
         "tag": "SpaceX · Starship",
@@ -175,8 +188,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_starship_flight15_ufficiale.html",
         "image": "../documenti%20per%20sito/assets_starship_flight15_ufficiale/catch-booster-ift5-bracci.jpg",
         "image_alt": "Il Super Heavy dell'IFT-5 fermo tra i bracci della torre di Starbase dopo il catch del 13 ottobre 2024",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
@@ -1575,7 +1588,7 @@ def flight15_window_countdown(data):
       <div class="flight-window-heading"><h4 id="flight15-window-title">Flight 15 · apertura finestra</h4><span class="flight-window-badge">NET</span></div>
       <p class="flight-window-state" data-window-state role="status" aria-live="polite">Conto alla rovescia all’apertura</p>
       <div class="flight-window-digits" role="timer" aria-label="Tempo rimanente all’apertura della finestra" aria-live="off">
-        <div><b data-window-part="days">—</b><span>giorni</span></div><div><b data-window-part="hours">—</b><span>ore</span></div><div><b data-window-part="minutes">—</b><span>minuti</span></div><div><b data-window-part="seconds">—</b><span>secondi</span></div>
+        <div><b data-window-part="days">--</b><span>giorni</span></div><div><b data-window-part="hours">--</b><span>ore</span></div><div><b data-window-part="minutes">--</b><span>minuti</span></div><div><b data-window-part="seconds">--</b><span>secondi</span></div>
       </div>
       <p class="flight-window-date"><time datetime="{window['start']}">{date_label}</time></p>
       <p class="flight-window-zones">{zones}</p>
