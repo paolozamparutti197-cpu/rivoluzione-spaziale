@@ -167,6 +167,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-11-10",
+        "date_label": "10 novembre 2026",
+        "tag": "SpaceX · Starship / Falcon 9",
+        "title": "SpaceX si dichiara società di infrastrutture: l'AI in fabbrica, Falcon 9 al tramonto, Starship in Florida",
+        "summary": "All'UP.Summit del Kennedy Space Center il vicepresidente del lancio Kiko Dontchev racconta la nuova SpaceX: Grok trova i detriti nei componenti con il 99,9% di precisione, Falcon 9 va verso il pensionamento perché il secondo stadio si butta ancora, il pad 39A di Starship è di fatto pronto e il primo volo dalla Florida potrebbe arrivare entro fine anno.",
+        "href": "../documenti%20per%20sito/spacex_infrastruttura_dontchev.html",
+        "image": "../documenti%20per%20sito/assets_infrastruttura_dontchev/torre-starship-39a.jpg",
+        "image_alt": "La torre di lancio di Starship al Launch Complex 39A del Kennedy Space Center con l'equipaggio di Artemis III in primo piano",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-11-09",
         "date_label": "9 novembre 2026",
         "tag": "SpaceX · Starship / Moon Base",
@@ -175,8 +188,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_starship_comunicazioni_cislunari.html",
         "image": "../documenti%20per%20sito/assets_starship_comunicazioni_cislunari/moon-base-concetto.jpg",
         "image_alt": "Concetto artistico NASA della Moon Base al Polo Sud lunare, con moduli abitativi e la Terra sottile all'orizzonte",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
