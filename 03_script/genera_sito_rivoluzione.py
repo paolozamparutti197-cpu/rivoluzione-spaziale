@@ -167,6 +167,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-11-11",
+        "date_label": "11 novembre 2026",
+        "tag": "SpaceX · Starlink",
+        "title": "Starlink Mini 2: batteria rimovibile, USB-C e Wi-Fi 6 per l'antenna portatile di SpaceX",
+        "summary": "SpaceX presenta la seconda generazione del terminale portatile Starlink: batteria a sgancio rapido da 71 Wh con fino a 4,5 ore di connessione, ricarica USB-C da 60 W, Wi-Fi 6 e un corpo più sottile del 40%. Preordini solo su invito negli Stati Uniti a 999 dollari con un anno di servizio, consegne da metà dicembre, nessuna data per l'Italia.",
+        "href": "../documenti%20per%20sito/spacex_starlink_mini2.html",
+        "image": "../documenti%20per%20sito/assets_starlink_mini2/mini2-montagna.jpg",
+        "image_alt": "Il terminale Starlink Mini 2 appoggiato sul cavalletto in un paesaggio di montagna",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-11-10",
         "date_label": "10 novembre 2026",
         "tag": "SpaceX · Starship / Falcon 9",
@@ -175,8 +188,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_infrastruttura_dontchev.html",
         "image": "../documenti%20per%20sito/assets_infrastruttura_dontchev/torre-starship-39a.jpg",
         "image_alt": "La torre di lancio di Starship al Launch Complex 39A del Kennedy Space Center con l'equipaggio di Artemis III in primo piano",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
