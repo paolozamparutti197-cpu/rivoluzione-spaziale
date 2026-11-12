@@ -591,3 +591,16 @@ Punti aperti:
 - Verifica online anti-cache eseguita dal coordinatore: HTTP 200 su SX-0722.html (USSF-432), storico-lanci.html
   (721/716, ultimo USSF-432), spacex.html (721), lanci-imminenti.html. USSF-432 assente dalle card e dai prossimi lanci.
 - Prima card USSF-627 2026-11-10T03:03:00Z; poi USSF-317 2026-11-13T04:23:00Z e Cygnus NG-25 2026-11-29T15:49:00Z.
+
+12/11/2026 - Bot C: SX-0723 USSF-627 (12/11 04:36:30, B1103-7)
+- Stash list non vuota: stash@{0} di Codex (breadcrumb Flight 15), non toccato. AHEAD=0 sul tip locale 633a906.
+- Fast-forward a 8124c9c (include f0e7964, NET manuale USSF-627). Nessuna sovrapposizione sul primo ff.
+- Revisioni: countdown_flight15_20261108.md (timer 13/11 22:45Z / 23:45 CET). Amos-6 presente (L951).
+- Workbook 723/717 -> sito 722/717. Generazione e aggiornamento exit 0 (agenda +4/-4/1). Controlli README exit 0.
+- Publish 5e92b8f (759 file) exit 0 su main e gh-pages (solo ff). f0e7964 resta antenato. USSF-627 non compare piu
+  tra i prossimi lanci; scheda SX-0723 con ora reale 04:36:30 del 12/11, senza regressione dell'orario corretto.
+- Dopo il publish e arrivato 1a4e93f (breaking Flight 15 vigilia): ff a 1a4e93f. Backup del solo blocco navigazione
+  di documenti per sito/spacex_starlink_mini2.html in 02_backup\spacex_starlink_mini2_20261112_pre_ff.html.
+- Verifica online anti-cache dal box: HTTP 200 su SX-0723.html (USSF-627), storico-lanci.html (722/717, ultimo USSF-627
+  12/11), spacex.html (722), lanci-imminenti.html. USSF-627 assente dalle card. Prima card: Starlink Group 31-2
+  (Starship Flight 15) 2026-11-13T22:45:00Z (13/11 23:45 ora di Roma), come previsto.
