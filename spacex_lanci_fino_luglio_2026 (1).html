@@ -81,7 +81,7 @@ footer{max-width:1260px;margin:0 auto 35px;padding:0 18px;color:#b2c3d1;font-siz
   </div>
 </header>
 <main>
-  <div class="notice">Nota secca: il manifesto SpaceX è mobile per definizione. I lanci Starlink e le missioni dimostrative possono comparire o cambiare a pochi giorni dal volo, quindi questo file è una fotografia ragionata del quadro disponibile al 7 novembre 2026.</div>
+  <div class="notice">Nota secca: il manifesto SpaceX è mobile per definizione. I lanci Starlink e le missioni dimostrative possono comparire o cambiare a pochi giorni dal volo, quindi questo file è una fotografia ragionata del quadro disponibile al 12 novembre 2026.</div>
   <section class="grid" id="cards"></section>
 </main>
 <div class="modal" id="modal" aria-hidden="true">
@@ -97,68 +97,37 @@ footer{max-width:1260px;margin:0 auto 35px;padding:0 18px;color:#b2c3d1;font-siz
   Fonte principale: The Space Devs, Launch Library 2. I dati vanno ricontrollati prima di usarli per pianificare una visione dal vivo o una diretta.
 </footer>
 <script>
-const launchesUpdatedAt = "2026-11-07 08:42";
-const launchesDataVersion = "c04e5d3babec7ea4";
+const launchesUpdatedAt = "2026-11-12 09:04";
+const launchesDataVersion = "aa9075034fc31cf5";
 const launches = [
   {
-    "id": "falcon-9-block-5-ussf-627",
+    "id": "starship-starlink-group-31-2-starship-flight-15",
     "cat": [
       "exact",
-      "non-starlink",
-      "falcon9",
-      "vandenberg"
-    ],
-    "name": "USSF-627",
-    "status": "Pronto al lancio",
-    "rocket": "Falcon 9 Block 5",
-    "dateLabel": "10 novembre 2026, 03:03 UTC",
-    "iso": "2026-11-10T03:03:00Z",
-    "window": "03:03-07:03 UTC",
-    "site": "Space Launch Complex 4E, Vandenberg SFB, CA, USA",
-    "landing": "OCISLY, booster B1103, volo 7",
-    "orbit": "LEO",
-    "payload": "USSF-627 (Government/Top Secret)",
-    "summary": "A classified mission for the United States Space Force. It is possibly a batch of classified LEO satellites based on SpaceX’s Starshield satellite bus, based on locations of rocket stage drop zones being exact fits with previous Starlink Group 15 launches.",
-    "news": "T-0 attuale confermato da fonti ufficiali o affidabili.",
-    "sources": [
-      [
-        "The Space Devs",
-        "https://ll.thespacedevs.com/2.3.0/launches/6aa7b90b-e5ed-45d8-a52e-04fbf399d178/?format=json"
-      ],
-      [
-        "spacex.com",
-        "https://www.spacex.com/launches/ussf627"
-      ],
-      [
-        "Webcast",
-        "https://x.com/i/broadcasts/2brkWyolnlBbLM"
-      ]
-    ]
-  },
-  {
-    "id": "starship-flight-15",
-    "cat": [
-      "net",
-      "non-starlink",
+      "starlink",
       "starship",
       "altro-sito"
     ],
-    "name": "Flight 15",
-    "status": "NET / da definire",
+    "name": "Starlink Group 31-2 (Starship Flight 15)",
+    "status": "Data/orario possono cambiare",
     "rocket": "Starship V3",
-    "dateLabel": "NET novembre 2026",
-    "iso": "2026-11-13T00:00:00Z",
-    "window": "Finestra non puntuale; data e orario da ricontrollare",
+    "dateLabel": "NET 13 novembre 2026, 22:45 UTC",
+    "iso": "2026-11-13T22:45:00Z",
+    "window": "13 novembre 22:45 - 14 novembre 00:00 UTC; data e orario da ricontrollare",
     "site": "Orbital Launch Pad 2, SpaceX Starbase, TX, USA",
-    "landing": "Recupero booster non indicato da The Space Devs",
+    "landing": "OLM-B, booster Booster 22, volo 1",
     "orbit": "LEO",
-    "payload": "Flight 15 (Test Flight)",
-    "summary": "15th test flight of the two-stage Starship launch vehicle and 4th flight of Starship V3.",
-    "news": "La data attuale e indicativa o approssimativa, basata su fonti non stabili o interpretate.",
+    "payload": "Starlink Group 31-2 (Starship Flight 15) (Communications)",
+    "summary": "15th test flight of the two-stage Starship launch vehicle and 4th flight of Starship V3. Second Starship flight to deploy satellites (a group of Starlink satellites known as Starlink Group 31-2) into stable Low Earth Orbit and first ever to attempt returning the Starship 2nd stage back to the launch site. The ship is expected to fly at an altitude approximately 275 km above Earth and complete approximately 14 orbits around...",
+    "news": "Awaiting official confirmation - current date is known with some certainty.",
     "sources": [
       [
         "The Space Devs",
         "https://ll.thespacedevs.com/2.3.0/launches/0f867f0c-5422-4d44-93b8-d7faaae7019b/?format=json"
+      ],
+      [
+        "spacex.com",
+        "https://www.spacex.com/launches/starship-flight-15"
       ]
     ]
   },
@@ -173,9 +142,9 @@ const launches = [
     "name": "USSF-317",
     "status": "Pronto al lancio",
     "rocket": "Falcon 9 Block 5",
-    "dateLabel": "13 novembre 2026, 04:23 UTC",
-    "iso": "2026-11-13T04:23:00Z",
-    "window": "04:23-08:23 UTC",
+    "dateLabel": "15 novembre 2026, 03:55 UTC",
+    "iso": "2026-11-15T03:55:00Z",
+    "window": "03:55-07:55 UTC",
     "site": "Space Launch Complex 4E, Vandenberg SFB, CA, USA",
     "landing": "OCISLY, booster B1100, volo 11",
     "orbit": "LEO",
@@ -194,6 +163,41 @@ const launches = [
       [
         "Webcast",
         "https://x.com/i/broadcasts/2lgkMvaRVPMdYR"
+      ]
+    ]
+  },
+  {
+    "id": "falcon-9-block-5-ussf-266",
+    "cat": [
+      "exact",
+      "non-starlink",
+      "falcon9",
+      "vandenberg"
+    ],
+    "name": "USSF-266",
+    "status": "Pronto al lancio",
+    "rocket": "Falcon 9 Block 5",
+    "dateLabel": "18 novembre 2026, 16:49 UTC",
+    "iso": "2026-11-18T16:49:00Z",
+    "window": "16:49-20:49 UTC",
+    "site": "Space Launch Complex 4E, Vandenberg SFB, CA, USA",
+    "landing": "OCISLY, booster B1081, volo 29",
+    "orbit": "PO",
+    "payload": "USSF-266 (Government/Top Secret)",
+    "summary": "A classified mission for the United States Space Force. It is possibly a batch of classified LEO satellites based on SpaceX’s Starshield satellite bus, based on locations of ascent rocket stage drop zones being fits with previous SDA Transport Layer launches.",
+    "news": "T-0 attuale confermato da fonti ufficiali o affidabili.",
+    "sources": [
+      [
+        "The Space Devs",
+        "https://ll.thespacedevs.com/2.3.0/launches/460d9db7-eaf6-4cd9-b095-cff433534c09/?format=json"
+      ],
+      [
+        "spacex.com",
+        "https://www.spacex.com/launches/ussf266"
+      ],
+      [
+        "Webcast",
+        "https://x.com/i/broadcasts/2JQXBjLyYOQrpX"
       ]
     ]
   },
@@ -341,30 +345,30 @@ const launches = [
     ]
   },
   {
-    "id": "falcon-9-block-5-sda-tranche-1-tracking-layer-c",
+    "id": "falcon-9-block-5-sda-tranche-2-transport-layer-d",
     "cat": [
       "net",
       "non-starlink",
       "sda",
       "falcon9",
-      "vandenberg"
+      "florida"
     ],
-    "name": "SDA Tranche 1 Tracking Layer C",
+    "name": "SDA Tranche 2 Transport Layer D",
     "status": "NET / da definire",
     "rocket": "Falcon 9 Block 5",
     "dateLabel": "NET dicembre 2026",
     "iso": "2026-12-31T00:00:00Z",
     "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
-    "site": "Space Launch Complex 4E, Vandenberg SFB, CA, USA",
+    "site": "Unknown Pad, Cape Canaveral SFS, FL, USA",
     "landing": "Recupero booster non indicato da The Space Devs",
     "orbit": "PO",
-    "payload": "SDA Tranche 1 Tracking Layer C (Government/Top Secret)",
-    "summary": "Tranche 1 Tracking Layer C is one of five missions by the United States Space Force Space Development Agency (SDA) for the Proliferated Warfighter Space Architecture (PWSA) Tranche 1 Tracking Layer constellation, which will provide global indications, warning, tracking, and targeting of advanced missile threats, including hypersonic missile systems.",
+    "payload": "SDA Tranche 2 Transport Layer D (Government/Top Secret)",
+    "summary": "Classified mission launched by the Space Development Agency (SDA) for Tranche 2 Transport Layer.",
     "news": "La data attuale e indicativa o approssimativa, basata su fonti non stabili o interpretate.",
     "sources": [
       [
         "The Space Devs",
-        "https://ll.thespacedevs.com/2.3.0/launches/dca8749f-1552-485a-8061-f1ad79055b8d/?format=json"
+        "https://ll.thespacedevs.com/2.3.0/launches/71df1dd0-d658-4762-b0bc-0fca6886aea7/?format=json"
       ]
     ]
   },
@@ -425,14 +429,14 @@ const launches = [
     ]
   },
   {
-    "id": "falcon-9-block-5-rivada-5",
+    "id": "falcon-9-block-5-rivada-9",
     "cat": [
       "net",
       "non-starlink",
       "falcon9",
       "vandenberg"
     ],
-    "name": "Rivada 5",
+    "name": "Rivada 9",
     "status": "NET / da definire",
     "rocket": "Falcon 9 Block 5",
     "dateLabel": "NET dicembre 2026",
@@ -441,13 +445,13 @@ const launches = [
     "site": "Space Launch Complex 4E, Vandenberg SFB, CA, USA",
     "landing": "OCISLY, booster non identificato",
     "orbit": "PO",
-    "payload": "Rivada 5 (Communications)",
+    "payload": "Rivada 9 (Communications)",
     "summary": "24 satellites for Rivada's internet constellation.",
     "news": "La data attuale e indicativa o approssimativa, basata su fonti non stabili o interpretate.",
     "sources": [
       [
         "The Space Devs",
-        "https://ll.thespacedevs.com/2.3.0/launches/fa895702-687b-4ba3-95fb-9462a2c9844b/?format=json"
+        "https://ll.thespacedevs.com/2.3.0/launches/5ce7e9b6-b471-4a88-891f-2a6f21cb369f/?format=json"
       ]
     ]
   },
@@ -507,14 +511,14 @@ const launches = [
     ]
   },
   {
-    "id": "falcon-9-block-5-rivada-11",
+    "id": "falcon-9-block-5-rivada-2",
     "cat": [
       "net",
       "non-starlink",
       "falcon9",
       "vandenberg"
     ],
-    "name": "Rivada 11",
+    "name": "Rivada 2",
     "status": "NET / da definire",
     "rocket": "Falcon 9 Block 5",
     "dateLabel": "NET dicembre 2026",
@@ -523,13 +527,13 @@ const launches = [
     "site": "Space Launch Complex 4E, Vandenberg SFB, CA, USA",
     "landing": "OCISLY, booster non identificato",
     "orbit": "PO",
-    "payload": "Rivada 11 (Communications)",
+    "payload": "Rivada 2 (Communications)",
     "summary": "24 satellites for Rivada's internet constellation.",
     "news": "La data attuale e indicativa o approssimativa, basata su fonti non stabili o interpretate.",
     "sources": [
       [
         "The Space Devs",
-        "https://ll.thespacedevs.com/2.3.0/launches/d08d8b46-353b-4eee-ab5e-e1385b329008/?format=json"
+        "https://ll.thespacedevs.com/2.3.0/launches/20fa8dc4-8cab-41cf-b452-98a2620f7e86/?format=json"
       ]
     ]
   },
@@ -557,6 +561,33 @@ const launches = [
       [
         "The Space Devs",
         "https://ll.thespacedevs.com/2.3.0/launches/c1bd775a-2fff-45bb-9726-765b69817c19/?format=json"
+      ]
+    ]
+  },
+  {
+    "id": "falcon-9-block-5-victus-surgo",
+    "cat": [
+      "net",
+      "non-starlink",
+      "falcon9",
+      "florida"
+    ],
+    "name": "VICTUS SURGO",
+    "status": "NET / da definire",
+    "rocket": "Falcon 9 Block 5",
+    "dateLabel": "NET dicembre 2026",
+    "iso": "2026-12-31T00:00:00Z",
+    "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
+    "site": "Unknown Pad, Cape Canaveral SFS, FL, USA",
+    "landing": "Recupero booster non indicato da The Space Devs",
+    "orbit": "LEO",
+    "payload": "VICTUS SURGO (Government/Top Secret)",
+    "summary": "A new Tactically Responsive Space (TacRS) mission by the United States Space Force Space Systems Command to deliver responsive space delivery. The mission consists of an Impulse Space Mira orbital transfer vehicle that will operate in Geosynchronous Transfer Orbit (GTO), which would be transferred from Low Earth Orbit (LEO) on an Impulse Space Helios kick stage. A Helios rideshare payload will also be delivered to GEO.",
+    "news": "La data attuale e indicativa o approssimativa, basata su fonti non stabili o interpretate.",
+    "sources": [
+      [
+        "The Space Devs",
+        "https://ll.thespacedevs.com/2.3.0/launches/fc1bd321-e502-4d0f-81f4-1926dece81c6/?format=json"
       ]
     ]
   },
@@ -589,41 +620,14 @@ const launches = [
     ]
   },
   {
-    "id": "falcon-9-block-5-victus-surgo",
-    "cat": [
-      "net",
-      "non-starlink",
-      "falcon9",
-      "florida"
-    ],
-    "name": "VICTUS SURGO",
-    "status": "NET / da definire",
-    "rocket": "Falcon 9 Block 5",
-    "dateLabel": "NET dicembre 2026",
-    "iso": "2026-12-31T00:00:00Z",
-    "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
-    "site": "Unknown Pad, Cape Canaveral SFS, FL, USA",
-    "landing": "Recupero booster non indicato da The Space Devs",
-    "orbit": "LEO",
-    "payload": "VICTUS SURGO (Government/Top Secret)",
-    "summary": "A new Tactically Responsive Space (TacRS) mission by the United States Space Force Space Systems Command to deliver responsive space delivery. The mission consists of an Impulse Space Mira orbital transfer vehicle that will operate in Geosynchronous Transfer Orbit (GTO), which would be transferred from Low Earth Orbit (LEO) on an Impulse Space Helios kick stage. A Helios rideshare payload will also be delivered to GEO.",
-    "news": "La data attuale e indicativa o approssimativa, basata su fonti non stabili o interpretate.",
-    "sources": [
-      [
-        "The Space Devs",
-        "https://ll.thespacedevs.com/2.3.0/launches/fc1bd321-e502-4d0f-81f4-1926dece81c6/?format=json"
-      ]
-    ]
-  },
-  {
-    "id": "falcon-9-block-5-rivada-9",
+    "id": "falcon-9-block-5-rivada-5",
     "cat": [
       "net",
       "non-starlink",
       "falcon9",
       "vandenberg"
     ],
-    "name": "Rivada 9",
+    "name": "Rivada 5",
     "status": "NET / da definire",
     "rocket": "Falcon 9 Block 5",
     "dateLabel": "NET dicembre 2026",
@@ -632,13 +636,13 @@ const launches = [
     "site": "Space Launch Complex 4E, Vandenberg SFB, CA, USA",
     "landing": "OCISLY, booster non identificato",
     "orbit": "PO",
-    "payload": "Rivada 9 (Communications)",
+    "payload": "Rivada 5 (Communications)",
     "summary": "24 satellites for Rivada's internet constellation.",
     "news": "La data attuale e indicativa o approssimativa, basata su fonti non stabili o interpretate.",
     "sources": [
       [
         "The Space Devs",
-        "https://ll.thespacedevs.com/2.3.0/launches/5ce7e9b6-b471-4a88-891f-2a6f21cb369f/?format=json"
+        "https://ll.thespacedevs.com/2.3.0/launches/fa895702-687b-4ba3-95fb-9462a2c9844b/?format=json"
       ]
     ]
   },
@@ -697,61 +701,6 @@ const launches = [
     ]
   },
   {
-    "id": "falcon-9-block-5-rivada-2",
-    "cat": [
-      "net",
-      "non-starlink",
-      "falcon9",
-      "vandenberg"
-    ],
-    "name": "Rivada 2",
-    "status": "NET / da definire",
-    "rocket": "Falcon 9 Block 5",
-    "dateLabel": "NET dicembre 2026",
-    "iso": "2026-12-31T00:00:00Z",
-    "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
-    "site": "Space Launch Complex 4E, Vandenberg SFB, CA, USA",
-    "landing": "OCISLY, booster non identificato",
-    "orbit": "PO",
-    "payload": "Rivada 2 (Communications)",
-    "summary": "24 satellites for Rivada's internet constellation.",
-    "news": "La data attuale e indicativa o approssimativa, basata su fonti non stabili o interpretate.",
-    "sources": [
-      [
-        "The Space Devs",
-        "https://ll.thespacedevs.com/2.3.0/launches/20fa8dc4-8cab-41cf-b452-98a2620f7e86/?format=json"
-      ]
-    ]
-  },
-  {
-    "id": "falcon-9-block-5-sda-tranche-2-transport-layer-d",
-    "cat": [
-      "net",
-      "non-starlink",
-      "sda",
-      "falcon9",
-      "florida"
-    ],
-    "name": "SDA Tranche 2 Transport Layer D",
-    "status": "NET / da definire",
-    "rocket": "Falcon 9 Block 5",
-    "dateLabel": "NET dicembre 2026",
-    "iso": "2026-12-31T00:00:00Z",
-    "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
-    "site": "Unknown Pad, Cape Canaveral SFS, FL, USA",
-    "landing": "Recupero booster non indicato da The Space Devs",
-    "orbit": "PO",
-    "payload": "SDA Tranche 2 Transport Layer D (Government/Top Secret)",
-    "summary": "Classified mission launched by the Space Development Agency (SDA) for Tranche 2 Transport Layer.",
-    "news": "La data attuale e indicativa o approssimativa, basata su fonti non stabili o interpretate.",
-    "sources": [
-      [
-        "The Space Devs",
-        "https://ll.thespacedevs.com/2.3.0/launches/71df1dd0-d658-4762-b0bc-0fca6886aea7/?format=json"
-      ]
-    ]
-  },
-  {
     "id": "falcon-9-block-5-rivada-7",
     "cat": [
       "net",
@@ -775,6 +724,60 @@ const launches = [
       [
         "The Space Devs",
         "https://ll.thespacedevs.com/2.3.0/launches/1fa3741c-3339-4954-a026-2cd9d36161c0/?format=json"
+      ]
+    ]
+  },
+  {
+    "id": "falcon-9-block-5-globalstar-2-r-mission-2-x-9",
+    "cat": [
+      "net",
+      "non-starlink",
+      "falcon9",
+      "florida"
+    ],
+    "name": "Globalstar 2-R Mission 2 (x 9)",
+    "status": "NET / da definire",
+    "rocket": "Falcon 9 Block 5",
+    "dateLabel": "NET dicembre 2026",
+    "iso": "2026-12-31T00:00:00Z",
+    "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
+    "site": "Space Launch Complex 40, Cape Canaveral SFS, FL, USA",
+    "landing": "ASOG, booster non identificato",
+    "orbit": "LEO",
+    "payload": "Globalstar 2-R Mission 2 (x 9) (Communications)",
+    "summary": "La rete Globalstar offre servizi digitali globali in tempo reale di voce, dati e fax tramite una costellazione in orbita bassa. Opera a circa 1410 km con inclinazione di 52 gradi. All'inizio del 2022 Globalstar ha affidato a MDA la costruzione di 17 satelliti di seconda generazione refresh per rifornire la costellazione. Rocket Lab e subappaltatore per la costruzione...",
+    "news": "La data attuale e indicativa o approssimativa, basata su fonti non stabili o interpretate.",
+    "sources": [
+      [
+        "The Space Devs",
+        "https://ll.thespacedevs.com/2.3.0/launches/e61d353c-db55-4a57-8184-0fab187231e6/?format=json"
+      ]
+    ]
+  },
+  {
+    "id": "falcon-9-block-5-rivada-11",
+    "cat": [
+      "net",
+      "non-starlink",
+      "falcon9",
+      "vandenberg"
+    ],
+    "name": "Rivada 11",
+    "status": "NET / da definire",
+    "rocket": "Falcon 9 Block 5",
+    "dateLabel": "NET dicembre 2026",
+    "iso": "2026-12-31T00:00:00Z",
+    "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
+    "site": "Space Launch Complex 4E, Vandenberg SFB, CA, USA",
+    "landing": "OCISLY, booster non identificato",
+    "orbit": "PO",
+    "payload": "Rivada 11 (Communications)",
+    "summary": "24 satellites for Rivada's internet constellation.",
+    "news": "La data attuale e indicativa o approssimativa, basata su fonti non stabili o interpretate.",
+    "sources": [
+      [
+        "The Space Devs",
+        "https://ll.thespacedevs.com/2.3.0/launches/d08d8b46-353b-4eee-ab5e-e1385b329008/?format=json"
       ]
     ]
   },
@@ -944,14 +947,15 @@ const launches = [
     ]
   },
   {
-    "id": "falcon-9-block-5-victus-surgo",
+    "id": "falcon-9-block-5-sda-tranche-2-tracking-layer-b",
     "cat": [
       "net",
       "non-starlink",
+      "sda",
       "falcon9",
       "florida"
     ],
-    "name": "VICTUS SURGO",
+    "name": "SDA Tranche 2 Tracking Layer B",
     "status": "NET / da definire",
     "rocket": "Falcon 9 Block 5",
     "dateLabel": "NET dicembre 2026",
@@ -959,26 +963,26 @@ const launches = [
     "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
     "site": "Unknown Pad, Cape Canaveral SFS, FL, USA",
     "landing": "Recupero booster non indicato da The Space Devs",
-    "orbit": "LEO",
-    "payload": "VICTUS SURGO (Government/Top Secret)",
-    "summary": "A new Tactically Responsive Space (TacRS) mission by the United States Space Force Space Systems Command to deliver responsive space delivery. The mission consists of an Impulse Space Mira orbital transfer vehicle that will operate in Geosynchronous Transfer Orbit (GTO), which would be transferred from Low Earth Orbit (LEO) on an Impulse Space Helios kick stage. A Helios rideshare payload will also be delivered to GEO.",
+    "orbit": "PO",
+    "payload": "SDA Tranche 2 Tracking Layer B (Government/Top Secret)",
+    "summary": "Classified mission launched by the Space Development Agency (SDA) for Tranche 2 Tracking Layer.",
     "news": "La data attuale e indicativa o approssimativa, basata su fonti non stabili o interpretate.",
     "sources": [
       [
         "The Space Devs",
-        "https://ll.thespacedevs.com/2.3.0/launches/fc1bd321-e502-4d0f-81f4-1926dece81c6/?format=json"
+        "https://ll.thespacedevs.com/2.3.0/launches/cb1762f0-90f4-4902-a5f6-655a7ade25bf/?format=json"
       ]
     ]
   },
   {
-    "id": "falcon-9-block-5-rivada-9",
+    "id": "falcon-9-block-5-rivada-1",
     "cat": [
       "net",
       "non-starlink",
       "falcon9",
       "vandenberg"
     ],
-    "name": "Rivada 9",
+    "name": "Rivada 1",
     "status": "NET / da definire",
     "rocket": "Falcon 9 Block 5",
     "dateLabel": "NET dicembre 2026",
@@ -987,40 +991,41 @@ const launches = [
     "site": "Space Launch Complex 4E, Vandenberg SFB, CA, USA",
     "landing": "OCISLY, booster non identificato",
     "orbit": "PO",
-    "payload": "Rivada 9 (Communications)",
+    "payload": "Rivada 1 (Communications)",
     "summary": "24 satellites for Rivada's internet constellation.",
     "news": "La data attuale e indicativa o approssimativa, basata su fonti non stabili o interpretate.",
     "sources": [
       [
         "The Space Devs",
-        "https://ll.thespacedevs.com/2.3.0/launches/5ce7e9b6-b471-4a88-891f-2a6f21cb369f/?format=json"
+        "https://ll.thespacedevs.com/2.3.0/launches/dfd444f9-ddda-4b35-8f51-cda7cd801809/?format=json"
       ]
     ]
   },
   {
-    "id": "falcon-9-block-5-rivada-4",
+    "id": "falcon-9-block-5-sda-tranche-2-tracking-layer-a",
     "cat": [
       "net",
       "non-starlink",
+      "sda",
       "falcon9",
-      "vandenberg"
+      "florida"
     ],
-    "name": "Rivada 4",
+    "name": "SDA Tranche 2 Tracking Layer A",
     "status": "NET / da definire",
     "rocket": "Falcon 9 Block 5",
     "dateLabel": "NET dicembre 2026",
     "iso": "2026-12-31T00:00:00Z",
     "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
-    "site": "Space Launch Complex 4E, Vandenberg SFB, CA, USA",
-    "landing": "OCISLY, booster non identificato",
+    "site": "Unknown Pad, Cape Canaveral SFS, FL, USA",
+    "landing": "Recupero booster non indicato da The Space Devs",
     "orbit": "PO",
-    "payload": "Rivada 4 (Communications)",
-    "summary": "24 satellites for Rivada's internet constellation.",
+    "payload": "SDA Tranche 2 Tracking Layer A (Government/Top Secret)",
+    "summary": "Classified mission launched by the Space Development Agency (SDA) for Tranche 2 Tracking Layer.",
     "news": "La data attuale e indicativa o approssimativa, basata su fonti non stabili o interpretate.",
     "sources": [
       [
         "The Space Devs",
-        "https://ll.thespacedevs.com/2.3.0/launches/2f31a7f0-968a-448d-b447-333bf0341078/?format=json"
+        "https://ll.thespacedevs.com/2.3.0/launches/0a07a23e-606a-4589-bf3e-c3e41bd4de51/?format=json"
       ]
     ]
   },
@@ -1052,30 +1057,29 @@ const launches = [
     ]
   },
   {
-    "id": "falcon-9-block-5-sda-tranche-2-tracking-layer-a",
+    "id": "falcon-9-block-5-rivada-6",
     "cat": [
       "net",
       "non-starlink",
-      "sda",
       "falcon9",
-      "florida"
+      "vandenberg"
     ],
-    "name": "SDA Tranche 2 Tracking Layer A",
+    "name": "Rivada 6",
     "status": "NET / da definire",
     "rocket": "Falcon 9 Block 5",
     "dateLabel": "NET dicembre 2026",
     "iso": "2026-12-31T00:00:00Z",
     "window": "Mese o trimestre non puntuale; data e orario da ricontrollare",
-    "site": "Unknown Pad, Cape Canaveral SFS, FL, USA",
-    "landing": "Recupero booster non indicato da The Space Devs",
+    "site": "Space Launch Complex 4E, Vandenberg SFB, CA, USA",
+    "landing": "OCISLY, booster non identificato",
     "orbit": "PO",
-    "payload": "SDA Tranche 2 Tracking Layer A (Government/Top Secret)",
-    "summary": "Classified mission launched by the Space Development Agency (SDA) for Tranche 2 Tracking Layer.",
+    "payload": "Rivada 6 (Communications)",
+    "summary": "24 satellites for Rivada's internet constellation.",
     "news": "La data attuale e indicativa o approssimativa, basata su fonti non stabili o interpretate.",
     "sources": [
       [
         "The Space Devs",
-        "https://ll.thespacedevs.com/2.3.0/launches/0a07a23e-606a-4589-bf3e-c3e41bd4de51/?format=json"
+        "https://ll.thespacedevs.com/2.3.0/launches/46d6822b-82aa-452c-aa34-80b6f052de84/?format=json"
       ]
     ]
   }
