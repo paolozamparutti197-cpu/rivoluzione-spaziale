@@ -167,6 +167,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-11-12",
+        "date_label": "12 novembre 2026",
+        "tag": "SpaceX · Starship",
+        "title": "Starship Flight 15, ultimi giorni: Booster 22 sulla rampa, Ship 42 carica gli Starlink V3",
+        "summary": "Booster 22 è sul Pad 2 dopo l'ultima prova di presa con i bracci della torre, Ship 42 riceve i 26 satelliti Starlink V3 e sono state pubblicate le chiusure aeree per il lancio di venerdì 13 (23:45 in Italia) e per il possibile catch della nave di sabato 14. Manca ancora la licenza FAA.",
+        "href": "../documenti%20per%20sito/spacex_starship_flight15_vigilia.html",
+        "image": "../documenti%20per%20sito/assets_starship_flight15_vigilia/b22-pad2-notte.jpg",
+        "image_alt": "Booster 22 trattenuto di notte dai bracci della torre del Pad 2 di Starbase",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-11-11",
         "date_label": "11 novembre 2026",
         "tag": "SpaceX · Starlink",
@@ -175,8 +188,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_starlink_mini2.html",
         "image": "../documenti%20per%20sito/assets_starlink_mini2/mini2-montagna.jpg",
         "image_alt": "Il terminale Starlink Mini 2 appoggiato sul cavalletto in un paesaggio di montagna",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
