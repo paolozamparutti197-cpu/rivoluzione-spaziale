@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Starship Flight 15 in diretta: countdown, cronologia e live | Rivoluzione Spaziale</title>
+<meta name="description" content="Starship Flight 15 (Starlink Group 31-2): countdown all'apertura della finestra del 13 novembre 2026 alle 23:45 ora italiana, cronologia ufficiale del volo, cosa succederà e le dirette NASASpaceflight, VOLARE e SpaceX.">
+<link rel="stylesheet" href="../css/style.css?v=20260830-f13-f14">
+<!-- LETTORI:HEAD --><link rel="stylesheet" href="../css/lettori-spacex.css?v=20261011-lettori-7b56370001"><script src="../js/lettori-spacex.js?v=20261011-lettori-7b56370001" defer></script><!-- /LETTORI:HEAD -->
+<style>
+.f15-hero{padding:80px max(20px,calc((100vw - 1120px)/2)) 40px;background:radial-gradient(ellipse at top,#1d2a3a 0%,#07090c 70%);border-bottom:1px solid var(--line);text-align:center}
+.f15-tag{display:inline-block;border:1px solid var(--gold);border-radius:99px;padding:6px 12px;color:var(--gold);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+.f15-hero h1{font-size:clamp(34px,6vw,68px);margin:14px 0 6px}
+.f15-sub{color:var(--muted);max-width:760px;margin:0 auto;line-height:1.6}
+.f15-cd{margin:30px auto 8px;font-variant-numeric:tabular-nums;font-weight:900;font-size:clamp(46px,13vw,150px);line-height:1;letter-spacing:.02em;color:#fff;text-shadow:0 0 40px rgba(105,200,255,.35)}
+.f15-cd .pre{color:var(--accent);font-size:.45em;vertical-align:middle;margin-right:.15em}
+.f15-cd.plus .pre{color:var(--green)}
+.f15-units{display:flex;justify-content:center;gap:clamp(18px,6vw,70px);color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.12em}
+.f15-t0{margin-top:22px;font-size:clamp(16px,2.6vw,22px)}
+.f15-t0 b{color:var(--gold)}
+.f15-note{color:var(--muted);font-size:14px;margin-top:10px}
+.f15-wrap{max-width:1120px;margin:auto;padding:30px 20px 80px}
+.f15-wrap h2{margin:46px 0 14px;font-size:clamp(24px,3.4vw,34px)}
+.f15-wrap p{line-height:1.75}
+.f15-wrap a{color:var(--accent)}
+.f15-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:22px 0}
+.f15-card{border:1px solid var(--line);background:var(--panel);padding:16px 18px;border-radius:10px}
+.f15-card b{display:block;color:var(--gold);margin-bottom:6px}
+.f15-tl{width:100%;border-collapse:collapse;font-size:15px}
+.f15-tl td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.f15-tl td.tt{white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--accent);font-weight:800}
+.f15-tl td.rt{white-space:nowrap;color:var(--muted);font-variant-numeric:tabular-nums}
+.f15-tl tr.key td{background:rgba(242,184,75,.08)}
+.f15-tl tr.key td:last-child{font-weight:800}
+.f15-tl tr.lift td{background:rgba(120,213,140,.12);font-weight:900}
+.f15-tl tr.sep td{text-transform:uppercase;letter-spacing:.12em;font-size:12px;color:var(--gold);padding-top:22px}
+.f15-tl tr.done td{opacity:.45}
+.f15-tl tr.now td{outline:2px solid var(--green);outline-offset:-2px}
+.f15-scroll{overflow-x:auto}
+.f15-video{position:relative;width:100%;aspect-ratio:16/9;background:#000;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.f15-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.f15-vhead{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;margin:34px 0 10px}
+.f15-vhead h3{margin:0}
+.f15-vhead small{color:var(--muted)}
+.f15-live{display:inline-block;background:#e0262f;color:#fff;font-size:11px;font-weight:900;padding:3px 7px;border-radius:4px;margin-right:8px;letter-spacing:.06em}
+.f15-sx{position:relative;display:block;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#000 center/cover no-repeat;text-decoration:none!important}
+.f15-sx span{position:absolute;inset:auto 0 0 0;padding:18px 20px;background:linear-gradient(transparent,rgba(0,0,0,.85));color:#fff;font-weight:800;font-size:clamp(16px,2.4vw,22px)}
+.f15-sx i{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:86px;height:86px;border-radius:50%;background:rgba(0,0,0,.6);border:3px solid #fff}
+.f15-sx i:after{content:"";position:absolute;left:34px;top:24px;border-left:28px solid #fff;border-top:19px solid transparent;border-bottom:19px solid transparent}
+.f15-btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.f15-src li{margin:6px 0;line-height:1.55;color:var(--muted)}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../index.html">Rivoluzione <span>Spaziale</span></a>
+  <nav class="nav" aria-label="Navigazione principale">
+<a class="" href="../index.html">Home</a>
+<a class="" href="notizie.html">Notizie</a>
+<a class="active" href="spacex.html">SpaceX</a>
+<a class="" href="blue-origin.html">Blue Origin</a>
+<a class="" href="ula.html">ULA</a>
+<a class="" href="electron-lab.html">Electron Lab</a>
+<a class="" href="arianespace.html">Arianespace</a>
+<a class="" href="cina.html">Cina</a>
+  </nav>
+</header>
+<main><!-- LETTORI:NAV --><div class="reader-tools"><a class="reader-skip" href="#reader-content">Vai al contenuto</a><nav class="reader-breadcrumb" aria-label="Percorso della pagina"><a href="../index.html">Home</a> <span aria-hidden="true">›</span> <a href="spacex.html">SpaceX</a> <span aria-hidden="true">›</span> <span aria-current="page">Starship Flight 15 live</span></nav><div class="reader-actions"><a href="percorsi-spacex.html">Da dove cominciare</a> <a href="cerca-spacex.html">Cerca in SpaceX</a></div></div><span id="reader-content" tabindex="-1"></span><!-- /LETTORI:NAV -->
+
+<section class="f15-hero">
+  <span class="f15-tag">Diretta · Starship Flight 15 · Starlink Group 31-2</span>
+  <h1>Starship Flight 15</h1>
+  <p class="f15-sub">Booster 22 e Ship 42 dal Pad 2 di Starbase, Texas. Primo tentativo di riportare alla torre entrambi gli stadi di un razzo orbitale.</p>
+  <div class="f15-cd" id="f15cd" aria-live="off"><span class="pre" id="f15pre">T-</span><span id="f15num">--:--:--</span></div>
+  <div class="f15-units"><span>ore</span><span>minuti</span><span>secondi</span></div>
+  <p class="f15-t0">Apertura finestra (T-0): <b>venerdì 13 novembre 2026, ore 23:45</b> ora italiana · 16:45 in Texas</p>
+  <p class="f15-note" id="f15status">Finestra di 75 minuti, chiusura alle 01:00 di sabato 14 novembre (ora italiana). Il countdown punta all'apertura della finestra: se il decollo slitta, l'ora reale sarà diversa.</p>
+</section>
+
+<div class="f15-wrap">
+  <div class="f15-grid">
+    <div class="f15-card"><b>Veicoli</b>Super Heavy Booster 22 e Ship 42, Starship V3</div>
+    <div class="f15-card"><b>Carico</b>26 satelliti Starlink V3, tre con telecamere per lo scudo termico</div>
+    <div class="f15-card"><b>Profilo</b>circa 275 km di quota, circa 14 orbite, più di 22 ore di volo</div>
+    <div class="f15-card"><b>Obiettivo</b>catch del booster a T+6:35 e della Ship a T+22:32:34</div>
+  </div>
+
+  <h2>Cronologia del lancio e del volo</h2>
+  <p>Tempi ufficiali SpaceX, <b>tutti approssimati</b>. La colonna «Ora italiana» è calcolata su un decollo all'apertura della finestra (23:45); se il lancio slitta, va spostata dello stesso intervallo. Durante la diretta la riga dell'evento in corso viene evidenziata.</p>
+  <div class="f15-scroll"><table class="f15-tl" id="f15tl">
+    <thead><tr><td class="tt">Tempo</td><td class="rt">Ora italiana</td><td>Evento</td></tr></thead>
+    <tbody>
+<tr class="sep"><td colspan="3">Conto alla rovescia</td></tr>
+<tr data-off="-3000"><td class="tt">T-00:50:00</td><td class="rt">13/11 22:55</td><td>Il direttore di volo SpaceX fa il poll e dà il GO al caricamento dei propellenti</td></tr>
+<tr data-off="-2133"><td class="tt">T-00:35:33</td><td class="rt">13/11 23:09</td><td>Inizia il carico di ossigeno liquido (LOX) nel Super Heavy</td></tr>
+<tr data-off="-2130"><td class="tt">T-00:35:30</td><td class="rt">13/11 23:09</td><td>Inizia il carico di metano liquido nel Super Heavy</td></tr>
+<tr data-off="-2112"><td class="tt">T-00:35:12</td><td class="rt">13/11 23:09</td><td>Inizia il carico di LOX nella Ship</td></tr>
+<tr data-off="-2111"><td class="tt">T-00:35:11</td><td class="rt">13/11 23:09</td><td>Inizia il carico di metano nella Ship</td></tr>
+<tr data-off="-1300"><td class="tt">T-00:21:40</td><td class="rt">13/11 23:23</td><td>Chill dei Raptor su booster e nave (raffreddamento dei motori)</td></tr>
+<tr data-off="-170"><td class="tt">T-00:02:50</td><td class="rt">13/11 23:42</td><td>Carico propellenti del booster completato</td></tr>
+<tr data-off="-130"><td class="tt">T-00:02:10</td><td class="rt">13/11 23:42</td><td>Carico propellenti della Ship completato</td></tr>
+<tr data-off="-30"><td class="tt">T-00:00:30</td><td class="rt">13/11 23:44</td><td>Il direttore di volo verifica il GO per il lancio</td></tr>
+<tr data-off="-17"><td class="tt">T-00:00:17</td><td class="rt">13/11 23:44</td><td>Attivazione del deflettore di fiamma ad acqua</td></tr>
+<tr data-off="-3"><td class="tt">T-00:00:03</td><td class="rt">13/11 23:44</td><td>Comando di accensione dei motori del booster</td></tr>
+<tr class="sep"><td colspan="3">Volo</td></tr>
+<tr data-off="0" class="lift"><td class="tt">T+00:00:00</td><td class="rt">13/11 23:45</td><td>Decollo dal Pad 2 di Starbase</td></tr>
+<tr data-off="58" class=""><td class="tt">T+00:00:58</td><td class="rt">13/11 23:45</td><td>Max Q, massimo stress aerodinamico</td></tr>
+<tr data-off="139" class=""><td class="tt">T+00:02:19</td><td class="rt">13/11 23:47</td><td>MECO del Super Heavy: spegnimento della maggior parte dei motori</td></tr>
+<tr data-off="141" class=""><td class="tt">T+00:02:21</td><td class="rt">13/11 23:47</td><td>Hot staging: accensione dei Raptor della Ship e separazione degli stadi</td></tr>
+<tr data-off="146" class=""><td class="tt">T+00:02:26</td><td class="rt">13/11 23:47</td><td>Inizio boostback burn del Super Heavy</td></tr>
+<tr data-off="182" class=""><td class="tt">T+00:03:02</td><td class="rt">13/11 23:48</td><td>Fine boostback burn</td></tr>
+<tr data-off="370" class=""><td class="tt">T+00:06:10</td><td class="rt">13/11 23:51</td><td>Inizio landing burn del Super Heavy</td></tr>
+<tr data-off="395" class="key"><td class="tt">T+00:06:35</td><td class="rt">13/11 23:51</td><td>Fine landing burn e catch del Super Heavy alla torre</td></tr>
+<tr data-off="489" class=""><td class="tt">T+00:08:09</td><td class="rt">13/11 23:53</td><td>Spegnimento dei motori della Ship (SECO)</td></tr>
+<tr data-off="1570" class=""><td class="tt">T+00:26:10</td><td class="rt">14/11 00:11</td><td>Accensione per l'inserimento in orbita (un Raptor a livello del mare)</td></tr>
+<tr data-off="1590" class=""><td class="tt">T+00:26:30</td><td class="rt">14/11 00:11</td><td>Fine accensione: Ship in orbita</td></tr>
+<tr data-off="2101" class="key"><td class="tt">T+00:35:01</td><td class="rt">14/11 00:20</td><td>Inizio rilascio dei 26 Starlink V3</td></tr>
+<tr data-off="4660" class=""><td class="tt">T+01:17:40</td><td class="rt">14/11 01:02</td><td>Rilascio dei satelliti completato</td></tr>
+<tr data-off="5266" class=""><td class="tt">T+01:27:46</td><td class="rt">14/11 01:12</td><td>Primo controllo per il ritorno (opzione Hawaii)</td></tr>
+<tr data-off="26135" class=""><td class="tt">T+07:15:35</td><td class="rt">14/11 07:00</td><td>Controllo di metà missione (opzione Cile)</td></tr>
+<tr data-off="74515" class=""><td class="tt">T+20:41:55</td><td class="rt">14/11 20:26</td><td>Controllo finale (opzione Hawaii)</td></tr>
+<tr data-off="77757" class="key"><td class="tt">T+21:35:57</td><td class="rt">14/11 21:20</td><td>Inizio deorbit burn (un Raptor 3)</td></tr>
+<tr data-off="77767" class=""><td class="tt">T+21:36:07</td><td class="rt">14/11 21:21</td><td>Fine deorbit burn</td></tr>
+<tr data-off="79846" class="key"><td class="tt">T+22:10:46</td><td class="rt">14/11 21:55</td><td>Rientro in atmosfera della Ship</td></tr>
+<tr data-off="80974" class=""><td class="tt">T+22:29:34</td><td class="rt">14/11 22:14</td><td>Ship transonica</td></tr>
+<tr data-off="81013" class=""><td class="tt">T+22:30:13</td><td class="rt">14/11 22:15</td><td>Ship subsonica</td></tr>
+<tr data-off="81136" class=""><td class="tt">T+22:32:16</td><td class="rt">14/11 22:17</td><td>Inizio landing burn della Ship</td></tr>
+<tr data-off="81138" class=""><td class="tt">T+22:32:18</td><td class="rt">14/11 22:17</td><td>Landing flip: la nave si raddrizza</td></tr>
+<tr data-off="81146" class=""><td class="tt">T+22:32:26</td><td class="rt">14/11 22:17</td><td>Landing burn: da 3 a 2 motori</td></tr>
+<tr data-off="81153" class=""><td class="tt">T+22:32:33</td><td class="rt">14/11 22:17</td><td>Landing burn: da 2 a 1 motore</td></tr>
+<tr data-off="81154" class="key"><td class="tt">T+22:32:34</td><td class="rt">14/11 22:17</td><td>Spegnimento e catch della Ship alla torre</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>Che cosa succederà</h2>
+  <p>Flight 15 è il quindicesimo volo di prova di Starship e il quarto della versione V3. A decollare dal Pad 2 di Starbase saranno il Super Heavy Booster 22 e la Ship 42. SpaceX ha indicato una finestra di 75 minuti che si apre alle 16:45 ora del Texas, le 23:45 in Italia, e si chiude all'una di notte di sabato 14 novembre. La diretta ufficiale dovrebbe cominciare circa mezz'ora prima del decollo e, per la prima volta, proseguire fino al ritorno della nave, con ore di immagini dall'orbita trasmesse via Starlink.</p>
+  <p>L'obiettivo dichiarato è senza precedenti: riportare entrambi gli stadi al sito di lancio e afferrarli con i bracci della torre. Se ci riuscirà, scrive SpaceX, sarà «il primo recupero completo di un sistema di lancio orbitale». Il primo appuntamento arriva dopo pochi minuti. Il Super Heavy spegne la maggior parte dei motori a circa T+2:19, la Ship accende i suoi Raptor in hot staging e si separa, poi il booster esegue l'accensione di ritorno (boostback) e torna verso Starbase. La presa è prevista a circa T+6:35, verso le 23:52 italiane. Sarà il primo catch tentato con un booster V3: i tre recuperi riusciti finora, sui voli 5, 7 e 8, riguardavano Super Heavy di prima generazione e la torre del Pad 1.</p>
+  <p>La Ship prosegue da sola e spegne i motori a circa T+8:09, su una traiettoria suborbitale «passivamente sicura»: se qualcosa andasse storto, ricadrebbe in un'area già sgomberata nell'Oceano Indiano. Solo dopo il «go» dei controllori riaccende un Raptor a livello del mare per circa venti secondi, a T+26 minuti, ed entra in un'orbita a circa 275 chilometri. Da T+35 minuti a circa T+1 ora e 18 minuti rilascia 26 satelliti Starlink V3, ciascuno da circa 1 terabit al secondo di capacità: insieme valgono una decina di lanci Starlink V2 Mini su Falcon 9. Tre di questi satelliti portano telecamere che fotograferanno lo scudo termico della nave e invieranno le immagini a terra.</p>
+  <p>Poi comincia la parte più lunga: circa 14 orbite in più di 22 ore. In tre momenti i controllori decideranno se la nave può tornare a casa o deve ammarare: un controllo precoce con opzione Hawaii (circa T+1:28), uno a metà missione con opzione Cile (circa T+7:16) e uno finale, di nuovo Hawaii (circa T+20:42). Le verifiche, volutamente conservative, riguardano la salute dei Raptor, energia e comunicazioni, computer e sensori di navigazione, integrità dei serbatoi, pressione e controllo d'assetto.</p>
+  <p>Se tutto resta verde, a circa T+21:36 un singolo Raptor 3 esegue l'accensione di deorbit e la nave rientra in atmosfera verso le T+22:11 sopra il Pacifico. Arriverà da ovest sorvolando il Messico settentrionale e il Texas meridionale con una serie di virate per evitare le zone più popolate, poi passerà sul Golfo e piegherà verso Starbase: nella contea di Cameron potranno sentirsi uno o più boom sonici. Sopra la torre la nave esegue il «bellyflop», riaccende tre motori, si raddrizza, passa da tre a due motori e infine a uno, quasi in hover fra i bracci. La presa è prevista a T+22:32:34: con un decollo in apertura di finestra, sabato 14 novembre verso le 22:17 italiane.</p>
+  <p>Ci sono anche uscite di emergenza durante il rientro: i controllori possono far spezzare di proposito la nave in atmosfera prima che raggiunga terra, oppure, se la nave o la torre non sono pronte per una presa sicura, dirottarla in mare nel Golfo, al largo di Starbase. Il volo resta subordinato all'approvazione delle autorità e, come ripete SpaceX, il calendario è dinamico. Se la doppia presa riuscirà, si aprirà la strada al passo successivo indicato da Elon Musk: un volo in cui entrambi gli stadi volano di nuovo.</p>
+
+  <h2>Le dirette</h2>
+  <div class="f15-vhead"><h3><span class="f15-live">LIVE</span>NASASpaceflight</h3><small>«SPACEX LAUNCHES STARSHIP FLIGHT 15 - Launch &amp; Booster Catch» · in inglese</small></div>
+  <div class="f15-video"><iframe src="https://www.youtube.com/embed/9XM0lpVlvo0" title="NASASpaceflight: diretta Starship Flight 15" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <p class="f15-note">Se il video non parte, apri <a href="https://www.youtube.com/watch?v=9XM0lpVlvo0" target="_blank" rel="noopener">la diretta su YouTube</a> o il <a href="https://www.youtube.com/@NASASpaceflight/streams" target="_blank" rel="noopener">canale NASASpaceflight</a>. Per il catch della Ship di sabato NSF ha in programma una diretta separata: <a href="https://www.youtube.com/watch?v=gTpn5Whu2ao" target="_blank" rel="noopener">«SpaceX attempts to catch a Starship»</a> (dalle 19:15 italiane del 14 novembre).</p>
+
+  <div class="f15-vhead"><h3><span class="f15-live">LIVE</span>VOLARE</h3><small>«DIRETTA LANCIO STARSHIP SPACEX 15: CATCH BOOSTER e SHIP!» · in italiano, dalle 22:00</small></div>
+  <div class="f15-video"><iframe src="https://www.youtube.com/embed/BonIkmUD3-I" title="VOLARE: diretta italiana Starship Flight 15" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <p class="f15-note">Se il video non parte, apri <a href="https://www.youtube.com/watch?v=BonIkmUD3-I" target="_blank" rel="noopener">la diretta su YouTube</a> o il <a href="https://www.youtube.com/@volarespace/streams" target="_blank" rel="noopener">canale VOLARE</a>.</p>
+
+  <div class="f15-vhead"><h3><span class="f15-live">LIVE</span>SpaceX, webcast ufficiale</h3><small>Trasmesso su X e su spacex.com · inizio circa 30 minuti prima del decollo</small></div>
+  <a class="f15-sx" href="https://x.com/i/broadcasts/2brajgZlOKRMka" target="_blank" rel="noopener" style="background-image:url('https://content.spacex.com/cms-assets/assets/large_Flight_15_Website_Desktop_1_7111645b6d.png')"><i></i><span>Guarda il webcast SpaceX di Starship Flight 15 su X</span></a>
+  <p class="f15-note">SpaceX trasmette Starship solo su X e sul proprio sito, che non permettono di incorporare la diretta in altre pagine: il riquadro apre il webcast ufficiale. Immagine SpaceX, uso editoriale.</p>
+  <div class="f15-btns"><a class="button" href="https://x.com/i/broadcasts/2brajgZlOKRMka" target="_blank" rel="noopener">Webcast su X</a><a class="button secondary" href="https://www.spacex.com/launches/starship-flight-15" target="_blank" rel="noopener">Pagina di missione su spacex.com</a></div>
+
+  <h2>Fonti</h2>
+  <ul class="f15-src">
+    <li><a href="https://www.spacex.com/launches/starship-flight-15" target="_blank" rel="noopener">SpaceX, pagina di missione Starship Flight 15</a>: finestra, obiettivi, cronologia di countdown e di volo («All times approximate»), webcast.</li>
+    <li>SpaceX, aggiornamento «Returning Starship to the Launch Site», 7 novembre 2026: controlli di ritorno, traiettoria di rientro, uscite di emergenza e sequenza del catch.</li>
+    <li><a href="https://ll.thespacedevs.com/2.3.0/launches/upcoming/?search=starship" target="_blank" rel="noopener">Launch Library 2</a>: NET e apertura finestra 13/11/2026 22:45 UTC, chiusura 14/11 00:00 UTC, stato «Go for Launch» (verificato il 13 novembre alle 21:30 ora italiana).</li>
+    <li><a href="https://www.astrospace.it/2026/11/13/dove-quando-e-perche-seguire-il-volo-15-di-starship-la-doppia-cattura/" target="_blank" rel="noopener">AstroSpace.it, 13 novembre 2026</a>: finestra 23:45-01:00 e catch della Ship tra le 22:17 e le 23:32 del 14 novembre.</li>
+    <li>Dossier del sito: <a href="../documenti%20per%20sito/spacex_starship_flight15_ufficiale.html">Flight 15, la pagina ufficiale e il 13 novembre</a> · <a href="../documenti%20per%20sito/spacex_starship_flight15_vigilia.html">Flight 15, ultimi giorni</a>.</li>
+  </ul>
+  <div class="f15-btns"><a class="button secondary" href="spacex.html">Torna a SpaceX</a><a class="button secondary" href="starship.html">Pagina Starship</a></div>
+</div>
+</main>
+<footer class="footer">
+  Rivoluzione Spaziale. Sito statico multipagina pubblicato su GitHub Pages.
+</footer>
+<script>
+(function(){
+  var T0=Date.UTC(2026,10,13,22,45,0);
+  var num=document.getElementById('f15num'),pre=document.getElementById('f15pre'),cd=document.getElementById('f15cd');
+  var rows=[].slice.call(document.querySelectorAll('#f15tl tr[data-off]'));
+  function p(n){return (n<10?'0':'')+n;}
+  function tick(){
+    var d=Date.now()-T0,plus=d>=0,s=Math.floor(Math.abs(d)/1000);
+    var h=Math.floor(s/3600),m=Math.floor(s%3600/60),x=s%60;
+    num.textContent=(h>=24?Math.floor(h/24)+'g ':'')+p(h%24>=0&&h>=24?h%24:h)+':'+p(m)+':'+p(x);
+    pre.textContent=plus?'T+':'T-';
+    cd.className='f15-cd'+(plus?' plus':'');
+    var sec=Math.floor(d/1000),cur=null;
+    rows.forEach(function(r){var o=+r.getAttribute('data-off');r.classList.remove('now');if(o<=sec){r.classList.add('done');cur=r;}else r.classList.remove('done');});
+    if(cur){cur.classList.remove('done');cur.classList.add('now');}
+  }
+  tick();setInterval(tick,1000);
+})();
+</script>
+</body>
+</html>
