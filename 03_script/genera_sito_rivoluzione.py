@@ -167,6 +167,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-11-13",
+        "date_label": "13 novembre 2026",
+        "tag": "SpaceX · Intelligenza artificiale",
+        "title": "SpaceX, 74 miliardi per il supercalcolo a terra: Arizona e Starbase, e cosa promette alle comunità",
+        "summary": "SpaceX dà per la prima volta un prezzo al campus di supercalcolo in Arizona, circa 50 miliardi di dollari, e lo presenta con il sito da 24 miliardi di Starbase e un pacchetto di benefici: 220 milioni per l'acqua di Brownsville, bonifica dei terreni, reti elettriche pagate dall'azienda. Il 9 dicembre le due udienze decisive.",
+        "href": "../documenti%20per%20sito/spacex_supercalcolo_arizona_starbase.html",
+        "image": "../documenti%20per%20sito/assets_spacex_supercalcolo_comunita/cochise-campus-rendering.jpg",
+        "image_alt": "Rendering SpaceX del campus di supercalcolo nel deserto della contea di Cochise, Arizona",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-11-12",
         "date_label": "12 novembre 2026",
         "tag": "SpaceX · Starship",
@@ -175,8 +188,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_starship_flight15_vigilia.html",
         "image": "../documenti%20per%20sito/assets_starship_flight15_vigilia/b22-pad2-notte.jpg",
         "image_alt": "Booster 22 trattenuto di notte dai bracci della torre del Pad 2 di Starbase",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
