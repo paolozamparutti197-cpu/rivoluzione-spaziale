@@ -167,6 +167,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-11-14",
+        "date_label": "14 novembre 2026",
+        "tag": "SpaceX · Starship",
+        "title": "Starship Flight 15 in orbita: 26 Starlink V3 rilasciati, booster nel Golfo, catch della Ship atteso stasera",
+        "summary": "Booster 22 e Ship 42 decollano da Starbase alle 23:47 del 13 novembre. La nave entra in orbita, rilascia tutti i 26 Starlink V3 e batte il record di durata di un volo Starship; il booster rinuncia al catch per un problema di guida e finisce nel Golfo. Il primo tentativo di riprendere la Ship con la torre è previsto verso le 22:17 italiane del 14 novembre.",
+        "href": "../documenti%20per%20sito/spacex_starship_flight15_orbita.html",
+        "image": "../documenti%20per%20sito/assets_starship_flight15_orbita/f15-liftoff.jpg",
+        "image_alt": "Starship Flight 15 decolla dal Pad 2 di Starbase il 13 novembre 2026",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-11-13",
         "date_label": "13 novembre 2026",
         "tag": "SpaceX · Intelligenza artificiale",
@@ -175,8 +188,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_supercalcolo_arizona_starbase.html",
         "image": "../documenti%20per%20sito/assets_spacex_supercalcolo_comunita/cochise-campus-rendering.jpg",
         "image_alt": "Rendering SpaceX del campus di supercalcolo nel deserto della contea di Cochise, Arizona",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
