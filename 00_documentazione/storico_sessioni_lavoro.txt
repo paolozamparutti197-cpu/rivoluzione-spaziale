@@ -604,3 +604,19 @@ Punti aperti:
 - Verifica online anti-cache dal box: HTTP 200 su SX-0723.html (USSF-627), storico-lanci.html (722/717, ultimo USSF-627
   12/11), spacex.html (722), lanci-imminenti.html. USSF-627 assente dalle card. Prima card: Starlink Group 31-2
   (Starship Flight 15) 2026-11-13T22:45:00Z (13/11 23:45 ora di Roma), come previsto.
+
+14/11/2026 - Bot C: SX-0724 Starship Flight 15 / Starlink Group 31-02 (13/11 22:47:36 UTC, B22/S42)
+- Stash Codex (stash@{0}, breadcrumb Flight 15) lasciato intatto. Fast-forward a e712e78 (include 9074b83 e 085b4b4).
+- Nessuna revisione nuova in 00_documentazione. Amos-6 presente (L1003). Workbook 724/718 -> sito 723/718:
+  Flight 15 e' un lancio principale operativo, contato come le altre righe (come gia' SX-0710 / Flight 14).
+- Generazione e aggiornamento exit 0. Stop prima del publish: verifica_archivio_spacex.mjs exit 1
+  (riga 16: 15 Starship family !== 14 snapshot.tests) per il secondo volo operativo SX-0724.
+- Decisione di Paolo (14/11 23:23): aggiornare il controllo per confrontare con i test solo le Starship di prova, poi pubblicare.
+- Backup 02_backup\verifica_archivio_spacex_20261114.mjs. Modifica minima riga 16: si contano le Starship non operative
+  piu' coverage.starshipOverlap (Flight 14 resta nel confronto, 14 === 14). Altri tre controlli erano gia' exit 0.
+- Dopo la modifica, i 4 controlli README exit 0. Publish 401aeab (762 file, include lo .mjs) exit 0 su main e gh-pages (solo ff).
+- Pagina sezioni/starship-flight15-live.html restata (redirect al dossier del catch, non e' in PUBLISH_FILES).
+  Banner/link live in spacex.html gia' assente da e712e78; il generatore non l'ha reinserito.
+- Verifica online anti-cache: HTTP 200 su SX-0724.html (Starlink Group 31-02), storico-lanci.html (723/718, ultimo 31-02
+  13/11), spacex.html (723), lanci-imminenti.html (Flight 15 assente dalle card), starship-flight15-live.html (diretta conclusa).
+- Prima card: USSF-317 2026-11-18T03:14:00Z; poi NROL-136 2026-11-21T12:30:00Z e USSF-266 2026-11-23T16:04:00Z.
