@@ -13,7 +13,7 @@ assert.equal(fsum.launches,fh.length);
 assert.equal(fsum.boosterFlights,fh.length*3);
 assert.equal(new Set(fh.flatMap(m=>m.flights.map(v=>v.id))).size,fsum.boosterFlights);
 assert.equal(data.missions.filter(m=>m.family==='Starship'&&m.programFlight===14).length,1);
-assert.equal(data.missions.filter(m=>m.family==='Starship').length,snapshot.tests.length);
+assert.equal(data.missions.filter(m=>m.family==='Starship'&&m.originalPhase!=='Operativo').length+data.coverage.starshipOverlap,snapshot.tests.length);
 assert.equal(aggregate(data.missions).launches,data.coverage.principal+data.coverage.starshipTests-data.coverage.starshipOverlap-data.coverage.prelaunchEvents);
 const amos=data.missions.find(m=>m.id==='SX-0034');
 assert.equal(amos.launch.id,null);

@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "editorialReview": "2026-10-12",
-  "sourceAsOf": "2026-11-12",
-  "imported": "2026-11-12",
+  "sourceAsOf": "2026-11-13",
+  "imported": "2026-11-14",
   "source": "archivio/spacex/dati.json",
-  "sourceSha256": "4d40d1a2f35738d73ac6ae82674fdf455086c94a9b46776bab7ed6c4900840b6",
+  "sourceSha256": "e4245a4021fb9152f00d1a4b992cbdfb7a8e00062c0bb58157b4c29b2d66b5a1",
   "historicalWindow": {
     "from": 2017,
     "to": 2025
@@ -822,7 +822,7 @@
   "sameCutoff": [
     {
       "year": 2025,
-      "cutoff": "2025-11-12",
+      "cutoff": "2025-11-13",
       "missions": 144,
       "launches": 144,
       "launchDecided": 144,
@@ -845,7 +845,7 @@
     },
     {
       "year": 2026,
-      "cutoff": "2026-11-12",
+      "cutoff": "2026-11-13",
       "missions": 123,
       "launches": 123,
       "launchDecided": 123,

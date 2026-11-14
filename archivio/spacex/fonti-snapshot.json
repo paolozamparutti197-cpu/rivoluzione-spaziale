@@ -1,9 +1,9 @@
 {
-  "date": "2026-11-12",
+  "date": "2026-11-14",
   "sources": [
     {
       "file": "01_workbook/lanci_spacex.xlsx",
-      "sha256": "d7035dfe03671d93f46839bb328771bb9c46762f20d352ac0e0771e65bcf0b2f"
+      "sha256": "3f50f5537cd312831209ba2fe48eac92e3955466e9f33b292b7d49b47d395516"
     },
     {
       "file": "01_workbook/sviluppo_starship.xlsx",
@@ -15,7 +15,7 @@
     },
     {
       "file": "sezioni/storico-lanci.html",
-      "sha256": "b1cecba22de66c8d64f10cf6239d48b99388b9e7c8a5cc026766083bf8580f75"
+      "sha256": "748311b5e40d9c4dec16fa99aecff10c199b99aa8ac85c51d3933cff38c166dc"
     }
   ],
   "launches": [
@@ -2331,7 +2331,7 @@
     },
     {
       "source_row": 57,
-      "nr": null,
+      "nr": 55,
       "data": "2018-02-06",
       "year": 2018,
       "lanciatore": null,
@@ -2373,7 +2373,7 @@
     },
     {
       "source_row": 58,
-      "nr": null,
+      "nr": 55,
       "data": "2018-02-06",
       "year": 2018,
       "lanciatore": null,
@@ -3339,7 +3339,7 @@
     },
     {
       "source_row": 81,
-      "nr": null,
+      "nr": 77,
       "data": null,
       "year": 2019,
       "lanciatore": null,
@@ -3381,7 +3381,7 @@
     },
     {
       "source_row": 82,
-      "nr": null,
+      "nr": 77,
       "data": null,
       "year": 2019,
       "lanciatore": null,
@@ -3591,7 +3591,7 @@
     },
     {
       "source_row": 87,
-      "nr": null,
+      "nr": 81,
       "data": null,
       "year": 2019,
       "lanciatore": null,
@@ -3633,7 +3633,7 @@
     },
     {
       "source_row": 88,
-      "nr": null,
+      "nr": 81,
       "data": null,
       "year": 2019,
       "lanciatore": null,
@@ -8379,7 +8379,7 @@
     },
     {
       "source_row": 201,
-      "nr": null,
+      "nr": 193,
       "data": "2022-11-01",
       "year": 2022,
       "lanciatore": null,
@@ -8421,7 +8421,7 @@
     },
     {
       "source_row": 202,
-      "nr": null,
+      "nr": 193,
       "data": "2022-11-01",
       "year": 2022,
       "lanciatore": null,
@@ -9051,7 +9051,7 @@
     },
     {
       "source_row": 217,
-      "nr": null,
+      "nr": 207,
       "data": "2023-01-15",
       "year": 2023,
       "lanciatore": null,
@@ -9093,7 +9093,7 @@
     },
     {
       "source_row": 218,
-      "nr": null,
+      "nr": 207,
       "data": "2023-01-15",
       "year": 2023,
       "lanciatore": null,
@@ -10185,7 +10185,7 @@
     },
     {
       "source_row": 244,
-      "nr": null,
+      "nr": 232,
       "data": "2023-05-01",
       "year": 2023,
       "lanciatore": null,
@@ -10227,7 +10227,7 @@
     },
     {
       "source_row": 245,
-      "nr": null,
+      "nr": 232,
       "data": "2023-05-01",
       "year": 2023,
       "lanciatore": null,
@@ -11235,7 +11235,7 @@
     },
     {
       "source_row": 269,
-      "nr": null,
+      "nr": 255,
       "data": null,
       "year": 2023,
       "lanciatore": null,
@@ -11277,7 +11277,7 @@
     },
     {
       "source_row": 270,
-      "nr": null,
+      "nr": 255,
       "data": null,
       "year": 2023,
       "lanciatore": null,
@@ -12201,7 +12201,7 @@
     },
     {
       "source_row": 292,
-      "nr": null,
+      "nr": 276,
       "data": null,
       "year": 2023,
       "lanciatore": null,
@@ -12243,7 +12243,7 @@
     },
     {
       "source_row": 293,
-      "nr": null,
+      "nr": 276,
       "data": null,
       "year": 2023,
       "lanciatore": null,
@@ -13251,7 +13251,7 @@
     },
     {
       "source_row": 317,
-      "nr": null,
+      "nr": 299,
       "data": null,
       "year": 2023,
       "lanciatore": null,
@@ -13293,7 +13293,7 @@
     },
     {
       "source_row": 318,
-      "nr": null,
+      "nr": 299,
       "data": null,
       "year": 2023,
       "lanciatore": null,
@@ -16107,7 +16107,7 @@
     },
     {
       "source_row": 385,
-      "nr": null,
+      "nr": 365,
       "data": null,
       "year": 2024,
       "lanciatore": null,
@@ -16149,7 +16149,7 @@
     },
     {
       "source_row": 386,
-      "nr": null,
+      "nr": 365,
       "data": null,
       "year": 2024,
       "lanciatore": null,
@@ -17493,7 +17493,7 @@
     },
     {
       "source_row": 418,
-      "nr": null,
+      "nr": 396,
       "data": null,
       "year": 2024,
       "lanciatore": null,
@@ -17535,7 +17535,7 @@
     },
     {
       "source_row": 419,
-      "nr": null,
+      "nr": 396,
       "data": null,
       "year": 2024,
       "lanciatore": null,
@@ -28245,7 +28245,7 @@
     },
     {
       "source_row": 674,
-      "nr": null,
+      "nr": 650,
       "data": null,
       "year": 2026,
       "lanciatore": null,
@@ -28287,7 +28287,7 @@
     },
     {
       "source_row": 675,
-      "nr": null,
+      "nr": 650,
       "data": null,
       "year": 2026,
       "lanciatore": null,
@@ -30513,7 +30513,7 @@
     },
     {
       "source_row": 728,
-      "nr": null,
+      "nr": 702,
       "data": null,
       "year": 2026,
       "lanciatore": null,
@@ -30555,7 +30555,7 @@
     },
     {
       "source_row": 729,
-      "nr": null,
+      "nr": 702,
       "data": null,
       "year": 2026,
       "lanciatore": null,
@@ -31059,7 +31059,7 @@
     },
     {
       "source_row": 741,
-      "nr": null,
+      "nr": 713,
       "data": null,
       "year": 2026,
       "lanciatore": null,
@@ -31101,7 +31101,7 @@
     },
     {
       "source_row": 742,
-      "nr": null,
+      "nr": 713,
       "data": null,
       "year": 2026,
       "lanciatore": null,
@@ -31560,6 +31560,48 @@
       "esito_orbita": null,
       "esito_payload": null,
       "numero_payload": null
+    },
+    {
+      "source_row": 753,
+      "nr": 724,
+      "data": "2026-11-13",
+      "year": 2026,
+      "lanciatore": "Starship-Super Heavy v3",
+      "cliente": "Starlink Group 31-02",
+      "stato": "successo",
+      "video": "lancio",
+      "orbita": "LEO",
+      "landing": "Catch torre",
+      "booster": "B22",
+      "voli": 1,
+      "dove": "Starbase Pad 2",
+      "s.bl 5": 2026,
+      "s.f.h.": null,
+      "tipo_record": "Lancio principale",
+      "data_evento": "2026-11-13",
+      "anno_mese": "2026-11-01",
+      "famiglia_lanciatore": "Starship",
+      "classe_missione": "Starlink",
+      "esito_lancio_num": 1,
+      "tentativo_recupero": 1,
+      "recupero_riuscito": 0,
+      "booster_riutilizzato": 0,
+      "area_lancio": "Starbase",
+      "video_url": "https://www.spacex.com/launches/starship-flight-15",
+      "id_lancio": "SX-0724",
+      "fase_programma": "Operativo",
+      "volo_programma": 15,
+      "versione_veicolo": "Block 3 / V3",
+      "pad_id": "PAD-STARBASE-2",
+      "ora_utc": "22:47:36",
+      "ship": "S42",
+      "voli_ship": 1,
+      "note_missione": "Starship Flight 15, decollo 22:47:36 UTC. 26 Starlink V3 rilasciati in orbita. Booster B22: catch in torre annullato (abort automatico prima della landing burn), ammaraggio ed esplosione nel Golfo del Messico. Ship S42 rientrata a Starbase dopo circa 14 orbite e catturata dalla torre il 14/11 (prima cattura di una Ship). Successo confermato da Launch Library 2 (Launch Successful).",
+      "fonti_missione": "https://www.spacex.com/launches/starship-flight-15 ; https://ll.thespacedevs.com/2.3.0/launches/0f867f0c-5422-4d44-93b8-d7faaae7019b/",
+      "esito_definito_num": 1,
+      "esito_orbita": "successo",
+      "esito_payload": "successo",
+      "numero_payload": 26
     }
   ],
   "recoveries": [
@@ -31608,6 +31650,54 @@
       "rientro_riuscito_num": 1,
       "tentativo_recupero_num": 0,
       "recuperato_num": 0,
+      "riutilizzato_num": 0,
+      "anno": 2026
+    },
+    {
+      "source_row": 4,
+      "id_record": "SX-0724|Super Heavy",
+      "id_lancio": "SX-0724",
+      "ruolo": "Super Heavy",
+      "veicolo": "B22",
+      "volo_veicolo": 1,
+      "modalita_prevista": "Catch torre",
+      "sito_previsto_id": "PAD-STARBASE-2",
+      "modalita_effettiva": "Splashdown",
+      "sito_effettivo_id": "SEA-GULF",
+      "esito_rientro": "fallito",
+      "recupero_previsto": "Si",
+      "recupero_fisico": "perso",
+      "data_recupero": "2026-11-13",
+      "fonte_url": "https://www.spacex.com/launches/starship-flight-15 ; https://ll.thespacedevs.com/2.3.0/launches/0f867f0c-5422-4d44-93b8-d7faaae7019b/",
+      "note": "Abort automatico del catch per boostback terminato in anticipo; deviato in mare, esploso prima dell'impatto nel Golfo del Messico.",
+      "tentativo_rientro_num": 1,
+      "rientro_riuscito_num": 0,
+      "tentativo_recupero_num": 1,
+      "recuperato_num": 0,
+      "riutilizzato_num": 0,
+      "anno": 2026
+    },
+    {
+      "source_row": 5,
+      "id_record": "SX-0724|Ship",
+      "id_lancio": "SX-0724",
+      "ruolo": "Ship",
+      "veicolo": "S42",
+      "volo_veicolo": 1,
+      "modalita_prevista": "Catch torre",
+      "sito_previsto_id": "PAD-STARBASE-2",
+      "modalita_effettiva": "Catch torre",
+      "sito_effettivo_id": "PAD-STARBASE-2",
+      "esito_rientro": "successo",
+      "recupero_previsto": "Si",
+      "recupero_fisico": "recuperato",
+      "data_recupero": "2026-11-14",
+      "fonte_url": "https://www.spacex.com/launches/starship-flight-15 ; https://ll.thespacedevs.com/2.3.0/launches/0f867f0c-5422-4d44-93b8-d7faaae7019b/",
+      "note": "26 Starlink V3 rilasciati in orbita. Circa 14 orbite, poi rientro a Starbase e cattura in torre il 14/11/2026 (prima volta per una Ship).",
+      "tentativo_rientro_num": 1,
+      "rientro_riuscito_num": 1,
+      "tentativo_recupero_num": 1,
+      "recuperato_num": 1,
       "riutilizzato_num": 0,
       "anno": 2026
     }
