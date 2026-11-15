@@ -167,6 +167,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-11-15",
+        "date_label": "15 novembre 2026",
+        "tag": "SpaceX · Starlink / Starshield",
+        "title": "Starshield, il limite torna sopra i territori occupati: Kiev accusa, SpaceX nega",
+        "summary": "Per la seconda volta in un mese i terminali Starshield usati dall'Ucraina perdono il collegamento oltre i 161 km/h, ora sopra le zone occupate e lungo il fronte. Zelensky parla di un limite sistematico che frena gli intercettori, SpaceX nega cambiamenti e cita un problema tecnico, al Senato USA si chiedono documenti e responsabili.",
+        "href": "../documenti%20per%20sito/spacex_starshield_ucraina_novembre.html",
+        "image": "../documenti%20per%20sito/assets_starshield_ucraina_novembre/ssn-zelensky-dublino.jpg",
+        "image_alt": "Volodymyr Zelensky a Dublino al vertice della Comunità politica europea, 12 novembre 2026",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-11-14",
         "date_label": "14 novembre 2026",
         "tag": "SpaceX · Starship",
@@ -175,8 +188,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_starship_flight15_catch_ship.html",
         "image": "../documenti%20per%20sito/assets_starship_flight15_catch_ship/f15-ship-catch-torre.jpg",
         "image_alt": "Ship 42 accende i Raptor accanto alla torre di Starbase un istante prima del catch, 14 novembre 2026",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
