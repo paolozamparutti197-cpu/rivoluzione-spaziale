@@ -175,8 +175,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_starshield_ucraina_novembre.html",
         "image": "../documenti%20per%20sito/assets_starshield_ucraina_novembre/ssn-zelensky-dublino.jpg",
         "image_alt": "Volodymyr Zelensky a Dublino al vertice della Comunità politica europea, 12 novembre 2026",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "",
+        "breaking": False,
         "company": "spacex",
     },
     {
@@ -188,8 +188,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_starship_flight15_catch_ship.html",
         "image": "../documenti%20per%20sito/assets_starship_flight15_catch_ship/f15-ship-catch-torre.jpg",
         "image_alt": "Ship 42 accende i Raptor accanto alla torre di Starbase un istante prima del catch, 14 novembre 2026",
-        "badge": "Dossier archiviato",
-        "breaking": False,
+        "badge": "Breaking",
+        "breaking": True,
         "company": "spacex",
     },
     {
