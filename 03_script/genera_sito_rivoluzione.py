@@ -3067,9 +3067,372 @@ def page_hero(title, eyebrow, copy, construction=False):
 """
 
 
+SPACEX_RESTYLE_VERSION = "20261115-restyle-2"
+
+# Immagini della sezione SpaceX (path relativi da sezioni/). Per cambiarle basta
+# sostituire src/alt/credit qui: layout e stile restano invariati.
+SPACEX_HERO_IMAGE = {
+    "src": "../documenti%20per%20sito/assets_starship_flight15_orbita/f15-raptor-torre.jpg",
+    "alt": "I Raptor di Booster 22 accesi accanto alla torre del Pad 2 di Starbase durante Starship Flight 15",
+    "credit": "SpaceX",
+    "width": 2000,
+    "height": 1333,
+}
+SPACEX_DOORS = [
+    {
+        "num": "01",
+        "title": "Vivo ora",
+        "copy": "Agenda, Starship e notizie in corso.",
+        "image": "../documenti%20per%20sito/assets_starship_flight15_orbita/f15-liftoff.jpg",
+        "alt": "Decollo di Starship Flight 15 dal Pad 2 di Starbase, 13 novembre 2026",
+        "credit": "SpaceX",
+        "links": [
+            ("Lanci imminenti", "lanci-imminenti.html", True),
+            ("Starship", "starship.html", False),
+            ("Notizie", "notizie.html", False),
+        ],
+    },
+    {
+        "num": "02",
+        "title": "Macchina",
+        "copy": "Storico dei lanci SpaceX, pad e mappa dei siti.",
+        "image": "../documenti%20per%20sito/assets_sda_t1tla/sda-t1tlc-lancio-slc4e.jpg",
+        "alt": "Un Falcon 9 decolla da SLC-4E, Vandenberg",
+        "credit": "U.S. Space Force",
+        "links": [
+            ("Storico lanci", "storico-lanci.html", False),
+            ("Pad di lancio", "pad-di-lancio.html", False),
+            ("Localita SpaceX", "localita-spacex.html", False),
+        ],
+    },
+    {
+        "num": "03",
+        "title": "Lettura",
+        "copy": "Storia narrata, monografie, analisi originali e guida per vedere un lancio.",
+        "image": "assets/lancio13/starship-flight13-pad.jpg",
+        "alt": "Starship Flight 13 sulla rampa di Starbase al tramonto",
+        "credit": "SpaceX, CC BY 2.0",
+        "links": [
+            ("Storia", "storia-spacex.html", False),
+            ("Programmi e monografie", "monografie-spacex.html", False),
+            ("Analisi originali e metodo", "../analisi/spacex/index.html", False),
+            ("Vedere un lancio da SLC-40", "guida-lancio-slc40.html", False),
+        ],
+    },
+]
+
+# Foglio di stile della sezione SpaceX, scritto in css/spacex-restyle.css da render().
+# Tutte le regole sono confinate a .spacex-page (o a :has(.spacex-page)), quindi le
+# altre pagine del sito non cambiano. Il markup dei lanci e delle breaking resta
+# quello condiviso: qui viene solo rivestito.
+SPACEX_RESTYLE_CSS = r""".spacex-page{--sx-accent:var(--accent,#69c8ff);--sx-gold:var(--gold,#f2b84b);--sx-coral:#ff7a66;--sx-card:#0b1015;--sx-edge:rgba(255,255,255,.12);--sx-edge-strong:rgba(255,255,255,.24);--sx-radius:16px;--sx-ease:cubic-bezier(.2,.7,.2,1);--sx-gutter:clamp(18px,4vw,56px);--sx-orbits:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 800' fill='none' stroke='%2369c8ff'%3E%3Cg stroke-opacity='.17' transform='rotate(-24 400 400)'%3E%3Cellipse cx='400' cy='400' rx='380' ry='150'/%3E%3Cellipse cx='400' cy='400' rx='296' ry='110'/%3E%3Cellipse cx='400' cy='400' rx='206' ry='70'/%3E%3C/g%3E%3Ccircle cx='400' cy='400' r='30' stroke-opacity='.3'/%3E%3Ccircle cx='747' cy='246' r='4.5' fill='%23f2b84b' stroke='none'/%3E%3Ccircle cx='131' cy='520' r='3' fill='%2369c8ff' stroke='none'/%3E%3C/svg%3E")}
+.spacex-page section{padding:clamp(56px,7vw,104px) var(--sx-gutter);border-top:0}
+.spacex-page .sx-wrap{max-width:1240px;margin:0 auto}
+
+/* Intestazioni di sezione */
+.spacex-page .section-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px 56px;align-items:end;margin-bottom:clamp(28px,3.6vw,48px)}
+.spacex-page .section-head h2{font-size:clamp(30px,4.2vw,56px);letter-spacing:-.015em}
+.spacex-page .section-head h2::before{content:"";display:block;width:44px;height:3px;margin-bottom:18px;border-radius:2px;background:var(--sx-accent)}
+.spacex-page .section-head p{max-width:none;font-size:16px;line-height:1.62}
+
+/* Pulsanti */
+.spacex-page .button{display:inline-flex;align-items:center;border-radius:10px;transition:transform .2s ease,background .2s ease,border-color .2s ease,color .2s ease}
+.spacex-page .button:hover{transform:translateY(-1px);background:var(--sx-accent);border-color:var(--sx-accent);color:#04121c}
+.spacex-page .button.secondary:hover{background:rgba(105,200,255,.12);border-color:var(--sx-accent);color:#fff}
+.spacex-page a:focus-visible,.spacex-page button:focus-visible{outline:2px solid var(--sx-gold);outline-offset:3px}
+
+/* Hero */
+.spacex-page .sx-hero{position:relative;isolation:isolate;display:flex;align-items:flex-end;min-height:min(84vh,780px);padding:0;overflow:hidden}
+.spacex-page .sx-hero-media{position:absolute;inset:0;z-index:-2;background:#0a1320}
+.spacex-page .sx-hero-media img{display:block;width:100%;height:100%;object-fit:cover;object-position:66% 36%;animation:sxDrift 28s var(--sx-ease) both}
+.spacex-page .sx-hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(5,6,7,.9) 0%,rgba(5,6,7,.6) 36%,rgba(5,6,7,.06) 72%),linear-gradient(180deg,rgba(5,6,7,.4) 0%,transparent 26%,transparent 52%,rgba(5,6,7,.8) 86%,var(--bg) 100%)}
+.spacex-page .sx-hero-inner{width:100%;max-width:calc(1240px + 2*var(--sx-gutter));margin:0 auto;padding:clamp(120px,17vh,190px) var(--sx-gutter) clamp(40px,5vw,72px);display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,380px);gap:32px 56px;align-items:end}
+.spacex-page .sx-hero .eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.spacex-page .sx-hero .eyebrow::before{content:"";width:34px;height:2px;background:var(--sx-gold)}
+.spacex-page .sx-hero h1{font-size:clamp(64px,12.5vw,176px);line-height:.84;letter-spacing:-.035em;text-shadow:0 10px 50px rgba(0,0,0,.5)}
+.spacex-page .sx-hero .subtitle{max-width:560px;margin-top:26px;font-size:clamp(17px,1.7vw,21px);line-height:1.5;color:#e3e9ee;text-shadow:0 2px 18px rgba(0,0,0,.6)}
+.spacex-page .sx-credit{position:absolute;top:14px;right:var(--sx-gutter);margin:0;font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.6);text-shadow:0 1px 6px rgba(0,0,0,.8)}
+
+/* Scheda "Prossimo T-0" nell'hero */
+.spacex-page .sx-next{display:grid;gap:6px;padding:22px 22px 18px;border:1px solid var(--sx-edge-strong);border-radius:var(--sx-radius);background:rgba(8,12,16,.62);-webkit-backdrop-filter:blur(14px) saturate(1.2);backdrop-filter:blur(14px) saturate(1.2);box-shadow:0 30px 60px -30px rgba(0,0,0,.8);transition:transform .3s var(--sx-ease),border-color .3s ease}
+.spacex-page .sx-next:hover{transform:translateY(-3px);border-color:var(--sx-accent)}
+.spacex-page .sx-next-label{display:flex;align-items:center;gap:10px;color:var(--sx-gold);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.15em}
+.spacex-page .sx-next-label::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green,#78d58c);animation:sxPing 2s ease-out infinite}
+.spacex-page .sx-next-name{margin-top:4px;font-size:clamp(26px,2.6vw,34px);font-weight:900;line-height:1.05;letter-spacing:-.015em;text-transform:uppercase}
+.spacex-page .sx-next-meta{color:#cfd7de;font-size:14px;line-height:1.4}
+.spacex-page .sx-next-clock{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
+.spacex-page .sx-next-clock>span{display:grid;justify-items:center;gap:2px;padding:10px 4px 8px;border:1px solid rgba(105,200,255,.2);border-radius:10px;background:rgba(105,200,255,.07)}
+.spacex-page .sx-next-clock b{font-size:28px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.spacex-page .sx-next-clock i{font-style:normal;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.1em}
+.spacex-page .sx-next-cta{display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding-top:14px;border-top:1px solid var(--sx-edge);font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.1em}
+.spacex-page .sx-next-cta::after{content:"\2192";color:var(--sx-accent);font-size:16px;transition:transform .25s ease}
+.spacex-page .sx-next:hover .sx-next-cta::after{transform:translateX(5px)}
+
+/* Breaking news */
+.spacex-page .breaking-news-section{padding-block:clamp(48px,6vw,84px);background:radial-gradient(70% 120% at 0% 0%,rgba(233,95,69,.11),transparent 62%)}
+.spacex-page .breaking-news-section .section-head h2{display:flex;align-items:center;gap:16px}
+.spacex-page .breaking-news-section .section-head h2::before{flex:none;width:12px;height:12px;margin:0;border-radius:50%;background:var(--sx-coral);animation:sxPingCoral 1.8s ease-out infinite}
+.spacex-page .breaking-card{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:0;padding:0;border-radius:20px;overflow:hidden;transition:transform .35s var(--sx-ease),border-color .3s ease,box-shadow .35s ease}
+.spacex-page .breaking-card:hover{box-shadow:0 34px 70px -40px rgba(233,95,69,.55)}
+.spacex-page .breaking-card img{min-height:380px;border:0;border-radius:0;transition:filter .5s ease}
+.spacex-page .breaking-card:hover img{filter:brightness(1.08) saturate(1.08)}
+.spacex-page .breaking-card>div{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:clamp(24px,3.4vw,52px)}
+.spacex-page .breaking-card small{display:flex;align-items:center;gap:9px;margin-bottom:16px}
+.spacex-page .breaking-card small::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:var(--sx-coral)}
+.spacex-page .breaking-card h3{font-size:clamp(24px,2.7vw,38px);line-height:1.08;letter-spacing:-.012em}
+.spacex-page .breaking-card p{margin-top:16px;font-size:16px;line-height:1.6}
+.spacex-page .breaking-card .button{margin-top:26px}
+
+/* Cruscotto */
+.spacex-page .sx-dash{padding-block:clamp(40px,5vw,68px);border-block:1px solid var(--line);background:var(--sx-orbits) no-repeat right -170px center/720px auto,linear-gradient(180deg,rgba(105,200,255,.055),rgba(105,200,255,0) 70%)}
+.spacex-page .sx-dash-title{margin:0 0 30px;display:flex;align-items:center;gap:12px;color:var(--sx-gold);font-size:13px;font-weight:900;letter-spacing:.15em;line-height:1.2}
+.spacex-page .sx-dash-title::before{content:"";width:34px;height:2px;background:var(--sx-gold)}
+.spacex-page .sx-dash-grid{display:grid;grid-template-columns:minmax(0,1.9fr) minmax(0,1fr);gap:0;align-items:center}
+.spacex-page .sx-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.spacex-page .sx-kpi{padding:6px 26px;border-left:1px solid var(--sx-edge)}
+.spacex-page .sx-kpi:first-child{padding-left:0;border-left:0}
+.spacex-page .sx-kpi b{display:block;font-size:clamp(40px,5vw,68px);font-weight:900;line-height:.95;letter-spacing:-.035em;font-variant-numeric:tabular-nums;white-space:nowrap}
+.spacex-page .sx-kpi span{display:block;margin-top:14px;color:var(--muted);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;line-height:1.4}
+.spacex-page .sx-status{padding-left:32px;border-left:1px solid var(--sx-edge)}
+.spacex-page .sx-status .dash-label{margin:0 0 12px}
+.spacex-page .status-stack .metric{position:relative;min-height:0;padding:16px 46px 16px 18px;border:1px solid var(--sx-edge-strong);border-radius:12px;background:rgba(8,12,16,.7);transition:border-color .25s ease,transform .25s var(--sx-ease)}
+.spacex-page .status-stack .metric b{margin-bottom:5px;font-size:17px;line-height:1.3}
+.spacex-page .status-stack a.metric::after{content:"\2192";position:absolute;right:18px;top:50%;transform:translateY(-50%);color:var(--sx-accent);font-size:17px;transition:transform .25s ease}
+.spacex-page .status-stack a.metric:hover{border-color:var(--sx-accent);transform:translateY(-2px)}
+.spacex-page .status-stack a.metric:hover::after{transform:translate(4px,-50%)}
+.spacex-page .sx-dash .flight-window{margin-top:30px}
+
+/* Tre porte */
+.spacex-page .sx-doors{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.spacex-page .sx-door{position:relative;display:flex;flex-direction:column;overflow:hidden;border:1px solid var(--sx-edge);border-radius:var(--sx-radius);background:var(--sx-card);transition:transform .35s var(--sx-ease),border-color .3s ease,box-shadow .35s ease}
+.spacex-page .sx-door:hover{transform:translateY(-5px);border-color:rgba(105,200,255,.5);box-shadow:0 30px 60px -36px rgba(105,200,255,.6)}
+.spacex-page .sx-door-media{position:relative;aspect-ratio:16/10;overflow:hidden;background:#0a1320}
+.spacex-page .sx-door-media img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .9s var(--sx-ease)}
+.spacex-page .sx-door:hover .sx-door-media img{transform:scale(1.06)}
+.spacex-page .sx-door-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,16,21,.1) 30%,rgba(11,16,21,.8) 82%,var(--sx-card) 100%)}
+.spacex-page .sx-door-num{position:absolute;left:18px;top:16px;z-index:1;padding:6px 10px;border:1px solid rgba(255,255,255,.4);border-radius:999px;background:rgba(5,6,7,.5);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);font:700 12px/1 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.12em}
+.spacex-page .sx-door-body{position:relative;display:flex;flex-direction:column;flex:1;gap:10px;margin-top:-40px;padding:0 24px 22px}
+.spacex-page .sx-door h3{margin:0;font-size:clamp(24px,2.3vw,31px);text-transform:uppercase;letter-spacing:-.01em;line-height:1.05}
+.spacex-page .sx-door-body>p{margin:0 0 10px;color:var(--muted);font-size:15px;line-height:1.55}
+.spacex-page .sx-links{display:grid;margin-top:auto;border-top:1px solid var(--sx-edge)}
+.spacex-page .sx-links a{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 2px;border-bottom:1px solid var(--sx-edge);color:#e6ebf0;font-size:15px;font-weight:650;transition:color .2s ease,padding-left .25s var(--sx-ease)}
+.spacex-page .sx-links a:last-child{border-bottom:0;padding-bottom:4px}
+.spacex-page .sx-links a::after{content:"\2192";color:var(--sx-accent);transition:transform .25s ease}
+.spacex-page .sx-links a:hover{color:#fff;padding-left:8px}
+.spacex-page .sx-links a:hover::after{transform:translateX(4px)}
+.spacex-page .sx-links a.primary{color:var(--sx-accent);font-weight:800}
+.spacex-page .sx-photo-credits{margin:18px 0 0;color:rgba(174,182,189,.7);font-size:11px;letter-spacing:.04em}
+
+/* Prossimi lanci */
+.spacex-page .sx-launches{background:var(--sx-orbits) no-repeat left -260px top -220px/640px auto;border-top:1px solid var(--line)}
+.spacex-page .launch-grid{gap:20px}
+.spacex-page .launch{position:relative;overflow:hidden;min-height:0;gap:14px;padding:26px 24px 22px;border:1px solid var(--sx-edge);border-radius:var(--sx-radius);background:linear-gradient(180deg,rgba(255,255,255,.065),rgba(255,255,255,.02));transition:transform .35s var(--sx-ease),border-color .3s ease,box-shadow .35s ease}
+.spacex-page .launch::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,var(--sx-accent),rgba(105,200,255,0) 85%)}
+.spacex-page .launch:has(.pill.net)::before{background:linear-gradient(90deg,var(--sx-gold),rgba(242,184,75,0) 85%)}
+.spacex-page .launch:hover{transform:translateY(-4px);border-color:rgba(105,200,255,.45);box-shadow:0 30px 60px -38px rgba(105,200,255,.6)}
+.spacex-page .launch-top{align-items:center}
+.spacex-page .launch .pill{background:rgba(105,200,255,.12)}
+.spacex-page .launch .pill.net{background:rgba(242,184,75,.12)}
+.spacex-page .launch h3{margin:2px 0 0;font-size:clamp(24px,2.3vw,31px);line-height:1.05;letter-spacing:-.012em}
+.spacex-page .launch-meta{grid-template-columns:1fr;gap:0;border-top:1px solid var(--sx-edge)}
+.spacex-page .launch-meta div{display:flex;justify-content:space-between;align-items:baseline;gap:18px;padding:10px 0;border:0;border-bottom:1px solid var(--sx-edge);border-radius:0;background:none}
+.spacex-page .launch-meta b{flex:none;margin:0}
+.spacex-page .launch-meta span{text-align:right;font-size:13px}
+.spacex-page .launch-summary p{line-height:1.55}
+.spacex-page .source-links a,.spacex-page .source-links .ics-btn{transition:border-color .2s ease,background .2s ease,color .2s ease}
+.spacex-page .source-links a:hover{border-color:var(--sx-accent);color:#fff}
+.spacex-page .launch .countdown{gap:8px;padding-top:4px}
+.spacex-page .launch .timebox{padding:10px 4px 8px;border:1px solid rgba(105,200,255,.2);border-radius:10px;background:rgba(105,200,255,.07)}
+.spacex-page .launch .timebox strong{font-size:26px;line-height:1.1;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.spacex-page .sx-launches-actions{margin-top:34px}
+
+/* Barra lettori (briciole e ricerca) resa sottile sopra l'hero, solo in questa pagina */
+main:has(>.spacex-page)>.reader-tools{display:flex;flex-wrap:wrap;align-items:center;gap:8px 26px;max-width:none;margin:0;padding:10px var(--sx-gutter,clamp(18px,4vw,56px));border:0;border-bottom:1px solid var(--line);border-radius:0;background:#0a1016;font-size:14px}
+main:has(>.spacex-page)>.reader-tools .reader-breadcrumb{margin-right:auto}
+main:has(>.spacex-page)>.reader-tools .reader-actions{margin:0;gap:18px}
+main:has(>.spacex-page)>.reader-tools .reader-quick{flex:0 1 400px;align-items:center;gap:8px}
+main:has(>.spacex-page)>.reader-tools .reader-quick label{font-size:0;line-height:0}
+main:has(>.spacex-page)>.reader-tools .reader-quick input{margin:0;min-height:38px;padding:7px 12px;font-size:14px;line-height:1.4;border-color:rgba(255,255,255,.22);background:rgba(255,255,255,.06);color:#fff}
+main:has(>.spacex-page)>.reader-tools .reader-quick input::placeholder{color:#9fb0bd}
+main:has(>.spacex-page)>.reader-tools .reader-quick button{min-height:38px;padding:7px 16px;font-size:14px}
+main:has(>.spacex-page)>.reader-tools .reader-context{flex-basis:100%;margin-top:2px}
+
+/* Comparsa allo scroll: attiva solo con JavaScript (classe sx-js su html) */
+html.sx-js .spacex-page .sx-reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .8s var(--sx-ease);transition-delay:var(--sx-delay,0ms)}
+html.sx-js .spacex-page .sx-reveal.is-in{opacity:1;transform:none}
+
+@keyframes sxDrift{from{transform:scale(1.1)}to{transform:scale(1)}}
+@keyframes sxPing{0%{box-shadow:0 0 0 0 rgba(120,213,140,.65)}70%,100%{box-shadow:0 0 0 10px rgba(120,213,140,0)}}
+@keyframes sxPingCoral{0%{box-shadow:0 0 0 0 rgba(255,122,102,.65)}70%,100%{box-shadow:0 0 0 13px rgba(255,122,102,0)}}
+
+@media (max-width:1120px){
+.spacex-page .sx-dash-grid{grid-template-columns:1fr;gap:30px}
+.spacex-page .sx-status{padding:26px 0 0;border-left:0;border-top:1px solid var(--sx-edge)}
+.spacex-page .sx-doors{grid-template-columns:1fr}
+.spacex-page .sx-door{flex-direction:row}
+.spacex-page .sx-door-media{flex:0 0 40%;aspect-ratio:auto;min-height:260px}
+.spacex-page .sx-door-media::after{background:linear-gradient(90deg,rgba(11,16,21,0) 45%,var(--sx-card) 100%)}
+.spacex-page .sx-door-body{margin-top:0;padding:26px 26px 20px 8px}
+}
+@media (max-width:900px){
+.spacex-page .section-head{grid-template-columns:1fr}
+.spacex-page .sx-hero{min-height:0}
+.spacex-page .sx-hero-inner{grid-template-columns:1fr;padding-top:clamp(150px,34vh,300px)}
+.spacex-page .sx-hero::before{background:linear-gradient(180deg,rgba(5,6,7,.3) 0%,rgba(5,6,7,.15) 30%,rgba(5,6,7,.86) 62%,var(--bg) 100%)}
+.spacex-page .sx-hero h1{font-size:clamp(56px,19vw,128px)}
+.spacex-page .sx-next{max-width:460px}
+.spacex-page .breaking-card{grid-template-columns:1fr}
+.spacex-page .breaking-card img{min-height:0;aspect-ratio:16/9}
+}
+@media (max-width:760px){
+body:has(.spacex-page) .nav{flex-wrap:nowrap;justify-content:flex-start;max-width:100%;gap:18px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent)}
+body:has(.spacex-page) .nav::-webkit-scrollbar{display:none}
+body:has(.spacex-page) .nav a{flex:none}
+main:has(>.spacex-page)>.reader-tools .reader-quick{flex-basis:100%}
+.spacex-page .sx-kpis{grid-template-columns:1fr}
+.spacex-page .sx-kpi,.spacex-page .sx-kpi:first-child{display:flex;justify-content:space-between;align-items:baseline;gap:18px;padding:14px 0;border-left:0;border-bottom:1px solid var(--sx-edge)}
+.spacex-page .sx-kpi:first-child{padding-top:0}
+.spacex-page .sx-kpi:last-child{border-bottom:0}
+.spacex-page .sx-kpi span{margin:0;text-align:right}
+.spacex-page .sx-dash{background-position:right -300px center,0 0}
+.spacex-page .sx-door{flex-direction:column}
+.spacex-page .sx-door-media{flex:none;aspect-ratio:16/9;min-height:0}
+.spacex-page .sx-door-media::after{background:linear-gradient(180deg,rgba(11,16,21,.1) 30%,rgba(11,16,21,.8) 82%,var(--sx-card) 100%)}
+.spacex-page .sx-door-body{margin-top:-36px;padding:0 20px 18px}
+.spacex-page .launch{padding:24px 18px 20px}
+}
+@media (prefers-reduced-motion:reduce){
+.spacex-page *,.spacex-page *::before,.spacex-page *::after{animation:none!important;transition:none!important}
+html.sx-js .spacex-page .sx-reveal{opacity:1;transform:none}
+}
+"""
+
+
+def render_spacex_restyle_css():
+    return SPACEX_RESTYLE_CSS
+
+
+def sx_door(door):
+    links = "".join(
+        ('<a class="primary"' if primary else "<a") + f' href="{escape(href)}">{escape(label)}</a>'
+        for label, href, primary in door["links"]
+    )
+    return f"""<article class="sx-door">
+  <div class="sx-door-media"><span class="sx-door-num" aria-hidden="true">{escape(door['num'])}</span><img src="{door['image']}" alt="{escape(door['alt'])}" loading="lazy" width="640" height="400"></div>
+  <div class="sx-door-body">
+    <h3>{escape(door['title'])}</h3>
+    <p>{escape(door['copy'])}</p>
+    <nav class="sx-links" aria-label="{escape(door['title'])}">{links}</nav>
+  </div>
+</article>"""
+
+
+def sx_kpi(display, label, numeric=None, decimals=0, suffix=""):
+    data = ""
+    if numeric is not None:
+        data = f' data-value="{numeric}" data-dec="{decimals}" data-suffix="{escape(suffix)}"'
+    return f'<div class="sx-kpi"><b class="sx-count"{data}>{escape(display)}</b><span>{escape(label)}</span></div>'
+
+
+def sx_next_launch(item):
+    """Scheda 'Prossimo T-0' dell'hero: stesso lancio della prima card in agenda."""
+    iso = str(item.get("iso") or "")
+    when = format_local_it(iso, exact=True)
+    when = f"{when} · Italia" if when else str(item.get("dateLabel") or "")
+    units = "".join(
+        f'<span><b data-u="{key}">--</b><i>{label}</i></span>'
+        for key, label in [("d", "giorni"), ("h", "ore"), ("m", "min"), ("s", "sec")]
+    )
+    return f"""<a class="sx-next" href="lanci-imminenti.html" data-iso="{escape(iso)}">
+      <span class="sx-next-label">Prossimo T-0</span>
+      <b class="sx-next-name">{escape(str(item.get('name') or 'Missione'))}</b>
+      <span class="sx-next-meta">{escape(str(item.get('rocket') or ''))}</span>
+      <span class="sx-next-meta">{escape(when)}</span>
+      <span class="sx-next-clock">{units}</span>
+      <span class="sx-next-cta">Lanci imminenti</span>
+    </a>"""
+
+
+def sx_page_script():
+    # Dopo countdown_script(): riusa la sua countdown(iso) per l'orologio dell'hero.
+    return r"""<script>
+(function(){
+  var root = document.querySelector('.spacex-page');
+  if (!root) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var next = root.querySelector('.sx-next[data-iso]');
+  if (next && typeof countdown === 'function') {
+    var cells = {};
+    ['d','h','m','s'].forEach(function(k){ cells[k] = next.querySelector('[data-u="' + k + '"]'); });
+    if (Number.isFinite(new Date(next.dataset.iso).getTime())) {
+      var tickNext = function(){
+        var parts = countdown(next.dataset.iso);
+        ['d','h','m','s'].forEach(function(k, i){ if (cells[k]) cells[k].textContent = parts[i]; });
+      };
+      tickNext();
+      setInterval(tickNext, 1000);
+    }
+  }
+
+  function countUp(el){
+    var original = el.textContent;
+    var target = parseFloat(el.getAttribute('data-value'));
+    var dec = parseInt(el.getAttribute('data-dec') || '0', 10);
+    var suffix = el.getAttribute('data-suffix') || '';
+    if (!Number.isFinite(target)) return;
+    var start = null, dur = 1400;
+    function fmt(v){
+      var s = v.toFixed(dec);
+      if (dec === 0) s = s.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+      return s + suffix;
+    }
+    function step(ts){
+      if (start === null) start = ts;
+      var p = Math.min(1, (ts - start) / dur);
+      el.textContent = p < 1 ? fmt(target * (1 - Math.pow(1 - p, 4))) : original;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    el.textContent = fmt(0);
+    requestAnimationFrame(step);
+  }
+
+  if (reduce || !('IntersectionObserver' in window)) return;
+  document.documentElement.classList.add('sx-js');
+  var groups = ['.section-head', '.breaking-card', '.sx-dash-title', '.sx-kpi', '.sx-status', '.sx-door', '.launch', '.sx-launches-actions'];
+  var seen = new Map();
+  groups.forEach(function(sel){
+    root.querySelectorAll(sel).forEach(function(el){
+      var n = seen.get(el.parentNode) || 0;
+      seen.set(el.parentNode, n + 1);
+      el.style.setProperty('--sx-delay', Math.min(n, 5) * 90 + 'ms');
+      el.classList.add('sx-reveal');
+    });
+  });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (!entry.isIntersecting) return;
+      var el = entry.target;
+      io.unobserve(el);
+      el.classList.add('is-in');
+      var num = el.querySelector('.sx-count[data-value]');
+      if (num) countUp(num);
+      // A comparsa finita si tolgono le classi, così tornano le transizioni di hover.
+      setTimeout(function(){
+        el.classList.remove('sx-reveal', 'is-in');
+        el.style.removeProperty('--sx-delay');
+      }, 1700);
+    });
+  }, {rootMargin: '0px 0px -8% 0px', threshold: 0.08});
+  root.querySelectorAll('.sx-reveal').forEach(function(el){ io.observe(el); });
+})();
+</script>"""
+
+
 def render_spacex(data):
-    # Porte raggruppate e cruscotto a due piani: restano qui, non in nav globale.
-    # Non appiattire di nuovo in un unico mucchio di bottoni o metriche-romanzo.
+    # Restyling novembre 2026: stesso contenuto di prima (porte raggruppate, cruscotto,
+    # anteprima lanci), rivestito da css/spacex-restyle.css. Le porte restano qui, non
+    # in nav globale. Non appiattire in un unico mucchio di bottoni o metriche-romanzo.
     f = data["falcon"]["metrics"]
     upcoming_exact = [item for item in data["upcoming"] if "net" not in (item.get("cat") or [])][:3]
     upcoming_block = (
@@ -3077,13 +3440,16 @@ def render_spacex(data):
         if upcoming_exact
         else '<div class="panel"><p class="muted">Nessun T-0 puntuale disponibile al momento.</p></div>'
     )
+    next_launch = sx_next_launch(upcoming_exact[0]) if upcoming_exact else ""
     starship_stato = f"{data['starship']['metrics']['voli']} voli integrati nel dossier di sviluppo"
     flight15_date, _, _, flight15_time = flight15_window_times()
+    pct = percent(f["tasso"])
+    pct_num = pct.rstrip("%")
     kpi_metrics = "".join(
         [
-            metric(f"{f['lanci']:,}".replace(",", "."), "lanci SpaceX principali"),
-            metric(percent(f["tasso"]), "success rate storico"),
-            metric(f["recuperiRiusciti"], "recuperi booster riusciti"),
+            sx_kpi(f"{f['lanci']:,}".replace(",", "."), "lanci SpaceX principali", f["lanci"], 0),
+            sx_kpi(pct, "success rate storico", pct_num if pct_num.replace(".", "", 1).isdigit() else None, 1, "%"),
+            sx_kpi(str(f["recuperiRiusciti"]), "recuperi booster riusciti", f["recuperiRiusciti"], 0),
         ]
     )
     starship_status = "".join(
@@ -3103,71 +3469,69 @@ def render_spacex(data):
             ),
         ]
     )
+    doors = "\n".join(sx_door(door) for door in SPACEX_DOORS)
+    door_credits = " · ".join(f"{door['num']} {door['credit']}" for door in SPACEX_DOORS)
+    hero = SPACEX_HERO_IMAGE
     body = f"""
-{page_hero("SpaceX", "Sezione attiva", "L'area SpaceX raccoglie la parte viva del sito: agenda dei lanci, storico Falcon, riuso dei booster e sviluppo Starship.")}
-{render_company_breaking("spacex")}
-<section>
-  <div class="inner split">
-    <article class="panel">
-      <h2>Macchina operativa</h2>
-      <p>SpaceX non viene trattata come una semplice azienda di lanci. Qui e il primo laboratorio della nuova industria spaziale: cadenza, costi, recupero, riuso, infrastrutture e sviluppo rapido nello stesso sistema.</p>
-      <div class="spacex-doors">
-        <div class="door-group">
-          <h3>Vivo ora</h3>
-          <p>Agenda, Starship e notizie in corso.</p>
-          <div class="actions">
-            <a class="button" href="lanci-imminenti.html">Lanci imminenti</a>
-            <a class="button secondary" href="starship.html">Starship</a>
-            <a class="button secondary" href="notizie.html">Notizie</a>
-          </div>
-        </div>
-        <div class="door-group">
-          <h3>Macchina</h3>
-          <p>Storico dei lanci SpaceX, pad e mappa dei siti.</p>
-          <div class="actions">
-            <a class="button secondary" href="storico-lanci.html">Storico lanci</a>
-            <a class="button secondary" href="pad-di-lancio.html">Pad di lancio</a>
-            <a class="button secondary" href="localita-spacex.html">Localita SpaceX</a>
-          </div>
-        </div>
-        <div class="door-group">
-          <h3>Lettura</h3>
-          <p>Storia narrata, monografie, analisi originali e guida per vedere un lancio.</p>
-          <div class="actions">
-            <a class="button secondary" href="storia-spacex.html">Storia</a>
-            <a class="button secondary" href="monografie-spacex.html">Programmi e monografie</a>
-            <a class="button secondary" href="../analisi/spacex/index.html">Analisi originali e metodo</a>
-            <a class="button secondary" href="guida-lancio-slc40.html">Vedere un lancio da SLC-40</a>
-          </div>
-        </div>
-      </div>
-    </article>
-    <aside class="panel">
-      <h3>Cruscotto rapido</h3>
-      <div class="metrics metrics-kpis">{kpi_metrics}</div>
-      <p class="dash-label">Stato Starship</p>
-      <div class="status-stack">{starship_status}</div>
-      {flight15_window_countdown(data)}
-    </aside>
+<div class="spacex-page">
+<section class="sx-hero">
+  <div class="sx-hero-media"><img src="{hero['src']}" alt="{escape(hero['alt'])}" width="{hero['width']}" height="{hero['height']}" fetchpriority="high"></div>
+  <p class="sx-credit">Foto: {escape(hero['credit'])}</p>
+  <div class="sx-hero-inner">
+    <div class="sx-hero-copy">
+      <p class="eyebrow">Sezione attiva</p>
+      <h1>SpaceX</h1>
+      <p class="subtitle">L&#x27;area SpaceX raccoglie la parte viva del sito: agenda dei lanci, storico Falcon, riuso dei booster e sviluppo Starship.</p>
+    </div>
+    {next_launch}
   </div>
 </section>
-<section>
-  <div class="inner">
+{render_company_breaking("spacex")}
+<section class="sx-dash">
+  <div class="sx-wrap">
+    <h2 class="sx-dash-title">Cruscotto rapido</h2>
+    <div class="sx-dash-grid">
+      <div class="sx-kpis">{kpi_metrics}</div>
+      <div class="sx-status">
+        <p class="dash-label">Stato Starship</p>
+        <div class="status-stack">{starship_status}</div>
+      </div>
+    </div>
+    {flight15_window_countdown(data)}
+  </div>
+</section>
+<section class="sx-machine">
+  <div class="sx-wrap">
+    <div class="section-head">
+      <h2>Macchina operativa</h2>
+      <p>SpaceX non viene trattata come una semplice azienda di lanci. Qui e il primo laboratorio della nuova industria spaziale: cadenza, costi, recupero, riuso, infrastrutture e sviluppo rapido nello stesso sistema.</p>
+    </div>
+    <div class="sx-doors">
+{doors}
+    </div>
+    <p class="sx-photo-credits">Foto: {escape(door_credits)}</p>
+  </div>
+</section>
+<section class="sx-launches">
+  <div class="sx-wrap">
     <div class="section-head">
       <h2>Prossimi lanci</h2>
       <p>Anteprima dei T-0 piu vicini, ripulita dai voli gia avvenuti e allineata alla pagina agenda. Per finestre NET e fonti complete resta la sezione dedicata.</p>
     </div>
     {upcoming_block}
-    <div class="actions">
+    <div class="actions sx-launches-actions">
       <a class="button" href="lanci-imminenti.html">Apri agenda completa</a>
       <a class="button secondary" href="storico-lanci.html">Vedi storico aggiornato</a>
     </div>
   </div>
 </section>
+</div>
 """
     countdown_assets = ('<link rel="stylesheet" href="../css/countdown-finestra.css?v=20261108-1">'
                         '<script src="../js/countdown-finestra.js?v=20261108-1" defer></script>') if flight15_pending(data) else ""
-    return shell("SpaceX", "spacex", True, body, countdown_script(), extra_head=countdown_assets)
+    restyle_asset = f'<link rel="stylesheet" href="../css/spacex-restyle.css?v={SPACEX_RESTYLE_VERSION}">'
+    return shell("SpaceX", "spacex", True, body, countdown_script() + sx_page_script(),
+                 extra_head=restyle_asset + countdown_assets)
 
 
 def render_electron_dashboard(electron):
@@ -3935,6 +4299,7 @@ def render():
     }
     outputs = [
         (CSS_DIR / "style.css", render_css()),
+        (CSS_DIR / "spacex-restyle.css", render_spacex_restyle_css()),
         (ROOT / "index.html", render_home()),
         (SECTIONS_DIR / "notizie.html", render_notizie()),
         (SECTIONS_DIR / "spacex.html", render_spacex(data)),

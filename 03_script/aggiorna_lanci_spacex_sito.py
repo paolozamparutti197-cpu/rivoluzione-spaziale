@@ -110,6 +110,7 @@ PUBLISH_FILES = [
     "spacex_lanci_fino_luglio_2026 (1).html",
     "electronlab/prossimi_lanci_electron.json",
     "css/style.css",
+    "css/spacex-restyle.css",
     "index.html",
     "sezioni/lanci-imminenti.html",
     "sezioni/spacex.html",
