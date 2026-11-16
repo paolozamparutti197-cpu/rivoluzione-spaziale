@@ -167,6 +167,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-11-16",
+        "date_label": "16 novembre 2026",
+        "tag": "SpaceX · Starship",
+        "title": "Starship V4: 70 metri e nove motori. E Ship 42 potrebbe rivolare in poche settimane",
+        "summary": "Dopo aver ispezionato la nave ripresa dalla torre, Elon Musk scrive che lo scudo termico e i motori di Ship 42 sono in ottime condizioni e che la nave potrebbe tornare a volare con qualche settimana di lavori. Poche ore dopo descrive Starship V4: circa 70 metri, oltre il 60% di propellente in più, nove motori. Nessuna data ufficiale da SpaceX.",
+        "href": "../documenti%20per%20sito/spacex_starship_v4_ship42.html",
+        "image": "../documenti%20per%20sito/assets_starship_v4_ship42/v4-ship42-flip-starbase.jpg",
+        "image_alt": "Ship 42 si raddrizza e accende i Raptor sopra le torri di Starbase prima del catch, 14 novembre 2026",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-11-15",
         "date_label": "15 novembre 2026",
         "tag": "SpaceX · Starlink / Starshield",
@@ -188,8 +201,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_starship_flight15_catch_ship.html",
         "image": "../documenti%20per%20sito/assets_starship_flight15_catch_ship/f15-ship-catch-torre.jpg",
         "image_alt": "Ship 42 accende i Raptor accanto alla torre di Starbase un istante prima del catch, 14 novembre 2026",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
