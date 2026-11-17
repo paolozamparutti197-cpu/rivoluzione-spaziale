@@ -86,6 +86,12 @@ def render_portal(registry_path, archive_url, photo):
         {time_tag(latest["date"])}
         <span class="bo-arrow" aria-hidden="true">↗</span>
       </a>
+      <a class="bo-latest" href="new-glenn-incidente-lc36.html">
+        <span class="bo-latest-label">Dossier New Glenn</span>
+        <strong>L’esplosione al pad LC-36A</strong>
+        {time_tag("2026-05-28")}
+        <span class="bo-arrow" aria-hidden="true">↗</span>
+      </a>
     </div>
   </section>
 
@@ -577,8 +583,8 @@ def render_new_glenn(registry_path, portal_url, archive_url, assets_url):
       </p>
       <aside class="ns-pause" aria-labelledby="ng-hotfire">
         <h3 id="ng-hotfire">28 maggio 2026 · La prova a terra</h3>
-        <p>Durante un’accensione statica a LC-36 si è verificata un’anomalia. Il veicolo era sulla rampa e la prova precedeva il quarto lancio.</p>
-        <a class="ns-source" href="https://www.blueorigin.com/news/gs1-3-hotfire-updates">Aggiornamenti sulla prova</a>
+        <p>Un’esplosione durante l’accensione statica distrusse il veicolo preparato per il quarto volo e danneggiò la rampa LC-36A.</p>
+        <a class="ns-source" href="new-glenn-incidente-lc36.html">Il dossier sull’esplosione a LC-36A</a>
       </aside>
     </div>
   </section>
@@ -836,6 +842,156 @@ def render_blue_moon(portal_url, assets_url):
 """
 
 
+LC36_TITLE = "New Glenn, l’esplosione al pad LC-36A"
+LC36_DESCRIPTION = (
+    "Il collaudo del 28 maggio 2026 a Cape Canaveral, i danni al pad di New Glenn, "
+    "l’indagine sulla valvola del BE-4 e il piano di ricostruzione."
+)
+LC36_INVESTIGATION = "https://www.blueorigin.com/news/gs1-3-hotfire-updates"
+LC36_REBUILD = "https://www.blueorigin.com/news/new-glenn-return-to-flight"
+LC36_RANGE = "https://www.dvidshub.net/news/566396/space-launch-delta-45-remains-go-launch"
+LC36_REPORTAGE = "https://spaceflightnow.com/2026/05/29/blue-origins-new-glenn-rocket-explodes-during-prelaunch-testing-at-cape-canaveral/"
+LC36_NASA_PHOTO = "https://images-assets.nasa.gov/image/NHQ20260529_admin_0004/NHQ20260529_admin_0004~orig.jpg"
+LC36_BEFORE_PHOTO = "https://www.blueorigin.com/gallery/asset/69de4248c29fe8ac1037fdc6"
+LC36_FAA_EA = "https://www.faa.gov/space/stakeholderengagement/blue-origin-new-glenn"
+LC36_REUTERS = "https://www.reuters.com/science/blue-origin-delays-new-glenn-rocket-launch-into-january-ft-reports-2026-11-05/"
+
+
+def render_lc36_dossier(portal_url, assets_url):
+    after_photo = escape(assets_url + "/lc36-29-maggio-2026.webp")
+    before_photo = escape(assets_url + "/lc36-13-aprile-2026.webp")
+    return f"""
+<div class="bo-page ns-page lc-page">
+  <a class="bo-skip" href="#lc-incident">Vai all’articolo</a>
+  <div class="bo-wrap ns-breadcrumb">
+    <a href="{escape(portal_url)}"><span aria-hidden="true">←</span> Blue Origin</a>
+    <a href="new-glenn.html">New Glenn <span aria-hidden="true">↗</span></a>
+  </div>
+  <article aria-labelledby="lc-title">
+    <header class="lc-header">
+      <div class="bo-wrap lc-head-grid">
+        <div class="lc-intro">
+          <p class="ns-context">28 maggio 2026 · Cape Canaveral, Florida</p>
+          <h1 id="lc-title">{LC36_TITLE}</h1>
+          <p class="ns-lede">Un’accensione di prova distrusse il razzo preparato per NG-4 e danneggiò il suo pad. La ricostruzione di quella sera, dell’indagine sul BE-4 e del lavoro necessario per tornare al volo.</p>
+          <p class="lc-verified">Aggiornato al {time_tag("2026-11-17")}</p>
+        </div>
+        <figure class="lc-photo">
+          <div class="lc-aerial">
+            <img src="{after_photo}" width="2320" height="1547" fetchpriority="high"
+              alt="Il complesso LC-36 dopo l’esplosione, visto dall’elicottero durante il sorvolo della NASA">
+          </div>
+          <figcaption>LC-36 durante il sorvolo del 29 maggio, il giorno dopo l’esplosione.
+            <a href="{LC36_NASA_PHOTO}">Dettaglio della foto NASA / John Kraus</a>
+          </figcaption>
+        </figure>
+      </div>
+    </header>
+
+    <div class="bo-wrap lc-layout">
+      <nav class="lc-index" aria-label="Indice del dossier">
+        <a href="#lc-incident">Il collaudo</a>
+        <a href="#lc-indagine">L’indagine sul BE-4</a>
+        <a href="#lc-danni">I danni al pad</a>
+        <a href="#lc-ricostruzione">La ricostruzione</a>
+        <a href="#lc-ripresa">Le missioni in attesa</a>
+      </nav>
+
+      <div class="lc-story">
+        <section id="lc-incident" aria-labelledby="lc-incident-title">
+          <h2 id="lc-incident-title">L’esplosione durante il collaudo</h2>
+          <p>Verso le 21:00 del 28 maggio in Florida, le 03:00 del 29 maggio in Italia, il New Glenn era sulla rampa LC-36A per un’accensione statica. I due stadi erano assemblati e il razzo era trattenuto alla base. Il collaudo serviva a verificare l’avvio dei motori insieme ai sistemi del veicolo e della rampa in condizioni simili a quelle di una partenza.</p>
+          <p>Durante il test, un’esplosione distrusse il veicolo, compreso il nuovo primo stadio GS1-3. Blue Origin confermò di aver rintracciato tutto il personale. La Space Force intervenne durante la notte. Meno di dodici ore dopo, lo stesso poligono gestì un lancio di Falcon 9 da un’altra rampa. Blue Origin avvisò anche che frammenti del razzo avrebbero potuto raggiungere la costa.</p>
+          <p>Per il quarto lancio, Blue Origin aveva annunciato 48 satelliti Amazon Leo, destinati all’orbita bassa. Al momento dell’esplosione i satelliti erano ancora presso l’impianto di preparazione del carico, secondo la ricostruzione di Spaceflight Now.</p>
+          <p class="ns-references">
+            <a href="{LC36_RANGE}">Space Launch Delta 45 · Resoconto dell’intervento</a>
+            <a href="{LC36_INVESTIGATION}">Blue Origin · Comunicati del 28 e 29 maggio</a>
+            <a href="https://www.linkedin.com/posts/blue-origin_launch-alert-new-glenns-fourth-launch-activity-7465443417045688323--DKM">Blue Origin · Annuncio di NG-4</a>
+            <a href="{LC36_REPORTAGE}">Spaceflight Now · Riprese e resoconto</a>
+          </p>
+        </section>
+
+        <section id="lc-indagine" aria-labelledby="lc-indagine-title">
+          <h2 id="lc-indagine-title">Come si è arrivati alla valvola</h2>
+          <p>Il 30 giugno Blue Origin indicò la parte posteriore del primo stadio come area di origine. Su New Glenn 7×2, quella sezione ospita sette BE-4. Ogni motore usa gas naturale liquefatto come combustibile e ossigeno liquido come ossidante. La valvola principale dell’ossigeno regola l’ammissione dell’ossidante al motore.</p>
+          <ol class="lc-findings">
+            <li>
+              <span>{time_tag("2026-08-05")}</span>
+              <p>Blue Origin localizzò l’origine dell’anomalia nella valvola principale dell’ossigeno di uno dei BE-4. L’ispezione dei componenti recuperati confermò quella localizzazione. L’azienda condusse prove sui singoli componenti e accensioni al banco per capire il guasto e verificare le modifiche.</p>
+            </li>
+            <li>
+              <span>{time_tag("2026-11-10")}</span>
+              <p>La versione modificata della valvola superò le prove di qualificazione. Blue Origin dichiarò di averla già installata sui motori destinati ai prossimi voli e di aver avviato l’aggiornamento del resto della flotta. L’obiettivo comunicato era chiudere l’indagine entro novembre.</p>
+            </li>
+          </ol>
+          <p>Al 17 novembre, il meccanismo del guasto interno e la sequenza completa dell’esplosione restavano senza una ricostruzione pubblica.</p>
+          <p class="ns-references">
+            <a href="{LC36_INVESTIGATION}">Blue Origin · Aggiornamenti dell’indagine GS1-3</a>
+            <a href="{LC36_REBUILD}">Blue Origin · Ricostruzione preliminare di giugno</a>
+            <a href="https://www.blueorigin.com/engines">Blue Origin · Scheda del BE-4</a>
+          </p>
+          <aside class="ns-pause" aria-labelledby="lc-ng3">
+            <h3 id="lc-ng3">Il precedente di NG-3</h3>
+            <p>Nel volo del 19 aprile, una perdita criogenica congelò una linea idraulica del secondo stadio prima di un’anomalia di spinta. La FAA chiuse quell’indagine il 22 maggio. Sul collaudo del 28 maggio, l’agenzia precisò a Spaceflight Now che la prova a terra era fuori dal perimetro delle attività coperte dalla licenza FAA.</p>
+            <p class="ns-references">
+              <a href="{NG_FAA}">FAA · Conclusioni su NG-3</a>
+              <a href="{LC36_REPORTAGE}">Spaceflight Now · Risposta FAA sul collaudo</a>
+            </p>
+          </aside>
+        </section>
+
+        <section id="lc-danni" aria-labelledby="lc-danni-title">
+          <h2 id="lc-danni-title">Che cosa rimase della rampa</h2>
+          <p>Nel bilancio del 30 giugno Blue Origin indicò la perdita di una torre parafulmine, del trasportatore che sollevava il razzo in verticale e dei cilindri idraulici. La torre di servizio del veicolo aveva danni riparabili. Rimasero utilizzabili il parco serbatoi, la torre dell’acqua e l’edificio di integrazione.</p>
+          <p>Nell’edificio c’erano tre secondi stadi e il booster <i>Never Tell Me The Odds</i>, già usato su NG-2 e NG-3. Blue Origin trasferì quei mezzi mentre rimuoveva i detriti e recuperava componenti sul pad. A fine giugno dichiarò concluse le operazioni di recupero e sgombero.</p>
+          <p class="ns-references"><a href="{LC36_REBUILD}">Blue Origin · Bilancio dei danni e recupero</a></p>
+          <figure class="lc-photo lc-archive-photo">
+            <img src="{before_photo}" width="1400" height="933" loading="lazy"
+              alt="New Glenn in verticale tra le torri del complesso LC-36 prima della missione NG-3">
+            <figcaption>LC-36 prima dell’incidente. New Glenn sulla rampa per NG-3, 13 aprile 2026.
+              <a href="{LC36_BEFORE_PHOTO}">Foto Blue Origin</a>
+            </figcaption>
+          </figure>
+        </section>
+
+        <section id="lc-ricostruzione" aria-labelledby="lc-ricostruzione-title">
+          <h2 id="lc-ricostruzione-title">Come cambia il lavoro al pad</h2>
+          <p>L’azienda ha anticipato per LC-36A una procedura che stava già sviluppando per il secondo pad. L’assemblaggio dei due stadi resta orizzontale nell’edificio di integrazione. La movimentazione sulla rampa cambia in tre passaggi.</p>
+          <ol class="lc-steps">
+            <li><strong>Trasporto.</strong> Il veicolo assemblato raggiunge la rampa in orizzontale.</li>
+            <li><strong>Sollevamento.</strong> Una gru lo ruota e lo posa sulla piattaforma di lancio. I collegamenti dalla torre vengono agganciati al veicolo.</li>
+            <li><strong>Carico.</strong> Il carico viene installato in cima al razzo già in verticale.</li>
+          </ol>
+          <p>In agosto Blue Origin ha annunciato i lavori di LC-36B, previsto per la variante 9×4. LC-36A resta destinato al 7×2. Intanto la FAA ha pubblicato una bozza di valutazione ambientale per la proposta di passare da 12 a un massimo di 50 lanci annuali a LC-36A.</p>
+          <p class="ns-references">
+            <a href="{LC36_REBUILD}">Blue Origin · Procedura di integrazione</a>
+            <a href="https://www.blueorigin.com/news/returning-launch-complex-36-to-two-pads">Blue Origin · Il secondo pad</a>
+            <a href="{LC36_FAA_EA}">FAA · Valutazione ambientale</a>
+          </p>
+        </section>
+
+        <section id="lc-ripresa" aria-labelledby="lc-ripresa-title">
+          <h2 id="lc-ripresa-title">Il ritorno al volo e le missioni in attesa</h2>
+          <p>A giugno il piano di Blue Origin puntava a un rientro entro la fine del 2026. Nell’aggiornamento del 16 ottobre l’azienda dava ancora LC-36A in ripristino. Il 5 novembre Reuters ha riferito di un obiettivo interno per gennaio 2027, sulla base di un memo aziendale consultato dall’agenzia. L’aggiornamento pubblico del 10 novembre riguarda la qualificazione della valvola e la chiusura dell’indagine.</p>
+          <p>Il ritorno al volo interessa anche il programma lunare. Il calendario NASA indica il 2027 per Endurance, il primo Blue Moon Mark 1. Sempre nel 2027, Artemis III prevede una prova di aggancio fra Orion e un veicolo di test del Mark 2 in orbita terrestre. La preparazione del lanciatore e quella dei due lander procedono come collaudi distinti.</p>
+          <p class="ns-references">
+            <a href="https://www.blueorigin.com/news/building-infrastructure-for-more-frequent-launches-in-florida">Blue Origin · Aggiornamento del 16 ottobre</a>
+            <a href="{LC36_REUTERS}">Reuters · Il memo sul ritorno al volo</a>
+            <a href="{BM_NASA_MK1}">NASA · Calendario di Endurance</a>
+            <a href="{NASA_ARTEMIS}">NASA · Profilo di Artemis III</a>
+          </p>
+          <p class="lc-related">
+            <a class="ns-record-link" href="new-glenn.html">Dossier New Glenn <span aria-hidden="true">↗</span></a>
+            <a class="ns-record-link" href="blue-moon.html">Dossier Blue Moon <span aria-hidden="true">↗</span></a>
+          </p>
+        </section>
+      </div>
+    </div>
+  </article>
+</div>
+"""
+
+
 def render_local_page(title, description, body, extra_css="", is_landing=False):
     current = ' aria-current="page"' if is_landing else ""
     return f"""<!doctype html>
@@ -899,7 +1055,16 @@ if __name__ == "__main__":
             '<link rel="stylesheet" href="blue-moon.css">'
         ),
     )
+    incident = render_local_page(
+        LC36_TITLE, LC36_DESCRIPTION,
+        render_lc36_dossier("index.html", "."),
+        extra_css=(
+            '<link rel="stylesheet" href="new-shepard.css">\n  '
+            '<link rel="stylesheet" href="incidente-lc36.css">'
+        ),
+    )
     (root / "index.html").write_text(portal, encoding="utf-8", newline="\n")
     (root / "new-shepard.html").write_text(dossier, encoding="utf-8", newline="\n")
     (root / "new-glenn.html").write_text(glenn, encoding="utf-8", newline="\n")
     (root / "blue-moon.html").write_text(moon, encoding="utf-8", newline="\n")
+    (root / "new-glenn-incidente-lc36.html").write_text(incident, encoding="utf-8", newline="\n")
