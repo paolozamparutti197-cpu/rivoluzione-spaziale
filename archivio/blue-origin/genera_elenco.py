@@ -110,7 +110,7 @@ def render(data, portal_href="../../sezioni/blue-origin.html"):
   <meta name="description" content="Cronologia dei lanci Blue Origin, dai prototipi ai voli suborbitali di New Shepard e ai lanci orbitali di New Glenn.">
   <title>Elenco dei lanci Blue Origin | Rivoluzione Spaziale</title>
   <link rel="stylesheet" href="archivio.css">
-  <script src="archivio.js" defer></script>
+  <script src="archivio.js?v=20261117-new-shepard" defer></script>
 </head>
 <body>
   <a class="skip" href="#elenco">Vai all’elenco</a>
