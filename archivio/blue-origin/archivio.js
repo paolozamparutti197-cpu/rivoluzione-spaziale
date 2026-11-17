@@ -78,6 +78,11 @@ for (const button of metricButtons) {
   });
 }
 exportButton.addEventListener("click", exportCsv);
+const programFilter = form.elements.namedItem("program");
+const linkedProgram = new URLSearchParams(location.search).get("program");
+if (Array.from(programFilter.options).some(option => option.value === linkedProgram)) {
+  programFilter.value = linkedProgram;
+}
 form.hidden = false;
 exportButton.hidden = false;
 update();

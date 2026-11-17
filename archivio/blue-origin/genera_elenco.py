@@ -85,7 +85,7 @@ def flight_row(flight):
       </tr>"""
 
 
-def render(data):
+def render(data, portal_href="../../sezioni/blue-origin.html"):
     flights = sorted(data["flights"], key=lambda flight: (flight["date"], flight["id"]), reverse=True)
     counts = Counter(flight["program"] for flight in flights)
     years = sorted({flight["date"][:4] for flight in flights}, reverse=True)
@@ -118,7 +118,7 @@ def render(data):
     <div class="wrap topbar-inner">
       <a class="brand" href="{SITE_URL}/index.html">Rivoluzione <span>Spaziale</span></a>
       <nav aria-label="Navigazione dell’archivio">
-        <a href="{SITE_URL}/sezioni/blue-origin.html">Blue Origin</a>
+        <a href="{escape(portal_href)}">Blue Origin</a>
         <a href="#elenco" aria-current="page">Elenco lanci</a>
         <a href="#metodo">Fonti e criteri</a>
       </nav>
@@ -219,4 +219,5 @@ def render(data):
 
 if __name__ == "__main__":
     data = json.loads((ROOT / "dati.json").read_text(encoding="utf-8"))
-    (ROOT / "elenco.html").write_text(render(data), encoding="utf-8", newline="\n")
+    portal_href = "../../sezioni/blue-origin.html" if ROOT.parent.name == "archivio" else "index.html"
+    (ROOT / "elenco.html").write_text(render(data, portal_href), encoding="utf-8", newline="\n")

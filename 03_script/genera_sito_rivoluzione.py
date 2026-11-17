@@ -4297,22 +4297,17 @@ def render_starship_development_page(data):
 
 
 def render_blue_origin():
-    item = next(section for section in MAIN_SECTIONS if section["slug"] == "blue-origin")
-    body = f"""
-{page_hero(item["title"], item["status"], item["copy"])}
-<section>
-  <div class="inner">
-    <article class="panel">
-      <h2>Elenco dei lanci</h2>
-      <p>Consulta date, siti, missioni, esiti e recuperi dei booster, con filtri e fonti per ogni volo documentato.</p>
-      <div class="actions">
-        <a class="button" href="../archivio/blue-origin/elenco.html">Apri l’elenco dei lanci Blue Origin</a>
-      </div>
-    </article>
-  </div>
-</section>
-"""
-    return shell(item["title"], item["slug"], True, body)
+    from genera_portale_blue_origin import render_portal
+
+    body = render_portal(
+        ROOT / "archivio/blue-origin/dati.json",
+        "../archivio/blue-origin/elenco.html",
+        "../assets/blue-origin/new-glenn-ng2.webp",
+    )
+    return shell(
+        "Blue Origin", "blue-origin", True, body,
+        extra_head='<link rel="stylesheet" href="../css/blue-origin.css">',
+    )
 
 
 def render_placeholder(item):
