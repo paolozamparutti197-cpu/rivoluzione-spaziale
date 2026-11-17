@@ -1673,9 +1673,32 @@ def flight15_pending(data):
     return completed < 15 and latest_operational < 15
 
 
+def flight15_result():
+    return """<section id="flight-15">
+  <div class="inner">
+    <div class="section-head"><h2>Flight 15 al 17 novembre 2026</h2><p>Volo del 13-14 novembre: seconda missione orbitale operativa e prima cattura di una Ship al ritorno dall'orbita. <a href="https://www.spacex.com/launches/starship-flight-15" style="color:#dff4ff;text-decoration:underline;text-underline-offset:3px;font-weight:800">Pagina missione SpaceX →</a></p></div>
+    <article class="panel">
+      <h3>Quarto volo V3: Ship catturata, booster dirottato</h3>
+      <p>Flight 15 ha impiegato <strong>Booster 22</strong> e <strong>Ship 42</strong> (Block 3) da Starbase Pad 2. Il decollo è del <strong>13 novembre 2026 alle 22:47:36 UTC</strong> (23:47:36 CET). La missione, <strong>Starlink Group 31-02</strong>, ha rilasciato <strong>26 Starlink V3</strong>, tre dei quali con telecamere sullo scudo termico. SpaceX ha dichiarato il contatto con tutti i satelliti. Ship 42 è rimasta in orbita bassa (circa 276 per 278 km, inclinazione 30,5°) per <strong>22 ore, 32 minuti e 32 secondi</strong>, circa 14 orbite, la permanenza più lunga del programma. Il <strong>14 novembre alle 21:20:08 UTC</strong> (22:20:08 CET) i bracci della torre di Pad 2 l'hanno catturata: primo recupero di uno stadio superiore Starship dopo un volo orbitale. Il piano prevedeva anche il catch del booster. I criteri automatici lo hanno annullato: Elon Musk ha indicato una leggera sottoprestazione dei motori e propellente residuo insufficiente per il rientro in torre. Booster 22 ha acceso 13 motori, ha sostato in hover sul Golfo del Messico e, allo spegnimento, il sistema di terminazione del volo lo ha distrutto. Nessun recupero fisico del booster.</p>
+      <div class="starship-status-grid">
+        <div class="starship-status"><b>13 novembre · lancio</b><span>Pad 2; licenza FAA emessa il giorno del volo, con rientro di entrambi gli stadi.</span></div>
+        <div class="starship-status"><b>26 Starlink V3</b><span>Rilasciati in circa 42 minuti; contatto stabilito con tutti i satelliti.</span></div>
+        <div class="starship-status"><b>Ship 42</b><span>Circa 14 orbite, poi deorbit con un Raptor e catch alla torre di Pad 2.</span></div>
+        <div class="starship-status pending"><b>Booster 22</b><span>Catch annullato; hover sul Golfo e distruzione con il flight termination system.</span></div>
+      </div>
+    </article>
+    <div class="cols" style="margin-top:18px">
+      <article class="panel"><h3>Cosa ha chiuso Flight 15</h3><p>Rispetto a Flight 14, la Ship ha completato il profilo orbitale previsto e non un rientro abbreviato. È la prima volta che uno stadio superiore, dopo l'orbita, viene ripreso in volo dai bracci della torre. SpaceX descrive il volo come il passaggio che mancava al riuso dello stadio superiore.</p></article>
+      <article class="panel"><h3>Cosa resta da dimostrare</h3><p>Il catch di un Super Heavy Block 3 non è ancora riuscito: tre catture restano quelle dei voli 5, 7 e 8, su booster precedenti. Restano aperti il rilancio di una Ship già catturata, l'affidabilità dei Raptor in boostback e il rifornimento criogenico in orbita, necessario per Artemis. Una data di Flight 16 non è un fatto consolidato in questa scheda.</p></article>
+    </div>
+  </div>
+</section>
+"""
+
+
 def flight15_preview(data):
     if not flight15_pending(data):
-        return ""
+        return flight15_result()
     return f'''<section id="flight-15"><div class="inner">
     <div class="section-head"><h2>Verso Flight 15</h2><p>Aggiornamento editoriale del 13 ottobre 2026, distinto dal registro dei voli completati.</p></div>
     <article class="panel"><h3>Obiettivo: catturare anche la Ship</h3>
@@ -4087,7 +4110,7 @@ def render_starship_development_page(data):
     </article>
     <div class="cols" style="margin-top:18px">
       <article class="panel"><h3>Cosa ha chiuso Flight 14</h3><p>Rispetto a Flight 13, la Ship non si è limitata a una traiettoria suborbitale: ha consegnato i satelliti in orbita e ha completato deorbit e ammaraggio. Il booster è ammarato nel Golfo come previsto dal piano, senza cattura alla torre.</p></article>
-      <article class="panel"><h3>Cosa resta da dimostrare</h3><p>Restano da esaminare gli spegnimenti dei motori e i dati del rientro. Permanenza orbitale prolungata, recupero fisico di booster e Ship, catch e Flight 15 sono ancora futuri. Il funzionamento dei satelliti nella rete richiede controlli successivi al rilascio.</p></article>
+      <article class="panel"><h3>Cosa restava aperto al 4 ottobre</h3><p>Al taglio di ottobre restavano gli spegnimenti dei motori, la permanenza orbitale prolungata e il recupero fisico di booster e Ship. Flight 15, il 13-14 novembre, ha chiuso la costa lunga e la prima cattura della Ship. Il catch del Super Heavy V3 e il rifornimento orbitale restano aperti.</p></article>
     </div>
   </div>
 </section>
@@ -4150,7 +4173,7 @@ def render_starship_development_page(data):
     <p class="eyebrow">Dossier SpaceX</p>
     <h1>Sviluppo Starship</h1>
     <p class="subtitle">Dal concetto interplanetario ai voli integrati V3: evoluzione del veicolo, prove, fallimenti, recupero, motori Raptor, infrastrutture e obiettivi ancora aperti.</p>
-    <span class="update-stamp">Aggiornato al 4 ottobre 2026</span>
+    <span class="update-stamp">Aggiornato al 17 novembre 2026</span>
   </div>
 </section>
 
@@ -4159,13 +4182,13 @@ def render_starship_development_page(data):
     <div class="starship-lead-grid">
       <article>
         <p class="starship-lead">Starship non e un singolo razzo arrivato improvvisamente sulla rampa. E il risultato di oltre un decennio di cambi di scala, materiali, motori, metodo produttivo e infrastrutture. Il programma nasce come architettura per Marte, passa attraverso MCT, ITS e BFR, abbandona fibra di carbonio e ali tradizionali, adotta acciaio inossidabile, rientro controllato sulle flaps e una famiglia di motori Raptor a metano. Ogni prototipo ha trasformato un problema teorico in un test fisico, spesso distruttivo ma immediatamente riutilizzato nel progetto successivo.</p>
-        <p>Questa pagina deriva dal workbook locale <strong>sviluppo_starship.xlsx</strong>. La data di taglio è il <strong>4 ottobre 2026</strong>: Flight 14 è stato completato il 28 settembre. È il quattordicesimo volo integrato e il terzo della generazione V3; Flight 13 (24 luglio 2026, 22:51 UTC) era stato il secondo. Post-volo di Flight 13, Ship 40 è la prima upper stage recuperata dopo un rientro: ispezione a Christmas Island e carico su semi-sommergibile verso Starbase (27/08, dato al 30 agosto). {flight14_note}</p>
+        <p>Questa pagina deriva dal workbook locale <strong>sviluppo_starship.xlsx</strong>. La data di taglio è il <strong>17 novembre 2026</strong>. Flight 15 (13-14 novembre, Booster 22 e Ship 42) è il quindicesimo volo integrato e il secondo volo orbitale operativo: 26 Starlink V3 in orbita e, il 14 novembre, la prima cattura di una Ship alla torre dopo il rientro dall'orbita. Il booster non è stato catturato. Flight 14 (28 settembre) resta il primo volo orbitale. {flight14_note}</p>
       </article>
       <aside class="panel">
         <h3>Indice del dossier</h3>
         <nav class="starship-index" aria-label="Indice Sviluppo Starship">
           <a href="#fasi">Le grandi fasi</a>
-          <a href="{FLIGHT15_DOSSIER}">Flight 15: verso il catch della Ship</a>
+          <a href="#flight-15">Esito Flight 15</a>
           <a href="#flight-14">Esito Flight 14</a>
           <a href="#flight-13">Esito Flight 13</a>
           <a href="lancio13.html">Scheda dedicata Flight 13</a>
@@ -4206,7 +4229,7 @@ def render_starship_development_page(data):
       <article class="starship-phase"><span class="phase-date">2022-2023</span><h3>Dalla Ship al sistema completo</h3><p>Il lavoro si sposta sull'integrazione con Super Heavy, sui 33 motori, sul pad e sull'hot staging. Booster 7 e Ship 24 portano a IFT-1: il volo del 20 aprile 2023 distrugge il piano originale del pad e rende indispensabili deluge, flame deflector, affidabilita multi-engine e AFTS piu rapido. IFT-2 riesce invece a separare gli stadi con hot staging.</p></article>
       <article class="starship-phase"><span class="phase-date">2024</span><h3>Dal sopravvivere al recuperare</h3><p>IFT-3 porta operazioni in-space e rientro profondo; IFT-4 completa per la prima volta splashdown controllato di entrambi gli stadi. IFT-5 realizza la prima cattura di Super Heavy con i bracci della torre. IFT-6 conferma funzioni in-space, incluso il primo relight Raptor, ma rinuncia alla cattura e chiude con splashdown.</p></article>
       <article class="starship-phase"><span class="phase-date">2025</span><h3>Block 2: crisi, reflight e recupero</h3><p>Flight 7 e Flight 8 mostrano una maturita booster superiore a quella della Ship: catture riuscite, ma perdita delle upper stage. Flight 9 porta il primo reflight di Super Heavy senza chiudere bene il profilo. Flight 10 e Flight 11 recuperano il programma con deployment, relight e rientri controllati.</p></article>
-      <article class="starship-phase"><span class="phase-date">2026</span><h3>V3, Raptor 3 e Pad 2</h3><p>La terza generazione integra serbatoi piu grandi, avionica alleggerita, Raptor 3 e infrastruttura di rifornimento piu matura. Flight 12 debutta con Booster 19 e Ship 39 da Pad 2: deployment e rientro della Ship funzionano, ma boostback e relight restano incompleti. Flight 13 (24 luglio) chiude boostback e relight, dispiega i primi 20 Starlink V3 e ottiene lo splashdown ship piu morbido di sempre, con scafo integro; il Super Heavy chiude ancora con hard splashdown. Flight 14 (28 settembre) è il primo volo orbitale operativo: 26 Starlink V3 rilasciati in orbita.</p></article>
+      <article class="starship-phase"><span class="phase-date">2026</span><h3>V3, Raptor 3 e Pad 2</h3><p>La terza generazione integra serbatoi piu grandi, avionica alleggerita, Raptor 3 e infrastruttura di rifornimento piu matura. Flight 12 debutta con Booster 19 e Ship 39 da Pad 2: deployment e rientro della Ship funzionano, ma boostback e relight restano incompleti. Flight 13 (24 luglio) chiude boostback e relight, dispiega i primi 20 Starlink V3 e ottiene lo splashdown ship piu morbido di sempre, con scafo integro; il Super Heavy chiude ancora con hard splashdown. Flight 14 (28 settembre) è il primo volo orbitale operativo: 26 Starlink V3 rilasciati in orbita. Flight 15 (13-14 novembre) tiene Ship 42 in orbita per circa 22 ore e mezza, rilascia altri 26 Starlink V3 e la cattura alla torre di Pad 2; Booster 22 viene dirottato nel Golfo e distrutto.</p></article>
       <article class="starship-phase"><span class="phase-date">Obiettivo industriale</span><h3>Riuso completo e alta cadenza</h3><p>Il vero salto non e un singolo volo spettacolare. E il ciclo lancio, recupero, ispezione, rifornimento e rilancio di entrambi gli stadi. Per questo torri, Starfactory, Mega Bay, Pad 2, Florida e produzione Raptor sono parte integrante della stessa architettura.</p></article>
     </div>
   </div>
@@ -4240,7 +4263,7 @@ def render_starship_development_page(data):
 
 <section id="voli">
   <div class="inner">
-    <div class="section-head"><h2>I quattordici voli integrati</h2><p>Ogni scheda riporta veicolo, risultato e la lezione trasferita al volo successivo. Flight 14 è incluso dopo il liftoff del 28 settembre 2026.</p></div>
+    <div class="section-head"><h2>I quindici voli integrati</h2><p>Ogni scheda riporta veicolo, risultato e la lezione trasferita al volo successivo. Flight 15 è incluso dopo la cattura di Ship 42, il 14 novembre 2026.</p></div>
     <div class="starship-flight-grid">{flight_cards}</div>
   </div>
 </section>
@@ -4254,7 +4277,7 @@ def render_starship_development_page(data):
 
 <section id="cronologia">
   <div class="inner">
-    <div class="section-head"><h2>Cronologia completa</h2><p>Tutti i {escape(str(starship['metrics']['eventi']))} eventi presenti nel workbook, dalle origini concettuali al recovery S40, alla campagna di Flight 14 e al volo del 28/09/2026 (taglio 04/10/2026).</p></div>
+    <div class="section-head"><h2>Cronologia completa</h2><p>Tutti i {escape(str(starship['metrics']['eventi']))} eventi presenti nel workbook, dalle origini concettuali al recovery S40, a Flight 14 e alla cattura di Ship 42 il 14/11/2026 (taglio 17/11/2026).</p></div>
     <details class="starship-archive">
       <summary>Apri la cronologia integrale del workbook</summary>
       <div class="starship-timeline">{timeline_events}</div>
@@ -4266,8 +4289,10 @@ def render_starship_development_page(data):
   <div class="inner split">
     <article class="panel">
       <h2>Fonti e metodo</h2>
-      <p>La struttura narrativa e i dati storici derivano da <strong>01_workbook/sviluppo_starship.xlsx</strong>. Le voci piu recenti sono state controllate con pagine missione SpaceX, Launch Library 2, reporting Space.com e Spaceflight Now; i dati di Flight 14 vengono anche dal registro lanci_spacex.xlsx. Le previsioni restano indicate come target o NET; i voli entrano in tabella solo dopo il liftoff.</p>
+      <p>La struttura narrativa e i dati storici derivano da <strong>01_workbook/sviluppo_starship.xlsx</strong>. Le voci piu recenti sono state controllate con la pagina missione SpaceX di Flight 15, la voce Wikipedia del volo (controllata il 17 novembre 2026) e il registro lanci_spacex.xlsx. Le previsioni restano indicate come target o NET; i voli entrano in tabella solo dopo il liftoff.</p>
       <ul class="source-list">
+        <li><a href="https://www.spacex.com/launches/starship-flight-15" target="_blank" rel="noopener">SpaceX, pagina missione Flight 15</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Starship_flight_15" target="_blank" rel="noopener">Wikipedia, Starship flight 15</a></li>
         <li><a href="https://www.spacex.com/launches/starship-flight-14" target="_blank" rel="noopener">SpaceX, pagina missione Flight 14</a></li>
         <li><a href="https://ll.thespacedevs.com/2.3.0/launches/7d1afb26-6f9c-429b-9ccf-29012fd1e519/" target="_blank" rel="noopener">Launch Library 2, Starlink Group 31-1 (Starship Flight 14)</a></li>
         <li><a href="https://www.youtube.com/watch?v=9gDxG-pm1Zo" target="_blank" rel="noopener">NASASpaceflight, diretta Flight 14</a></li>
