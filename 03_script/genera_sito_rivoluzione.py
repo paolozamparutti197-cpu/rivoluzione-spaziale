@@ -167,6 +167,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-11-17",
+        "date_label": "17 novembre 2026",
+        "tag": "SpaceX · Starlink",
+        "title": "Starlink gratis alla FAA? Musk riapre lo scontro dopo il blocco dei voli negli Stati Uniti",
+        "summary": "Tre giorni dopo il ground stop che ha fermato tutti i decolli negli Stati Uniti, Elon Musk scrive che i terminali Starlink erano stati offerti gratis al segretario ai Trasporti Sean Duffy, che li aveva rifiutati. La FAA indaga su un router installato da L3Harris in Arkansas; il governo non ha commentato l'offerta.",
+        "href": "../documenti%20per%20sito/spacex_starlink_faa_ground_stop.html",
+        "image": "../documenti%20per%20sito/assets_starlink_faa/faa-ohare-ground-stop.jpg",
+        "image_alt": "Aerei in fila su una via di rullaggio di Chicago O'Hare durante il ground stop della FAA, 13 novembre 2026",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-11-16",
         "date_label": "16 novembre 2026",
         "tag": "SpaceX · Starship",
@@ -175,8 +188,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_starship_v4_ship42.html",
         "image": "../documenti%20per%20sito/assets_starship_v4_ship42/v4-ship42-flip-starbase.jpg",
         "image_alt": "Ship 42 si raddrizza e accende i Raptor sopra le torri di Starbase prima del catch, 14 novembre 2026",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
