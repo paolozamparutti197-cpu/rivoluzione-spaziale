@@ -1,0 +1,111 @@
+.bm-page .ns-hero-photo img {
+  height: auto;
+  aspect-ratio: 1.5;
+  object-position: center;
+}
+.bm-lander-grid, .bm-route-grid, .bm-timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(12px, 2vw, 24px);
+}
+.bm-lander, .bm-route {
+  min-width: 0;
+  border: 1px solid var(--bo-line);
+  background: var(--ns-surface);
+}
+.bm-lander { display: flex; flex-direction: column; }
+.bm-lander figure { background: var(--ns-deep); }
+.bm-lander figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.5;
+  object-fit: cover;
+}
+.bm-lander figure figcaption {
+  border-bottom: 1px solid var(--bo-line);
+}
+.bm-lander figure figcaption a { margin-left: 0; }
+.bm-lander-copy, .bm-route {
+  padding: clamp(15px, 2.1vw, 25px);
+}
+.bm-lander-copy {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+.bm-lander-copy > a { align-self: start; margin-top: auto; }
+.bm-specs {
+  margin: 12px 0 10px;
+  color: var(--ns-text);
+}
+.bm-specs > div {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 5px 12px;
+  padding: 9px 0;
+  border-top: 1px solid var(--bo-line);
+}
+.bm-specs dt { color: var(--bo-accent); font-size: .88rem; font-weight: 740; }
+.bm-specs dd { margin: 0; font-size: .94rem; line-height: 1.5; }
+.bm-profile { border-top: 1px solid var(--bo-line); }
+.bm-route { border-top: 2px solid var(--bo-accent); }
+.bm-route + .bm-route { border-top-color: var(--ns-warm); }
+.bm-route ol {
+  margin: 12px 0 0;
+  padding-left: 1.5em;
+  color: var(--ns-text);
+  font-size: .94rem;
+  line-height: 1.55;
+}
+.bm-route li { padding-left: .26em; }
+.bm-route li + li { margin-top: 9px; }
+.bm-route li::marker { color: var(--bo-accent); font-weight: 740; }
+.bm-route + .bm-route li::marker { color: var(--ns-warm); }
+.bm-route li strong { color: var(--bo-ink); }
+.bm-timeline-grid { align-items: start; }
+.bm-timeline {
+  --bm-status: var(--bo-accent);
+  border-top: 2px solid var(--bm-status);
+}
+.bm-timeline-planned { --bm-status: var(--ns-warm); }
+.bm-timeline h3 {
+  padding: 12px 15px;
+  background: var(--ns-surface);
+  border: 1px solid var(--bo-line);
+  border-top: 0;
+  color: var(--bm-status);
+}
+.bm-timeline ol { margin: 0; padding: 0; list-style: none; }
+.bm-milestone {
+  padding: 15px;
+  border-bottom: 1px solid var(--bo-line);
+}
+.bm-milestone h4 {
+  margin: 3px 0 0;
+  color: var(--bo-ink);
+  font-size: 1.04rem;
+  font-weight: 740;
+  line-height: 1.24;
+}
+.bm-milestone p {
+  margin: 5px 0 0;
+  color: var(--ns-text);
+  font-size: .92rem;
+}
+.bm-milestone .bm-milestone-date {
+  margin: 0;
+  color: var(--bm-status);
+  font-size: .82rem;
+  font-weight: 700;
+}
+
+@media (max-width: 700px) {
+  .bm-lander-grid, .bm-route-grid, .bm-timeline-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .bm-timeline-grid { gap: 23px; }
+}
+@media (max-width: 400px) {
+  .bm-specs > div { grid-template-columns: minmax(0, 1fr); }
+}

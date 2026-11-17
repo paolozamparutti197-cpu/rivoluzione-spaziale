@@ -4345,6 +4345,19 @@ def render_new_glenn_page():
     return shell("New Glenn", "blue-origin", True, body, extra_head=extra_head)
 
 
+def render_blue_moon_page():
+    from genera_portale_blue_origin import BM_DESCRIPTION, render_blue_moon
+
+    body = render_blue_moon("blue-origin.html", "../assets/blue-origin")
+    extra_head = (
+        '<meta name="description" content="' + escape(BM_DESCRIPTION) + '">\n'
+        '<link rel="stylesheet" href="../css/blue-origin.css">\n'
+        '<link rel="stylesheet" href="../css/new-shepard.css">\n'
+        '<link rel="stylesheet" href="../css/blue-moon.css">'
+    )
+    return shell("Blue Moon", "blue-origin", True, body, extra_head=extra_head)
+
+
 def render_placeholder(item):
     body = f"""
 {page_hero(item['title'], item['status'], item['copy'], construction=True)}
@@ -4395,6 +4408,7 @@ def render():
         (SECTIONS_DIR / "blue-origin.html", render_blue_origin()),
         (SECTIONS_DIR / "new-shepard.html", render_new_shepard_page()),
         (SECTIONS_DIR / "new-glenn.html", render_new_glenn_page()),
+        (SECTIONS_DIR / "blue-moon.html", render_blue_moon_page()),
         (SECTIONS_DIR / "electron-lab.html", render_electron_lab(data)),
         (SECTIONS_DIR / "lanci-imminenti-electron.html", render_electron_launches_page(data)),
         (SECTIONS_DIR / "statistiche-electron.html", render_electron_statistics_page(data)),
