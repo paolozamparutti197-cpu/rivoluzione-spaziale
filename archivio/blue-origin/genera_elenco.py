@@ -85,7 +85,7 @@ def flight_row(flight):
       </tr>"""
 
 
-def render(data, portal_href="../../sezioni/blue-origin.html"):
+def render(data, portal_href="../../sezioni/blue-origin.html", theme_href="../../css/blue-origin-theme.css"):
     flights = sorted(data["flights"], key=lambda flight: (flight["date"], flight["id"]), reverse=True)
     counts = Counter(flight["program"] for flight in flights)
     years = sorted({flight["date"][:4] for flight in flights}, reverse=True)
@@ -109,7 +109,8 @@ def render(data, portal_href="../../sezioni/blue-origin.html"):
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Cronologia dei lanci Blue Origin, dai prototipi ai voli suborbitali di New Shepard e ai lanci orbitali di New Glenn.">
   <title>Elenco dei lanci Blue Origin | Rivoluzione Spaziale</title>
-  <link rel="stylesheet" href="archivio.css">
+  <link rel="stylesheet" href="{escape(theme_href)}?v=20261117-cobalto">
+  <link rel="stylesheet" href="archivio.css?v=20261117-cobalto">
   <script src="archivio.js?v=20261117-new-shepard" defer></script>
 </head>
 <body>
@@ -219,5 +220,8 @@ def render(data, portal_href="../../sezioni/blue-origin.html"):
 
 if __name__ == "__main__":
     data = json.loads((ROOT / "dati.json").read_text(encoding="utf-8"))
-    portal_href = "../../sezioni/blue-origin.html" if ROOT.parent.name == "archivio" else "index.html"
-    (ROOT / "elenco.html").write_text(render(data, portal_href), encoding="utf-8", newline="\n")
+    if ROOT.parent.name == "archivio":
+        html = render(data)
+    else:
+        html = render(data, "index.html", "blue-origin-theme.css")
+    (ROOT / "elenco.html").write_text(html, encoding="utf-8", newline="\n")

@@ -96,7 +96,7 @@
 .ng-results dt { color: var(--bo-muted); font-size: .83rem; }
 .ng-results dd { margin: 3px 0 0; color: var(--ns-text); }
 .ng-results dd p { margin: 4px 0 0; font-size: .91rem; }
-.ng-positive { color: #a2ecd9; }
+.ng-positive { color: #17634d; }
 .ng-negative { color: var(--ns-warm); }
 .ng-page .ng-case { margin: 0; }
 .ng-case-link { align-self: center; margin: 0; }
