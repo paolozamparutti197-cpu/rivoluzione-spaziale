@@ -1,0 +1,113 @@
+.ng-page .ns-hero-photo img {
+  height: auto;
+  aspect-ratio: 1.5;
+}
+.ng-vehicle-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+.ng-vehicle-grid > article { border-top: 2px solid var(--bo-accent); }
+.ng-vehicle-grid p { margin-bottom: 0; }
+.ng-variants {
+  margin: 12px 0 0;
+  color: var(--bo-muted);
+  font-size: .86rem;
+}
+.ng-variants a {
+  display: inline-block;
+  color: var(--bo-accent);
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+.ng-profile { border-top: 1px solid var(--bo-line); }
+.ng-flight-start {
+  padding: 14px 19px;
+  border: 1px solid var(--bo-line);
+  border-left: 2px solid var(--bo-accent);
+  background: var(--ns-deep);
+}
+.ng-flight-start p {
+  margin: 5px 0 0;
+  color: var(--ns-text);
+}
+.ng-flight-branches {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 14px;
+}
+.ng-branch {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--bo-line);
+  border-top: 2px solid var(--bo-accent);
+  background: var(--ns-surface);
+}
+.ng-branch + .ng-branch { border-top-color: var(--ns-warm); }
+.ng-branch-copy { padding: 17px 19px; }
+.ng-branch-copy ol {
+  margin: 8px 0 0;
+  padding-left: 1.3em;
+  color: var(--ns-text);
+  line-height: 1.57;
+  font-size: .94rem;
+}
+.ng-branch-copy li + li { margin-top: 5px; }
+.ng-flight-branches .ng-branch figure {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  border: 0;
+  border-top: 1px solid var(--bo-line);
+}
+.ng-flight-branches .ng-branch img {
+  height: auto;
+  aspect-ratio: 1.65;
+  margin-top: auto;
+  object-position: 50% 50%;
+}
+.ng-flight-branches .ng-branch figcaption { border-top: 1px solid var(--bo-line); }
+.ng-mission-row {
+  padding: 18px 0 20px;
+  border-bottom: 1px solid var(--bo-line);
+}
+.ng-mission-head {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 5px 17px;
+}
+.ng-mission-head .ns-mission { margin: 0 0 4px; }
+.ng-mission-head time {
+  color: var(--bo-muted);
+  font-size: .83rem;
+  font-weight: 500;
+}
+.ng-results {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 12px 0 0;
+  border: 1px solid var(--bo-line);
+  background: var(--ns-surface);
+}
+.ng-results > div { padding: 12px 15px; }
+.ng-results > div + div { border-left: 1px solid var(--bo-line); }
+.ng-results dt { color: var(--bo-muted); font-size: .83rem; }
+.ng-results dd { margin: 3px 0 0; color: var(--ns-text); }
+.ng-results dd p { margin: 4px 0 0; font-size: .91rem; }
+.ng-positive { color: #a2ecd9; }
+.ng-negative { color: var(--ns-warm); }
+.ng-page .ng-case { margin: 0; }
+.ng-case-link { align-self: center; margin: 0; }
+
+@media (max-width: 700px) {
+  .ng-vehicle-grid, .ng-flight-branches { grid-template-columns: minmax(0, 1fr); }
+  .ng-branch-copy, .ng-flight-start { padding: 13px 15px; }
+  .ng-results { grid-template-columns: minmax(0, 1fr); }
+  .ng-results > div + div {
+    border-left: 0;
+    border-top: 1px solid var(--bo-line);
+  }
+  .ng-mission-head .ns-record-link { min-height: 33px; }
+}
