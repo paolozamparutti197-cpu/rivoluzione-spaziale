@@ -118,8 +118,8 @@ def render_portal(registry_path, archive_url, photo):
           <h3 id="bo-moon">Blue Moon</h3>
           <p>Mark 1 è il lander per carichi e strumenti scientifici. Mark 2 è progettato per portare astronauti tra l’orbita lunare e la superficie nel programma Artemis.</p>
           <div class="bo-program-links">
-            <a class="bo-program-link" href="{NASA_ARTEMIS}">Blue Moon nel programma Artemis <span aria-hidden="true">↗</span></a>
-            <a class="bo-source" href="https://www.blueorigin.com/blue-moon" aria-label="Scheda ufficiale Blue Moon">Scheda Blue Origin</a>
+            <a class="bo-program-link" href="blue-moon.html">Dossier Blue Moon <span aria-hidden="true">↗</span></a>
+            <a class="bo-source" href="{NASA_ARTEMIS}">Blue Moon nel programma Artemis</a>
           </div>
         </article>
       </div>
@@ -603,6 +603,239 @@ def render_new_glenn(registry_path, portal_url, archive_url, assets_url):
 """
 
 
+BM_DESCRIPTION = (
+    "I lander lunari Blue Moon Mark 1 e Mark 2, dal lancio con New Glenn all’allunaggio, "
+    "con le prove a terra e le missioni annunciate da NASA e Blue Origin."
+)
+BM_PROGRAM = "https://www.blueorigin.com/blue-moon"
+BM_MARK_1 = f"{BM_PROGRAM}/mark-1"
+BM_NASA_MK1 = "https://www.nasa.gov/event/clps-flight-blue-origins-blue-moon-mark-1/"
+BM_NASA_HLS = "https://www.nasa.gov/missions/artemis/nasa-partners-accelerate-lander-development-for-2028-moon-missions/"
+
+BM_TESTS = (
+    (
+        "2026-05-04", "MK1", "Prove ambientali di Endurance",
+        "NASA ha annunciato il completamento delle prove nella camera termovuoto A di Houston, "
+        "dove sono state riprodotte le condizioni di vuoto e temperatura previste in missione.",
+        "https://www.nasa.gov/missions/artemis/blue-origin-moon-lander-completes-testing-at-nasa-vacuum-chamber/",
+        "NASA · Le prove in camera A",
+    ),
+    (
+        "2026-05-07", "MK2", "Cabina per le simulazioni",
+        "NASA ha reso operativo a Houston il modello di cabina a grandezza naturale per addestramento e prove "
+        "di procedure con equipaggio.",
+        "https://www.nasa.gov/directorates/esdmd/artemis-campaign-development-division/human-landing-system-program/industry-moon-lander-training-cabin-lands-at-nasa-for-artemis/",
+        "NASA · Il modello della cabina",
+    ),
+    (
+        "2026-08", "MK1", "Comunicazioni di Endurance",
+        "NASA ha confermato il completamento delle verifiche di comunicazione con la rete di satelliti TDRS "
+        "e con la Deep Space Network.",
+        "https://www.nasa.gov/missions/moon-base/nasa-provides-updates-on-moon-base-cargo-landers-tech-demonstrations/",
+        "NASA · Aggiornamento sui collaudi",
+    ),
+)
+BM_MISSIONS = (
+    (
+        "2027", "MK1", "Endurance · Moon Base I",
+        "Il primo Mark 1 tenterà un allunaggio a Shackleton Connecting Ridge, nella regione "
+        "del polo sud lunare. Il calendario NASA indica il 2027.",
+        BM_NASA_MK1, "NASA · Calendario di Endurance",
+    ),
+    (
+        "2027", "MK2", "Artemis III · Prova in orbita terrestre",
+        "Orion si avvicinerà e si aggancerà a un veicolo di prova del Mark 2 in orbita terrestre bassa. "
+        "Gli astronauti entreranno nel veicolo per valutare cabina, comandi e sistemi di supporto vitale.",
+        NASA_ARTEMIS, "NASA · Profilo di Artemis III",
+    ),
+    (
+        "Fine 2027", "MK1", "VIPER · Il rover per il polo sud",
+        "La pianificazione NASA prevede la consegna di VIPER con un secondo Mark 1. Il rover cercherà ghiaccio "
+        "d’acqua nelle zone in ombra permanente vicine al polo sud.",
+        "https://www.nasa.gov/news-release/nasa-selects-blue-origin-to-deliver-viper-rover-to-moons-south-pole/",
+        "NASA · La consegna di VIPER",
+    ),
+    (
+        "Prima del volo con equipaggio", "MK2", "Dimostrazione lunare senza equipaggio",
+        "NASA richiede una dimostrazione senza astronauti prima dei voli con equipaggio. Blue Origin prevede "
+        "di provare l’intero profilo del Mark 2 con i suoi stadi di trasferimento.",
+        BM_NASA_HLS, "NASA · La dimostrazione prevista",
+    ),
+    (
+        "2028", "Obiettivo NASA", "Artemis IV · Primo allunaggio del programma",
+        "NASA punta alla regione del polo sud lunare. Sceglierà il lander in base alla preparazione dei "
+        "veicoli e all’esito delle prove.",
+        BM_NASA_HLS, "NASA · Preparazione all’allunaggio",
+    ),
+)
+
+
+def render_moon_milestones(rows, planned=False):
+    def date_markup(value):
+        if planned:
+            return escape(value)
+        if len(value) == 7:
+            return f'<time datetime="{value}">{MONTHS[int(value[5:]) - 1]} {value[:4]}</time>'
+        return time_tag(value)
+
+    return "\n".join(
+        f"""        <li class="bm-milestone">
+          <p class="bm-milestone-date">{date_markup(when)} <span aria-hidden="true">·</span> {label}</p>
+          <h4>{escape(title)}</h4>
+          <p>{escape(detail)}</p>
+          <a class="ns-source" href="{escape(source)}">{escape(source_label)}</a>
+        </li>"""
+        for when, label, title, detail, source, source_label in rows
+    )
+
+
+def render_blue_moon(portal_url, assets_url):
+    chamber = escape(assets_url + "/mk1-endurance-camera.webp")
+    mark_1 = escape(assets_url + "/blue-moon-mark-1.webp")
+    mark_2 = escape(assets_url + "/blue-moon-mark-2.webp")
+    tests = render_moon_milestones(BM_TESTS)
+    missions = render_moon_milestones(BM_MISSIONS, planned=True)
+    return f"""
+<div class="bo-page ns-page bm-page">
+  <a class="bo-skip" href="#bm-lander">Vai al confronto tra i lander</a>
+  <div class="bo-wrap ns-breadcrumb">
+    <a href="{escape(portal_url)}"><span aria-hidden="true">←</span> Blue Origin</a>
+  </div>
+
+  <section class="ns-hero" aria-labelledby="bm-title">
+    <div class="bo-wrap ns-hero-grid">
+      <div class="ns-hero-copy">
+        <p class="ns-context">Lander lunari · Blue Origin</p>
+        <h1 id="bm-title">Blue Moon</h1>
+        <p class="ns-lede">Mark 1 è progettato per consegnare carichi sulla Luna. Mark 2, nella versione con equipaggio, porterà astronauti tra Orion in orbita lunare e la superficie.</p>
+        <div class="bo-actions">
+          <a class="bo-button" href="#bm-lander">Confronta i lander <span aria-hidden="true">↓</span></a>
+          <a class="bo-button bo-button-quiet" href="#bm-cronologia">Segui le missioni <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <figure class="ns-hero-photo">
+        <img src="{chamber}" width="1680" height="1120" fetchpriority="high"
+          alt="Il lander Endurance nella camera termovuoto del Johnson Space Center">
+        <figcaption>Endurance nella camera termovuoto A della NASA, 12 febbraio 2026.
+          <a href="https://www.blueorigin.com/gallery/asset/69938aa87f11c19afde0151e">Foto Blue Origin</a>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <nav class="bo-wrap ns-jump" aria-label="Indice del dossier Blue Moon">
+    <a href="#bm-lander">Mark 1 e Mark 2</a>
+    <a href="#bm-profilo">Dalla Terra alla Luna</a>
+    <a href="#bm-cronologia">Prove e missioni</a>
+  </nav>
+
+  <section class="ns-section" id="bm-lander" aria-labelledby="bm-lander-title">
+    <div class="bo-wrap">
+      <header class="ns-section-head">
+        <h2 id="bm-lander-title">Mark 1 e Mark 2</h2>
+      </header>
+      <div class="bm-lander-grid">
+        <article class="bm-lander" aria-labelledby="bm-mark-1">
+          <figure>
+            <img src="{mark_1}" width="1280" height="853" loading="lazy"
+              alt="Illustrazione di Mark 1 con la piattaforma di carico e la Terra sopra l’orizzonte lunare">
+            <figcaption><a href="{BM_PROGRAM}">Illustrazione di progetto · Blue Origin</a></figcaption>
+          </figure>
+          <div class="bm-lander-copy">
+            <h3 id="bm-mark-1">Mark 1 · Cargo</h3>
+            <dl class="bm-specs">
+              <div><dt>Compito</dt><dd>Consegnare strumenti, rover e attrezzature sulla superficie.</dd></div>
+              <div><dt>Lancio</dt><dd>Un New Glenn. Blue Origin indica fino a 3 tonnellate di carico nella configurazione 7×2.</dd></div>
+              <div><dt>Propulsione</dt><dd>Un motore BE-7 riaccendibile, a idrogeno e ossigeno liquidi.</dd></div>
+            </dl>
+            <a class="ns-source" href="{BM_MARK_1}">Blue Origin · Scheda Mark 1</a>
+          </div>
+        </article>
+        <article class="bm-lander" aria-labelledby="bm-mark-2">
+          <figure>
+            <img src="{mark_2}" width="1280" height="853" loading="lazy"
+              alt="Illustrazione di Mark 2 sulla Luna con cabina, scala e astronauta accanto al lander">
+            <figcaption><a href="{BM_PROGRAM}">Illustrazione di progetto · Blue Origin</a></figcaption>
+          </figure>
+          <div class="bm-lander-copy">
+            <h3 id="bm-mark-2">Mark 2 · Equipaggio</h3>
+            <dl class="bm-specs">
+              <div><dt>Compito</dt><dd>Far scendere gli astronauti sulla Luna e riportarli a Orion in orbita lunare.</dd></div>
+              <div><dt>Lancio</dt><dd>Il lander parte senza equipaggio su New Glenn. Gli astronauti partono su SLS a bordo di Orion.</dd></div>
+              <div><dt>Cabina</dt><dd>Nel profilo iniziale descritto da NASA, due astronauti passano al lander e gli altri due restano su Orion.</dd></div>
+            </dl>
+            <a class="ns-source" href="{BM_NASA_HLS}">NASA · Il profilo con equipaggio</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="ns-section bm-profile" id="bm-profilo" aria-labelledby="bm-profilo-title">
+    <div class="bo-wrap">
+      <header class="ns-section-head">
+        <h2 id="bm-profilo-title">Dalla Terra alla Luna</h2>
+        <p>New Glenn lancia i lander. Il percorso successivo cambia con il tipo di missione.</p>
+      </header>
+      <div class="bm-route-grid">
+        <article class="bm-route">
+          <h3>Mark 1 · Missione cargo</h3>
+          <ol>
+            <li><strong>Partenza.</strong> Un New Glenn lancia il lander con il carico già installato.</li>
+            <li><strong>Trasferimento.</strong> Dopo la separazione dal lanciatore, il lander prosegue verso la Luna, guidato dai suoi sistemi di navigazione.</li>
+            <li><strong>Discesa.</strong> Il BE-7 modula la spinta per frenare e il lander usa la navigazione autonoma per puntare al sito previsto.</li>
+            <li><strong>Superficie.</strong> Endurance proverà le tecnologie di allunaggio e porterà strumenti scientifici della NASA.</li>
+          </ol>
+        </article>
+        <article class="bm-route">
+          <h3>Mark 2 Alpha · Profilo lunare proposto</h3>
+          <ol>
+            <li><strong>Partenza.</strong> Il lander e tre stadi di trasferimento vengono lanciati separatamente e si agganciano in orbita terrestre.</li>
+            <li><strong>Trasferimento.</strong> Gli stadi spingono il lander fino a un’orbita polare ellittica attorno alla Luna e si separano man mano.</li>
+            <li><strong>Discesa.</strong> Orion raggiunge il lander in orbita lunare. Due astronauti si trasferiscono su Mark 2 e scendono verso la regione del polo sud.</li>
+            <li><strong>Ritorno.</strong> Il lander risale verso Orion dopo le operazioni sulla superficie. Il viaggio di ritorno a Terra avviene su Orion.</li>
+          </ol>
+        </article>
+      </div>
+      <p class="ns-references">
+        <a href="new-glenn.html">Dossier New Glenn</a>
+        <a href="{BM_MARK_1}">Blue Origin · Missione Mark 1</a>
+        <a href="{BM_NASA_HLS}">NASA · Profilo Mark 2 Alpha</a>
+      </p>
+      <aside class="ns-pause" aria-labelledby="bm-endurance-title">
+        <h3 id="bm-endurance-title">Che cosa misurerà Endurance</h3>
+        <p>Le telecamere SCALPSS osserveranno come il getto del motore solleva la polvere durante la discesa. Il retroriflettore laser resterà sulla superficie come riferimento per le misure di posizione.</p>
+        <a class="ns-source" href="{BM_NASA_MK1}">NASA · Gli strumenti di Endurance</a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="ns-section ns-timeline-section" id="bm-cronologia" aria-labelledby="bm-cronologia-title">
+    <div class="bo-wrap">
+      <header class="ns-section-head">
+        <h2 id="bm-cronologia-title">Dalle prove alle missioni</h2>
+        <p>Stato verificato il {time_tag("2026-11-17")}. Le date di volo seguono la pianificazione pubblica della NASA.</p>
+      </header>
+      <div class="bm-timeline-grid">
+        <section class="bm-timeline" aria-labelledby="bm-tests-title">
+          <h3 id="bm-tests-title">Prove completate a terra</h3>
+          <ol>
+{tests}
+          </ol>
+        </section>
+        <section class="bm-timeline bm-timeline-planned" aria-labelledby="bm-missions-title">
+          <h3 id="bm-missions-title">Missioni annunciate</h3>
+          <ol>
+{missions}
+          </ol>
+        </section>
+      </div>
+    </div>
+  </section>
+</div>
+"""
+
+
 def render_local_page(title, description, body, extra_css="", is_landing=False):
     current = ' aria-current="page"' if is_landing else ""
     return f"""<!doctype html>
@@ -658,6 +891,15 @@ if __name__ == "__main__":
             '<link rel="stylesheet" href="new-glenn.css">'
         ),
     )
+    moon = render_local_page(
+        "Blue Moon", BM_DESCRIPTION,
+        render_blue_moon("index.html", "."),
+        extra_css=(
+            '<link rel="stylesheet" href="new-shepard.css">\n  '
+            '<link rel="stylesheet" href="blue-moon.css">'
+        ),
+    )
     (root / "index.html").write_text(portal, encoding="utf-8", newline="\n")
     (root / "new-shepard.html").write_text(dossier, encoding="utf-8", newline="\n")
     (root / "new-glenn.html").write_text(glenn, encoding="utf-8", newline="\n")
+    (root / "blue-moon.html").write_text(moon, encoding="utf-8", newline="\n")
