@@ -5,7 +5,7 @@
 }
 .lc-page .lc-header {
   padding-block: 24px clamp(28px, 4vw, 57px);
-  background: radial-gradient(ellipse at 65% 48%, #13283a 0, var(--bo-bg) 70%);
+  background: var(--bo-tint);
   border-bottom: 1px solid var(--bo-line);
 }
 .lc-head-grid {
@@ -18,12 +18,12 @@
   margin: 0;
   color: var(--bo-ink);
   font-size: clamp(2.55rem, 5.1vw, 5.05rem);
-  font-weight: 820;
+  font-weight: 650;
   letter-spacing: -.061em;
   line-height: 1.02;
   text-transform: none;
 }
-.lc-intro .ns-context { color: var(--ns-warm); }
+.lc-intro .ns-context { color: var(--bo-accent); }
 .lc-intro .ns-lede { max-width: 48ch; }
 .lc-verified {
   margin: 16px 0 0;
@@ -72,7 +72,7 @@
   min-height: 37px;
   color: var(--bo-accent);
   font-size: .9rem;
-  font-weight: 730;
+  font-weight: 700;
 }
 .lc-index a:hover { text-decoration: underline; text-underline-offset: .2em; }
 .lc-page .lc-story > section {
@@ -110,7 +110,7 @@
 .lc-findings li time {
   color: var(--bo-accent);
   font-size: .88rem;
-  font-weight: 740;
+  font-weight: 700;
 }
 .lc-story .lc-findings li p { margin-top: 4px; }
 .lc-steps {
@@ -120,7 +120,7 @@
   line-height: 1.6;
 }
 .lc-steps li + li { margin-top: 6px; }
-.lc-steps li::marker { color: var(--bo-accent); font-weight: 740; }
+.lc-steps li::marker { color: var(--bo-accent); font-weight: 700; }
 .lc-related { display: flex; flex-wrap: wrap; gap: 7px 19px; margin: 15px 0 0; }
 
 @media (max-width: 740px) {

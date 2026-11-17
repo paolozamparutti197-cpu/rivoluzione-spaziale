@@ -4322,7 +4322,7 @@ def render_starship_development_page(data):
 
 
 def render_blue_origin():
-    from genera_portale_blue_origin import render_portal
+    from genera_portale_blue_origin import blue_origin_styles, render_portal
 
     body = render_portal(
         ROOT / "archivio/blue-origin/dati.json",
@@ -4331,12 +4331,12 @@ def render_blue_origin():
     )
     return shell(
         "Blue Origin", "blue-origin", True, body,
-        extra_head='<link rel="stylesheet" href="../css/blue-origin.css">',
+        extra_head=blue_origin_styles("../css/", "blue-origin"),
     )
 
 
 def render_new_shepard_page():
-    from genera_portale_blue_origin import NS_DESCRIPTION, render_new_shepard
+    from genera_portale_blue_origin import NS_DESCRIPTION, blue_origin_styles, render_new_shepard
 
     body = render_new_shepard(
         ROOT / "archivio/blue-origin/dati.json",
@@ -4346,14 +4346,13 @@ def render_new_shepard_page():
     )
     extra_head = (
         '<meta name="description" content="' + escape(NS_DESCRIPTION) + '">\n'
-        '<link rel="stylesheet" href="../css/blue-origin.css">\n'
-        '<link rel="stylesheet" href="../css/new-shepard.css">'
+        + blue_origin_styles("../css/", "blue-origin", "new-shepard")
     )
     return shell("New Shepard", "blue-origin", True, body, extra_head=extra_head)
 
 
 def render_new_glenn_page():
-    from genera_portale_blue_origin import NG_DESCRIPTION, render_new_glenn
+    from genera_portale_blue_origin import NG_DESCRIPTION, blue_origin_styles, render_new_glenn
 
     body = render_new_glenn(
         ROOT / "archivio/blue-origin/dati.json",
@@ -4363,35 +4362,29 @@ def render_new_glenn_page():
     )
     extra_head = (
         '<meta name="description" content="' + escape(NG_DESCRIPTION) + '">\n'
-        '<link rel="stylesheet" href="../css/blue-origin.css">\n'
-        '<link rel="stylesheet" href="../css/new-shepard.css">\n'
-        '<link rel="stylesheet" href="../css/new-glenn.css">'
+        + blue_origin_styles("../css/", "blue-origin", "new-shepard", "new-glenn")
     )
     return shell("New Glenn", "blue-origin", True, body, extra_head=extra_head)
 
 
 def render_blue_moon_page():
-    from genera_portale_blue_origin import BM_DESCRIPTION, render_blue_moon
+    from genera_portale_blue_origin import BM_DESCRIPTION, blue_origin_styles, render_blue_moon
 
     body = render_blue_moon("blue-origin.html", "../assets/blue-origin")
     extra_head = (
         '<meta name="description" content="' + escape(BM_DESCRIPTION) + '">\n'
-        '<link rel="stylesheet" href="../css/blue-origin.css">\n'
-        '<link rel="stylesheet" href="../css/new-shepard.css">\n'
-        '<link rel="stylesheet" href="../css/blue-moon.css">'
+        + blue_origin_styles("../css/", "blue-origin", "new-shepard", "blue-moon")
     )
     return shell("Blue Moon", "blue-origin", True, body, extra_head=extra_head)
 
 
 def render_lc36_dossier_page():
-    from genera_portale_blue_origin import LC36_DESCRIPTION, LC36_TITLE, render_lc36_dossier
+    from genera_portale_blue_origin import LC36_DESCRIPTION, LC36_TITLE, blue_origin_styles, render_lc36_dossier
 
     body = render_lc36_dossier("blue-origin.html", "../assets/blue-origin")
     extra_head = (
         '<meta name="description" content="' + escape(LC36_DESCRIPTION) + '">\n'
-        '<link rel="stylesheet" href="../css/blue-origin.css">\n'
-        '<link rel="stylesheet" href="../css/new-shepard.css">\n'
-        '<link rel="stylesheet" href="../css/incidente-lc36.css">'
+        + blue_origin_styles("../css/", "blue-origin", "new-shepard", "incidente-lc36")
     )
     return shell(LC36_TITLE, "blue-origin", True, body, extra_head=extra_head)
 

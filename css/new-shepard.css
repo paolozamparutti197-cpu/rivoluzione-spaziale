@@ -1,21 +1,21 @@
 .ns-page {
-  --ns-surface: #0e202f;
-  --ns-deep: #0b1a28;
-  --ns-text: #d5e1eb;
-  --ns-warm: #ffcc92;
+  --ns-surface: var(--bo-white);
+  --ns-deep: var(--bo-tint);
+  --ns-text: #30465f;
+  --ns-warm: #85520f;
 }
 .ns-page p { line-height: 1.62; }
-.ns-breadcrumb { padding-top: 18px; }
+.ns-breadcrumb { padding-block: 13px; }
 .ns-breadcrumb a, .ns-source, .ns-references a, .ns-page figcaption a {
   color: var(--bo-accent);
   text-decoration: underline;
   text-underline-offset: .2em;
 }
 .ns-breadcrumb a { display: inline-flex; align-items: center; gap: .45em; font-size: .9rem; }
-.ns-breadcrumb a:hover, .ns-source:hover, .ns-references a:hover, .ns-page figcaption a:hover { color: white; }
+.ns-breadcrumb a:hover, .ns-source:hover, .ns-references a:hover, .ns-page figcaption a:hover { color: var(--bo-deep); }
 .ns-page .ns-hero {
-  padding-block: 22px clamp(32px, 4.2vw, 62px);
-  background: radial-gradient(ellipse at 67% 48%, #12263a 0, var(--bo-bg) 68%);
+  padding-block: clamp(24px, 4vw, 55px);
+  background: var(--bo-mast);
 }
 .ns-hero-grid {
   display: grid;
@@ -28,18 +28,18 @@
   color: var(--bo-accent);
   font-size: .82rem;
   line-height: 1.25;
-  font-weight: 760;
+  font-weight: 700;
   letter-spacing: .095em;
   text-transform: uppercase;
 }
 .ns-page .ns-hero h1 {
   margin: 0;
-  color: var(--bo-ink);
-  font-size: clamp(2.8rem, 6.55vw, 6.6rem);
-  letter-spacing: -.072em;
+  color: var(--bo-white);
+  font-size: clamp(2.8rem, 6.4vw, 6rem);
+  letter-spacing: -.06em;
   line-height: .98;
   text-transform: none;
-  font-weight: 825;
+  font-weight: 650;
 }
 .ns-lede {
   max-width: 43ch;
@@ -47,6 +47,7 @@
   color: var(--ns-text);
   font-size: clamp(1.03rem, 1.8vw, 1.26rem);
 }
+.ns-hero .ns-context, .ns-hero .ns-lede { color: var(--bo-on-blue); }
 .ns-hero-copy .bo-actions { margin-top: 23px; }
 .ns-page figure { margin: 0; }
 .ns-hero-photo {
@@ -96,7 +97,7 @@
   margin: 0;
   color: var(--bo-accent);
   font-size: clamp(1.85rem, 3.2vw, 2.8rem);
-  font-weight: 760;
+  font-weight: 700;
   letter-spacing: -.035em;
   line-height: 1;
   font-variant-numeric: tabular-nums;
@@ -115,7 +116,7 @@
   min-height: 38px;
   color: var(--bo-accent);
   font-size: .9rem;
-  font-weight: 740;
+  font-weight: 700;
 }
 .ns-jump a:hover, .ns-record-link:hover { text-decoration: underline; text-underline-offset: .2em; }
 .ns-page .ns-section { padding-block: clamp(36px, 5.4vw, 76px); }
@@ -123,6 +124,7 @@
 .ns-page h2 {
   margin: 0;
   color: var(--bo-ink);
+  font-weight: 650;
   font-size: clamp(1.85rem, 3.6vw, 3.2rem);
   line-height: 1.08;
   letter-spacing: -.046em;
@@ -131,6 +133,7 @@
 .ns-page h3 {
   margin: 0;
   color: var(--bo-ink);
+  font-weight: 700;
   font-size: clamp(1.15rem, 1.8vw, 1.45rem);
   line-height: 1.15;
   letter-spacing: -.025em;
@@ -169,7 +172,7 @@
   padding: 8px 0 0;
   border-top: 1px solid var(--bo-line);
 }
-.ns-flight-return dt { color: var(--bo-accent); font-size: .87rem; font-weight: 760; }
+.ns-flight-return dt { color: var(--bo-accent); font-size: .87rem; font-weight: 700; }
 .ns-flight-return dd { margin: 5px 0 0; line-height: 1.52; }
 .ns-references {
   display: flex;
@@ -215,7 +218,7 @@
 .ns-mission {
   color: var(--bo-accent);
   font-size: .93rem;
-  font-weight: 780;
+  font-weight: 700;
   font-variant-numeric: tabular-nums;
 }
 .ns-milestone-story p {
@@ -232,7 +235,7 @@
   min-height: 40px;
   color: var(--bo-accent);
   font-size: .9rem;
-  font-weight: 740;
+  font-weight: 700;
 }
 .ns-pause {
   margin-top: 20px;
@@ -253,7 +256,7 @@
   padding: clamp(18px,3vw,35px);
   border: 1px solid var(--bo-line);
   border-top: 2px solid var(--ns-warm);
-  background: linear-gradient(124deg,#132838,var(--ns-deep));
+  background: var(--ns-deep);
   scroll-margin-top: 18px;
 }
 .ns-case .ns-context { color: var(--ns-warm); }
@@ -265,12 +268,12 @@
   display: grid;
   margin: 0;
   border: 1px solid var(--bo-line);
-  background: #0d202e;
+  background: var(--ns-surface);
 }
 .ns-case-stats div { display: grid; grid-template-columns: minmax(46px, max-content) 1fr; gap: 7px 14px; align-items: center; padding: 10px 14px; }
 .ns-case-stats div + div { border-top: 1px solid var(--bo-line); }
 .ns-case-stats dt { grid-column: 2; grid-row: 1; color: var(--bo-muted); font-size: .9rem; }
-.ns-case-stats dd { grid-column: 1; grid-row: 1; margin: 0; color: var(--ns-warm); font-size: 1.45rem; font-weight: 760; }
+.ns-case-stats dd { grid-column: 1; grid-row: 1; margin: 0; color: var(--ns-warm); font-size: 1.45rem; font-weight: 700; }
 
 @media (max-width: 950px) {
   .ns-flight-sequence { grid-template-columns: repeat(2, minmax(0,1fr)); }
@@ -278,8 +281,8 @@
   .ns-case { grid-template-columns: minmax(0,1.35fr) minmax(0,1fr); }
 }
 @media (max-width: 700px) {
-  .ns-breadcrumb { padding-top: 11px; }
-  .ns-page .ns-hero { padding-block: 14px 24px; }
+  .ns-breadcrumb { padding-block: 9px; }
+  .ns-page .ns-hero { padding-block: 24px; }
   .ns-hero-grid { grid-template-columns: 1fr; gap: 20px; }
   .ns-page .ns-hero h1 { font-size: clamp(2.65rem, 11vw, 4.6rem); }
   .ns-lede { margin-top: 10px; }

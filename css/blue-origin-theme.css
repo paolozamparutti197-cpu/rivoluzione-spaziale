@@ -1,0 +1,22 @@
+@font-face {
+  font-family: "Instrument Sans";
+  src: url("instrument-sans-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+:root {
+  --bo-font: "Instrument Sans", "Segoe UI", Arial, sans-serif;
+  --bo-bg: #f6f8fc;
+  --bo-white: #fff;
+  --bo-tint: #e9f1ff;
+  --bo-ink: #142d4d;
+  --bo-muted: #495d77;
+  --bo-line: #cbd8eb;
+  --bo-accent: #1248ac;
+  --bo-mast: #07369b;
+  --bo-deep: #082760;
+  --bo-on-blue: #e4eeff;
+  --bo-focus: #b35705;
+}

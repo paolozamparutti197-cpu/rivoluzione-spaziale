@@ -46,7 +46,7 @@
   padding: 9px 0;
   border-top: 1px solid var(--bo-line);
 }
-.bm-specs dt { color: var(--bo-accent); font-size: .88rem; font-weight: 740; }
+.bm-specs dt { color: var(--bo-accent); font-size: .88rem; font-weight: 700; }
 .bm-specs dd { margin: 0; font-size: .94rem; line-height: 1.5; }
 .bm-profile { border-top: 1px solid var(--bo-line); }
 .bm-route { border-top: 2px solid var(--bo-accent); }
@@ -60,7 +60,7 @@
 }
 .bm-route li { padding-left: .26em; }
 .bm-route li + li { margin-top: 9px; }
-.bm-route li::marker { color: var(--bo-accent); font-weight: 740; }
+.bm-route li::marker { color: var(--bo-accent); font-weight: 700; }
 .bm-route + .bm-route li::marker { color: var(--ns-warm); }
 .bm-route li strong { color: var(--bo-ink); }
 .bm-timeline-grid { align-items: start; }
@@ -85,7 +85,7 @@
   margin: 3px 0 0;
   color: var(--bo-ink);
   font-size: 1.04rem;
-  font-weight: 740;
+  font-weight: 700;
   line-height: 1.24;
 }
 .bm-milestone p {
