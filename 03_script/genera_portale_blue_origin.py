@@ -851,15 +851,23 @@ LC36_INVESTIGATION = "https://www.blueorigin.com/news/gs1-3-hotfire-updates"
 LC36_REBUILD = "https://www.blueorigin.com/news/new-glenn-return-to-flight"
 LC36_RANGE = "https://www.dvidshub.net/news/566396/space-launch-delta-45-remains-go-launch"
 LC36_REPORTAGE = "https://spaceflightnow.com/2026/05/29/blue-origins-new-glenn-rocket-explodes-during-prelaunch-testing-at-cape-canaveral/"
+LC36_VIDEO_ID = "1O90WZJALYc"
 LC36_NASA_PHOTO = "https://images-assets.nasa.gov/image/NHQ20260529_admin_0004/NHQ20260529_admin_0004~orig.jpg"
 LC36_BEFORE_PHOTO = "https://www.blueorigin.com/gallery/asset/69de4248c29fe8ac1037fdc6"
 LC36_FAA_EA = "https://www.faa.gov/space/stakeholderengagement/blue-origin-new-glenn"
 LC36_REUTERS = "https://www.reuters.com/science/blue-origin-delays-new-glenn-rocket-launch-into-january-ft-reports-2026-11-05/"
 
 
-def render_lc36_dossier(portal_url, assets_url):
+def render_lc36_dossier(portal_url, assets_url, embed_video=True):
     after_photo = escape(assets_url + "/lc36-29-maggio-2026.webp")
     before_photo = escape(assets_url + "/lc36-13-aprile-2026.webp")
+    player = f"""
+            <iframe src="https://www.youtube-nocookie.com/embed/{LC36_VIDEO_ID}"
+              title="L’esplosione di New Glenn a LC-36A ripresa da Spaceflight Now"
+              aria-describedby="lc-video-caption" loading="lazy"
+              style="display:block;width:100%;height:auto;min-height:200px;aspect-ratio:16/9;border:0"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>""" if embed_video else ""
     return f"""
 <div class="bo-page ns-page lc-page">
   <a class="bo-skip" href="#lc-incident">Vai all’articolo</a>
@@ -902,6 +910,11 @@ def render_lc36_dossier(portal_url, assets_url):
           <h2 id="lc-incident-title">L’esplosione durante il collaudo</h2>
           <p>Verso le 21:00 del 28 maggio in Florida, le 03:00 del 29 maggio in Italia, il New Glenn era sulla rampa LC-36A per un’accensione statica. I due stadi erano assemblati e il razzo era trattenuto alla base. Il collaudo serviva a verificare l’avvio dei motori insieme ai sistemi del veicolo e della rampa in condizioni simili a quelle di una partenza.</p>
           <p>Durante il test, un’esplosione distrusse il veicolo, compreso il nuovo primo stadio GS1-3. Blue Origin confermò di aver rintracciato tutto il personale. La Space Force intervenne durante la notte. Meno di dodici ore dopo, lo stesso poligono gestì un lancio di Falcon 9 da un’altra rampa. Blue Origin avvisò anche che frammenti del razzo avrebbero potuto raggiungere la costa.</p>
+          <figure class="lc-photo lc-archive-photo" id="lc-video">{player}
+            <figcaption id="lc-video-caption">Il momento dell’esplosione, 28 maggio 2026. Riprese di Adam Bernstein e John Pisani, Spaceflight Now.
+              <a href="https://www.youtube.com/watch?v={LC36_VIDEO_ID}">Guarda il video originale su YouTube</a>
+            </figcaption>
+          </figure>
           <p>Per il quarto lancio, Blue Origin aveva annunciato 48 satelliti Amazon Leo, destinati all’orbita bassa. Al momento dell’esplosione i satelliti erano ancora presso l’impianto di preparazione del carico, secondo la ricostruzione di Spaceflight Now.</p>
           <p class="ns-references">
             <a href="{LC36_RANGE}">Space Launch Delta 45 · Resoconto dell’intervento</a>
@@ -1057,7 +1070,7 @@ if __name__ == "__main__":
     )
     incident = render_local_page(
         LC36_TITLE, LC36_DESCRIPTION,
-        render_lc36_dossier("index.html", "."),
+        render_lc36_dossier("index.html", ".", embed_video=False),
         extra_css=(
             '<link rel="stylesheet" href="new-shepard.css">\n  '
             '<link rel="stylesheet" href="incidente-lc36.css">'
