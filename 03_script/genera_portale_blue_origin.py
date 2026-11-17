@@ -109,8 +109,8 @@ def render_portal(registry_path, archive_url, photo):
           <h3 id="bo-glenn">New Glenn</h3>
           <p>Il lanciatore pesante parte dal complesso LC-36. Il primo stadio è progettato per atterrare sulla piattaforma Jacklyn, nell’Atlantico.</p>
           <div class="bo-program-links">
-            <a class="bo-program-link" href="{archive_link(archive_url, 'glenn')}">Lanci New Glenn <span aria-hidden="true">↗</span></a>
-            <a class="bo-source" href="https://www.blueorigin.com/new-glenn" aria-label="Scheda ufficiale New Glenn">Scheda Blue Origin</a>
+            <a class="bo-program-link" href="new-glenn.html">Dossier New Glenn <span aria-hidden="true">↗</span></a>
+            <a class="bo-source" href="{archive_link(archive_url, 'glenn')}">Lanci New Glenn</a>
           </div>
         </article>
         <article class="bo-program bo-program-moon" id="blue-moon" aria-labelledby="bo-moon">
@@ -372,6 +372,237 @@ def render_new_shepard(registry_path, portal_url, archive_url, assets_url):
 """
 
 
+NG_DESCRIPTION = (
+    "Come vola New Glenn, dai motori del primo stadio al rilascio del carico in orbita, "
+    "con gli esiti delle missioni e dei recuperi su Jacklyn."
+)
+NG_OUTCOMES = {"success": "Orbita prevista raggiunta", "failure": "Orbita prevista mancata"}
+NG_RECOVERIES = {"sea": "Atterrato su Jacklyn", "lost": "Booster perso"}
+NG_FLIGHT_DETAILS = {
+    "NG-1": (
+        "Il dimostratore Blue Ring Pathfinder resta fissato al secondo stadio nell’orbita terrestre media prevista.",
+        "I motori del primo stadio non si riaccendono per frenare il rientro. Il booster va perso.",
+    ),
+    "NG-2": (
+        "Le due sonde NASA ESCAPADE si separano nella traiettoria di attesa prevista.",
+        "Primo atterraggio su Jacklyn. Il booster GS1-2 tornerà a volare su NG-3.",
+    ),
+    "NG-3": (
+        "BlueBird 7 si separa in un’orbita troppo bassa per operare. La FAA riconduce l’anomalia di spinta a una perdita criogenica che ha congelato una linea idraulica.",
+        "Il GS1-2, già impiegato per NG-2, atterra su Jacklyn al secondo volo.",
+    ),
+}
+NG_FAA = "https://www.faa.gov/newsroom/statements/general-statements"
+NG_NASA = "https://science.nasa.gov/science-research/heliophysics/nasas-escapade-completes-powered-earth-flybys-now-en-route-to-mars/"
+
+
+def render_glenn_flight(flight, archive_url):
+    mission = flight["id"]
+    orbital_detail, recovery_detail = NG_FLIGHT_DETAILS.get(mission, (flight["note"], ""))
+    outcome = NG_OUTCOMES[flight["outcome"]]
+    recovery = NG_RECOVERIES.get(flight["recovery"], "Recupero non indicato")
+    outcome_tone = "ng-positive" if flight["outcome"] == "success" else "ng-negative"
+    recovery_tone = {"sea": "ng-positive", "lost": "ng-negative"}.get(flight["recovery"], "")
+    recovery_copy = f"<p>{escape(recovery_detail)}</p>" if recovery_detail else ""
+    return f"""        <li class="ng-mission-row" id="tappa-{escape(mission.lower())}">
+          <div class="ng-mission-head">
+            <div>
+              <p class="ns-mission">{escape(mission)} <span>·</span> {time_tag(flight["date"])}</p>
+              <h3>{escape(flight["title"])}</h3>
+            </div>
+            <a class="ns-record-link" href="{archive_link(archive_url, 'glenn', mission)}"
+              aria-label="Apri {escape(mission)} nell’archivio">Archivio {escape(mission)} <span aria-hidden="true">↗</span></a>
+          </div>
+          <dl class="ng-results">
+            <div>
+              <dt>Missione orbitale</dt>
+              <dd><strong class="{outcome_tone}">{outcome}</strong><p>{escape(orbital_detail)}</p></dd>
+            </div>
+            <div>
+              <dt>Recupero del booster</dt>
+              <dd><strong class="{recovery_tone}">{recovery}</strong>{recovery_copy}</dd>
+            </div>
+          </dl>
+        </li>"""
+
+
+def render_new_glenn(registry_path, portal_url, archive_url, assets_url):
+    data = json.loads(registry_path.read_text(encoding="utf-8"))
+    flights = sorted(
+        (flight for flight in data["flights"] if flight["program"] == "glenn"),
+        key=lambda flight: (flight["date"], flight["id"]),
+    )
+    reached_orbit = sum(flight["outcome"] == "success" for flight in flights)
+    landings = sum(flight["recovery"] == "sea" for flight in flights)
+    timeline = "\n".join(render_glenn_flight(flight, archive_url) for flight in flights)
+    archive = archive_link(archive_url, "glenn")
+    launch_photo = escape(assets_url + "/ng3-lancio.webp")
+    stage_photo = escape(assets_url + "/ng2-secondo-stadio.webp")
+    landing_photo = escape(assets_url + "/ng3-jacklyn.webp")
+    return f"""
+<div class="bo-page ns-page ng-page">
+  <a class="bo-skip" href="#ng-veicolo">Vai alla scheda del razzo</a>
+  <div class="bo-wrap ns-breadcrumb">
+    <a href="{escape(portal_url)}"><span aria-hidden="true">←</span> Blue Origin</a>
+  </div>
+
+  <section class="ns-hero" aria-labelledby="ng-title">
+    <div class="bo-wrap ns-hero-grid">
+      <div class="ns-hero-copy">
+        <p class="ns-context">Lanci orbitali · Florida</p>
+        <h1 id="ng-title">New Glenn</h1>
+        <p class="ns-lede">Il lanciatore pesante di Blue Origin parte da Cape Canaveral. Il secondo stadio porta il carico in orbita, mentre il booster punta alla piattaforma Jacklyn nell’Atlantico.</p>
+        <div class="bo-actions">
+          <a class="bo-button" href="#ng-profilo">Segui il profilo di volo <span aria-hidden="true">↓</span></a>
+          <a class="bo-button bo-button-quiet" href="{archive}">Archivio New Glenn <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <figure class="ns-hero-photo">
+        <img src="{launch_photo}" width="1760" height="1174" fetchpriority="high"
+          alt="New Glenn sale fra le torri di rampa sotto il cielo arancione durante NG-3">
+        <figcaption>Decollo di NG-3, 19 aprile 2026.
+          <a href="https://www.blueorigin.com/gallery/asset/69e9395a1532f1a2cfee8e22">Foto Blue Origin</a>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="ns-register">
+    <div class="bo-wrap">
+      <dl class="ns-register-grid">
+        <div><dt>Lanci documentati</dt><dd>{len(flights)}</dd></div>
+        <div><dt>Obiettivi orbitali raggiunti</dt><dd>{reached_orbit}</dd></div>
+        <div><dt>Atterraggi su Jacklyn</dt><dd>{landings}</dd></div>
+      </dl>
+      <p>Registro verificato il {time_tag(data["verifiedOn"])}.</p>
+    </div>
+  </div>
+
+  <nav class="bo-wrap ns-jump" aria-label="Indice del dossier New Glenn">
+    <a href="#ng-veicolo">Il razzo</a>
+    <a href="#ng-profilo">Profilo di volo</a>
+    <a href="#ng-cronologia">Cronologia</a>
+    <a href="#ng-escapade">ESCAPADE</a>
+  </nav>
+
+  <section class="ns-section" id="ng-veicolo" aria-labelledby="ng-veicolo-title">
+    <div class="bo-wrap">
+      <header class="ns-section-head">
+        <h2 id="ng-veicolo-title">Il razzo a due stadi</h2>
+        <p>La configurazione 7×2 impiegata nei primi voli prende il nome dal numero di motori sui due stadi.</p>
+      </header>
+      <div class="ng-vehicle-grid">
+        <article class="ns-use">
+          <h3>Primo stadio · 7 BE-4</h3>
+          <p>Sette motori alimentati da gas naturale liquefatto e ossigeno liquido sollevano il razzo. Il booster è progettato per rientrare e volare di nuovo.</p>
+        </article>
+        <article class="ns-use">
+          <h3>Secondo stadio · 2 BE-3U</h3>
+          <p>Due motori riaccendibili, a idrogeno e ossigeno liquidi, regolano la traiettoria per raggiungere l’orbita di rilascio.</p>
+        </article>
+        <article class="ns-use">
+          <h3>Carenatura · 7 metri</h3>
+          <p>La carenatura protegge satelliti e sonde durante l’ascesa. Le due metà si separano quando la protezione aerodinamica ha esaurito la sua funzione.</p>
+        </article>
+      </div>
+      <p class="ns-references">
+        <a href="https://www.blueorigin.com/new-glenn">Scheda del lanciatore</a>
+        <a href="https://www.blueorigin.com/engines">Scheda dei motori</a>
+      </p>
+      <p class="ng-variants">Blue Origin ha presentato anche la variante 9×4 e lo stadio aggiuntivo GS3 per le missioni ad alta energia.
+        <a href="https://www.blueorigin.com/news/new-glenn-expands-reach-with-gs3">Sviluppo di GS3</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="ns-section ng-profile" id="ng-profilo" aria-labelledby="ng-profilo-title">
+    <div class="bo-wrap">
+      <header class="ns-section-head">
+        <h2 id="ng-profilo-title">Dal decollo a due traiettorie</h2>
+        <p>Con la separazione degli stadi iniziano in parallelo l’inserimento orbitale e il rientro del booster.</p>
+      </header>
+      <div class="ng-flight-start">
+        <h3>Decollo e separazione</h3>
+        <p>I BE-4 si accendono a LC-36. Al termine della spinta del primo stadio, i due stadi si separano.</p>
+      </div>
+      <div class="ns-photo-grid ng-flight-branches">
+        <article class="ng-branch" aria-labelledby="ng-orbita-title">
+          <div class="ng-branch-copy">
+            <h3 id="ng-orbita-title">Secondo stadio · verso l’orbita</h3>
+            <ol>
+              <li>I BE-3U si accendono e proseguono l’ascesa. La carenatura si apre e si separa.</li>
+              <li>Il secondo stadio raggiunge la traiettoria prevista e rilascia il carico secondo il piano di missione.</li>
+            </ol>
+          </div>
+          <figure>
+            <img src="{stage_photo}" width="1360" height="907" loading="lazy"
+              alt="Ugelli BE-3U del secondo stadio con la Terra sullo sfondo durante NG-2">
+            <figcaption>Secondo stadio durante NG-2.
+              <a href="https://www.blueorigin.com/gallery/asset/6931c2fe1b7576ab9bbd8c75">Foto Blue Origin</a>
+            </figcaption>
+          </figure>
+        </article>
+        <article class="ng-branch" aria-labelledby="ng-rientro-title">
+          <div class="ng-branch-copy">
+            <h3 id="ng-rientro-title">Primo stadio · verso Jacklyn</h3>
+            <ol>
+              <li>Il booster orienta e frena la discesa verso la piattaforma già posizionata nell’Atlantico.</li>
+              <li>I motori frenano la parte finale della discesa. Le gambe di atterraggio sostengono il booster sul ponte.</li>
+            </ol>
+          </div>
+          <figure>
+            <img src="{landing_photo}" width="1400" height="788" loading="lazy"
+              alt="Primo stadio di New Glenn in verticale sulla piattaforma Jacklyn dopo NG-3">
+            <figcaption>Booster GS1-2 su Jacklyn dopo NG-3.
+              <a href="https://www.blueorigin.com/gallery/asset/69ea2155454dd5737948911f">Foto Blue Origin</a>
+            </figcaption>
+          </figure>
+        </article>
+      </div>
+      <p class="ns-references"><a href="https://www.blueorigin.com/missions/ng-3">Profilo di volo e webcast NG-3</a></p>
+    </div>
+  </section>
+
+  <section class="ns-section ns-timeline-section" id="ng-cronologia" aria-labelledby="ng-cronologia-title">
+    <div class="bo-wrap">
+      <header class="ns-section-head">
+        <h2 id="ng-cronologia-title">Cronologia dei lanci</h2>
+      </header>
+      <ol class="ns-timeline ng-timeline">
+{timeline}
+      </ol>
+      <p class="ns-references">
+        <a href="{NG_FAA}">Indagini FAA su NG-1 e NG-3</a>
+        <a href="https://www.sec.gov/Archives/edgar/data/1780312/000119312526453759/asts-20260930.htm">AST SpaceMobile · BlueBird 7</a>
+      </p>
+      <aside class="ns-pause" aria-labelledby="ng-hotfire">
+        <h3 id="ng-hotfire">28 maggio 2026 · La prova a terra</h3>
+        <p>Durante un’accensione statica a LC-36 si è verificata un’anomalia. Il veicolo era sulla rampa e la prova precedeva il quarto lancio.</p>
+        <a class="ns-source" href="https://www.blueorigin.com/news/gs1-3-hotfire-updates">Aggiornamenti sulla prova</a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="ns-section" id="ng-escapade" aria-labelledby="ng-escapade-title">
+    <div class="bo-wrap">
+      <article class="ns-case ng-case">
+        <div class="ns-case-copy">
+          <p class="ns-context">NG-2 · NASA</p>
+          <h2 id="ng-escapade-title">ESCAPADE, un anno di attesa per Marte</h2>
+          <p>NG-2 ha rilasciato due sonde su una traiettoria di attesa vicino alla Terra. Nel novembre 2026 entrambe hanno combinato un passaggio ravvicinato alla Terra e un’accensione dei propri motori per dirigersi verso Marte.</p>
+          <p>Studieranno come il vento solare interagisce con l’ambiente marziano e contribuisce alla perdita di atmosfera.</p>
+          <p class="ns-references"><a href="{NG_NASA}">NASA · I sorvoli della Terra</a></p>
+        </div>
+        <p class="ng-case-link">
+          <a class="ns-record-link" href="{archive_link(archive_url, 'glenn', 'NG-2')}">Apri NG-2 nell’archivio <span aria-hidden="true">↗</span></a>
+        </p>
+      </article>
+    </div>
+  </section>
+</div>
+"""
+
+
 def render_local_page(title, description, body, extra_css="", is_landing=False):
     current = ' aria-current="page"' if is_landing else ""
     return f"""<!doctype html>
@@ -419,5 +650,14 @@ if __name__ == "__main__":
         render_new_shepard(registry, "index.html", "elenco.html", "."),
         extra_css='<link rel="stylesheet" href="new-shepard.css">',
     )
+    glenn = render_local_page(
+        "New Glenn", NG_DESCRIPTION,
+        render_new_glenn(registry, "index.html", "elenco.html", "."),
+        extra_css=(
+            '<link rel="stylesheet" href="new-shepard.css">\n  '
+            '<link rel="stylesheet" href="new-glenn.css">'
+        ),
+    )
     (root / "index.html").write_text(portal, encoding="utf-8", newline="\n")
     (root / "new-shepard.html").write_text(dossier, encoding="utf-8", newline="\n")
+    (root / "new-glenn.html").write_text(glenn, encoding="utf-8", newline="\n")
