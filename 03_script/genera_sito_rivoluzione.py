@@ -54,8 +54,9 @@ MAIN_SECTIONS = [
     {
         "title": "Blue Origin",
         "slug": "blue-origin",
-        "status": "In costruzione",
-        "copy": "New Glenn, BE-4 e il tentativo di costruire un secondo polo privato pesante.",
+        "status": "Archivio dei lanci",
+        "copy": "Dai primi prototipi ai voli suborbitali di New Shepard e ai lanci orbitali di New Glenn.",
+        "active": True,
     },
     {
         "title": "ULA",
@@ -4295,6 +4296,20 @@ def render_starship_development_page(data):
     return shell("Sviluppo Starship", "spacex", True, body, css_version="20260725-flight13")
 
 
+def render_blue_origin():
+    from genera_portale_blue_origin import render_portal
+
+    body = render_portal(
+        ROOT / "archivio/blue-origin/dati.json",
+        "../archivio/blue-origin/elenco.html",
+        "../assets/blue-origin/new-glenn-ng2.webp",
+    )
+    return shell(
+        "Blue Origin", "blue-origin", True, body,
+        extra_head='<link rel="stylesheet" href="../css/blue-origin.css">',
+    )
+
+
 def render_placeholder(item):
     body = f"""
 {page_hero(item['title'], item['status'], item['copy'], construction=True)}
@@ -4342,6 +4357,7 @@ def render():
         (ROOT / "index.html", render_home()),
         (SECTIONS_DIR / "notizie.html", render_notizie()),
         (SECTIONS_DIR / "spacex.html", render_spacex(data)),
+        (SECTIONS_DIR / "blue-origin.html", render_blue_origin()),
         (SECTIONS_DIR / "electron-lab.html", render_electron_lab(data)),
         (SECTIONS_DIR / "lanci-imminenti-electron.html", render_electron_launches_page(data)),
         (SECTIONS_DIR / "statistiche-electron.html", render_electron_statistics_page(data)),

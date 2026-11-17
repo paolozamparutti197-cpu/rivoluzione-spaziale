@@ -1,0 +1,1609 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cronologia dei lanci Blue Origin, dai prototipi ai voli suborbitali di New Shepard e ai lanci orbitali di New Glenn.">
+  <title>Elenco dei lanci Blue Origin | Rivoluzione Spaziale</title>
+  <link rel="stylesheet" href="archivio.css">
+  <script src="archivio.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#elenco">Vai all’elenco</a>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="https://paolozamparutti197-cpu.github.io/rivoluzione-spaziale/index.html">Rivoluzione <span>Spaziale</span></a>
+      <nav aria-label="Navigazione dell’archivio">
+        <a href="../../sezioni/blue-origin.html">Blue Origin</a>
+        <a href="#elenco" aria-current="page">Elenco lanci</a>
+        <a href="#metodo">Fonti e criteri</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="intro">
+      <div class="wrap">
+        <p class="section-name">Archivio Blue Origin</p>
+        <h1>Elenco dei lanci</h1>
+        <p class="lede">Dai primi voli sperimentali di Charon, Goddard e PM2 ai voli suborbitali di New Shepard e ai lanci orbitali di New Glenn.</p>
+        <p class="as-of">Fonti verificate il <time datetime="2026-11-17">17 novembre 2026</time> · Ultimo decollo documentato il <time datetime="2026-04-19">19 aprile 2026</time></p>
+      </div>
+    </div>
+    <div class="wrap workspace">
+      <div class="metrics" aria-label="Numero di eventi per programma">
+        <button type="button" class="metric" disabled data-select-program="" aria-pressed="true"><strong>48</strong><span>Eventi documentati</span></button>
+        <button type="button" class="metric" disabled data-select-program="shepard" aria-pressed="false"><strong>38</strong><span>New Shepard</span></button>
+        <button type="button" class="metric" disabled data-select-program="glenn" aria-pressed="false"><strong>3</strong><span>New Glenn</span></button>
+        <button type="button" class="metric" disabled data-select-program="early" aria-pressed="false"><strong>7</strong><span>Prototipi e test</span></button>
+      </div>
+      <section id="elenco" aria-labelledby="elenco-heading">
+        <div class="section-head">
+          <div>
+            <h2 id="elenco-heading">Cronologia</h2>
+            <p class="status" id="results-count" role="status">48 eventi</p>
+          </div>
+          <button class="button" id="export" type="button" hidden>Scarica CSV</button>
+        </div>
+        <form class="filters" id="filters" aria-label="Filtri della cronologia" hidden>
+          <label class="search">Cerca
+            <input name="q" type="search" placeholder="Es. NS-16, ESCAPADE, PM2">
+          </label>
+          <label>Programma
+            <select name="program"><option value="">Tutti</option><option value="shepard">New Shepard</option><option value="glenn">New Glenn</option><option value="early">Prototipi e test</option></select>
+          </label>
+          <label>Anno
+            <select name="year"><option value="">Tutti</option><option value="2026">2026</option><option value="2025">2025</option><option value="2024">2024</option><option value="2023">2023</option><option value="2022">2022</option><option value="2021">2021</option><option value="2020">2020</option><option value="2019">2019</option><option value="2018">2018</option><option value="2017">2017</option><option value="2016">2016</option><option value="2015">2015</option><option value="2012">2012</option><option value="2011">2011</option><option value="2007">2007</option><option value="2006">2006</option><option value="2005">2005</option></select>
+          </label>
+          <label>Tipo di volo
+            <select name="kind"><option value="">Tutti</option><option value="crew">Suborbitale con equipaggio</option><option value="science">Suborbitale di ricerca</option><option value="test">Suborbitale di prova</option><option value="orbital">Orbitale</option><option value="atmosphere">Prova atmosferica</option><option value="escape">Fuga dalla rampa</option></select>
+          </label>
+          <label>Esito missione
+            <select name="outcome"><option value="">Tutti</option><option value="success">Riuscito</option><option value="failure">Fallito</option></select>
+          </label>
+          <label>Ordine
+            <select name="sort">
+              <option value="desc">Dal più recente</option>
+              <option value="asc">Dal più antico</option>
+            </select>
+          </label>
+          <button type="reset" class="button secondary">Azzera filtri</button>
+        </form>
+        <div class="table-frame">
+          <table aria-label="Voli e lanci documentati di Blue Origin">
+            <thead>
+              <tr>
+                <th scope="col">Data e missione</th>
+                <th scope="col">Programma e sito</th>
+                <th scope="col">Missione</th>
+                <th scope="col">Veicolo</th>
+                <th scope="col">Esito missione</th>
+                <th scope="col">Recupero booster</th>
+              </tr>
+            </thead>
+            <tbody id="flights">
+      <tr id="NG-3" data-id="NG-3" data-date="2026-04-19" data-program="glenn" data-kind="orbital" data-outcome="failure">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2026-04-19" data-field="data">19 aprile 2026</time>
+          <a class="mission-id" href="#NG-3" data-field="id" aria-label="Link alla missione NG-3">NG-3</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Glenn</strong>
+          <small data-field="tipo">Orbitale</small>
+          <small data-field="sito">LC-36, Cape Canaveral, Florida</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">BlueBird 7 (AST SpaceMobile)</strong>
+          <p class="mission-note" data-field="nota">Il satellite si è separato in un’orbita troppo bassa per operare. Booster riutilizzato e recuperato su Jacklyn.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ng-3">Blue Origin · missione NG-3 e webcast</a></li><li><a href="https://www.sec.gov/Archives/edgar/data/1780312/000119312526453759/asts-20260930.htm">AST SpaceMobile · relazione 10-Q depositata alla SEC</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">GS1-2 · Never Tell Me The Odds</span><small>Volo booster 2</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome failure" data-field="esito">Fallito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">Su Jacklyn</span>
+        </td>
+      </tr>
+      <tr id="NS-38" data-id="NS-38" data-date="2026-01-22" data-program="shepard" data-kind="crew" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2026-01-22" data-field="data">22 gennaio 2026</time>
+          <a class="mission-id" href="#NS-38" data-field="id" aria-label="Link alla missione NS-38">NS-38</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Shepard</strong>
+          <small data-field="tipo">Suborbitale con equipaggio</small>
+          <small data-field="sito">Launch Site One, Texas</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Trentottesimo volo New Shepard</strong>
+          <p class="mission-note" data-field="nota">Ultimo volo documentato del programma prima della pausa annunciata il 30 gennaio.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ns-38">Blue Origin · NS-38</a></li><li><a href="https://www.blueorigin.com/news/new-shepard-to-pause-flights">Blue Origin · sospensione dei voli New Shepard</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">NS4</span><small>Volo booster 17</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">A terra</span>
+        </td>
+      </tr>
+      <tr id="NS-37" data-id="NS-37" data-date="2025-12-20" data-program="shepard" data-kind="crew" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2025-12-20" data-field="data">20 dicembre 2025</time>
+          <a class="mission-id" href="#NS-37" data-field="id" aria-label="Link alla missione NS-37">NS-37</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Shepard</strong>
+          <small data-field="tipo">Suborbitale con equipaggio</small>
+          <small data-field="sito">Launch Site One, Texas</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Sedicesimo volo con persone</strong>
+          <p class="mission-note" data-field="nota">Michaela Benthaus è stata la prima persona che usa una sedia a rotelle a superare la linea di Kármán.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ns-37">Blue Origin · NS-37</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">NS5</span><small>Volo booster 6</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">A terra</span>
+        </td>
+      </tr>
+      <tr id="NG-2" data-id="NG-2" data-date="2025-11-13" data-program="glenn" data-kind="orbital" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2025-11-13" data-field="data">13 novembre 2025</time>
+          <a class="mission-id" href="#NG-2" data-field="id" aria-label="Link alla missione NG-2">NG-2</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Glenn</strong>
+          <small data-field="tipo">Orbitale</small>
+          <small data-field="sito">LC-36, Cape Canaveral, Florida</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">ESCAPADE (NASA)</strong>
+          <p class="mission-note" data-field="nota">Le due sonde NASA sono state rilasciate nell’orbita di attesa prevista. Primo atterraggio di un booster New Glenn su Jacklyn.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ng-2">Blue Origin · missione NG-2</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">GS1-2 · Never Tell Me The Odds</span><small>Volo booster 1</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">Su Jacklyn</span>
+        </td>
+      </tr>
+      <tr id="NS-36" data-id="NS-36" data-date="2025-10-08" data-program="shepard" data-kind="crew" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2025-10-08" data-field="data">8 ottobre 2025</time>
+          <a class="mission-id" href="#NS-36" data-field="id" aria-label="Link alla missione NS-36">NS-36</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Shepard</strong>
+          <small data-field="tipo">Suborbitale con equipaggio</small>
+          <small data-field="sito">Launch Site One, Texas</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Quindicesimo volo con persone</strong>
+          <p class="mission-note" data-field="nota">Volo suborbitale con sei persone.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ns-36">Blue Origin · NS-36</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">NS4</span><small>Volo booster 16</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">A terra</span>
+        </td>
+      </tr>
+      <tr id="NS-35" data-id="NS-35" data-date="2025-09-18" data-program="shepard" data-kind="science" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2025-09-18" data-field="data">18 settembre 2025</time>
+          <a class="mission-id" href="#NS-35" data-field="id" aria-label="Link alla missione NS-35">NS-35</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Shepard</strong>
+          <small data-field="tipo">Suborbitale di ricerca</small>
+          <small data-field="sito">Launch Site One, Texas</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Quindicesimo volo con carichi di ricerca</strong>
+          <p class="mission-note" data-field="nota">Missione senza equipaggio con esperimenti da Launch Site One.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ns-35">Blue Origin · NS-35</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">NS5</span><small>Volo booster 5</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">A terra</span>
+        </td>
+      </tr>
+      <tr id="NS-34" data-id="NS-34" data-date="2025-08-03" data-program="shepard" data-kind="crew" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2025-08-03" data-field="data">3 agosto 2025</time>
+          <a class="mission-id" href="#NS-34" data-field="id" aria-label="Link alla missione NS-34">NS-34</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Shepard</strong>
+          <small data-field="tipo">Suborbitale con equipaggio</small>
+          <small data-field="sito">Launch Site One, Texas</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Quattordicesimo volo con persone</strong>
+          <p class="mission-note" data-field="nota">Volo suborbitale con sei persone.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ns-34">Blue Origin · NS-34</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">NS4</span><small>Volo booster 15</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">A terra</span>
+        </td>
+      </tr>
+      <tr id="NS-33" data-id="NS-33" data-date="2025-06-29" data-program="shepard" data-kind="crew" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2025-06-29" data-field="data">29 giugno 2025</time>
+          <a class="mission-id" href="#NS-33" data-field="id" aria-label="Link alla missione NS-33">NS-33</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Shepard</strong>
+          <small data-field="tipo">Suborbitale con equipaggio</small>
+          <small data-field="sito">Launch Site One, Texas</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Tredicesimo volo con persone</strong>
+          <p class="mission-note" data-field="nota">Volo suborbitale con sei persone.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ns-33">Blue Origin · NS-33</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">NS5</span><small>Volo booster 4</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">A terra</span>
+        </td>
+      </tr>
+      <tr id="NS-32" data-id="NS-32" data-date="2025-05-31" data-program="shepard" data-kind="crew" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2025-05-31" data-field="data">31 maggio 2025</time>
+          <a class="mission-id" href="#NS-32" data-field="id" aria-label="Link alla missione NS-32">NS-32</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Shepard</strong>
+          <small data-field="tipo">Suborbitale con equipaggio</small>
+          <small data-field="sito">Launch Site One, Texas</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Dodicesimo volo con persone</strong>
+          <p class="mission-note" data-field="nota">Volo suborbitale con sei persone.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ns-32">Blue Origin · NS-32</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">NS4</span><small>Volo booster 14</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">A terra</span>
+        </td>
+      </tr>
+      <tr id="NS-31" data-id="NS-31" data-date="2025-04-14" data-program="shepard" data-kind="crew" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2025-04-14" data-field="data">14 aprile 2025</time>
+          <a class="mission-id" href="#NS-31" data-field="id" aria-label="Link alla missione NS-31">NS-31</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Shepard</strong>
+          <small data-field="tipo">Suborbitale con equipaggio</small>
+          <small data-field="sito">Launch Site One, Texas</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Volo con un equipaggio di sei donne</strong>
+          <p class="mission-note" data-field="nota">A bordo Aisha Bowe, Amanda Nguyen, Gayle King, Katy Perry, Kerianne Flynn e Lauren Sánchez.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ns-31">Blue Origin · NS-31</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">NS5</span><small>Volo booster 3</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">A terra</span>
+        </td>
+      </tr>
+      <tr id="NS-30" data-id="NS-30" data-date="2025-02-25" data-program="shepard" data-kind="crew" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2025-02-25" data-field="data">25 febbraio 2025</time>
+          <a class="mission-id" href="#NS-30" data-field="id" aria-label="Link alla missione NS-30">NS-30</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Shepard</strong>
+          <small data-field="tipo">Suborbitale con equipaggio</small>
+          <small data-field="sito">Launch Site One, Texas</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Decimo volo con persone</strong>
+          <p class="mission-note" data-field="nota">Primo volo con persone del 2025 per New Shepard.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ns-30">Blue Origin · NS-30</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">NS4</span><small>Volo booster 13</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">A terra</span>
+        </td>
+      </tr>
+      <tr id="NS-29" data-id="NS-29" data-date="2025-02-04" data-program="shepard" data-kind="science" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2025-02-04" data-field="data">4 febbraio 2025</time>
+          <a class="mission-id" href="#NS-29" data-field="id" aria-label="Link alla missione NS-29">NS-29</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Shepard</strong>
+          <small data-field="tipo">Suborbitale di ricerca</small>
+          <small data-field="sito">Launch Site One, Texas</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Esperimenti in gravità lunare simulata</strong>
+          <p class="mission-note" data-field="nota">Trenta carichi di ricerca. La rotazione della capsula ha simulato la gravità lunare per circa due minuti.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ns-29">Blue Origin · NS-29</a></li><li><a href="https://www.blueorigin.com/news/new-shepard-ns-29-mission">Blue Origin · esperimenti in gravità lunare</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">NS5</span><small>Volo booster 2</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">A terra</span>
+        </td>
+      </tr>
+      <tr id="NG-1" data-id="NG-1" data-date="2025-01-16" data-program="glenn" data-kind="orbital" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2025-01-16" data-field="data">16 gennaio 2025</time>
+          <a class="mission-id" href="#NG-1" data-field="id" aria-label="Link alla missione NG-1">NG-1</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Glenn</strong>
+          <small data-field="tipo">Orbitale</small>
+          <small data-field="sito">LC-36, Cape Canaveral, Florida</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Blue Ring Pathfinder</strong>
+          <p class="mission-note" data-field="nota">Raggiunta l’orbita prevista con il dimostratore Blue Ring sullo stadio superiore. Primo stadio perso in discesa.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/news/new-glenn-ng-1-mission">Blue Origin · New Glenn raggiunge l’orbita</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">GS1-1 · So You&#x27;re Telling Me There&#x27;s a Chance</span><small>Volo booster 1</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">Perso</span>
+        </td>
+      </tr>
+      <tr id="NS-28" data-id="NS-28" data-date="2024-11-22" data-program="shepard" data-kind="crew" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2024-11-22" data-field="data">22 novembre 2024</time>
+          <a class="mission-id" href="#NS-28" data-field="id" aria-label="Link alla missione NS-28">NS-28</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Shepard</strong>
+          <small data-field="tipo">Suborbitale con equipaggio</small>
+          <small data-field="sito">Launch Site One, Texas</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Nono volo con persone</strong>
+          <p class="mission-note" data-field="nota">Volo suborbitale con sei persone.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ns-28">Blue Origin · NS-28</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">NS4</span><small>Volo booster 12</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">A terra</span>
+        </td>
+      </tr>
+      <tr id="NS-27" data-id="NS-27" data-date="2024-10-23" data-program="shepard" data-kind="test" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2024-10-23" data-field="data">23 ottobre 2024</time>
+          <a class="mission-id" href="#NS-27" data-field="id" aria-label="Link alla missione NS-27">NS-27</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Shepard</strong>
+          <small data-field="tipo">Suborbitale di prova</small>
+          <small data-field="sito">Launch Site One, Texas</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Esordio del secondo veicolo per equipaggio</strong>
+          <p class="mission-note" data-field="nota">Primo volo di NS5 e della capsula RSS Kármán Line, con carichi di prova e senza equipaggio.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ns-27">Blue Origin · NS-27</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">NS5</span><small>Volo booster 1</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">A terra</span>
+        </td>
+      </tr>
+      <tr id="NS-26" data-id="NS-26" data-date="2024-08-29" data-program="shepard" data-kind="crew" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2024-08-29" data-field="data">29 agosto 2024</time>
+          <a class="mission-id" href="#NS-26" data-field="id" aria-label="Link alla missione NS-26">NS-26</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Shepard</strong>
+          <small data-field="tipo">Suborbitale con equipaggio</small>
+          <small data-field="sito">Launch Site One, Texas</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Ottavo volo con persone</strong>
+          <p class="mission-note" data-field="nota">Volo suborbitale con sei persone.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ns-26">Blue Origin · NS-26</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">NS4</span><small>Volo booster 11</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">A terra</span>
+        </td>
+      </tr>
+      <tr id="NS-25" data-id="NS-25" data-date="2024-05-19" data-program="shepard" data-kind="crew" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2024-05-19" data-field="data">19 maggio 2024</time>
+          <a class="mission-id" href="#NS-25" data-field="id" aria-label="Link alla missione NS-25">NS-25</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Shepard</strong>
+          <small data-field="tipo">Suborbitale con equipaggio</small>
+          <small data-field="sito">Launch Site One, Texas</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Ripresa dei voli con persone</strong>
+          <p class="mission-note" data-field="nota">Tra le sei persone a bordo c’era Ed Dwight, già candidato astronauta negli anni Sessanta.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ns-25">Blue Origin · NS-25</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">NS4</span><small>Volo booster 10</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">A terra</span>
+        </td>
+      </tr>
+      <tr id="NS-24" data-id="NS-24" data-date="2023-12-19" data-program="shepard" data-kind="science" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2023-12-19" data-field="data">19 dicembre 2023</time>
+          <a class="mission-id" href="#NS-24" data-field="id" aria-label="Link alla missione NS-24">NS-24</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Shepard</strong>
+          <small data-field="tipo">Suborbitale di ricerca</small>
+          <small data-field="sito">Launch Site One, Texas</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Ritorno al volo di New Shepard</strong>
+          <p class="mission-note" data-field="nota">Missione senza equipaggio con esperimenti dopo l’incidente di NS-23.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ns-24">Blue Origin · NS-24</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">NS4</span><small>Volo booster 9</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">A terra</span>
+        </td>
+      </tr>
+      <tr id="NS-23" data-id="NS-23" data-date="2022-09-12" data-program="shepard" data-kind="science" data-outcome="failure">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2022-09-12" data-field="data">12 settembre 2022</time>
+          <a class="mission-id" href="#NS-23" data-field="id" aria-label="Link alla missione NS-23">NS-23</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Shepard</strong>
+          <small data-field="tipo">Suborbitale di ricerca</small>
+          <small data-field="sito">Launch Site One, Texas</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Fuga d’emergenza della capsula</strong>
+          <p class="mission-note" data-field="nota">Guasto al booster durante l’ascesa. Il sistema di fuga ha portato a terra in sicurezza la capsula e i carichi.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ns-23">Blue Origin · NS-23</a></li><li><a href="https://www.blueorigin.com/news/ns-23-findings">Blue Origin · indagine NS-23</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">NS3</span><small>Volo booster 9</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome failure" data-field="esito">Fallito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">Perso</span>
+        </td>
+      </tr>
+      <tr id="NS-22" data-id="NS-22" data-date="2022-08-04" data-program="shepard" data-kind="crew" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2022-08-04" data-field="data">4 agosto 2022</time>
+          <a class="mission-id" href="#NS-22" data-field="id" aria-label="Link alla missione NS-22">NS-22</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Shepard</strong>
+          <small data-field="tipo">Suborbitale con equipaggio</small>
+          <small data-field="sito">Launch Site One, Texas</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Sesto volo con persone</strong>
+          <p class="mission-note" data-field="nota">Volo suborbitale con sei persone.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ns-22">Blue Origin · NS-22</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">NS4</span><small>Volo booster 8</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">A terra</span>
+        </td>
+      </tr>
+      <tr id="NS-21" data-id="NS-21" data-date="2022-06-04" data-program="shepard" data-kind="crew" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2022-06-04" data-field="data">4 giugno 2022</time>
+          <a class="mission-id" href="#NS-21" data-field="id" aria-label="Link alla missione NS-21">NS-21</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Shepard</strong>
+          <small data-field="tipo">Suborbitale con equipaggio</small>
+          <small data-field="sito">Launch Site One, Texas</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Quinto volo con persone</strong>
+          <p class="mission-note" data-field="nota">A bordo, fra gli altri, Katya Echazarreta, Evan Dick e Victor Vescovo.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ns-21">Blue Origin · NS-21</a></li><li><a href="https://www.blueorigin.com/news/new-shepard-ns-37-mission">Blue Origin · riepilogo dei voli con equipaggio (data di NS-21)</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">NS4</span><small>Volo booster 7</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">A terra</span>
+        </td>
+      </tr>
+      <tr id="NS-20" data-id="NS-20" data-date="2022-03-31" data-program="shepard" data-kind="crew" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2022-03-31" data-field="data">31 marzo 2022</time>
+          <a class="mission-id" href="#NS-20" data-field="id" aria-label="Link alla missione NS-20">NS-20</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Shepard</strong>
+          <small data-field="tipo">Suborbitale con equipaggio</small>
+          <small data-field="sito">Launch Site One, Texas</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Quarto volo con persone</strong>
+          <p class="mission-note" data-field="nota">Prima missione con persone del 2022.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ns-20">Blue Origin · NS-20</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">NS4</span><small>Volo booster 6</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">A terra</span>
+        </td>
+      </tr>
+      <tr id="NS-19" data-id="NS-19" data-date="2021-12-11" data-program="shepard" data-kind="crew" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2021-12-11" data-field="data">11 dicembre 2021</time>
+          <a class="mission-id" href="#NS-19" data-field="id" aria-label="Link alla missione NS-19">NS-19</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Shepard</strong>
+          <small data-field="tipo">Suborbitale con equipaggio</small>
+          <small data-field="sito">Launch Site One, Texas</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Primo volo con sei persone</strong>
+          <p class="mission-note" data-field="nota">Terzo volo umano del programma, con Laura Shepard Churchley tra i passeggeri.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ns-19">Blue Origin · NS-19</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">NS4</span><small>Volo booster 5</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">A terra</span>
+        </td>
+      </tr>
+      <tr id="NS-18" data-id="NS-18" data-date="2021-10-13" data-program="shepard" data-kind="crew" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2021-10-13" data-field="data">13 ottobre 2021</time>
+          <a class="mission-id" href="#NS-18" data-field="id" aria-label="Link alla missione NS-18">NS-18</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Shepard</strong>
+          <small data-field="tipo">Suborbitale con equipaggio</small>
+          <small data-field="sito">Launch Site One, Texas</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Secondo volo con persone</strong>
+          <p class="mission-note" data-field="nota">A bordo Audrey Powers, William Shatner, Chris Boshuizen e Glen de Vries.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ns-18">Blue Origin · NS-18</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">NS4</span><small>Volo booster 4</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">A terra</span>
+        </td>
+      </tr>
+      <tr id="NS-17" data-id="NS-17" data-date="2021-08-26" data-program="shepard" data-kind="science" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2021-08-26" data-field="data">26 agosto 2021</time>
+          <a class="mission-id" href="#NS-17" data-field="id" aria-label="Link alla missione NS-17">NS-17</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Shepard</strong>
+          <small data-field="tipo">Suborbitale di ricerca</small>
+          <small data-field="sito">Launch Site One, Texas</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Seconda prova dei sensori lunari</strong>
+          <p class="mission-note" data-field="nota">Esperimenti commerciali e NASA. Seconda prova in volo dei sensori per l’allunaggio.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ns-17">Blue Origin · NS-17</a></li><li><a href="https://www.blueorigin.com/news/new-shepard-mission-ns-17-launch-updates">Blue Origin · NS-17, aggiornamenti di lancio</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">NS3</span><small>Volo booster 8</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">A terra</span>
+        </td>
+      </tr>
+      <tr id="NS-16" data-id="NS-16" data-date="2021-07-20" data-program="shepard" data-kind="crew" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2021-07-20" data-field="data">20 luglio 2021</time>
+          <a class="mission-id" href="#NS-16" data-field="id" aria-label="Link alla missione NS-16">NS-16</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Shepard</strong>
+          <small data-field="tipo">Suborbitale con equipaggio</small>
+          <small data-field="sito">Launch Site One, Texas</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Primo volo con persone</strong>
+          <p class="mission-note" data-field="nota">A bordo Jeff Bezos, Mark Bezos, Wally Funk e Oliver Daemen.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ns-16">Blue Origin · NS-16</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">NS4</span><small>Volo booster 3</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">A terra</span>
+        </td>
+      </tr>
+      <tr id="NS-15" data-id="NS-15" data-date="2021-04-14" data-program="shepard" data-kind="test" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2021-04-14" data-field="data">14 aprile 2021</time>
+          <a class="mission-id" href="#NS-15" data-field="id" aria-label="Link alla missione NS-15">NS-15</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Shepard</strong>
+          <small data-field="tipo">Suborbitale di prova</small>
+          <small data-field="sito">Launch Site One, Texas</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Prova generale del volo umano</strong>
+          <p class="mission-note" data-field="nota">Procedure di ingresso e uscita provate a terra. La capsula ha volato senza passeggeri.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ns-15">Blue Origin · NS-15</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">NS4</span><small>Volo booster 2</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">A terra</span>
+        </td>
+      </tr>
+      <tr id="NS-14" data-id="NS-14" data-date="2021-01-14" data-program="shepard" data-kind="test" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2021-01-14" data-field="data">14 gennaio 2021</time>
+          <a class="mission-id" href="#NS-14" data-field="id" aria-label="Link alla missione NS-14">NS-14</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Shepard</strong>
+          <small data-field="tipo">Suborbitale di prova</small>
+          <small data-field="sito">Launch Site One, Texas</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Esordio di RSS First Step</strong>
+          <p class="mission-note" data-field="nota">Volo senza passeggeri per verificare gli aggiornamenti della capsula destinata ai voli umani.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ns-14">Blue Origin · NS-14</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">NS4</span><small>Volo booster 1</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">A terra</span>
+        </td>
+      </tr>
+      <tr id="NS-13" data-id="NS-13" data-date="2020-10-13" data-program="shepard" data-kind="science" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2020-10-13" data-field="data">13 ottobre 2020</time>
+          <a class="mission-id" href="#NS-13" data-field="id" aria-label="Link alla missione NS-13">NS-13</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Shepard</strong>
+          <small data-field="tipo">Suborbitale di ricerca</small>
+          <small data-field="sito">Launch Site One, Texas</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Sensori per l’allunaggio</strong>
+          <p class="mission-note" data-field="nota">Prima prova in volo di un sistema NASA per la navigazione e l’atterraggio lunare, montato sul booster.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ns-13">Blue Origin · NS-13</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">NS3</span><small>Volo booster 7</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">A terra</span>
+        </td>
+      </tr>
+      <tr id="NS-12" data-id="NS-12" data-date="2019-12-11" data-program="shepard" data-kind="science" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2019-12-11" data-field="data">11 dicembre 2019</time>
+          <a class="mission-id" href="#NS-12" data-field="id" aria-label="Link alla missione NS-12">NS-12</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Shepard</strong>
+          <small data-field="tipo">Suborbitale di ricerca</small>
+          <small data-field="sito">Launch Site One, Texas</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Ricerca e cartoline</strong>
+          <p class="mission-note" data-field="nota">Carichi commerciali e cartoline di Club for the Future.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ns-12">Blue Origin · NS-12</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">NS3</span><small>Volo booster 6</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">A terra</span>
+        </td>
+      </tr>
+      <tr id="NS-11" data-id="NS-11" data-date="2019-05-02" data-program="shepard" data-kind="science" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2019-05-02" data-field="data">2 maggio 2019</time>
+          <a class="mission-id" href="#NS-11" data-field="id" aria-label="Link alla missione NS-11">NS-11</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Shepard</strong>
+          <small data-field="tipo">Suborbitale di ricerca</small>
+          <small data-field="sito">Launch Site One, Texas</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Carichi di ricerca e tecnologia</strong>
+          <p class="mission-note" data-field="nota">Quinto volo e quinto recupero del booster NS3.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ns-11">Blue Origin · NS-11</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">NS3</span><small>Volo booster 5</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">A terra</span>
+        </td>
+      </tr>
+      <tr id="NS-10" data-id="NS-10" data-date="2019-01-23" data-program="shepard" data-kind="science" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2019-01-23" data-field="data">23 gennaio 2019</time>
+          <a class="mission-id" href="#NS-10" data-field="id" aria-label="Link alla missione NS-10">NS-10</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Shepard</strong>
+          <small data-field="tipo">Suborbitale di ricerca</small>
+          <small data-field="sito">Launch Site One, Texas</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Ricerca per NASA Flight Opportunities</strong>
+          <p class="mission-note" data-field="nota">Volo di otto carichi di ricerca e tecnologia sostenuti dalla NASA.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ns-10">Blue Origin · NS-10</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">NS3</span><small>Volo booster 4</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">A terra</span>
+        </td>
+      </tr>
+      <tr id="NS-9" data-id="NS-9" data-date="2018-07-18" data-program="shepard" data-kind="test" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2018-07-18" data-field="data">18 luglio 2018</time>
+          <a class="mission-id" href="#NS-9" data-field="id" aria-label="Link alla missione NS-9">NS-9</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Shepard</strong>
+          <small data-field="tipo">Suborbitale di prova</small>
+          <small data-field="sito">Launch Site One, Texas</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Prova di fuga ad alta quota</strong>
+          <p class="mission-note" data-field="nota">Test programmato del motore di fuga della capsula, con esperimenti a bordo.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ns-9">Blue Origin · NS-9</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">NS3</span><small>Volo booster 3</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">A terra</span>
+        </td>
+      </tr>
+      <tr id="NS-8" data-id="NS-8" data-date="2018-04-29" data-program="shepard" data-kind="science" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2018-04-29" data-field="data">29 aprile 2018</time>
+          <a class="mission-id" href="#NS-8" data-field="id" aria-label="Link alla missione NS-8">NS-8</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Shepard</strong>
+          <small data-field="tipo">Suborbitale di ricerca</small>
+          <small data-field="sito">Launch Site One, Texas</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Carichi di ricerca</strong>
+          <p class="mission-note" data-field="nota">Secondo volo del booster NS3, con esperimenti suborbitali.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ns-8">Blue Origin · NS-8</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">NS3</span><small>Volo booster 2</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">A terra</span>
+        </td>
+      </tr>
+      <tr id="NS-7" data-id="NS-7" data-date="2017-12-12" data-program="shepard" data-kind="test" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2017-12-12" data-field="data">12 dicembre 2017</time>
+          <a class="mission-id" href="#NS-7" data-field="id" aria-label="Link alla missione NS-7">NS-7</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Shepard</strong>
+          <small data-field="tipo">Suborbitale di prova</small>
+          <small data-field="sito">Launch Site One, Texas</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Esordio della capsula 2.0</strong>
+          <p class="mission-note" data-field="nota">Primo volo della capsula di nuova generazione, con il manichino Mannequin Skywalker.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ns-7">Blue Origin · NS-7</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">NS3</span><small>Volo booster 1</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">A terra</span>
+        </td>
+      </tr>
+      <tr id="NS-6" data-id="NS-6" data-date="2016-10-05" data-program="shepard" data-kind="test" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2016-10-05" data-field="data">5 ottobre 2016</time>
+          <a class="mission-id" href="#NS-6" data-field="id" aria-label="Link alla missione NS-6">NS-6</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Shepard</strong>
+          <small data-field="tipo">Suborbitale di prova</small>
+          <small data-field="sito">Launch Site One, Texas</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Prova di fuga in volo</strong>
+          <p class="mission-note" data-field="nota">Attivazione programmata del sistema di fuga in ascesa. Capsula e booster sono atterrati.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ns-6">Blue Origin · NS-6</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">NS2</span><small>Volo booster 5</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">A terra</span>
+        </td>
+      </tr>
+      <tr id="NS-5" data-id="NS-5" data-date="2016-06-19" data-program="shepard" data-kind="test" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2016-06-19" data-field="data">19 giugno 2016</time>
+          <a class="mission-id" href="#NS-5" data-field="id" aria-label="Link alla missione NS-5">NS-5</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Shepard</strong>
+          <small data-field="tipo">Suborbitale di prova</small>
+          <small data-field="sito">Launch Site One, Texas</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Prova con due paracadute</strong>
+          <p class="mission-note" data-field="nota">Un paracadute è stato escluso di proposito. La capsula è atterrata con gli altri due.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ns-5">Blue Origin · NS-5</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">NS2</span><small>Volo booster 4</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">A terra</span>
+        </td>
+      </tr>
+      <tr id="NS-4" data-id="NS-4" data-date="2016-04-02" data-program="shepard" data-kind="test" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2016-04-02" data-field="data">2 aprile 2016</time>
+          <a class="mission-id" href="#NS-4" data-field="id" aria-label="Link alla missione NS-4">NS-4</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Shepard</strong>
+          <small data-field="tipo">Suborbitale di prova</small>
+          <small data-field="sito">Launch Site One, Texas</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Terzo volo dello stesso booster</strong>
+          <p class="mission-note" data-field="nota">Terzo volo e terzo atterraggio del secondo booster New Shepard.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ns-4">Blue Origin · NS-4</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">NS2</span><small>Volo booster 3</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">A terra</span>
+        </td>
+      </tr>
+      <tr id="NS-3" data-id="NS-3" data-date="2016-01-22" data-program="shepard" data-kind="test" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2016-01-22" data-field="data">22 gennaio 2016</time>
+          <a class="mission-id" href="#NS-3" data-field="id" aria-label="Link alla missione NS-3">NS-3</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Shepard</strong>
+          <small data-field="tipo">Suborbitale di prova</small>
+          <small data-field="sito">Launch Site One, Texas</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Primo riutilizzo di un booster New Shepard</strong>
+          <p class="mission-note" data-field="nota">Il booster di NS-2 ha volato e atterrato di nuovo.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ns-3">Blue Origin · NS-3</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">NS2</span><small>Volo booster 2</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">A terra</span>
+        </td>
+      </tr>
+      <tr id="NS-2" data-id="NS-2" data-date="2015-11-23" data-program="shepard" data-kind="test" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2015-11-23" data-field="data">23 novembre 2015</time>
+          <a class="mission-id" href="#NS-2" data-field="id" aria-label="Link alla missione NS-2">NS-2</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Shepard</strong>
+          <small data-field="tipo">Suborbitale di prova</small>
+          <small data-field="sito">Launch Site One, Texas</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Primo atterraggio del booster</strong>
+          <p class="mission-note" data-field="nota">Capsula oltre 100 km e primo atterraggio verticale riuscito di un booster New Shepard.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ns-2">Blue Origin · NS-2</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">NS2</span><small>Volo booster 1</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">A terra</span>
+        </td>
+      </tr>
+      <tr id="NS-1" data-id="NS-1" data-date="2015-04-29" data-program="shepard" data-kind="test" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2015-04-29" data-field="data">29 aprile 2015</time>
+          <a class="mission-id" href="#NS-1" data-field="id" aria-label="Link alla missione NS-1">NS-1</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">New Shepard</strong>
+          <small data-field="tipo">Suborbitale di prova</small>
+          <small data-field="sito">Launch Site One, Texas</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Primo volo di sviluppo</strong>
+          <p class="mission-note" data-field="nota">Raggiunti 93,5 km e recuperata la capsula. Il booster è andato perso durante la discesa.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/missions/ns-1">Blue Origin · NS-1</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">NS1</span><small>Volo booster 1</small>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">Perso</span>
+        </td>
+      </tr>
+      <tr id="PAD-2012" data-id="PAD-2012" data-date="2012-10-19" data-program="early" data-kind="escape" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2012-10-19" data-field="data">19 ottobre 2012</time>
+          <a class="mission-id" href="#PAD-2012" data-field="id" aria-label="Link alla missione PAD-2012">PAD-2012</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">Prototipi e test</strong>
+          <small data-field="tipo">Fuga dalla rampa</small>
+          <small data-field="sito">Sito di prova nel Texas occidentale</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Prova di fuga dalla rampa</strong>
+          <p class="mission-note" data-field="nota">Il motore di fuga ha sollevato la capsula da un simulatore di lanciatore. Discesa e atterraggio con paracadute.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.blueorigin.com/news/blue-origin-conducts-successful-pad-escape-test">Blue Origin · prova di fuga dalla rampa</a></li><li><a href="https://en.wikipedia.org/wiki/Blue_Origin#Blue_Origin_flights_before_2025">Wikipedia · voli dei prototipi</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">Capsula sperimentale</span>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">—</span>
+        </td>
+      </tr>
+      <tr id="PM2-02" data-id="PM2-02" data-date="2011-08-24" data-program="early" data-kind="atmosphere" data-outcome="failure">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2011-08-24" data-field="data">24 agosto 2011</time>
+          <a class="mission-id" href="#PM2-02" data-field="id" aria-label="Link alla missione PM2-02">PM2-02</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">Prototipi e test</strong>
+          <small data-field="tipo">Prova atmosferica</small>
+          <small data-field="sito">Sito di prova nel Texas occidentale</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Secondo volo di PM2</strong>
+          <p class="mission-note" data-field="nota">Un’instabilità ha causato l’interruzione della spinta a circa 13,7 km. Il veicolo è andato perso.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.faa.gov/sites/faa.gov/files/space/additional_information/YearinReview_FactSheet_2012.pdf">FAA · Year in Review 2011</a></li><li><a href="https://www.blueorigin.com/news/successful-short-hop-setback-and-next-vehicle">Blue Origin · aggiornamento sulle prove PM2</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">PM2</span>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome failure" data-field="esito">Fallito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">—</span>
+        </td>
+      </tr>
+      <tr id="PM2-01" data-id="PM2-01" data-date="2011-05-06" data-program="early" data-kind="atmosphere" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2011-05-06" data-field="data">6 maggio 2011</time>
+          <a class="mission-id" href="#PM2-01" data-field="id" aria-label="Link alla missione PM2-01">PM2-01</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">Prototipi e test</strong>
+          <small data-field="tipo">Prova atmosferica</small>
+          <small data-field="sito">Sito di prova nel Texas occidentale</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Primo volo di PM2</strong>
+          <p class="mission-note" data-field="nota">Breve volo di prova del secondo modulo propulsivo sperimentale.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.faa.gov/sites/faa.gov/files/space/additional_information/YearinReview_FactSheet_2012.pdf">FAA · Year in Review 2011</a></li><li><a href="https://www.blueorigin.com/news/successful-short-hop-setback-and-next-vehicle">Blue Origin · aggiornamento sulle prove PM2</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">PM2</span>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">—</span>
+        </td>
+      </tr>
+      <tr id="PM1-03" data-id="PM1-03" data-date="2007-04-19" data-program="early" data-kind="atmosphere" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2007-04-19" data-field="data">19 aprile 2007</time>
+          <a class="mission-id" href="#PM1-03" data-field="id" aria-label="Link alla missione PM1-03">PM1-03</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">Prototipi e test</strong>
+          <small data-field="tipo">Prova atmosferica</small>
+          <small data-field="sito">Sito di prova nel Texas occidentale</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Terzo volo di Goddard</strong>
+          <p class="mission-note" data-field="nota">Terzo volo di prova riportato nel registro FAA.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.faa.gov/about/office_org/headquarters_offices/ast/media/ast_developments_concepts_2010.pdf">FAA · Commercial Space Transportation Developments and Concepts 2010</a></li><li><a href="https://en.wikipedia.org/wiki/Blue_Origin#Blue_Origin_flights_before_2025">Wikipedia · voli dei prototipi</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">Goddard (PM1)</span>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">—</span>
+        </td>
+      </tr>
+      <tr id="PM1-02" data-id="PM1-02" data-date="2007-03-22" data-program="early" data-kind="atmosphere" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2007-03-22" data-field="data">22 marzo 2007</time>
+          <a class="mission-id" href="#PM1-02" data-field="id" aria-label="Link alla missione PM1-02">PM1-02</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">Prototipi e test</strong>
+          <small data-field="tipo">Prova atmosferica</small>
+          <small data-field="sito">Sito di prova nel Texas occidentale</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Secondo volo di Goddard</strong>
+          <p class="mission-note" data-field="nota">Secondo volo di prova del dimostratore PM1.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.faa.gov/about/office_org/headquarters_offices/ast/media/ast_developments_concepts_2010.pdf">FAA · Commercial Space Transportation Developments and Concepts 2010</a></li><li><a href="https://en.wikipedia.org/wiki/Blue_Origin#Blue_Origin_flights_before_2025">Wikipedia · voli dei prototipi</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">Goddard (PM1)</span>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">—</span>
+        </td>
+      </tr>
+      <tr id="PM1-01" data-id="PM1-01" data-date="2006-11-13" data-program="early" data-kind="atmosphere" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2006-11-13" data-field="data">13 novembre 2006</time>
+          <a class="mission-id" href="#PM1-01" data-field="id" aria-label="Link alla missione PM1-01">PM1-01</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">Prototipi e test</strong>
+          <small data-field="tipo">Prova atmosferica</small>
+          <small data-field="sito">Sito di prova nel Texas occidentale</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Primo volo di Goddard</strong>
+          <p class="mission-note" data-field="nota">Primo volo del dimostratore a razzo con decollo e atterraggio verticali.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.faa.gov/about/office_org/headquarters_offices/ast/media/ast_developments_concepts_2010.pdf">FAA · Commercial Space Transportation Developments and Concepts 2010</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">Goddard (PM1)</span>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">—</span>
+        </td>
+      </tr>
+      <tr id="CH-01" data-id="CH-01" data-date="2005-03-05" data-program="early" data-kind="atmosphere" data-outcome="success">
+        <td>
+          <span class="mobile-label">Data e missione</span>
+          <time datetime="2005-03-05" data-field="data">5 marzo 2005</time>
+          <a class="mission-id" href="#CH-01" data-field="id" aria-label="Link alla missione CH-01">CH-01</a>
+        </td>
+        <td>
+          <span class="mobile-label">Programma e sito</span>
+          <strong data-field="programma">Prototipi e test</strong>
+          <small data-field="tipo">Prova atmosferica</small>
+          <small data-field="sito">Moses Lake, Washington</small>
+        </td>
+        <td>
+          <span class="mobile-label">Missione</span>
+          <strong data-field="missione">Primo volo di Charon</strong>
+          <p class="mission-note" data-field="nota">Dimostratore atmosferico con quattro motori a reazione. Ha raggiunto circa 96 m.</p>
+          <details><summary>Fonti</summary><ul><li><a href="https://www.museumofflight.org/exhibits-and-events/aircraft/charon-test-vehicle">The Museum of Flight · Charon</a></li></ul></details>
+        </td>
+        <td>
+          <span class="mobile-label">Veicolo</span>
+          <span class="vehicle" data-field="veicolo">Charon</span>
+        </td>
+        <td>
+          <span class="mobile-label">Esito missione</span>
+          <span class="outcome success" data-field="esito">Riuscito</span>
+        </td>
+        <td>
+          <span class="mobile-label">Recupero booster</span>
+          <span class="recovery" data-field="recupero">—</span>
+        </td>
+      </tr>
+            </tbody>
+          </table>
+          <p class="empty" id="empty" hidden>Nessun evento corrisponde ai filtri.</p>
+        </div>
+      </section>
+      <section class="method" id="metodo" aria-labelledby="metodo-heading">
+        <h2 id="metodo-heading">Fonti e criteri</h2>
+        <div class="method-columns">
+          <div>
+            <h3>Che cosa comprende l’elenco</h3>
+            <p>La cronologia comprende i decolli numerati da NS-1 a NS-38 e da NG-1 a NG-3, sei voli sperimentali dal 2005 al 2011 e la prova di fuga dalla rampa del 2012. I voli suborbitali comprendono sia i collaudi sia le missioni scientifiche e con persone, anche quando l’obiettivo non è stato raggiunto.</p>
+            <p>Le date dei lanci numerati sono in UTC. Per le prove storiche vale la data riportata dalla fonte. Le sigle CH-01, PM1, PM2 e PAD-2012 sono identificativi dell’archivio.</p>
+            <p>Scrub, voli in programma e prove con il veicolo a terra sono fuori dal conteggio. L’anomalia di New Glenn del 28 maggio 2026 è avvenuta durante una prova di accensione a terra.</p>
+            <h3>Esito e recupero</h3>
+            <p>L’esito descrive l’obiettivo primario del volo, come raggiungere la quota di prova o consegnare un carico nell’orbita prevista. NS-1 ha raggiunto la quota prevista e recuperato la capsula. NG-1 ha raggiunto l’orbita prevista. Entrambi hanno perso il booster. NG-3 ha recuperato il booster, mentre BlueBird 7 è stato immesso in un’orbita troppo bassa.</p>
+          </div>
+          <div>
+            <h3>Riferimenti</h3>
+            <ul>
+          <li><a href="https://www.blueorigin.com/missions">Blue Origin · archivio delle missioni</a></li>
+          <li><a href="https://en.wikipedia.org/wiki/New_Shepard#Flight_list">Wikipedia · cronologia New Shepard</a></li>
+          <li><a href="https://en.wikipedia.org/wiki/List_of_New_Glenn_launches">Wikipedia · cronologia New Glenn</a></li>
+          <li><a href="https://www.museumofflight.org/exhibits-and-events/aircraft/charon-test-vehicle">The Museum of Flight · Charon</a></li>
+          <li><a href="https://www.faa.gov/about/office_org/headquarters_offices/ast/media/ast_developments_concepts_2010.pdf">FAA · Commercial Space Transportation Developments and Concepts 2010</a></li>
+          <li><a href="https://www.faa.gov/sites/faa.gov/files/space/additional_information/YearinReview_FactSheet_2012.pdf">FAA · Year in Review 2011</a></li>
+          <li><a href="https://www.blueorigin.com/news/blue-origin-conducts-successful-pad-escape-test">Blue Origin · prova di fuga dalla rampa</a></li>
+          <li><a href="https://www.blueorigin.com/news/new-glenn-return-to-flight">Blue Origin · anomalia della prova a terra del 28 maggio 2026</a></li>
+            </ul>
+            <p>Le fonti specifiche sono riportate nelle singole righe. Per NS-17 e NS-21, la data segue gli aggiornamenti successivi al volo e il riepilogo storico di Blue Origin.</p>
+            <p><a href="dati.json">Dati del registro in JSON</a></p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer><div class="wrap">Rivoluzione Spaziale · Archivio Blue Origin</div></footer>
+</body>
+</html>

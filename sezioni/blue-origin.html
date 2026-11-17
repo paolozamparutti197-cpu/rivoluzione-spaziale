@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Blue Origin | Rivoluzione Spaziale</title>
 <link rel="stylesheet" href="../css/style.css?v=20260830-f13-f14">
-
+<link rel="stylesheet" href="../css/blue-origin.css">
 </head>
 
 <body>
@@ -24,28 +24,99 @@
 </header>
 <main>
 
+<div class="bo-page">
+  <a class="bo-skip" href="#bo-cruscotto">Vai ai dati di volo</a>
+  <section class="bo-hero" aria-labelledby="bo-title">
+    <figure class="bo-hero-media">
+      <img src="../assets/blue-origin/new-glenn-ng2.webp" width="2048" height="1365" fetchpriority="high"
+        alt="New Glenn in ascesa sopra le torri di LC-36 e una nube di scarico durante NG-2">
+      <figcaption>
+        <a href="../archivio/blue-origin/elenco.html?program=glenn#NG-2">NG-2 · 13 novembre 2025</a>
+        <a href="https://commons.wikimedia.org/wiki/File:Blue_Origin_New_Glenn_Rocket_Successful_Launch_(9387521).jpg">Foto Samuel Becker / U.S. Space Force</a>
+      </figcaption>
+    </figure>
+    <div class="bo-wrap bo-hero-copy">
+      <h1 id="bo-title">Blue Origin</h1>
+      <p>I voli suborbitali dal Texas, il lanciatore orbitale di Cape Canaveral e lo sviluppo dei lander lunari Blue Moon.</p>
+      <div class="bo-actions">
+        <a class="bo-button" href="../archivio/blue-origin/elenco.html">Elenco dei lanci <span aria-hidden="true">↗</span></a>
+        <a class="bo-button bo-button-quiet" href="#bo-programmi">Esplora i programmi <span aria-hidden="true">↓</span></a>
+      </div>
+    </div>
+  </section>
 
-<section class="page-hero">
-  <div class="inner">
-    <p class="eyebrow">In costruzione</p>
-    <h1>Blue Origin</h1>
-    <p class="subtitle">New Glenn, BE-4 e il tentativo di costruire un secondo polo privato pesante.</p>
-<p class="badge">Pagina in costruzione</p>
-  </div>
-</section>
+  <section class="bo-dashboard" id="bo-cruscotto" aria-labelledby="bo-dashboard-title">
+    <div class="bo-wrap">
+      <header class="bo-section-head">
+        <h2 id="bo-dashboard-title">Dati di volo</h2>
+        <p>Registro verificato il <time datetime="2026-11-17">17 novembre 2026</time></p>
+      </header>
+      <div class="bo-metrics">
+        <a class="bo-metric" href="../archivio/blue-origin/elenco.html?program=shepard">
+          <span class="bo-metric-value">38</span>
+          <span class="bo-metric-name">New Shepard</span>
+          <span class="bo-metric-label">Voli suborbitali</span>
+          <span class="bo-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="bo-metric" href="../archivio/blue-origin/elenco.html?program=glenn">
+          <span class="bo-metric-value">3</span>
+          <span class="bo-metric-name">New Glenn</span>
+          <span class="bo-metric-label">Lanci orbitali</span>
+          <span class="bo-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="bo-metric" href="../archivio/blue-origin/elenco.html?program=early">
+          <span class="bo-metric-value">7</span>
+          <span class="bo-metric-name">Prototipi e test</span>
+          <span class="bo-metric-label">Prove di volo</span>
+          <span class="bo-arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+      <a class="bo-latest" href="../archivio/blue-origin/elenco.html?program=glenn#NG-3">
+        <span class="bo-latest-label">Ultimo volo documentato</span>
+        <strong>NG-3 · BlueBird 7 (AST SpaceMobile)</strong>
+        <time datetime="2026-04-19">19 aprile 2026</time>
+        <span class="bo-arrow" aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </section>
 
-<section>
-  <div class="inner split">
-    <article class="panel construction">
-      <h2>In costruzione</h2>
-      <p>Questa pagina e gia separata nella struttura del sito, ma il contenuto editoriale verra sviluppato in una fase successiva. Per ora resta come porta autonoma, con navigazione coerente e percorsi gia pronti per GitHub Pages.</p>
-    </article>
-    <aside class="panel">
-      <h3>Prossimo sviluppo</h3>
-      <p class="muted">Qui entreranno contesto, cronologia, dati, fonti e collegamenti alle pagine correlate.</p>
-    </aside>
-  </div>
-</section>
+  <section class="bo-programs" id="bo-programmi" aria-labelledby="bo-programs-title">
+    <div class="bo-wrap">
+      <header class="bo-section-head">
+        <h2 id="bo-programs-title">I programmi</h2>
+      </header>
+      <div class="bo-program-grid">
+        <article class="bo-program bo-program-shepard" id="new-shepard" aria-labelledby="bo-shepard">
+          <p class="bo-program-context">Suborbitale · Texas</p>
+          <h3 id="bo-shepard">New Shepard</h3>
+          <p>Da Launch Site One partono voli con persone, esperimenti scientifici e collaudi. La capsula atterra con paracadute e il booster rientra alla base.</p>
+          <div class="bo-program-links">
+            <a class="bo-program-link" href="../archivio/blue-origin/elenco.html?program=shepard">Voli New Shepard <span aria-hidden="true">↗</span></a>
+            <a class="bo-source" href="https://www.blueorigin.com/new-shepard" aria-label="Scheda ufficiale New Shepard">Scheda Blue Origin</a>
+          </div>
+        </article>
+        <article class="bo-program bo-program-glenn" id="new-glenn" aria-labelledby="bo-glenn">
+          <p class="bo-program-context">Orbitale · Florida</p>
+          <h3 id="bo-glenn">New Glenn</h3>
+          <p>Il lanciatore pesante parte dal complesso LC-36. Il primo stadio è progettato per atterrare sulla piattaforma Jacklyn, nell’Atlantico.</p>
+          <div class="bo-program-links">
+            <a class="bo-program-link" href="../archivio/blue-origin/elenco.html?program=glenn">Lanci New Glenn <span aria-hidden="true">↗</span></a>
+            <a class="bo-source" href="https://www.blueorigin.com/new-glenn" aria-label="Scheda ufficiale New Glenn">Scheda Blue Origin</a>
+          </div>
+        </article>
+        <article class="bo-program bo-program-moon" id="blue-moon" aria-labelledby="bo-moon">
+          <p class="bo-program-context">Lander lunari</p>
+          <h3 id="bo-moon">Blue Moon</h3>
+          <p>Mark 1 è il lander per carichi e strumenti scientifici. Mark 2 è progettato per portare astronauti tra l’orbita lunare e la superficie nel programma Artemis.</p>
+          <div class="bo-program-links">
+            <a class="bo-program-link" href="https://www.nasa.gov/missions/artemis/nasas-artemis-iii-mission-to-test-future-moon-lander-operations/">Blue Moon nel programma Artemis <span aria-hidden="true">↗</span></a>
+            <a class="bo-source" href="https://www.blueorigin.com/blue-moon" aria-label="Scheda ufficiale Blue Moon">Scheda Blue Origin</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</div>
 
 </main>
 <footer class="footer">

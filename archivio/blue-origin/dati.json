@@ -1,0 +1,1039 @@
+{
+  "verifiedOn": "2026-11-17",
+  "flights": [
+    {
+      "id": "NG-3",
+      "date": "2026-04-19",
+      "title": "BlueBird 7 (AST SpaceMobile)",
+      "vehicle": "GS1-2 · Never Tell Me The Odds",
+      "boosterFlight": 2,
+      "outcome": "failure",
+      "recovery": "sea",
+      "note": "Il satellite si è separato in un’orbita troppo bassa per operare. Booster riutilizzato e recuperato su Jacklyn.",
+      "program": "glenn",
+      "type": "orbital",
+      "site": "LC-36, Cape Canaveral, Florida",
+      "sources": [
+        {
+          "name": "Blue Origin · missione NG-3 e webcast",
+          "url": "https://www.blueorigin.com/missions/ng-3"
+        },
+        {
+          "name": "AST SpaceMobile · relazione 10-Q depositata alla SEC",
+          "url": "https://www.sec.gov/Archives/edgar/data/1780312/000119312526453759/asts-20260930.htm"
+        }
+      ]
+    },
+    {
+      "id": "NS-38",
+      "date": "2026-01-22",
+      "program": "shepard",
+      "type": "crew",
+      "title": "Trentottesimo volo New Shepard",
+      "site": "Launch Site One, Texas",
+      "vehicle": "NS4",
+      "outcome": "success",
+      "recovery": "land",
+      "boosterFlight": 17,
+      "note": "Ultimo volo documentato del programma prima della pausa annunciata il 30 gennaio.",
+      "sources": [
+        {
+          "name": "Blue Origin · NS-38",
+          "url": "https://www.blueorigin.com/missions/ns-38"
+        },
+        {
+          "name": "Blue Origin · sospensione dei voli New Shepard",
+          "url": "https://www.blueorigin.com/news/new-shepard-to-pause-flights"
+        }
+      ]
+    },
+    {
+      "id": "NS-37",
+      "date": "2025-12-20",
+      "program": "shepard",
+      "type": "crew",
+      "title": "Sedicesimo volo con persone",
+      "site": "Launch Site One, Texas",
+      "vehicle": "NS5",
+      "outcome": "success",
+      "recovery": "land",
+      "boosterFlight": 6,
+      "note": "Michaela Benthaus è stata la prima persona che usa una sedia a rotelle a superare la linea di Kármán.",
+      "sources": [
+        {
+          "name": "Blue Origin · NS-37",
+          "url": "https://www.blueorigin.com/missions/ns-37"
+        }
+      ]
+    },
+    {
+      "id": "NG-2",
+      "date": "2025-11-13",
+      "title": "ESCAPADE (NASA)",
+      "vehicle": "GS1-2 · Never Tell Me The Odds",
+      "boosterFlight": 1,
+      "outcome": "success",
+      "recovery": "sea",
+      "note": "Le due sonde NASA sono state rilasciate nell’orbita di attesa prevista. Primo atterraggio di un booster New Glenn su Jacklyn.",
+      "program": "glenn",
+      "type": "orbital",
+      "site": "LC-36, Cape Canaveral, Florida",
+      "sources": [
+        {
+          "name": "Blue Origin · missione NG-2",
+          "url": "https://www.blueorigin.com/missions/ng-2"
+        }
+      ]
+    },
+    {
+      "id": "NS-36",
+      "date": "2025-10-08",
+      "program": "shepard",
+      "type": "crew",
+      "title": "Quindicesimo volo con persone",
+      "site": "Launch Site One, Texas",
+      "vehicle": "NS4",
+      "outcome": "success",
+      "recovery": "land",
+      "boosterFlight": 16,
+      "note": "Volo suborbitale con sei persone.",
+      "sources": [
+        {
+          "name": "Blue Origin · NS-36",
+          "url": "https://www.blueorigin.com/missions/ns-36"
+        }
+      ]
+    },
+    {
+      "id": "NS-35",
+      "date": "2025-09-18",
+      "program": "shepard",
+      "type": "science",
+      "title": "Quindicesimo volo con carichi di ricerca",
+      "site": "Launch Site One, Texas",
+      "vehicle": "NS5",
+      "outcome": "success",
+      "recovery": "land",
+      "boosterFlight": 5,
+      "note": "Missione senza equipaggio con esperimenti da Launch Site One.",
+      "sources": [
+        {
+          "name": "Blue Origin · NS-35",
+          "url": "https://www.blueorigin.com/missions/ns-35"
+        }
+      ]
+    },
+    {
+      "id": "NS-34",
+      "date": "2025-08-03",
+      "program": "shepard",
+      "type": "crew",
+      "title": "Quattordicesimo volo con persone",
+      "site": "Launch Site One, Texas",
+      "vehicle": "NS4",
+      "outcome": "success",
+      "recovery": "land",
+      "boosterFlight": 15,
+      "note": "Volo suborbitale con sei persone.",
+      "sources": [
+        {
+          "name": "Blue Origin · NS-34",
+          "url": "https://www.blueorigin.com/missions/ns-34"
+        }
+      ]
+    },
+    {
+      "id": "NS-33",
+      "date": "2025-06-29",
+      "program": "shepard",
+      "type": "crew",
+      "title": "Tredicesimo volo con persone",
+      "site": "Launch Site One, Texas",
+      "vehicle": "NS5",
+      "outcome": "success",
+      "recovery": "land",
+      "boosterFlight": 4,
+      "note": "Volo suborbitale con sei persone.",
+      "sources": [
+        {
+          "name": "Blue Origin · NS-33",
+          "url": "https://www.blueorigin.com/missions/ns-33"
+        }
+      ]
+    },
+    {
+      "id": "NS-32",
+      "date": "2025-05-31",
+      "program": "shepard",
+      "type": "crew",
+      "title": "Dodicesimo volo con persone",
+      "site": "Launch Site One, Texas",
+      "vehicle": "NS4",
+      "outcome": "success",
+      "recovery": "land",
+      "boosterFlight": 14,
+      "note": "Volo suborbitale con sei persone.",
+      "sources": [
+        {
+          "name": "Blue Origin · NS-32",
+          "url": "https://www.blueorigin.com/missions/ns-32"
+        }
+      ]
+    },
+    {
+      "id": "NS-31",
+      "date": "2025-04-14",
+      "program": "shepard",
+      "type": "crew",
+      "title": "Volo con un equipaggio di sei donne",
+      "site": "Launch Site One, Texas",
+      "vehicle": "NS5",
+      "outcome": "success",
+      "recovery": "land",
+      "boosterFlight": 3,
+      "note": "A bordo Aisha Bowe, Amanda Nguyen, Gayle King, Katy Perry, Kerianne Flynn e Lauren Sánchez.",
+      "sources": [
+        {
+          "name": "Blue Origin · NS-31",
+          "url": "https://www.blueorigin.com/missions/ns-31"
+        }
+      ]
+    },
+    {
+      "id": "NS-30",
+      "date": "2025-02-25",
+      "program": "shepard",
+      "type": "crew",
+      "title": "Decimo volo con persone",
+      "site": "Launch Site One, Texas",
+      "vehicle": "NS4",
+      "outcome": "success",
+      "recovery": "land",
+      "boosterFlight": 13,
+      "note": "Primo volo con persone del 2025 per New Shepard.",
+      "sources": [
+        {
+          "name": "Blue Origin · NS-30",
+          "url": "https://www.blueorigin.com/missions/ns-30"
+        }
+      ]
+    },
+    {
+      "id": "NS-29",
+      "date": "2025-02-04",
+      "program": "shepard",
+      "type": "science",
+      "title": "Esperimenti in gravità lunare simulata",
+      "site": "Launch Site One, Texas",
+      "vehicle": "NS5",
+      "outcome": "success",
+      "recovery": "land",
+      "boosterFlight": 2,
+      "note": "Trenta carichi di ricerca. La rotazione della capsula ha simulato la gravità lunare per circa due minuti.",
+      "sources": [
+        {
+          "name": "Blue Origin · NS-29",
+          "url": "https://www.blueorigin.com/missions/ns-29"
+        },
+        {
+          "name": "Blue Origin · esperimenti in gravità lunare",
+          "url": "https://www.blueorigin.com/news/new-shepard-ns-29-mission"
+        }
+      ]
+    },
+    {
+      "id": "NG-1",
+      "date": "2025-01-16",
+      "title": "Blue Ring Pathfinder",
+      "vehicle": "GS1-1 · So You're Telling Me There's a Chance",
+      "boosterFlight": 1,
+      "outcome": "success",
+      "recovery": "lost",
+      "note": "Raggiunta l’orbita prevista con il dimostratore Blue Ring sullo stadio superiore. Primo stadio perso in discesa.",
+      "program": "glenn",
+      "type": "orbital",
+      "site": "LC-36, Cape Canaveral, Florida",
+      "sources": [
+        {
+          "name": "Blue Origin · New Glenn raggiunge l’orbita",
+          "url": "https://www.blueorigin.com/news/new-glenn-ng-1-mission"
+        }
+      ]
+    },
+    {
+      "id": "NS-28",
+      "date": "2024-11-22",
+      "program": "shepard",
+      "type": "crew",
+      "title": "Nono volo con persone",
+      "site": "Launch Site One, Texas",
+      "vehicle": "NS4",
+      "outcome": "success",
+      "recovery": "land",
+      "boosterFlight": 12,
+      "note": "Volo suborbitale con sei persone.",
+      "sources": [
+        {
+          "name": "Blue Origin · NS-28",
+          "url": "https://www.blueorigin.com/missions/ns-28"
+        }
+      ]
+    },
+    {
+      "id": "NS-27",
+      "date": "2024-10-23",
+      "program": "shepard",
+      "type": "test",
+      "title": "Esordio del secondo veicolo per equipaggio",
+      "site": "Launch Site One, Texas",
+      "vehicle": "NS5",
+      "outcome": "success",
+      "recovery": "land",
+      "boosterFlight": 1,
+      "note": "Primo volo di NS5 e della capsula RSS Kármán Line, con carichi di prova e senza equipaggio.",
+      "sources": [
+        {
+          "name": "Blue Origin · NS-27",
+          "url": "https://www.blueorigin.com/missions/ns-27"
+        }
+      ]
+    },
+    {
+      "id": "NS-26",
+      "date": "2024-08-29",
+      "program": "shepard",
+      "type": "crew",
+      "title": "Ottavo volo con persone",
+      "site": "Launch Site One, Texas",
+      "vehicle": "NS4",
+      "outcome": "success",
+      "recovery": "land",
+      "boosterFlight": 11,
+      "note": "Volo suborbitale con sei persone.",
+      "sources": [
+        {
+          "name": "Blue Origin · NS-26",
+          "url": "https://www.blueorigin.com/missions/ns-26"
+        }
+      ]
+    },
+    {
+      "id": "NS-25",
+      "date": "2024-05-19",
+      "program": "shepard",
+      "type": "crew",
+      "title": "Ripresa dei voli con persone",
+      "site": "Launch Site One, Texas",
+      "vehicle": "NS4",
+      "outcome": "success",
+      "recovery": "land",
+      "boosterFlight": 10,
+      "note": "Tra le sei persone a bordo c’era Ed Dwight, già candidato astronauta negli anni Sessanta.",
+      "sources": [
+        {
+          "name": "Blue Origin · NS-25",
+          "url": "https://www.blueorigin.com/missions/ns-25"
+        }
+      ]
+    },
+    {
+      "id": "NS-24",
+      "date": "2023-12-19",
+      "program": "shepard",
+      "type": "science",
+      "title": "Ritorno al volo di New Shepard",
+      "site": "Launch Site One, Texas",
+      "vehicle": "NS4",
+      "outcome": "success",
+      "recovery": "land",
+      "boosterFlight": 9,
+      "note": "Missione senza equipaggio con esperimenti dopo l’incidente di NS-23.",
+      "sources": [
+        {
+          "name": "Blue Origin · NS-24",
+          "url": "https://www.blueorigin.com/missions/ns-24"
+        }
+      ]
+    },
+    {
+      "id": "NS-23",
+      "date": "2022-09-12",
+      "program": "shepard",
+      "type": "science",
+      "title": "Fuga d’emergenza della capsula",
+      "site": "Launch Site One, Texas",
+      "vehicle": "NS3",
+      "outcome": "failure",
+      "recovery": "lost",
+      "boosterFlight": 9,
+      "note": "Guasto al booster durante l’ascesa. Il sistema di fuga ha portato a terra in sicurezza la capsula e i carichi.",
+      "sources": [
+        {
+          "name": "Blue Origin · NS-23",
+          "url": "https://www.blueorigin.com/missions/ns-23"
+        },
+        {
+          "name": "Blue Origin · indagine NS-23",
+          "url": "https://www.blueorigin.com/news/ns-23-findings"
+        }
+      ]
+    },
+    {
+      "id": "NS-22",
+      "date": "2022-08-04",
+      "program": "shepard",
+      "type": "crew",
+      "title": "Sesto volo con persone",
+      "site": "Launch Site One, Texas",
+      "vehicle": "NS4",
+      "outcome": "success",
+      "recovery": "land",
+      "boosterFlight": 8,
+      "note": "Volo suborbitale con sei persone.",
+      "sources": [
+        {
+          "name": "Blue Origin · NS-22",
+          "url": "https://www.blueorigin.com/missions/ns-22"
+        }
+      ]
+    },
+    {
+      "id": "NS-21",
+      "date": "2022-06-04",
+      "program": "shepard",
+      "type": "crew",
+      "title": "Quinto volo con persone",
+      "site": "Launch Site One, Texas",
+      "vehicle": "NS4",
+      "outcome": "success",
+      "recovery": "land",
+      "boosterFlight": 7,
+      "note": "A bordo, fra gli altri, Katya Echazarreta, Evan Dick e Victor Vescovo.",
+      "sources": [
+        {
+          "name": "Blue Origin · NS-21",
+          "url": "https://www.blueorigin.com/missions/ns-21"
+        },
+        {
+          "name": "Blue Origin · riepilogo dei voli con equipaggio (data di NS-21)",
+          "url": "https://www.blueorigin.com/news/new-shepard-ns-37-mission"
+        }
+      ]
+    },
+    {
+      "id": "NS-20",
+      "date": "2022-03-31",
+      "program": "shepard",
+      "type": "crew",
+      "title": "Quarto volo con persone",
+      "site": "Launch Site One, Texas",
+      "vehicle": "NS4",
+      "outcome": "success",
+      "recovery": "land",
+      "boosterFlight": 6,
+      "note": "Prima missione con persone del 2022.",
+      "sources": [
+        {
+          "name": "Blue Origin · NS-20",
+          "url": "https://www.blueorigin.com/missions/ns-20"
+        }
+      ]
+    },
+    {
+      "id": "NS-19",
+      "date": "2021-12-11",
+      "program": "shepard",
+      "type": "crew",
+      "title": "Primo volo con sei persone",
+      "site": "Launch Site One, Texas",
+      "vehicle": "NS4",
+      "outcome": "success",
+      "recovery": "land",
+      "boosterFlight": 5,
+      "note": "Terzo volo umano del programma, con Laura Shepard Churchley tra i passeggeri.",
+      "sources": [
+        {
+          "name": "Blue Origin · NS-19",
+          "url": "https://www.blueorigin.com/missions/ns-19"
+        }
+      ]
+    },
+    {
+      "id": "NS-18",
+      "date": "2021-10-13",
+      "program": "shepard",
+      "type": "crew",
+      "title": "Secondo volo con persone",
+      "site": "Launch Site One, Texas",
+      "vehicle": "NS4",
+      "outcome": "success",
+      "recovery": "land",
+      "boosterFlight": 4,
+      "note": "A bordo Audrey Powers, William Shatner, Chris Boshuizen e Glen de Vries.",
+      "sources": [
+        {
+          "name": "Blue Origin · NS-18",
+          "url": "https://www.blueorigin.com/missions/ns-18"
+        }
+      ]
+    },
+    {
+      "id": "NS-17",
+      "date": "2021-08-26",
+      "program": "shepard",
+      "type": "science",
+      "title": "Seconda prova dei sensori lunari",
+      "site": "Launch Site One, Texas",
+      "vehicle": "NS3",
+      "outcome": "success",
+      "recovery": "land",
+      "boosterFlight": 8,
+      "note": "Esperimenti commerciali e NASA. Seconda prova in volo dei sensori per l’allunaggio.",
+      "sources": [
+        {
+          "name": "Blue Origin · NS-17",
+          "url": "https://www.blueorigin.com/missions/ns-17"
+        },
+        {
+          "name": "Blue Origin · NS-17, aggiornamenti di lancio",
+          "url": "https://www.blueorigin.com/news/new-shepard-mission-ns-17-launch-updates"
+        }
+      ]
+    },
+    {
+      "id": "NS-16",
+      "date": "2021-07-20",
+      "program": "shepard",
+      "type": "crew",
+      "title": "Primo volo con persone",
+      "site": "Launch Site One, Texas",
+      "vehicle": "NS4",
+      "outcome": "success",
+      "recovery": "land",
+      "boosterFlight": 3,
+      "note": "A bordo Jeff Bezos, Mark Bezos, Wally Funk e Oliver Daemen.",
+      "sources": [
+        {
+          "name": "Blue Origin · NS-16",
+          "url": "https://www.blueorigin.com/missions/ns-16"
+        }
+      ]
+    },
+    {
+      "id": "NS-15",
+      "date": "2021-04-14",
+      "program": "shepard",
+      "type": "test",
+      "title": "Prova generale del volo umano",
+      "site": "Launch Site One, Texas",
+      "vehicle": "NS4",
+      "outcome": "success",
+      "recovery": "land",
+      "boosterFlight": 2,
+      "note": "Procedure di ingresso e uscita provate a terra. La capsula ha volato senza passeggeri.",
+      "sources": [
+        {
+          "name": "Blue Origin · NS-15",
+          "url": "https://www.blueorigin.com/missions/ns-15"
+        }
+      ]
+    },
+    {
+      "id": "NS-14",
+      "date": "2021-01-14",
+      "program": "shepard",
+      "type": "test",
+      "title": "Esordio di RSS First Step",
+      "site": "Launch Site One, Texas",
+      "vehicle": "NS4",
+      "outcome": "success",
+      "recovery": "land",
+      "boosterFlight": 1,
+      "note": "Volo senza passeggeri per verificare gli aggiornamenti della capsula destinata ai voli umani.",
+      "sources": [
+        {
+          "name": "Blue Origin · NS-14",
+          "url": "https://www.blueorigin.com/missions/ns-14"
+        }
+      ]
+    },
+    {
+      "id": "NS-13",
+      "date": "2020-10-13",
+      "program": "shepard",
+      "type": "science",
+      "title": "Sensori per l’allunaggio",
+      "site": "Launch Site One, Texas",
+      "vehicle": "NS3",
+      "outcome": "success",
+      "recovery": "land",
+      "boosterFlight": 7,
+      "note": "Prima prova in volo di un sistema NASA per la navigazione e l’atterraggio lunare, montato sul booster.",
+      "sources": [
+        {
+          "name": "Blue Origin · NS-13",
+          "url": "https://www.blueorigin.com/missions/ns-13"
+        }
+      ]
+    },
+    {
+      "id": "NS-12",
+      "date": "2019-12-11",
+      "program": "shepard",
+      "type": "science",
+      "title": "Ricerca e cartoline",
+      "site": "Launch Site One, Texas",
+      "vehicle": "NS3",
+      "outcome": "success",
+      "recovery": "land",
+      "boosterFlight": 6,
+      "note": "Carichi commerciali e cartoline di Club for the Future.",
+      "sources": [
+        {
+          "name": "Blue Origin · NS-12",
+          "url": "https://www.blueorigin.com/missions/ns-12"
+        }
+      ]
+    },
+    {
+      "id": "NS-11",
+      "date": "2019-05-02",
+      "program": "shepard",
+      "type": "science",
+      "title": "Carichi di ricerca e tecnologia",
+      "site": "Launch Site One, Texas",
+      "vehicle": "NS3",
+      "outcome": "success",
+      "recovery": "land",
+      "boosterFlight": 5,
+      "note": "Quinto volo e quinto recupero del booster NS3.",
+      "sources": [
+        {
+          "name": "Blue Origin · NS-11",
+          "url": "https://www.blueorigin.com/missions/ns-11"
+        }
+      ]
+    },
+    {
+      "id": "NS-10",
+      "date": "2019-01-23",
+      "program": "shepard",
+      "type": "science",
+      "title": "Ricerca per NASA Flight Opportunities",
+      "site": "Launch Site One, Texas",
+      "vehicle": "NS3",
+      "outcome": "success",
+      "recovery": "land",
+      "boosterFlight": 4,
+      "note": "Volo di otto carichi di ricerca e tecnologia sostenuti dalla NASA.",
+      "sources": [
+        {
+          "name": "Blue Origin · NS-10",
+          "url": "https://www.blueorigin.com/missions/ns-10"
+        }
+      ]
+    },
+    {
+      "id": "NS-9",
+      "date": "2018-07-18",
+      "program": "shepard",
+      "type": "test",
+      "title": "Prova di fuga ad alta quota",
+      "site": "Launch Site One, Texas",
+      "vehicle": "NS3",
+      "outcome": "success",
+      "recovery": "land",
+      "boosterFlight": 3,
+      "note": "Test programmato del motore di fuga della capsula, con esperimenti a bordo.",
+      "sources": [
+        {
+          "name": "Blue Origin · NS-9",
+          "url": "https://www.blueorigin.com/missions/ns-9"
+        }
+      ]
+    },
+    {
+      "id": "NS-8",
+      "date": "2018-04-29",
+      "program": "shepard",
+      "type": "science",
+      "title": "Carichi di ricerca",
+      "site": "Launch Site One, Texas",
+      "vehicle": "NS3",
+      "outcome": "success",
+      "recovery": "land",
+      "boosterFlight": 2,
+      "note": "Secondo volo del booster NS3, con esperimenti suborbitali.",
+      "sources": [
+        {
+          "name": "Blue Origin · NS-8",
+          "url": "https://www.blueorigin.com/missions/ns-8"
+        }
+      ]
+    },
+    {
+      "id": "NS-7",
+      "date": "2017-12-12",
+      "program": "shepard",
+      "type": "test",
+      "title": "Esordio della capsula 2.0",
+      "site": "Launch Site One, Texas",
+      "vehicle": "NS3",
+      "outcome": "success",
+      "recovery": "land",
+      "boosterFlight": 1,
+      "note": "Primo volo della capsula di nuova generazione, con il manichino Mannequin Skywalker.",
+      "sources": [
+        {
+          "name": "Blue Origin · NS-7",
+          "url": "https://www.blueorigin.com/missions/ns-7"
+        }
+      ]
+    },
+    {
+      "id": "NS-6",
+      "date": "2016-10-05",
+      "program": "shepard",
+      "type": "test",
+      "title": "Prova di fuga in volo",
+      "site": "Launch Site One, Texas",
+      "vehicle": "NS2",
+      "outcome": "success",
+      "recovery": "land",
+      "boosterFlight": 5,
+      "note": "Attivazione programmata del sistema di fuga in ascesa. Capsula e booster sono atterrati.",
+      "sources": [
+        {
+          "name": "Blue Origin · NS-6",
+          "url": "https://www.blueorigin.com/missions/ns-6"
+        }
+      ]
+    },
+    {
+      "id": "NS-5",
+      "date": "2016-06-19",
+      "program": "shepard",
+      "type": "test",
+      "title": "Prova con due paracadute",
+      "site": "Launch Site One, Texas",
+      "vehicle": "NS2",
+      "outcome": "success",
+      "recovery": "land",
+      "boosterFlight": 4,
+      "note": "Un paracadute è stato escluso di proposito. La capsula è atterrata con gli altri due.",
+      "sources": [
+        {
+          "name": "Blue Origin · NS-5",
+          "url": "https://www.blueorigin.com/missions/ns-5"
+        }
+      ]
+    },
+    {
+      "id": "NS-4",
+      "date": "2016-04-02",
+      "program": "shepard",
+      "type": "test",
+      "title": "Terzo volo dello stesso booster",
+      "site": "Launch Site One, Texas",
+      "vehicle": "NS2",
+      "outcome": "success",
+      "recovery": "land",
+      "boosterFlight": 3,
+      "note": "Terzo volo e terzo atterraggio del secondo booster New Shepard.",
+      "sources": [
+        {
+          "name": "Blue Origin · NS-4",
+          "url": "https://www.blueorigin.com/missions/ns-4"
+        }
+      ]
+    },
+    {
+      "id": "NS-3",
+      "date": "2016-01-22",
+      "program": "shepard",
+      "type": "test",
+      "title": "Primo riutilizzo di un booster New Shepard",
+      "site": "Launch Site One, Texas",
+      "vehicle": "NS2",
+      "outcome": "success",
+      "recovery": "land",
+      "boosterFlight": 2,
+      "note": "Il booster di NS-2 ha volato e atterrato di nuovo.",
+      "sources": [
+        {
+          "name": "Blue Origin · NS-3",
+          "url": "https://www.blueorigin.com/missions/ns-3"
+        }
+      ]
+    },
+    {
+      "id": "NS-2",
+      "date": "2015-11-23",
+      "program": "shepard",
+      "type": "test",
+      "title": "Primo atterraggio del booster",
+      "site": "Launch Site One, Texas",
+      "vehicle": "NS2",
+      "outcome": "success",
+      "recovery": "land",
+      "boosterFlight": 1,
+      "note": "Capsula oltre 100 km e primo atterraggio verticale riuscito di un booster New Shepard.",
+      "sources": [
+        {
+          "name": "Blue Origin · NS-2",
+          "url": "https://www.blueorigin.com/missions/ns-2"
+        }
+      ]
+    },
+    {
+      "id": "NS-1",
+      "date": "2015-04-29",
+      "program": "shepard",
+      "type": "test",
+      "title": "Primo volo di sviluppo",
+      "site": "Launch Site One, Texas",
+      "vehicle": "NS1",
+      "outcome": "success",
+      "recovery": "lost",
+      "boosterFlight": 1,
+      "note": "Raggiunti 93,5 km e recuperata la capsula. Il booster è andato perso durante la discesa.",
+      "sources": [
+        {
+          "name": "Blue Origin · NS-1",
+          "url": "https://www.blueorigin.com/missions/ns-1"
+        }
+      ]
+    },
+    {
+      "id": "PAD-2012",
+      "date": "2012-10-19",
+      "program": "early",
+      "type": "escape",
+      "vehicle": "Capsula sperimentale",
+      "site": "Sito di prova nel Texas occidentale",
+      "title": "Prova di fuga dalla rampa",
+      "outcome": "success",
+      "recovery": null,
+      "boosterFlight": null,
+      "note": "Il motore di fuga ha sollevato la capsula da un simulatore di lanciatore. Discesa e atterraggio con paracadute.",
+      "sources": [
+        {
+          "name": "Blue Origin · prova di fuga dalla rampa",
+          "url": "https://www.blueorigin.com/news/blue-origin-conducts-successful-pad-escape-test"
+        },
+        {
+          "name": "Wikipedia · voli dei prototipi",
+          "url": "https://en.wikipedia.org/wiki/Blue_Origin#Blue_Origin_flights_before_2025"
+        }
+      ]
+    },
+    {
+      "id": "PM2-02",
+      "date": "2011-08-24",
+      "program": "early",
+      "type": "atmosphere",
+      "vehicle": "PM2",
+      "site": "Sito di prova nel Texas occidentale",
+      "title": "Secondo volo di PM2",
+      "outcome": "failure",
+      "recovery": null,
+      "boosterFlight": null,
+      "note": "Un’instabilità ha causato l’interruzione della spinta a circa 13,7 km. Il veicolo è andato perso.",
+      "sources": [
+        {
+          "name": "FAA · Year in Review 2011",
+          "url": "https://www.faa.gov/sites/faa.gov/files/space/additional_information/YearinReview_FactSheet_2012.pdf"
+        },
+        {
+          "name": "Blue Origin · aggiornamento sulle prove PM2",
+          "url": "https://www.blueorigin.com/news/successful-short-hop-setback-and-next-vehicle"
+        }
+      ]
+    },
+    {
+      "id": "PM2-01",
+      "date": "2011-05-06",
+      "program": "early",
+      "type": "atmosphere",
+      "vehicle": "PM2",
+      "site": "Sito di prova nel Texas occidentale",
+      "title": "Primo volo di PM2",
+      "outcome": "success",
+      "recovery": null,
+      "boosterFlight": null,
+      "note": "Breve volo di prova del secondo modulo propulsivo sperimentale.",
+      "sources": [
+        {
+          "name": "FAA · Year in Review 2011",
+          "url": "https://www.faa.gov/sites/faa.gov/files/space/additional_information/YearinReview_FactSheet_2012.pdf"
+        },
+        {
+          "name": "Blue Origin · aggiornamento sulle prove PM2",
+          "url": "https://www.blueorigin.com/news/successful-short-hop-setback-and-next-vehicle"
+        }
+      ]
+    },
+    {
+      "id": "PM1-03",
+      "date": "2007-04-19",
+      "program": "early",
+      "type": "atmosphere",
+      "vehicle": "Goddard (PM1)",
+      "site": "Sito di prova nel Texas occidentale",
+      "title": "Terzo volo di Goddard",
+      "outcome": "success",
+      "recovery": null,
+      "boosterFlight": null,
+      "note": "Terzo volo di prova riportato nel registro FAA.",
+      "sources": [
+        {
+          "name": "FAA · Commercial Space Transportation Developments and Concepts 2010",
+          "url": "https://www.faa.gov/about/office_org/headquarters_offices/ast/media/ast_developments_concepts_2010.pdf"
+        },
+        {
+          "name": "Wikipedia · voli dei prototipi",
+          "url": "https://en.wikipedia.org/wiki/Blue_Origin#Blue_Origin_flights_before_2025"
+        }
+      ]
+    },
+    {
+      "id": "PM1-02",
+      "date": "2007-03-22",
+      "program": "early",
+      "type": "atmosphere",
+      "vehicle": "Goddard (PM1)",
+      "site": "Sito di prova nel Texas occidentale",
+      "title": "Secondo volo di Goddard",
+      "outcome": "success",
+      "recovery": null,
+      "boosterFlight": null,
+      "note": "Secondo volo di prova del dimostratore PM1.",
+      "sources": [
+        {
+          "name": "FAA · Commercial Space Transportation Developments and Concepts 2010",
+          "url": "https://www.faa.gov/about/office_org/headquarters_offices/ast/media/ast_developments_concepts_2010.pdf"
+        },
+        {
+          "name": "Wikipedia · voli dei prototipi",
+          "url": "https://en.wikipedia.org/wiki/Blue_Origin#Blue_Origin_flights_before_2025"
+        }
+      ]
+    },
+    {
+      "id": "PM1-01",
+      "date": "2006-11-13",
+      "program": "early",
+      "type": "atmosphere",
+      "vehicle": "Goddard (PM1)",
+      "site": "Sito di prova nel Texas occidentale",
+      "title": "Primo volo di Goddard",
+      "outcome": "success",
+      "recovery": null,
+      "boosterFlight": null,
+      "note": "Primo volo del dimostratore a razzo con decollo e atterraggio verticali.",
+      "sources": [
+        {
+          "name": "FAA · Commercial Space Transportation Developments and Concepts 2010",
+          "url": "https://www.faa.gov/about/office_org/headquarters_offices/ast/media/ast_developments_concepts_2010.pdf"
+        }
+      ]
+    },
+    {
+      "id": "CH-01",
+      "date": "2005-03-05",
+      "program": "early",
+      "type": "atmosphere",
+      "vehicle": "Charon",
+      "site": "Moses Lake, Washington",
+      "title": "Primo volo di Charon",
+      "outcome": "success",
+      "recovery": null,
+      "boosterFlight": null,
+      "note": "Dimostratore atmosferico con quattro motori a reazione. Ha raggiunto circa 96 m.",
+      "sources": [
+        {
+          "name": "The Museum of Flight · Charon",
+          "url": "https://www.museumofflight.org/exhibits-and-events/aircraft/charon-test-vehicle"
+        }
+      ]
+    }
+  ],
+  "sources": {
+    "official": {
+      "name": "Blue Origin · archivio delle missioni",
+      "url": "https://www.blueorigin.com/missions"
+    },
+    "nsDates": {
+      "name": "Wikipedia · cronologia New Shepard",
+      "url": "https://en.wikipedia.org/wiki/New_Shepard#Flight_list"
+    },
+    "ngDates": {
+      "name": "Wikipedia · cronologia New Glenn",
+      "url": "https://en.wikipedia.org/wiki/List_of_New_Glenn_launches"
+    },
+    "prototypeDates": {
+      "name": "Wikipedia · voli dei prototipi",
+      "url": "https://en.wikipedia.org/wiki/Blue_Origin#Blue_Origin_flights_before_2025"
+    },
+    "charon": {
+      "name": "The Museum of Flight · Charon",
+      "url": "https://www.museumofflight.org/exhibits-and-events/aircraft/charon-test-vehicle"
+    },
+    "goddard": {
+      "name": "FAA · Commercial Space Transportation Developments and Concepts 2010",
+      "url": "https://www.faa.gov/about/office_org/headquarters_offices/ast/media/ast_developments_concepts_2010.pdf"
+    },
+    "pm2": {
+      "name": "FAA · Year in Review 2011",
+      "url": "https://www.faa.gov/sites/faa.gov/files/space/additional_information/YearinReview_FactSheet_2012.pdf"
+    },
+    "pm2outcome": {
+      "name": "Blue Origin · aggiornamento sulle prove PM2",
+      "url": "https://www.blueorigin.com/news/successful-short-hop-setback-and-next-vehicle"
+    },
+    "escape": {
+      "name": "Blue Origin · prova di fuga dalla rampa",
+      "url": "https://www.blueorigin.com/news/blue-origin-conducts-successful-pad-escape-test"
+    },
+    "ns17": {
+      "name": "Blue Origin · NS-17, aggiornamenti di lancio",
+      "url": "https://www.blueorigin.com/news/new-shepard-mission-ns-17-launch-updates"
+    },
+    "ns21date": {
+      "name": "Blue Origin · riepilogo dei voli con equipaggio (data di NS-21)",
+      "url": "https://www.blueorigin.com/news/new-shepard-ns-37-mission"
+    },
+    "ns23": {
+      "name": "Blue Origin · indagine NS-23",
+      "url": "https://www.blueorigin.com/news/ns-23-findings"
+    },
+    "ns29": {
+      "name": "Blue Origin · esperimenti in gravità lunare",
+      "url": "https://www.blueorigin.com/news/new-shepard-ns-29-mission"
+    },
+    "pause": {
+      "name": "Blue Origin · sospensione dei voli New Shepard",
+      "url": "https://www.blueorigin.com/news/new-shepard-to-pause-flights"
+    },
+    "ng1": {
+      "name": "Blue Origin · New Glenn raggiunge l’orbita",
+      "url": "https://www.blueorigin.com/news/new-glenn-ng-1-mission"
+    },
+    "ng2": {
+      "name": "Blue Origin · missione NG-2",
+      "url": "https://www.blueorigin.com/missions/ng-2"
+    },
+    "ng3": {
+      "name": "Blue Origin · missione NG-3 e webcast",
+      "url": "https://www.blueorigin.com/missions/ng-3"
+    },
+    "ng3payload": {
+      "name": "AST SpaceMobile · relazione 10-Q depositata alla SEC",
+      "url": "https://www.sec.gov/Archives/edgar/data/1780312/000119312526453759/asts-20260930.htm"
+    },
+    "hotfire": {
+      "name": "Blue Origin · anomalia della prova a terra del 28 maggio 2026",
+      "url": "https://www.blueorigin.com/news/new-glenn-return-to-flight"
+    }
+  }
+}
