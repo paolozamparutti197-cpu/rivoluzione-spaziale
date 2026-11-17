@@ -78,10 +78,13 @@ for (const button of metricButtons) {
   });
 }
 exportButton.addEventListener("click", exportCsv);
-const programFilter = form.elements.namedItem("program");
-const linkedProgram = new URLSearchParams(location.search).get("program");
-if (Array.from(programFilter.options).some(option => option.value === linkedProgram)) {
-  programFilter.value = linkedProgram;
+const parameters = new URLSearchParams(location.search);
+for (const name of ["program", "kind"]) {
+  const filter = form.elements.namedItem(name);
+  const requestedValue = parameters.get(name);
+  if (Array.from(filter.options).some(option => option.value === requestedValue)) {
+    filter.value = requestedValue;
+  }
 }
 form.hidden = false;
 exportButton.hidden = false;
