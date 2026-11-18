@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-14",
+  "date": "2026-11-18",
   "sources": [
     {
       "file": "01_workbook/lanci_spacex.xlsx",
@@ -11,11 +11,11 @@
     },
     {
       "file": "monografie/starship/voli.json",
-      "sha256": "392a3c31bc8a4f0108f3de60239d4b62040168c0119b318229e63c042d262c95"
+      "sha256": "7c4eda8b08faa6f42b4d0c73cbcd37fd36820ebccb6bfbf1a585cec45717fa4c"
     },
     {
       "file": "sezioni/storico-lanci.html",
-      "sha256": "748311b5e40d9c4dec16fa99aecff10c199b99aa8ac85c51d3933cff38c166dc"
+      "sha256": "374adac4bfd2b2840195702afa41b1891ad56f72bc39568bfad426677de3f624"
     }
   ],
   "launches": [
@@ -32040,6 +32040,17 @@
       "carico": "26 V3 in orbita",
       "nota": "Prima inserzione orbitale; carico contattato, controlli prima del servizio.",
       "traguardo": "Orbita e carico reale"
+    },
+    {
+      "numero": 15,
+      "data": "2026-11-13",
+      "versione": "V3",
+      "profilo": "Orbitale, circa 14 orbite",
+      "booster": "Catch annullato, hover sul Golfo e terminazione",
+      "ship": "Catturata alla torre di Pad 2",
+      "carico": "26 V3 in orbita",
+      "nota": "Prima cattura di una Ship dopo un volo orbitale. Il booster non è stato recuperato.",
+      "traguardo": "Prima cattura della Ship"
     }
   ],
   "sites": [

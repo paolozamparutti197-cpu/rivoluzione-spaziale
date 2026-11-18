@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "imported": "2026-11-17",
+  "imported": "2026-11-18",
   "coverageEnd": "2026-11-13",
   "wikipedia": {
     "date": "2026-10-10",
@@ -23,24 +23,24 @@
     },
     {
       "file": "01_workbook/sviluppo_starship.xlsx",
-      "sha256": "af39bfebf6180c64422266bb5759f9699434dd3b814d399ecf76bfeb90ad93eb"
+      "sha256": "e7f6cfe8f18f586a68f0598ec35da06069a73e296bd44431d98bfab3e5e3d1d5"
     },
     {
       "file": "monografie/starship/voli.json",
-      "sha256": "4e378f38e52b3aba50801317e763cd56c82d15f3bbfd0565f0934e67bdec09c6"
+      "sha256": "7c4eda8b08faa6f42b4d0c73cbcd37fd36820ebccb6bfbf1a585cec45717fa4c"
     },
     {
       "file": "sezioni/storico-lanci.html",
-      "sha256": "721f5a49375299728852226e80ccdb60831596faf3d3cc23c34f82fec320219f"
+      "sha256": "374adac4bfd2b2840195702afa41b1891ad56f72bc39568bfad426677de3f624"
     }
   ],
   "coverage": {
     "principal": 724,
     "principalLaunches": 723,
     "prelaunchEvents": 1,
-    "starshipOverlap": 2,
+    "starshipOverlap": 1,
     "additional": 28,
-    "starshipTests": 15,
+    "starshipTests": 14,
     "cancelledAttempts": "non documentati sistematicamente",
     "prototypeHops": "fuori dal perimetro"
   },
@@ -502,10 +502,6 @@
       "serial": "B21"
     },
     {
-      "id": "B22",
-      "serial": "B22"
-    },
-    {
       "id": "B7",
       "serial": "B7"
     },
@@ -568,10 +564,6 @@
     {
       "id": "S41",
       "serial": "S41"
-    },
-    {
-      "id": "S42",
-      "serial": "S42"
     }
   ],
   "missions": [
@@ -70286,64 +70278,7 @@
         "description": "Starlink Group 31-02",
         "source": "lanci_spacex.xlsx · elenco · riga 753"
       },
-      "flights": [
-        {
-          "id": "SX-0724:Super Heavy",
-          "launchId": "SX-0724:lancio",
-          "role": "Super Heavy",
-          "serial": "B22",
-          "ordinal": 1,
-          "source": "lanci_spacex.xlsx · recuperi_veicoli · riga 4",
-          "recovery": {
-            "id": "SX-0724:Super Heavy:recupero",
-            "attempt": 1,
-            "landed": 0,
-            "physical": null,
-            "mode": "Splashdown",
-            "notes": "Abort automatico del catch per boostback terminato in anticipo; deviato in mare, esploso prima dell'impatto nel Golfo del Messico.",
-            "recoveryDate": "2026-11-13",
-            "reference": "https://www.spacex.com/launches/starship-flight-15 ; https://ll.thespacedevs.com/2.3.0/launches/0f867f0c-5422-4d44-93b8-d7faaae7019b/"
-          }
-        },
-        {
-          "id": "SX-0724:Ship",
-          "launchId": "SX-0724:lancio",
-          "role": "Ship",
-          "serial": "S42",
-          "ordinal": 1,
-          "source": "lanci_spacex.xlsx · recuperi_veicoli · riga 5",
-          "recovery": {
-            "id": "SX-0724:Ship:recupero",
-            "attempt": 1,
-            "landed": 1,
-            "physical": null,
-            "mode": "Catch torre",
-            "notes": "26 Starlink V3 rilasciati in orbita. Circa 14 orbite, poi rientro a Starbase e cattura in torre il 14/11/2026 (prima volta per una Ship).",
-            "recoveryDate": "2026-11-14",
-            "reference": "https://www.spacex.com/launches/starship-flight-15 ; https://ll.thespacedevs.com/2.3.0/launches/0f867f0c-5422-4d44-93b8-d7faaae7019b/"
-          }
-        }
-      ],
-      "development": {
-        "source": "sviluppo_starship.xlsx · Voli integrati · riga 19",
-        "rawOutcome": "Successo / parziale",
-        "vehicle": "Booster 22 + Ship 42",
-        "booster": "Catch annullato dai criteri automatici (Musk: motori sotto le attese e propellente residuo insufficiente); 13 motori al landing burn, hover sul Golfo, poi flight termination system. Nessun recupero fisico.",
-        "ship": "26/26 Starlink V3; circa 14 orbite e 22 h 32 min; deorbit e prima cattura alla torre di Pad 2 il 14/11 alle 21:20:08 UTC.",
-        "milestone": "Prima cattura di una Ship al ritorno dall'orbita; 26 Starlink V3 (Starlink Group 31-02)",
-        "monograph": {
-          "numero": 15,
-          "data": "2026-11-13",
-          "versione": "V3",
-          "profilo": "Orbitale, circa 14 orbite",
-          "booster": "Catch annullato, hover sul Golfo e terminazione",
-          "ship": "Catturata alla torre di Pad 2",
-          "carico": "26 V3 in orbita",
-          "nota": "Prima cattura di una Ship dopo un volo orbitale. Il booster non è stato recuperato.",
-          "traguardo": "Prima cattura della Ship"
-        },
-        "monographSource": "monografie/starship/voli.json · numero 15"
-      }
+      "flights": []
     }
   ]
 }

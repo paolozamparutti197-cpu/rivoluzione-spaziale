@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "imported": "2026-11-14",
+  "imported": "2026-11-18",
   "coverageEnd": "2026-11-13",
   "wikipedia": {
     "date": "2026-10-10",
@@ -27,11 +27,11 @@
     },
     {
       "file": "monografie/starship/voli.json",
-      "sha256": "392a3c31bc8a4f0108f3de60239d4b62040168c0119b318229e63c042d262c95"
+      "sha256": "7c4eda8b08faa6f42b4d0c73cbcd37fd36820ebccb6bfbf1a585cec45717fa4c"
     },
     {
       "file": "sezioni/storico-lanci.html",
-      "sha256": "748311b5e40d9c4dec16fa99aecff10c199b99aa8ac85c51d3933cff38c166dc"
+      "sha256": "374adac4bfd2b2840195702afa41b1891ad56f72bc39568bfad426677de3f624"
     }
   ],
   "coverage": {
