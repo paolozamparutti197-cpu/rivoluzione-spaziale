@@ -168,6 +168,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-11-18",
+        "date_label": "18 novembre 2026",
+        "tag": "SpaceX · Supercalcolo",
+        "title": "Starbase, via libera alle 35 turbine a gas: il Texas autorizza la centrale del supercalcolo SpaceX",
+        "summary": "Il 16 novembre l'agenzia ambientale del Texas ha rilasciato a SpaceX il permesso per le emissioni della centrale da 35 turbine e circa 750 MW che alimenterà, fuori rete, il centro di supercalcolo da 24 miliardi di Starbase. Il tetto agli ossidi di azoto resta appena sotto la soglia federale; pesa una denuncia per lavori iniziati senza autorizzazione.",
+        "href": "../documenti%20per%20sito/spacex_starbase_permesso_turbine.html",
+        "image": "../documenti%20per%20sito/assets_starbase_permesso_turbine/starbase-sito-supercalcolo.jpg",
+        "image_alt": "Operai rimuovono pneumatici abbandonati sul terreno di Starbase destinato al supercalcolo e alla centrale a gas, novembre 2026",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-11-17",
         "date_label": "17 novembre 2026",
         "tag": "SpaceX · Starlink",
@@ -176,8 +189,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_starlink_faa_ground_stop.html",
         "image": "../documenti%20per%20sito/assets_starlink_faa/faa-ohare-ground-stop.jpg",
         "image_alt": "Aerei in fila su una via di rullaggio di Chicago O'Hare durante il ground stop della FAA, 13 novembre 2026",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
