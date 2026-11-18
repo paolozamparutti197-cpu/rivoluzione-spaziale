@@ -620,3 +620,19 @@ Punti aperti:
 - Verifica online anti-cache: HTTP 200 su SX-0724.html (Starlink Group 31-02), storico-lanci.html (723/718, ultimo 31-02
   13/11), spacex.html (723), lanci-imminenti.html (Flight 15 assente dalle card), starship-flight15-live.html (diretta conclusa).
 - Prima card: USSF-317 2026-11-18T03:14:00Z; poi NROL-136 2026-11-21T12:30:00Z e USSF-266 2026-11-23T16:04:00Z.
+
+18/11/2026 - Bot C: aggiornamento NET USSF-317 (20/11 02:46Z / 03:46 Roma). Workbook invariato 724/718, sito 723/718.
+- Stash Codex (stash@{0}) lasciato intatto. Fetch + ff 29ed615 -> bcca15d (20 commit). 8cc8bc4 e 29ed615 sono antenati.
+- Per sbloccare il ff: backup e ripristino a HEAD di archivio/spacex/dati.json (solo data import 15/11 e hash di
+  storico-lanci, non una divergenza di contenuto). Altre modifiche locali vecchie non toccate.
+- Nessuna revisione nuova in 00_documentazione. Amos-6 presente (L1056). Generazione e aggiornamento exit 0
+  (agenda +2/-2/1). 4 controlli README exit 0.
+- Controllo pre-publish (e sul commit be143ef): restyling rimasto (spacex-restyle.css, sx-hero, sx-dash, struttura nuova).
+  css/spacex-restyle.css invariato. Breaking corrente (permesso turbine Starbase, d3598b8) rimasta.
+  Nota: la breaking del catch di Ship 42 (29ed615) era gia' stata archiviata su origin dai commit successivi
+  (51d20f4 e seguenti); non e' stata tolta da questo giro. Diff di spacex.html: solo NET USSF-317 e metrica
+  '15 voli integrati' -> '14 voli integrati' nel cruscotto Starship.
+- Publish be143ef (758 file) exit 0 su main e gh-pages (solo ff). Durante l'attesa Pages il PC e' risultato
+  irraggiungibile; il comando non e' stato rilanciato. Verifica su GitHub: be143ef su main e gh-pages. EXIT=0 nel log.
+- Verifica online anti-cache: storico 723/718; spacex.html 723, restyle presente, spacex-restyle.css HTTP 200,
+  breaking turbine presente; prima card USSF-317 2026-11-20T02:46:00Z (03:46 Roma) anche su lanci-imminenti.
