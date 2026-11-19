@@ -168,6 +168,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-11-19",
+        "date_label": "19 novembre 2026",
+        "tag": "SpaceX · Starship",
+        "title": "Ship 42 non rivolerà: Musk la mette in mostra e svela i piani di SpaceX tra DealBook e TomorrowX",
+        "summary": "Collegato da Shenzhen con New York e Austin, Elon Musk ha detto che la prima nave Starship ripresa dalla torre resterà in esposizione invece di tornare in volo. E ha dato i numeri del nuovo corso di SpaceX: mezzo gigawatt di calcolo al mese, altri 10 GW chiesti da Anthropic, i satelliti Starmind, le microcelle a 800 MHz e una fusione con Tesla «probabilmente» utile.",
+        "href": "../documenti%20per%20sito/spacex_musk_dealbook_ship42.html",
+        "image": "../documenti%20per%20sito/assets_musk_dealbook_ship42/ship42-megabay-tramonto.jpg",
+        "image_alt": "Ship 42 in piedi a terra accanto alla Mega Bay di Starbase al tramonto dopo il Flight 15, novembre 2026",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-11-18",
         "date_label": "18 novembre 2026",
         "tag": "SpaceX · Supercalcolo",
@@ -176,8 +189,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_starbase_permesso_turbine.html",
         "image": "../documenti%20per%20sito/assets_starbase_permesso_turbine/starbase-sito-supercalcolo.jpg",
         "image_alt": "Operai rimuovono pneumatici abbandonati sul terreno di Starbase destinato al supercalcolo e alla centrale a gas, novembre 2026",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
