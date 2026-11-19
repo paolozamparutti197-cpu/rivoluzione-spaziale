@@ -9,6 +9,7 @@
 :root {
   --bo-font: "Instrument Sans", "Segoe UI", Arial, sans-serif;
   --bo-bg: #f6f8fc;
+  --bo-page-gradient: linear-gradient(to right, #e1edff, #fbfdff);
   --bo-white: #fff;
   --bo-tint: #e9f1ff;
   --bo-ink: #142d4d;

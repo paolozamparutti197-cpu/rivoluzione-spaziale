@@ -10,6 +10,7 @@
   font-family: var(--bo-font);
   color: var(--ink);
   background: var(--paper);
+  background-image: var(--bo-page-gradient);
 }
 * { box-sizing: border-box; }
 body { margin: 0; font-size: 16px; line-height: 1.55; }
@@ -126,6 +127,7 @@ footer { color: var(--bo-on-blue); background: var(--bo-deep); padding: 20px 0; 
   .method-columns { grid-template-columns: 1fr; gap: 15px; }
 }
 @media print {
+  :root { background: white; }
   .topbar nav, .filters, #export { display: none; }
   .intro, .topbar, footer { background: white; color: black; padding-block: 12px; }
   .intro *, .topbar a, .brand span { color: black; }

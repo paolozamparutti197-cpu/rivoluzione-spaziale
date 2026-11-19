@@ -3,6 +3,7 @@ body:has(.bo-page), .bo-preview {
   --bo-width: 1280px;
   margin: 0;
   background: var(--bo-bg);
+  background-image: var(--bo-page-gradient);
   color: var(--bo-ink);
   font-family: var(--bo-font);
 }
@@ -188,7 +189,6 @@ body:has(.bo-page) .topbar a:focus-visible {
 }
 .bo-page .bo-dashboard {
   padding-block: clamp(32px, 4.6vw, 62px);
-  background: var(--bo-tint);
   border-bottom: 1px solid var(--bo-line);
 }
 .bo-section-head {
