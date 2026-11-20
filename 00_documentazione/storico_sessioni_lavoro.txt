@@ -636,3 +636,17 @@ Punti aperti:
   irraggiungibile; il comando non e' stato rilanciato. Verifica su GitHub: be143ef su main e gh-pages. EXIT=0 nel log.
 - Verifica online anti-cache: storico 723/718; spacex.html 723, restyle presente, spacex-restyle.css HTTP 200,
   breaking turbine presente; prima card USSF-317 2026-11-20T02:46:00Z (03:46 Roma) anche su lanci-imminenti.
+
+20/11/2026 - Bot C: correzione NET USSF-317 (21/11 02:32Z / 03:32 Roma). Workbook invariato 724/718, sito 723/718.
+- Stash Codex (stash@{0}) lasciato intatto. Fetch + ff efa34e6 -> 9675ef3 (4 commit).
+- Sovrapposizione solo nav su documenti per sito/spacex_starbase_permesso_turbine.html: backup in
+  02_backup\spacex_starbase_permesso_turbine_20261120_pre_ff.html, file riportato a HEAD.
+- Nessuna revisione nuova in 00_documentazione. Amos-6 presente (L1082). Generazione e aggiornamento exit 0.
+  4 controlli README exit 0.
+- Controllo pre- e post-publish (commit 0c14492): restyling rimasto (spacex-restyle.css invariato, sx-hero, sx-dash).
+  Breaking corrente (detriti Flight 15 in Messico, 9675ef3) rimasta. Diff di spacex.html: solo NET/finestra/webcast USSF-317.
+- USSF-317 non risulta lanciato: assente da storico-lanci e da archivio/spacex. Compare solo come prossimo T-0
+  (status 'Pronto al lancio') in spacex.html, lanci-imminenti.html e nel manifesto lanci.
+- Publish 0c14492 (757 file) exit 0 su main e gh-pages (solo ff).
+- Verifica online anti-cache: storico 723/718, ultimo SX-0724; spacex.html e lanci-imminenti prima card e sx-next
+  2026-11-21T02:32:00Z (03:32 Roma); spacex-restyle.css HTTP 200. Nessun 2026-11-20T02:46:00Z rimasto.
