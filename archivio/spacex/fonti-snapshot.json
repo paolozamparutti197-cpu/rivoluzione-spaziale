@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-18",
+  "date": "2026-11-20",
   "sources": [
     {
       "file": "01_workbook/lanci_spacex.xlsx",
@@ -15,7 +15,7 @@
     },
     {
       "file": "sezioni/storico-lanci.html",
-      "sha256": "374adac4bfd2b2840195702afa41b1891ad56f72bc39568bfad426677de3f624"
+      "sha256": "37521f7f4cc449380d796aa08a3b96cab027b9970d16313b2434ec68351a190e"
     }
   ],
   "launches": [
