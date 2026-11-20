@@ -168,6 +168,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-11-20",
+        "date_label": "20 novembre 2026",
+        "tag": "SpaceX · Starship",
+        "title": "Detriti di Flight 15 in Messico: la Profepa chiede conto, SpaceX risponde",
+        "summary": "Dal 17 novembre frammenti chiari e porosi arrivano a Playa Bagdad, in Tamaulipas, dopo la distruzione in mare di Booster 22. L’agenzia ambientale messicana li sequestra e chiede a SpaceX di farsene carico; SpaceX si dice pronta ad aiutare ma sostiene che i pochi resti trovati non sono chiaramente suoi e che molte denunce online sono false. Intanto Ship 44 e Booster 24 vanno alle prove criogeniche.",
+        "href": "../documenti%20per%20sito/spacex_starship_flight15_detriti_messico.html",
+        "image": "../documenti%20per%20sito/assets_starship_flight15_detriti_messico/f15-b22-relitto-golfo.jpg",
+        "image_alt": "Una sezione di Booster 22 galleggia nel Golfo del Messico dopo lo splashdown di Starship Flight 15, novembre 2026",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-11-19",
         "date_label": "19 novembre 2026",
         "tag": "SpaceX · Starship",
@@ -176,8 +189,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_musk_dealbook_ship42.html",
         "image": "../documenti%20per%20sito/assets_musk_dealbook_ship42/ship42-megabay-tramonto.jpg",
         "image_alt": "Ship 42 in piedi a terra accanto alla Mega Bay di Starbase al tramonto dopo il Flight 15, novembre 2026",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
