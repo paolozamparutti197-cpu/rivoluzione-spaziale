@@ -1247,7 +1247,7 @@ def electron_upcoming_data():
     now = datetime.now(timezone.utc)
     upcoming = []
     for launch in launches:
-        iso = launch.get("iso")
+        iso = launch.get("iso") or launch.get("validUntil")
         if iso:
             try:
                 launch_time = datetime.fromisoformat(str(iso).replace("Z", "+00:00"))
@@ -1256,7 +1256,7 @@ def electron_upcoming_data():
             if launch_time and launch_time <= now:
                 continue
         upcoming.append(launch)
-    return sorted(upcoming, key=lambda item: str(item.get("iso") or "9999"))
+    return sorted(upcoming, key=lambda item: str(item.get("iso") or item.get("validUntil") or "9999"))
 
 
 def starship_data():
@@ -3698,6 +3698,9 @@ def render_electron_dashboard(electron):
 """
 
 
+ELECTRON_THEME = '<link rel="stylesheet" href="../css/electron-lab.css?v=20261121">'
+
+
 def render_electron_lab(data):
     electron = data["electron"]
     metrics = electron["metrics"]
@@ -3732,13 +3735,13 @@ def render_electron_lab(data):
 </section>
 <section>
   <div class="inner">
-    <div class="section-head"><h2>Prossimi lanci</h2><p>Anteprima delle missioni Electron disponibili in Launch Library 2, con T-0 puntuali separati dalle finestre NET.</p></div>
+    <div class="section-head"><h2>Prossimi lanci</h2><p>Le prossime missioni Electron, con gli orari di decollo annunciati e le finestre indicative.</p></div>
     {preview_block}
     <div class="actions"><a class="button" href="lanci-imminenti-electron.html">Apri agenda Electron</a><a class="button secondary" href="statistiche-electron.html">Apri statistiche</a></div>
   </div>
 </section>
 """
-    return shell("Electron Lab", "electron-lab", True, body, countdown_script())
+    return shell("Electron Lab", "electron-lab", True, body, countdown_script(), extra_head=ELECTRON_THEME)
 
 
 def render_electron_launches_page(data):
@@ -3746,7 +3749,7 @@ def render_electron_launches_page(data):
     exact = [item for item in launches if "net" not in (item.get("cat") or [])]
     net = [item for item in launches if "net" in (item.get("cat") or [])]
     body = f"""
-{page_hero("Prossimi lanci Electron", "Agenda Electron Lab", "Le prossime missioni del lanciatore Electron di Rocket Lab, aggiornate da The Space Devs / Launch Library 2.")}
+{page_hero("Prossimi lanci Electron", "Agenda Electron Lab", "Le prossime missioni Electron, con gli orari e le finestre riportati dalle fonti indicate in ogni scheda.")}
 <section>
   <div class="inner">
     <div class="agenda-strip">
@@ -3756,10 +3759,10 @@ def render_electron_launches_page(data):
     </div>
   </div>
 </section>
-{f'<section><div class="inner"><div class="section-head"><h2>T-0 confermati</h2><p>Missioni con data e orario puntuali indicati dalla fonte.</p></div>{render_launch_cards(exact)}</div></section>' if exact else ''}
+{f'<section><div class="inner"><div class="section-head"><h2>T-0 annunciati</h2><p>Missioni con data e orario puntuali indicati dalla fonte.</p></div>{render_launch_cards(exact)}</div></section>' if exact else ''}
 {f'<section><div class="inner"><div class="section-head"><h2>Finestre NET</h2><p>Missioni ancora soggette a variazioni di data o orario.</p></div>{render_launch_cards(net, compact=True)}</div></section>' if net else ''}
 """
-    return shell("Prossimi lanci Electron", "electron-lab", True, body, countdown_script())
+    return shell("Prossimi lanci Electron", "electron-lab", True, body, countdown_script(), extra_head=ELECTRON_THEME)
 
 
 def render_electron_statistics_page(data):
@@ -3767,7 +3770,7 @@ def render_electron_statistics_page(data):
 {page_hero("Statistiche Electron", "Dashboard Electron Lab", "Riepilogo completo del programma Electron: cadenza annuale, successi, fallimenti, pad e orbite.")}
 <section><div class="inner">{render_electron_dashboard(data['electron'])}</div></section>
 """
-    return shell("Statistiche Electron", "electron-lab", True, body)
+    return shell("Statistiche Electron", "electron-lab", True, body, extra_head=ELECTRON_THEME)
 
 
 def render_rocket_lab_redirect():

@@ -1,29 +1,33 @@
 [
   {
-    "id": "electron-the-grain-goddess-provides-iqps-launch-7",
+    "id": "electron-night-owls-never-sleep-strix-launch-14",
     "cat": [
-      "net"
+      "exact"
     ],
-    "name": "The Grain Goddess Provides (iQPS Launch 7)",
-    "status": "To Be Determined",
+    "name": "Night Owls Never Sleep",
+    "status": "T-0 annunciato",
     "rocket": "Electron",
-    "dateLabel": "NET luglio 2026",
-    "iso": "2026-07-31T00:00:00Z",
-    "window": "Finestra NET; data e orario da ricontrollare",
-    "site": "Rocket Lab Launch Complex 1A, Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
-    "landing": "Recupero del primo stadio non previsto nell'agenda",
-    "orbit": "LEO",
-    "payload": "Earth Science",
-    "summary": "Synthetic aperture radar Earth observation satellite for Japanese Earth imaging company iQPS.",
-    "news": "To Be Determined",
+    "dateLabel": "27 novembre 2026 · 00:05 UTC",
+    "iso": "2026-11-27T00:05:00Z",
+    "window": "Apertura alle 00:00 UTC · T-0 previsto alle 00:05 UTC",
+    "site": "Rocket Lab Launch Complex 1, Māhia (Nuova Zelanda)",
+    "landing": "Da confermare",
+    "orbit": "LEO · 569 km",
+    "payload": "StriX, satellite radar di Synspective",
+    "summary": "Quattordicesimo lancio dedicato alla costellazione di osservazione terrestre di Synspective e 101º volo Electron previsto.",
+    "news": "Orario annunciato da Synspective il 20 novembre, soggetto a variazioni.",
     "sources": [
       {
-        "label": "The Space Devs",
-        "url": "https://ll.thespacedevs.com/2.3.0/launches/8b7e748c-6ed5-4681-a898-827b4a23b8d7/?format=json"
+        "label": "Rocket Lab",
+        "url": "https://rocketlabcorp.com/missions/launches/night-owls-never-sleep/"
       },
       {
-        "label": "Webcast",
-        "url": "https://www.youtube.com/watch?v=C_JarlUSk5I"
+        "label": "Synspective",
+        "url": "https://www.synspective.com/jp/news/launch_window_14/"
+      },
+      {
+        "label": "The Space Devs",
+        "url": "https://ll.thespacedevs.com/2.3.0/launches/2093e4fc-ac8c-4296-a1b5-deececee6a72/?format=json"
       }
     ]
   },
@@ -33,18 +37,23 @@
       "net"
     ],
     "name": "LOXSAT 1",
-    "status": "To Be Determined",
+    "status": "Data da confermare",
     "rocket": "Electron",
-    "dateLabel": "NET luglio 2026",
-    "iso": "2026-07-31T00:00:00Z",
-    "window": "Finestra NET; data e orario da ricontrollare",
-    "site": "Unknown Pad, Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
-    "landing": "Recupero del primo stadio non previsto nell'agenda",
+    "dateLabel": "2026 · data da confermare",
+    "iso": "",
+    "validUntil": "2027-01-01T00:00:00Z",
+    "window": "2026 indicato da Rocket Lab",
+    "site": "Rocket Lab Launch Complex 1, Māhia (Nuova Zelanda)",
+    "landing": "Da confermare",
     "orbit": "LEO",
-    "payload": "Technology",
-    "summary": "LOXSAT 1 is a demonstration satellite of a complete cryogenic oxygen fluid management system in orbit, developed by Eta Space and sponsored by NASA's Tipping Point program. The system will be integrated on a Rocket Lab Photon-LEO satellite bus and collect critical cryogenic fluid management data in orbit for 9 months, demonstrating capabilities of in-space cryogenic storage and transferal. Eta Space plans to use technology...",
-    "news": "To Be Determined",
+    "payload": "Dimostratore di Eta Space e NASA",
+    "summary": "Missione dimostrativa per studiare la gestione, lo stoccaggio e il trasferimento di ossigeno liquido in orbita.",
+    "news": "Rocket Lab indica l’anno senza pubblicare un giorno di lancio.",
     "sources": [
+      {
+        "label": "Rocket Lab",
+        "url": "https://rocketlabcorp.com/missions/launches/loxsat/"
+      },
       {
         "label": "The Space Devs",
         "url": "https://ll.thespacedevs.com/2.3.0/launches/599ba2df-7483-4b2f-a083-2b5ddc06e069/?format=json"
@@ -52,26 +61,31 @@
     ]
   },
   {
-    "id": "electron-strix-launch-11",
+    "id": "electron-aspera",
     "cat": [
       "net"
     ],
-    "name": "StriX Launch 11",
-    "status": "To Be Determined",
+    "name": "Aspera",
+    "status": "Finestra indicativa",
     "rocket": "Electron",
-    "dateLabel": "NET luglio 2026",
-    "iso": "2026-07-31T00:00:00Z",
-    "window": "Finestra NET; data e orario da ricontrollare",
-    "site": "Unknown Pad, Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
-    "landing": "Recupero del primo stadio non previsto nell'agenda",
-    "orbit": "SSO",
-    "payload": "Earth Science",
-    "summary": "Synthetic aperture radar satellite for Japanese Earth imaging company Synspective.",
-    "news": "To Be Determined",
+    "dateLabel": "Dal 29 gennaio 2027",
+    "iso": "",
+    "validUntil": "2027-01-30T00:00:00Z",
+    "window": "Non prima del 29 gennaio 2027 · orario da confermare",
+    "site": "Rocket Lab Launch Complex 1, Māhia (Nuova Zelanda)",
+    "landing": "Da confermare",
+    "orbit": "LEO",
+    "payload": "Osservatorio ultravioletto NASA e Università dell’Arizona",
+    "summary": "Aspera studierà l’emissione ultravioletta del gas che circonda le galassie.",
+    "news": "Finestra indicata dal responsabile scientifico della missione nell’aggiornamento NASA del 22 ottobre.",
     "sources": [
       {
+        "label": "NASA Science",
+        "url": "https://science.nasa.gov/astrophysics/programs/cosmic-origins/community/dgce-sig-seminar-22-oct-2026/"
+      },
+      {
         "label": "The Space Devs",
-        "url": "https://ll.thespacedevs.com/2.3.0/launches/9f5a4cb6-63f9-47e1-9512-b468bae2a8e6/?format=json"
+        "url": "https://ll.thespacedevs.com/2.3.0/launches/0d6ad64c-3aed-4041-b095-e1d951bc6d29/?format=json"
       }
     ]
   }
