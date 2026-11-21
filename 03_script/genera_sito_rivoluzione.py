@@ -2177,39 +2177,72 @@ def render_company_breaking(company_slug):
 """
 
 
+HOME_FEATURE_IMAGES = {
+    "spacex": "documenti%20per%20sito/assets_fondazione/falcon-heavy-2018/lancio.jpg",
+    "blue-origin": "assets/blue-origin/new-glenn-ng2.webp",
+    "electron-lab": "assets/home/electron-wallops-2023.jpg",
+}
+
+
 def render_home():
-    """Home: solo primo livello (compagnie). Niente teaser breaking/notizie.
-    Breaking e dossier: sezioni/notizie.html e, se attive, pagina compagnia (SpaceX, ULA, ...)."""
-    cards = "\n".join(
-        f"""<a class="card {'construction' if not item.get('active') else ''}" href="sezioni/{item['slug']}.html">
-  <small>{escape(item['status'])}</small>
-  <div><h3>{escape(item['title'])}</h3><p>{escape(item['copy'])}</p></div>
-</a>"""
-        for item in MAIN_SECTIONS
-    )
+    featured_cards = []
+    pending_cards = []
+    for item in MAIN_SECTIONS:
+        slug = item["slug"]
+        href = section_href(slug, False)
+        title, copy = escape(item["title"]), escape(item["copy"])
+        if item.get("active"):
+            image = HOME_FEATURE_IMAGES.get(slug)
+            photo = f'<img src="{image}" alt="" decoding="async">' if image else ""
+            featured_cards.append(f"""      <a class="home-feature home-feature-{slug}" href="{href}" aria-labelledby="home-{slug}-title">
+        <div class="home-feature-media">{photo}</div>
+        <div class="home-feature-copy">
+          <h3 id="home-{slug}-title">{title}</h3>
+          <span class="home-feature-arrow" aria-hidden="true">→</span>
+          <p>{copy}</p>
+        </div>
+      </a>""")
+        else:
+            pending_cards.append(f"""        <a class="home-pending-card" href="{href}">
+          <h3>{title}</h3>
+          <p>{copy}</p>
+        </a>""")
+    features = "\n".join(featured_cards)
+    pending = "\n".join(pending_cards)
+    pending_section = f"""    <section class="home-pending" aria-labelledby="home-pending-title">
+      <h2 id="home-pending-title">In costruzione</h2>
+      <div class="home-pending-grid">
+{pending}
+      </div>
+    </section>""" if pending else ""
     body = f"""
-<section class="hero">
+<section class="hero home-hero">
   <div class="hero-inner">
     <p class="eyebrow">Osservatorio</p>
     <h1>Rivoluzione Spaziale</h1>
     <p class="subtitle">I nuovi signori dello spazio. Una mappa editoriale per seguire chi sta ridisegnando accesso all'orbita, cadenza industriale e competizione tra compagnie di lancio.</p>
-    <div class="actions">
-      <a class="button" href="sezioni/spacex.html">Apri SpaceX</a>
-      <a class="button secondary" href="#sezioni-principali">Sezioni principali</a>
-    </div>
   </div>
 </section>
-<section id="sezioni-principali">
+<section class="home-directory" id="sezioni-principali" aria-labelledby="sezioni-principali-title">
   <div class="inner">
-    <div class="section-head">
-      <h2>Sezioni principali</h2>
-      <p>La pagina principale mostra solo il primo livello del sito: compagnie e aree industriali. Le pagine operative vivono dentro la sezione della compagnia. Notizie e breaking non compaiono in home: stanno in Notizie e, se rilevanti, nella pagina della compagnia.</p>
+    <h2 id="sezioni-principali-title">Sezioni principali</h2>
+    <div class="home-feature-grid">
+{features}
     </div>
-    <div class="grid">{cards}</div>
+{pending_section}
+    <details class="home-credits">
+      <summary>Crediti fotografici</summary>
+      <ul>
+        <li>Falcon Heavy · <a href="https://commons.wikimedia.org/wiki/File:Falcon_Heavy_Demo_Mission_(40126461851).jpg">SpaceX, CC0 1.0</a></li>
+        <li>New Glenn NG-2 · <a href="https://commons.wikimedia.org/wiki/File:Blue_Origin_New_Glenn_Rocket_Successful_Launch_(9387521).jpg">Samuel Becker, U.S. Space Force</a></li>
+        <li>Electron a Wallops · <a href="https://www.nasa.gov/centers-and-facilities/wallops/new-nasa-safety-system-enables-rocket-lab-launch-from-wallops/">NASA/Danielle Johnson</a></li>
+      </ul>
+    </details>
   </div>
 </section>
 """
-    return shell("Home", "home", False, body)
+    styles = '<link rel="stylesheet" href="css/home.css?v=20261121-sezioni">'
+    return shell("Home", "home", False, body, extra_head=styles)
 
 
 def render_notizie():
