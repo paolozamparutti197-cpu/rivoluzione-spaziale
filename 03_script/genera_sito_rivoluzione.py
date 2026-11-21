@@ -4396,13 +4396,13 @@ def render_blue_origin_history_pages():
     from genera_portale_blue_origin import blue_origin_styles
     from genera_storia_blue_origin import (
         HISTORY_DIRECTORY, HISTORY_INDEX, HISTORY_PARTS, HISTORY_TITLE,
-        render_history_chapter, render_history_index,
+        chapter_source, render_history_chapter, render_history_index,
     )
 
     styles = ("blue-origin", "storia-blue-origin")
     pages = [(SECTIONS_DIR / HISTORY_INDEX, shell(
         HISTORY_TITLE, "blue-origin", True, render_history_index(),
-        extra_head=blue_origin_styles("../css/", *styles),
+        extra_head=blue_origin_styles("../css/", *styles, "lettura-blue-origin"),
     ))]
     chapter_styles = blue_origin_styles("../../css/", *styles)
     chapters = [chapter for _, part in HISTORY_PARTS for chapter in part]
@@ -4410,10 +4410,13 @@ def render_blue_origin_history_pages():
         slug, _, title, _ = chapter
         previous = chapters[index - 1] if index > 0 else None
         following = chapters[index + 1] if index + 1 < len(chapters) else None
-        body = render_history_chapter(chapter, index + 1, previous, following)
+        source = chapter_source(slug)
+        article = source.read_text(encoding="utf-8").strip() if source.is_file() else ""
+        head = blue_origin_styles("../../css/", *styles, "lettura-blue-origin") if article else chapter_styles
+        body = render_history_chapter(chapter, index + 1, previous, following, article)
         pages.append((SECTIONS_DIR / HISTORY_DIRECTORY / f"{slug}.html", shell(
             f"{title} · {HISTORY_TITLE}", "blue-origin", True, body,
-            extra_head=chapter_styles, path_prefix="../",
+            extra_head=head, path_prefix="../",
         )))
     return pages
 

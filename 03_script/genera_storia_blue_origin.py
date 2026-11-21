@@ -1,4 +1,5 @@
 from html import escape
+from pathlib import Path
 
 
 HISTORY_PARTS = (
@@ -58,6 +59,11 @@ HISTORY_INDEX = "storia-blue-origin.html"
 HISTORY_DIRECTORY = "storia-blue-origin"
 HISTORY_TITLE = "Storia di Blue Origin"
 CONSTRUCTION = "In costruzione"
+CHAPTER_CONTENT = Path(__file__).resolve().parent / "contenuti" / HISTORY_DIRECTORY
+
+
+def chapter_source(slug):
+    return CHAPTER_CONTENT / f"{slug}.html"
 
 
 def render_history_index():
@@ -66,13 +72,18 @@ def render_history_index():
     for heading, chapters in HISTORY_PARTS:
         items = []
         for slug, period, title, summary in chapters:
+            status_class = "bo-history-status"
+            status = CONSTRUCTION
+            if chapter_source(slug).is_file():
+                status_class += " bo-history-published"
+                status = "Leggi il capitolo"
             items.append(
                 f"""        <li>
           <a class="bo-history-entry" href="{HISTORY_DIRECTORY}/{slug}.html">
             <span class="bo-history-period">{escape(period)}</span>
             <h3>{escape(title)}</h3>
             <p>{escape(summary)}</p>
-            <span class="bo-history-status">{CONSTRUCTION}</span>
+            <span class="{status_class}">{status}</span>
             <span class="bo-history-arrow" aria-hidden="true">↗</span>
           </a>
         </li>"""
@@ -117,7 +128,7 @@ def render_history_index():
 """
 
 
-def render_history_chapter(chapter, number, previous, following):
+def render_history_chapter(chapter, number, previous, following, article=""):
     _, period, title, summary = chapter
     navigation = []
     for neighbor, label, relation in (
@@ -130,6 +141,10 @@ def render_history_chapter(chapter, number, previous, following):
       <span>{label}</span><strong>{escape(neighbor_title)}</strong>
     </a>''')
     navigation_markup = "\n".join(navigation)
+    reading = (
+        f'<div class="bo-reading-layout">\n{article}\n    </div>'
+        if article else f'<span class="bo-history-status">{CONSTRUCTION}</span>'
+    )
     return f"""
 <div class="bo-page bo-history bo-history-chapter">
   <nav class="bo-wrap bo-history-crumb" aria-label="Percorso della pagina">
@@ -145,7 +160,7 @@ def render_history_chapter(chapter, number, previous, following):
     </div>
   </section>
   <div class="bo-wrap bo-history-content">
-    <span class="bo-history-status">{CONSTRUCTION}</span>
+    {reading}
     <div class="bo-actions">
       <a class="bo-button bo-button-quiet" href="../{HISTORY_INDEX}#capitoli">Torna all’indice dei capitoli</a>
     </div>
