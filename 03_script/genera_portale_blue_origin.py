@@ -8,7 +8,7 @@ from urllib.parse import quote, urlencode
 SITE = "https://paolozamparutti197-cpu.github.io/rivoluzione-spaziale"
 PHOTO_SOURCE = "https://commons.wikimedia.org/wiki/File:Blue_Origin_New_Glenn_Rocket_Successful_Launch_(9387521).jpg"
 NASA_ARTEMIS = "https://www.nasa.gov/missions/artemis/nasas-artemis-iii-mission-to-test-future-moon-lander-operations/"
-BO_STYLE_VERSION = "20261119-sfumatura"
+BO_STYLE_VERSION = "20261121-orizzonte"
 MONTHS = (
     "gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno",
     "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre",

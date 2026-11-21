@@ -8,16 +8,22 @@
 
 :root {
   --bo-font: "Instrument Sans", "Segoe UI", Arial, sans-serif;
-  --bo-bg: #f6f8fc;
-  --bo-page-gradient: linear-gradient(to right, #e1edff, #fbfdff);
+  --bo-bg: #f5f9fe;
+  --bo-page-gradient: linear-gradient(105deg, #dcecff 0%, #edf6ff 46%, #fbfdff 100%);
   --bo-white: #fff;
   --bo-tint: #e9f1ff;
-  --bo-ink: #142d4d;
-  --bo-muted: #495d77;
-  --bo-line: #cbd8eb;
-  --bo-accent: #1248ac;
-  --bo-mast: #07369b;
-  --bo-deep: #082760;
-  --bo-on-blue: #e4eeff;
+  --bo-ink: #102944;
+  --bo-muted: #435a73;
+  --bo-line: #c6d7e8;
+  --bo-accent: #124aa3;
+  --bo-mast: #164785;
+  --bo-deep: #071d3a;
+  --bo-on-blue: #e1efff;
+  --bo-glow: #9ce0ff;
+  --bo-horizon:
+    radial-gradient(ellipse 62% 115% at 90% 122%, transparent 77%, #a2d9ff38 77.3%, transparent 78.1%),
+    radial-gradient(ellipse 70% 120% at 94% 124%, #478fda80, transparent 75%),
+    linear-gradient(113deg, var(--bo-deep) 10%, var(--bo-mast) 100%);
+  --bo-shadow: 0 14px 32px #123b6c13;
   --bo-focus: #b35705;
 }
