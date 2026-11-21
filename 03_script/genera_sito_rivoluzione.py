@@ -168,6 +168,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-11-21",
+        "date_label": "21 novembre 2026",
+        "tag": "SpaceX · Starshield",
+        "title": "Starshield, il Congresso minaccia i fondi a SpaceX",
+        "summary": "Jim Himes, che a gennaio guiderà la commissione Intelligence della Camera, scrive a Musk: spiegate chi ha limitato Starshield in Ucraina e se lo ha deciso SpaceX da sola. Senza risposte, avverte, sarà difficile autorizzare i fondi per i sistemi militari costruiti da SpaceX. Un messaggio classificato simile è arrivato al direttore dell'intelligence Jay Clayton.",
+        "href": "../documenti%20per%20sito/spacex_starshield_himes_fondi.html",
+        "image": "../documenti%20per%20sito/assets_starshield_himes/sh-starshield-terminale-usaf.jpg",
+        "image_alt": "Un aviere dell'US Air Force installa un terminale Starshield alla base australiana di Tindal, agosto 2024",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-11-20",
         "date_label": "20 novembre 2026",
         "tag": "SpaceX · Starship",
@@ -176,8 +189,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_starship_flight15_detriti_messico.html",
         "image": "../documenti%20per%20sito/assets_starship_flight15_detriti_messico/f15-b22-relitto-golfo.jpg",
         "image_alt": "Una sezione di Booster 22 galleggia nel Golfo del Messico dopo lo splashdown di Starship Flight 15, novembre 2026",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
