@@ -14,8 +14,9 @@
 .ns-breadcrumb a { display: inline-flex; align-items: center; gap: .45em; font-size: .9rem; }
 .ns-breadcrumb a:hover, .ns-source:hover, .ns-references a:hover, .ns-page figcaption a:hover { color: var(--bo-deep); }
 .ns-page .ns-hero {
-  padding-block: clamp(24px, 4vw, 55px);
-  background: var(--bo-mast);
+  padding-block: clamp(28px, 4.6vw, 65px);
+  background: var(--bo-horizon);
+  border-bottom: 2px solid #9accef;
 }
 .ns-hero-grid {
   display: grid;
@@ -36,10 +37,10 @@
   margin: 0;
   color: var(--bo-white);
   font-size: clamp(2.8rem, 6.4vw, 6rem);
-  letter-spacing: -.06em;
+  letter-spacing: -.068em;
   line-height: .98;
   text-transform: none;
-  font-weight: 650;
+  font-weight: 700;
 }
 .ns-lede {
   max-width: 43ch;
@@ -48,12 +49,24 @@
   font-size: clamp(1.03rem, 1.8vw, 1.26rem);
 }
 .ns-hero .ns-context, .ns-hero .ns-lede { color: var(--bo-on-blue); }
+.ns-hero .ns-context { color: var(--bo-glow); }
+.ns-hero .ns-context::before, .lc-page .lc-intro .ns-context::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 2px;
+  margin-inline-end: 9px;
+  vertical-align: middle;
+  background: currentColor;
+}
 .ns-hero-copy .bo-actions { margin-top: 23px; }
 .ns-page figure { margin: 0; }
 .ns-hero-photo {
   overflow: hidden;
-  border: 1px solid var(--bo-line);
-  background: var(--ns-deep);
+  border: 1px solid #b8d9fa66;
+  border-radius: 4px;
+  background: #0a2545;
+  box-shadow: 0 18px 36px #071d3a58;
 }
 .ns-hero-photo img, .ns-photo-grid img {
   display: block;
@@ -71,10 +84,13 @@
   line-height: 1.45;
 }
 .ns-page figcaption a { display: inline-block; margin-left: .35em; }
+.ns-hero-photo figcaption { color: var(--bo-on-blue); }
+.ns-hero-photo figcaption a { color: var(--bo-glow); }
+.ns-hero-photo figcaption a:hover { color: var(--bo-white); }
 .ns-register {
   border-block: 1px solid var(--bo-line);
   padding-block: 15px 11px;
-  background: var(--ns-deep);
+  background: linear-gradient(110deg, #e5f0ff, #f7fbff);
 }
 .ns-register-grid {
   display: grid;
@@ -124,7 +140,7 @@
 .ns-page h2 {
   margin: 0;
   color: var(--bo-ink);
-  font-weight: 650;
+  font-weight: 700;
   font-size: clamp(1.85rem, 3.6vw, 3.2rem);
   line-height: 1.08;
   letter-spacing: -.046em;
