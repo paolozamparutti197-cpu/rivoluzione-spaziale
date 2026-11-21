@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "imported": "2026-11-20",
-  "coverageEnd": "2026-11-13",
+  "imported": "2026-11-21",
+  "coverageEnd": "2026-11-21",
   "wikipedia": {
     "date": "2026-10-10",
     "principalLaunches": 713,
@@ -19,7 +19,7 @@
   "sources": [
     {
       "file": "01_workbook/lanci_spacex.xlsx",
-      "sha256": "3f50f5537cd312831209ba2fe48eac92e3955466e9f33b292b7d49b47d395516"
+      "sha256": "c607192c03727b967468336476477141807390d90dcc890874c0d7fe20aeec6a"
     },
     {
       "file": "01_workbook/sviluppo_starship.xlsx",
@@ -31,12 +31,12 @@
     },
     {
       "file": "sezioni/storico-lanci.html",
-      "sha256": "37521f7f4cc449380d796aa08a3b96cab027b9970d16313b2434ec68351a190e"
+      "sha256": "620bff5a5d7028827aa65d42265db3dcfac09c8b1fa3815e78d3ee71d86bd392"
     }
   ],
   "coverage": {
-    "principal": 724,
-    "principalLaunches": 723,
+    "principal": 725,
+    "principalLaunches": 724,
     "prelaunchEvents": 1,
     "starshipOverlap": 1,
     "additional": 28,
@@ -70279,6 +70279,73 @@
         "source": "lanci_spacex.xlsx · elenco · riga 753"
       },
       "flights": []
+    },
+    {
+      "id": "SX-0725",
+      "name": "USSF-317",
+      "date": "2026-11-21",
+      "family": "Falcon 9",
+      "launcher": "Falcon 9 bl 5",
+      "scope": "falcon",
+      "originalPhase": "Storico",
+      "class": "Commerciale/Istituzionale",
+      "pad": "SLC-4E",
+      "padId": "PAD-SLC4E",
+      "orbit": "LEO",
+      "source": "lanci_spacex.xlsx · elenco · riga 754",
+      "sourceRow": 754,
+      "references": [
+        "https://www.spacex.com/launches/ussf317",
+        "https://ll.thespacedevs.com/2.3.0/launches/76617033-4dc0-4448-b50c-e5b0d5a18539/"
+      ],
+      "sourceNote": "https://www.spacex.com/launches/ussf317 ; https://ll.thespacedevs.com/2.3.0/launches/76617033-4dc0-4448-b50c-e5b0d5a18539/",
+      "video": "https://www.spacex.com/launches/ussf317",
+      "notes": "Missione classificata della US Space Force (probabili satelliti Starshield in LEO). Booster B1100 all’11° volo, atterrato su OCISLY. Successo confermato da Launch Library 2 (Launch Successful).",
+      "issues": [
+        "Esito del carico non documentato separatamente."
+      ],
+      "programFlight": null,
+      "attempt": {
+        "id": "SX-0725:decollo",
+        "missionId": "SX-0725",
+        "status": "decollato",
+        "ordinal": null,
+        "cancelledAttempts": null
+      },
+      "launch": {
+        "id": "SX-0725:lancio",
+        "missionId": "SX-0725",
+        "attemptId": "SX-0725:decollo",
+        "outcome": "successo",
+        "timeUTC": "04:20:35"
+      },
+      "payload": {
+        "outcome": null,
+        "count": null,
+        "description": "USSF-317",
+        "source": "lanci_spacex.xlsx · elenco · riga 754"
+      },
+      "flights": [
+        {
+          "id": "SX-0725:booster",
+          "launchId": "SX-0725:lancio",
+          "role": "booster",
+          "serial": "B1100",
+          "serialOriginal": "B1100",
+          "ordinal": 11,
+          "ordinalOriginal": 11,
+          "source": "lanci_spacex.xlsx · elenco · riga 754",
+          "sourceRow": 754,
+          "recovery": {
+            "id": "SX-0725:booster:recupero",
+            "attempt": 1,
+            "landed": 1,
+            "physical": null,
+            "mode": "OCISLY",
+            "notes": "Flag di atterraggio del registro. Recupero fisico e sopravvivenza durante il trasporto non documentati separatamente."
+          }
+        }
+      ]
     }
   ]
 }
