@@ -650,3 +650,18 @@ Punti aperti:
 - Publish 0c14492 (757 file) exit 0 su main e gh-pages (solo ff).
 - Verifica online anti-cache: storico 723/718, ultimo SX-0724; spacex.html e lanci-imminenti prima card e sx-next
   2026-11-21T02:32:00Z (03:32 Roma); spacex-restyle.css HTTP 200. Nessun 2026-11-20T02:46:00Z rimasto.
+
+21/11/2026 - Bot C: SX-0725 USSF-317 (21/11 04:20:35 UTC, B1100-11). Workbook 725/719 -> sito 724/719.
+- Stash Codex (stash@{0}) lasciato intatto. origin gia allineato a 9c4ccca all'avvio (AHEAD=0, BEHIND=0).
+- Nessuna revisione nuova in 00_documentazione. Generazione e aggiornamento exit 0 (un retry di rete su TSD,
+  poi fonte letta: 35 lanci, primo NROL-136). Agenda +1/-2/7. 4 controlli README exit 0.
+- Controllo pre-publish: restyling rimasto (spacex-restyle.css invariato, sx-hero, sx-dash). Breaking di allora
+  (detriti Flight 15 in Messico) invariata. Stesso esito sul commit f3fa3fe.
+- USSF-317 non compare piu tra i prossimi lanci ne nel countdown (0 occorrenze in spacex.html, lanci-imminenti.html
+  e nel manifesto). Non ho modificato il codice: nella fonte letta da aggiorna non c'era piu, e il filtro NET
+  passato avrebbe comunque scartato l'orario 02:32Z. In storico risulta come ultimo lancio (SX-0725, successo).
+- Publish f3fa3fe (761 file) exit 0 su main e gh-pages (solo ff). Poco dopo e arrivato f97502b (breaking Starshield
+  Himes, archivia detriti F15): backup nav di spacex_starship_flight15_detriti_messico.html e ff a f97502b.
+- Verifica online anti-cache: HTTP 200 su SX-0725.html (USSF-317), storico 724/719 ultimo USSF-317 21/11,
+  spacex.html 724 e restyle presente, spacex-restyle.css HTTP 200, lanci-imminenti e home senza USSF-317 tra i
+  prossimi. Prima card e sx-next: NROL-136 2026-11-22T12:16:00Z (13:16 Roma).
