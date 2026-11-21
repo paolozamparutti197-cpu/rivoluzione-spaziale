@@ -43,7 +43,7 @@ def blue_origin_styles(directory, *styles):
     )
 
 
-def render_portal(registry_path, archive_url, photo):
+def render_portal(registry_path, archive_url, photo, history_url=None):
     data = json.loads(registry_path.read_text(encoding="utf-8"))
     flights = data["flights"]
     counts = Counter(flight["program"] for flight in flights)
@@ -69,6 +69,10 @@ def render_portal(registry_path, archive_url, photo):
         </a>"""
         for key, (name, label) in PROGRAMS.items()
     )
+    history_link = (
+        f'        <a class="bo-button bo-button-quiet" href="{escape(history_url)}">Storia <span aria-hidden="true">↗</span></a>\n'
+        if history_url else ""
+    )
     return f"""
 <div class="bo-page">
   <a class="bo-skip" href="#bo-cruscotto">Vai ai dati di volo</a>
@@ -86,7 +90,7 @@ def render_portal(registry_path, archive_url, photo):
       <p>I voli suborbitali dal Texas, il lanciatore orbitale di Cape Canaveral e lo sviluppo dei lander lunari Blue Moon.</p>
       <div class="bo-actions">
         <a class="bo-button" href="{archive_link(archive_url)}">Elenco dei lanci <span aria-hidden="true">↗</span></a>
-        <a class="bo-button bo-button-quiet" href="#bo-programmi">Esplora i programmi <span aria-hidden="true">↓</span></a>
+{history_link}        <a class="bo-button bo-button-quiet" href="#bo-programmi">Esplora i programmi <span aria-hidden="true">↓</span></a>
       </div>
     </div>
   </section>

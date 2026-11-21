@@ -1650,7 +1650,7 @@ def section_href(slug, from_section):
     return page_path(slug) if from_section else f"sezioni/{page_path(slug)}"
 
 
-def nav_html(current, from_section):
+def nav_html(current, from_section, path_prefix=""):
     home_href = "../index.html" if from_section else "index.html"
     links = [("Home", home_href)]
     links.extend(
@@ -1658,7 +1658,7 @@ def nav_html(current, from_section):
     )
     links.extend((item["title"], section_href(item["slug"], from_section)) for item in MAIN_SECTIONS)
     return "\n".join(
-        f'<a class="{ "active" if key == current else "" }" href="{href}">{escape(label)}</a>'
+        f'<a class="{ "active" if key == current else "" }" href="{path_prefix}{href}">{escape(label)}</a>'
         for label, href in links
         for key in [label.lower().replace(" ", "-") if label != "Home" else "home"]
     )
@@ -1677,15 +1677,15 @@ def head_html(title, css_href, extra_head=""):
 """
 
 
-def shell(title, current, from_section, body, extra_script="", extra_head="", css_version=None):
+def shell(title, current, from_section, body, extra_script="", extra_head="", css_version=None, *, path_prefix=""):
     css_path = "../css/style.css" if from_section else "css/style.css"
-    css_href = f"{css_path}?v={css_version or CSS_VERSION}"
+    css_href = f"{path_prefix}{css_path}?v={css_version or CSS_VERSION}"
     return f"""{head_html(title, css_href, extra_head)}
 <body>
 <header class="topbar">
-  <a class="brand" href="{'../index.html' if from_section else 'index.html'}">Rivoluzione <span>Spaziale</span></a>
+  <a class="brand" href="{path_prefix}{'../index.html' if from_section else 'index.html'}">Rivoluzione <span>Spaziale</span></a>
   <nav class="nav" aria-label="Navigazione principale">
-{nav_html(current, from_section)}
+{nav_html(current, from_section, path_prefix)}
   </nav>
 </header>
 <main>
@@ -4378,16 +4378,44 @@ def render_starship_development_page(data):
 
 def render_blue_origin():
     from genera_portale_blue_origin import blue_origin_styles, render_portal
+    from genera_storia_blue_origin import HISTORY_INDEX
 
     body = render_portal(
         ROOT / "archivio/blue-origin/dati.json",
         "../archivio/blue-origin/elenco.html",
         "../assets/blue-origin/new-glenn-ng2.webp",
+        history_url=HISTORY_INDEX,
     )
     return shell(
         "Blue Origin", "blue-origin", True, body,
         extra_head=blue_origin_styles("../css/", "blue-origin"),
     )
+
+
+def render_blue_origin_history_pages():
+    from genera_portale_blue_origin import blue_origin_styles
+    from genera_storia_blue_origin import (
+        HISTORY_DIRECTORY, HISTORY_INDEX, HISTORY_PARTS, HISTORY_TITLE,
+        render_history_chapter, render_history_index,
+    )
+
+    styles = ("blue-origin", "storia-blue-origin")
+    pages = [(SECTIONS_DIR / HISTORY_INDEX, shell(
+        HISTORY_TITLE, "blue-origin", True, render_history_index(),
+        extra_head=blue_origin_styles("../css/", *styles),
+    ))]
+    chapter_styles = blue_origin_styles("../../css/", *styles)
+    chapters = [chapter for _, part in HISTORY_PARTS for chapter in part]
+    for index, chapter in enumerate(chapters):
+        slug, _, title, _ = chapter
+        previous = chapters[index - 1] if index > 0 else None
+        following = chapters[index + 1] if index + 1 < len(chapters) else None
+        body = render_history_chapter(chapter, index + 1, previous, following)
+        pages.append((SECTIONS_DIR / HISTORY_DIRECTORY / f"{slug}.html", shell(
+            f"{title} · {HISTORY_TITLE}", "blue-origin", True, body,
+            extra_head=chapter_styles, path_prefix="../",
+        )))
+    return pages
 
 
 def render_new_shepard_page():
@@ -4507,6 +4535,7 @@ def render():
         (SECTIONS_DIR / "pad-di-lancio.html", render_pad_page(data)),
         (SECTIONS_DIR / "localita-spacex.html", render_locations_page(data)),
     ]
+    outputs.extend(render_blue_origin_history_pages())
     changed = []
     for path, content in outputs:
         if write(path, content):
