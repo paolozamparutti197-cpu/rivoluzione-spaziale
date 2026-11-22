@@ -168,6 +168,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-11-22",
+        "date_label": "22 novembre 2026",
+        "tag": "SpaceX · Dragon",
+        "title": "CRS-35, il Dragon torna a casa con la ricerca della ISS",
+        "summary": "Il 21 novembre alle 23:03 ora italiana il Dragon cargo di CRS-35 è ammarato nel Pacifico al largo di Los Angeles. Dopo più di cinque settimane alla ISS, e la posa degli ultimi pannelli iROSA, riporta vasi sanguigni biostampati, organoidi tumorali, batteri resistenti agli antibiotici e il giunto guasto del Canadarm2.",
+        "href": "../documenti%20per%20sito/spacex_crs35_rientro.html",
+        "image": "../documenti%20per%20sito/assets_crs35_rientro/crs35r-dragon-avvicinamento.jpg",
+        "image_alt": "Il Dragon cargo CRS-35 si avvicina alla Stazione spaziale internazionale, 15 ottobre 2026, foto NASA",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-11-21",
         "date_label": "21 novembre 2026",
         "tag": "SpaceX · Starshield",
@@ -176,8 +189,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_starshield_himes_fondi.html",
         "image": "../documenti%20per%20sito/assets_starshield_himes/sh-starshield-terminale-usaf.jpg",
         "image_alt": "Un aviere dell'US Air Force installa un terminale Starshield alla base australiana di Tindal, agosto 2024",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
