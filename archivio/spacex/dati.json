@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "imported": "2026-11-21",
-  "coverageEnd": "2026-11-21",
+  "imported": "2026-11-22",
+  "coverageEnd": "2026-11-22",
   "wikipedia": {
     "date": "2026-10-10",
     "principalLaunches": 713,
@@ -19,7 +19,7 @@
   "sources": [
     {
       "file": "01_workbook/lanci_spacex.xlsx",
-      "sha256": "c607192c03727b967468336476477141807390d90dcc890874c0d7fe20aeec6a"
+      "sha256": "68236e778ee81b15dc5521668e33f5e53fe4a2666047f913aed2cb2c91763b2e"
     },
     {
       "file": "01_workbook/sviluppo_starship.xlsx",
@@ -31,12 +31,12 @@
     },
     {
       "file": "sezioni/storico-lanci.html",
-      "sha256": "620bff5a5d7028827aa65d42265db3dcfac09c8b1fa3815e78d3ee71d86bd392"
+      "sha256": "39af9583207bb187f826e81a94a02910e20024350b645b03a8503b87b81d9691"
     }
   ],
   "coverage": {
-    "principal": 725,
-    "principalLaunches": 724,
+    "principal": 726,
+    "principalLaunches": 725,
     "prelaunchEvents": 1,
     "starshipOverlap": 1,
     "additional": 28,
@@ -70342,6 +70342,73 @@
             "landed": 1,
             "physical": null,
             "mode": "OCISLY",
+            "notes": "Flag di atterraggio del registro. Recupero fisico e sopravvivenza durante il trasporto non documentati separatamente."
+          }
+        }
+      ]
+    },
+    {
+      "id": "SX-0726",
+      "name": "NROL-136",
+      "date": "2026-11-22",
+      "family": "Falcon 9",
+      "launcher": "Falcon 9 bl 5",
+      "scope": "falcon",
+      "originalPhase": "Storico",
+      "class": "Commerciale/Istituzionale",
+      "pad": "SLC-4E",
+      "padId": "PAD-SLC4E",
+      "orbit": "LEO",
+      "source": "lanci_spacex.xlsx · elenco · riga 755",
+      "sourceRow": 755,
+      "references": [
+        "https://www.spacex.com/launches/nrol136",
+        "https://ll.thespacedevs.com/2.3.0/launches/951a341f-236b-42fe-a667-4ab2fcf36eac/"
+      ],
+      "sourceNote": "https://www.spacex.com/launches/nrol136 ; https://ll.thespacedevs.com/2.3.0/launches/951a341f-236b-42fe-a667-4ab2fcf36eac/",
+      "video": "https://www.spacex.com/launches/nrol136",
+      "notes": "Missione NROL-136 del National Reconnaissance Office (quindicesimo lotto di satelliti della costellazione di ricognizione), decollo 12:23:56 UTC da Vandenberg. Booster B1097 al 14° volo, atterrato a LZ-4. Successo confermato da Launch Library 2 (Launch Successful, orbita LEO).",
+      "issues": [
+        "Esito del carico non documentato separatamente."
+      ],
+      "programFlight": null,
+      "attempt": {
+        "id": "SX-0726:decollo",
+        "missionId": "SX-0726",
+        "status": "decollato",
+        "ordinal": null,
+        "cancelledAttempts": null
+      },
+      "launch": {
+        "id": "SX-0726:lancio",
+        "missionId": "SX-0726",
+        "attemptId": "SX-0726:decollo",
+        "outcome": "successo",
+        "timeUTC": "12:23:56"
+      },
+      "payload": {
+        "outcome": null,
+        "count": null,
+        "description": "NROL-136",
+        "source": "lanci_spacex.xlsx · elenco · riga 755"
+      },
+      "flights": [
+        {
+          "id": "SX-0726:booster",
+          "launchId": "SX-0726:lancio",
+          "role": "booster",
+          "serial": "B1097",
+          "serialOriginal": "B1097",
+          "ordinal": 14,
+          "ordinalOriginal": 14,
+          "source": "lanci_spacex.xlsx · elenco · riga 755",
+          "sourceRow": 755,
+          "recovery": {
+            "id": "SX-0726:booster:recupero",
+            "attempt": 1,
+            "landed": 1,
+            "physical": null,
+            "mode": "LZ-4",
             "notes": "Flag di atterraggio del registro. Recupero fisico e sopravvivenza durante il trasporto non documentati separatamente."
           }
         }

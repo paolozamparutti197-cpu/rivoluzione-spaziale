@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "editorialReview": "2026-10-12",
-  "sourceAsOf": "2026-11-21",
-  "imported": "2026-11-21",
+  "sourceAsOf": "2026-11-22",
+  "imported": "2026-11-22",
   "source": "archivio/spacex/dati.json",
-  "sourceSha256": "1007cfa3d548aa6b0db9255235a231a4a8d2f020bbfb745d8121a515812dce4b",
+  "sourceSha256": "cf144679b6ff28510197025c598d7aa5c798cc23cecb9e1acf7f0b940be420df",
   "historicalWindow": {
     "from": 2017,
     "to": 2025
@@ -822,49 +822,49 @@
   "sameCutoff": [
     {
       "year": 2025,
-      "cutoff": "2025-11-21",
-      "missions": 149,
-      "launches": 149,
-      "launchDecided": 149,
-      "launchSuccess": 149,
+      "cutoff": "2025-11-22",
+      "missions": 150,
+      "launches": 150,
+      "launchDecided": 150,
+      "launchSuccess": 150,
       "payloadDecided": 0,
       "payloadSuccess": 0,
-      "boosterFlights": 149,
+      "boosterFlights": 150,
       "knownBoosters": 24,
       "missingSerial": 0,
-      "reflights": 142,
+      "reflights": 143,
       "ordinalUnknown": 0,
-      "recoveryAttempts": 147,
-      "recoveryDecided": 147,
-      "landingSuccess": 146,
-      "landingRateNumerator": 146,
+      "recoveryAttempts": 148,
+      "recoveryDecided": 148,
+      "landingSuccess": 147,
+      "landingRateNumerator": 147,
       "recoveryUnknown": 0,
       "physicalRecoveries": 0,
       "physicalKnown": 0,
-      "gaps": 149
+      "gaps": 150
     },
     {
       "year": 2026,
-      "cutoff": "2026-11-21",
-      "missions": 124,
-      "launches": 124,
-      "launchDecided": 124,
-      "launchSuccess": 124,
+      "cutoff": "2026-11-22",
+      "missions": 125,
+      "launches": 125,
+      "launchDecided": 125,
+      "launchSuccess": 125,
       "payloadDecided": 0,
       "payloadSuccess": 0,
-      "boosterFlights": 130,
+      "boosterFlights": 131,
       "knownBoosters": 27,
       "missingSerial": 0,
-      "reflights": 124,
+      "reflights": 125,
       "ordinalUnknown": 0,
-      "recoveryAttempts": 126,
-      "recoveryDecided": 126,
-      "landingSuccess": 126,
-      "landingRateNumerator": 126,
+      "recoveryAttempts": 127,
+      "recoveryDecided": 127,
+      "landingSuccess": 127,
+      "landingRateNumerator": 127,
       "recoveryUnknown": 0,
       "physicalRecoveries": 0,
       "physicalKnown": 0,
-      "gaps": 124
+      "gaps": 125
     }
   ],
   "intervals": [
@@ -5995,6 +5995,14 @@
       "from": "2026-09-26",
       "to": "2026-11-21",
       "days": 56
+    },
+    {
+      "serial": "B1097",
+      "fromMission": "SX-0707",
+      "toMission": "SX-0726",
+      "from": "2026-09-17",
+      "to": "2026-11-22",
+      "days": 66
     }
   ],
   "initialCost": {

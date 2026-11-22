@@ -1,9 +1,9 @@
 {
-  "date": "2026-11-21",
+  "date": "2026-11-22",
   "sources": [
     {
       "file": "01_workbook/lanci_spacex.xlsx",
-      "sha256": "c607192c03727b967468336476477141807390d90dcc890874c0d7fe20aeec6a"
+      "sha256": "68236e778ee81b15dc5521668e33f5e53fe4a2666047f913aed2cb2c91763b2e"
     },
     {
       "file": "01_workbook/sviluppo_starship.xlsx",
@@ -15,7 +15,7 @@
     },
     {
       "file": "sezioni/storico-lanci.html",
-      "sha256": "620bff5a5d7028827aa65d42265db3dcfac09c8b1fa3815e78d3ee71d86bd392"
+      "sha256": "39af9583207bb187f826e81a94a02910e20024350b645b03a8503b87b81d9691"
     }
   ],
   "launches": [
@@ -31640,6 +31640,48 @@
       "voli_ship": null,
       "note_missione": "Missione classificata della US Space Force (probabili satelliti Starshield in LEO). Booster B1100 all’11° volo, atterrato su OCISLY. Successo confermato da Launch Library 2 (Launch Successful).",
       "fonti_missione": "https://www.spacex.com/launches/ussf317 ; https://ll.thespacedevs.com/2.3.0/launches/76617033-4dc0-4448-b50c-e5b0d5a18539/",
+      "esito_definito_num": 1,
+      "esito_orbita": null,
+      "esito_payload": null,
+      "numero_payload": null
+    },
+    {
+      "source_row": 755,
+      "nr": 726,
+      "data": "2026-11-22",
+      "year": 2026,
+      "lanciatore": "Falcon 9 bl 5",
+      "cliente": "NROL-136",
+      "stato": "successo",
+      "video": "lancio",
+      "orbita": "LEO",
+      "landing": "LZ-4",
+      "booster": "B1097",
+      "voli": 14,
+      "dove": "SLC-4E",
+      "s.bl 5": 2026,
+      "s.f.h.": null,
+      "tipo_record": "Lancio principale",
+      "data_evento": "2026-11-22",
+      "anno_mese": "2026-11-01",
+      "famiglia_lanciatore": "Falcon 9",
+      "classe_missione": "Commerciale/Istituzionale",
+      "esito_lancio_num": 1,
+      "tentativo_recupero": 1,
+      "recupero_riuscito": 1,
+      "booster_riutilizzato": 1,
+      "area_lancio": "Vandenberg",
+      "video_url": "https://www.spacex.com/launches/nrol136",
+      "id_lancio": "SX-0726",
+      "fase_programma": "Storico",
+      "volo_programma": null,
+      "versione_veicolo": null,
+      "pad_id": "PAD-SLC4E",
+      "ora_utc": "12:23:56",
+      "ship": null,
+      "voli_ship": null,
+      "note_missione": "Missione NROL-136 del National Reconnaissance Office (quindicesimo lotto di satelliti della costellazione di ricognizione), decollo 12:23:56 UTC da Vandenberg. Booster B1097 al 14° volo, atterrato a LZ-4. Successo confermato da Launch Library 2 (Launch Successful, orbita LEO).",
+      "fonti_missione": "https://www.spacex.com/launches/nrol136 ; https://ll.thespacedevs.com/2.3.0/launches/951a341f-236b-42fe-a667-4ab2fcf36eac/",
       "esito_definito_num": 1,
       "esito_orbita": null,
       "esito_payload": null,
