@@ -1738,10 +1738,22 @@ def flight15_pending(data):
     return completed < 15 and latest_operational < 15
 
 
+def flight15_completed(data):
+    return any(str(item.get("volo_programma")) == "15" for item in data["starshipOperational"])
+
+
+def starship_completed_count(data):
+    # Il registro operativo include i voli orbitali che possono non essere
+    # ancora duplicati nel vecchio workbook di sviluppo. Non sommarli due volte.
+    return max(int(data["starship"]["metrics"]["voli"]), max(
+        (int(item.get("volo_programma") or 0) for item in data["starshipOperational"]), default=0
+    ))
+
+
 def flight15_result():
     return """<section id="flight-15">
   <div class="inner">
-    <div class="section-head"><h2>Flight 15 al 17 novembre 2026</h2><p>Volo del 13-14 novembre: seconda missione orbitale operativa e prima cattura di una Ship al ritorno dall'orbita. <a href="https://www.spacex.com/launches/starship-flight-15" style="color:#dff4ff;text-decoration:underline;text-underline-offset:3px;font-weight:800">Pagina missione SpaceX →</a></p></div>
+    <div class="section-head"><h2>Flight 15: aggiornamento al 23 novembre 2026</h2><p>Volo del 13-14 novembre: seconda missione orbitale operativa e prima cattura di una Ship al ritorno dall'orbita. <a href="https://www.spacex.com/launches/starship-flight-15" style="color:#dff4ff;text-decoration:underline;text-underline-offset:3px;font-weight:800">Pagina missione SpaceX →</a></p></div>
     <article class="panel">
       <h3>Quarto volo V3: Ship catturata, booster dirottato</h3>
       <p>Flight 15 ha impiegato <strong>Booster 22</strong> e <strong>Ship 42</strong> (Block 3) da Starbase Pad 2. Il decollo è del <strong>13 novembre 2026 alle 22:47:36 UTC</strong> (23:47:36 CET). La missione, <strong>Starlink Group 31-02</strong>, ha rilasciato <strong>26 Starlink V3</strong>, tre dei quali con telecamere sullo scudo termico. SpaceX ha dichiarato il contatto con tutti i satelliti. Ship 42 è rimasta in orbita bassa (circa 276 per 278 km, inclinazione 30,5°) per <strong>22 ore, 32 minuti e 32 secondi</strong>, circa 14 orbite, la permanenza più lunga del programma. Il <strong>14 novembre alle 21:20:08 UTC</strong> (22:20:08 CET) i bracci della torre di Pad 2 l'hanno catturata: primo recupero di uno stadio superiore Starship dopo un volo orbitale. Il piano prevedeva anche il catch del booster. I criteri automatici lo hanno annullato: Elon Musk ha indicato una leggera sottoprestazione dei motori e propellente residuo insufficiente per il rientro in torre. Booster 22 ha acceso 13 motori, ha sostato in hover sul Golfo del Messico e, allo spegnimento, il sistema di terminazione del volo lo ha distrutto. Nessun recupero fisico del booster.</p>
@@ -1751,6 +1763,12 @@ def flight15_result():
         <div class="starship-status"><b>Ship 42</b><span>Circa 14 orbite, poi deorbit con un Raptor e catch alla torre di Pad 2.</span></div>
         <div class="starship-status pending"><b>Booster 22</b><span>Catch annullato; hover sul Golfo e distruzione con il flight termination system.</span></div>
       </div>
+    </article>
+    <article class="panel" style="margin-top:18px">
+      <h3>Dopo il catch: Ship 42 non tornerà in volo</h3>
+      <p>Il 18 novembre, al TomorrowX Summit, Elon Musk ha detto che Ship 42 potrebbe probabilmente rivolare dopo alcune settimane di ricondizionamento, ma che SpaceX intende conservarla per l'esposizione al pubblico, per il suo valore storico. Non è stata annunciata una sede definitiva. Il recupero del veicolo è quindi un risultato acquisito; il suo riutilizzo in un altro lancio non è avvenuto e non è il piano annunciato per questa nave. <a href="https://singjupost.com/transcript-elon-musk-on-why-the-future-should-make-you-glad-to-be-alive-tomorrowx-summit/">Trascrizione dell'intervento</a> · <a href="../documenti%20per%20sito/spacex_musk_dealbook_ship42.html">Dossier su Ship 42 in esposizione</a>.</p>
+      <h3>Booster 22 e i residui sulle coste messicane</h3>
+      <p>Il 17 novembre la Profepa ha comunicato la raccolta di residui a Playa Bagdad, in Tamaulipas, dopo il volo, con attività di verifica e custodia dei materiali. SpaceX, nella risposta del 19 novembre già raccolta nel dossier del sito, si è detta disponibile a collaborare e ha contestato l'attribuzione all'azienda di parte dei materiali e delle immagini diffuse online. Le dichiarazioni non equivalgono a un accertamento definitivo sull'origine di ogni frammento o sull'impatto ambientale. <a href="https://www.gob.mx/profepa/prensa/recolectan-y-aseguran-residuos-que-arribaron-a-playa-bagdad-tras-explosion-de-spacex">Comunicato Profepa</a> · <a href="https://x.com/SpaceX/status/2123516375805379040">Risposta SpaceX</a> · <a href="../documenti%20per%20sito/spacex_starship_flight15_detriti_messico.html">Dossier sui detriti</a>.</p>
     </article>
     <div class="cols" style="margin-top:18px">
       <article class="panel"><h3>Cosa ha chiuso Flight 15</h3><p>Rispetto a Flight 14, la Ship ha completato il profilo orbitale previsto e non un rientro abbreviato. È la prima volta che uno stadio superiore, dopo l'orbita, viene ripreso in volo dai bracci della torre. SpaceX descrive il volo come il passaggio che mancava al riuso dello stadio superiore.</p></article>
@@ -3602,7 +3620,7 @@ def render_spacex(data):
         else '<div class="panel"><p class="muted">Nessun T-0 puntuale disponibile al momento.</p></div>'
     )
     next_launch = sx_next_launch(upcoming_exact[0]) if upcoming_exact else ""
-    starship_stato = f"{data['starship']['metrics']['voli']} voli integrati nel dossier di sviluppo"
+    starship_stato = f"{starship_completed_count(data)} voli integrati nel dossier di sviluppo"
     flight15_date, _, _, flight15_time = flight15_window_times()
     pct = percent(f["tasso"])
     pct_num = pct.rstrip("%")
@@ -3613,7 +3631,13 @@ def render_spacex(data):
             sx_kpi(str(f["recuperiRiusciti"]), "recuperi booster riusciti", f["recuperiRiusciti"], 0),
         ]
     )
-    starship_status = "".join(
+    starship_status = metric(
+        "Flight 15: primo catch della Ship",
+        "26 Starlink V3 · booster non recuperato · aggiornato al 23 novembre",
+        href="starship.html#flight-15",
+        title="Flight 15: esito e ultimi aggiornamenti al 23 novembre 2026",
+        variant="f15",
+    ) if flight15_completed(data) else "".join(
         [
             metric(
                 f"Flight 15: obiettivo {flight15_date}",
@@ -4262,7 +4286,7 @@ def render_starship_development_page(data):
     metrics = "".join(
         [
             metric(starship["metrics"]["eventi"], "eventi nella cronologia completa"),
-            metric(starship["metrics"]["voli"], "voli integrati completati"),
+            metric(starship_completed_count(data), "voli integrati completati"),
             metric(starship["metrics"]["catch"], "catture Super Heavy riuscite"),
             metric(starship["metrics"]["reflight"], "reflight Super Heavy"),
         ]
@@ -4274,7 +4298,7 @@ def render_starship_development_page(data):
     <p class="eyebrow">Dossier SpaceX</p>
     <h1>Sviluppo Starship</h1>
     <p class="subtitle">Dal concetto interplanetario ai voli integrati V3: evoluzione del veicolo, prove, fallimenti, recupero, motori Raptor, infrastrutture e obiettivi ancora aperti.</p>
-    <span class="update-stamp">Aggiornato al 17 novembre 2026</span>
+    <span class="update-stamp">Cronologia al 17 novembre · Flight 15 aggiornato al 23 novembre 2026</span>
   </div>
 </section>
 
