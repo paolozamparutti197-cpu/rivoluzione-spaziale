@@ -168,6 +168,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-11-23",
+        "date_label": "23 novembre 2026",
+        "tag": "SpaceX · Falcon 9",
+        "title": "NROL-136, due Falcon 9 dallo stesso pad in 32 ore",
+        "summary": "Domenica 22 novembre alle 13:23 ora italiana un Falcon 9 ha lanciato i satelliti spia NROL-136 da SLC-4E, a Vandenberg, solo 32 ore, 3 minuti e 21 secondi dopo USSF-317 dalla stessa rampa. È il giro di pad più rapido di sempre per SpaceX: battuti di quasi 24 ore il record della rampa e di circa 13 quello di Cape Canaveral.",
+        "href": "../documenti%20per%20sito/spacex_nrol136_record.html",
+        "image": "../documenti%20per%20sito/assets_nrol136_record/nrol136-decollo-spacex.jpg",
+        "image_alt": "Il Falcon 9 di NROL-136 decolla di notte da Space Launch Complex 4E a Vandenberg, 22 novembre 2026, foto SpaceX",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-11-22",
         "date_label": "22 novembre 2026",
         "tag": "SpaceX · Dragon",
@@ -176,8 +189,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_crs35_rientro.html",
         "image": "../documenti%20per%20sito/assets_crs35_rientro/crs35r-dragon-avvicinamento.jpg",
         "image_alt": "Il Dragon cargo CRS-35 si avvicina alla Stazione spaziale internazionale, 15 ottobre 2026, foto NASA",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
