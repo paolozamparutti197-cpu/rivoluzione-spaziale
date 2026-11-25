@@ -168,6 +168,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-11-25",
+        "date_label": "25 novembre 2026",
+        "tag": "SpaceX · Starlink",
+        "title": "Starlink rinuncia ai sussidi BEAD e tratta l’accordo a costo zero negli USA",
+        "summary": "Tra il 23 e il 25 novembre SpaceX rinuncia a 636–738 milioni di dollari di contributi federali BEAD per la banda larga rurale, ma mantiene le circa 476.000 località assegnate grazie a un nuovo contratto modello «a costo zero» pubblicato dalla NTIA. Scompaiono audit finanziari, penali e regole statali sulle tariffe, mentre i concorrenti in fibra denunciano il blocco delle aree per anni.",
+        "href": "../documenti%20per%20sito/spacex_starlink_bead_sussidi.html",
+        "image": "../documenti%20per%20sito/assets_starlink_bead_sussidi/bead-starlink-terminale.jpg",
+        "image_alt": "Terminale d’utente Starlink installato all’aperto su prato, marzo 2025, foto BugWarp",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-11-23",
         "date_label": "23 novembre 2026",
         "tag": "SpaceX · Falcon 9",
@@ -176,8 +189,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_nrol136_record.html",
         "image": "../documenti%20per%20sito/assets_nrol136_record/nrol136-decollo-spacex.jpg",
         "image_alt": "Il Falcon 9 di NROL-136 decolla di notte da Space Launch Complex 4E a Vandenberg, 22 novembre 2026, foto SpaceX",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
