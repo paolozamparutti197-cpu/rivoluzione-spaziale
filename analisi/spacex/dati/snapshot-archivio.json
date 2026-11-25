@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "imported": "2026-11-22",
-  "coverageEnd": "2026-11-22",
+  "imported": "2026-11-25",
+  "coverageEnd": "2026-11-24",
   "wikipedia": {
     "date": "2026-10-10",
     "principalLaunches": 713,
@@ -19,7 +19,7 @@
   "sources": [
     {
       "file": "01_workbook/lanci_spacex.xlsx",
-      "sha256": "68236e778ee81b15dc5521668e33f5e53fe4a2666047f913aed2cb2c91763b2e"
+      "sha256": "7ae000172909ee4887214b70411421da277bfbadac8a2194713832e0492e6558"
     },
     {
       "file": "01_workbook/sviluppo_starship.xlsx",
@@ -31,12 +31,12 @@
     },
     {
       "file": "sezioni/storico-lanci.html",
-      "sha256": "39af9583207bb187f826e81a94a02910e20024350b645b03a8503b87b81d9691"
+      "sha256": "03f6b3fe710a23e9756bdd6ecf9d26fccce5d40f3f4e4c291ebe707042ccfc65"
     }
   ],
   "coverage": {
-    "principal": 726,
-    "principalLaunches": 725,
+    "principal": 727,
+    "principalLaunches": 726,
     "prelaunchEvents": 1,
     "starshipOverlap": 1,
     "additional": 28,
@@ -70409,6 +70409,73 @@
             "landed": 1,
             "physical": null,
             "mode": "LZ-4",
+            "notes": "Flag di atterraggio del registro. Recupero fisico e sopravvivenza durante il trasporto non documentati separatamente."
+          }
+        }
+      ]
+    },
+    {
+      "id": "SX-0727",
+      "name": "USSF-266",
+      "date": "2026-11-24",
+      "family": "Falcon 9",
+      "launcher": "Falcon 9 bl 5",
+      "scope": "falcon",
+      "originalPhase": "Storico",
+      "class": "Commerciale/Istituzionale",
+      "pad": "SLC-4E",
+      "padId": "PAD-SLC4E",
+      "orbit": "PO",
+      "source": "lanci_spacex.xlsx · elenco · riga 756",
+      "sourceRow": 756,
+      "references": [
+        "https://www.spacex.com/launches/ussf266",
+        "https://ll.thespacedevs.com/2.3.0/launches/460d9db7-eaf6-4cd9-b095-cff433534c09/"
+      ],
+      "sourceNote": "https://www.spacex.com/launches/ussf266 ; https://ll.thespacedevs.com/2.3.0/launches/460d9db7-eaf6-4cd9-b095-cff433534c09/",
+      "video": "https://www.spacex.com/launches/ussf266",
+      "notes": "Missione classificata della US Space Force (probabili satelliti Starshield, orbita polare). Booster B1081 al 29° volo, atterrato su OCISLY. Successo confermato da Launch Library 2 (Launch Successful).",
+      "issues": [
+        "Esito del carico non documentato separatamente."
+      ],
+      "programFlight": null,
+      "attempt": {
+        "id": "SX-0727:decollo",
+        "missionId": "SX-0727",
+        "status": "decollato",
+        "ordinal": null,
+        "cancelledAttempts": null
+      },
+      "launch": {
+        "id": "SX-0727:lancio",
+        "missionId": "SX-0727",
+        "attemptId": "SX-0727:decollo",
+        "outcome": "successo",
+        "timeUTC": "16:08:59"
+      },
+      "payload": {
+        "outcome": null,
+        "count": null,
+        "description": "USSF-266",
+        "source": "lanci_spacex.xlsx · elenco · riga 756"
+      },
+      "flights": [
+        {
+          "id": "SX-0727:booster",
+          "launchId": "SX-0727:lancio",
+          "role": "booster",
+          "serial": "B1081",
+          "serialOriginal": "B1081",
+          "ordinal": 29,
+          "ordinalOriginal": 29,
+          "source": "lanci_spacex.xlsx · elenco · riga 756",
+          "sourceRow": 756,
+          "recovery": {
+            "id": "SX-0727:booster:recupero",
+            "attempt": 1,
+            "landed": 1,
+            "physical": null,
+            "mode": "OCISLY",
             "notes": "Flag di atterraggio del registro. Recupero fisico e sopravvivenza durante il trasporto non documentati separatamente."
           }
         }
