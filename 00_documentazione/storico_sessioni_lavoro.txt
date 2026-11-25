@@ -665,3 +665,21 @@ Punti aperti:
 - Verifica online anti-cache: HTTP 200 su SX-0725.html (USSF-317), storico 724/719 ultimo USSF-317 21/11,
   spacex.html 724 e restyle presente, spacex-restyle.css HTTP 200, lanci-imminenti e home senza USSF-317 tra i
   prossimi. Prima card e sx-next: NROL-136 2026-11-22T12:16:00Z (13:16 Roma).
+
+25/11/2026 - Bot C: SX-0726 NROL-136 (22/11 12:23:56 UTC, B1097-14) e SX-0727 USSF-266 (24/11 16:08:59 UTC, B1081-29).
+  Workbook 727/721 -> sito 726/721.
+- Stash non toccati: stash@{0} (pipeline 22/11, file locali prima del ff) e stash@{1} (Codex, breadcrumb Flight 15).
+- Log 02_backup\publish_20261122_log.txt (23/11 00:35): --publish del 22/11, fonte 34 lanci dopo un 429 TSD,
+  primo ancora USSF-266 24/11 15:55 UTC. Commit 14fbd8d (762 file, creata SX-0726.html), push ff
+  4a28196..14fbd8d su main e gh-pages. 14fbd8d e' su origin; dopo sono arrivati 73de666, e9d47f9 e 192d558.
+- All'avvio della corsa 25/11: fetch + ff 73de666 -> e9d47f9 (breaking NROL-136), nessuna sovrapposizione.
+  Nessuna revisione nuova in 00_documentazione. Amos-6 presente. Generazione e aggiornamento exit 0 (agenda +4/-12/1).
+  4 controlli README exit 0. Restyling rimasto (spacex-restyle.css invariato, sx-hero, sx-dash).
+- Primo --publish (su e9d47f9) abortito: origin era gia' a 192d558 (breaking Starlink BEAD) e i file locali
+  generati si sovrapponevano. Backup in 02_backup\pre_ff_20261125, ripristino a HEAD, ff a 192d558, rigenerazione
+  e controlli ripetuti exit 0. Breaking corrente (BEAD) conservata. Secondo --publish: quota TSD, riprovare dopo le 10:15;
+  nessun file modificato, nessun commit. Ripresa dopo le 10:15 senza rilanciare i passi gia' ok.
+- Publish 22bb6e7 (763 file) exit 0 su main e gh-pages (solo ff). USSF-266 assente dai prossimi lanci.
+- Verifica online anti-cache: SX-0726.html e SX-0727.html HTTP 200; storico 726/721, ultimo USSF-266 24/11 SX-0727;
+  spacex.html 726, restyle presente, spacex-restyle.css HTTP 200; USSF-266 occ=0 in home e lanci-imminenti.
+  Prima card e sx-next: USSF-380 2026-11-29T04:39:00Z (05:39 Roma).
