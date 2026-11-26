@@ -168,6 +168,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-11-26",
+        "date_label": "26 novembre 2026",
+        "tag": "SpaceX · Starmind",
+        "title": "La FCC autorizza un milione di satelliti Starmind per il calcolo IA in orbita",
+        "summary": "Il 25 novembre la Federal Communications Commission dà il via libera a SpaceX per costruire e gestire fino a un milione di satelliti Starmind, centri dati orbitali per l’intelligenza artificiale. Primo satellite entro il 25 novembre 2033, metà entro il 2038, costellazione completa entro il 2040. Respinte le opposizioni di Amazon Leo, Viasat e astronomi; rinviato lo smaltimento fuori atmosfera.",
+        "href": "../documenti%20per%20sito/spacex_starmind_fcc_milione_satelliti.html",
+        "image": "../documenti%20per%20sito/assets_starmind_fcc/starmind-ai1-rendering.jpg",
+        "image_alt": "Rendering SpaceX del satellite Starmind AI1 in orbita, con le grandi ali solari illuminate sopra la Terra",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-11-25",
         "date_label": "25 novembre 2026",
         "tag": "SpaceX · Starlink",
@@ -176,8 +189,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_starlink_bead_sussidi.html",
         "image": "../documenti%20per%20sito/assets_starlink_bead_sussidi/bead-starlink-terminale.jpg",
         "image_alt": "Terminale d’utente Starlink installato all’aperto su prato, marzo 2025, foto BugWarp",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
