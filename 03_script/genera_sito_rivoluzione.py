@@ -168,6 +168,19 @@ NAV_UTILITY_SECTIONS = [
 # breaking=True + company: mostra anche come Breaking news sulla pagina compagnia (mai in home).
 SITE_NEWS = [
     {
+        "date": "2026-11-27",
+        "date_label": "27 novembre 2026",
+        "tag": "SpaceX · Azionisti",
+        "title": "Due azioni SpaceX a ogni bambino americano: la società entra nei Trump Accounts",
+        "summary": "Il 25 novembre SpaceX si impegna a emettere una nuova azione di Classe A per ogni Trump Account attivo, e Elon Musk pareggia con un’azione personale: quasi 18 miliardi di dollari al prezzo di chiusura. Quota societaria a dicembre, quota di Musk a giugno 2027 dopo il lockup. Il giorno del Ringraziamento Musk promette un’azione in più ogni anno; il titolo sale del 7,47% nel trading notturno.",
+        "href": "../documenti%20per%20sito/spacex_due_azioni_bambini_trump_accounts.html",
+        "image": "../documenti%20per%20sito/assets_due_azioni_bambini/trump-accounts-studio-ovale.jpg",
+        "image_alt": "Bambini e famiglie nello Studio Ovale durante l’annuncio sui Trump Accounts del 7 ottobre 2026",
+        "badge": "Breaking",
+        "breaking": True,
+        "company": "spacex",
+    },
+    {
         "date": "2026-11-26",
         "date_label": "26 novembre 2026",
         "tag": "SpaceX · Starmind",
@@ -176,8 +189,8 @@ SITE_NEWS = [
         "href": "../documenti%20per%20sito/spacex_starmind_fcc_milione_satelliti.html",
         "image": "../documenti%20per%20sito/assets_starmind_fcc/starmind-ai1-rendering.jpg",
         "image_alt": "Rendering SpaceX del satellite Starmind AI1 in orbita, con le grandi ali solari illuminate sopra la Terra",
-        "badge": "Breaking",
-        "breaking": True,
+        "badge": "Dossier archiviato",
+        "breaking": False,
         "company": "spacex",
     },
     {
