@@ -3826,6 +3826,21 @@ ELECTRON_THEME = '<link rel="stylesheet" href="../css/electron-lab.css?v=2026112
 def render_electron_lab(data):
     electron = data["electron"]
     metrics = electron["metrics"]
+    latest = electron.get("latest") or {}
+    latest_note = ""
+    if latest:
+        when = display_date(latest.get("data"))
+        if latest.get("ora UTC"):
+            when += f" · {latest['ora UTC']} UTC"
+            try:
+                instant = datetime.fromisoformat(f"{str(latest['data'])[:10]}T{latest['ora UTC']}:00+00:00")
+                when += f" ({instant.astimezone(ROME_TZ):%H:%M} italiane)"
+            except (ValueError, TypeError):
+                pass
+        latest_note = (f'<p class="muted">Ultimo lancio: <strong>{escape(str(latest.get("missione") or "Electron"))}</strong>'
+                       f' · volo #{escape(str(latest.get("nr") or ""))}.<br>{escape(when)} · '
+                       f'esito: {escape(str(latest.get("stato") or "da confermare"))}. '
+                       '<a href="statistiche-electron.html">Dettagli della missione</a>.</p>')
     preview = data["electronUpcoming"][:3]
     preview_block = (
         render_launch_cards(preview, compact=True)
@@ -3847,6 +3862,7 @@ def render_electron_lab(data):
     <article class="panel">
       <h2>Programma Electron</h2>
       <p>Una sezione operativa per seguire la cadenza di Rocket Lab: agenda dei voli futuri, storico completo, successi, fallimenti, pad e profili orbitali.</p>
+      {latest_note}
       <div class="actions spacex-actions">
         <a class="button" href="lanci-imminenti-electron.html">Prossimi lanci</a>
         <a class="button secondary" href="statistiche-electron.html">Statistiche</a>

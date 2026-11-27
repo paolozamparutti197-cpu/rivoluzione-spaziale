@@ -1,37 +1,5 @@
 [
   {
-    "id": "electron-night-owls-never-sleep-strix-launch-14",
-    "cat": [
-      "exact"
-    ],
-    "name": "Night Owls Never Sleep",
-    "status": "T-0 annunciato",
-    "rocket": "Electron",
-    "dateLabel": "27 novembre 2026 · 00:05 UTC",
-    "iso": "2026-11-27T00:05:00Z",
-    "window": "Apertura alle 00:00 UTC · T-0 previsto alle 00:05 UTC",
-    "site": "Rocket Lab Launch Complex 1, Māhia (Nuova Zelanda)",
-    "landing": "Da confermare",
-    "orbit": "LEO · 569 km",
-    "payload": "StriX, satellite radar di Synspective",
-    "summary": "Quattordicesimo lancio dedicato alla costellazione di osservazione terrestre di Synspective e 101º volo Electron previsto.",
-    "news": "Orario annunciato da Synspective il 20 novembre, soggetto a variazioni.",
-    "sources": [
-      {
-        "label": "Rocket Lab",
-        "url": "https://rocketlabcorp.com/missions/launches/night-owls-never-sleep/"
-      },
-      {
-        "label": "Synspective",
-        "url": "https://www.synspective.com/jp/news/launch_window_14/"
-      },
-      {
-        "label": "The Space Devs",
-        "url": "https://ll.thespacedevs.com/2.3.0/launches/2093e4fc-ac8c-4296-a1b5-deececee6a72/?format=json"
-      }
-    ]
-  },
-  {
     "id": "electron-loxsat-1",
     "cat": [
       "net"

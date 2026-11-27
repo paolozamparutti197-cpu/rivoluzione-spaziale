@@ -1,8 +1,7 @@
 import argparse
+import importlib.util
 import json
 import re
-import subprocess
-import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
@@ -140,6 +139,8 @@ def main():
     horizon = None if args.include_all else end_of_next_month(now)
     launches = []
     for raw in fetch_upcoming(args.max):
+        if safe_get(raw, "status", "id", default=0) in {3, 4, 6, 7}:
+            continue
         launch_time = parse_iso(raw.get("net"))
         if launch_time and launch_time <= now:
             continue
@@ -155,7 +156,18 @@ def main():
         return
 
     MANIFEST.write_text(json.dumps(launches, ensure_ascii=False, indent=2), encoding="utf-8")
-    subprocess.check_call([sys.executable, str(SITE_GENERATOR)], cwd=ROOT)
+    # Non rigenerare le pagine SpaceX o le altre compagnie quando si aggiorna
+    # soltanto l’agenda Electron.
+    spec = importlib.util.spec_from_file_location("genera_sito_electron", SITE_GENERATOR)
+    generator = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(generator)
+    data = {"electron": generator.electron_data(), "electronUpcoming": generator.electron_upcoming_data()}
+    for filename, renderer in [
+        ("electron-lab.html", generator.render_electron_lab),
+        ("lanci-imminenti-electron.html", generator.render_electron_launches_page),
+        ("statistiche-electron.html", generator.render_electron_statistics_page),
+    ]:
+        generator.write(ROOT / "sezioni" / filename, renderer(data))
     print(f"Manifest aggiornato: {MANIFEST}")
     print(f"Pagina aggiornata: {OUTPUT}")
 

@@ -55,18 +55,35 @@ def fetch_launches(retries=3):
         "ordering": "net",
         "limit": 100,
     }
-    for attempt in range(retries):
-        response = requests.get(API_URL, params=params, timeout=90)
-        if response.status_code != 429 or attempt == retries - 1:
-            break
-        wait_seconds = int(response.headers.get("Retry-After", 20 * (attempt + 1)))
-        print(f"Rate limit The Space Devs: attendo {wait_seconds}s...")
-        time.sleep(wait_seconds)
-    response.raise_for_status()
-    data = response.json()
-    launches = data.get("results", [])
-    if data.get("next"):
-        raise RuntimeError("La risposta API richiede paginazione: aumentare o gestire il limite.")
+    url, launches, pages, ids = API_URL, [], set(), set()
+    while url:
+        if url in pages:
+            raise RuntimeError("Paginazione ciclica nella risposta Electron")
+        if not url.startswith("https://ll.thespacedevs.com/"):
+            raise RuntimeError("URL di paginazione inatteso")
+        pages.add(url)
+        for attempt in range(retries):
+            response = requests.get(url, params=params if url == API_URL else None, timeout=90)
+            if response.status_code != 429 or attempt == retries - 1:
+                break
+            wait_seconds = int(response.headers.get("Retry-After", 20 * (attempt + 1)))
+            if wait_seconds > 60:
+                raise RuntimeError(f"Rate limit: riprovare tra {wait_seconds} secondi")
+            print(f"Rate limit The Space Devs: attendo {wait_seconds}s...")
+            time.sleep(wait_seconds)
+        response.raise_for_status()
+        data = response.json()
+        for launch in data.get("results", []):
+            if safe_get(launch, "status", "id", default=0) not in {3, 4, 7}:
+                continue
+            ident = launch.get("id")
+            if not ident:
+                raise RuntimeError("Lancio Electron senza identificatore stabile")
+            if ident not in ids:
+                launches.append(launch)
+                ids.add(ident)
+        url = data.get("next")
+    launches.sort(key=lambda launch: launch.get("net") or "")
     return launches
 
 
